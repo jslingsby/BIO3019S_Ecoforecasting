@@ -1,6 +1,6 @@
 --- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
+title: "A Minimal Introduction to Reproducible Research and Ecological Forecasting"
+author: "Jasper Slingsby"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -8,25 +8,60 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: rstudio/bookdown-demo
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+github-repo: jslingsby/BIO3019S_Ecoforecasting
+description: "This is a minimal introduction to Reproducible Research and Ecological Forecasting for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town."
 ---
 
-# Prerequisites
+# Overview
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
+_This module is a minimal introduction to Reproducible Research and Ecological Forecasting for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town._
 
-The **bookdown** package can be installed from CRAN or Github:
+## General
 
-```{r eval=FALSE}
-install.packages("bookdown")
-# or the development version
-# devtools::install_github("rstudio/bookdown")
-```
+I provide a very brief introduction to Ecological Forecasting and the various principles and tools required to make research more reproducible and (hopefully) more useful. We only have a two weeks, so this really is a minimalist introduction. I'll focus on providing a broad overview of the general framework and motivation, but won't have time to delve into the more gory theoretical and statistical details.
 
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
 
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>.
+The core outcomes/concepts I hope you'll come away with:
+
+* To be able to situate the role of models in science and ecological decision making
+* Familiarity with the concepts and understand the need for Open, Reproducible Science
+* Familiarity with The Data Life Cycle
+* Familiarity with Open Science tools
+
+<br>
+
+## Module and Project details
+
+**Lectures** 
+
+Lectures will be held live, but online 12:00 - 12:45 from the 30th September to the 13th October. The zoom link (see Vula) should stay the same for all lecture sessions. 
+
+<br>
+
+**Practicals**
+
+There is only one practical for this module, 2-5PM on Tuesday the 5th October. Details to follow.
+
+
+<br>
+
+## Acknowledgements and further reading:
+
+_Many of the following resources were instrumental in me pulling this material together and are worth spending time exploring_
+
+* [ecoforecast.org](https://ecoforecast.org/)
+* Dietze, Michael C. 2017. Ecological Forecasting. Princeton University Press. https://doi.org/10.2307/j.ctvc7796h.
+* Dietze, Michael C. et al. 2018. “Iterative near-Term Ecological Forecasting: Needs, Opportunities, and Challenges.” Proceedings of the National Academy of Sciences of the United States of America 115 (7): 1424–32. https://doi.org/10.1073/pnas.1710231115.
+* 
+
+<br>
+
+All code, images, etc can be found [here](https://github.com/jslingsby/BIO3019S_Ecoforecasting). I have only used images etc that were made available online under a non-restrictive license (Creative Commons, etc) and have attributed my sources. Content without attribution is my own and shared under the license below. If there is any content you find concerning with regard to licensing, or that you find offensive, please [contact me](https://www.ecologi.st/contact/). Any feedback, positive or negative, is welcome!
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+
+
+
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

@@ -1,6 +1,7 @@
 fig:nice-fig
 tab:nice-tab
-prerequisites
+overview
+module-and-project-details
 intro
 literature
 methods
@@ -9,3 +10,5 @@ applications
 example-one
 example-two
 final-words
+acknowledgements-and-further-reading
+general
