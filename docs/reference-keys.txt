@@ -1,7 +1,10 @@
 fig:nice-fig
 tab:nice-tab
 overview
+general
 module-and-project-details
+acknowledgements-and-further-reading
+how-do-we-make-decisions
 intro
 literature
 methods
@@ -10,5 +13,4 @@ applications
 example-one
 example-two
 final-words
-acknowledgements-and-further-reading
-general
+the-factors-we-consider-when-making-a-decision
