@@ -1,0 +1,29 @@
+# Reproducible research
+
+## The Reproducibility Crisis
+
+Before we continue, it's worth highlighting the similarity between the iterative decision making cycle I've outlined in figure \@ref(fig:decisions3) and _the scientific method_, i.e.:
+
+- _Observation > Hypothesis > Experiment > Analyze > Interpret > Report > (Repeat)_
+
+```{r scimethod, echo=FALSE, fig.cap = "_The Scientific Method_ overlain on iterative decision making.", fig.width=3, fig.align = 'center'}
+knitr::include_graphics("img/scimethod.png")
+```
+
+<br>
+
+It's also worth noting that _reproducibility is one of the fundamental tenets of science_. In other words, published research should be robust enough and the methods described in enough detail that anyone else should be able to repeat the study (using the publication only) and find similar results. Sadly, this is rarely the case!!!
+
+[More on the reproducibility crisis...]
+
+[Working reproducibly and Peng et al. 2011 figure.]
+
+Working reproducibly is clearly not just a requirement for using quantitative approaches in iterative decision-making, it is central to scientific progress!!!
+
+<br>
+
+## The Data Life Cycle
+
+<br>
+
+## Scientific Workflows
