@@ -24,6 +24,32 @@ Working reproducibly is clearly not just a requirement for using quantitative ap
 
 ## The Data Life Cycle
 
+### Why you need to manage your data
+
+- loss (Michener "data decay curve" fig)
+- future self (lose it before ou're finished with it)
+- value to yourself for sharing, credit etc (publications and citations), 
+- science on general (esp long-term ecology in a time of global change)
+- Transparency and accountability
+
+### The steps involved in data management
+
+#### Plan (DMPs)
+
+#### Create
+
+#### Process
+
+#### Document and use
+
+#### Share and preserve
+
+#### Reuse
+
 <br>
 
 ## Scientific Workflows
+
+```{r xkcd_data_pipeline, echo=FALSE, fig.cap = "", fig.width=3, fig.align = 'center'}
+knitr::include_graphics("img/xkcd_data_pipeline_2x.png")
+```
