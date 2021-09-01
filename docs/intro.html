@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-08-30" />
+<meta name="date" content="2021-09-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -183,9 +183,12 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reproducible-research.html"><a href="reproducible-research.html#scientific-workflows"><i class="fa fa-check"></i><b>4.3</b> Scientific Workflows</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>5</b> Methods</a>
+<li class="chapter" data-level="5" data-path="going-bayesian.html"><a href="going-bayesian.html"><i class="fa fa-check"></i><b>5</b> Going Bayesian</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="methods.html"><a href="methods.html#math-example"><i class="fa fa-check"></i><b>5.1</b> math example</a></li>
+<li class="chapter" data-level="5.1" data-path="going-bayesian.html"><a href="going-bayesian.html#maximum-likelihood"><i class="fa fa-check"></i><b>5.1</b> Maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="going-bayesian.html"><a href="going-bayesian.html#probability-vs-likelihood"><i class="fa fa-check"></i><b>5.1.1</b> Probability vs Likelihood</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>6</b> Applications</a>
 <ul>
@@ -267,7 +270,7 @@ Figure 3.3: Iterative decision making.
 <div id="delete-from-here-once-done---how-to-reference" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Delete from here once done… - How to reference</h2>
 <p><br></p>
-<p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">3</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="methods.html#methods">5</a>.</p>
+<p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">3</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="#methods"><strong>??</strong></a>.</p>
 <p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intro.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))</span>
 <span id="cb1-2"><a href="intro.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure, <span class="at">type =</span> <span class="st">&#39;b&#39;</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span></code></pre></div>

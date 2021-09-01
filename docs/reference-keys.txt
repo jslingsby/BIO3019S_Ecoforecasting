@@ -26,8 +26,9 @@ document-and-use
 share-and-preserve
 reuse
 scientific-workflows
-methods
-math-example
+going-bayesian
+maximum-likelihood
+probability-vs-likelihood
 applications
 example-one
 example-two

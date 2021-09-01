@@ -1,0 +1,78 @@
+# Going Bayesian
+
+While ecological forecasting and decision support can be done with traditional statistics (often termed "frequentist statistics") it is generally much easier to do in a Bayesian statistical framework, because:
+
+- It treats all terms as probability distributions, making it easier to quantify, propagate and partition uncertainties throughout the analysis (more on this later)
+- Bayesian analyses are inherently iterative, making it easier to update predictions as new data become available
+- They are highly flexible, allowing one to build relatively complex models with varied data sources (and/or of varying quality)
+- They are typically focused on estimating what properties  are (i.e. the actual value of a particular parameter) and not just establishing what they are not (i.e. testing for significant difference, as is usually the focus in frequentist statistics) - although there are frequentist approaches for doing this too
+
+In this section I aim to provide a brief and soft introduction to Bayesian statistics and use an example from my own research to highlight the principles and benefits. We'll also use this example in the pair-coding practical. 
+
+## Maximum likelihood
+
+Before I can introduce Bayes, there are a few basic building blocks we need to establish first. The main one is the concept of likelihood and the estimation of maximum likelihood, since this is a major component of Bayes' Theorum.
+
+### Probability vs Likelihood
+
+While _probability_ and _likelihood_ may seem like similar concepts, the distinction between them is fundamentally important in statistics. 
+
+**Probability relates to possible results given a hypothesis.** 
+
+- e.g. if you have an unbias coin (the hypothesis), the probability of a coin toss landing heads up (the result) is 0.5.
+
+**Likelihood relates to hypotheses, given the results (i.e. data).**
+
+- e.g. say we've performed 1000 tosses and the coin landed heads up 700 times (the data), it is less _likely_ that the hypothesis of an unbias coin is true relative to a hypothesis that the coin favours heads.
+
+This may seem like a subtle and potentially arbitrary distinction, but likelihood comes into it's own when comparing multiple hypotheses (usually specified as models).
+
+
+Add Postfire example 
+
+- demonstrate p-value by fitting lm to NDVI
+- demonstrate fitting with MLE
+- fit negative exponential and compare likelihoods
+
+```{r, echo=F, message=F}
+# #install.packages("MODISTools") #Remove "#" and run once per R installation
+# library("MODISTools") #Call R library MODISTools that allows us to download MODIS satellite data directly into R
+# library(readr)
+# 
+# ndvi <- mt_subset(product = "MOD13Q1",
+#                         lat = -34.100875,
+#                         lon = 18.449375,
+#                         band = "250m_16_days_NDVI",
+#                         start = "2015-03-31",
+#                         end = "2021-03-31",
+#                         progress = FALSE)
+# 
+# write_csv(ndvi, "/home/jasper/GIT/BIO3019S_Ecoforecasting/data/modisdata.csv")
+
+library(readr)
+dat <- read_csv("/home/jasper/GIT/BIO3019S_Ecoforecasting/data/modisdata.csv")
+
+dat$NDVI <- dat$value*0.0001
+
+par(mar = c(4, 4, .1, .1))
+plot(NDVI ~ calendar_date, data = dat, type = 'b', pch = 19)
+```
+
+
+
+
+$p$ is unknown but expected to be around 1/3. Standard error will be approximated
+
+$$
+SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
+$$
+
+You can also use math in footnotes like this^[where we mention $p = \frac{a}{b}$].
+
+We will approximate standard error to 0.027[^longnote]
+
+[^longnote]: $p$ is unknown but expected to be around 1/3. Standard error will be approximated
+
+    $$
+    SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
+    $$
