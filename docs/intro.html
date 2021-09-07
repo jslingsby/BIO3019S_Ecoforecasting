@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-09-01" />
+<meta name="date" content="2021-09-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -176,12 +176,12 @@ div.csl-indent {
 <li class="chapter" data-level="4" data-path="reproducible-research.html"><a href="reproducible-research.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="reproducible-research.html"><a href="reproducible-research.html#the-reproducibility-crisis"><i class="fa fa-check"></i><b>4.1</b> The Reproducibility Crisis</a></li>
-<li class="chapter" data-level="4.2" data-path="reproducible-research.html"><a href="reproducible-research.html#the-data-life-cycle"><i class="fa fa-check"></i><b>4.2</b> The Data Life Cycle</a>
+<li class="chapter" data-level="4.2" data-path="reproducible-research.html"><a href="reproducible-research.html#scientific-workflows"><i class="fa fa-check"></i><b>4.2</b> Scientific Workflows</a></li>
+<li class="chapter" data-level="4.3" data-path="reproducible-research.html"><a href="reproducible-research.html#the-data-life-cycle"><i class="fa fa-check"></i><b>4.3</b> The Data Life Cycle</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="reproducible-research.html"><a href="reproducible-research.html#why-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>4.2.1</b> Why you need to manage your data</a></li>
-<li class="chapter" data-level="4.2.2" data-path="reproducible-research.html"><a href="reproducible-research.html#the-steps-involved-in-data-management"><i class="fa fa-check"></i><b>4.2.2</b> The steps involved in data management</a></li>
+<li class="chapter" data-level="4.3.1" data-path="reproducible-research.html"><a href="reproducible-research.html#why-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>4.3.1</b> Why you need to manage your data</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reproducible-research.html"><a href="reproducible-research.html#the-steps-involved-in-data-management"><i class="fa fa-check"></i><b>4.3.2</b> The steps involved in data management</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="reproducible-research.html"><a href="reproducible-research.html#scientific-workflows"><i class="fa fa-check"></i><b>4.3</b> Scientific Workflows</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="going-bayesian.html"><a href="going-bayesian.html"><i class="fa fa-check"></i><b>5</b> Going Bayesian</a>
 <ul>
@@ -237,7 +237,8 @@ Figure 3.1: The factors considered when making a decision.
 </p>
 </div>
 <p><br></p>
-<p>Your decision is typically based on your expectation of the outcome. This expectation is based on existing evidence and/or previous experience. Uncertainty is a part of each step. There are a number of reasons why the existing evidence or previous experience may be imperfect for the decision at hand, leading to uncertainty in the expectations. There may also be uncertainty in the way in which you use the evidence and experience to develop your expectation. We will come back to these sources of uncertainty later in the module, but needless to say, quantifying and understanding the uncertainty is crucial in any decision, because if uncertainty is high your expectation may be no better than random, and thus useless for informing your decision.</p>
+<p>Your decision is typically based on your expectation of the outcome. This expectation is based on existing evidence and/or previous experience. Uncertainty is a part of each step. There are a number of reasons why the existing evidence or previous experience may be imperfect for the decision at hand, leading to uncertainty in the expectations. There may also be uncertainty in the way in which you use the evidence and experience to develop your expectation.</p>
+<p>We will come back to these sources of uncertainty later in the module, but needless to say, quantifying and understanding the uncertainty is crucial in any decision. If uncertainty is high your expectation may be no better than random, and thus useless for informing your decision. Quantifying uncertainty properly helps us circumvent two evils which could mislead decision makers: being falsely overconfident in our predictions (potentially leading to a “wrong” decision), or being falsely uncertain in our predictions (which would encourage overly conservative decisions/actions which may be wasteful or less effective). Lastly, ignoring or quantifying uncertainty incorrectly can lead to bias predictions.</p>
 <p><br></p>
 </div>
 <div id="getting-quantitative" class="section level2" number="3.2">
@@ -509,20 +510,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

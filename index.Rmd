@@ -23,7 +23,7 @@ I provide a very brief introduction to Ecological Forecasting and the various pr
 
 The core outcomes/concepts I hope you'll come away with:
 
-* To be able to situate the role of models in science and ecological decision making
+* To be able to situate the role of models and the importane of prediction in science and ecological decision making
 * Familiarity with the concepts and understand the need for Open, Reproducible Science
 * Familiarity with The Data Life Cycle
 * Familiarity with Open Science tools
