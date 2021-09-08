@@ -1,4 +1,4 @@
-# Models and decision making {#intro}
+# Models and decision making {#models}
 
 ## The basics of making a decision
 
@@ -37,6 +37,7 @@ knitr::include_graphics("img/decisions2.png")
 
 Following a quantitative approach the "evidence" is typically empirical data, which can be fed into a model to make forecasts that can help inform the decision. The "experience" are the current state of knowledge and your prior belief, which you use to specify the type and structure of your model (or ensemble of models) and the scenario(s) you want to evaluate. The "experience" can also help you evaluate the assumptions of your model(s), and if you are using a Bayesian model, can be included directly in the model when specifying _priors_ (more on this later in the module).
 
+
 <br>
 
 ## Iterative decision-making
@@ -53,7 +54,7 @@ knitr::include_graphics("img/decisions3.png")
 
 When using quantitative forecasts this can be done by collecting and adding new data, and by updating your prior knowledge by evaluating the outcomes of the decision against the original model forecasts. This can tell you whether your forecast was any good and whether you need to refine or replace your model, consider additional scenarios or inputs, etc. 
 
-Implementing this process quantitatively requires careful management of the data and workflow and would greatly benefit from automation (i.e. it needs to be _reproducible_ and _repeatable_).
+Implementing this process quantitatively requires careful management of the data and workflow and would greatly benefit from automation (i.e. it needs to be _reproducible_).
 
 
 ## Delete from here once done... - How to reference
@@ -62,7 +63,7 @@ Implementing this process quantitatively requires careful management of the data
 
 <br>
 
-You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(models). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(forecasting).
 
 Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
 

@@ -1,4 +1,4 @@
-# Going Bayesian
+# Going Bayesian {#baysian}
 
 While ecological forecasting and decision support can be done with traditional statistics (often termed "frequentist statistics") it is generally much easier to do in a Bayesian statistical framework, because:
 

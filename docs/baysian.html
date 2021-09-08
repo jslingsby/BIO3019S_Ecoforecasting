@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Final Words | A Minimal Introduction to Reproducible Research and Ecological Forecasting</title>
+  <title>6 Going Bayesian | A Minimal Introduction to Reproducible Research and Ecological Forecasting</title>
   <meta name="description" content="This is a minimal introduction to Reproducible Research and Ecological Forecasting for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Final Words | A Minimal Introduction to Reproducible Research and Ecological Forecasting" />
+  <meta property="og:title" content="6 Going Bayesian | A Minimal Introduction to Reproducible Research and Ecological Forecasting" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Final Words | A Minimal Introduction to Reproducible Research and Ecological Forecasting" />
+  <meta name="twitter:title" content="6 Going Bayesian | A Minimal Introduction to Reproducible Research and Ecological Forecasting" />
   
   <meta name="twitter:description" content="This is a minimal introduction to Reproducible Research and Ecological Forecasting for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="baysian.html"/>
-<link rel="next" href="references.html"/>
+<link rel="prev" href="reproducibility.html"/>
+<link rel="next" href="final-words.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -216,18 +216,65 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="final-words" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Final Words</h1>
-<p>We have finished a nice book.</p>
+<div id="baysian" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Going Bayesian</h1>
+<p>While ecological forecasting and decision support can be done with traditional statistics (often termed “frequentist statistics”) it is generally much easier to do in a Bayesian statistical framework, because:</p>
+<ul>
+<li>It treats all terms as probability distributions, making it easier to quantify, propagate and partition uncertainties throughout the analysis (more on this later)</li>
+<li>Bayesian analyses are inherently iterative, making it easier to update predictions as new data become available</li>
+<li>They are highly flexible, allowing one to build relatively complex models with varied data sources (and/or of varying quality)</li>
+<li>They are typically focused on estimating what properties are (i.e. the actual value of a particular parameter) and not just establishing what they are not (i.e. testing for significant difference, as is usually the focus in frequentist statistics) - although there are frequentist approaches for doing this too</li>
+</ul>
+<p>In this section I aim to provide a brief and soft introduction to Bayesian statistics and use an example from my own research to highlight the principles and benefits. We’ll also use this example in the pair-coding practical.</p>
+<div id="maximum-likelihood" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Maximum likelihood</h2>
+<p>Before I can introduce Bayes, there are a few basic building blocks we need to establish first. The main one is the concept of likelihood and the estimation of maximum likelihood, since this is a major component of Bayes’ Theorum.</p>
+<div id="probability-vs-likelihood" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Probability vs Likelihood</h3>
+<p>While <em>probability</em> and <em>likelihood</em> may seem like similar concepts, the distinction between them is fundamentally important in statistics.</p>
+<p><strong>Probability relates to possible results given a hypothesis.</strong></p>
+<ul>
+<li>e.g. if you have an unbias coin (the hypothesis), the probability of a coin toss landing heads up (the result) is 0.5.</li>
+</ul>
+<p><strong>Likelihood relates to hypotheses, given the results (i.e. data).</strong></p>
+<ul>
+<li>e.g. say we’ve performed 1000 tosses and the coin landed heads up 700 times (the data), it is less <em>likely</em> that the hypothesis of an unbias coin is true relative to a hypothesis that the coin favours heads.</li>
+</ul>
+<p>This may seem like a subtle and potentially arbitrary distinction, but likelihood comes into it’s own when comparing multiple hypotheses (usually specified as models).</p>
+<p>Add Postfire example</p>
+<ul>
+<li>demonstrate p-value by fitting lm to NDVI</li>
+<li>demonstrate fitting with MLE</li>
+<li>fit negative exponential and compare likelihoods</li>
+</ul>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><span class="math inline">\(p\)</span> is unknown but expected to be around 1/3. Standard error will be approximated</p>
+<p><span class="math display">\[
+SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
+\]</span></p>
+<p>You can also use math in footnotes like this<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<p>We will approximate standard error to 0.027<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>where we mention <span class="math inline">\(p = \frac{a}{b}\)</span><a href="baysian.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p><span class="math inline">\(p\)</span> is unknown but expected to be around 1/3. Standard error will be approximated</p>
+<p><span class="math display">\[
+SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
+\]</span><a href="baysian.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="baysian.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="reproducibility.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="final-words.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -259,7 +306,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/05-summary.Rmd",
+"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/04-going_bayesian.Rmd",
 "text": "Edit"
 },
 "history": {

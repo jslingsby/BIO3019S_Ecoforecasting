@@ -1,4 +1,4 @@
-# Reproducible research
+# Reproducible research {#reproducibility}
 
 Before we continue, it's worth highlighting the similarity between the iterative decision making cycle I've outlined in figure \@ref(fig:decisions3) and _the scientific method_, i.e.:
 
@@ -60,7 +60,7 @@ knitr::include_graphics("img/xkcd_data_pipeline_2x.png")
 
 ### The steps involved in data management
 
-```{r data_life_cycle, echo=FALSE, fig.cap = "The Data Life Cycle, adapted from https://www.dataone.org/", fig.width=6, fig.align = 'center'}
+```{r datalifecycle, echo=FALSE, fig.cap = "The Data Life Cycle, adapted from https://www.dataone.org/", fig.width=6, fig.align = 'center'}
 # load library
 library(ggplot2)
 

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Final Words | A Minimal Introduction to Reproducible Research and Ecological Forecasting</title>
+  <title>5 Reproducible research | A Minimal Introduction to Reproducible Research and Ecological Forecasting</title>
   <meta name="description" content="This is a minimal introduction to Reproducible Research and Ecological Forecasting for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Final Words | A Minimal Introduction to Reproducible Research and Ecological Forecasting" />
+  <meta property="og:title" content="5 Reproducible research | A Minimal Introduction to Reproducible Research and Ecological Forecasting" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Final Words | A Minimal Introduction to Reproducible Research and Ecological Forecasting" />
+  <meta name="twitter:title" content="5 Reproducible research | A Minimal Introduction to Reproducible Research and Ecological Forecasting" />
   
   <meta name="twitter:description" content="This is a minimal introduction to Reproducible Research and Ecological Forecasting for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="baysian.html"/>
-<link rel="next" href="references.html"/>
+<link rel="prev" href="forecasting.html"/>
+<link rel="next" href="baysian.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -216,18 +216,93 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="final-words" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Final Words</h1>
-<p>We have finished a nice book.</p>
+<div id="reproducibility" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Reproducible research</h1>
+<p>Before we continue, it’s worth highlighting the similarity between the iterative decision making cycle I’ve outlined in figure <a href="models.html#fig:decisions3">3.3</a> and <em>the scientific method</em>, i.e.:</p>
+<ul>
+<li><em>Observation &gt; Hypothesis &gt; Experiment &gt; Analyze &gt; Interpret &gt; Report &gt; (Repeat)</em></li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:scimethod"></span>
+<img src="img/scimethod.png" alt="_The Scientific Method_ overlain on iterative decision making." width="896" />
+<p class="caption">
+Figure 5.1: <em>The Scientific Method</em> overlain on iterative decision making.
+</p>
+</div>
+<p><br></p>
+<p>It’s also worth noting that <em>reproducibility is one of the fundamental tenets of science</em>. In other words, published research should be robust enough and the methods described in enough detail that anyone else should be able to repeat the study (using the publication only) and find similar results. Sadly, this is rarely the case!!!</p>
+<p><br></p>
+<div id="the-reproducibility-crisis" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> The Reproducibility Crisis</h2>
+<p>Bits from Peng 2011 (some is direct text, forgotten which - edit)
+Replication is the ultimate standard by which scientific claims are judged.</p>
+<p>With replication,independent investigators address a scientific hypothesis and build up evidence for or against it. The scien-tific community’s“culture of replica-tion”has served to quickly weed outspurious claims and enforce on thecommunity a disciplined approach toscientific discovery.</p>
+<p>Reproducibility falls short of full replication because the same data are analyzed again, rather than analyzing independently collected data.</p>
+<p>reproducibility helps us:
+- track down errors
+- build on previous findings and analyses</p>
+<p>Barriers to reproducibility:
+- Access to data
+- Access to the computational workflow</p>
+<p>[More on the reproducibility crisis…]</p>
+<p>[Working reproducibly and Peng et al. 2011 figure.]</p>
+<p>Working reproducibly is clearly not just a requirement for using quantitative approaches in iterative decision-making, it is central to scientific progress!!!</p>
+<p><br></p>
+</div>
+<div id="scientific-workflows" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Scientific Workflows</h2>
+<p><img src="img/xkcd_data_pipeline_2x.png" width="740" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="the-data-life-cycle" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> The Data Life Cycle</h2>
+<div id="why-you-need-to-manage-your-data" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Why you need to manage your data</h3>
+<ul>
+<li>loss (Michener “data decay curve” fig)</li>
+<li>future self (lose it before ou’re finished with it)</li>
+<li>value to yourself for sharing, credit etc (publications and citations),</li>
+<li>science on general (esp long-term ecology in a time of global change)</li>
+<li>Transparency and accountability</li>
+</ul>
+</div>
+<div id="the-steps-involved-in-data-management" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> The steps involved in data management</h3>
+<div class="figure" style="text-align: center"><span id="fig:datalifecycle"></span>
+<img src="BIO3019S-Ecoforecasting_files/figure-html/datalifecycle-1.png" alt="The Data Life Cycle, adapted from https://www.dataone.org/" width="576" />
+<p class="caption">
+Figure 5.2: The Data Life Cycle, adapted from <a href="https://www.dataone.org/" class="uri">https://www.dataone.org/</a>
+</p>
+</div>
+<div id="plan-dmps" class="section level4" number="5.3.2.1">
+<h4><span class="header-section-number">5.3.2.1</span> Plan (DMPs)</h4>
+</div>
+<div id="create" class="section level4" number="5.3.2.2">
+<h4><span class="header-section-number">5.3.2.2</span> Create</h4>
+</div>
+<div id="process" class="section level4" number="5.3.2.3">
+<h4><span class="header-section-number">5.3.2.3</span> Process</h4>
+</div>
+<div id="document-and-use" class="section level4" number="5.3.2.4">
+<h4><span class="header-section-number">5.3.2.4</span> Document and use</h4>
+</div>
+<div id="share-and-preserve" class="section level4" number="5.3.2.5">
+<h4><span class="header-section-number">5.3.2.5</span> Share and preserve</h4>
+</div>
+<div id="reuse" class="section level4" number="5.3.2.6">
+<h4><span class="header-section-number">5.3.2.6</span> Reuse</h4>
+<p><br></p>
 
+</div>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="baysian.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="forecasting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="baysian.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -259,7 +334,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/05-summary.Rmd",
+"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/03-reproducibility.Rmd",
 "text": "Edit"
 },
 "history": {
