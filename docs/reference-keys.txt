@@ -3,6 +3,8 @@ fig:decisions2
 fig:decisions3
 fig:nice-fig
 tab:nice-tab
+fig:dietze2018F1
+fig:olympiangoal
 fig:scimethod
 fig:datalifecycle
 overview
@@ -17,6 +19,7 @@ iterative-decision-making
 delete-from-here-once-done---how-to-reference
 forecasting
 the-importance-of-prediction-in-ecology
+iterative-ecological-forecasting
 reproducibility
 the-reproducibility-crisis
 scientific-workflows
@@ -33,7 +36,15 @@ baysian
 maximum-likelihood
 probability-vs-likelihood
 final-words
-iterative-ecological-forecasting
-fig:dietze2017
-fig:olympiangoal
-fig:dietze2018F1
+collect
+assure
+describe
+preserve
+discover
+integrate
+analyze
+fig:peng
+fig:decis3
+data-management
+replication-and-the-reproducibility-spectrum
+why-work-reproducibly

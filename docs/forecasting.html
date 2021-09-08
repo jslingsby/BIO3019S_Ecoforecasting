@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Forecasting in ecology | A Minimal Introduction to Reproducible Research and Ecological Forecasting</title>
-  <meta name="description" content="This is a minimal introduction to Reproducible Research and Ecological Forecasting for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
+  <title>4 Forecasting in ecology | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
+  <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Forecasting in ecology | A Minimal Introduction to Reproducible Research and Ecological Forecasting" />
+  <meta property="og:title" content="4 Forecasting in ecology | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a minimal introduction to Reproducible Research and Ecological Forecasting for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
+  <meta property="og:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Forecasting in ecology | A Minimal Introduction to Reproducible Research and Ecological Forecasting" />
+  <meta name="twitter:title" content="4 Forecasting in ecology | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   
-  <meta name="twitter:description" content="This is a minimal introduction to Reproducible Research and Ecological Forecasting for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
+  <meta name="twitter:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   
 
 <meta name="author" content="Jasper Slingsby" />
@@ -145,7 +145,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Introduction to Reproducible Research and Ecological Forecasting</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Introduction to Ecological Forecasting and Reproducible Research</a>
           </h1>
         </div>
 
@@ -161,8 +161,8 @@ div.csl-indent {
 <blockquote>
 <p><em>“prediction is the only way to demonstrate scientific understanding”</em> <span class="citation">(<a href="#ref-Houlahan2017" role="doc-biblioref">Houlahan et al. 2017</a>)</span></p>
 </blockquote>
-<p>While this view may be slightly overstated, it is a very good point. If we cannot make reasonably good predictions, we’re still missing something. Unfortunately, prediction has not been a central focus in ecology, impeding progress in the improvement of our ecological understanding. To make predictions we need models, and models provide structured summaries of our current ecological understanding (conceptual or quantitative, but preferably quantitative, because these are easier to compare). Without making predictions and comparing the skill of new models to old ones, we can’t track if we are making progress!</p>
-<p>In ecology we mostly test qualitative, imprecise hypotheses ( <em>“Does X have an effect on Y?”</em> rather than <em>“What is the relationship between X and Y?”</em> or better yet <em>“What value would we expect Y to be, given a particular value or X?”</em>). Without testing precise hypotheses and using the results to make <em>testable predictions</em> we don’t know if our findings are generalizable beyond the specific data set we collected? If our results are not generalizable, then we’re not really making progress towards a better understanding of ecology.</p>
+<p>While this view may be slightly overstated, it is a very good point. <strong>If we cannot make reasonably good predictions, we’re missing something</strong>. Unfortunately, prediction has not been a central focus in ecology, impeding progress in the improvement of our ecological understanding. <strong>To make predictions we need models</strong>, and <strong>models provide structured summaries of our current ecological understanding</strong> (conceptual or quantitative, but preferably quantitative, because these are easier to compare). Without making predictions and comparing the skill of new models to old ones, we can’t track if we are making progress!</p>
+<p>In ecology we mostly test qualitative, imprecise hypotheses: <em>“Does X have an effect on Y?”</em> rather than <em>“What is the relationship between X and Y?”</em> or better yet <em>“What value would we expect Y to be, given a particular value or X?”</em>. <strong>Without testing precise hypotheses and using the results to make <em>testable predictions</em> we don’t know if our findings are generalizable beyond the specific data set we collected.</strong> If our results are not generalizable, then we’re not really making progress towards a better understanding of ecology.</p>
 <p>A key point here is that the <em>predictions must be testable</em>! We do use a lot of models in ecology, and even use them to make predictions (e.g. species distribution models (SDMs), dynamic vegetation models (DVMs), etc), but these predictions are typically 50+ years into the future, which is way to long to wait to see if our predictions were reasonable or useful.</p>
 <p><br></p>
 <blockquote>
@@ -173,8 +173,7 @@ Testing predictions with new data collected after you’ve made your predictions
 </div>
 <div id="iterative-ecological-forecasting" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Iterative ecological forecasting</h2>
-<p>The recent growth in interest in iterative ecological forecasting seeks to not only make prediction a central focus in ecology, but to do so on a time scale that is both useful for decision makers and allows us to learn from testing our predictions (days to decades).</p>
-<p>This is a great initiative, but as we will see it poses a number of major challenges and requires a big improvement in quantitative skills in biology (hence this course…).</p>
+<p>The recent growth in interest in iterative ecological forecasting seeks to not only make prediction a central focus in ecology, but to do so on a time scale that is both useful for decision makers and allows us to learn from testing our predictions (days to decades). This is a great initiative, but as we will see it poses a number of major challenges and requires a big improvement in quantitative skills in biology (hence this course…).</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:dietze2018F1"></span>
 <img src="img/dietze2018_F1.jpg" alt="The iterative ecological forecasting cycle in the context of the scientific method and the adaptive management and monitoring cycles [@Dietze2018]." width="640" />
@@ -189,8 +188,7 @@ Figure 4.1: The iterative ecological forecasting cycle in the context of the sci
 <p><strong>The iterative forecasting cycle also feeds into adaptive management and monitoring:</strong></p>
 <p>In <strong>Adaptive Management</strong> and decision analysis, alternative decision scenarios are generated (2) based on an assessment of a problem (1). These decision scenarios are typically used to define the scenarios (or boundary conditions) for which models are run (“Scenarios” arrow), but can also feed into scientific hypotheses (not shown). Forecasts (Fx) are key in assessing the trade-offs and relative merits between alternative decision options (3). The decision(s) taken (4) determine the monitoring requirements (5), which allow us to evaluate the outcomes and reassess the problem (1), and start the adaptive management cycle again.</p>
 <p>Note that the iterative forecast cycle is also useful for adaptive management in that the analysis and partitioning of forecast uncertainties (from step C) can provide further guidance on what and how to monitor, so as to optimize the reduction in model uncertainties. This represents <strong>Adaptive Monitoring</strong> (dashed line) and is a cycle of itself <span class="citation">(<a href="#ref-Lindenmayer2009" role="doc-biblioref">Lindenmayer and Likens 2009</a>)</span>, but is largely subsumed by the other cycles here so we won’t go into it any further. Thus the iterative cycles of science, forecasting, management and monitoring are tightly intertwined and can interact continuously.</p>
-<p><br></p>
-<p>What isn’t clear from Figure <a href="forecasting.html#fig:dietze2018F1">4.1</a> is that all of this needs to be founded on a highly efficient ecoinformatics pipeline that is robust and rapidly updateable - i.e. follows <strong>Reproducible Research</strong> principles. Adding this component helps to highlight what I like to think of as <em>“The Olympian Challenge of data-driven ecological decision making”</em>.</p>
+<p>What isn’t clear from Figure <a href="forecasting.html#fig:dietze2018F1">4.1</a> is that all of this needs to be founded on a highly efficient informatics pipeline that is robust and rapidly updateable - i.e. follows <strong>Reproducible Research</strong> principles. Adding this link helps to highlight what I like to think of as <em>“The Olympian Challenge of data-driven ecological decision making”</em>.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:olympiangoal"></span>
 <img src="img/olympian_goal.png" alt="The Olympian Challenge of data-driven ecological decision making." width="480" />
@@ -198,6 +196,8 @@ Figure 4.1: The iterative ecological forecasting cycle in the context of the sci
 Figure 4.2: The Olympian Challenge of data-driven ecological decision making.
 </p>
 </div>
+<p><br></p>
+<p>Working reproducibly requires learning a lot of skills and can take a lot of effort, but is well worth it in the long run - for you as an individual, and for science in general. This is going to be the focus of the next section (and the practical), before we continue with other components of the ecological forecasting cycle.</p>
 
 </div>
 </div>
@@ -251,7 +251,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/02-forecasting.Rmd",
+"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/03-forecasting.Rmd",
 "text": "Edit"
 },
 "history": {

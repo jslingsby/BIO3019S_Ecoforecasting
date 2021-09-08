@@ -14,27 +14,51 @@ It's also worth noting that _reproducibility is one of the fundamental tenets of
 
 <br>
 
+## Replication and the Reproducibility Spectrum
+
+> _"**Replication** is the ultimate standard by which scientific claims are judged."_ [@Peng2011]
+
+If the results of a study or experiment cannot by replicated by an independent set of investigators then whatever scientific claims were made should be treated with caution! At best, it suggests that evidence for the claim is weak or mixed, or specific to particular ecosystems or other circumstances and cannot be generalized. At worst, there was error (or even dishonesty) in the original study and the claims were plainly false.
+
+Unfortunately, some studies may not be entirely replicable purely due to the nature of the data or phenomenon (e.g. rare phenomena, long term records or very expensive once-off science projects like space missions). In these cases the "gold standard" of full replication (from new data collection to results) cannot be achieved, and we have to settle for a lower rung on the reproducibility spectrum (Figure \@ref(fig:peng)).
+
+**Reproducibility** falls short of full **replication** because the same data are analyzed again, rather than analyzing independently collected data. 
+
+<br>
+
 ## The Reproducibility Crisis
 
-Bits from Peng 2011 (some is direct text, forgotten which - edit)
-Replication is the ultimate standard by which scientific claims are judged. 
 
-With replication,independent investigators address a scientific hypothesis and build up evidence for or against it. The scien-tific community’s“culture of replica-tion”has served to quickly weed outspurious claims and enforce on thecommunity a disciplined approach toscientific discovery.
 
-Reproducibility falls short of full replication because the same data are analyzed again, rather than analyzing independently collected data. 
+<br>
 
-reproducibility helps us:
-- track down errors
+## Why work reproducibly?
+
+Working reproducibly is hugely valuable, because it helps us:
+- track down errors in analyses
 - build on previous findings and analyses
+- compare new analytical approaches to older ones
+- repeat the same analyses when new data are collected or added
+
+
+
 
 Barriers to reproducibility:
 - Access to data
 - Access to the computational workflow
+- Access to software
+- Access to a comparable computing environment
 
 
 [More on the reproducibility crisis...]
 
-[Working reproducibly and Peng et al. 2011 figure.]
+<br>
+
+```{r peng, echo=FALSE, fig.cap = "The Reproducibility Spectrum [@Peng2011].", fig.width=3, fig.align = 'center'}
+knitr::include_graphics("img/peng_reproducibility.jpg")
+```
+
+<br>
 
 Working reproducibly is clearly not just a requirement for using quantitative approaches in iterative decision-making, it is central to scientific progress!!!
 
@@ -48,7 +72,7 @@ knitr::include_graphics("img/xkcd_data_pipeline_2x.png")
 
 <br>
 
-## The Data Life Cycle
+## Data Management
 
 ### Why you need to manage your data
 
@@ -58,7 +82,7 @@ knitr::include_graphics("img/xkcd_data_pipeline_2x.png")
 - science on general (esp long-term ecology in a time of global change)
 - Transparency and accountability
 
-### The steps involved in data management
+### The Data Life Cycle
 
 ```{r datalifecycle, echo=FALSE, fig.cap = "The Data Life Cycle, adapted from https://www.dataone.org/", fig.width=6, fig.align = 'center'}
 # load library
@@ -100,14 +124,18 @@ ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
 
 #### Plan (DMPs)
 
-#### Create
+#### Collect
 
-#### Process
+#### Assure
 
-#### Document and use
+#### Describe
 
-#### Share and preserve
+#### Preserve
 
-#### Reuse
+#### Discover
+
+#### Integrate
+
+#### Analyze
 
 <br>

@@ -1,5 +1,5 @@
 --- 
-title: "A Minimal Introduction to Reproducible Research and Ecological Forecasting"
+title: "A Minimal Introduction to Ecological Forecasting and Reproducible Research"
 author: "Jasper Slingsby"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -9,12 +9,12 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: jslingsby/BIO3019S_Ecoforecasting
-description: "This is a minimal introduction to Reproducible Research and Ecological Forecasting for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town."
+description: "This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town."
 ---
 
 # Overview
 
-_This module is a minimal introduction to Reproducible Research and Ecological Forecasting for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town._
+_This module is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town._
 
 ## General
 
