@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-09-08" />
+<meta name="date" content="2021-09-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -112,13 +112,12 @@ div.csl-indent {
 <li class="chapter" data-level="4" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="reproducibility.html"><a href="reproducibility.html#replication-and-the-reproducibility-spectrum"><i class="fa fa-check"></i><b>4.1</b> Replication and the Reproducibility Spectrum</a></li>
-<li class="chapter" data-level="4.2" data-path="reproducibility.html"><a href="reproducibility.html#the-reproducibility-crisis"><i class="fa fa-check"></i><b>4.2</b> The Reproducibility Crisis</a></li>
-<li class="chapter" data-level="4.3" data-path="reproducibility.html"><a href="reproducibility.html#why-work-reproducibly"><i class="fa fa-check"></i><b>4.3</b> Why work reproducibly?</a></li>
-<li class="chapter" data-level="4.4" data-path="reproducibility.html"><a href="reproducibility.html#scientific-workflows"><i class="fa fa-check"></i><b>4.4</b> Scientific Workflows</a></li>
-<li class="chapter" data-level="4.5" data-path="reproducibility.html"><a href="reproducibility.html#data-management"><i class="fa fa-check"></i><b>4.5</b> Data Management</a>
+<li class="chapter" data-level="4.2" data-path="reproducibility.html"><a href="reproducibility.html#why-work-reproducibly"><i class="fa fa-check"></i><b>4.2</b> Why work reproducibly?</a></li>
+<li class="chapter" data-level="4.3" data-path="reproducibility.html"><a href="reproducibility.html#scientific-workflows"><i class="fa fa-check"></i><b>4.3</b> Scientific Workflows</a></li>
+<li class="chapter" data-level="4.4" data-path="reproducibility.html"><a href="reproducibility.html#data-management"><i class="fa fa-check"></i><b>4.4</b> Data Management</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="reproducibility.html"><a href="reproducibility.html#why-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>4.5.1</b> Why you need to manage your data</a></li>
-<li class="chapter" data-level="4.5.2" data-path="reproducibility.html"><a href="reproducibility.html#the-data-life-cycle"><i class="fa fa-check"></i><b>4.5.2</b> The Data Life Cycle</a></li>
+<li class="chapter" data-level="4.4.1" data-path="reproducibility.html"><a href="reproducibility.html#why-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>4.4.1</b> Why you need to manage your data</a></li>
+<li class="chapter" data-level="4.4.2" data-path="reproducibility.html"><a href="reproducibility.html#the-data-life-cycle"><i class="fa fa-check"></i><b>4.4.2</b> The Data Life Cycle</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="forecasting.html"><a href="forecasting.html"><i class="fa fa-check"></i><b>5</b> Forecasting in ecology</a>
@@ -168,7 +167,7 @@ Figure 4.1: <em>The Scientific Method</em> overlain on iterative decision making
 </p>
 </div>
 <p><br></p>
-<p>It’s also worth noting that <em>reproducibility is one of the fundamental tenets of science</em>. In other words, published research should be robust enough and the methods described in enough detail that anyone else should be able to repeat the study (using the publication only) and find similar results. Sadly, this is rarely the case!!!</p>
+<p>It’s also worth noting that <em>replication is one of the fundamental tenets of science</em>. In other words, published research should be robust enough and the methods described in enough detail that anyone else should be able to repeat the study (using the publication only) and find similar results. Sadly, this is rarely the case!!!</p>
 <p><br></p>
 <div id="replication-and-the-reproducibility-spectrum" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Replication and the Reproducibility Spectrum</h2>
@@ -176,27 +175,7 @@ Figure 4.1: <em>The Scientific Method</em> overlain on iterative decision making
 <p><em>“<strong>Replication</strong> is the ultimate standard by which scientific claims are judged.”</em> <span class="citation">(<a href="#ref-Peng2011" role="doc-biblioref">Peng 2011</a>)</span></p>
 </blockquote>
 <p>If the results of a study or experiment cannot by replicated by an independent set of investigators then whatever scientific claims were made should be treated with caution! At best, it suggests that evidence for the claim is weak or mixed, or specific to particular ecosystems or other circumstances and cannot be generalized. At worst, there was error (or even dishonesty) in the original study and the claims were plainly false.</p>
-<p>Unfortunately, some studies may not be entirely replicable purely due to the nature of the data or phenomenon (e.g. rare phenomena, long term records or very expensive once-off science projects like space missions). In these cases the “gold standard” of full replication (from new data collection to results) cannot be achieved, and we have to settle for a lower rung on the reproducibility spectrum (Figure <a href="reproducibility.html#fig:peng">4.2</a>).</p>
-<p><strong>Reproducibility</strong> falls short of full <strong>replication</strong> because the same data are analyzed again, rather than analyzing independently collected data.</p>
-<p><br></p>
-</div>
-<div id="the-reproducibility-crisis" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> The Reproducibility Crisis</h2>
-<p><br></p>
-</div>
-<div id="why-work-reproducibly" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Why work reproducibly?</h2>
-<p>Working reproducibly is hugely valuable, because it helps us:
-- track down errors in analyses
-- build on previous findings and analyses
-- compare new analytical approaches to older ones
-- repeat the same analyses when new data are collected or added</p>
-<p>Barriers to reproducibility:
-- Access to data
-- Access to the computational workflow
-- Access to software
-- Access to a comparable computing environment</p>
-<p>[More on the reproducibility crisis…]</p>
+<p>Unfortunately, some studies may not be entirely replicable purely due to the nature of the data or phenomenon (e.g. rare phenomena, long term records, loss of species or ecosystems, or very expensive once-off science projects like space missions). In these cases the “gold standard” of full replication (from new data collection to results) cannot be achieved, and we have to settle for a lower rung on the reproducibility spectrum (Figure <a href="reproducibility.html#fig:peng">4.2</a>).</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:peng"></span>
 <img src="img/peng_reproducibility.jpg" alt="The Reproducibility Spectrum [@Peng2011]." width="640" />
@@ -205,18 +184,48 @@ Figure 4.2: The Reproducibility Spectrum <span class="citation">(<a href="#ref-P
 </p>
 </div>
 <p><br></p>
+<p><strong>Reproducibility</strong> falls short of full <strong>replication</strong> because it focuses on reproducing the same result <em>from the same data set</em>, rather than analyzing independently collected data. While this may seem trivial, you’d be surprised at how few studies are even reproducible, let alone replicable.</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:reprocrisis"></span>
+<img src="BIO3019S-Ecoforecasting_files/figure-html/reprocrisis-1.png" alt="'Is there a reproducibility* crisis?' Results from a survey of &gt;1500 top scientists [@Baker2016]. *Note that they did not discern between reproducibility and replicability, and that the terms are often used interchangeably." width="576" />
+<p class="caption">
+Figure 4.3: ‘Is there a reproducibility* crisis?’ Results from a survey of &gt;1500 top scientists <span class="citation">(<a href="#ref-Baker2016" role="doc-biblioref">Baker 2016</a>)</span>. *Note that they did not discern between reproducibility and replicability, and that the terms are often used interchangeably.
+</p>
+</div>
+<p><br></p>
+<p>While full replication is a huge challenge (and sometimes impossible) to achieve, it is something all scientists should be working towards.</p>
+<p><br></p>
+</div>
+<div id="why-work-reproducibly" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Why work reproducibly?</h2>
+<p>Working reproducibly is hugely valuable, because it helps us:</p>
+<ul>
+<li>track down errors in analyses</li>
+<li>build on previous findings and analyses</li>
+<li>compare new analytical approaches to older ones</li>
+<li>repeat the same analyses when new data are collected or added</li>
+</ul>
+<p><br></p>
+<p>##What are the barriers to reproducibility?</p>
+<ul>
+<li>Access to data</li>
+<li>Access to the computational workflow</li>
+<li>Access to software</li>
+<li>Access to a comparable computing environment</li>
+</ul>
+<p><br></p>
 <p>Working reproducibly is clearly not just a requirement for using quantitative approaches in iterative decision-making, it is central to scientific progress!!!</p>
 <p><br></p>
 </div>
-<div id="scientific-workflows" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Scientific Workflows</h2>
+<div id="scientific-workflows" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Scientific Workflows</h2>
 <p><img src="img/xkcd_data_pipeline_2x.png" width="740" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="data-management" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Data Management</h2>
-<div id="why-you-need-to-manage-your-data" class="section level3" number="4.5.1">
-<h3><span class="header-section-number">4.5.1</span> Why you need to manage your data</h3>
+<div id="data-management" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Data Management</h2>
+<div id="why-you-need-to-manage-your-data" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Why you need to manage your data</h3>
 <ul>
 <li>loss (Michener “data decay curve” fig)</li>
 <li>future self (lose it before ou’re finished with it)</li>
@@ -225,37 +234,37 @@ Figure 4.2: The Reproducibility Spectrum <span class="citation">(<a href="#ref-P
 <li>Transparency and accountability</li>
 </ul>
 </div>
-<div id="the-data-life-cycle" class="section level3" number="4.5.2">
-<h3><span class="header-section-number">4.5.2</span> The Data Life Cycle</h3>
+<div id="the-data-life-cycle" class="section level3" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> The Data Life Cycle</h3>
 <div class="figure" style="text-align: center"><span id="fig:datalifecycle"></span>
 <img src="BIO3019S-Ecoforecasting_files/figure-html/datalifecycle-1.png" alt="The Data Life Cycle, adapted from https://www.dataone.org/" width="576" />
 <p class="caption">
-Figure 4.3: The Data Life Cycle, adapted from <a href="https://www.dataone.org/" class="uri">https://www.dataone.org/</a>
+Figure 4.4: The Data Life Cycle, adapted from <a href="https://www.dataone.org/" class="uri">https://www.dataone.org/</a>
 </p>
 </div>
-<div id="plan-dmps" class="section level4" number="4.5.2.1">
-<h4><span class="header-section-number">4.5.2.1</span> Plan (DMPs)</h4>
+<div id="plan-dmps" class="section level4" number="4.4.2.1">
+<h4><span class="header-section-number">4.4.2.1</span> Plan (DMPs)</h4>
 </div>
-<div id="collect" class="section level4" number="4.5.2.2">
-<h4><span class="header-section-number">4.5.2.2</span> Collect</h4>
+<div id="collect" class="section level4" number="4.4.2.2">
+<h4><span class="header-section-number">4.4.2.2</span> Collect</h4>
 </div>
-<div id="assure" class="section level4" number="4.5.2.3">
-<h4><span class="header-section-number">4.5.2.3</span> Assure</h4>
+<div id="assure" class="section level4" number="4.4.2.3">
+<h4><span class="header-section-number">4.4.2.3</span> Assure</h4>
 </div>
-<div id="describe" class="section level4" number="4.5.2.4">
-<h4><span class="header-section-number">4.5.2.4</span> Describe</h4>
+<div id="describe" class="section level4" number="4.4.2.4">
+<h4><span class="header-section-number">4.4.2.4</span> Describe</h4>
 </div>
-<div id="preserve" class="section level4" number="4.5.2.5">
-<h4><span class="header-section-number">4.5.2.5</span> Preserve</h4>
+<div id="preserve" class="section level4" number="4.4.2.5">
+<h4><span class="header-section-number">4.4.2.5</span> Preserve</h4>
 </div>
-<div id="discover" class="section level4" number="4.5.2.6">
-<h4><span class="header-section-number">4.5.2.6</span> Discover</h4>
+<div id="discover" class="section level4" number="4.4.2.6">
+<h4><span class="header-section-number">4.4.2.6</span> Discover</h4>
 </div>
-<div id="integrate" class="section level4" number="4.5.2.7">
-<h4><span class="header-section-number">4.5.2.7</span> Integrate</h4>
+<div id="integrate" class="section level4" number="4.4.2.7">
+<h4><span class="header-section-number">4.4.2.7</span> Integrate</h4>
 </div>
-<div id="analyze" class="section level4" number="4.5.2.8">
-<h4><span class="header-section-number">4.5.2.8</span> Analyze</h4>
+<div id="analyze" class="section level4" number="4.4.2.8">
+<h4><span class="header-section-number">4.4.2.8</span> Analyze</h4>
 <p><br></p>
 
 </div>
@@ -264,6 +273,9 @@ Figure 4.3: The Data Life Cycle, adapted from <a href="https://www.dataone.org/"
 </div>
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Baker2016" class="csl-entry">
+Baker, Monya. 2016. <span>“<span class="nocase">1,500 scientists lift the lid on reproducibility</span>.”</span> <em>Nature</em> 533 (7604): 452–54. <a href="https://doi.org/10.1038/533452a">https://doi.org/10.1038/533452a</a>.
+</div>
 <div id="ref-Peng2011" class="csl-entry">
 Peng, Roger D. 2011. <span>“<span class="nocase">Reproducible research in computational science</span>.”</span> <em>Science</em> 334 (6060): 1226–27. <a href="https://doi.org/10.1126/science.1213847">https://doi.org/10.1126/science.1213847</a>.
 </div>

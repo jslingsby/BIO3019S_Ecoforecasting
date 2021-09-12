@@ -10,7 +10,7 @@ knitr::include_graphics("img/scimethod.png")
 
 <br>
 
-It's also worth noting that _reproducibility is one of the fundamental tenets of science_. In other words, published research should be robust enough and the methods described in enough detail that anyone else should be able to repeat the study (using the publication only) and find similar results. Sadly, this is rarely the case!!!
+It's also worth noting that _replication is one of the fundamental tenets of science_. In other words, published research should be robust enough and the methods described in enough detail that anyone else should be able to repeat the study (using the publication only) and find similar results. Sadly, this is rarely the case!!!
 
 <br>
 
@@ -20,43 +20,86 @@ It's also worth noting that _reproducibility is one of the fundamental tenets of
 
 If the results of a study or experiment cannot by replicated by an independent set of investigators then whatever scientific claims were made should be treated with caution! At best, it suggests that evidence for the claim is weak or mixed, or specific to particular ecosystems or other circumstances and cannot be generalized. At worst, there was error (or even dishonesty) in the original study and the claims were plainly false.
 
-Unfortunately, some studies may not be entirely replicable purely due to the nature of the data or phenomenon (e.g. rare phenomena, long term records or very expensive once-off science projects like space missions). In these cases the "gold standard" of full replication (from new data collection to results) cannot be achieved, and we have to settle for a lower rung on the reproducibility spectrum (Figure \@ref(fig:peng)).
-
-**Reproducibility** falls short of full **replication** because the same data are analyzed again, rather than analyzing independently collected data. 
-
-<br>
-
-## The Reproducibility Crisis
-
-
-
-<br>
-
-## Why work reproducibly?
-
-Working reproducibly is hugely valuable, because it helps us:
-- track down errors in analyses
-- build on previous findings and analyses
-- compare new analytical approaches to older ones
-- repeat the same analyses when new data are collected or added
-
-
-
-
-Barriers to reproducibility:
-- Access to data
-- Access to the computational workflow
-- Access to software
-- Access to a comparable computing environment
-
-
-[More on the reproducibility crisis...]
+Unfortunately, some studies may not be entirely replicable purely due to the nature of the data or phenomenon (e.g. rare phenomena, long term records, loss of species or ecosystems, or very expensive once-off science projects like space missions). In these cases the "gold standard" of full replication (from new data collection to results) cannot be achieved, and we have to settle for a lower rung on the reproducibility spectrum (Figure \@ref(fig:peng)).
 
 <br>
 
 ```{r peng, echo=FALSE, fig.cap = "The Reproducibility Spectrum [@Peng2011].", fig.width=3, fig.align = 'center'}
 knitr::include_graphics("img/peng_reproducibility.jpg")
 ```
+
+<br>
+
+**Reproducibility** falls short of full **replication** because it focuses on reproducing the same result _from the same data set_, rather than analyzing independently collected data. While this may seem trivial, you'd be surprised at how few studies are even reproducible, let alone replicable.
+
+<br>
+
+```{r reprocrisis, echo=FALSE, fig.cap = "'Is there a reproducibility* crisis?' Results from a survey of >1500 top scientists [@Baker2016]. *Note that they did not discern between reproducibility and replicability, and that the terms are often used interchangeably.", fig.width=6, fig.align = 'center', warning = F, message = F}
+# load library
+library(tidyverse)
+
+# Get Baker data.
+cridata <- read_delim("/home/jasper/GIT/BIO3019S_Ecoforecasting/data/Reproducibilitysurveyrawdata20160523.txt", delim = "\t")
+
+#20 (is there a crisis)
+names(cridata)[20] <- "Crisis"
+
+cridata <- cridata %>% group_by(Crisis) %>% summarize(count = n()) %>%na.omit()
+
+cridata$Crisis <- c("7% \n I don't know", "52% \n Significant crisis", "Slight crisis \n 38%", "No crisis \n 3%")
+
+cridata$Crisis <- factor(cridata$Crisis, levels = c("52% \n Significant crisis", "No crisis \n 3%", "7% \n I don't know", "Slight crisis \n 38%"))
+
+# Compute percentages
+cridata$fraction <- cridata$count / sum(cridata$count)
+
+# Compute the cumulative percentages (top of each rectangle)
+cridata$ymax <- cumsum(cridata$fraction)
+
+# Compute the bottom of each rectangle
+cridata$ymin <- c(0, head(cridata$ymax, n=-1))
+
+# Compute label position
+cridata$labelPosition <- (cridata$ymax + cridata$ymin) / 2
+
+# # Compute a good label
+# data$label <- paste0(data$category, "\n value: ", data$count)
+# 
+# Make the plot
+ggplot(cridata, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=Crisis)) +
+  geom_rect() +
+  geom_text(x=4.6, aes(y=labelPosition, label=Crisis, color=Crisis)) + # x here controls label position (inner / outer)
+  scale_fill_brewer(palette="Set1", direction = 1) +
+  scale_color_brewer(palette="Set1", direction = 1) +
+  coord_polar(theta="y") +
+  xlim(c(2, 4.5)) +
+  theme_void() +
+  theme(legend.position = "none")
+```
+
+<br>
+
+While full replication is a huge challenge (and sometimes impossible) to achieve, it is something all scientists should be working towards.
+
+<br>
+
+## Why work reproducibly?
+
+Working reproducibly is hugely valuable, because it helps us:
+
+- track down errors in analyses
+- build on previous findings and analyses
+- compare new analytical approaches to older ones
+- repeat the same analyses when new data are collected or added
+
+<br>
+
+##What are the barriers to reproducibility?
+
+- Access to data
+- Access to the computational workflow
+- Access to software
+- Access to a comparable computing environment
 
 <br>
 
@@ -86,7 +129,7 @@ knitr::include_graphics("img/xkcd_data_pipeline_2x.png")
 
 ```{r datalifecycle, echo=FALSE, fig.cap = "The Data Life Cycle, adapted from https://www.dataone.org/", fig.width=6, fig.align = 'center'}
 # load library
-library(ggplot2)
+#library(ggplot2)
 
 # Create test data.
 data <- data.frame(

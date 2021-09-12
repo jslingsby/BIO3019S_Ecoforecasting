@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Forecasting in ecology | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
+  <title>5 Forecasting in ecology | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Forecasting in ecology | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta property="og:title" content="5 Forecasting in ecology | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Forecasting in ecology | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta name="twitter:title" content="5 Forecasting in ecology | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   
   <meta name="twitter:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-09-08" />
+<meta name="date" content="2021-09-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="models.html"/>
-<link rel="next" href="reproducibility.html"/>
+<link rel="prev" href="reproducibility.html"/>
+<link rel="next" href="baysian.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -55,6 +55,70 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
@@ -109,20 +173,22 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="models.html"><a href="models.html#iterative-decision-making"><i class="fa fa-check"></i><b>3.3</b> Iterative decision-making</a></li>
 <li class="chapter" data-level="3.4" data-path="models.html"><a href="models.html#delete-from-here-once-done---how-to-reference"><i class="fa fa-check"></i><b>3.4</b> Delete from here once done… - How to reference</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="forecasting.html"><a href="forecasting.html"><i class="fa fa-check"></i><b>4</b> Forecasting in ecology</a>
+<li class="chapter" data-level="4" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="forecasting.html"><a href="forecasting.html#the-importance-of-prediction-in-ecology"><i class="fa fa-check"></i><b>4.1</b> The importance of prediction in ecology</a></li>
-<li class="chapter" data-level="4.2" data-path="forecasting.html"><a href="forecasting.html#iterative-ecological-forecasting"><i class="fa fa-check"></i><b>4.2</b> Iterative ecological forecasting</a></li>
+<li class="chapter" data-level="4.1" data-path="reproducibility.html"><a href="reproducibility.html#replication-and-the-reproducibility-spectrum"><i class="fa fa-check"></i><b>4.1</b> Replication and the Reproducibility Spectrum</a></li>
+<li class="chapter" data-level="4.2" data-path="reproducibility.html"><a href="reproducibility.html#the-reproducibility-crisis"><i class="fa fa-check"></i><b>4.2</b> The Reproducibility Crisis</a></li>
+<li class="chapter" data-level="4.3" data-path="reproducibility.html"><a href="reproducibility.html#why-work-reproducibly"><i class="fa fa-check"></i><b>4.3</b> Why work reproducibly?</a></li>
+<li class="chapter" data-level="4.4" data-path="reproducibility.html"><a href="reproducibility.html#scientific-workflows"><i class="fa fa-check"></i><b>4.4</b> Scientific Workflows</a></li>
+<li class="chapter" data-level="4.5" data-path="reproducibility.html"><a href="reproducibility.html#data-management"><i class="fa fa-check"></i><b>4.5</b> Data Management</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="reproducibility.html"><a href="reproducibility.html#why-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>4.5.1</b> Why you need to manage your data</a></li>
+<li class="chapter" data-level="4.5.2" data-path="reproducibility.html"><a href="reproducibility.html#the-data-life-cycle"><i class="fa fa-check"></i><b>4.5.2</b> The Data Life Cycle</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>5</b> Reproducible research</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="reproducibility.html"><a href="reproducibility.html#the-reproducibility-crisis"><i class="fa fa-check"></i><b>5.1</b> The Reproducibility Crisis</a></li>
-<li class="chapter" data-level="5.2" data-path="reproducibility.html"><a href="reproducibility.html#scientific-workflows"><i class="fa fa-check"></i><b>5.2</b> Scientific Workflows</a></li>
-<li class="chapter" data-level="5.3" data-path="reproducibility.html"><a href="reproducibility.html#the-data-life-cycle"><i class="fa fa-check"></i><b>5.3</b> The Data Life Cycle</a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="reproducibility.html"><a href="reproducibility.html#why-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>5.3.1</b> Why you need to manage your data</a></li>
-<li class="chapter" data-level="5.3.2" data-path="reproducibility.html"><a href="reproducibility.html#the-steps-involved-in-data-management"><i class="fa fa-check"></i><b>5.3.2</b> The steps involved in data management</a></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="forecasting.html"><a href="forecasting.html"><i class="fa fa-check"></i><b>5</b> Forecasting in ecology</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="forecasting.html"><a href="forecasting.html#the-importance-of-prediction-in-ecology"><i class="fa fa-check"></i><b>5.1</b> The importance of prediction in ecology</a></li>
+<li class="chapter" data-level="5.2" data-path="forecasting.html"><a href="forecasting.html#iterative-ecological-forecasting"><i class="fa fa-check"></i><b>5.2</b> Iterative ecological forecasting</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="baysian.html"><a href="baysian.html"><i class="fa fa-check"></i><b>6</b> Going Bayesian</a>
 <ul>
@@ -153,11 +219,11 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="forecasting" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Forecasting in ecology</h1>
+<div id="forecasting" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Forecasting in ecology</h1>
 <p><br></p>
-<div id="the-importance-of-prediction-in-ecology" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> The importance of prediction in ecology</h2>
+<div id="the-importance-of-prediction-in-ecology" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> The importance of prediction in ecology</h2>
 <blockquote>
 <p><em>“prediction is the only way to demonstrate scientific understanding”</em> <span class="citation">(<a href="#ref-Houlahan2017" role="doc-biblioref">Houlahan et al. 2017</a>)</span></p>
 </blockquote>
@@ -171,14 +237,14 @@ Testing predictions with new data collected after you’ve made your predictions
 </blockquote>
 <p><br></p>
 </div>
-<div id="iterative-ecological-forecasting" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Iterative ecological forecasting</h2>
+<div id="iterative-ecological-forecasting" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Iterative ecological forecasting</h2>
 <p>The recent growth in interest in iterative ecological forecasting seeks to not only make prediction a central focus in ecology, but to do so on a time scale that is both useful for decision makers and allows us to learn from testing our predictions (days to decades). This is a great initiative, but as we will see it poses a number of major challenges and requires a big improvement in quantitative skills in biology (hence this course…).</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:dietze2018F1"></span>
 <img src="img/dietze2018_F1.jpg" alt="The iterative ecological forecasting cycle in the context of the scientific method and the adaptive management and monitoring cycles [@Dietze2018]." width="640" />
 <p class="caption">
-Figure 4.1: The iterative ecological forecasting cycle in the context of the scientific method and the adaptive management and monitoring cycles <span class="citation">(<a href="#ref-Dietze2018" role="doc-biblioref">Dietze et al. 2018</a>)</span>.
+Figure 5.1: The iterative ecological forecasting cycle in the context of the scientific method and the adaptive management and monitoring cycles <span class="citation">(<a href="#ref-Dietze2018" role="doc-biblioref">Dietze et al. 2018</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -188,12 +254,12 @@ Figure 4.1: The iterative ecological forecasting cycle in the context of the sci
 <p><strong>The iterative forecasting cycle also feeds into adaptive management and monitoring:</strong></p>
 <p>In <strong>Adaptive Management</strong> and decision analysis, alternative decision scenarios are generated (2) based on an assessment of a problem (1). These decision scenarios are typically used to define the scenarios (or boundary conditions) for which models are run (“Scenarios” arrow), but can also feed into scientific hypotheses (not shown). Forecasts (Fx) are key in assessing the trade-offs and relative merits between alternative decision options (3). The decision(s) taken (4) determine the monitoring requirements (5), which allow us to evaluate the outcomes and reassess the problem (1), and start the adaptive management cycle again.</p>
 <p>Note that the iterative forecast cycle is also useful for adaptive management in that the analysis and partitioning of forecast uncertainties (from step C) can provide further guidance on what and how to monitor, so as to optimize the reduction in model uncertainties. This represents <strong>Adaptive Monitoring</strong> (dashed line) and is a cycle of itself <span class="citation">(<a href="#ref-Lindenmayer2009" role="doc-biblioref">Lindenmayer and Likens 2009</a>)</span>, but is largely subsumed by the other cycles here so we won’t go into it any further. Thus the iterative cycles of science, forecasting, management and monitoring are tightly intertwined and can interact continuously.</p>
-<p>What isn’t clear from Figure <a href="forecasting.html#fig:dietze2018F1">4.1</a> is that all of this needs to be founded on a highly efficient informatics pipeline that is robust and rapidly updateable - i.e. follows <strong>Reproducible Research</strong> principles. Adding this link helps to highlight what I like to think of as <em>“The Olympian Challenge of data-driven ecological decision making”</em>.</p>
+<p>What isn’t clear from Figure <a href="forecasting.html#fig:dietze2018F1">5.1</a> is that all of this needs to be founded on a highly efficient informatics pipeline that is robust and rapidly updateable - i.e. follows <strong>Reproducible Research</strong> principles. Adding this link helps to highlight what I like to think of as <em>“The Olympian Challenge of data-driven ecological decision making”</em>.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:olympiangoal"></span>
 <img src="img/olympian_goal.png" alt="The Olympian Challenge of data-driven ecological decision making." width="480" />
 <p class="caption">
-Figure 4.2: The Olympian Challenge of data-driven ecological decision making.
+Figure 5.2: The Olympian Challenge of data-driven ecological decision making.
 </p>
 </div>
 <p><br></p>
@@ -218,8 +284,8 @@ Lindenmayer, David B, and Gene E Likens. 2009. <span>“<span class="nocase">Ada
           </div>
         </div>
       </div>
-<a href="models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="reproducibility.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="reproducibility.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="baysian.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -270,6 +336,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

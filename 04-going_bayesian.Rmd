@@ -49,13 +49,25 @@ Add Postfire example
 # 
 # write_csv(ndvi, "/home/jasper/GIT/BIO3019S_Ecoforecasting/data/modisdata.csv")
 
+library(tidyverse)
+library(hrbrthemes)
 library(readr)
+
 dat <- read_csv("/home/jasper/GIT/BIO3019S_Ecoforecasting/data/modisdata.csv")
 
 dat$NDVI <- dat$value*0.0001
 
-par(mar = c(4, 4, .1, .1))
-plot(NDVI ~ calendar_date, data = dat, type = 'b', pch = 19)
+# par(mar = c(4, 4, .1, .1))
+# plot(NDVI ~ calendar_date, data = dat, type = 'b', pch = 19)
+
+dat %>%
+ # tail(10) %>%
+  ggplot(aes(x=calendar_date, y=NDVI)) +
+#    geom_polygon(fill = "grey") +
+    geom_path(color="black") +
+    geom_point(shape=21, color="black", fill="#69b3a2", size=2) +
+    theme_ipsum() +
+  xlab("Date")
 ```
 
 
