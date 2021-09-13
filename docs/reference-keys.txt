@@ -4,8 +4,8 @@ fig:decisions3
 fig:nice-fig
 tab:nice-tab
 fig:scimethod
-fig:reprocrisis
 fig:peng
+fig:reprocrisis
 fig:datalifecycle
 fig:dietze2018F1
 fig:olympiangoal
@@ -21,7 +21,6 @@ iterative-decision-making
 delete-from-here-once-done---how-to-reference
 reproducibility
 replication-and-the-reproducibility-spectrum
-the-reproducibility-crisis
 why-work-reproducibly
 scientific-workflows
 data-management

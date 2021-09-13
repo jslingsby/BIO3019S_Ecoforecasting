@@ -34,7 +34,7 @@ knitr::include_graphics("img/peng_reproducibility.jpg")
 
 <br>
 
-```{r reprocrisis, echo=FALSE, fig.cap = "'Is there a reproducibility* crisis?' Results from a survey of >1500 top scientists [@Baker2016]. *Note that they did not discern between reproducibility and replicability, and that the terms are often used interchangeably.", fig.width=6, fig.align = 'center', warning = F, message = F}
+```{r reprocrisis, echo=FALSE, fig.cap = "'Is there a reproducibility* crisis?' Results from a survey of >1500 top scientists [@Baker2016; @Penny2016]. *Note that they did not discern between reproducibility and replicability, and that the terms are often used interchangeably.", fig.width=6, fig.align = 'center', warning = F, message = F}
 # load library
 library(tidyverse)
 
