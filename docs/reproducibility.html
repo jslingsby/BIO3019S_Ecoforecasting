@@ -119,6 +119,8 @@ div.csl-indent {
 <li class="chapter" data-level="4.4.1" data-path="reproducibility.html"><a href="reproducibility.html#why-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>4.4.1</b> Why you need to manage your data</a></li>
 <li class="chapter" data-level="4.4.2" data-path="reproducibility.html"><a href="reproducibility.html#the-data-life-cycle"><i class="fa fa-check"></i><b>4.4.2</b> The Data Life Cycle</a></li>
 </ul></li>
+<li class="chapter" data-level="4.5" data-path="reproducibility.html"><a href="reproducibility.html#coding-and-code-management"><i class="fa fa-check"></i><b>4.5</b> Coding and code management</a></li>
+<li class="chapter" data-level="4.6" data-path="reproducibility.html"><a href="reproducibility.html#computing-and-software"><i class="fa fa-check"></i><b>4.6</b> Computing and software</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="forecasting.html"><a href="forecasting.html"><i class="fa fa-check"></i><b>5</b> Forecasting in ecology</a>
 <ul>
@@ -193,6 +195,8 @@ Figure 4.3: ‘Is there a reproducibility* crisis?’ Results from a survey of &
 </p>
 </div>
 <p><br></p>
+<p>We clearly have a problem…</p>
+<p>Working reproducibly is not just a requirement for using quantitative approaches in iterative decision-making, it is central to scientific progress!!!</p>
 <p>While full replication is a huge challenge (and sometimes impossible) to achieve, it is something all scientists should be working towards.</p>
 <p><br></p>
 </div>
@@ -205,7 +209,7 @@ Figure 4.4: Let’s start being more specific about our miracles… Cartoon © S
 </p>
 </div>
 <p><br></p>
-<p><strong><em>Working reproducibly is hugely valuable, because:</em></strong></p>
+<p><strong><em>In addition to basic scientific rigour, working reproducibly is hugely valuable, because:</em></strong></p>
 <p>(Adapted from “Five selfish reasons to work reproducibly” <span class="citation">(<a href="#ref-Markowetz2015" role="doc-biblioref">Markowetz 2015</a>)</span>)</p>
 <ol style="list-style-type: decimal">
 <li><em><strong>It helps us avoid mistakes and/or track down errors in analyses</strong></em></li>
@@ -237,8 +241,8 @@ Figure 4.4: Let’s start being more specific about our miracles… Cartoon © S
 <li><em><strong>It helps to build your reputation</strong></em></li>
 </ol>
 <ul>
-<li>Working reproducibly makes it clear you’re an honest, open and careful researcher, and should errors be found in your work you’re unlikely to be accused of dishonesty (e.g. see my paper example under point 1 - although no one has told me of any errors yet…).</li>
-<li>When others reuse your data, code, etc you’re likely to get credit for it (depending on the licensing conditions you specify - see “Preserve” in the Data Life Cycle)</li>
+<li>Working reproducibly makes it clear you’re an honest, open, careful and transparent researcher, and should errors be found in your work you’re unlikely to be accused of dishonesty (e.g. see my paper example under point 1 - although no one has told me of any errors yet…).</li>
+<li>When others reuse your data, code, etc you’re likely to get credit for it - either just informally, or formally through citations or acknowledgements (depending on the licensing conditions you specify - see “Preserve” in the Data Life Cycle).</li>
 </ul>
 <p>And some less selfish reasons (and relevant for ecoforecasting):</p>
 <ol start="6" style="list-style-type: decimal">
@@ -246,37 +250,39 @@ Figure 4.4: Let’s start being more specific about our miracles… Cartoon © S
 <li><em><strong>It allows easy comparison of new analytical approaches to older ones</strong></em></li>
 <li><em><strong>It makes it easy to repeat the same analyses when new data are collected or added</strong></em></li>
 </ol>
-<p>Reproducibility helps to avoid mistakes.
-Reproducibility makes it easier to write papers.
-Reproducibility helps reviewers see it your way.
-Reproducibility enables continuity of your work.
-Reproducibility helps to build your reputation.</p>
-<p><br></p>
-<p><strong><em>What are the barriers to reproducibility?</em></strong></p>
-<ul>
-<li>Access to data</li>
-<li>Access to the computational workflow</li>
-<li>Access to software</li>
-<li>Access to a comparable computing environment</li>
-</ul>
-<p><br></p>
-<p>Working reproducibly is clearly not just a requirement for using quantitative approaches in iterative decision-making, it is central to scientific progress!!!</p>
+<p>And one more selfish reason (but don’t tell anyone I said this): <em><strong>Should you decide to leave biology, reproducible research skills are highly sought after in other careers like data science etc…</strong></em></p>
 <p><br></p>
 </div>
 <div id="scientific-workflows" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Scientific Workflows</h2>
 <div class="figure" style="text-align: center"><span id="fig:datapipeline"></span>
-<img src="img/xkcd_data_pipeline_2x.png" alt="'Data Pipeline' from https://xkcd.com/2054, used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/)" width="740" />
+<img src="img/xkcd_data_pipeline_2x.png" alt="'Data Pipeline' from [xkcd.com/2054](https://xkcd.com/2054), used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/)." width="740" />
 <p class="caption">
-Figure 4.5: ‘Data Pipeline’ from <a href="https://xkcd.com/2054" class="uri">https://xkcd.com/2054</a>, used under a <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5 license</a>
+Figure 4.5: ‘Data Pipeline’ from <a href="https://xkcd.com/2054">xkcd.com/2054</a>, used under a <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5 license</a>.
 </p>
 </div>
+<p><br></p>
+<p>Working reproducibly requires careful planning and documentation of each step in your scientific workflow from <em>planning</em> your data collection to <em>sharing</em> your results.</p>
+<p>This entails a number of overlapping/intertwined components, namely:</p>
+<ul>
+<li>Data management</li>
+<li>Coding and code management (data analysis)</li>
+<li>Computing and software</li>
+</ul>
+<p>For the rest of this section we’ll work through these components and some of the tools that help you achieve this.</p>
 <p><br></p>
 </div>
 <div id="data-management" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Data Management</h2>
 <div id="why-you-need-to-manage-your-data" class="section level3" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> Why you need to manage your data</h3>
+<div class="figure" style="text-align: center"><span id="fig:datadecay"></span>
+<img src="img/datadecaycurve.jpg" alt="The 'Data Decay Curve' [@Michener1997]" width="75%" />
+<p class="caption">
+Figure 4.6: The ‘Data Decay Curve’ <span class="citation">(<a href="#ref-Michener1997" role="doc-biblioref">Michener et al. 1997</a>)</span>
+</p>
+</div>
+<p><br></p>
 <ul>
 <li>loss (Michener “data decay curve” fig)</li>
 <li>future self (lose it before ou’re finished with it)</li>
@@ -290,7 +296,7 @@ Figure 4.5: ‘Data Pipeline’ from <a href="https://xkcd.com/2054" class="uri"
 <div class="figure" style="text-align: center"><span id="fig:datalifecycle"></span>
 <img src="BIO3019S-Ecoforecasting_files/figure-html/datalifecycle-1.png" alt="The Data Life Cycle, adapted from https://www.dataone.org/" width="576" />
 <p class="caption">
-Figure 4.6: The Data Life Cycle, adapted from <a href="https://www.dataone.org/" class="uri">https://www.dataone.org/</a>
+Figure 4.7: The Data Life Cycle, adapted from <a href="https://www.dataone.org/" class="uri">https://www.dataone.org/</a>
 </p>
 </div>
 <div id="plan-dmps" class="section level4" number="4.4.2.1">
@@ -317,9 +323,28 @@ Figure 4.6: The Data Life Cycle, adapted from <a href="https://www.dataone.org/"
 <div id="analyze" class="section level4" number="4.4.2.8">
 <h4><span class="header-section-number">4.4.2.8</span> Analyze</h4>
 <p><br></p>
+</div>
+</div>
+</div>
+<div id="coding-and-code-management" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Coding and code management</h2>
+<p><br></p>
+<ul>
+<li>Why write code</li>
+<li>Some rules of coding</li>
+<li>Version control</li>
+</ul>
+<p><br></p>
+</div>
+<div id="computing-and-software" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Computing and software</h2>
+<p><br></p>
+<ul>
+<li>Why use open source software</li>
+<li>Containers</li>
+</ul>
+<p><br></p>
 
-</div>
-</div>
 </div>
 </div>
 <h3>References</h3>
@@ -329,6 +354,9 @@ Baker, Monya. 2016. <span>“<span class="nocase">1,500 scientists lift the lid 
 </div>
 <div id="ref-Markowetz2015" class="csl-entry">
 Markowetz, Florian. 2015. <span>“<span class="nocase">Five selfish reasons to work reproducibly</span>.”</span> <em>Genome Biology</em> 16 (December): 274. <a href="https://doi.org/10.1186/s13059-015-0850-7">https://doi.org/10.1186/s13059-015-0850-7</a>.
+</div>
+<div id="ref-Michener1997" class="csl-entry">
+Michener, William K, James W Brunt, John J Helly, Thomas B Kirchner, and Susan G Stafford. 1997. <span>“<span class="nocase">Nongeospatial data for the ecological sciences</span>.”</span> <em>Ecological Applications: A Publication of the Ecological Society of America</em> 7 (1): 330–42. <a href="https://doi.org/10.1890/1051-0761(1997)007[0330:nmftes]2.0.co;2">https://doi.org/10.1890/1051-0761(1997)007[0330:nmftes]2.0.co;2</a>.
 </div>
 <div id="ref-Peng2011" class="csl-entry">
 Peng, Roger D. 2011. <span>“<span class="nocase">Reproducible research in computational science</span>.”</span> <em>Science</em> 334 (6060): 1226–27. <a href="https://doi.org/10.1126/science.1213847">https://doi.org/10.1126/science.1213847</a>.

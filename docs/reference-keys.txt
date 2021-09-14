@@ -45,3 +45,6 @@ final-words
 fig:miracle
 working-reproducibly-is-hugely-valuable-because
 what-are-the-barriers-to-reproducibility
+fig:datadecay
+coding-and-code-management
+computing-and-software
