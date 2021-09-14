@@ -41,3 +41,4 @@ baysian
 maximum-likelihood
 probability-vs-likelihood
 final-words
+fig:datapipeline
