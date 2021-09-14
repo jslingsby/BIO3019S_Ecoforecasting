@@ -109,7 +109,7 @@ Working reproducibly is clearly not just a requirement for using quantitative ap
 
 ## Scientific Workflows
 
-```{r xkcd_data_pipeline, echo=FALSE, fig.cap = "", fig.width=3, fig.align = 'center'}
+```{r xkcd_data_pipeline, echo=FALSE, fig.cap = "'Data Pipeline' from https://xkcd.com/2054", fig.width=3, fig.align = 'center'}
 knitr::include_graphics("img/xkcd_data_pipeline_2x.png")
 ```
 
