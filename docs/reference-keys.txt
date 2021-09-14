@@ -6,6 +6,7 @@ tab:nice-tab
 fig:scimethod
 fig:peng
 fig:reprocrisis
+fig:datapipeline
 fig:datalifecycle
 fig:dietze2018F1
 fig:olympiangoal
@@ -41,4 +42,6 @@ baysian
 maximum-likelihood
 probability-vs-likelihood
 final-words
-fig:datapipeline
+fig:miracle
+working-reproducibly-is-hugely-valuable-because
+what-are-the-barriers-to-reproducibility

@@ -198,15 +198,61 @@ Figure 4.3: ‘Is there a reproducibility* crisis?’ Results from a survey of &
 </div>
 <div id="why-work-reproducibly" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Why work reproducibly?</h2>
-<p>Working reproducibly is hugely valuable, because it helps us:</p>
-<ul>
-<li>track down errors in analyses</li>
-<li>build on previous findings and analyses</li>
-<li>compare new analytical approaches to older ones</li>
-<li>repeat the same analyses when new data are collected or added</li>
-</ul>
+<div class="figure" style="text-align: center"><span id="fig:miracle"></span>
+<img src="img/miracle.jpg" alt="Let's start being more specific about our miracles... Cartoon &amp;copy; Sidney Harris. Used with permission [ScienceCartoonsPlus.com](www.ScienceCartoonsPlus.com)" width="150%" />
+<p class="caption">
+Figure 4.4: Let’s start being more specific about our miracles… Cartoon © Sidney Harris. Used with permission <a href="www.ScienceCartoonsPlus.com">ScienceCartoonsPlus.com</a>
+</p>
+</div>
 <p><br></p>
-<p>##What are the barriers to reproducibility?</p>
+<p><strong><em>Working reproducibly is hugely valuable, because:</em></strong></p>
+<p>(Adapted from “Five selfish reasons to work reproducibly” <span class="citation">(<a href="#ref-Markowetz2015" role="doc-biblioref">Markowetz 2015</a>)</span>)</p>
+<ol style="list-style-type: decimal">
+<li><em><strong>It helps us avoid mistakes and/or track down errors in analyses</strong></em></li>
+</ol>
+<ul>
+<li>This is what highlighted the importance of working reproducibly for me. In 2017 I published the first evidence of observed climate change impacts on biodiversity in the Fynbos Biome <span class="citation">(<a href="#ref-Slingsby2017" role="doc-biblioref">Slingsby et al. 2017</a>)</span>. The analyses were quite complicated, and when working on the revisions I found an error in my R code. Fortunately, it didn’t change the results qualitatively, but it made me realize how easy it is to make a mistake and put the wrong message out there! This encouraged me to make all data and R code from the paper available, so that anyone is free to check my data and analyses and let me (and/or the world) know if they find any errors.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><em><strong>It makes it easier to write papers</strong></em></li>
+</ol>
+<ul>
+<li>e.g. Dynamic documents like RMarkdown or Jupyter Notebooks update automatically when you change your analyses, so you don’t have to copy/paste or save/insert all tables and figures (or worry about whether you included the latest versions.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li><em><strong>It helps the review process</strong></em></li>
+</ol>
+<ul>
+<li>Often issues picked at by reviewers are matters of clarity/confusion. Sharing your data and analyses allows them to see exactly what you did, not just what you said you did, allowing them to identify the problem and make constructive suggestions.</li>
+<li>It’s also handy to be able to respond to a reviewer’s comment with something like <em>“That’s a great suggestion, but not really in line with the objectives of the study. We have chosen not to include the suggested analysis, but do provide all data and code so that interested readers can explore this for themselves.”</em> (Feel free to copy and paste - <a href="https://creativecommons.org/publicdomain/zero/1.0/">CCO 1.0</a>)</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li><em><strong>It enables continuity of the research</strong></em></li>
+</ol>
+<ul>
+<li>When people leave a project (e.g. students/postdocs), or you forget what you did <em>X</em> days/weeks/months/years ago, it can be a serious setback for a project and make it difficult for you or a new student to pick up where things left off. If the data and workflow are well curated and documented this problem is avoided. <em>Trust me, this is a very common problem!!!</em> I have many papers that I (or my students) never published and may never go back to, because I know it’ll take me a few days or weeks to understand the datasets and analyses again…</li>
+<li>This is obviously incredibly important for long-term projects!!!</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li><em><strong>It helps to build your reputation</strong></em></li>
+</ol>
+<ul>
+<li>Working reproducibly makes it clear you’re an honest, open and careful researcher, and should errors be found in your work you’re unlikely to be accused of dishonesty (e.g. see my paper example under point 1 - although no one has told me of any errors yet…).</li>
+<li>When others reuse your data, code, etc you’re likely to get credit for it (depending on the licensing conditions you specify - see “Preserve” in the Data Life Cycle)</li>
+</ul>
+<p>And some less selfish reasons (and relevant for ecoforecasting):</p>
+<ol start="6" style="list-style-type: decimal">
+<li><em><strong>It allows you (or others) to rapidly build on previous findings and analyses</strong></em></li>
+<li><em><strong>It allows easy comparison of new analytical approaches to older ones</strong></em></li>
+<li><em><strong>It makes it easy to repeat the same analyses when new data are collected or added</strong></em></li>
+</ol>
+<p>Reproducibility helps to avoid mistakes.
+Reproducibility makes it easier to write papers.
+Reproducibility helps reviewers see it your way.
+Reproducibility enables continuity of your work.
+Reproducibility helps to build your reputation.</p>
+<p><br></p>
+<p><strong><em>What are the barriers to reproducibility?</em></strong></p>
 <ul>
 <li>Access to data</li>
 <li>Access to the computational workflow</li>
@@ -222,7 +268,7 @@ Figure 4.3: ‘Is there a reproducibility* crisis?’ Results from a survey of &
 <div class="figure" style="text-align: center"><span id="fig:datapipeline"></span>
 <img src="img/xkcd_data_pipeline_2x.png" alt="'Data Pipeline' from https://xkcd.com/2054, used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/)" width="740" />
 <p class="caption">
-Figure 4.4: ‘Data Pipeline’ from <a href="https://xkcd.com/2054" class="uri">https://xkcd.com/2054</a>, used under a <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5 license</a>
+Figure 4.5: ‘Data Pipeline’ from <a href="https://xkcd.com/2054" class="uri">https://xkcd.com/2054</a>, used under a <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5 license</a>
 </p>
 </div>
 <p><br></p>
@@ -244,7 +290,7 @@ Figure 4.4: ‘Data Pipeline’ from <a href="https://xkcd.com/2054" class="uri"
 <div class="figure" style="text-align: center"><span id="fig:datalifecycle"></span>
 <img src="BIO3019S-Ecoforecasting_files/figure-html/datalifecycle-1.png" alt="The Data Life Cycle, adapted from https://www.dataone.org/" width="576" />
 <p class="caption">
-Figure 4.5: The Data Life Cycle, adapted from <a href="https://www.dataone.org/" class="uri">https://www.dataone.org/</a>
+Figure 4.6: The Data Life Cycle, adapted from <a href="https://www.dataone.org/" class="uri">https://www.dataone.org/</a>
 </p>
 </div>
 <div id="plan-dmps" class="section level4" number="4.4.2.1">
@@ -281,11 +327,17 @@ Figure 4.5: The Data Life Cycle, adapted from <a href="https://www.dataone.org/"
 <div id="ref-Baker2016" class="csl-entry">
 Baker, Monya. 2016. <span>“<span class="nocase">1,500 scientists lift the lid on reproducibility</span>.”</span> <em>Nature</em> 533 (7604): 452–54. <a href="https://doi.org/10.1038/533452a">https://doi.org/10.1038/533452a</a>.
 </div>
+<div id="ref-Markowetz2015" class="csl-entry">
+Markowetz, Florian. 2015. <span>“<span class="nocase">Five selfish reasons to work reproducibly</span>.”</span> <em>Genome Biology</em> 16 (December): 274. <a href="https://doi.org/10.1186/s13059-015-0850-7">https://doi.org/10.1186/s13059-015-0850-7</a>.
+</div>
 <div id="ref-Peng2011" class="csl-entry">
 Peng, Roger D. 2011. <span>“<span class="nocase">Reproducible research in computational science</span>.”</span> <em>Science</em> 334 (6060): 1226–27. <a href="https://doi.org/10.1126/science.1213847">https://doi.org/10.1126/science.1213847</a>.
 </div>
 <div id="ref-Penny2016" class="csl-entry">
 Penny, Dan. 2016. <span>“<span class="nocase">Nature Reproducibility survey</span>,”</span> May. <a href="https://doi.org/10.6084/m9.figshare.3394951.v1">https://doi.org/10.6084/m9.figshare.3394951.v1</a>.
+</div>
+<div id="ref-Slingsby2017" class="csl-entry">
+Slingsby, Jasper A, Cory Merow, Matthew Aiello-Lammens, Nicky Allsopp, Stuart Hall, Hayley Kilroy Mollmann, Ross Turner, Adam M Wilson, and John A Silander Jr. 2017. <span>“<span class="nocase">Intensifying postfire weather and biological invasion drive species loss in a Mediterranean-type biodiversity hotspot</span>.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em> 114 (18): 4697–4702. <a href="https://doi.org/10.1073/pnas.1619014114">https://doi.org/10.1073/pnas.1619014114</a>.
 </div>
 </div>
             </section>

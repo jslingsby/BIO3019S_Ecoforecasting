@@ -85,16 +85,46 @@ While full replication is a huge challenge (and sometimes impossible) to achieve
 
 ## Why work reproducibly?
 
-Working reproducibly is hugely valuable, because it helps us:
-
-- track down errors in analyses
-- build on previous findings and analyses
-- compare new analytical approaches to older ones
-- repeat the same analyses when new data are collected or added
+```{r miracle, echo=FALSE, fig.cap = "Let's start being more specific about our miracles... Cartoon &copy; Sidney Harris. Used with permission [ScienceCartoonsPlus.com](www.ScienceCartoonsPlus.com)", fig.width=6, fig.align = 'center', out.width="150%"}
+knitr::include_graphics("img/miracle.jpg")
+```
 
 <br>
 
-##What are the barriers to reproducibility?
+***Working reproducibly is hugely valuable, because:***
+
+(Adapted from "Five selfish reasons to work reproducibly" [@Markowetz2015])
+
+1. _**It helps us avoid mistakes and/or track down errors in analyses**_
+- This is what highlighted the importance of working reproducibly for me. In 2017 I published the first evidence of observed climate change impacts on biodiversity in the Fynbos Biome [@Slingsby2017]. The analyses were quite complicated, and when working on the revisions I found an error in my R code. Fortunately, it didn't change the results qualitatively, but it made me realize how easy it is to make a mistake and put the wrong message out there! This encouraged me to make all data and R code from the paper available, so that anyone is free to check my data and analyses and let me (and/or the world) know if they find any errors.
+2. _**It makes it easier to write papers**_
+- e.g. Dynamic documents like RMarkdown or Jupyter Notebooks update automatically when you change your analyses, so you don't have to copy/paste or save/insert all tables and figures (or worry about whether you included the latest versions.
+3. _**It helps the review process**_
+- Often issues picked at by reviewers are matters of clarity/confusion. Sharing your data and analyses allows them to see exactly what you did, not just what you said you did, allowing them to identify the problem and make constructive suggestions.
+- It's also handy to be able to respond to a reviewer's comment with something like _"That's a great suggestion, but not really in line with the objectives of the study. We have chosen not to include the suggested analysis, but do provide all data and code so that interested readers can explore this for themselves."_ (Feel free to copy and paste - [CCO 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+4. _**It enables continuity of the research**_
+- When people leave a project (e.g. students/postdocs), or you forget what you did _X_ days/weeks/months/years ago, it can be a serious setback for a project and make it difficult for you or a new student to pick up where things left off. If the data and workflow are well curated and documented this problem is avoided. _Trust me, this is a very common problem!!!_ I have many papers that I (or my students) never published and may never go back to, because I know it'll take me a few days or weeks to understand the datasets and analyses again...
+- This is obviously incredibly important for long-term projects!!!
+5. _**It helps to build your reputation**_
+- Working reproducibly makes it clear you're an honest, open and careful researcher, and should errors be found in your work you're unlikely to be accused of dishonesty (e.g. see my paper example under point 1 - although no one has told me of any errors yet...).
+- When others reuse your data, code, etc you're likely to get credit for it (depending on the licensing conditions you specify - see "Preserve" in the Data Life Cycle)
+
+And some less selfish reasons (and relevant for ecoforecasting):
+
+6. _**It allows you (or others) to rapidly build on previous findings and analyses**_
+7. _**It allows easy comparison of new analytical approaches to older ones**_
+8. _**It makes it easy to repeat the same analyses when new data are collected or added**_
+
+
+Reproducibility helps to avoid mistakes.
+Reproducibility makes it easier to write papers.
+Reproducibility helps reviewers see it your way.
+Reproducibility enables continuity of your work.
+Reproducibility helps to build your reputation.
+
+<br>
+
+***What are the barriers to reproducibility?***
 
 - Access to data
 - Access to the computational workflow
