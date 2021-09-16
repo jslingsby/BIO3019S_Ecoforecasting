@@ -310,17 +310,18 @@ Figure 4.7: The Data Life Cycle, adapted from <a href="https://www.dataone.org/"
 </p>
 </div>
 <p><br></p>
-<p>Note that there are quite a few different versions of the data life cycle out there. This is the most comprehensive one I know of and covers all the steps relevent to a range of different kinds of research projects. Not all projects need to do all steps, nor will they necessarily follow the order here, but it is worth being aware of and considering all steps.</p>
-<p>For example, often the first thing you do when you have a new hypothesis is search around for any existing data that could be used to test it without having to spend money and time collecting new data (i.e. skip to step 6). In this case I would argue that you should still do step 1 (Plan), and you’d want to do some checking to assure the quality of the data (step 3), but you can certainly skip steps 2, 4 and 5. A meta-analysis or synthesis paper would probably do the same. On the other hand, if you’re collecting new data you would do steps 1 to 5 and possibly skip 6 and 7, although in my experience few studies do not reuse existing data (e.g. weather or various GIS data to put your new samples in context).</p>
+<p>Note that there are quite a few different versions of the data life cycle out there. This is the most comprehensive one I know of, and covers all the steps relevant to a range of different kinds of research projects. A full description of this data life cycle and related ecoinformatics issues can be found in <span class="citation">(<a href="#ref-Michener2012" role="doc-biblioref">Michener and Jones 2012</a>)</span>.</p>
+<p>Not all projects need to do all steps, nor will they necessarily follow the order here, but it is worth being aware of and considering all steps. For example, often the first thing you do when you have a new hypothesis is search around for any existing data that could be used to test it without having to spend money and time collecting new data (i.e. skip to step 6). In this case I would argue that you should still do step 1 (Plan), and you’d want to do some checking to assure the quality of the data (step 3), but you can certainly skip steps 2, 4 and 5. A meta-analysis or synthesis paper would probably do the same. On the other hand, if you’re collecting new data you would do steps 1 to 5 and possibly skip 6 and 7, although in my experience few studies do not reuse existing data (e.g. weather or various GIS data to put your new samples in context).</p>
 <p><br></p>
 <div id="plan" class="section level4" number="4.4.2.1">
 <h4><span class="header-section-number">4.4.2.1</span> Plan</h4>
-<p>Good data management begins with planning. While constructing Data Management Plans (DMPs) can seem tedious, they are essential:</p>
+<p>Good data management begins with planning. In this step you essentially outline the plan for every step of the cycle in as much detail as possible. Usually this is done by constructing a document or Data Management Plan (DMP).</p>
+<p>While developing DMPs can seem tedious, they are essential:</p>
 <ol style="list-style-type: lower-alpha">
 <li>for the reasons I gave above</li>
 <li>because most funders and universities now require them</li>
 </ol>
-<p>Fortunately, there are a number of online data management planning tools, including <a href="https://dmp.lib.uct.ac.za/">UCT’s DMP Tool</a>, that now make it easy, by providing templates and prompts to ensure that you cover all the bases.</p>
+<p>Fortunately, there are a number of online data management planning tools that make it easy by providing templates and prompts to ensure that you cover all the bases, including <a href="https://dmp.lib.uct.ac.za/">UCT’s DMP Tool</a>.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:uctdmp"></span>
 <img src="img/UCTDMP.png" alt="Screenshot of [UCT's Data Management Planning Tool's Data Management Checklist.](http://www.digitalservices.lib.uct.ac.za/dls/systems/uct-dmp)" width="90%" />
@@ -343,11 +344,35 @@ Figure 4.9: <a href="https://doi.org/10.6084/m9.figshare.5883193.v1">Springer Na
 </p>
 </div>
 <p><br></p>
-<p>While “Collect” and “Assure” are different steps in the life cycle, I advocate that it is foolish to collect data without doing quality assurance and quality control (QA/QC) as you go.</p>
+<p>While “Collect” and “Assure” are different steps in the life cycle, I advocate that it is foolish to collect data without doing quality assurance and quality control (QA/QC) as you go, irrespective of how you are collecting the data.</p>
+<p>For example:</p>
+<ul>
+<li>automated logging instruments (weather stations, cameras, acoustic recorders) need to be checked that they’re logging properly, are calibrated/focused, are reporting sensible values, etc</li>
+<li>if you’re filling in data sheets, you need to check that all fields have been completed, that there are no obvious errors and that any numbers or other values look realistic. In fact, if you’re using handwritten data sheets it’s best to capture them as soon as possible (i.e. that evening), because that helps you spot errors and omissions, you have a better chance of deciphering bad handwriting or cryptic notes, and you can plot any values to see if there are suspicious outliers (e.g. because someone wrote down a measurement in centimetres when they were meant to use metres).</li>
+</ul>
+<p>When transcribing or capturing data into a spreadsheet or database it is often best to <strong>use data validation</strong> tricks like drop-down menus, conditional formatting, restricted value ranges etc to avoid spelling mistakes and highlight data entries that are outside the expected range of the data field. It may seem like a lot of effort to set this up, but <em>it’ll save you a lot of time and pain in the long run!!!</em></p>
+<p>Increasingly, I’ve started moving towards capturing data directly into a spreadsheet on a tablet, or better yet, into an App on my phone. There are a number of “no code” app builders these days like <a href="https://www.appsheet.com">AppSheet</a> that inserts data directly into Google Sheets and saves photos to your Google Drive.</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:appsheet"></span>
+<img src="img/veldwatch.png" alt="An example data collection app I built in [AppSheet](https://www.appsheet.com) that allows you to log GPS coordinates, take photos, record various fields, etc." width="90%" />
+<p class="caption">
+Figure 4.10: An example data collection app I built in <a href="https://www.appsheet.com">AppSheet</a> that allows you to log GPS coordinates, take photos, record various fields, etc.
+</p>
+</div>
 <p><br></p>
 </div>
 <div id="describe" class="section level4" number="4.4.2.3">
 <h4><span class="header-section-number">4.4.2.3</span> Describe</h4>
+<p>Metadata…</p>
+<ul>
+<li>who created, collected and managed the data</li>
+<li>the data content and format</li>
+<li>when the data were collected</li>
+<li>where the data were collected and stored</li>
+<li>how the data were generated, processed, assured and analyzed</li>
+<li>the study context - i.e. why the data were generated</li>
+</ul>
+<p><br></p>
 </div>
 <div id="preserve" class="section level4" number="4.4.2.4">
 <h4><span class="header-section-number">4.4.2.4</span> Preserve</h4>
@@ -396,6 +421,9 @@ Markowetz, Florian. 2015. <span>“<span class="nocase">Five selfish reasons to 
 </div>
 <div id="ref-Michener1997" class="csl-entry">
 Michener, William K, James W Brunt, John J Helly, Thomas B Kirchner, and Susan G Stafford. 1997. <span>“<span class="nocase">Nongeospatial data for the ecological sciences</span>.”</span> <em>Ecological Applications: A Publication of the Ecological Society of America</em> 7 (1): 330–42. <a href="https://doi.org/10.1890/1051-0761(1997)007[0330:nmftes]2.0.co;2">https://doi.org/10.1890/1051-0761(1997)007[0330:nmftes]2.0.co;2</a>.
+</div>
+<div id="ref-Michener2012" class="csl-entry">
+Michener, William K, and Matthew B Jones. 2012. <span>“<span class="nocase">Ecoinformatics: supporting ecology as a data-intensive science</span>.”</span> <em>Trends in Ecology &amp; Evolution</em> 27 (2): 85–93. <a href="https://doi.org/10.1016/j.tree.2011.11.016">https://doi.org/10.1016/j.tree.2011.11.016</a>.
 </div>
 <div id="ref-Peng2011" class="csl-entry">
 Peng, Roger D. 2011. <span>“<span class="nocase">Reproducible research in computational science</span>.”</span> <em>Science</em> 334 (6060): 1226–27. <a href="https://doi.org/10.1126/science.1213847">https://doi.org/10.1126/science.1213847</a>.

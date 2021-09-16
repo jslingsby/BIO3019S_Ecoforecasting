@@ -51,3 +51,4 @@ why-do-you-need-to-manage-your-data
 fig:uctdmp
 fig:datatypes
 collect-and-assure
+fig:appsheet

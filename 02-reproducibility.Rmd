@@ -212,19 +212,21 @@ ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
 
 <br>
 
-Note that there are quite a few different versions of the data life cycle out there. This is the most comprehensive one I know of and covers all the steps relevent to a range of different kinds of research projects. Not all projects need to do all steps, nor will they necessarily follow the order here, but it is worth being aware of and considering all steps.
+Note that there are quite a few different versions of the data life cycle out there. This is the most comprehensive one I know of, and covers all the steps relevant to a range of different kinds of research projects. A full description of this data life cycle and related ecoinformatics issues can be found in [@Michener2012]. 
 
-For example, often the first thing you do when you have a new hypothesis is search around for any existing data that could be used to test it without having to spend money and time collecting new data (i.e. skip to step 6). In this case I would argue that you should still do step 1 (Plan), and you'd want to do some checking to assure the quality of the data (step 3), but you can certainly skip steps 2, 4 and 5. A meta-analysis or synthesis paper would probably do the same. On the other hand, if you're collecting new data you would do steps 1 to 5 and possibly skip 6 and 7, although in my experience few studies do not reuse existing data (e.g. weather or various GIS data to put your new samples in context).
+Not all projects need to do all steps, nor will they necessarily follow the order here, but it is worth being aware of and considering all steps. For example, often the first thing you do when you have a new hypothesis is search around for any existing data that could be used to test it without having to spend money and time collecting new data (i.e. skip to step 6). In this case I would argue that you should still do step 1 (Plan), and you'd want to do some checking to assure the quality of the data (step 3), but you can certainly skip steps 2, 4 and 5. A meta-analysis or synthesis paper would probably do the same. On the other hand, if you're collecting new data you would do steps 1 to 5 and possibly skip 6 and 7, although in my experience few studies do not reuse existing data (e.g. weather or various GIS data to put your new samples in context).
 
 <br>
 
 #### Plan 
-Good data management begins with planning. While constructing Data Management Plans (DMPs) can seem tedious, they are essential:
+Good data management begins with planning. In this step you essentially outline the plan for every step of the cycle in as much detail as possible. Usually this is done by constructing a document or Data Management Plan (DMP). 
+
+While developing DMPs can seem tedious, they are essential:
 
 a. for the reasons I gave above
 b. because most funders and universities now require them
 
-Fortunately, there are a number of online data management planning tools, including [UCT's DMP Tool](https://dmp.lib.uct.ac.za/), that now make it easy, by providing templates and prompts to ensure that you cover all the bases.
+Fortunately, there are a number of online data management planning tools that make it easy by providing templates and prompts to ensure that you cover all the bases, including [UCT's DMP Tool](https://dmp.lib.uct.ac.za/).
 
 <br>
 
@@ -250,11 +252,37 @@ knitr::include_graphics("img/datatypes.png")
 
 <br>
 
-While "Collect" and "Assure" are different steps in the life cycle, I advocate that it is foolish to collect data without doing quality assurance and quality control (QA/QC) as you go. 
+While "Collect" and "Assure" are different steps in the life cycle, I advocate that it is foolish to collect data without doing quality assurance and quality control (QA/QC) as you go, irrespective of how you are collecting the data.
+
+For example:
+
+- automated logging instruments (weather stations, cameras, acoustic recorders) need to be checked that they're logging properly, are calibrated/focused, are reporting sensible values, etc
+- if you're filling in data sheets, you need to check that all fields have been completed, that there are no obvious errors and that any numbers or other values look realistic. In fact, if you're using handwritten data sheets it's best to capture them as soon as possible (i.e. that evening), because that helps you spot errors and omissions, you have a better chance of deciphering bad handwriting or cryptic notes, and you can plot any values to see if there are suspicious outliers (e.g. because someone wrote down a measurement in centimetres when they were meant to use metres).
+
+When transcribing or capturing data into a spreadsheet or database it is often best to **use data validation** tricks like drop-down menus, conditional formatting, restricted value ranges etc to avoid spelling mistakes and highlight data entries that are outside the expected range of the data field. It may seem like a lot of effort to set this up, but *it'll save you a lot of time and pain in the long run!!!*
+
+Increasingly, I've started moving towards capturing data directly into a spreadsheet on a tablet, or better yet, into an App on my phone. There are a number of "no code" app builders these days like [AppSheet](https://www.appsheet.com) that inserts data directly into Google Sheets and saves photos to your Google Drive.
+
+<br>
+
+```{r appsheet, echo=FALSE, fig.cap = "An example data collection app I built in [AppSheet](https://www.appsheet.com) that allows you to log GPS coordinates, take photos, record various fields, etc.", fig.width=3, fig.align = 'center', out.width="90%"}
+knitr::include_graphics("img/veldwatch.png")
+```
 
 <br>
 
 #### Describe
+
+Metadata...
+
+- who created, collected and managed the data
+- the data content and format
+- when the data were collected
+- where the data were collected and stored
+- how the data were generated, processed, assured and analyzed
+- the study context - i.e. why the data were generated
+
+<br>
 
 #### Preserve
 
