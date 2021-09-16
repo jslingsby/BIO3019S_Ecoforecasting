@@ -18,15 +18,15 @@ _This module is a minimal introduction to Ecological Forecasting and Reproducibl
 
 ## General
 
-I provide a very brief introduction to Ecological Forecasting and the various principles and tools required to make research more reproducible and (hopefully) more useful. We only have a two weeks, so this really is a minimalist introduction. I'll focus on providing a broad overview of the general framework and motivation, but won't have time to delve into the more gory theoretical and statistical details.
-
+I provide a very brief introduction to Ecological Forecasting and the various principles and tools required to make research more reproducible and (hopefully) more useful. We only have a two weeks, so this really is a minimalist introduction. I'll focus on providing a broad overview of the general framework and motivation for ecological forecasting, but won't have time to delve into the more gory theoretical and statistical details.
 
 The core outcomes/concepts I hope you'll come away with:
 
-* To be able to situate the role of models and the importane of prediction in science and ecological decision making
+* To be able to situate the role of models and the importance of prediction in science and ecological decision making
 * Familiarity with the concepts and understand the need for Open, Reproducible Science
 * Familiarity with The Data Life Cycle
 * Familiarity with Open Science tools
+* 
 
 <br>
 
@@ -56,7 +56,7 @@ _Many of the following resources were instrumental in me pulling this material t
 
 <br>
 
-All code, images, etc can be found [here](https://github.com/jslingsby/BIO3019S_Ecoforecasting). I have only used images etc that were made available online under a non-restrictive license (Creative Commons, etc) and have attributed my sources. Content without attribution is my own and shared under the license below. If there is any content you find concerning with regard to licensing, or that you find offensive, please [contact me](https://www.ecologi.st/contact/). Any feedback, positive or negative, is welcome!
+All code, images, etc can be found [here](https://github.com/jslingsby/BIO3019S_Ecoforecasting). I have only used images and other materials that were made available online under a non-restrictive license (Creative Commons, etc) of for which I have express permission, and have attributed my sources. Content without attribution is my own and shared under the license below. If there are any errors or any content you find concerning with regard to licensing, or that you find offensive, please [contact me](https://www.ecologi.st/contact/). Any feedback, positive or negative, is welcome!
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 

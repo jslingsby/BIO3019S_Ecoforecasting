@@ -6,7 +6,9 @@ tab:nice-tab
 fig:scimethod
 fig:peng
 fig:reprocrisis
+fig:miracle
 fig:datapipeline
+fig:datadecay
 fig:datalifecycle
 fig:dietze2018F1
 fig:olympiangoal
@@ -35,6 +37,8 @@ preserve
 discover
 integrate
 analyze
+coding-and-code-management
+computing-and-software
 forecasting
 the-importance-of-prediction-in-ecology
 iterative-ecological-forecasting
@@ -42,9 +46,8 @@ baysian
 maximum-likelihood
 probability-vs-likelihood
 final-words
-fig:miracle
-working-reproducibly-is-hugely-valuable-because
-what-are-the-barriers-to-reproducibility
-fig:datadecay
-coding-and-code-management
-computing-and-software
+plan
+why-do-you-need-to-manage-your-data
+fig:uctdmp
+fig:datatypes
+collect-and-assure

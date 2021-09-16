@@ -100,7 +100,7 @@ knitr::include_graphics("img/miracle.jpg")
 (Adapted from "Five selfish reasons to work reproducibly" [@Markowetz2015])
 
 1. _**It helps us avoid mistakes and/or track down errors in analyses**_
-- This is what highlighted the importance of working reproducibly for me. In 2017 I published the first evidence of observed climate change impacts on biodiversity in the Fynbos Biome [@Slingsby2017]. The analyses were quite complicated, and when working on the revisions I found an error in my R code. Fortunately, it didn't change the results qualitatively, but it made me realize how easy it is to make a mistake and put the wrong message out there! This encouraged me to make all data and R code from the paper available, so that anyone is free to check my data and analyses and let me (and/or the world) know if they find any errors.
+- This is what highlighted the importance of working reproducibly for me. In 2017 I published the first evidence of observed climate change impacts on biodiversity in the Fynbos Biome [@Slingsby2017]. The analyses were quite complicated, and when working on the revisions I found an error in my R code. Fortunately, it didn't change the results qualitatively, but it made me realize how easy it is to make a mistake and potentially put the wrong message out there! This encouraged me to make all data and R code from the paper available, so that anyone is free to check my data and analyses and let me (and/or the world) know if they find any errors.
 2. _**It makes it easier to write papers**_
 - e.g. Dynamic documents like RMarkdown or Jupyter Notebooks update automatically when you change your analyses, so you don't have to copy/paste or save/insert all tables and figures (or worry about whether you included the latest versions.
 3. _**It helps the review process**_
@@ -145,7 +145,11 @@ For the rest of this section we'll work through these components and some of the
 
 ## Data Management
 
-### Why you need to manage your data
+### Why do you need to manage your data?
+
+Data management is often the last thing on a scientists mind when doing a new study - "I have a cool idea, and I'm going to test it!". You don't want to "waste" time planning how you're going to manage your data and implementing that plan... Unfortunately, this never ends well and really is a realm where "haste makes waste".
+
+<br>
 
 ```{r datadecay, echo=FALSE, fig.cap = "The 'Data Decay Curve' [@Michener1997]", fig.width=3, fig.align = 'center', out.width="75%"}
 knitr::include_graphics("img/datadecaycurve.jpg")
@@ -153,11 +157,19 @@ knitr::include_graphics("img/datadecaycurve.jpg")
 
 <br>
 
-- loss (Michener "data decay curve" fig)
-- future self (lose it before ou're finished with it)
-- value to yourself for sharing, credit etc (publications and citations), 
-- science on general (esp long-term ecology in a time of global change)
-- Transparency and accountability
+- Bad data management leads to data loss... (The "data decay curve" [@Michener1997])
+- Your future self will hate you if you lose it before you're finished with it - Eek!!! This is less likely in the world of Dropbox, Google Drive, iCloud etc, but I know people who had to repeat their PhD's because they lost their data or it was on a laptop that was stolen...
+- Data has value beyond your current project: 
+  - to yourself for reuse in future projects, collaborations, etc (i.e. publications and citations), 
+  - for others for follow-up studies, or combining multiple datasets for meta-analyses or synthesis etc
+  - for science on general (especially long-term ecology in a time of global change)
+- We've covered this before, but it is also key for transparency and accountability.
+- Data collection is expensive, and is often paid for with taxpayers' money. You owe it to them to make sure that science gets the most out of that data in the long term.
+- Lastly, good planning and data management can help iron out issues like intellectual property, permissions for ethics, collection permits, etc, in addition to outlining expectations for who will be authors on the paper(s), responsible for managing different aspects of the data etc up front. If you don't establish these permissions and ground rules early they can result in data loss, not being able to publish the study, damage careers, and/or damage relationships in collaborations (including student-supervisor), etc. 
+
+To avoid data (and relationship) decay, and to reap the benefits of good data management, it is important to consider the full *Data Life Cycle*.
+
+<br>
 
 ### The Data Life Cycle
 
@@ -198,16 +210,55 @@ ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
   theme(legend.position = "none")
 ```
 
+<br>
 
-#### Plan (DMPs)
+Note that there are quite a few different versions of the data life cycle out there. This is the most comprehensive one I know of and covers all the steps relevent to a range of different kinds of research projects. Not all projects need to do all steps, nor will they necessarily follow the order here, but it is worth being aware of and considering all steps.
 
-#### Collect
+For example, often the first thing you do when you have a new hypothesis is search around for any existing data that could be used to test it without having to spend money and time collecting new data (i.e. skip to step 6). In this case I would argue that you should still do step 1 (Plan), and you'd want to do some checking to assure the quality of the data (step 3), but you can certainly skip steps 2, 4 and 5. A meta-analysis or synthesis paper would probably do the same. On the other hand, if you're collecting new data you would do steps 1 to 5 and possibly skip 6 and 7, although in my experience few studies do not reuse existing data (e.g. weather or various GIS data to put your new samples in context).
 
-#### Assure
+<br>
+
+#### Plan 
+Good data management begins with planning. While constructing Data Management Plans (DMPs) can seem tedious, they are essential:
+
+a. for the reasons I gave above
+b. because most funders and universities now require them
+
+Fortunately, there are a number of online data management planning tools, including [UCT's DMP Tool](https://dmp.lib.uct.ac.za/), that now make it easy, by providing templates and prompts to ensure that you cover all the bases.
+
+<br>
+
+```{r uctdmp, echo=FALSE, fig.cap = "Screenshot of [UCT's Data Management Planning Tool's Data Management Checklist.](http://www.digitalservices.lib.uct.ac.za/dls/systems/uct-dmp)", fig.width=3, fig.align = 'center', out.width="90%"}
+knitr::include_graphics("img/UCTDMP.png")
+```
+
+<br>
+
+A key thing to bear in mind is that a DMP is a living document and should be regularly revised during the life of a project, especially when big changes happen - e.g. new team members, new funding, new direction, change of institution, etc.
+
+I typically develop one overarching DMP for an umbrella project (e.g. a particular grant), but then add specifics for subprojects (e.g. separate student projects etc).
+
+<br>
+
+#### Collect and Assure
+
+There are many, many different kinds of data that can be collected in a vast number of ways!
+
+```{r datatypes, echo=FALSE, fig.cap = "[Springer Nature Infographic](https://doi.org/10.6084/m9.figshare.5883193.v1) illustrating the vast range of research data types.", fig.width=3, fig.align = 'center', out.width="90%"}
+knitr::include_graphics("img/datatypes.png")
+```
+
+<br>
+
+While "Collect" and "Assure" are different steps in the life cycle, I advocate that it is foolish to collect data without doing quality assurance and quality control (QA/QC) as you go. 
+
+<br>
 
 #### Describe
 
 #### Preserve
+
+[How Toy Story 2 Almost Got Deleted](https://www.youtube.com/watch?v=8dhp_20j0Ys)
 
 #### Discover
 

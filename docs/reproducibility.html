@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-09-14" />
+<meta name="date" content="2021-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -116,7 +116,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.3" data-path="reproducibility.html"><a href="reproducibility.html#scientific-workflows"><i class="fa fa-check"></i><b>4.3</b> Scientific Workflows</a></li>
 <li class="chapter" data-level="4.4" data-path="reproducibility.html"><a href="reproducibility.html#data-management"><i class="fa fa-check"></i><b>4.4</b> Data Management</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="reproducibility.html"><a href="reproducibility.html#why-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>4.4.1</b> Why you need to manage your data</a></li>
+<li class="chapter" data-level="4.4.1" data-path="reproducibility.html"><a href="reproducibility.html#why-do-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>4.4.1</b> Why do you need to manage your data?</a></li>
 <li class="chapter" data-level="4.4.2" data-path="reproducibility.html"><a href="reproducibility.html#the-data-life-cycle"><i class="fa fa-check"></i><b>4.4.2</b> The Data Life Cycle</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="reproducibility.html"><a href="reproducibility.html#coding-and-code-management"><i class="fa fa-check"></i><b>4.5</b> Coding and code management</a></li>
@@ -215,7 +215,7 @@ Figure 4.4: Let’s start being more specific about our miracles… Cartoon © S
 <li><em><strong>It helps us avoid mistakes and/or track down errors in analyses</strong></em></li>
 </ol>
 <ul>
-<li>This is what highlighted the importance of working reproducibly for me. In 2017 I published the first evidence of observed climate change impacts on biodiversity in the Fynbos Biome <span class="citation">(<a href="#ref-Slingsby2017" role="doc-biblioref">Slingsby et al. 2017</a>)</span>. The analyses were quite complicated, and when working on the revisions I found an error in my R code. Fortunately, it didn’t change the results qualitatively, but it made me realize how easy it is to make a mistake and put the wrong message out there! This encouraged me to make all data and R code from the paper available, so that anyone is free to check my data and analyses and let me (and/or the world) know if they find any errors.</li>
+<li>This is what highlighted the importance of working reproducibly for me. In 2017 I published the first evidence of observed climate change impacts on biodiversity in the Fynbos Biome <span class="citation">(<a href="#ref-Slingsby2017" role="doc-biblioref">Slingsby et al. 2017</a>)</span>. The analyses were quite complicated, and when working on the revisions I found an error in my R code. Fortunately, it didn’t change the results qualitatively, but it made me realize how easy it is to make a mistake and potentially put the wrong message out there! This encouraged me to make all data and R code from the paper available, so that anyone is free to check my data and analyses and let me (and/or the world) know if they find any errors.</li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
 <li><em><strong>It makes it easier to write papers</strong></em></li>
@@ -274,8 +274,10 @@ Figure 4.5: ‘Data Pipeline’ from <a href="https://xkcd.com/2054">xkcd.com/20
 </div>
 <div id="data-management" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Data Management</h2>
-<div id="why-you-need-to-manage-your-data" class="section level3" number="4.4.1">
-<h3><span class="header-section-number">4.4.1</span> Why you need to manage your data</h3>
+<div id="why-do-you-need-to-manage-your-data" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Why do you need to manage your data?</h3>
+<p>Data management is often the last thing on a scientists mind when doing a new study - “I have a cool idea, and I’m going to test it!” You don’t want to “waste” time planning how you’re going to manage your data and implementing that plan… Unfortunately, this never ends well and really is a realm where “haste makes waste.”</p>
+<p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:datadecay"></span>
 <img src="img/datadecaycurve.jpg" alt="The 'Data Decay Curve' [@Michener1997]" width="75%" />
 <p class="caption">
@@ -284,12 +286,20 @@ Figure 4.6: The ‘Data Decay Curve’ <span class="citation">(<a href="#ref-Mic
 </div>
 <p><br></p>
 <ul>
-<li>loss (Michener “data decay curve” fig)</li>
-<li>future self (lose it before ou’re finished with it)</li>
-<li>value to yourself for sharing, credit etc (publications and citations),</li>
-<li>science on general (esp long-term ecology in a time of global change)</li>
-<li>Transparency and accountability</li>
+<li>Bad data management leads to data loss… (The “data decay curve” <span class="citation">(<a href="#ref-Michener1997" role="doc-biblioref">Michener et al. 1997</a>)</span>)</li>
+<li>Your future self will hate you if you lose it before you’re finished with it - Eek!!! This is less likely in the world of Dropbox, Google Drive, iCloud etc, but I know people who had to repeat their PhD’s because they lost their data or it was on a laptop that was stolen…</li>
+<li>Data has value beyond your current project:
+<ul>
+<li>to yourself for reuse in future projects, collaborations, etc (i.e. publications and citations),</li>
+<li>for others for follow-up studies, or combining multiple datasets for meta-analyses or synthesis etc</li>
+<li>for science on general (especially long-term ecology in a time of global change)</li>
+</ul></li>
+<li>We’ve covered this before, but it is also key for transparency and accountability.</li>
+<li>Data collection is expensive, and is often paid for with taxpayers’ money. You owe it to them to make sure that science gets the most out of that data in the long term.</li>
+<li>Lastly, good planning and data management can help iron out issues like intellectual property, permissions for ethics, collection permits, etc, in addition to outlining expectations for who will be authors on the paper(s), responsible for managing different aspects of the data etc up front. If you don’t establish these permissions and ground rules early they can result in data loss, not being able to publish the study, damage careers, and/or damage relationships in collaborations (including student-supervisor), etc.</li>
 </ul>
+<p>To avoid data (and relationship) decay, and to reap the benefits of good data management, it is important to consider the full <em>Data Life Cycle</em>.</p>
+<p><br></p>
 </div>
 <div id="the-data-life-cycle" class="section level3" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> The Data Life Cycle</h3>
@@ -299,29 +309,58 @@ Figure 4.6: The ‘Data Decay Curve’ <span class="citation">(<a href="#ref-Mic
 Figure 4.7: The Data Life Cycle, adapted from <a href="https://www.dataone.org/" class="uri">https://www.dataone.org/</a>
 </p>
 </div>
-<div id="plan-dmps" class="section level4" number="4.4.2.1">
-<h4><span class="header-section-number">4.4.2.1</span> Plan (DMPs)</h4>
+<p><br></p>
+<p>Note that there are quite a few different versions of the data life cycle out there. This is the most comprehensive one I know of and covers all the steps relevent to a range of different kinds of research projects. Not all projects need to do all steps, nor will they necessarily follow the order here, but it is worth being aware of and considering all steps.</p>
+<p>For example, often the first thing you do when you have a new hypothesis is search around for any existing data that could be used to test it without having to spend money and time collecting new data (i.e. skip to step 6). In this case I would argue that you should still do step 1 (Plan), and you’d want to do some checking to assure the quality of the data (step 3), but you can certainly skip steps 2, 4 and 5. A meta-analysis or synthesis paper would probably do the same. On the other hand, if you’re collecting new data you would do steps 1 to 5 and possibly skip 6 and 7, although in my experience few studies do not reuse existing data (e.g. weather or various GIS data to put your new samples in context).</p>
+<p><br></p>
+<div id="plan" class="section level4" number="4.4.2.1">
+<h4><span class="header-section-number">4.4.2.1</span> Plan</h4>
+<p>Good data management begins with planning. While constructing Data Management Plans (DMPs) can seem tedious, they are essential:</p>
+<ol style="list-style-type: lower-alpha">
+<li>for the reasons I gave above</li>
+<li>because most funders and universities now require them</li>
+</ol>
+<p>Fortunately, there are a number of online data management planning tools, including <a href="https://dmp.lib.uct.ac.za/">UCT’s DMP Tool</a>, that now make it easy, by providing templates and prompts to ensure that you cover all the bases.</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:uctdmp"></span>
+<img src="img/UCTDMP.png" alt="Screenshot of [UCT's Data Management Planning Tool's Data Management Checklist.](http://www.digitalservices.lib.uct.ac.za/dls/systems/uct-dmp)" width="90%" />
+<p class="caption">
+Figure 4.8: Screenshot of <a href="http://www.digitalservices.lib.uct.ac.za/dls/systems/uct-dmp">UCT’s Data Management Planning Tool’s Data Management Checklist.</a>
+</p>
 </div>
-<div id="collect" class="section level4" number="4.4.2.2">
-<h4><span class="header-section-number">4.4.2.2</span> Collect</h4>
+<p><br></p>
+<p>A key thing to bear in mind is that a DMP is a living document and should be regularly revised during the life of a project, especially when big changes happen - e.g. new team members, new funding, new direction, change of institution, etc.</p>
+<p>I typically develop one overarching DMP for an umbrella project (e.g. a particular grant), but then add specifics for subprojects (e.g. separate student projects etc).</p>
+<p><br></p>
 </div>
-<div id="assure" class="section level4" number="4.4.2.3">
-<h4><span class="header-section-number">4.4.2.3</span> Assure</h4>
+<div id="collect-and-assure" class="section level4" number="4.4.2.2">
+<h4><span class="header-section-number">4.4.2.2</span> Collect and Assure</h4>
+<p>There are many, many different kinds of data that can be collected in a vast number of ways!</p>
+<div class="figure" style="text-align: center"><span id="fig:datatypes"></span>
+<img src="img/datatypes.png" alt="[Springer Nature Infographic](https://doi.org/10.6084/m9.figshare.5883193.v1) illustrating the vast range of research data types." width="90%" />
+<p class="caption">
+Figure 4.9: <a href="https://doi.org/10.6084/m9.figshare.5883193.v1">Springer Nature Infographic</a> illustrating the vast range of research data types.
+</p>
 </div>
-<div id="describe" class="section level4" number="4.4.2.4">
-<h4><span class="header-section-number">4.4.2.4</span> Describe</h4>
+<p><br></p>
+<p>While “Collect” and “Assure” are different steps in the life cycle, I advocate that it is foolish to collect data without doing quality assurance and quality control (QA/QC) as you go.</p>
+<p><br></p>
 </div>
-<div id="preserve" class="section level4" number="4.4.2.5">
-<h4><span class="header-section-number">4.4.2.5</span> Preserve</h4>
+<div id="describe" class="section level4" number="4.4.2.3">
+<h4><span class="header-section-number">4.4.2.3</span> Describe</h4>
 </div>
-<div id="discover" class="section level4" number="4.4.2.6">
-<h4><span class="header-section-number">4.4.2.6</span> Discover</h4>
+<div id="preserve" class="section level4" number="4.4.2.4">
+<h4><span class="header-section-number">4.4.2.4</span> Preserve</h4>
+<p><a href="https://www.youtube.com/watch?v=8dhp_20j0Ys">How Toy Story 2 Almost Got Deleted</a></p>
 </div>
-<div id="integrate" class="section level4" number="4.4.2.7">
-<h4><span class="header-section-number">4.4.2.7</span> Integrate</h4>
+<div id="discover" class="section level4" number="4.4.2.5">
+<h4><span class="header-section-number">4.4.2.5</span> Discover</h4>
 </div>
-<div id="analyze" class="section level4" number="4.4.2.8">
-<h4><span class="header-section-number">4.4.2.8</span> Analyze</h4>
+<div id="integrate" class="section level4" number="4.4.2.6">
+<h4><span class="header-section-number">4.4.2.6</span> Integrate</h4>
+</div>
+<div id="analyze" class="section level4" number="4.4.2.7">
+<h4><span class="header-section-number">4.4.2.7</span> Analyze</h4>
 <p><br></p>
 </div>
 </div>

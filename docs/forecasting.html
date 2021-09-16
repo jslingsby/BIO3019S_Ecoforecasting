@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-09-14" />
+<meta name="date" content="2021-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -183,6 +183,8 @@ div.csl-indent {
 <li class="chapter" data-level="4.4.1" data-path="reproducibility.html"><a href="reproducibility.html#why-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>4.4.1</b> Why you need to manage your data</a></li>
 <li class="chapter" data-level="4.4.2" data-path="reproducibility.html"><a href="reproducibility.html#the-data-life-cycle"><i class="fa fa-check"></i><b>4.4.2</b> The Data Life Cycle</a></li>
 </ul></li>
+<li class="chapter" data-level="4.5" data-path="reproducibility.html"><a href="reproducibility.html#coding-and-code-management"><i class="fa fa-check"></i><b>4.5</b> Coding and code management</a></li>
+<li class="chapter" data-level="4.6" data-path="reproducibility.html"><a href="reproducibility.html#computing-and-software"><i class="fa fa-check"></i><b>4.6</b> Computing and software</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="forecasting.html"><a href="forecasting.html"><i class="fa fa-check"></i><b>5</b> Forecasting in ecology</a>
 <ul>
@@ -227,12 +229,12 @@ div.csl-indent {
 <p><em>“prediction is the only way to demonstrate scientific understanding”</em> <span class="citation">(<a href="#ref-Houlahan2017" role="doc-biblioref">Houlahan et al. 2017</a>)</span></p>
 </blockquote>
 <p>While this view may be slightly overstated, it is a very good point. <strong>If we cannot make reasonably good predictions, we’re missing something</strong>. Unfortunately, prediction has not been a central focus in ecology, impeding progress in the improvement of our ecological understanding. <strong>To make predictions we need models</strong>, and <strong>models provide structured summaries of our current ecological understanding</strong> (conceptual or quantitative, but preferably quantitative, because these are easier to compare). Without making predictions and comparing the skill of new models to old ones, we can’t track if we are making progress!</p>
-<p>In ecology we mostly test qualitative, imprecise hypotheses: <em>“Does X have an effect on Y?”</em> rather than <em>“What is the relationship between X and Y?”</em> or better yet <em>“What value would we expect Y to be, given a particular value or X?”</em>. <strong>Without testing precise hypotheses and using the results to make <em>testable predictions</em> we don’t know if our findings are generalizable beyond the specific data set we collected.</strong> If our results are not generalizable, then we’re not really making progress towards a better understanding of ecology.</p>
+<p>In ecology we mostly test qualitative, imprecise hypotheses: <em>“Does X have an effect on Y?”</em> rather than <em>“What is the relationship between X and Y?”</em> or better yet <em>“What value would we expect Y to be, given a particular value of X?”</em>. <strong>Without testing precise hypotheses and using the results to make <em>testable predictions</em> we don’t know if our findings are generalizable beyond the specific data set we collected.</strong> If our results are not generalizable, then we’re not really making progress towards a better understanding of ecology.</p>
 <p>A key point here is that the <em>predictions must be testable</em>! We do use a lot of models in ecology, and even use them to make predictions (e.g. species distribution models (SDMs), dynamic vegetation models (DVMs), etc), but these predictions are typically 50+ years into the future, which is way to long to wait to see if our predictions were reasonable or useful.</p>
 <p><br></p>
 <blockquote>
 <p><strong>A quick aside on model validation vs testing predictions:</strong>
-Testing predictions with new data collected after you’ve made your predictions is the most robust way to validate a model, but you usually want to do some form of validation before you make your final predictions. For this we usually do some form of cross-validation whereby we split the data into a “training” subset (that we use for fitting (or training) the model) and a “test” subset (that we try to predict).</p>
+Testing predictions with new data collected after you’ve made your predictions is the most robust way to validate a model, but you usually want to do some form of validation before you make your final predictionst o make sure the model is working reasonably well. For this we most commonly do some form of cross-validation, whereby we split the data into a “training” subset (that we use for fitting (or training) the model) and a “test” subset (that we try to predict). If your model is no good at predicting your test data, there’s probably no point in making predictions into the future…</p>
 </blockquote>
 <p><br></p>
 </div>
@@ -252,7 +254,7 @@ Figure 5.1: The iterative ecological forecasting cycle in the context of the sci
 <p><br></p>
 <p><strong>The iterative forecasting cycle also feeds into adaptive management and monitoring:</strong></p>
 <p>In <strong>Adaptive Management</strong> and decision analysis, alternative decision scenarios are generated (2) based on an assessment of a problem (1). These decision scenarios are typically used to define the scenarios (or boundary conditions) for which models are run (“Scenarios” arrow), but can also feed into scientific hypotheses (not shown). Forecasts (Fx) are key in assessing the trade-offs and relative merits between alternative decision options (3). The decision(s) taken (4) determine the monitoring requirements (5), which allow us to evaluate the outcomes and reassess the problem (1), and start the adaptive management cycle again.</p>
-<p>Note that the iterative forecast cycle is also useful for adaptive management in that the analysis and partitioning of forecast uncertainties (from step C) can provide further guidance on what and how to monitor, so as to optimize the reduction in model uncertainties. This represents <strong>Adaptive Monitoring</strong> (dashed line) and is a cycle of itself <span class="citation">(<a href="#ref-Lindenmayer2009" role="doc-biblioref">Lindenmayer and Likens 2009</a>)</span>, but is largely subsumed by the other cycles here so we won’t go into it any further. Thus the iterative cycles of science, forecasting, management and monitoring are tightly intertwined and can interact continuously.</p>
+<p>Note that the iterative forecast cycle is also useful for adaptive management in that the analysis and partitioning of forecast uncertainties (from step C) can provide further guidance on what and how to monitor, so as to optimize the reduction in model uncertainties. This represents <strong>Adaptive Monitoring</strong> (dashed line) and is a cycle of itself <span class="citation">(<a href="#ref-Lindenmayer2009" role="doc-biblioref">Lindenmayer and Likens 2009</a>)</span>, but is largely subsumed by the other cycles here so we won’t go into it any further here. Thus the iterative cycles of science, forecasting, management and monitoring are tightly intertwined and can interact continuously.</p>
 <p>What isn’t clear from Figure <a href="forecasting.html#fig:dietze2018F1">5.1</a> is that all of this needs to be founded on a highly efficient informatics pipeline that is robust and rapidly updateable - i.e. follows <strong>Reproducible Research</strong> principles. Adding this link helps to highlight what I like to think of as <em>“The Olympian Challenge of data-driven ecological decision making”</em>.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:olympiangoal"></span>
