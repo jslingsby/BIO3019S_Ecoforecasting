@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-09-16" />
+<meta name="date" content="2021-09-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -316,12 +316,8 @@ Figure 4.7: The Data Life Cycle, adapted from <a href="https://www.dataone.org/"
 <div id="plan" class="section level4" number="4.4.2.1">
 <h4><span class="header-section-number">4.4.2.1</span> Plan</h4>
 <p>Good data management begins with planning. In this step you essentially outline the plan for every step of the cycle in as much detail as possible. Usually this is done by constructing a document or Data Management Plan (DMP).</p>
-<p>While developing DMPs can seem tedious, they are essential:</p>
-<ol style="list-style-type: lower-alpha">
-<li>for the reasons I gave above</li>
-<li>because most funders and universities now require them</li>
-</ol>
-<p>Fortunately, there are a number of online data management planning tools that make it easy by providing templates and prompts to ensure that you cover all the bases, including <a href="https://dmp.lib.uct.ac.za/">UCT’s DMP Tool</a>.</p>
+<p>While developing DMPs can seem tedious, they are essential for the reasons I gave above, and because most funders and universities now require them.</p>
+<p>Fortunately, there are a number of online data management planning tools that make it easy by providing templates and prompts to ensure that you cover all the bases, like the Digital Curation Centre’s <a href="https://dmponline.dcc.ac.uk/">DMPOnline</a> and <a href="https://dmp.lib.uct.ac.za/">UCT’s DMP Tool</a>.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:uctdmp"></span>
 <img src="img/UCTDMP.png" alt="Screenshot of [UCT's Data Management Planning Tool's Data Management Checklist.](http://www.digitalservices.lib.uct.ac.za/dls/systems/uct-dmp)" width="90%" />
@@ -363,23 +359,106 @@ Figure 4.10: An example data collection app I built in <a href="https://www.apps
 </div>
 <div id="describe" class="section level4" number="4.4.2.3">
 <h4><span class="header-section-number">4.4.2.3</span> Describe</h4>
-<p>Metadata…</p>
+<p>There are few things worse than having a spreadsheet of what you think is the data you need, but you don’t know what the column names mean, how variables were measured, what units they’re reported in, etc… - <em>Especially when you were the one who collected and captured the data!!!</em></p>
+<p>This descriptive data about the data is called <strong><em>metadata</em></strong> and is essential for making the data reusable, but is also useful for many other purposes like making the data findable (e.g. using keyword searches). In fact, metadata makes up the majority of what are called the <a href="https://www.go-fair.org/fair-principles/"><strong>FAIR data principles</strong></a> <span class="citation">(<a href="#ref-Wilkinson2016" role="doc-biblioref">Wilkinson et al. 2016</a>)</span>, which largely focus on this and the next few steps of the Data Life Cycle. I’m not going to dwell on them other than to say that they are a key component of making your work reproducible, and that like reproducibility, practicing FAIR data principles is a spectrum.</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:fairdata"></span>
+<img src="img/fairdata.jpg" alt="The FAIR data principles [ErrantScience.com](https://errantscience.com/)." width="75%" />
+<p class="caption">
+Figure 4.11: The FAIR data principles <a href="https://errantscience.com/">ErrantScience.com</a>.
+</p>
+</div>
+<p><br></p>
+<p><strong>Some key kinds of metadata:</strong></p>
 <ul>
-<li>who created, collected and managed the data</li>
-<li>the data content and format</li>
-<li>when the data were collected</li>
-<li>where the data were collected and stored</li>
-<li>how the data were generated, processed, assured and analyzed</li>
-<li>the study context - i.e. why the data were generated</li>
+<li>the study context
+<ul>
+<li>why the data were generated</li>
+<li>who funded, created, collected, assured, managed and owns the data (not always the same person)
+<ul>
+<li>contact details for the above</li>
+</ul></li>
+<li>when and where the data were collected</li>
+<li>where the data are stored</li>
+</ul></li>
+<li>the data format
+<ul>
+<li>what is the file format</li>
+<li>what softwares were used (and what version)</li>
+</ul></li>
+<li>the data content
+<ul>
+<li>what was measured</li>
+<li>how it was measured</li>
+<li>what units was it reported in</li>
+<li>what QA/QC has been applied</li>
+<li>is it raw data or a derived data product (e.g. spatially interpolated climate layers)</li>
+<li>if derived, how it was analyzed</li>
+</ul></li>
 </ul>
+<p><br></p>
+<p><strong>Metadata standards and interoperability</strong></p>
+<p>Many data user communities have developed particular metadata standards or schemas in an attempt to enable the best possible description and interoperability of a data type for their needs.</p>
+<p>They are typically human and machine-readable data, so that the metadata records can also be read by machines, facilitating storing and querying multiple datasets in a common database (or across databases).</p>
+<p>Using common metadata schemas has many advantages in that they make data sharing easier, they allow you to search and integrate data across datasets, and they simplify metadata capture (i.e. having a list of required fields makes it easier to not forget any).</p>
+<p>There are <a href="https://www.dcc.ac.uk/guidance/standards/metadata/list">many standards</a>, but perhaps the most common ones you’ll encounter in biological sciences (other than geospatial metadata standards) are <a href="https://www.tdwg.org/standards/dwc/">DarwinCore</a> and <a href="https://knb.ecoinformatics.org/tools/eml">Ecological Metadata Language (EML)</a>.</p>
 <p><br></p>
 </div>
 <div id="preserve" class="section level4" number="4.4.2.4">
 <h4><span class="header-section-number">4.4.2.4</span> Preserve</h4>
-<p><a href="https://www.youtube.com/watch?v=8dhp_20j0Ys">How Toy Story 2 Almost Got Deleted</a></p>
+<p>There are two major components to preserving your data:</p>
+<ol style="list-style-type: decimal">
+<li><strong><em>Back your data up now!!! (and repeat regularly)</em></strong></li>
+</ol>
+<p>Losing your data can be incredibly inconvenient!!! A good friend of mine lost all of his PhD data twice. It took him 7 years to complete the degree…</p>
+<p>Beyond inconvenience, losing data can be incredibly expensive! Doing 4 extra years to get your PhD is expensive at a personal level, but if the data are part of a big project it can rapidly add up to millions - like <a href="https://www.youtube.com/watch?v=8dhp_20j0Ys">How Toy Story 2 Almost Got Deleted</a>.</p>
+<blockquote>
+<p><strong><em>PRO TIP:</em></strong> Storing data on the cloud is not enough! You could easily delete that single version of all you data! You may also lose access whe you change institution etc. E.g. What happens to your UCT MS OneDrive and Google Drive content when you graduate and ICTS close your email account?</p>
+</blockquote>
+<p><br></p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong><em>Long-term preservation and publication</em></strong></li>
+</ol>
+<p>This involves the deposition of your data (and metadata!) in a <strong>data repository</strong> where it can be managed and curated over the long term.</p>
+<p>This is increasingly a requirement of funders and publishers (i.e. journals). Many journals allow you (or require you) to submit and publish your data with them as supplementary material. Unfortunately, many journals differ in how they curate the data and whether they are available open access. I prefer to publish my data in an online open access repository where you can get a permanent <strong>Digital Object Identifier (DOI)</strong> that you can link to from your paper.</p>
+<p>Another consideration, if you are keen for people to reuse your data (which if you are not you will fail this course by default) is where people are most likely to look for your data (i.e. making your data “Findable/Discoverable.” There are many “bespoke” data repositories for different kinds of data, e.g.</p>
+<p>Global databases:</p>
+<ul>
+<li><a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a> - for molecular data</li>
+<li><a href="https://www.try-db.org/TryWeb/Home.php">TRY</a> - for plant traits</li>
+<li><a href="https://datadryad.org">Dryad</a> - for generalist biological and environmental research</li>
+</ul>
+<p>South African databases:</p>
+<ul>
+<li><a href="https://www.sanbi.org/resources/infobases/">SANBI</a> - for most kinds of South African biodiversity data</li>
+<li><a href="https://catalogue.saeon.ac.za/">SAEON</a> - for South African environmental data (e.g. hydrology, meteorology, etc) and biodiversity data that don’t fit SANBI’s databases</li>
+</ul>
+<p>If none of these suit your data, there are also “generalist” data repositories that accept almost any kind of data, like:</p>
+<ul>
+<li><a href="https://figshare.com/">FigShare</a></li>
+<li><a href="https://zenodo.org/">Zenodo</a></li>
+<li>UCT’s <a href="https://zivahub.uct.ac.za/">ZivaHub</a> (which is built on and searchable through FigShare)</li>
+</ul>
+<p><br></p>
+<p>I haven’t discussed <strong>physical samples</strong> at all. These are obviously a huge (if not bigger) challenge too, although there are some obvious homes for common biological data, like herbaria for plant collections and museums for animal specimens.</p>
+<p><br></p>
 </div>
 <div id="discover" class="section level4" number="4.4.2.5">
 <h4><span class="header-section-number">4.4.2.5</span> Discover</h4>
+<p>This is perhaps the main point of the Data Life Cycle and FAIR data principles - to make data findable so that it can be reused.</p>
+<p>The biggest challenge to discovering data is that <strong>so many datasets are not online</strong> and are in the “filing cabinet in a bath in the basement under a leaking pipe” as in Figure <a href="reproducibility.html#fig:fairdata">4.11</a>. If you <strong><em>preserve and publish</em></strong> them in an online data repository, this overcomes the biggest hurdle.</p>
+<p>The next biggest challenge is <strong>that there is so much online that finding what you need can be quite challenging</strong> (like looking for a needle in a haystack…). This is where choosing the right portal can be important. It is also what metadata standards are aimed at - allowing interoperable searches for specific data types across multiple repositories.</p>
+<p>A final consideration is whether you have <strong>permission to use the data</strong>. You can often find out about the existence of a dataset, either online or in a paper, but the data aren’t made freely available. This is where <strong>licensing</strong> comes into play. Most data repositories require you to publish the data under a license. There are many options depending on the kind of data and what restrictions you want to put on its use. I’m not going to go into the gory details, but <a href="https://creativecommons.org/licenses/">Creative Commons</a> have created an extensible system of generic licenses that are easy to interpret and cover most situations. I say <em>extensible</em> because the licenses are made up of a string of components that can be layered over each other. For example:</p>
+<ul>
+<li>CCO - means it is <em>Open</em> - i.e. there are no restrictions on use and it is in the public domain</li>
+<li>CC BY - means <em>by attribution</em> - you can use the data for any purpose, but only if you indicate attribution of the data to the source or owner of the data</li>
+<li>CC BY-SA - means <em>by attribution</em> + <em>share alike</em> - i.e. you have to indicate attribution and share your derived product under the same license</li>
+<li>CC BY-ND - means <em>by attribution</em> + <em>no derivatives</em> - i.e. you have to indicate attribution, but cannot use it to make a derived product. This is often used for images - allowing you to show the image, but not to alter it.</li>
+<li>CC BY-NC - means <em>by attribution</em> + <em>non-commercial</em> - you have to indicate attribution, but cannot use it for commercial purposes (i.e. you can’t sell derived products)</li>
+<li>CC BY-NC-SA - <em>by attribution</em> + <em>non-commercial</em> + <em>share alike</em></li>
+<li>CC BY-NC-ND - <em>by attribution</em> + <em>non-commercial</em> + <em>no derivatives</em></li>
+</ul>
+<p><br></p>
 </div>
 <div id="integrate" class="section level4" number="4.4.2.6">
 <h4><span class="header-section-number">4.4.2.6</span> Integrate</h4>
@@ -433,6 +512,9 @@ Penny, Dan. 2016. <span>“<span class="nocase">Nature Reproducibility survey</s
 </div>
 <div id="ref-Slingsby2017" class="csl-entry">
 Slingsby, Jasper A, Cory Merow, Matthew Aiello-Lammens, Nicky Allsopp, Stuart Hall, Hayley Kilroy Mollmann, Ross Turner, Adam M Wilson, and John A Silander Jr. 2017. <span>“<span class="nocase">Intensifying postfire weather and biological invasion drive species loss in a Mediterranean-type biodiversity hotspot</span>.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em> 114 (18): 4697–4702. <a href="https://doi.org/10.1073/pnas.1619014114">https://doi.org/10.1073/pnas.1619014114</a>.
+</div>
+<div id="ref-Wilkinson2016" class="csl-entry">
+Wilkinson, Mark D, Michel Dumontier, I Jsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. <span>“<span class="nocase">The FAIR Guiding Principles for scientific data management and stewardship</span>.”</span> <em>Scientific Data</em> 3 (March): 160018. <a href="https://doi.org/10.1038/sdata.2016.18">https://doi.org/10.1038/sdata.2016.18</a>.
 </div>
 </div>
             </section>

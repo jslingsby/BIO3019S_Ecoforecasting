@@ -221,12 +221,9 @@ Not all projects need to do all steps, nor will they necessarily follow the orde
 #### Plan 
 Good data management begins with planning. In this step you essentially outline the plan for every step of the cycle in as much detail as possible. Usually this is done by constructing a document or Data Management Plan (DMP). 
 
-While developing DMPs can seem tedious, they are essential:
+While developing DMPs can seem tedious, they are essential for the reasons I gave above, and because most funders and universities now require them.
 
-a. for the reasons I gave above
-b. because most funders and universities now require them
-
-Fortunately, there are a number of online data management planning tools that make it easy by providing templates and prompts to ensure that you cover all the bases, including [UCT's DMP Tool](https://dmp.lib.uct.ac.za/).
+Fortunately, there are a number of online data management planning tools that make it easy by providing templates and prompts to ensure that you cover all the bases, like the Digital Curation Centre's [DMPOnline](https://dmponline.dcc.ac.uk/) and [UCT's DMP Tool](https://dmp.lib.uct.ac.za/).
 
 <br>
 
@@ -273,22 +270,115 @@ knitr::include_graphics("img/veldwatch.png")
 
 #### Describe
 
-Metadata...
+There are few things worse than having a spreadsheet of what you think is the data you need, but you don't know what the column names mean, how variables were measured, what units they're reported in, etc... - *Especially when you were the one who collected and captured the data!!!* 
 
-- who created, collected and managed the data
-- the data content and format
-- when the data were collected
-- where the data were collected and stored
-- how the data were generated, processed, assured and analyzed
-- the study context - i.e. why the data were generated
+This descriptive data about the data is called ***metadata*** and is essential for making the data reusable, but is also useful for many other purposes like making the data findable (e.g. using keyword searches). In fact, metadata makes up the majority of what are called the [**FAIR data principles**](https://www.go-fair.org/fair-principles/) [@Wilkinson2016], which largely focus on this and the next few steps of the Data Life Cycle. I'm not going to dwell on them other than to say that they are a key component of making your work reproducible, and that like reproducibility, practicing FAIR data principles is a spectrum.
+
+<br>
+
+```{r fairdata, echo=FALSE, fig.cap = "The FAIR data principles [ErrantScience.com](https://errantscience.com/).", fig.width=3, fig.align = 'center', out.width="75%"}
+knitr::include_graphics("img/fairdata.jpg")
+```
+
+<br>
+
+**Some key kinds of metadata:**
+
+- the study context
+  - why the data were generated
+  - who funded, created, collected, assured, managed and owns the data (not always the same person)
+    - contact details for the above
+  - when and where the data were collected
+  - where the data are stored
+- the data format
+  - what is the file format
+  - what softwares were used (and what version)
+- the data content
+  - what was measured
+  - how it was measured
+  - what units was it reported in
+  - what QA/QC has been applied
+  - is it raw data or a derived data product (e.g. spatially interpolated climate layers)
+  - if derived, how it was analyzed
+
+<br>
+
+**Metadata standards and interoperability**
+
+Many data user communities have developed particular metadata standards or schemas in an attempt to enable the best possible description and interoperability of a data type for their needs.
+
+They are typically human and machine-readable data, so that the metadata records can also be read by machines, facilitating storing and querying multiple datasets in a common database (or across databases).
+
+Using common metadata schemas has many advantages in that they make data sharing easier, they allow you to search and integrate data across datasets, and they simplify metadata capture (i.e. having a list of required fields makes it easier to not forget any).
+
+There are [many standards](https://www.dcc.ac.uk/guidance/standards/metadata/list), but perhaps the most common ones you'll encounter in biological sciences (other than geospatial metadata standards) are [DarwinCore](https://www.tdwg.org/standards/dwc/) and [Ecological Metadata Language (EML)](https://knb.ecoinformatics.org/tools/eml).
 
 <br>
 
 #### Preserve
 
-[How Toy Story 2 Almost Got Deleted](https://www.youtube.com/watch?v=8dhp_20j0Ys)
+There are two major components to preserving your data:
+
+1. ***Back your data up now!!! (and repeat regularly)***
+
+Losing your data can be incredibly inconvenient!!! A good friend of mine lost all of his PhD data twice. It took him 7 years to complete the degree...
+
+Beyond inconvenience, losing data can be incredibly expensive! Doing 4 extra years to get your PhD is expensive at a personal level, but if the data are part of a big project it can rapidly add up to millions - like [How Toy Story 2 Almost Got Deleted](https://www.youtube.com/watch?v=8dhp_20j0Ys).
+
+>***PRO TIP:*** Storing data on the cloud is not enough! You could easily delete that single version of all you data! You may also lose access whe you change institution etc. E.g. What happens to your UCT MS OneDrive and Google Drive content when you graduate and ICTS close your email account?
+
+<br>
+
+2. ***Long-term preservation and publication***
+
+This involves the deposition of your data (and metadata!) in a **data repository** where it can be managed and curated over the long term. 
+
+This is increasingly a requirement of funders and publishers (i.e. journals). Many journals allow you (or require you) to submit and publish your data with them as supplementary material. Unfortunately, many journals differ in how they curate the data and whether they are available open access. I prefer to publish my data in an online open access repository where you can get a permanent **Digital Object Identifier (DOI)** that you can link to from your paper.
+
+Another consideration, if you are keen for people to reuse your data (which if you are not you will fail this course by default) is where people are most likely to look for your data (i.e. making your data "Findable/Discoverable". There are many "bespoke" data repositories for different kinds of data, e.g.
+
+Global databases:
+
+- [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) - for molecular data
+- [TRY](https://www.try-db.org/TryWeb/Home.php) - for plant traits
+- [Dryad](https://datadryad.org) - for generalist biological and environmental research
+
+South African databases:
+
+- [SANBI](https://www.sanbi.org/resources/infobases/) - for most kinds of South African biodiversity data
+- [SAEON](https://catalogue.saeon.ac.za/) - for South African environmental data (e.g. hydrology, meteorology, etc) and biodiversity data that don't fit SANBI's databases
+
+If none of these suit your data, there are also "generalist" data repositories that accept almost any kind of data, like:
+
+- [FigShare](https://figshare.com/)
+- [Zenodo](https://zenodo.org/)
+- UCT's [ZivaHub](https://zivahub.uct.ac.za/) (which is built on and searchable through FigShare)
+
+<br>
+
+I haven't discussed **physical samples** at all. These are obviously a huge (if not bigger) challenge too, although there are some obvious homes for common biological data, like herbaria for plant collections and museums for animal specimens.
+
+<br>
 
 #### Discover
+
+This is perhaps the main point of the Data Life Cycle and FAIR data principles - to make data findable so that it can be reused. 
+
+The biggest challenge to discovering data is that **so many datasets are not online** and are in the "filing cabinet in a bath in the basement under a leaking pipe" as in Figure \@ref(fig:fairdata). If you ***preserve and publish*** them in an online data repository, this overcomes the biggest hurdle.
+
+The next biggest challenge is **that there is so much online that finding what you need can be quite challenging** (like looking for a needle in a haystack...). This is where choosing the right portal can be important. It is also what metadata standards are aimed at - allowing interoperable searches for specific data types across multiple repositories.
+
+A final consideration is whether you have **permission to use the data**. You can often find out about the existence of a dataset, either online or in a paper, but the data aren't made freely available. This is where **licensing** comes into play. Most data repositories require you to publish the data under a license. There are many options depending on the kind of data and what restrictions you want to put on its use. I'm not going to go into the gory details, but [Creative Commons](https://creativecommons.org/licenses/) have created an extensible system of generic licenses that are easy to interpret and cover most situations. I say *extensible* because the licenses are made up of a string of components that can be layered over each other. For example:
+
+- CCO - means it is *Open* - i.e. there are no restrictions on use and it is in the public domain
+- CC BY - means *by attribution* - you can use the data for any purpose, but only if you indicate attribution of the data to the source or owner of the data
+- CC BY-SA - means *by attribution* + *share alike* - i.e. you have to indicate attribution and share your derived product under the same license
+- CC BY-ND - means *by attribution* + *no derivatives* - i.e. you have to indicate attribution, but cannot use it to make a derived product. This is often used for images - allowing you to show the image, but not to alter it.
+- CC BY-NC - means *by attribution* + *non-commercial* - you have to indicate attribution, but cannot use it for commercial purposes (i.e. you can't sell derived products)
+- CC BY-NC-SA - *by attribution* + *non-commercial* + *share alike*
+- CC BY-NC-ND - *by attribution* + *non-commercial* + *no derivatives*
+
+<br>
 
 #### Integrate
 

@@ -10,6 +10,9 @@ fig:miracle
 fig:datapipeline
 fig:datadecay
 fig:datalifecycle
+fig:uctdmp
+fig:datatypes
+fig:appsheet
 fig:dietze2018F1
 fig:olympiangoal
 overview
@@ -27,11 +30,10 @@ replication-and-the-reproducibility-spectrum
 why-work-reproducibly
 scientific-workflows
 data-management
-why-you-need-to-manage-your-data
+why-do-you-need-to-manage-your-data
 the-data-life-cycle
-plan-dmps
-collect
-assure
+plan
+collect-and-assure
 describe
 preserve
 discover
@@ -46,9 +48,4 @@ baysian
 maximum-likelihood
 probability-vs-likelihood
 final-words
-plan
-why-do-you-need-to-manage-your-data
-fig:uctdmp
-fig:datatypes
-collect-and-assure
-fig:appsheet
+fig:fairdata
