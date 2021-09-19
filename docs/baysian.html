@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Going Bayesian | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
+  <title>7 Going Bayesian | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Going Bayesian | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta property="og:title" content="7 Going Bayesian | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Going Bayesian | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta name="twitter:title" content="7 Going Bayesian | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   
   <meta name="twitter:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-09-17" />
+<meta name="date" content="2021-09-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="forecasting.html"/>
-<link rel="next" href="final-words.html"/>
+<link rel="prev" href="pracstuff.html"/>
+<link rel="next" href="uncertainty.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -170,35 +170,44 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="3.1" data-path="models.html"><a href="models.html#the-basics-of-making-a-decision"><i class="fa fa-check"></i><b>3.1</b> The basics of making a decision</a></li>
 <li class="chapter" data-level="3.2" data-path="models.html"><a href="models.html#getting-quantitative"><i class="fa fa-check"></i><b>3.2</b> Getting quantitative</a></li>
-<li class="chapter" data-level="3.3" data-path="models.html"><a href="models.html#iterative-decision-making"><i class="fa fa-check"></i><b>3.3</b> Iterative decision-making</a></li>
-<li class="chapter" data-level="3.4" data-path="models.html"><a href="models.html#delete-from-here-once-done---how-to-reference"><i class="fa fa-check"></i><b>3.4</b> Delete from here once done… - How to reference</a></li>
+<li class="chapter" data-level="3.3" data-path="models.html"><a href="models.html#iterative-decision-making-and-the-scientific-method"><i class="fa fa-check"></i><b>3.3</b> Iterative decision-making and the scientific method</a></li>
+<li class="chapter" data-level="3.4" data-path="models.html"><a href="models.html#the-importance-of-prediction-in-ecology"><i class="fa fa-check"></i><b>3.4</b> The importance of prediction in ecology</a></li>
+<li class="chapter" data-level="3.5" data-path="models.html"><a href="models.html#iterative-ecological-forecasting"><i class="fa fa-check"></i><b>3.5</b> Iterative ecological forecasting</a></li>
+<li class="chapter" data-level="3.6" data-path="models.html"><a href="models.html#delete-from-here-once-done---how-to-reference"><i class="fa fa-check"></i><b>3.6</b> Delete from here once done… - How to reference</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="reproducibility.html"><a href="reproducibility.html#replication-and-the-reproducibility-spectrum"><i class="fa fa-check"></i><b>4.1</b> Replication and the Reproducibility Spectrum</a></li>
-<li class="chapter" data-level="4.2" data-path="reproducibility.html"><a href="reproducibility.html#why-work-reproducibly"><i class="fa fa-check"></i><b>4.2</b> Why work reproducibly?</a></li>
-<li class="chapter" data-level="4.3" data-path="reproducibility.html"><a href="reproducibility.html#scientific-workflows"><i class="fa fa-check"></i><b>4.3</b> Scientific Workflows</a></li>
-<li class="chapter" data-level="4.4" data-path="reproducibility.html"><a href="reproducibility.html#data-management"><i class="fa fa-check"></i><b>4.4</b> Data Management</a>
-<ul>
-<li class="chapter" data-level="4.4.1" data-path="reproducibility.html"><a href="reproducibility.html#why-do-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>4.4.1</b> Why do you need to manage your data?</a></li>
-<li class="chapter" data-level="4.4.2" data-path="reproducibility.html"><a href="reproducibility.html#the-data-life-cycle"><i class="fa fa-check"></i><b>4.4.2</b> The Data Life Cycle</a></li>
-</ul></li>
+<li class="chapter" data-level="4.1" data-path="reproducibility.html"><a href="reproducibility.html#the-reproducibility-crisis"><i class="fa fa-check"></i><b>4.1</b> The Reproducibility Crisis</a></li>
+<li class="chapter" data-level="4.2" data-path="reproducibility.html"><a href="reproducibility.html#replication-and-the-reproducibility-spectrum"><i class="fa fa-check"></i><b>4.2</b> Replication and the Reproducibility Spectrum</a></li>
+<li class="chapter" data-level="4.3" data-path="reproducibility.html"><a href="reproducibility.html#why-work-reproducibly"><i class="fa fa-check"></i><b>4.3</b> Why work reproducibly?</a></li>
+<li class="chapter" data-level="4.4" data-path="reproducibility.html"><a href="reproducibility.html#scientific-workflows"><i class="fa fa-check"></i><b>4.4</b> Scientific Workflows</a></li>
 <li class="chapter" data-level="4.5" data-path="reproducibility.html"><a href="reproducibility.html#coding-and-code-management"><i class="fa fa-check"></i><b>4.5</b> Coding and code management</a></li>
 <li class="chapter" data-level="4.6" data-path="reproducibility.html"><a href="reproducibility.html#computing-and-software"><i class="fa fa-check"></i><b>4.6</b> Computing and software</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="forecasting.html"><a href="forecasting.html"><i class="fa fa-check"></i><b>5</b> Forecasting in ecology</a>
+<li class="chapter" data-level="5" data-path="data-management.html"><a href="data-management.html"><i class="fa fa-check"></i><b>5</b> Data Management</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="forecasting.html"><a href="forecasting.html#the-importance-of-prediction-in-ecology"><i class="fa fa-check"></i><b>5.1</b> The importance of prediction in ecology</a></li>
-<li class="chapter" data-level="5.2" data-path="forecasting.html"><a href="forecasting.html#iterative-ecological-forecasting"><i class="fa fa-check"></i><b>5.2</b> Iterative ecological forecasting</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="baysian.html"><a href="baysian.html"><i class="fa fa-check"></i><b>6</b> Going Bayesian</a>
+<li class="chapter" data-level="5.1" data-path="data-management.html"><a href="data-management.html#why-do-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>5.1</b> Why do you need to manage your data?</a></li>
+<li class="chapter" data-level="5.2" data-path="data-management.html"><a href="data-management.html#the-data-life-cycle"><i class="fa fa-check"></i><b>5.2</b> The Data Life Cycle</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="baysian.html"><a href="baysian.html#maximum-likelihood"><i class="fa fa-check"></i><b>6.1</b> Maximum likelihood</a>
+<li class="chapter" data-level="5.2.1" data-path="data-management.html"><a href="data-management.html#plan"><i class="fa fa-check"></i><b>5.2.1</b> Plan</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-management.html"><a href="data-management.html#collect-and-assure"><i class="fa fa-check"></i><b>5.2.2</b> Collect and Assure</a></li>
+<li class="chapter" data-level="5.2.3" data-path="data-management.html"><a href="data-management.html#describe"><i class="fa fa-check"></i><b>5.2.3</b> Describe</a></li>
+<li class="chapter" data-level="5.2.4" data-path="data-management.html"><a href="data-management.html#preserve"><i class="fa fa-check"></i><b>5.2.4</b> Preserve</a></li>
+<li class="chapter" data-level="5.2.5" data-path="data-management.html"><a href="data-management.html#discover"><i class="fa fa-check"></i><b>5.2.5</b> Discover</a></li>
+<li class="chapter" data-level="5.2.6" data-path="data-management.html"><a href="data-management.html#integrate"><i class="fa fa-check"></i><b>5.2.6</b> Integrate</a></li>
+<li class="chapter" data-level="5.2.7" data-path="data-management.html"><a href="data-management.html#analyze"><i class="fa fa-check"></i><b>5.2.7</b> Analyze</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-management.html"><a href="data-management.html#data-and-decisions"><i class="fa fa-check"></i><b>5.3</b> Data and decisions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="pracstuff.html"><a href="pracstuff.html"><i class="fa fa-check"></i><b>6</b> Prac</a></li>
+<li class="chapter" data-level="7" data-path="baysian.html"><a href="baysian.html"><i class="fa fa-check"></i><b>7</b> Going Bayesian</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="baysian.html"><a href="baysian.html#probability-vs-likelihood"><i class="fa fa-check"></i><b>6.1.1</b> Probability vs Likelihood</a></li>
+<li class="chapter" data-level="7.1" data-path="baysian.html"><a href="baysian.html#maximum-likelihood"><i class="fa fa-check"></i><b>7.1</b> Maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="baysian.html"><a href="baysian.html#probability-vs-likelihood"><i class="fa fa-check"></i><b>7.1.1</b> Probability vs Likelihood</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>7</b> Final Words</a></li>
+<li class="chapter" data-level="8" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>8</b> Uncertainty</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting" target="blank">Published with bookdown</a></li>
@@ -220,8 +229,8 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="baysian" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Going Bayesian</h1>
+<div id="baysian" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Going Bayesian</h1>
 <p>While ecological forecasting and decision support can be done with traditional statistics (often termed “frequentist statistics”) it is generally much easier to do in a Bayesian statistical framework, because:</p>
 <ul>
 <li>It treats all terms as probability distributions, making it easier to quantify, propagate and partition uncertainties throughout the analysis (more on this later)</li>
@@ -230,11 +239,11 @@ div.csl-indent {
 <li>They are typically focused on estimating what properties are (i.e. the actual value of a particular parameter) and not just establishing what they are not (i.e. testing for significant difference, as is usually the focus in frequentist statistics) - although there are frequentist approaches for doing this too</li>
 </ul>
 <p>In this section I aim to provide a brief and soft introduction to Bayesian statistics and use an example from my own research to highlight the principles and benefits. We’ll also use this example in the pair-coding practical.</p>
-<div id="maximum-likelihood" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Maximum likelihood</h2>
+<div id="maximum-likelihood" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Maximum likelihood</h2>
 <p>Before I can introduce Bayes, there are a few basic building blocks we need to establish first. The main one is the concept of likelihood and the estimation of maximum likelihood, since this is a major component of Bayes’ Theorum.</p>
-<div id="probability-vs-likelihood" class="section level3" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Probability vs Likelihood</h3>
+<div id="probability-vs-likelihood" class="section level3" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Probability vs Likelihood</h3>
 <p>While <em>probability</em> and <em>likelihood</em> may seem like similar concepts, the distinction between them is fundamentally important in statistics.</p>
 <p><strong>Probability relates to possible results given a hypothesis.</strong></p>
 <ul>
@@ -256,20 +265,20 @@ div.csl-indent {
 <p><span class="math display">\[
 SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
 \]</span></p>
-<p>You can also use math in footnotes like this<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
-<p>We will approximate standard error to 0.027<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>You can also use math in footnotes like this<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
+<p>We will approximate standard error to 0.027<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 
 </div>
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="1">
-<li id="fn1"><p>where we mention <span class="math inline">\(p = \frac{a}{b}\)</span><a href="baysian.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p><span class="math inline">\(p\)</span> is unknown but expected to be around 1/3. Standard error will be approximated</p>
+<ol start="2">
+<li id="fn2"><p>where we mention <span class="math inline">\(p = \frac{a}{b}\)</span><a href="baysian.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p><span class="math inline">\(p\)</span> is unknown but expected to be around 1/3. Standard error will be approximated</p>
 <p><span class="math display">\[
 SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
-\]</span><a href="baysian.html#fnref2" class="footnote-back">↩︎</a></p></li>
+\]</span><a href="baysian.html#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -277,8 +286,8 @@ SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
           </div>
         </div>
       </div>
-<a href="forecasting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="final-words.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="pracstuff.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="uncertainty.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -310,7 +319,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/04-going_bayesian.Rmd",
+"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/05-going_bayesian.Rmd",
 "text": "Edit"
 },
 "history": {

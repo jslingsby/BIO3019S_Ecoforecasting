@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Data Management | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
+  <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Data Management | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
+  <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Data Management | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  
+  <meta name="twitter:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
+  
+
+<meta name="author" content="Jasper Slingsby" />
+
+
+<meta name="date" content="2021-09-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="reproducibility.html"/>
+<link rel="next" href="pracstuff.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Introduction to Reproducible Research and Ecological Forecasting</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#general"><i class="fa fa-check"></i><b>1.1</b> General</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#module-and-project-details"><i class="fa fa-check"></i><b>1.2</b> Module and Project details</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#acknowledgements-and-further-reading"><i class="fa fa-check"></i><b>1.3</b> Acknowledgements and further reading:</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="quiz.html"><a href="quiz.html"><i class="fa fa-check"></i><b>2</b> How do we make decisions?</a></li>
+<li class="chapter" data-level="3" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>3</b> Models and decision making</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="models.html"><a href="models.html#the-basics-of-making-a-decision"><i class="fa fa-check"></i><b>3.1</b> The basics of making a decision</a></li>
+<li class="chapter" data-level="3.2" data-path="models.html"><a href="models.html#getting-quantitative"><i class="fa fa-check"></i><b>3.2</b> Getting quantitative</a></li>
+<li class="chapter" data-level="3.3" data-path="models.html"><a href="models.html#iterative-decision-making-and-the-scientific-method"><i class="fa fa-check"></i><b>3.3</b> Iterative decision-making and the scientific method</a></li>
+<li class="chapter" data-level="3.4" data-path="models.html"><a href="models.html#the-importance-of-prediction-in-ecology"><i class="fa fa-check"></i><b>3.4</b> The importance of prediction in ecology</a></li>
+<li class="chapter" data-level="3.5" data-path="models.html"><a href="models.html#iterative-ecological-forecasting"><i class="fa fa-check"></i><b>3.5</b> Iterative ecological forecasting</a></li>
+<li class="chapter" data-level="3.6" data-path="models.html"><a href="models.html#delete-from-here-once-done---how-to-reference"><i class="fa fa-check"></i><b>3.6</b> Delete from here once done… - How to reference</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="reproducibility.html"><a href="reproducibility.html#the-reproducibility-crisis"><i class="fa fa-check"></i><b>4.1</b> The Reproducibility Crisis</a></li>
+<li class="chapter" data-level="4.2" data-path="reproducibility.html"><a href="reproducibility.html#replication-and-the-reproducibility-spectrum"><i class="fa fa-check"></i><b>4.2</b> Replication and the Reproducibility Spectrum</a></li>
+<li class="chapter" data-level="4.3" data-path="reproducibility.html"><a href="reproducibility.html#why-work-reproducibly"><i class="fa fa-check"></i><b>4.3</b> Why work reproducibly?</a></li>
+<li class="chapter" data-level="4.4" data-path="reproducibility.html"><a href="reproducibility.html#scientific-workflows"><i class="fa fa-check"></i><b>4.4</b> Scientific Workflows</a></li>
+<li class="chapter" data-level="4.5" data-path="reproducibility.html"><a href="reproducibility.html#coding-and-code-management"><i class="fa fa-check"></i><b>4.5</b> Coding and code management</a></li>
+<li class="chapter" data-level="4.6" data-path="reproducibility.html"><a href="reproducibility.html#computing-and-software"><i class="fa fa-check"></i><b>4.6</b> Computing and software</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-management.html"><a href="data-management.html"><i class="fa fa-check"></i><b>5</b> Data Management</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-management.html"><a href="data-management.html#why-do-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>5.1</b> Why do you need to manage your data?</a></li>
+<li class="chapter" data-level="5.2" data-path="data-management.html"><a href="data-management.html#the-data-life-cycle"><i class="fa fa-check"></i><b>5.2</b> The Data Life Cycle</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="data-management.html"><a href="data-management.html#plan"><i class="fa fa-check"></i><b>5.2.1</b> Plan</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-management.html"><a href="data-management.html#collect-and-assure"><i class="fa fa-check"></i><b>5.2.2</b> Collect and Assure</a></li>
+<li class="chapter" data-level="5.2.3" data-path="data-management.html"><a href="data-management.html#describe"><i class="fa fa-check"></i><b>5.2.3</b> Describe</a></li>
+<li class="chapter" data-level="5.2.4" data-path="data-management.html"><a href="data-management.html#preserve"><i class="fa fa-check"></i><b>5.2.4</b> Preserve</a></li>
+<li class="chapter" data-level="5.2.5" data-path="data-management.html"><a href="data-management.html#discover"><i class="fa fa-check"></i><b>5.2.5</b> Discover</a></li>
+<li class="chapter" data-level="5.2.6" data-path="data-management.html"><a href="data-management.html#integrate"><i class="fa fa-check"></i><b>5.2.6</b> Integrate</a></li>
+<li class="chapter" data-level="5.2.7" data-path="data-management.html"><a href="data-management.html#analyze"><i class="fa fa-check"></i><b>5.2.7</b> Analyze</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-management.html"><a href="data-management.html#data-and-decisions"><i class="fa fa-check"></i><b>5.3</b> Data and decisions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="pracstuff.html"><a href="pracstuff.html"><i class="fa fa-check"></i><b>6</b> Prac</a></li>
+<li class="chapter" data-level="7" data-path="baysian.html"><a href="baysian.html"><i class="fa fa-check"></i><b>7</b> Going Bayesian</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="baysian.html"><a href="baysian.html#maximum-likelihood"><i class="fa fa-check"></i><b>7.1</b> Maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="baysian.html"><a href="baysian.html#probability-vs-likelihood"><i class="fa fa-check"></i><b>7.1.1</b> Probability vs Likelihood</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>8</b> Uncertainty</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Introduction to Ecological Forecasting and Reproducible Research</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-management" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Data Management</h1>
+<div id="why-do-you-need-to-manage-your-data" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Why do you need to manage your data?</h2>
+<p>Data management is often the last thing on a scientists mind when doing a new study - “I have a cool idea, and I’m going to test it!” You don’t want to “waste” time planning how you’re going to manage your data and implementing that plan… Unfortunately, this never ends well and really is a realm where “haste makes waste.”</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:datadecay"></span>
+<img src="img/datadecaycurve.jpg" alt="The 'Data Decay Curve' [@Michener1997]" width="75%" />
+<p class="caption">
+Figure 5.1: The ‘Data Decay Curve’ <span class="citation">(<a href="#ref-Michener1997" role="doc-biblioref">Michener et al. 1997</a>)</span>
+</p>
+</div>
+<p><br></p>
+<ul>
+<li>Bad data management leads to data loss… (The “data decay curve” <span class="citation">(<a href="#ref-Michener1997" role="doc-biblioref">Michener et al. 1997</a>)</span>)</li>
+<li>Your future self will hate you if you lose it before you’re finished with it - Eek!!! This is less likely in the world of Dropbox, Google Drive, iCloud etc, but I know people who had to repeat their PhD’s because they lost their data or it was on a laptop that was stolen…</li>
+<li>Data has value beyond your current project:
+<ul>
+<li>to yourself for reuse in future projects, collaborations, etc (i.e. publications and citations),</li>
+<li>for others for follow-up studies, or combining multiple datasets for meta-analyses or synthesis etc</li>
+<li>for science on general (especially long-term ecology in a time of global change)</li>
+</ul></li>
+<li>We’ve covered this before, but it is also key for transparency and accountability.</li>
+<li>Data collection is expensive, and is often paid for with taxpayers’ money. You owe it to them to make sure that science gets the most out of that data in the long term.</li>
+<li>Lastly, good planning and data management can help iron out issues like intellectual property, permissions for ethics, collection permits, etc, in addition to outlining expectations for who will be authors on the paper(s), responsible for managing different aspects of the data etc up front. If you don’t establish these permissions and ground rules early they can result in data loss, not being able to publish the study, damage careers, and/or damage relationships in collaborations (including student-supervisor), etc.</li>
+</ul>
+<p>To avoid data (and relationship) decay, and to reap the benefits of good data management, it is important to consider the full <em>Data Life Cycle</em>.</p>
+<p><br></p>
+</div>
+<div id="the-data-life-cycle" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> The Data Life Cycle</h2>
+<div class="figure" style="text-align: center"><span id="fig:datalifecycle"></span>
+<img src="BIO3019S-Ecoforecasting_files/figure-html/datalifecycle-1.png" alt="The Data Life Cycle, adapted from https://www.dataone.org/" width="576" />
+<p class="caption">
+Figure 5.2: The Data Life Cycle, adapted from <a href="https://www.dataone.org/" class="uri">https://www.dataone.org/</a>
+</p>
+</div>
+<p><br></p>
+<p>Note that there are quite a few different versions of the data life cycle out there. This is the most comprehensive one I know of, and covers all the steps relevant to a range of different kinds of research projects. A full description of this data life cycle and related ecoinformatics issues can be found in <span class="citation">(<a href="#ref-Michener2012" role="doc-biblioref">Michener and Jones 2012</a>)</span>.</p>
+<p>Not all projects need to do all steps, nor will they necessarily follow the order here, but it is worth being aware of and considering all steps. For example, often the first thing you do when you have a new hypothesis is search around for any existing data that could be used to test it without having to spend money and time collecting new data (i.e. skip to step 6). In this case I would argue that you should still do step 1 (Plan), and you’d want to do some checking to assure the quality of the data (step 3), but you can certainly skip steps 2, 4 and 5. A meta-analysis or synthesis paper would probably do the same. On the other hand, if you’re collecting new data you would do steps 1 to 5 and possibly skip 6 and 7, although in my experience few studies do not reuse existing data (e.g. weather or various GIS data to put your new samples in context).</p>
+<p><br></p>
+<div id="plan" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Plan</h3>
+<p>Good data management begins with planning. In this step you essentially outline the plan for every step of the cycle in as much detail as possible. Usually this is done by constructing a document or Data Management Plan (DMP).</p>
+<p>While developing DMPs can seem tedious, they are essential for the reasons I gave above, and because most funders and universities now require them.</p>
+<p>Fortunately, there are a number of online data management planning tools that make it easy by providing templates and prompts to ensure that you cover all the bases, like the Digital Curation Centre’s <a href="https://dmponline.dcc.ac.uk/">DMPOnline</a> and <a href="https://dmp.lib.uct.ac.za/">UCT’s DMP Tool</a>.</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:uctdmp"></span>
+<img src="img/UCTDMP.png" alt="Screenshot of [UCT's Data Management Planning Tool's Data Management Checklist.](http://www.digitalservices.lib.uct.ac.za/dls/systems/uct-dmp)" width="90%" />
+<p class="caption">
+Figure 5.3: Screenshot of <a href="http://www.digitalservices.lib.uct.ac.za/dls/systems/uct-dmp">UCT’s Data Management Planning Tool’s Data Management Checklist.</a>
+</p>
+</div>
+<p><br></p>
+<p>A key thing to bear in mind is that a DMP is a living document and should be regularly revised during the life of a project, especially when big changes happen - e.g. new team members, new funding, new direction, change of institution, etc.</p>
+<p>I typically develop one overarching DMP for an umbrella project (e.g. a particular grant), but then add specifics for subprojects (e.g. separate student projects etc).</p>
+<p><br></p>
+</div>
+<div id="collect-and-assure" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Collect and Assure</h3>
+<p>There are many, many different kinds of data that can be collected in a vast number of ways!</p>
+<div class="figure" style="text-align: center"><span id="fig:datatypes"></span>
+<img src="img/datatypes.png" alt="[Springer Nature Infographic](https://doi.org/10.6084/m9.figshare.5883193.v1) illustrating the vast range of research data types." width="90%" />
+<p class="caption">
+Figure 5.4: <a href="https://doi.org/10.6084/m9.figshare.5883193.v1">Springer Nature Infographic</a> illustrating the vast range of research data types.
+</p>
+</div>
+<p><br></p>
+<p>While “Collect” and “Assure” are different steps in the life cycle, I advocate that it is foolish to collect data without doing quality assurance and quality control (QA/QC) as you go, irrespective of how you are collecting the data.</p>
+<p>For example:</p>
+<ul>
+<li>automated logging instruments (weather stations, cameras, acoustic recorders) need to be checked that they’re logging properly, are calibrated/focused, are reporting sensible values, etc</li>
+<li>if you’re filling in data sheets, you need to check that all fields have been completed, that there are no obvious errors and that any numbers or other values look realistic. In fact, if you’re using handwritten data sheets it’s best to capture them as soon as possible (i.e. that evening), because that helps you spot errors and omissions, you have a better chance of deciphering bad handwriting or cryptic notes, and you can plot any values to see if there are suspicious outliers (e.g. because someone wrote down a measurement in centimetres when they were meant to use metres).</li>
+</ul>
+<p>When transcribing or capturing data into a spreadsheet or database it is often best to <strong>use data validation</strong> tricks like drop-down menus, conditional formatting, restricted value ranges etc to avoid spelling mistakes and highlight data entries that are outside the expected range of the data field. It may seem like a lot of effort to set this up, but <em>it’ll save you a lot of time and pain in the long run!!!</em></p>
+<p>Increasingly, I’ve started moving towards capturing data directly into a spreadsheet on a tablet, or better yet, into an App on my phone. There are a number of “no code” app builders these days like <a href="https://www.appsheet.com">AppSheet</a> that inserts data directly into Google Sheets and saves photos to your Google Drive.</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:appsheet"></span>
+<img src="img/veldwatch.png" alt="An example data collection app I built in [AppSheet](https://www.appsheet.com) that allows you to log GPS coordinates, take photos, record various fields, etc." width="90%" />
+<p class="caption">
+Figure 5.5: An example data collection app I built in <a href="https://www.appsheet.com">AppSheet</a> that allows you to log GPS coordinates, take photos, record various fields, etc.
+</p>
+</div>
+<p><br></p>
+</div>
+<div id="describe" class="section level3" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Describe</h3>
+<p>There are few things worse than having a spreadsheet of what you think is the data you need, but you don’t know what the column names mean, how variables were measured, what units they’re reported in, etc… - <em>Especially when you were the one who collected and captured the data!!!</em></p>
+<p>This descriptive data about the data is called <strong><em>metadata</em></strong> and is essential for making the data reusable, but is also useful for many other purposes like making the data findable (e.g. using keyword searches). In fact, metadata makes up the majority of what are called the <a href="https://www.go-fair.org/fair-principles/"><strong>FAIR data principles</strong></a> <span class="citation">(<a href="#ref-Wilkinson2016" role="doc-biblioref">Wilkinson et al. 2016</a>)</span>, which largely focus on this and the next few steps of the Data Life Cycle. I’m not going to dwell on them other than to say that they are a key component of making your work reproducible, and that like reproducibility, practicing FAIR data principles is a spectrum.</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:fairdata"></span>
+<img src="img/fairdata.jpg" alt="The FAIR data principles [ErrantScience.com](https://errantscience.com/)." width="75%" />
+<p class="caption">
+Figure 5.6: The FAIR data principles <a href="https://errantscience.com/">ErrantScience.com</a>.
+</p>
+</div>
+<p><br></p>
+<p><strong>Some key kinds of metadata:</strong></p>
+<ul>
+<li>the study context
+<ul>
+<li>why the data were generated</li>
+<li>who funded, created, collected, assured, managed and owns the data (not always the same person)
+<ul>
+<li>contact details for the above</li>
+</ul></li>
+<li>when and where the data were collected</li>
+<li>where the data are stored</li>
+</ul></li>
+<li>the data format
+<ul>
+<li>what is the file format</li>
+<li>what softwares were used (and what version)</li>
+</ul></li>
+<li>the data content
+<ul>
+<li>what was measured</li>
+<li>how it was measured</li>
+<li>what units was it reported in</li>
+<li>what QA/QC has been applied</li>
+<li>is it raw data or a derived data product (e.g. spatially interpolated climate layers)</li>
+<li>if derived, how it was analyzed</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><strong>Metadata standards and interoperability</strong></p>
+<p>Many data user communities have developed particular metadata standards or schemas in an attempt to enable the best possible description and interoperability of a data type for their needs.</p>
+<p>They are typically human and machine-readable data, so that the metadata records can also be read by machines, facilitating storing and querying multiple datasets in a common database (or across databases).</p>
+<div class="figure" style="text-align: center"><span id="fig:datastandards"></span>
+<img src="img/standards.png" alt="How standards proliferate... from [xkcd.com/927](https://xkcd.com/927), used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/)." width="75%" />
+<p class="caption">
+Figure 5.7: How standards proliferate… from <a href="https://xkcd.com/927">xkcd.com/927</a>, used under a <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5 license</a>.
+</p>
+</div>
+<p>Using common metadata schemas has many advantages in that they make data sharing easier, they allow you to search and integrate data across datasets, and they simplify metadata capture (i.e. having a list of required fields makes it easier to not forget any).</p>
+<p>There are <a href="https://www.dcc.ac.uk/guidance/standards/metadata/list">many standards</a>, but perhaps the most common ones you’ll encounter in biological sciences (other than geospatial metadata standards) are <a href="https://www.tdwg.org/standards/dwc/">DarwinCore</a> and <a href="https://knb.ecoinformatics.org/tools/eml">Ecological Metadata Language (EML)</a>.</p>
+<p><br></p>
+</div>
+<div id="preserve" class="section level3" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Preserve</h3>
+<p>There are two major components to preserving your data:</p>
+<ol style="list-style-type: decimal">
+<li><strong><em>Back your data up now!!! (and repeat regularly)</em></strong></li>
+</ol>
+<p>Losing your data can be incredibly inconvenient!!! A good friend of mine lost all of his PhD data twice. It took him 7 years to complete the degree…</p>
+<p>Beyond inconvenience, losing data can be incredibly expensive! Doing 4 extra years to get your PhD is expensive at a personal level, but if the data are part of a big project it can rapidly add up to millions - like <a href="https://www.youtube.com/watch?v=8dhp_20j0Ys">How Toy Story 2 Almost Got Deleted</a>.</p>
+<blockquote>
+<p><strong><em>PRO TIP:</em></strong> Storing data on the cloud is not enough! You could easily delete that single version of all your data! You may also lose access when you change institution etc. E.g. What happens to your UCT MS OneDrive and Google Drive content when you graduate and ICTS close your email account?</p>
+</blockquote>
+<p><br></p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong><em>Long-term preservation and publication</em></strong></li>
+</ol>
+<p>This involves the deposition of your data (and metadata!) in a <strong>data repository</strong> where it can be managed and curated over the long term.</p>
+<p>This is increasingly a requirement of funders and publishers (i.e. journals). Many journals allow you (or require you) to submit and publish your data with them as supplementary material. Unfortunately, many journals differ in how they curate the data and whether they are available open access. I prefer to publish my data in an online open access repository where you can get a permanent <strong>Digital Object Identifier (DOI)</strong> that you can link to from your paper.</p>
+<p>Another consideration, if you are keen for people to reuse your data (which if you are not you will fail this course by default) is where people are most likely to look for your data (i.e. making your data “Findable/Discoverable.” There are many “bespoke” data repositories for different kinds of data, e.g.</p>
+<p>Global databases:</p>
+<ul>
+<li><a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a> - for molecular data</li>
+<li><a href="https://www.try-db.org/TryWeb/Home.php">TRY</a> - for plant traits</li>
+<li><a href="https://datadryad.org">Dryad</a> - for generalist biological and environmental research</li>
+</ul>
+<p>South African databases:</p>
+<ul>
+<li><a href="https://www.sanbi.org/resources/infobases/">SANBI</a> - for most kinds of South African biodiversity data</li>
+<li><a href="https://catalogue.saeon.ac.za/">SAEON</a> - for South African environmental data (e.g. hydrology, meteorology, etc) and biodiversity data that don’t fit SANBI’s databases</li>
+</ul>
+<p>If none of these suit your data, there are also “generalist” data repositories that accept almost any kind of data, like:</p>
+<ul>
+<li><a href="https://figshare.com/">FigShare</a></li>
+<li><a href="https://zenodo.org/">Zenodo</a></li>
+<li>UCT’s <a href="https://zivahub.uct.ac.za/">ZivaHub</a> (which is built on and searchable through FigShare)</li>
+</ul>
+<p><br></p>
+<p>I haven’t discussed <strong>physical samples</strong> at all. These are obviously a huge (if not bigger) challenge too, although there are some obvious homes for common biological data, like herbaria for plant collections and museums for animal specimens.</p>
+<p><br></p>
+</div>
+<div id="discover" class="section level3" number="5.2.5">
+<h3><span class="header-section-number">5.2.5</span> Discover</h3>
+<p>This is perhaps the main point of the Data Life Cycle and FAIR data principles - to make data findable so that it can be reused.</p>
+<p>The biggest challenge to discovering data is that <strong>so many datasets are not online</strong> and are in the “filing cabinet in a bath in the basement under a leaking pipe” as in Figure <a href="data-management.html#fig:fairdata">5.6</a>. If you <strong><em>preserve and publish</em></strong> them in an online data repository, this overcomes the biggest hurdle.</p>
+<p>The next biggest challenge is <strong>that there is so much online that finding what you need can be quite challenging</strong> (like looking for a needle in a haystack…). This is where choosing the right portal can be important. It is also what metadata standards are aimed at - allowing interoperable searches for specific data types across multiple repositories.</p>
+<p>A final consideration is whether you have <strong>permission to use the data</strong>. You can often find out about the existence of a dataset, either online or in a paper, but the data aren’t made freely available. This is where <strong>licensing</strong> comes into play. Most data repositories require you to publish the data under a license. There are many options depending on the kind of data and what restrictions you want to put on its use. I’m not going to go into the gory details, but <a href="https://creativecommons.org/licenses/">Creative Commons</a> have created an extensible system of generic licenses that are easy to interpret and cover most situations. I say <em>extensible</em> because the licenses are made up of a string of components that can be layered over each other. For example:</p>
+<ul>
+<li>CCO - means it is <em>Open</em> - i.e. there are no restrictions on use and it is in the public domain</li>
+<li>CC BY - means <em>by attribution</em> - you can use the data for any purpose, but only if you indicate attribution of the data to the source or owner of the data</li>
+<li>CC BY-SA - means <em>by attribution</em> + <em>share alike</em> - i.e. you have to indicate attribution and share your derived product under the same license</li>
+<li>CC BY-ND - means <em>by attribution</em> + <em>no derivatives</em> - i.e. you have to indicate attribution, but cannot use it to make a derived product. This is often used for images - allowing you to show the image, but not to alter it.</li>
+<li>CC BY-NC - means <em>by attribution</em> + <em>non-commercial</em> - you have to indicate attribution, but cannot use it for commercial purposes (i.e. you can’t sell derived products)</li>
+<li>CC BY-NC-SA - <em>by attribution</em> + <em>non-commercial</em> + <em>share alike</em></li>
+<li>CC BY-NC-ND - <em>by attribution</em> + <em>non-commercial</em> + <em>no derivatives</em></li>
+</ul>
+<p><br></p>
+</div>
+<div id="integrate" class="section level3" number="5.2.6">
+<h3><span class="header-section-number">5.2.6</span> Integrate</h3>
+</div>
+<div id="analyze" class="section level3" number="5.2.7">
+<h3><span class="header-section-number">5.2.7</span> Analyze</h3>
+<p><br></p>
+</div>
+</div>
+<div id="data-and-decisions" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Data and decisions</h2>
+<ul>
+<li>latency</li>
+<li>uncertainty</li>
+<li></li>
+</ul>
+<p><br></p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Michener1997" class="csl-entry">
+Michener, William K, James W Brunt, John J Helly, Thomas B Kirchner, and Susan G Stafford. 1997. <span>“<span class="nocase">Nongeospatial data for the ecological sciences</span>.”</span> <em>Ecological Applications: A Publication of the Ecological Society of America</em> 7 (1): 330–42. <a href="https://doi.org/10.1890/1051-0761(1997)007[0330:nmftes]2.0.co;2">https://doi.org/10.1890/1051-0761(1997)007[0330:nmftes]2.0.co;2</a>.
+</div>
+<div id="ref-Michener2012" class="csl-entry">
+Michener, William K, and Matthew B Jones. 2012. <span>“<span class="nocase">Ecoinformatics: supporting ecology as a data-intensive science</span>.”</span> <em>Trends in Ecology &amp; Evolution</em> 27 (2): 85–93. <a href="https://doi.org/10.1016/j.tree.2011.11.016">https://doi.org/10.1016/j.tree.2011.11.016</a>.
+</div>
+<div id="ref-Wilkinson2016" class="csl-entry">
+Wilkinson, Mark D, Michel Dumontier, I Jsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. <span>“<span class="nocase">The FAIR Guiding Principles for scientific data management and stewardship</span>.”</span> <em>Scientific Data</em> 3 (March): 160018. <a href="https://doi.org/10.1038/sdata.2016.18">https://doi.org/10.1038/sdata.2016.18</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="reproducibility.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pracstuff.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/03-data.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BIO3019S Ecoforecasting.pdf", "BIO3019S Ecoforecasting.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
