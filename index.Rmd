@@ -45,6 +45,12 @@ There is only one practical for this module, 2-5PM on Tuesday the 5th October. D
 
 <br>
 
+## A bit about me
+
+I'm an ecologist who has become more quantitative through time, but has little formal training in quantitative methods (i.e. I've learnt by doing over the past 20 years). As such, I will make elementary mistakes. In fact, the entry requirements for this course are beyond my formal training, so you may have much to teach me! If you spot any errors, confusion or contradictions please let me know and I'll get back to you and/or update the course notes accordingly.
+
+<br>
+
 ## Acknowledgements and further reading:
 
 _Many of the following resources were instrumental in me pulling this material together and are worth spending time exploring_

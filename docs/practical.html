@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Practical: Pair coding with GitHub | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
+  <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Practical: Pair coding with GitHub | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
+  <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Practical: Pair coding with GitHub | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  
+  <meta name="twitter:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
+  
+
+<meta name="author" content="Jasper Slingsby" />
+
+
+<meta name="date" content="2021-09-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-management.html"/>
+<link rel="next" href="baysian.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Introduction to Reproducible Research and Ecological Forecasting</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#general"><i class="fa fa-check"></i><b>1.1</b> General</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#module-and-project-details"><i class="fa fa-check"></i><b>1.2</b> Module and Project details</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#a-bit-about-me"><i class="fa fa-check"></i><b>1.3</b> A bit about me</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#acknowledgements-and-further-reading"><i class="fa fa-check"></i><b>1.4</b> Acknowledgements and further reading:</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="quiz.html"><a href="quiz.html"><i class="fa fa-check"></i><b>2</b> How do we make decisions?</a></li>
+<li class="chapter" data-level="3" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>3</b> Models and decision making</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="models.html"><a href="models.html#the-basics-of-making-a-decision"><i class="fa fa-check"></i><b>3.1</b> The basics of making a decision</a></li>
+<li class="chapter" data-level="3.2" data-path="models.html"><a href="models.html#getting-quantitative"><i class="fa fa-check"></i><b>3.2</b> Getting quantitative</a></li>
+<li class="chapter" data-level="3.3" data-path="models.html"><a href="models.html#iterative-decision-making-and-the-scientific-method"><i class="fa fa-check"></i><b>3.3</b> Iterative decision-making and the scientific method</a></li>
+<li class="chapter" data-level="3.4" data-path="models.html"><a href="models.html#the-importance-of-prediction-in-ecology"><i class="fa fa-check"></i><b>3.4</b> The importance of prediction in ecology</a></li>
+<li class="chapter" data-level="3.5" data-path="models.html"><a href="models.html#iterative-ecological-forecasting"><i class="fa fa-check"></i><b>3.5</b> Iterative ecological forecasting</a></li>
+<li class="chapter" data-level="3.6" data-path="models.html"><a href="models.html#delete-from-here-once-done---how-to-reference"><i class="fa fa-check"></i><b>3.6</b> Delete from here once done… - How to reference</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="reproducibility.html"><a href="reproducibility.html#the-reproducibility-crisis"><i class="fa fa-check"></i><b>4.1</b> The Reproducibility Crisis</a></li>
+<li class="chapter" data-level="4.2" data-path="reproducibility.html"><a href="reproducibility.html#replication-and-the-reproducibility-spectrum"><i class="fa fa-check"></i><b>4.2</b> Replication and the Reproducibility Spectrum</a></li>
+<li class="chapter" data-level="4.3" data-path="reproducibility.html"><a href="reproducibility.html#why-work-reproducibly"><i class="fa fa-check"></i><b>4.3</b> Why work reproducibly?</a></li>
+<li class="chapter" data-level="4.4" data-path="reproducibility.html"><a href="reproducibility.html#scientific-workflows"><i class="fa fa-check"></i><b>4.4</b> Scientific Workflows</a></li>
+<li class="chapter" data-level="4.5" data-path="reproducibility.html"><a href="reproducibility.html#coding-and-code-management"><i class="fa fa-check"></i><b>4.5</b> Coding and code management</a></li>
+<li class="chapter" data-level="4.6" data-path="reproducibility.html"><a href="reproducibility.html#computing-and-software"><i class="fa fa-check"></i><b>4.6</b> Computing and software</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-management.html"><a href="data-management.html"><i class="fa fa-check"></i><b>5</b> Data Management</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-management.html"><a href="data-management.html#why-do-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>5.1</b> Why do you need to manage your data?</a></li>
+<li class="chapter" data-level="5.2" data-path="data-management.html"><a href="data-management.html#the-data-life-cycle"><i class="fa fa-check"></i><b>5.2</b> The Data Life Cycle</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="data-management.html"><a href="data-management.html#plan"><i class="fa fa-check"></i><b>5.2.1</b> Plan</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-management.html"><a href="data-management.html#collect-and-assure"><i class="fa fa-check"></i><b>5.2.2</b> Collect and Assure</a></li>
+<li class="chapter" data-level="5.2.3" data-path="data-management.html"><a href="data-management.html#describe"><i class="fa fa-check"></i><b>5.2.3</b> Describe</a></li>
+<li class="chapter" data-level="5.2.4" data-path="data-management.html"><a href="data-management.html#preserve"><i class="fa fa-check"></i><b>5.2.4</b> Preserve</a></li>
+<li class="chapter" data-level="5.2.5" data-path="data-management.html"><a href="data-management.html#discover"><i class="fa fa-check"></i><b>5.2.5</b> Discover</a></li>
+<li class="chapter" data-level="5.2.6" data-path="data-management.html"><a href="data-management.html#integrate"><i class="fa fa-check"></i><b>5.2.6</b> Integrate</a></li>
+<li class="chapter" data-level="5.2.7" data-path="data-management.html"><a href="data-management.html#analyze"><i class="fa fa-check"></i><b>5.2.7</b> Analyze</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-management.html"><a href="data-management.html#data-and-decisions"><i class="fa fa-check"></i><b>5.3</b> Data and decisions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="practical.html"><a href="practical.html"><i class="fa fa-check"></i><b>6</b> Practical: Pair coding with GitHub</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="practical.html"><a href="practical.html#preparation"><i class="fa fa-check"></i><b>6.1</b> Preparation</a></li>
+<li class="chapter" data-level="6.2" data-path="practical.html"><a href="practical.html#objectives"><i class="fa fa-check"></i><b>6.2</b> Objectives</a></li>
+<li class="chapter" data-level="6.3" data-path="practical.html"><a href="practical.html#prairie-phenology"><i class="fa fa-check"></i><b>6.3</b> Prairie Phenology</a></li>
+<li class="chapter" data-level="6.4" data-path="practical.html"><a href="practical.html#modular-design"><i class="fa fa-check"></i><b>6.4</b> Modular Design</a></li>
+<li class="chapter" data-level="6.5" data-path="practical.html"><a href="practical.html#task-1-create-clone-repository"><i class="fa fa-check"></i><b>6.5</b> Task 1: Create &amp; Clone Repository</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="practical.html"><a href="practical.html#owner"><i class="fa fa-check"></i><b>6.5.1</b> OWNER</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="practical.html"><a href="practical.html#task-2-add-the-first-function-download.phenocam"><i class="fa fa-check"></i><b>6.6</b> Task 2: Add the first function: download.phenocam</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="practical.html"><a href="practical.html#owner-1"><i class="fa fa-check"></i><b>6.6.1</b> OWNER</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="practical.html"><a href="practical.html#task-3-collaborator-adds-plot.phenocam"><i class="fa fa-check"></i><b>6.7</b> Task 3: Collaborator adds plot.phenocam</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="practical.html"><a href="practical.html#collaborator"><i class="fa fa-check"></i><b>6.7.1</b> COLLABORATOR</a></li>
+<li class="chapter" data-level="6.7.2" data-path="practical.html"><a href="practical.html#owner-2"><i class="fa fa-check"></i><b>6.7.2</b> OWNER</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="practical.html"><a href="practical.html#task-4-owner-adds-pred.logistic-and-fit.logistic"><i class="fa fa-check"></i><b>6.8</b> Task 4: Owner adds pred.logistic and fit.logistic</a>
+<ul>
+<li class="chapter" data-level="6.8.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>6.8.1</b> OWNER</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script"><i class="fa fa-check"></i><b>6.9</b> Task 5: Collaborator adds the master script</a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>6.9.1</b> COLLABORATOR</a></li>
+<li class="chapter" data-level="6.9.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>6.9.2</b> OWNER</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="baysian.html"><a href="baysian.html"><i class="fa fa-check"></i><b>7</b> Going Bayesian</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="baysian.html"><a href="baysian.html#maximum-likelihood"><i class="fa fa-check"></i><b>7.1</b> Maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="baysian.html"><a href="baysian.html#probability-vs-likelihood"><i class="fa fa-check"></i><b>7.1.1</b> Probability vs Likelihood</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>8</b> Uncertainty</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Introduction to Ecological Forecasting and Reproducible Research</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="practical" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Practical: Pair coding with GitHub</h1>
+<div id="preparation" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Preparation</h2>
+<p>For the practical, we’ll be using the <a href="https://cran.r-project.org/">R</a> statistical programming language and the <a href="https://git-scm.com/">Git</a> version control system.</p>
+<p>We’ll also be using an <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">integrated development environment (IDE)</a> for each: <a href="https://www.rstudio.com">RStudio</a> and <a href="https://github.com/">GitHub</a>, respectively.</p>
+<p>First we’ll start with the necessary software.</p>
+<ol style="list-style-type: decimal">
+<li>Download and install the <strong><em>latest</em></strong> version of <a href="https://cran.r-project.org/">R</a></li>
+<li>Download and install the <strong><em>latest</em></strong> free version of <a href="https://www.rstudio.com/products/rstudio/download/">RStudio Desktop</a></li>
+<li>Download and install the latest version of <a href="https://git-scm.com/">Git</a> - <strong>accept all the defaults</strong></li>
+</ol>
+<p>Then get started with GitHub:</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Create a <a href="https://github.com/">GitHub</a> account</li>
+<li>Run through the <a href="https://guides.github.com/activities/hello-world/">10 minute GitHb tutorial</a> that is offered when you activate your GitHub Account (It’ll really help you get the idea behind what Git does!)</li>
+</ol>
+<p>Now you have RStudio, R and Git installed, and you have a working GitHub account that lets you do stuff online, but what remains is to get GitHub working locally and configuring RStudio to use GitHub.</p>
+<ol start="6" style="list-style-type: decimal">
+<li>Install <a href="https://github.com/cli/cli#installation">GitHub CLI</a> (Command Line Interface). For Windows you can download the installer <a href="https://cli.github.com/">here</a></li>
+<li>Open RStudio.</li>
+</ol>
+<ul>
+<li>Select the <code>Terminal</code> tab (top left, next to <code>Console</code>)</li>
+<li>Enter <code>gh auth login</code>, then follow the prompts:
+<ul>
+<li>Select <code>GitHub.com</code></li>
+<li>When prompted for your preferred protocol for Git operations, select <code>HTTPS</code></li>
+<li>When asked if you would like to authenticate to Git with your GitHub credentials, enter <code>Y</code></li>
+<li>When asked how you would like to authenticate select <code>Login with web browser</code></li>
+<li>Copy the 8-digit code and hit <code>Enter</code></li>
+<li>Github.com will open in your internet browser - paste the code and hit enter</li>
+<li>If any of these steps don’t work, just start with <code>gh auth login</code> in Terminal again</li>
+</ul></li>
+</ul>
+<ol start="8" style="list-style-type: decimal">
+<li>In RStudio</li>
+</ol>
+<ul>
+<li>Go to Global Options (from the Tools menu)</li>
+<li>Click <code>Git/SVN</code></li>
+<li>Make sure <code>Enable version control interface for RStudio projects</code> is on</li>
+<li>If necessary, enter the path for your Git or SVN executable where provided</li>
+<li>Click <code>Apply</code></li>
+<li>Restart RStudio</li>
+</ul>
+<p>Ok, now everything should be working. The next steps are to <em>fork</em> and <em>clone</em> your first repo to see if everything is working, and then to modify a file in RStudio, <em>push</em> it back to your forked repo, and then create a <em>pull request</em> for me to review and accept your changes. This let’s me know that you’ve made it through the preparation for the practical, and it gives me your GitHub username.</p>
+<ol start="9" style="list-style-type: decimal">
+<li>In GitHub:</li>
+</ol>
+<ul>
+<li>Make sure you are logged in, search and navigate to <code>JasperUCT/pullltest</code></li>
+<li>Click <code>Fork</code>, which will make a copy of the repository to your own workspace</li>
+<li>Copy the URL to your own version and follow the instructions below for cloning the repository in RStudio</li>
+</ul>
+<ol start="10" style="list-style-type: decimal">
+<li>In RStudio:</li>
+</ol>
+<ul>
+<li>In the top-right of the window you’ll see <code>Project: (None)</code> - click on it and select <code>New Project</code> then <code>Version Control</code> then <code>Git</code></li>
+<li>In the <code>Repository URl:</code> box paste the URL to your forked repo (It should look something like : <code>https://github.com/YourGitHubUsername/your-forked-repo_name.git</code></li>
+<li><code>Project directory name</code> should fill automatically</li>
+<li>For <code>Create project as subdirectory of:</code> hit <code>Browse</code> and navigate through your file system to where you want to put your folder for storing your Git repositories stored. I recommend something like <code>~Documents/GIT</code> (If you’ve used Git before you may have set this already and can skip this step)</li>
+<li>Click <code>Create Repository</code></li>
+</ul>
+<p>Your RStudio window should now look like this:</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:rstudiosuccess"></span>
+<img src="img/rstudiosuccess.png" alt="What you should see... **Note** there are three files in the `Files` tab in the bottom-right window, and you should see a `Git` tab for the top-right window. It also says `pulltest` in the project drop-down top-right on mine, but yours will display the name you gave your forked repo." width="90%" />
+<p class="caption">
+Figure 6.1: What you should see… <strong>Note</strong> there are three files in the <code>Files</code> tab in the bottom-right window, and you should see a <code>Git</code> tab for the top-right window. It also says <code>pulltest</code> in the project drop-down top-right on mine, but yours will display the name you gave your forked repo.
+</p>
+</div>
+<p><br></p>
+<ul>
+<li>Open the <code>README.md</code> file in RStudio</li>
+<li>Add your message and save the file</li>
+<li>Select the <code>Git</code> tab in the top-right window</li>
+<li>Check the box next to <code>README.md</code> and click <code>Commit</code></li>
+<li>Add a <code>Commit message</code> to say what changes you’ve made</li>
+<li>Then hit <code>Push</code></li>
+<li>It will ask you to authenticate. Select <code>Authenticate in your web browser</code>. The web browser will ask you to give Git permissions. Allow the permissions and it should work.</li>
+</ul>
+<p>If you get an error at this point to the effect of “You do not have permission to push to this repository,” then you may have forgotten to fork your own repo from my one and are trying to push to mine… If so, start again from step 9.</p>
+<ol start="11" style="list-style-type: decimal">
+<li>Final step!!! In GitHub</li>
+</ol>
+<ul>
+<li>Click <code>Pull requests</code> (top-leftish)</li>
+<li>Click <code>New pull request</code> (green, top-right)</li>
+<li>Click <code>Create pull request</code> (green, top-right)
+<ul>
+<li>It should already be on this repo unless you’ve been doing other things in Git</li>
+</ul></li>
+<li>In the comment window put your name so I know who you are if it isn’t obvious from your GitHub username</li>
+<li>Click <code>Create pull request</code> (green, bottom-right)</li>
+</ul>
+<p>And you’re done!!! I’ll get a notification of your pull request and, if all’s in order, I’ll accept it. If not, I’ll reply with a comment on the pull request. You should receive a notification via the email you registered with your GitHub account.</p>
+<p><br></p>
+<blockquote>
+<p>Just a quick acknowledgement that I have borrowed and adapted much of the following from Michael Dietze’s <a href="https://github.com/EcoForecast/EF_Activities/blob/master/Exercise_04_PairCoding.Rmd"><strong>Pair coding practical</strong></a> that is a living online supplement to his book <span class="citation">(<a href="#ref-Dietze2017" role="doc-biblioref">Dietze 2017</a>)</span>. Thanks for sharing the code under an MIT license Mike!</p>
+</blockquote>
+</div>
+<div id="objectives" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Objectives</h2>
+<p>The primary goal of this exercise is to gain experience working collaboratively to develop a scientific workflow. As such, this assignment is best completed with a partner. Specifically, we will outline a simple analysis, break the overall job into parts, and have each person complete part of the project. To put these parts together we will be using Github. Along the way we will also be exploring the statistical concept of Likelihood.</p>
+</div>
+<div id="prairie-phenology" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Prairie Phenology</h2>
+<p>The goal of our analysis is to investigate the phenological state of the U. Illinois Tall Grass Prairie. We will be using green chromatic coordinate (GCC), which is a color index. Before building the workflow you are encouraged to take a look at the site <a href="http://phenocam.sr.unh.edu/webcam/sites/uiefprairie/" class="uri">http://phenocam.sr.unh.edu/webcam/sites/uiefprairie/</a> and the raw csv data
+<a href="https://phenocam.sr.unh.edu/data/archive/uiefprairie2/ROI/uiefprairie2_AG_1000_1day.csv" class="uri">https://phenocam.sr.unh.edu/data/archive/uiefprairie2/ROI/uiefprairie2_AG_1000_1day.csv</a></p>
+<p>Note: older data for this site (2009-2018) is available at:
+<a href="http://phenocam.sr.unh.edu/data/archive/uiefprairie/ROI/uiefprairie_GR_1000_1day.csv" class="uri">http://phenocam.sr.unh.edu/data/archive/uiefprairie/ROI/uiefprairie_GR_1000_1day.csv</a></p>
+<p>The workflow for this analysis with have three components:</p>
+<ol style="list-style-type: decimal">
+<li>Download PhenoCam data for the U. Illinois Tall Grass Prairie site</li>
+<li>Visualize the data with a mean and 95% confidence interval</li>
+<li>Fit a simple logistic model to spring leaf out for one specific year</li>
+</ol>
+<p>From this overall design, let’s next outline the specific steps involved as pseudocode</p>
+<pre><code>### Prairie Phenology Workflow
+## Download phenology data
+## Plot overall phenology data
+## Create and visualize subset of data for leaf out
+## Fit logistic model
+## Visualize model and data</code></pre>
+</div>
+<div id="modular-design" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Modular Design</h2>
+<p>From this overall design we can look for ways to modularize the analysis. One feature that jumps out is that we need to visualize the data three times, so we should definitely make a function to do that. The inputs to the function would be an x-axis (<code>date</code>), y-axis (<code>gcc_mean</code>), and error estimate (<code>gcc_std</code>), which we might pass as a dataframe for convinience. Since this is a graphing function we’d also like the ability to set all sorts of plot characteristics, which can be done in R by passing <code>...</code> as an argument and then passing that on to the internal <em>plot</em> call. The proposed function interface would thus be</p>
+<pre><code>##&#39; Plot Phenocam data
+##&#39; 
+##&#39; @param dat  dataframe of date, gcc_mean, gcc_std
+##&#39; @param ...  additional graphing parameters
+plot.phenocam &lt;- function(dat,...)</code></pre>
+<p>Next, because the raw data will be downloaded off the web and has embedded meta-data to handle, let’s go ahead and create a download function. This function just needs to know the URL for where to find the data. Unlike the plot function, this function will return something (the data that was downloaded), so it would be good design to document what is returned and how it will be formatted</p>
+<pre><code>##&#39; Download Phenocam data
+##&#39; 
+##&#39; @param URL  web address where data is located
+##&#39; @return data.frame with days as rows, variables as columns
+download.phenocam &lt;- function(URL)</code></pre>
+<p>Let’s also create a function to fit the logistic model to the spring leaf-out data, since we could easily see applying this same function to other data sets. The input to such a fit would obviously be the same data.frame that we’re using to make the plot. To do the fit itself we’ll use Maximum Likelihood, so in addition to the data we’ll need to provide an initial guess at the model parameters, which we’ll pass on to the numerical optimization. We’ll also want to return the full output from that numerical optimization so that we can check if it converged successfully.</p>
+<pre><code>##&#39; Fit logistic model
+##&#39; 
+##&#39; @param dat  dataframe of day of year (doy), gcc_mean, gcc_std
+##&#39; @param par  vector of initial parameter guess
+##&#39; @return  output from numerical optimization
+fit.logistic &lt;- function(dat,par)</code></pre>
+<p>Finally, because we’ll want to make a plot of the logistic model after we’re done, let’s create a function for performing the model calculation. This function will also come in handy within the <em>fit.logistic</em> function.</p>
+<pre><code>##&#39; Logistic model
+##&#39;
+##&#39; @param theta  parameter vector
+##&#39; @param x      vector of x values
+##&#39; @return vector of model predictions
+pred.logistic &lt;- function(theta,x)</code></pre>
+<p>At this point we’ve spent a good bit of time up front on organization – we have a detailed plan of attack and have thought carefully about what each module is responsible for doing. Each task has well-defined inputs, outputs, and goals. Rather than facing a thankless job of documenting our code after we’re done, even though we haven’t written a single line of code yet we are largely done with our documentation. What remains to do is implementation.</p>
+</div>
+<div id="task-1-create-clone-repository" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Task 1: Create &amp; Clone Repository</h2>
+<p>Because we’re going to employ version control in our project, our first step is to create the repository that our project will be stored in. <strong>To ensure that both you and your partner get to see every step of how to work with version control, for the rest of this exercise you are going to complete every step twice, once from the perspective of the OWNER of the repository and once as the COLLABORATOR</strong>.</p>
+<div id="owner" class="section level3" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> OWNER</h3>
+<ol style="list-style-type: decimal">
+<li>Go to your account on <a href="https://github.com/">github.com</a> and under the Repositories tab click on the “New” button (green with a picture of a book on it)</li>
+<li>Choose a name for your repository, but <strong>make sure it’s different from your partner’s</strong> (Don’t choose a “Repository template,” and keep it a “Public” repository)</li>
+<li>Click the “Initialize this repository with a README” checkbox</li>
+<li>Optionally also provide a Description, Add a licence (e.g. MIT), and add R to the .gitignore (check “.gitignore” and search for the <em>R</em> template)</li>
+<li>Click “Create Repository”</li>
+<li>Copy the URL of your new repository by clicking the clipboard icon</li>
+<li>To clone the repository, open up RStudio and create a New Project using this URL. <strong>Note:</strong> If you already have a project open it will close when you do so. Don’t worry, you can return to that project after the prac using the drop-down in the top-right of the RStudio window.</li>
+</ol>
+<ul>
+<li>Select New Project from the menu in the top right corner</li>
+<li>Select Version Control then Git</li>
+<li>Paste the URL in and click Create Project</li>
+</ul>
+</div>
+</div>
+<div id="task-2-add-the-first-function-download.phenocam" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> Task 2: Add the first function: download.phenocam</h2>
+<p>Within this project we’ll create separate files for each part of the analysis. To make the order of the workflow clear we’ll want to name the files systematically. In the first file we’ll implement the download.phenocam function</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="practical.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; Download Phenocam data</span></span>
+<span id="cb8-2"><a href="practical.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; </span></span>
+<span id="cb8-3"><a href="practical.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; @param URL  web address where data is located</span></span>
+<span id="cb8-4"><a href="practical.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># download.phenocam &lt;- function(URL) {</span></span>
+<span id="cb8-5"><a href="practical.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   ## check that we&#39;ve been passed a URL</span></span>
+<span id="cb8-6"><a href="practical.html#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   if (length(URL) == 1 &amp; is.character(URL) &amp; substr(URL,1,4)==&quot;http&quot;) {</span></span>
+<span id="cb8-7"><a href="practical.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#       ## read data</span></span>
+<span id="cb8-8"><a href="practical.html#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#       dat &lt;- read.csv(URL,skip = 22)</span></span>
+<span id="cb8-9"><a href="practical.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   </span></span>
+<span id="cb8-10"><a href="practical.html#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">#       ## convert date</span></span>
+<span id="cb8-11"><a href="practical.html#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">#       dat$date &lt;- as.Date(as.character(dat$date))</span></span>
+<span id="cb8-12"><a href="practical.html#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   </span></span>
+<span id="cb8-13"><a href="practical.html#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">#       return(dat)</span></span>
+<span id="cb8-14"><a href="practical.html#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   } else {</span></span>
+<span id="cb8-15"><a href="practical.html#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">#     print(paste(&quot;download.phenocam: Input URL not provided correctly&quot;,URL))</span></span>
+<span id="cb8-16"><a href="practical.html#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   }</span></span>
+<span id="cb8-17"><a href="practical.html#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># }</span></span></code></pre></div>
+<div id="owner-1" class="section level3" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> OWNER</h3>
+<ol style="list-style-type: decimal">
+<li>In RStudio, click File &gt; New File &gt; R Script</li>
+<li>Copy and Paste the above function into this file</li>
+<li>Save the file as “01_download.phenocam.R”</li>
+<li>From the Git tab, click the box next to the file you just created. This is equivalent to <em>git add</em></li>
+<li>Click Commit, enter a log message, and click Commit. This is equivalent to <em>git commit</em></li>
+<li>To push the change up to Github click on the green up arrow. This is equivalent to <em>git push</em></li>
+</ol>
+</div>
+</div>
+<div id="task-3-collaborator-adds-plot.phenocam" class="section level2" number="6.7">
+<h2><span class="header-section-number">6.7</span> Task 3: Collaborator adds plot.phenocam</h2>
+<p>With the first function complete, let’s now imagine that a <strong>COLLABORATOR</strong> has been tasked with adding the second function. To do so they must first fork and clone the repository</p>
+<div id="collaborator" class="section level3" number="6.7.1">
+<h3><span class="header-section-number">6.7.1</span> COLLABORATOR</h3>
+<ol style="list-style-type: decimal">
+<li>Go to Github and navigate to the project repository within the OWNER’s workspace.</li>
+<li>Click Fork, which will make a copy of the repository to your own workspace.</li>
+<li>Copy the URL to your own version and follow the instructions above for cloning the repository in RStudio.</li>
+<li>Open a new file, enter the code below, and then save the file as “02_plot.phenocam.R”</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="practical.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Define ciEnvelope function</span></span>
+<span id="cb9-2"><a href="practical.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ciEnvelope &lt;- function(x,ylo,yhi,col=&quot;lightgrey&quot;,...){</span></span>
+<span id="cb9-3"><a href="practical.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   ## identify chunks of data with no missing values</span></span>
+<span id="cb9-4"><a href="practical.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   has.na = apply(is.na(cbind(x,ylo,yhi)),1,sum)</span></span>
+<span id="cb9-5"><a href="practical.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   block = cumsum(has.na);block[has.na&gt;0] = NA</span></span>
+<span id="cb9-6"><a href="practical.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   blocks = na.omit(unique(block))</span></span>
+<span id="cb9-7"><a href="practical.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   </span></span>
+<span id="cb9-8"><a href="practical.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   for(i in blocks){</span></span>
+<span id="cb9-9"><a href="practical.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#     sel = which(block==i)</span></span>
+<span id="cb9-10"><a href="practical.html#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#     polygon(cbind(c(x[sel], rev(x[sel]), x[sel[1]]), c(ylo[sel], rev(yhi[sel]),</span></span>
+<span id="cb9-11"><a href="practical.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#                                       ylo[sel[1]])), col=col,border = NA,...) </span></span>
+<span id="cb9-12"><a href="practical.html#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   }</span></span>
+<span id="cb9-13"><a href="practical.html#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># }</span></span>
+<span id="cb9-14"><a href="practical.html#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; Plot Phenocam data</span></span>
+<span id="cb9-15"><a href="practical.html#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; </span></span>
+<span id="cb9-16"><a href="practical.html#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; @param dat  dataframe of date, gcc_mean, gcc_std</span></span>
+<span id="cb9-17"><a href="practical.html#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; @param ...  additional graphing parameters</span></span>
+<span id="cb9-18"><a href="practical.html#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># plot.phenocam &lt;- function(dat,...){</span></span>
+<span id="cb9-19"><a href="practical.html#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   </span></span>
+<span id="cb9-20"><a href="practical.html#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   if(!is.null(dat)){</span></span>
+<span id="cb9-21"><a href="practical.html#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co">#     </span></span>
+<span id="cb9-22"><a href="practical.html#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co">#     ## QC flags</span></span>
+<span id="cb9-23"><a href="practical.html#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co">#     gcc_mean = dat$gcc_mean</span></span>
+<span id="cb9-24"><a href="practical.html#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co">#     gcc_mean[dat$outlierflag_gcc_mean&gt;-9999] = NA</span></span>
+<span id="cb9-25"><a href="practical.html#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co">#     </span></span>
+<span id="cb9-26"><a href="practical.html#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co">#     ## base plot</span></span>
+<span id="cb9-27"><a href="practical.html#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co">#     plot(dat$date,dat$gcc_mean,type=&#39;l&#39;,...)</span></span>
+<span id="cb9-28"><a href="practical.html#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co">#     </span></span>
+<span id="cb9-29"><a href="practical.html#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="co">#     ## calculate CI</span></span>
+<span id="cb9-30"><a href="practical.html#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co">#     ylo = dat$gcc_mean-1.96*dat$gcc_std</span></span>
+<span id="cb9-31"><a href="practical.html#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="co">#     yhi = dat$gcc_mean+1.96*dat$gcc_std</span></span>
+<span id="cb9-32"><a href="practical.html#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="co">#     </span></span>
+<span id="cb9-33"><a href="practical.html#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="co">#     ## add confidence envelope</span></span>
+<span id="cb9-34"><a href="practical.html#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="co">#     ciEnvelope(dat$date,ylo,yhi)</span></span>
+<span id="cb9-35"><a href="practical.html#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="co">#     </span></span>
+<span id="cb9-36"><a href="practical.html#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="co">#     ## replot mean line</span></span>
+<span id="cb9-37"><a href="practical.html#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="co">#     lines(dat$date,dat$gcc_mean,lwd=1.5)</span></span>
+<span id="cb9-38"><a href="practical.html#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="co">#   } else {</span></span>
+<span id="cb9-39"><a href="practical.html#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="co">#     print(&quot;plot.phenocam: input data not provided&quot;)</span></span>
+<span id="cb9-40"><a href="practical.html#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="co">#   }</span></span>
+<span id="cb9-41"><a href="practical.html#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="co">#   </span></span>
+<span id="cb9-42"><a href="practical.html#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="co"># }</span></span></code></pre></div>
+<ol start="5" style="list-style-type: decimal">
+<li>Follow the instructions above to Add, Commit, and Push the file back to your Github</li>
+<li>Next you want to perform a “pull request,” which will send a request to the OWNER that they pull your new code into their mainline version. From your Github page for this project, click <strong>New Pull Request</strong>.</li>
+<li>Follow the instructions, creating a title, message, and confirming that you want to create the pull request</li>
+</ol>
+</div>
+<div id="owner-2" class="section level3" number="6.7.2">
+<h3><span class="header-section-number">6.7.2</span> OWNER</h3>
+<ol style="list-style-type: decimal">
+<li>Once the COLLABORATOR has created the pull request, you should get an automatic email and also be able to see the pull request under the “Pull Requests” tab on the Github page for the project.</li>
+<li>Read the description of the proposed changes and then click on “Files Changed” to view the changes to the project. New code should be in green, while deleted code will be in pink.</li>
+<li>The purpose of a pull request is to allow the OWNER to evaluat the code being added before it is added. As you read through the code, if you hover your mouse over any line of code you can insert an inline comment in the code. The COLLABORATOR would then have the ability to respond to any comments. In larger projects, all participants can discuss the code and decide whether it should be accepted or not. Furthermore, if the COLLABORATOR does any further pushes to Github before the pull request is accepted these changes will automatically become part of the pull request. While this is a very handy feature, it can also easily backfire if the COLLABORATOR starts working on something different in the meantime. This is the reason that experienced users of version control will use BRANCHES to keep different parts separate.</li>
+<li>Click on the “Conversation” page to return where you started. All participants can also leave more general comments on this page.</li>
+<li>If you are happy with the code, click “Merge Pull Request.” Alternatively, to outright reject a pull request click “Close pull request”</li>
+</ol>
+</div>
+</div>
+<div id="task-4-owner-adds-pred.logistic-and-fit.logistic" class="section level2" number="6.8">
+<h2><span class="header-section-number">6.8</span> Task 4: Owner adds pred.logistic and fit.logistic</h2>
+<p>We are now past the ‘set up’ stage for both the OWNER and the COLLABORATOR, so for this task we’ll explore the normal sequence of steps that the OWNER will use for day-to-day work</p>
+<div id="owner-3" class="section level3" number="6.8.1">
+<h3><span class="header-section-number">6.8.1</span> OWNER</h3>
+<ol style="list-style-type: decimal">
+<li>Pull the latest code from Github. In RStudio this is done by clicking the light blue down arrow on the Git tab. This is equivalent to the commandline <em>git pull origin master</em> where origin refers to where the where you did your orginal clone from and master refers to your main branch (if you use branches you can pull other branches)</li>
+<li>Next, open up a new R file, add the code below, and save as “03_logistic.R”</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="practical.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; Logistic model</span></span>
+<span id="cb10-2"><a href="practical.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39;</span></span>
+<span id="cb10-3"><a href="practical.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; @param theta  parameter vector</span></span>
+<span id="cb10-4"><a href="practical.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; @param x      vector of x values</span></span>
+<span id="cb10-5"><a href="practical.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; @return vector of model predictions</span></span>
+<span id="cb10-6"><a href="practical.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># pred.logistic &lt;- function(theta,x){</span></span>
+<span id="cb10-7"><a href="practical.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    z = exp(theta[3]+theta[4]*x)</span></span>
+<span id="cb10-8"><a href="practical.html#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#    Ey = theta[1]+theta[2]*z/(1+z) </span></span>
+<span id="cb10-9"><a href="practical.html#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># }</span></span>
+<span id="cb10-10"><a href="practical.html#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; Fit logistic model</span></span>
+<span id="cb10-11"><a href="practical.html#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; </span></span>
+<span id="cb10-12"><a href="practical.html#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; @param dat  dataframe of day of year (doy), gcc_mean, gcc_std</span></span>
+<span id="cb10-13"><a href="practical.html#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; @param par  vector of initial parameter guess</span></span>
+<span id="cb10-14"><a href="practical.html#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; @return  output from numerical optimization</span></span>
+<span id="cb10-15"><a href="practical.html#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co"># fit.logistic &lt;- function(dat,par){</span></span>
+<span id="cb10-16"><a href="practical.html#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   </span></span>
+<span id="cb10-17"><a href="practical.html#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   ## define log likelihood</span></span>
+<span id="cb10-18"><a href="practical.html#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   lnL.logistic &lt;- function(theta,dat){</span></span>
+<span id="cb10-19"><a href="practical.html#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co">#     -sum(dnorm(dat$gcc_mean,pred.logistic(theta,dat$doy),dat$gcc_std,log=TRUE),na.rm=TRUE)</span></span>
+<span id="cb10-20"><a href="practical.html#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   }</span></span>
+<span id="cb10-21"><a href="practical.html#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   </span></span>
+<span id="cb10-22"><a href="practical.html#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="co">#   ## fit by numerical optimization</span></span>
+<span id="cb10-23"><a href="practical.html#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="co">#   optim(par,fn = lnL.logistic,dat=dat)</span></span>
+<span id="cb10-24"><a href="practical.html#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="co"># }</span></span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>As before, add your new file under the Git tab, Commit the change, and push it back to Github</li>
+</ol>
+<p>To estimate the parameters in the logistic model we will use the likelihood principle which states that “a parameter value is more likely than another if it is the one for which the data are more probable.” To do this we need to define a Likelihood, which is the relationship between the value of the parameter and the probability of some observed data. [For the record, the Likelihood is not a probability distribution because it does not integrate to 1]. In this case we’ll start by assuming a Normal likelihood and use the standard deviation that’s reported in the data to represent the uncertainty. In a more detailed analysis we’d want to follow up to check both these assumptions, but it’s a simple starting point.</p>
+<p>Applying the likelihood principle we would then look for the most likely value of <span class="math inline">\(\theta\)</span>, the vector parameters in the logistic model, which we call the Maximum Likelihood estimate. For a number or reasons that will become clear in later lectures, it is common to work with negative log likelihoods instead of likelihoods, in which case the negative implies that instead of looking for the maximum we’re now looking for the minimum. The fact that logarithm is a monotonic transformation means that taking the log does not change the location of this minimum.</p>
+<p>The code for this comes in three parts. First is the logistic model itself, <em>pred.logistic</em>, which translates the equation
+<span class="math display">\[\theta_1 + \theta_2 {{exp(\theta_3 + \theta_4 x)}\over{1+exp(\theta_3 + \theta_4 x)}}\]</span>
+into code. The logistic has an overall S shape, with <span class="math inline">\(\theta_1\)</span> defining the minimum and <span class="math inline">\(\theta_1 + \theta_2\)</span> defining the max. The midpoint of the curve – the x value where the function is halfway between the minimum and maximum – occurs at <span class="math inline">\(-\theta_3 / \theta_4\)</span>, while the slope at that point is <span class="math inline">\(\theta_4/4\)</span>.</p>
+<p>Second is the negative log likelihood function, <em>lnL.logistic</em>, which we’re trying to minimize. The core of this is the Normal probability density, dnorm. The first arguement is the data, the second the is model, and the third is the standard deviation. The fourth arguement says that we want to return the log density, which is much more accurate if it’s performed internally than if we take the log of what’s returned by dnorm. Since we have many data points dnorm returns a vector, which we then sum up and change the sign to turn this into a minimization problem.</p>
+<p>The third part is a call to a numerical optimization function, <em>optim</em>, that searches through parameter space to find the set of parameters that minimize the negative log likelihood (i.e. that Maximize the Likelihood). Arguements are the initial parameter guess, the function being minimized, and any additional parameters that get passed on to that function.</p>
+</div>
+</div>
+<div id="task-5-collaborator-adds-the-master-script" class="section level2" number="6.9">
+<h2><span class="header-section-number">6.9</span> Task 5: Collaborator adds the master script</h2>
+<p>The day-to-day workflow for the COLLABORATOR is similar, but not exactly the same as the OWNER. The biggest differences are that the COLLABORATOR needs to pull from the OWNER, not their own repository, and needs to do a pull request after the push.</p>
+<div id="collaborator-1" class="section level3" number="6.9.1">
+<h3><span class="header-section-number">6.9.1</span> COLLABORATOR</h3>
+<ol style="list-style-type: decimal">
+<li>Pull from OWNER. Unfortunately, this has to be done from the command line rather than the pull button within RStudio, which just pulls from the COLLABORATOR’s repository. In RStudio go to Tools &gt; Shell to open a terminal</li>
+<li>At the terminal type</li>
+</ol>
+<pre><code>git pull URL master</code></pre>
+<p>where URL is the address of the OWNER’s Github repository. Because it is a pain to always remember and type in the OWNER’s URL, it is common to define this as <em>upstream</em></p>
+<pre><code>git remote add upstream URL</code></pre>
+<p>which is a one-time task, after which you can do the pull as</p>
+<pre><code>git pull upstream master</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Open a new Rmd file and add the code below. This code just flushes out the pseudocode outline we started with at the beginning of this activity.</li>
+</ol>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="practical.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Master script for phenology analysis</span></span>
+<span id="cb14-2"><a href="practical.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Load required functions</span></span>
+<span id="cb14-3"><a href="practical.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># if(file.exists(&quot;01_download.phenocam.R&quot;)) source(&quot;01_download.phenocam.R&quot;)</span></span>
+<span id="cb14-4"><a href="practical.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># if(file.exists(&quot;02_plot.phenocam.R&quot;))     source(&quot;02_plot.phenocam.R&quot;)</span></span>
+<span id="cb14-5"><a href="practical.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># if(file.exists(&quot;03_logistic.R&quot;))          source(&quot;03_logistic.R&quot;)</span></span>
+<span id="cb14-6"><a href="practical.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Download phenology data</span></span>
+<span id="cb14-7"><a href="practical.html#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># URL = &quot;https://phenocam.sr.unh.edu/data/archive/uiefprairie2/ROI/uiefprairie2_AG_1000_1day.csv&quot;</span></span>
+<span id="cb14-8"><a href="practical.html#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># prairie.pheno &lt;- download.phenocam(URL)</span></span>
+<span id="cb14-9"><a href="practical.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Plot overall phenology data</span></span>
+<span id="cb14-10"><a href="practical.html#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># plot.phenocam(prairie.pheno)</span></span>
+<span id="cb14-11"><a href="practical.html#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Create and visualize subset of data for leaf out</span></span>
+<span id="cb14-12"><a href="practical.html#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co"># spring = as.Date(c(&quot;2019-01-01&quot;,&quot;2019-06-01&quot;))</span></span>
+<span id="cb14-13"><a href="practical.html#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># dat = subset(prairie.pheno,date &gt; spring[1] &amp; date &lt; spring[2], select=c(date,gcc_mean,gcc_std))</span></span>
+<span id="cb14-14"><a href="practical.html#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co"># plot.phenocam(dat)</span></span>
+<span id="cb14-15"><a href="practical.html#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Fit logistic model</span></span>
+<span id="cb14-16"><a href="practical.html#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co"># dat$doy = as.POSIXlt(dat$date)$yday</span></span>
+<span id="cb14-17"><a href="practical.html#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># par = c(0.3,0.11,-10,0.1)</span></span>
+<span id="cb14-18"><a href="practical.html#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co"># fit = fit.logistic(dat,par)</span></span>
+<span id="cb14-19"><a href="practical.html#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Visualize model and data</span></span>
+<span id="cb14-20"><a href="practical.html#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="co"># plot.phenocam(dat)</span></span>
+<span id="cb14-21"><a href="practical.html#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="co"># lines(dat$date,pred.logistic(fit$par,dat$doy),col=2)</span></span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>Save this file as “04_Master.Rmd.”</li>
+<li>Within RStudio’s Git tab, add the file and Commit. Use the Push (up arrow) button to push this to your own repository</li>
+<li>On Github.com, submit a pull request</li>
+</ol>
+</div>
+<div id="owner-4" class="section level3" number="6.9.2">
+<h3><span class="header-section-number">6.9.2</span> OWNER</h3>
+<ol style="list-style-type: decimal">
+<li>Evaluate and accept pull request.</li>
+</ol>
+<p>At this point your workflow should be complete and you should be able to run the analysis.</p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Dietze2017" class="csl-entry">
+Dietze, Michael C. 2017. <em><span>Ecological Forecasting</span></em>. Princeton University Press. <a href="https://doi.org/10.2307/j.ctvc7796h">https://doi.org/10.2307/j.ctvc7796h</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-management.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="baysian.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/04-prac.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BIO3019S Ecoforecasting.pdf", "BIO3019S Ecoforecasting.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
