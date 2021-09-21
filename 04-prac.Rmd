@@ -1,10 +1,14 @@
 # Practical: Pair coding with GitHub {#practical}
 
-## Preparation
+<br>
 
-For the practical, we'll be using the [R](https://cran.r-project.org/) statistical programming language and the [Git](https://git-scm.com/) version control system.
+## Preparation {#pracprep}
 
-We'll also be using an [integrated development environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment) for each: [RStudio](https://www.rstudio.com) and [GitHub](https://github.com/), respectively.
+For the practical, we'll be using the [R](https://cran.r-project.org/) statistical programming language and the [Git](https://git-scm.com/) version control system. We'll also be using an [integrated development environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment) for each: [RStudio](https://www.rstudio.com) and [GitHub](https://github.com/), respectively.
+
+The installation and setup can be a bit long-winded, but once done you should be good to go until you change or reformat your computer. The steps below are my summary and (hopefully) more intuitive adaptation of the instructions provided for setting up [GitHub](https://docs.github.com/en/get-started/quickstart/set-up-git?email_source=welcome) and [version control with R](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN). If my steps don't work its probably best to read up there.
+
+<br>
 
 First we'll start with the necessary software. 
 
@@ -84,11 +88,19 @@ And you're done!!! I'll get a notification of your pull request and, if all's in
 
 <br>
 
-> Just a quick acknowledgement that I have borrowed and adapted much of the following from Michael Dietze's [**Pair coding practical**](https://github.com/EcoForecast/EF_Activities/blob/master/Exercise_04_PairCoding.Rmd) that is a living online supplement to his book [@Dietze2017]. Thanks for sharing the code under an MIT license Mike!
+## The practical
+
+<br>
+
+> _Just a quick acknowledgement that I have borrowed and adapted much of the following from Michael Dietze's [**Pair coding practical**](https://github.com/EcoForecast/EF_Activities/blob/master/Exercise_04_PairCoding.Rmd) that is a living online supplement to his book [@Dietze2017]. Thanks for sharing the code under an MIT license Mike!_
+
+<br>
 
 ## Objectives
 
-The primary goal of this exercise is to gain experience working collaboratively to develop a scientific workflow. As such, this assignment is best completed with a partner. Specifically, we will outline a simple analysis, break the overall job into parts, and have each person complete part of the project. To put these parts together we will be using Github. Along the way we will also be exploring the statistical concept of Likelihood.
+The primary goal of this exercise is to gain experience working collaboratively to develop a scientific workflow. As such, this assignment must be completed with a partner. Specifically, we will outline a simple analysis, break the overall job into parts, and have each person complete part of the project. To put these parts together we will be using Github. Along the way we will also be exploring the statistical concept of Likelihood.
+
+<br>
 
 ## Prairie Phenology
 

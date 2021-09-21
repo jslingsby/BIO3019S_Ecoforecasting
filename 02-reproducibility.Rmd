@@ -128,7 +128,7 @@ Working reproducibly requires careful planning and documentation of each step in
 This entails a number of overlapping/intertwined components, namely:
 
 - Coding and code management (data analysis)
-- Computing and software
+- Computing environment and software
 - Data management
 
 For the rest of this section we'll work through these components and some of the tools that help you achieve this. **Data management** is big enough to warrant a separate chapter.
@@ -146,7 +146,7 @@ For the rest of this section we'll work through these components and some of the
 
 <br>
 
-## Computing and software
+## Computing environment and software
 
 <br>
 

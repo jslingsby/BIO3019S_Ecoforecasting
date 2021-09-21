@@ -69,7 +69,7 @@ ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
 
 Note that there are quite a few different versions of the data life cycle out there. This is the most comprehensive one I know of, and covers all the steps relevant to a range of different kinds of research projects. A full description of this data life cycle and related ecoinformatics issues can be found in [@Michener2012]. 
 
-Not all projects need to do all steps, nor will they necessarily follow the order here, but it is worth being aware of and considering all steps. For example, often the first thing you do when you have a new hypothesis is search around for any existing data that could be used to test it without having to spend money and time collecting new data (i.e. skip to step 6). In this case I would argue that you should still do step 1 (Plan), and you'd want to do some checking to assure the quality of the data (step 3), but you can certainly skip steps 2, 4 and 5. A meta-analysis or synthesis paper would probably do the same. On the other hand, if you're collecting new data you would do steps 1 to 5 and possibly skip 6 and 7, although in my experience few studies do not reuse existing data (e.g. weather or various GIS data to put your new samples in context).
+Not all projects need to do all steps, nor will they necessarily follow the order here, but it is worth being aware of and considering all steps. For example, often the first thing you do when you have a new hypothesis is search around for any existing data that could be used to test it without having to spend money and time collecting new data (i.e. skip to step 6 - "Discover"). In this case I would argue that you should still do step 1 (Plan), and you'd want to do some checking to assure the quality of the data (step 3), but you can certainly skip steps 2, 4 and 5. A meta-analysis or synthesis paper would probably do the same. On the other hand, if you're collecting new data you would do steps 1 to 5 and possibly skip 6 and 7, although in my experience few studies do not reuse existing data (e.g. weather or various GIS data to put your new samples in context).
 
 <br>
 
@@ -241,11 +241,28 @@ A final consideration is whether you have **permission to use the data**. You ca
 
 ### Integrate
 
+There are a few different components to data integration in this context:
+
+1. Linking different kinds of data, usually through spatial and or temporal information 
+  - e.g. matching you biodiversity collections with weather records or GIS information about the sites
+2. Keeping track of changes you've made to your data as you prepare it for analyses (versioning)
+  - e.g. you may be wanting to compare species richness across sites. This requires estimating species richness from your field data (usually lists of species by site occurrences and/or abundances)
+  - you should always keep a copy of your raw data!!!
+  - using scripting languages for data handling and analyses (e.g. R, Python, MatLab) can help you keep record of how you did any data summaries, transformations, etc, but only if you write clean, well-documented code and manage your code well!!!
+3. Curating your data such that they can easily be integrated with other, similar datasets for larger analyses or meta-analyses
+  - this is largely a metadata game, but also one of data formats etc. Many fields promote the use of common data standards with rules on measurement specifications, file formats, common data and metadata fields, controlled vocabularies etc that allow easy integration, searching and manipulation. This is what a lot of the online databases attempt to achieve (see "Preserve") 
+
+<br>
+
 ### Analyze
+
+"The fun bit", but again, there are many things to bear in mind and keep track of so that your analysis is repeatable. This is largely covered by the sections on _Coding and code management_ and _Computing environment and software_ in Chapter \@ref(reproducibility)
 
 <br>
 
 ## Data and decisions
+
+There are some other aspects of data, while still important if the goal is purely academic, that are make-or-break when the goal is informing decisions. 
 
 - latency
 - uncertainty

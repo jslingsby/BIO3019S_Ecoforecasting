@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-09-19" />
+<meta name="date" content="2021-09-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="data-management.html"/>
-<link rel="next" href="baysian.html"/>
+<link rel="next" href="some-examples-of-forecast-needs-in-the-fynbos-biome.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -162,9 +162,10 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#general"><i class="fa fa-check"></i><b>1.1</b> General</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#module-and-project-details"><i class="fa fa-check"></i><b>1.2</b> Module and Project details</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#a-bit-about-me"><i class="fa fa-check"></i><b>1.3</b> A bit about me</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#acknowledgements-and-further-reading"><i class="fa fa-check"></i><b>1.4</b> Acknowledgements and further reading:</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#lectures-and-practicals"><i class="fa fa-check"></i><b>1.2</b> Lectures and practicals</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preparation"><i class="fa fa-check"></i><b>1.3</b> Preparation</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#a-bit-about-me"><i class="fa fa-check"></i><b>1.4</b> A bit about me</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#acknowledgements-and-further-reading"><i class="fa fa-check"></i><b>1.5</b> Acknowledgements and further reading:</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="quiz.html"><a href="quiz.html"><i class="fa fa-check"></i><b>2</b> How do we make decisions?</a></li>
 <li class="chapter" data-level="3" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>3</b> Models and decision making</a>
@@ -183,7 +184,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.3" data-path="reproducibility.html"><a href="reproducibility.html#why-work-reproducibly"><i class="fa fa-check"></i><b>4.3</b> Why work reproducibly?</a></li>
 <li class="chapter" data-level="4.4" data-path="reproducibility.html"><a href="reproducibility.html#scientific-workflows"><i class="fa fa-check"></i><b>4.4</b> Scientific Workflows</a></li>
 <li class="chapter" data-level="4.5" data-path="reproducibility.html"><a href="reproducibility.html#coding-and-code-management"><i class="fa fa-check"></i><b>4.5</b> Coding and code management</a></li>
-<li class="chapter" data-level="4.6" data-path="reproducibility.html"><a href="reproducibility.html#computing-and-software"><i class="fa fa-check"></i><b>4.6</b> Computing and software</a></li>
+<li class="chapter" data-level="4.6" data-path="reproducibility.html"><a href="reproducibility.html#computing-environment-and-software"><i class="fa fa-check"></i><b>4.6</b> Computing environment and software</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="data-management.html"><a href="data-management.html"><i class="fa fa-check"></i><b>5</b> Data Management</a>
 <ul>
@@ -202,41 +203,59 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6" data-path="practical.html"><a href="practical.html"><i class="fa fa-check"></i><b>6</b> Practical: Pair coding with GitHub</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="practical.html"><a href="practical.html#preparation"><i class="fa fa-check"></i><b>6.1</b> Preparation</a></li>
-<li class="chapter" data-level="6.2" data-path="practical.html"><a href="practical.html#objectives"><i class="fa fa-check"></i><b>6.2</b> Objectives</a></li>
-<li class="chapter" data-level="6.3" data-path="practical.html"><a href="practical.html#prairie-phenology"><i class="fa fa-check"></i><b>6.3</b> Prairie Phenology</a></li>
-<li class="chapter" data-level="6.4" data-path="practical.html"><a href="practical.html#modular-design"><i class="fa fa-check"></i><b>6.4</b> Modular Design</a></li>
-<li class="chapter" data-level="6.5" data-path="practical.html"><a href="practical.html#task-1-create-clone-repository"><i class="fa fa-check"></i><b>6.5</b> Task 1: Create &amp; Clone Repository</a>
+<li class="chapter" data-level="6.1" data-path="practical.html"><a href="practical.html#pracprep"><i class="fa fa-check"></i><b>6.1</b> Preparation</a></li>
+<li class="chapter" data-level="6.2" data-path="practical.html"><a href="practical.html#the-practical"><i class="fa fa-check"></i><b>6.2</b> The practical</a></li>
+<li class="chapter" data-level="6.3" data-path="practical.html"><a href="practical.html#objectives"><i class="fa fa-check"></i><b>6.3</b> Objectives</a></li>
+<li class="chapter" data-level="6.4" data-path="practical.html"><a href="practical.html#prairie-phenology"><i class="fa fa-check"></i><b>6.4</b> Prairie Phenology</a></li>
+<li class="chapter" data-level="6.5" data-path="practical.html"><a href="practical.html#modular-design"><i class="fa fa-check"></i><b>6.5</b> Modular Design</a></li>
+<li class="chapter" data-level="6.6" data-path="practical.html"><a href="practical.html#task-1-create-clone-repository"><i class="fa fa-check"></i><b>6.6</b> Task 1: Create &amp; Clone Repository</a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="practical.html"><a href="practical.html#owner"><i class="fa fa-check"></i><b>6.5.1</b> OWNER</a></li>
+<li class="chapter" data-level="6.6.1" data-path="practical.html"><a href="practical.html#owner"><i class="fa fa-check"></i><b>6.6.1</b> OWNER</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="practical.html"><a href="practical.html#task-2-add-the-first-function-download.phenocam"><i class="fa fa-check"></i><b>6.6</b> Task 2: Add the first function: download.phenocam</a>
+<li class="chapter" data-level="6.7" data-path="practical.html"><a href="practical.html#task-2-add-the-first-function-download.phenocam"><i class="fa fa-check"></i><b>6.7</b> Task 2: Add the first function: download.phenocam</a>
 <ul>
-<li class="chapter" data-level="6.6.1" data-path="practical.html"><a href="practical.html#owner-1"><i class="fa fa-check"></i><b>6.6.1</b> OWNER</a></li>
+<li class="chapter" data-level="6.7.1" data-path="practical.html"><a href="practical.html#owner-1"><i class="fa fa-check"></i><b>6.7.1</b> OWNER</a></li>
 </ul></li>
-<li class="chapter" data-level="6.7" data-path="practical.html"><a href="practical.html#task-3-collaborator-adds-plot.phenocam"><i class="fa fa-check"></i><b>6.7</b> Task 3: Collaborator adds plot.phenocam</a>
+<li class="chapter" data-level="6.8" data-path="practical.html"><a href="practical.html#task-3-collaborator-adds-plot.phenocam"><i class="fa fa-check"></i><b>6.8</b> Task 3: Collaborator adds plot.phenocam</a>
 <ul>
-<li class="chapter" data-level="6.7.1" data-path="practical.html"><a href="practical.html#collaborator"><i class="fa fa-check"></i><b>6.7.1</b> COLLABORATOR</a></li>
-<li class="chapter" data-level="6.7.2" data-path="practical.html"><a href="practical.html#owner-2"><i class="fa fa-check"></i><b>6.7.2</b> OWNER</a></li>
+<li class="chapter" data-level="6.8.1" data-path="practical.html"><a href="practical.html#collaborator"><i class="fa fa-check"></i><b>6.8.1</b> COLLABORATOR</a></li>
+<li class="chapter" data-level="6.8.2" data-path="practical.html"><a href="practical.html#owner-2"><i class="fa fa-check"></i><b>6.8.2</b> OWNER</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="practical.html"><a href="practical.html#task-4-owner-adds-pred.logistic-and-fit.logistic"><i class="fa fa-check"></i><b>6.8</b> Task 4: Owner adds pred.logistic and fit.logistic</a>
+<li class="chapter" data-level="6.9" data-path="practical.html"><a href="practical.html#task-4-owner-adds-pred.logistic-and-fit.logistic"><i class="fa fa-check"></i><b>6.9</b> Task 4: Owner adds pred.logistic and fit.logistic</a>
 <ul>
-<li class="chapter" data-level="6.8.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>6.8.1</b> OWNER</a></li>
+<li class="chapter" data-level="6.9.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>6.9.1</b> OWNER</a></li>
 </ul></li>
-<li class="chapter" data-level="6.9" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script"><i class="fa fa-check"></i><b>6.9</b> Task 5: Collaborator adds the master script</a>
+<li class="chapter" data-level="6.10" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script"><i class="fa fa-check"></i><b>6.10</b> Task 5: Collaborator adds the master script</a>
 <ul>
-<li class="chapter" data-level="6.9.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>6.9.1</b> COLLABORATOR</a></li>
-<li class="chapter" data-level="6.9.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>6.9.2</b> OWNER</a></li>
+<li class="chapter" data-level="6.10.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>6.10.1</b> COLLABORATOR</a></li>
+<li class="chapter" data-level="6.10.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>6.10.2</b> OWNER</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="baysian.html"><a href="baysian.html"><i class="fa fa-check"></i><b>7</b> Going Bayesian</a>
+<li class="chapter" data-level="7" data-path="some-examples-of-forecast-needs-in-the-fynbos-biome.html"><a href="some-examples-of-forecast-needs-in-the-fynbos-biome.html"><i class="fa fa-check"></i><b>7</b> Some examples of forecast needs in the Fynbos Biome</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="baysian.html"><a href="baysian.html#maximum-likelihood"><i class="fa fa-check"></i><b>7.1</b> Maximum likelihood</a>
+<li class="chapter" data-level="7.1" data-path="some-examples-of-forecast-needs-in-the-fynbos-biome.html"><a href="some-examples-of-forecast-needs-in-the-fynbos-biome.html#post-fire-recovery-trajectories"><i class="fa fa-check"></i><b>7.1</b> Post-fire recovery trajectories</a></li>
+<li class="chapter" data-level="7.2" data-path="some-examples-of-forecast-needs-in-the-fynbos-biome.html"><a href="some-examples-of-forecast-needs-in-the-fynbos-biome.html#proteas"><i class="fa fa-check"></i><b>7.2</b> Proteas</a></li>
+<li class="chapter" data-level="7.3" data-path="some-examples-of-forecast-needs-in-the-fynbos-biome.html"><a href="some-examples-of-forecast-needs-in-the-fynbos-biome.html#impacts-of-iaps-on-runoff"><i class="fa fa-check"></i><b>7.3</b> Impacts of IAPs on runoff</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="projection-and-decision-support.html"><a href="projection-and-decision-support.html"><i class="fa fa-check"></i><b>8</b> Projection and decision support</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="baysian.html"><a href="baysian.html#probability-vs-likelihood"><i class="fa fa-check"></i><b>7.1.1</b> Probability vs Likelihood</a></li>
+<li class="chapter" data-level="8.1" data-path="projection-and-decision-support.html"><a href="projection-and-decision-support.html#section"><i class="fa fa-check"></i><b>8.1</b> …</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="baysian.html"><a href="baysian.html"><i class="fa fa-check"></i><b>9</b> Going Bayesian</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="baysian.html"><a href="baysian.html#maximum-likelihood"><i class="fa fa-check"></i><b>9.1</b> Maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="baysian.html"><a href="baysian.html#probability-vs-likelihood"><i class="fa fa-check"></i><b>9.1.1</b> Probability vs Likelihood</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>8</b> Uncertainty</a></li>
+<li class="chapter" data-level="10" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>10</b> Uncertainty?</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="uncertainty.html"><a href="uncertainty.html#propagating-analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>10.1</b> Propagating, analyzing and reducing uncertainty</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="data-assimilation.html"><a href="data-assimilation.html"><i class="fa fa-check"></i><b>11</b> Data assimilation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="data-assimilation.html"><a href="data-assimilation.html#section-1"><i class="fa fa-check"></i><b>11.1</b> </a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting" target="blank">Published with bookdown</a></li>
@@ -260,10 +279,12 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="practical" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Practical: Pair coding with GitHub</h1>
-<div id="preparation" class="section level2" number="6.1">
+<p><br></p>
+<div id="pracprep" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Preparation</h2>
-<p>For the practical, we’ll be using the <a href="https://cran.r-project.org/">R</a> statistical programming language and the <a href="https://git-scm.com/">Git</a> version control system.</p>
-<p>We’ll also be using an <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">integrated development environment (IDE)</a> for each: <a href="https://www.rstudio.com">RStudio</a> and <a href="https://github.com/">GitHub</a>, respectively.</p>
+<p>For the practical, we’ll be using the <a href="https://cran.r-project.org/">R</a> statistical programming language and the <a href="https://git-scm.com/">Git</a> version control system. We’ll also be using an <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">integrated development environment (IDE)</a> for each: <a href="https://www.rstudio.com">RStudio</a> and <a href="https://github.com/">GitHub</a>, respectively.</p>
+<p>The installation and setup can be a bit long-winded, but once done you should be good to go until you change or reformat your computer. The steps below are my summary and (hopefully) more intuitive adaptation of the instructions provided for setting up <a href="https://docs.github.com/en/get-started/quickstart/set-up-git?email_source=welcome">GitHub</a> and <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">version control with R</a>. If my steps don’t work its probably best to read up there.</p>
+<p><br></p>
 <p>First we’ll start with the necessary software.</p>
 <ol style="list-style-type: decimal">
 <li>Download and install the <strong><em>latest</em></strong> version of <a href="https://cran.r-project.org/">R</a></li>
@@ -357,16 +378,22 @@ Figure 6.1: What you should see… <strong>Note</strong> there are three files i
 </ul>
 <p>And you’re done!!! I’ll get a notification of your pull request and, if all’s in order, I’ll accept it. If not, I’ll reply with a comment on the pull request. You should receive a notification via the email you registered with your GitHub account.</p>
 <p><br></p>
+</div>
+<div id="the-practical" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> The practical</h2>
+<p><br></p>
 <blockquote>
-<p>Just a quick acknowledgement that I have borrowed and adapted much of the following from Michael Dietze’s <a href="https://github.com/EcoForecast/EF_Activities/blob/master/Exercise_04_PairCoding.Rmd"><strong>Pair coding practical</strong></a> that is a living online supplement to his book <span class="citation">(<a href="#ref-Dietze2017" role="doc-biblioref">Dietze 2017</a>)</span>. Thanks for sharing the code under an MIT license Mike!</p>
+<p><em>Just a quick acknowledgement that I have borrowed and adapted much of the following from Michael Dietze’s <a href="https://github.com/EcoForecast/EF_Activities/blob/master/Exercise_04_PairCoding.Rmd"><strong>Pair coding practical</strong></a> that is a living online supplement to his book <span class="citation">(<a href="#ref-Dietze2017" role="doc-biblioref">Dietze 2017</a>)</span>. Thanks for sharing the code under an MIT license Mike!</em></p>
 </blockquote>
+<p><br></p>
 </div>
-<div id="objectives" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Objectives</h2>
-<p>The primary goal of this exercise is to gain experience working collaboratively to develop a scientific workflow. As such, this assignment is best completed with a partner. Specifically, we will outline a simple analysis, break the overall job into parts, and have each person complete part of the project. To put these parts together we will be using Github. Along the way we will also be exploring the statistical concept of Likelihood.</p>
+<div id="objectives" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Objectives</h2>
+<p>The primary goal of this exercise is to gain experience working collaboratively to develop a scientific workflow. As such, this assignment must be completed with a partner. Specifically, we will outline a simple analysis, break the overall job into parts, and have each person complete part of the project. To put these parts together we will be using Github. Along the way we will also be exploring the statistical concept of Likelihood.</p>
+<p><br></p>
 </div>
-<div id="prairie-phenology" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Prairie Phenology</h2>
+<div id="prairie-phenology" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Prairie Phenology</h2>
 <p>The goal of our analysis is to investigate the phenological state of the U. Illinois Tall Grass Prairie. We will be using green chromatic coordinate (GCC), which is a color index. Before building the workflow you are encouraged to take a look at the site <a href="http://phenocam.sr.unh.edu/webcam/sites/uiefprairie/" class="uri">http://phenocam.sr.unh.edu/webcam/sites/uiefprairie/</a> and the raw csv data
 <a href="https://phenocam.sr.unh.edu/data/archive/uiefprairie2/ROI/uiefprairie2_AG_1000_1day.csv" class="uri">https://phenocam.sr.unh.edu/data/archive/uiefprairie2/ROI/uiefprairie2_AG_1000_1day.csv</a></p>
 <p>Note: older data for this site (2009-2018) is available at:
@@ -385,8 +412,8 @@ Figure 6.1: What you should see… <strong>Note</strong> there are three files i
 ## Fit logistic model
 ## Visualize model and data</code></pre>
 </div>
-<div id="modular-design" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Modular Design</h2>
+<div id="modular-design" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Modular Design</h2>
 <p>From this overall design we can look for ways to modularize the analysis. One feature that jumps out is that we need to visualize the data three times, so we should definitely make a function to do that. The inputs to the function would be an x-axis (<code>date</code>), y-axis (<code>gcc_mean</code>), and error estimate (<code>gcc_std</code>), which we might pass as a dataframe for convinience. Since this is a graphing function we’d also like the ability to set all sorts of plot characteristics, which can be done in R by passing <code>...</code> as an argument and then passing that on to the internal <em>plot</em> call. The proposed function interface would thus be</p>
 <pre><code>##&#39; Plot Phenocam data
 ##&#39; 
@@ -415,11 +442,11 @@ fit.logistic &lt;- function(dat,par)</code></pre>
 pred.logistic &lt;- function(theta,x)</code></pre>
 <p>At this point we’ve spent a good bit of time up front on organization – we have a detailed plan of attack and have thought carefully about what each module is responsible for doing. Each task has well-defined inputs, outputs, and goals. Rather than facing a thankless job of documenting our code after we’re done, even though we haven’t written a single line of code yet we are largely done with our documentation. What remains to do is implementation.</p>
 </div>
-<div id="task-1-create-clone-repository" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Task 1: Create &amp; Clone Repository</h2>
+<div id="task-1-create-clone-repository" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> Task 1: Create &amp; Clone Repository</h2>
 <p>Because we’re going to employ version control in our project, our first step is to create the repository that our project will be stored in. <strong>To ensure that both you and your partner get to see every step of how to work with version control, for the rest of this exercise you are going to complete every step twice, once from the perspective of the OWNER of the repository and once as the COLLABORATOR</strong>.</p>
-<div id="owner" class="section level3" number="6.5.1">
-<h3><span class="header-section-number">6.5.1</span> OWNER</h3>
+<div id="owner" class="section level3" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> OWNER</h3>
 <ol style="list-style-type: decimal">
 <li>Go to your account on <a href="https://github.com/">github.com</a> and under the Repositories tab click on the “New” button (green with a picture of a book on it)</li>
 <li>Choose a name for your repository, but <strong>make sure it’s different from your partner’s</strong> (Don’t choose a “Repository template,” and keep it a “Public” repository)</li>
@@ -436,8 +463,8 @@ pred.logistic &lt;- function(theta,x)</code></pre>
 </ul>
 </div>
 </div>
-<div id="task-2-add-the-first-function-download.phenocam" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Task 2: Add the first function: download.phenocam</h2>
+<div id="task-2-add-the-first-function-download.phenocam" class="section level2" number="6.7">
+<h2><span class="header-section-number">6.7</span> Task 2: Add the first function: download.phenocam</h2>
 <p>Within this project we’ll create separate files for each part of the analysis. To make the order of the workflow clear we’ll want to name the files systematically. In the first file we’ll implement the download.phenocam function</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="practical.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; Download Phenocam data</span></span>
 <span id="cb8-2"><a href="practical.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; </span></span>
@@ -456,8 +483,8 @@ pred.logistic &lt;- function(theta,x)</code></pre>
 <span id="cb8-15"><a href="practical.html#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">#     print(paste(&quot;download.phenocam: Input URL not provided correctly&quot;,URL))</span></span>
 <span id="cb8-16"><a href="practical.html#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   }</span></span>
 <span id="cb8-17"><a href="practical.html#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># }</span></span></code></pre></div>
-<div id="owner-1" class="section level3" number="6.6.1">
-<h3><span class="header-section-number">6.6.1</span> OWNER</h3>
+<div id="owner-1" class="section level3" number="6.7.1">
+<h3><span class="header-section-number">6.7.1</span> OWNER</h3>
 <ol style="list-style-type: decimal">
 <li>In RStudio, click File &gt; New File &gt; R Script</li>
 <li>Copy and Paste the above function into this file</li>
@@ -468,11 +495,11 @@ pred.logistic &lt;- function(theta,x)</code></pre>
 </ol>
 </div>
 </div>
-<div id="task-3-collaborator-adds-plot.phenocam" class="section level2" number="6.7">
-<h2><span class="header-section-number">6.7</span> Task 3: Collaborator adds plot.phenocam</h2>
+<div id="task-3-collaborator-adds-plot.phenocam" class="section level2" number="6.8">
+<h2><span class="header-section-number">6.8</span> Task 3: Collaborator adds plot.phenocam</h2>
 <p>With the first function complete, let’s now imagine that a <strong>COLLABORATOR</strong> has been tasked with adding the second function. To do so they must first fork and clone the repository</p>
-<div id="collaborator" class="section level3" number="6.7.1">
-<h3><span class="header-section-number">6.7.1</span> COLLABORATOR</h3>
+<div id="collaborator" class="section level3" number="6.8.1">
+<h3><span class="header-section-number">6.8.1</span> COLLABORATOR</h3>
 <ol style="list-style-type: decimal">
 <li>Go to Github and navigate to the project repository within the OWNER’s workspace.</li>
 <li>Click Fork, which will make a copy of the repository to your own workspace.</li>
@@ -527,8 +554,8 @@ pred.logistic &lt;- function(theta,x)</code></pre>
 <li>Follow the instructions, creating a title, message, and confirming that you want to create the pull request</li>
 </ol>
 </div>
-<div id="owner-2" class="section level3" number="6.7.2">
-<h3><span class="header-section-number">6.7.2</span> OWNER</h3>
+<div id="owner-2" class="section level3" number="6.8.2">
+<h3><span class="header-section-number">6.8.2</span> OWNER</h3>
 <ol style="list-style-type: decimal">
 <li>Once the COLLABORATOR has created the pull request, you should get an automatic email and also be able to see the pull request under the “Pull Requests” tab on the Github page for the project.</li>
 <li>Read the description of the proposed changes and then click on “Files Changed” to view the changes to the project. New code should be in green, while deleted code will be in pink.</li>
@@ -538,11 +565,11 @@ pred.logistic &lt;- function(theta,x)</code></pre>
 </ol>
 </div>
 </div>
-<div id="task-4-owner-adds-pred.logistic-and-fit.logistic" class="section level2" number="6.8">
-<h2><span class="header-section-number">6.8</span> Task 4: Owner adds pred.logistic and fit.logistic</h2>
+<div id="task-4-owner-adds-pred.logistic-and-fit.logistic" class="section level2" number="6.9">
+<h2><span class="header-section-number">6.9</span> Task 4: Owner adds pred.logistic and fit.logistic</h2>
 <p>We are now past the ‘set up’ stage for both the OWNER and the COLLABORATOR, so for this task we’ll explore the normal sequence of steps that the OWNER will use for day-to-day work</p>
-<div id="owner-3" class="section level3" number="6.8.1">
-<h3><span class="header-section-number">6.8.1</span> OWNER</h3>
+<div id="owner-3" class="section level3" number="6.9.1">
+<h3><span class="header-section-number">6.9.1</span> OWNER</h3>
 <ol style="list-style-type: decimal">
 <li>Pull the latest code from Github. In RStudio this is done by clicking the light blue down arrow on the Git tab. This is equivalent to the commandline <em>git pull origin master</em> where origin refers to where the where you did your orginal clone from and master refers to your main branch (if you use branches you can pull other branches)</li>
 <li>Next, open up a new R file, add the code below, and save as “03_logistic.R”</li>
@@ -583,11 +610,11 @@ into code. The logistic has an overall S shape, with <span class="math inline">\
 <p>The third part is a call to a numerical optimization function, <em>optim</em>, that searches through parameter space to find the set of parameters that minimize the negative log likelihood (i.e. that Maximize the Likelihood). Arguements are the initial parameter guess, the function being minimized, and any additional parameters that get passed on to that function.</p>
 </div>
 </div>
-<div id="task-5-collaborator-adds-the-master-script" class="section level2" number="6.9">
-<h2><span class="header-section-number">6.9</span> Task 5: Collaborator adds the master script</h2>
+<div id="task-5-collaborator-adds-the-master-script" class="section level2" number="6.10">
+<h2><span class="header-section-number">6.10</span> Task 5: Collaborator adds the master script</h2>
 <p>The day-to-day workflow for the COLLABORATOR is similar, but not exactly the same as the OWNER. The biggest differences are that the COLLABORATOR needs to pull from the OWNER, not their own repository, and needs to do a pull request after the push.</p>
-<div id="collaborator-1" class="section level3" number="6.9.1">
-<h3><span class="header-section-number">6.9.1</span> COLLABORATOR</h3>
+<div id="collaborator-1" class="section level3" number="6.10.1">
+<h3><span class="header-section-number">6.10.1</span> COLLABORATOR</h3>
 <ol style="list-style-type: decimal">
 <li>Pull from OWNER. Unfortunately, this has to be done from the command line rather than the pull button within RStudio, which just pulls from the COLLABORATOR’s repository. In RStudio go to Tools &gt; Shell to open a terminal</li>
 <li>At the terminal type</li>
@@ -627,8 +654,8 @@ into code. The logistic has an overall S shape, with <span class="math inline">\
 <li>On Github.com, submit a pull request</li>
 </ol>
 </div>
-<div id="owner-4" class="section level3" number="6.9.2">
-<h3><span class="header-section-number">6.9.2</span> OWNER</h3>
+<div id="owner-4" class="section level3" number="6.10.2">
+<h3><span class="header-section-number">6.10.2</span> OWNER</h3>
 <ol style="list-style-type: decimal">
 <li>Evaluate and accept pull request.</li>
 </ol>
@@ -649,7 +676,7 @@ Dietze, Michael C. 2017. <em><span>Ecological Forecasting</span></em>. Princeton
         </div>
       </div>
 <a href="data-management.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="baysian.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="some-examples-of-forecast-needs-in-the-fynbos-biome.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

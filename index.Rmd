@@ -30,7 +30,7 @@ The core outcomes/concepts I hope you'll come away with:
 
 <br>
 
-## Module and Project details
+## Lectures and practicals
 
 **Lectures** 
 
@@ -40,14 +40,33 @@ Lectures will be held live, but online 12:00 - 12:45 from the 30th September to 
 
 **Practicals**
 
-There is only one practical for this module, 2-5PM on Tuesday the 5th October. Details to follow.
+There is only one practical for this module, 2-5PM on Tuesday the 5th October. 
 
+<br>
+
+## Preparation
+
+**For the lecture content:**
+
+- The following 4 minute video will give yo a glossy overview of what this module is about
+
+<iframe width="584" height="330" src="https://www.youtube.com/embed/Lgi_e7N-C8E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br>
+
+- **You are expected to read [@Dietze2018] for Thursday the 30th September.** You can download it [here](http://dx.doi.org/10.1073/pnas.1710231115).
+
+<br>
+
+**For the practical:**
+
+You need to install and set up RStudio and Github and test your setup. You can find the 11-step instructions in section \@ref(pracprep). This may be a bit tedious, but there's no other option really. It should take you an hour if all goes well...
 
 <br>
 
 ## A bit about me
 
-I'm an ecologist who has become more quantitative through time, but has little formal training in quantitative methods (i.e. I've learnt by doing over the past 20 years). As such, I will make elementary mistakes. In fact, the entry requirements for this course are beyond my formal training, so you may have much to teach me! If you spot any errors, confusion or contradictions please let me know and I'll get back to you and/or update the course notes accordingly.
+I'm an ecologist who has become more quantitative through time, but has little formal training in quantitative methods (i.e. I've learnt by doing over the past 20 years). As such, I will make elementary mistakes. In fact, the entry requirements for this course are beyond my formal training, so you may have much to teach me! If you spot any errors, confusion or contradictions, please let me know and I'll get back to you and/or update the course notes accordingly.
 
 <br>
 
@@ -62,7 +81,9 @@ _Many of the following resources were instrumental in me pulling this material t
 
 <br>
 
-All code, images, etc can be found [here](https://github.com/jslingsby/BIO3019S_Ecoforecasting). I have only used images and other materials that were made available online under a non-restrictive license (Creative Commons, etc) of for which I have express permission, and have attributed my sources. Content without attribution is my own and shared under the license below. If there are any errors or any content you find concerning with regard to licensing, or that you find offensive, please [contact me](https://www.ecologi.st/contact/). Any feedback, positive or negative, is welcome!
+All code, images, etc can be found [here](https://github.com/jslingsby/BIO3019S_Ecoforecasting). I have only used images and other materials that were made available online under a non-restrictive license (Creative Commons, etc) or for which I have express permission, and have attributed my sources. Content without attribution is my own and shared under the license below. If there are any errors or any content you find concerning with regard to licensing, or that you find offensive, please [contact me](https://www.ecologi.st/contact/). Any feedback, positive or negative, is welcome!
+
+<br>
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 

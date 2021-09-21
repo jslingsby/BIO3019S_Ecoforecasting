@@ -25,7 +25,8 @@ fig:seashell
 fig:usingbayes
 overview
 general
-module-and-project-details
+lectures-and-practicals
+preparation
 a-bit-about-me
 acknowledgements-and-further-reading
 quiz
@@ -42,7 +43,7 @@ replication-and-the-reproducibility-spectrum
 why-work-reproducibly
 scientific-workflows
 coding-and-code-management
-computing-and-software
+computing-environment-and-software
 data-management
 why-do-you-need-to-manage-your-data
 the-data-life-cycle
@@ -55,7 +56,8 @@ integrate
 analyze
 data-and-decisions
 practical
-preparation
+pracprep
+the-practical
 objectives
 prairie-phenology
 modular-design
@@ -71,7 +73,17 @@ owner-3
 task-5-collaborator-adds-the-master-script
 collaborator-1
 owner-4
+some-examples-of-forecast-needs-in-the-fynbos-biome
+post-fire-recovery-trajectories
+proteas
+impacts-of-iaps-on-runoff
+projection-and-decision-support
+section
 baysian
 maximum-likelihood
 probability-vs-likelihood
 uncertainty
+propagating-analyzing-and-reducing-uncertainty
+data-assimilation
+section-1
+sources-and-types-of-uncertainty

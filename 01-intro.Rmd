@@ -139,7 +139,7 @@ Working reproducibly requires learning a lot of skills and can take a lot of eff
 
 <br>
 
-You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(models). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(forecasting).
+You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(models). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(practical).
 
 Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
 

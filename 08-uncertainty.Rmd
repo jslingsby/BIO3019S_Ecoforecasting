@@ -1,0 +1,49 @@
+# Uncertainty?
+
+## Sources and types of uncertainty
+
+
+
+## Propagating, analyzing and reducing uncertainty
+
+- Sensitivity Analysis
+  - How does a change in X translate into a change in Y?
+  - Lots of methods! (Local vs Global?)
+  - Generally revolve around varying the input parameters to see how they alter the output parameters
+      - e.g. Monte Carlo methods
+      - There are usually trade-offs between computational expense/time and how thoroughly you explore parameter space
+      - The nice thing about knowing the uncertainty in your input variables is it gives good guidance on the space you need to explore (e.g. quantiles or standard deviations of your input variable uncertainty)
+      - Because Bayesian approaches are based on MCMC, you usually get your sensitivity analysis for free!!! It's just a matter of sampling and analyzing your posterior distributions.
+      
+- Uncertainty Propagation
+  - How does the uncertainty in X affect the uncertainty in Y?
+  - How do we forecast Y with uncertainty?
+  - 5 ways
+  
+  [Uncertainty in predictions are determined by the uncertainties in our inputs and the sensitivity of our outputs to those inputs...]
+  
+  [Jensen's Inequality: If you run your model under your mean parameter set, what comes out is not your mean outcome. Especially when your model isnon-linear...]
+  
+  [Linear model variance shape example? https://www.youtube.com/watch?v=TyYQAOGyOUQ at ~35 mins]
+
+  [MCMC distribution example at ~42 mins]
+
+- Uncertainty Analysis
+  - Which sources of input uncertainty are most important for output uncertainty?
+  - 2 ways in which things can be important for the uncertainty in predictions (Fig 11.8 in book)
+      - because they're highly sensitive
+      - because they're highly uncertain
+  
+- Optimal design
+  - How can we best reduce the uncertainty in our model/forecast?
+  
+  - Power analysis
+  - Observational design
+    - e.g. hugely expensive investments like satellites etc
+    
+    
+**The traditional ecologist's view** - after decades' years worth of data collection and hypothesis testing, maybe we'll know enough to start building a predictive model.
+
+**Engineering (or decision-makers') view** - start building a model with no or very little data, and use that to guide what data to collect and how to improve the model. It may be completely wrong to begin with, but will rapidly improve.
+
+

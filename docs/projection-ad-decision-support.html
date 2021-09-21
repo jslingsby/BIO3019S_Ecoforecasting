@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
+  <title>8 Projection ad decision support | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta property="og:title" content="8 Projection ad decision support | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta name="twitter:title" content="8 Projection ad decision support | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   
   <meta name="twitter:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="quiz.html"/>
+<link rel="prev" href="some-examples-of-forecast-needs-in-the-fynbos-biome.html"/>
+<link rel="next" href="baysian.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -235,11 +235,10 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="7.1" data-path="some-examples-of-forecast-needs-in-the-fynbos-biome.html"><a href="some-examples-of-forecast-needs-in-the-fynbos-biome.html#post-fire-recovery-trajectories"><i class="fa fa-check"></i><b>7.1</b> Post-fire recovery trajectories</a></li>
 <li class="chapter" data-level="7.2" data-path="some-examples-of-forecast-needs-in-the-fynbos-biome.html"><a href="some-examples-of-forecast-needs-in-the-fynbos-biome.html#proteas"><i class="fa fa-check"></i><b>7.2</b> Proteas</a></li>
-<li class="chapter" data-level="7.3" data-path="some-examples-of-forecast-needs-in-the-fynbos-biome.html"><a href="some-examples-of-forecast-needs-in-the-fynbos-biome.html#impacts-of-iaps-on-runoff"><i class="fa fa-check"></i><b>7.3</b> Impacts of IAPs on runoff</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="projection-and-decision-support.html"><a href="projection-and-decision-support.html"><i class="fa fa-check"></i><b>8</b> Projection and decision support</a>
+<li class="chapter" data-level="8" data-path="projection-ad-decision-support.html"><a href="projection-ad-decision-support.html"><i class="fa fa-check"></i><b>8</b> Projection ad decision support</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="projection-and-decision-support.html"><a href="projection-and-decision-support.html#section"><i class="fa fa-check"></i><b>8.1</b> …</a></li>
+<li class="chapter" data-level="8.1" data-path="projection-ad-decision-support.html"><a href="projection-ad-decision-support.html#propagating-analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>8.1</b> Propagating, analyzing and reducing uncertainty</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="baysian.html"><a href="baysian.html"><i class="fa fa-check"></i><b>9</b> Going Bayesian</a>
 <ul>
@@ -250,11 +249,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="10" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>10</b> Uncertainty?</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="uncertainty.html"><a href="uncertainty.html#propagating-analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>10.1</b> Propagating, analyzing and reducing uncertainty</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="data-assimilation.html"><a href="data-assimilation.html"><i class="fa fa-check"></i><b>11</b> Data assimilation</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="data-assimilation.html"><a href="data-assimilation.html#section-1"><i class="fa fa-check"></i><b>11.1</b> </a></li>
+<li class="chapter" data-level="10.1" data-path="uncertainty.html"><a href="uncertainty.html#propagating-analyzing-and-reducing-uncertainty-1"><i class="fa fa-check"></i><b>10.1</b> Propagating, analyzing and reducing uncertainty</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -277,78 +272,11 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">A Minimal Introduction to Ecological Forecasting and Reproducible Research</h1>
-<p class="author"><em>Jasper Slingsby</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-09-21</em></p>
-</div>
-<div id="overview" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Overview</h1>
-<p><em>This module is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town.</em></p>
-<div id="general" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> General</h2>
-<p>I provide a very brief introduction to Ecological Forecasting. We only have a two weeks, so this really is a minimalist introduction. I’ll focus on providing a broad overview of the general framework and motivation for ecological forecasting, but won’t have time to delve into the more gory theoretical and statistical details. I mostly use Ecological Forecasting as a framework to highlight various themes that are increasingly important for quantitative biologists - understanding how we inform or make decisions; managing data; working reproducibly; propagating, understanding and reducing uncertainty.</p>
-<p>The core outcomes/concepts I hope you’ll come away with:</p>
-<ul>
-<li>To be able to situate the role of models and the importance of forecasting in science and ecological decision making</li>
-<li>Familiarity with the concepts and understand the need for Open, Reproducible Science</li>
-<li>Familiarity with The Data Life Cycle</li>
-<li>Familiarity with Open Science tools</li>
-<li></li>
-</ul>
-<p><br></p>
-</div>
-<div id="lectures-and-practicals" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Lectures and practicals</h2>
-<p><strong>Lectures</strong></p>
-<p>Lectures will be held live, but online 12:00 - 12:45 from the 30th September to the 13th October. The zoom link (see Vula) should stay the same for all lecture sessions.</p>
-<p><br></p>
-<p><strong>Practicals</strong></p>
-<p>There is only one practical for this module, 2-5PM on Tuesday the 5th October.</p>
-<p><br></p>
-</div>
-<div id="preparation" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Preparation</h2>
-<p><strong>For the lecture content:</strong></p>
-<ul>
-<li>The following 4 minute video will give yo a glossy overview of what this module is about</li>
-</ul>
-<iframe width="584" height="330" src="https://www.youtube.com/embed/Lgi_e7N-C8E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<p><br></p>
-<ul>
-<li><strong>You are expected to read <span class="citation">(<a href="#ref-Dietze2018" role="doc-biblioref">Dietze et al. 2018</a>)</span> for Thursday the 30th September.</strong> You can download it <a href="http://dx.doi.org/10.1073/pnas.1710231115">here</a>.</li>
-</ul>
-<p><br></p>
-<p><strong>For the practical:</strong></p>
-<p>You need to install and set up RStudio and Github and test your setup. You can find the 11-step instructions in section <a href="practical.html#pracprep">6.1</a>. This may be a bit tedious, but there’s no other option really. It should take you an hour if all goes well…</p>
-<p><br></p>
-</div>
-<div id="a-bit-about-me" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> A bit about me</h2>
-<p>I’m an ecologist who has become more quantitative through time, but has little formal training in quantitative methods (i.e. I’ve learnt by doing over the past 20 years). As such, I will make elementary mistakes. In fact, the entry requirements for this course are beyond my formal training, so you may have much to teach me! If you spot any errors, confusion or contradictions, please let me know and I’ll get back to you and/or update the course notes accordingly.</p>
-<p><br></p>
-</div>
-<div id="acknowledgements-and-further-reading" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Acknowledgements and further reading:</h2>
-<p><em>Many of the following resources were instrumental in me pulling this material together and are worth spending time exploring</em></p>
-<ul>
-<li><a href="https://ecoforecast.org/">ecoforecast.org</a></li>
-<li>Dietze, Michael C. 2017. Ecological Forecasting. Princeton University Press. <a href="https://doi.org/10.2307/j.ctvc7796h" class="uri">https://doi.org/10.2307/j.ctvc7796h</a>.</li>
-<li>Dietze, Michael C. et al. 2018. “Iterative near-Term Ecological Forecasting: Needs, Opportunities, and Challenges.” Proceedings of the National Academy of Sciences of the United States of America 115 (7): 1424–32. <a href="https://doi.org/10.1073/pnas.1710231115" class="uri">https://doi.org/10.1073/pnas.1710231115</a>.</li>
-<li></li>
-</ul>
-<p><br></p>
-<p>All code, images, etc can be found <a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting">here</a>. I have only used images and other materials that were made available online under a non-restrictive license (Creative Commons, etc) or for which I have express permission, and have attributed my sources. Content without attribution is my own and shared under the license below. If there are any errors or any content you find concerning with regard to licensing, or that you find offensive, please <a href="https://www.ecologi.st/contact/">contact me</a>. Any feedback, positive or negative, is welcome!</p>
-<p><br></p>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<div id="projection-ad-decision-support" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Projection ad decision support</h1>
+<div id="propagating-analyzing-and-reducing-uncertainty" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Propagating, analyzing and reducing uncertainty</h2>
 
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-Dietze2018" class="csl-entry">
-Dietze, Michael C, Andrew Fox, Lindsay M Beck-Johnson, Julio L Betancourt, Mevin B Hooten, Catherine S Jarnevich, Timothy H Keitt, et al. 2018. <span>“<span class="nocase">Iterative near-term ecological forecasting: Needs, opportunities, and challenges</span>.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em> 115 (7): 1424–32. <a href="https://doi.org/10.1073/pnas.1710231115">https://doi.org/10.1073/pnas.1710231115</a>.
 </div>
 </div>
             </section>
@@ -356,8 +284,8 @@ Dietze, Michael C, Andrew Fox, Lindsay M Beck-Johnson, Julio L Betancourt, Mevin
           </div>
         </div>
       </div>
-
-<a href="quiz.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="some-examples-of-forecast-needs-in-the-fynbos-biome.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="baysian.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -389,7 +317,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/index.Rmd",
+"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/06-decisions.Rmd",
 "text": "Edit"
 },
 "history": {
