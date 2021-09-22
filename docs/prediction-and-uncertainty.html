@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Some examples of forecast needs in the Fynbos Biome | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
+  <title>10 Prediction and uncertainty | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Some examples of forecast needs in the Fynbos Biome | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta property="og:title" content="10 Prediction and uncertainty | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Some examples of forecast needs in the Fynbos Biome | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta name="twitter:title" content="10 Prediction and uncertainty | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   
   <meta name="twitter:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="practical.html"/>
-<link rel="next" href="projection-and-decision-support.html"/>
+<link rel="prev" href="baysian.html"/>
+<link rel="next" href="data-assimilation.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -281,16 +281,64 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="some-examples-of-forecast-needs-in-the-fynbos-biome" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Some examples of forecast needs in the Fynbos Biome</h1>
-<div id="post-fire-recovery-trajectories" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Post-fire recovery trajectories</h2>
+<div id="prediction-and-uncertainty" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> Prediction and uncertainty</h1>
+<ul>
+<li><p>What determines the limits to the utility of predictions?</p></li>
+<li><p>What determines prediction uncertainty?</p></li>
+<li><p>How can we reduce that uncertainty?</p></li>
+</ul>
+<p><br></p>
+<div id="sources-and-types-of-uncertainty" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Sources and types of uncertainty</h2>
+<p><br></p>
 </div>
-<div id="proteas" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Proteas</h2>
-</div>
-<div id="impacts-of-iaps-on-runoff" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> Impacts of IAPs on runoff</h2>
+<div id="propagating-analyzing-and-reducing-uncertainty" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Propagating, analyzing and reducing uncertainty</h2>
+<ul>
+<li><p>Sensitivity Analysis</p>
+<ul>
+<li>How does a change in X translate into a change in Y?</li>
+<li>Lots of methods! (Local vs Global?)</li>
+<li>Generally revolve around varying the input parameters to see how they alter the output parameters
+<ul>
+<li>e.g. Monte Carlo methods</li>
+<li>There are usually trade-offs between computational expense/time and how thoroughly you explore parameter space</li>
+<li>The nice thing about knowing the uncertainty in your input variables is it gives good guidance on the space you need to explore (e.g. quantiles or standard deviations of your input variable uncertainty)</li>
+<li>Because Bayesian approaches are based on MCMC, you usually get your sensitivity analysis for free!!! It’s just a matter of sampling and analyzing your posterior distributions.</li>
+</ul></li>
+</ul></li>
+<li><p>Uncertainty Propagation</p>
+<ul>
+<li>How does the uncertainty in X affect the uncertainty in Y?</li>
+<li>How do we forecast Y with uncertainty?</li>
+<li>5 ways</li>
+</ul>
+<p>[Uncertainty in predictions are determined by the uncertainties in our inputs and the sensitivity of our outputs to those inputs…]</p>
+<p>[Jensen’s Inequality: If you run your model under your mean parameter set, what comes out is not your mean outcome. Especially when your model isnon-linear…]</p>
+<p>[Linear model variance shape example? <a href="https://www.youtube.com/watch?v=TyYQAOGyOUQ" class="uri">https://www.youtube.com/watch?v=TyYQAOGyOUQ</a> at ~35 mins]</p>
+<p>[MCMC distribution example at ~42 mins]</p></li>
+<li><p>Uncertainty Analysis</p>
+<ul>
+<li>Which sources of input uncertainty are most important for output uncertainty?</li>
+<li>2 ways in which things can be important for the uncertainty in predictions (Fig 11.8 in book)
+<ul>
+<li>because they’re highly sensitive</li>
+<li>because they’re highly uncertain</li>
+</ul></li>
+</ul></li>
+<li><p>Optimal design</p>
+<ul>
+<li><p>How can we best reduce the uncertainty in our model/forecast?</p></li>
+<li><p>Power analysis</p></li>
+<li><p>Observational design</p>
+<ul>
+<li>e.g. hugely expensive investments like satellites etc</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>The traditional ecologist’s view</strong> - after decades’ years worth of data collection and hypothesis testing, maybe we’ll know enough to start building a predictive model.</p>
+<p><strong>Engineering (or decision-makers’) view</strong> - start building a model with no or very little data, and use that to guide what data to collect and how to improve the model. It may be completely wrong to begin with, but will rapidly improve.</p>
 
 </div>
 </div>
@@ -299,8 +347,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="practical.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="projection-and-decision-support.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="baysian.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-assimilation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -332,7 +380,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/05-forecastneeds.Rmd",
+"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/08-uncertainty.Rmd",
 "text": "Edit"
 },
 "history": {

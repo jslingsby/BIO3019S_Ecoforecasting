@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="projection-and-decision-support.html"/>
-<link rel="next" href="uncertainty.html"/>
+<link rel="next" href="prediction-and-uncertainty.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -120,28 +120,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -240,6 +218,7 @@ div.csl-indent {
 <li class="chapter" data-level="8" data-path="projection-and-decision-support.html"><a href="projection-and-decision-support.html"><i class="fa fa-check"></i><b>8</b> Projection and decision support</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="projection-and-decision-support.html"><a href="projection-and-decision-support.html#section"><i class="fa fa-check"></i><b>8.1</b> …</a></li>
+<li class="chapter" data-level="8.2" data-path="projection-and-decision-support.html"><a href="projection-and-decision-support.html#proteas-1"><i class="fa fa-check"></i><b>8.2</b> Proteas</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="baysian.html"><a href="baysian.html"><i class="fa fa-check"></i><b>9</b> Going Bayesian</a>
 <ul>
@@ -247,10 +226,16 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="9.1.1" data-path="baysian.html"><a href="baysian.html#probability-vs-likelihood"><i class="fa fa-check"></i><b>9.1.1</b> Probability vs Likelihood</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>10</b> Uncertainty?</a>
+<li class="chapter" data-level="9.2" data-path="baysian.html"><a href="baysian.html#bayes-theorum"><i class="fa fa-check"></i><b>9.2</b> Bayes’ theorum</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="uncertainty.html"><a href="uncertainty.html#propagating-analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>10.1</b> Propagating, analyzing and reducing uncertainty</a></li>
+<li class="chapter" data-level="9.2.1" data-path="baysian.html"><a href="baysian.html#applied-to-parameters-and-data"><i class="fa fa-check"></i><b>9.2.1</b> Applied to parameters and data</a></li>
+<li class="chapter" data-level="9.2.2" data-path="baysian.html"><a href="baysian.html#worked-example"><i class="fa fa-check"></i><b>9.2.2</b> Worked example</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="prediction-and-uncertainty.html"><a href="prediction-and-uncertainty.html"><i class="fa fa-check"></i><b>10</b> Prediction and uncertainty</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="prediction-and-uncertainty.html"><a href="prediction-and-uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>10.1</b> Sources and types of uncertainty</a></li>
+<li class="chapter" data-level="10.2" data-path="prediction-and-uncertainty.html"><a href="prediction-and-uncertainty.html#propagating-analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>10.2</b> Propagating, analyzing and reducing uncertainty</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="data-assimilation.html"><a href="data-assimilation.html"><i class="fa fa-check"></i><b>11</b> Data assimilation</a>
 <ul>
@@ -281,7 +266,7 @@ div.csl-indent {
 <h1><span class="header-section-number">9</span> Going Bayesian</h1>
 <p>While ecological forecasting and decision support can be done with traditional statistics (often termed “frequentist statistics”) it is generally much easier to do in a Bayesian statistical framework, because:</p>
 <ul>
-<li>It treats all terms as probability distributions, making it easier to quantify, propagate and partition uncertainties throughout the analysis (more on this later)</li>
+<li>It can easily treat all terms as probability distributions, making it easier to quantify, propagate and partition uncertainties throughout the analysis (more on this later)</li>
 <li>Bayesian analyses are inherently iterative, making it easier to update predictions as new data become available</li>
 <li>They are highly flexible, allowing one to build relatively complex models with varied data sources (and/or of varying quality)</li>
 <li>They are typically focused on estimating what properties are (i.e. the actual value of a particular parameter) and not just establishing what they are not (i.e. testing for significant difference, as is usually the focus in frequentist statistics) - although there are frequentist approaches for doing this too</li>
@@ -297,59 +282,376 @@ div.csl-indent {
 <ul>
 <li>e.g. if you have an unbias coin (the hypothesis), the probability of a coin toss landing heads up (the result) is 0.5.</li>
 </ul>
-<p><strong>Likelihood relates to hypotheses, given the results (i.e. data).</strong></p>
+<p><strong>Likelihood relates to the hypotheses, given the results (i.e. data).</strong></p>
 <ul>
 <li>e.g. say we’ve performed 1000 tosses and the coin landed heads up 700 times (the data), it is less <em>likely</em> that the hypothesis of an unbias coin is true relative to a hypothesis that the coin favours heads.</li>
 </ul>
 <p>This may seem like a subtle and potentially arbitrary distinction, but likelihood comes into it’s own when comparing multiple hypotheses (usually specified as models).</p>
+<p><br></p>
+<p><strong>Here’s an example</strong></p>
+<p>We’ll look at fynbos vegetation recovery after fire using a satellite measure of vegetation greeness or health - the normalized difference vegetation index (NDVI) from the MODIS satellite mission.</p>
 <p>Add Postfire example</p>
 <ul>
 <li>demonstrate p-value by fitting lm to NDVI</li>
 <li>demonstrate fitting with MLE</li>
 <li>fit negative exponential and compare likelihoods</li>
 </ul>
-<div class="figure"><span id="fig:unnamed-chunk-7"></span>
-<img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-7-1.png" alt="Time-series of 16-day normalized difference vegetation index (NDVI) from the MODIS satellite mission following fire in a seasonal wetland in the Silvermine section of Table Mountain National Park." width="672" />
+<div class="figure"><span id="fig:postfireBayes"></span>
+<img src="BIO3019S-Ecoforecasting_files/figure-html/postfireBayes-1.png" alt="Time-series of 16-day normalized difference vegetation index (NDVI) from the MODIS satellite mission following fire in a seasonal wetland in the Silvermine section of Table Mountain National Park." width="672" />
 <p class="caption">
 Figure 9.1: Time-series of 16-day normalized difference vegetation index (NDVI) from the MODIS satellite mission following fire in a seasonal wetland in the Silvermine section of Table Mountain National Park.
 </p>
 </div>
+<p>If we want to know the rate of vegetation recovery, we could fit a linear model to this and examine the slope, like so:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="baysian.html#cb1-1" aria-hidden="true" tabindex="-1"></a>fit_linear <span class="ot">&lt;-</span> <span class="fu">lm</span>(NDVI <span class="sc">~</span> calendar_date, <span class="at">data =</span> dat)</span>
+<span id="cb1-2"><a href="baysian.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="baysian.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_linear)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = NDVI ~ calendar_date, data = dat)
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.215858 -0.051878 -0.002463  0.052636  0.237306 
+## 
+## Coefficients:
+##                 Estimate Std. Error t value
+## (Intercept)   -1.5102413  0.1921736  -7.859
+## calendar_date  0.0001147  0.0000109  10.522
+##                           Pr(&gt;|t|)    
+## (Intercept)       0.00000000000106 ***
+## calendar_date &lt; 0.0000000000000002 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.08099 on 136 degrees of freedom
+## Multiple R-squared:  0.4488, Adjusted R-squared:  0.4447 
+## F-statistic: 110.7 on 1 and 136 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<p>From the p-value you can see that the result is highly significant - i.e. there is very little probability that the slope and intercept are zero - but does that mean we’ve done this right?</p>
+<p>Let’s try adding the linear model to our plot:</p>
+<div class="figure"><span id="fig:unnamed-chunk-3"></span>
+<img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-3-1.png" alt="NDVI timeseries overlain with a linear regression." width="672" />
+<p class="caption">
+Figure 9.2: NDVI timeseries overlain with a linear regression.
+</p>
+</div>
+<p>Do you think a linear model is appropriate here?</p>
+<p><br></p>
+<p>Let’s try something else:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="baysian.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fit_negexp &lt;- nls(y ~ alpha * exp(beta * x) + theta , data = data.df, start = start)</span></span>
+<span id="cb3-2"><a href="baysian.html#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="baysian.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; Fit logistic model</span></span>
+<span id="cb3-4"><a href="baysian.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; </span></span>
+<span id="cb3-5"><a href="baysian.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; @param dat  dataframe of day of year (doy), gcc_mean, gcc_std</span></span>
+<span id="cb3-6"><a href="baysian.html#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; @param par  vector of initial parameter guess</span></span>
+<span id="cb3-7"><a href="baysian.html#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ##&#39; @return  output from numerical optimization</span></span>
+<span id="cb3-8"><a href="baysian.html#cb3-8" aria-hidden="true" tabindex="-1"></a>fit.negexp <span class="ot">&lt;-</span> <span class="cf">function</span>(dat, par){</span>
+<span id="cb3-9"><a href="baysian.html#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="baysian.html#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="do">## define log likelihood</span></span>
+<span id="cb3-11"><a href="baysian.html#cb3-11" aria-hidden="true" tabindex="-1"></a>  lnL.logistic <span class="ot">&lt;-</span> <span class="cf">function</span>(theta,dat){</span>
+<span id="cb3-12"><a href="baysian.html#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span><span class="fu">sum</span>(<span class="fu">dnorm</span>(dat<span class="sc">$</span>gcc_mean,<span class="fu">pred.logistic</span>(theta,dat<span class="sc">$</span>doy),dat<span class="sc">$</span>gcc_std,<span class="at">log=</span><span class="cn">TRUE</span>),<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb3-13"><a href="baysian.html#cb3-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-14"><a href="baysian.html#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="baysian.html#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="do">## fit by numerical optimization</span></span>
+<span id="cb3-16"><a href="baysian.html#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">optim</span>(par,<span class="at">fn =</span> lnL.logistic,<span class="at">dat=</span>dat)</span>
+<span id="cb3-17"><a href="baysian.html#cb3-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><br></p>
+</div>
+</div>
+<div id="bayes-theorum" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Bayes’ theorum</h2>
 <div class="figure" style="text-align: center"><span id="fig:frequentistsVSbayesians"></span>
 <img src="img/frequentistsVSbayesians.png" alt="'Frequentists vs Bayesians' from [xkcd.com/1132](https://xkcd.com/1132), used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/)." width="50%" />
 <p class="caption">
-Figure 9.2: ‘Frequentists vs Bayesians’ from <a href="https://xkcd.com/1132">xkcd.com/1132</a>, used under a <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5 license</a>.
+Figure 9.3: ‘Frequentists vs Bayesians’ from <a href="https://xkcd.com/1132">xkcd.com/1132</a>, used under a <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5 license</a>.
 </p>
 </div>
+<div id="applied-to-parameters-and-data" class="section level3" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> Applied to parameters and data</h3>
+<p>Here I express Baye’s theorem in the terms data analysts tend to think with, parameters (<span class="math inline">\(\theta\)</span>) and data (<span class="math inline">\(D\)</span>).</p>
+<p><span class="math display">\[\begin{align*}
+p(\theta|D) &amp; = \frac{p(D|\theta) \; p(\theta)}{p(D)} \;\;
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\theta^*\)</span> indicates all possible values of <span class="math inline">\(\theta\)</span>.</p>
+<p><span class="math display">\[
+\underbrace{p(\theta|D)}_\text{posterior} \; = \; \underbrace{p(D|\theta)}_\text{likelihood} \;\; \underbrace{p(\theta)}_\text{prior} \; / \; \underbrace{p(D)}_\text{evidence}.
+\]</span></p>
+<blockquote>
+<p>The “prior,” <span class="math inline">\(p(\theta)\)</span>, is the credibility of the <span class="math inline">\(\theta\)</span> values without the data <span class="math inline">\(D\)</span>. The “posterior,” <span class="math inline">\(p(\theta|D)\)</span>, is the credibility of <span class="math inline">\(\theta\)</span> values with the data <span class="math inline">\(D\)</span> taken into account. The “likelihood,” <span class="math inline">\(p(D|\theta)\)</span>, is the probability that the data could be generated by the model with parameter value <span class="math inline">\(\theta\)</span>. The “evidence” for the model, <span class="math inline">\(p(D)\)</span>, is the overall probability of the data according to the model, determined by averaging across all possible parameter values weighted by the strength of belief in those parameter values. (pp. 106–107)</p>
+</blockquote>
+</div>
+<div id="worked-example" class="section level3" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Worked example</h3>
+<p>From <a href="https://github.com/kevindavisross/bayesian-reasoning-and-methods/blob/main/02-bayes-rule.Rmd" class="uri">https://github.com/kevindavisross/bayesian-reasoning-and-methods/blob/main/02-bayes-rule.Rmd</a></p>
+<p>The mechanism that underpins all of Bayesian statistical analysis is <em>Bayes’ rule</em>, which describes how to update uncertainty in light of new information, evidence, or data.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+
+<div class="example">
+<span id="exm:bayes-rule1" class="example"><strong>Example 9.1  </strong></span>A <a href="https://www.pewresearch.org/science/2019/03/28/what-americans-know-about-science/">recent survey</a> of American adults asked:
+“Based on what you have heard or read, which of the following two statements best describes
+the scientific method?”
+- 70% selected “The scientific method produces findings meant to be continually tested
+and updated over time” (“iterative”).
+- 14% selected “The scientific method identifies unchanging core principles and truths” (unchanging).
+- 16% were not sure which of the two statements was best.
+How does the response to this question change based on education level? Suppose education level is classified as: high school or less (HS), some college but no Bachelor’s degree (college), Bachelor’s degree (Bachelor’s), or postgraduate degree (postgraduate). The education breakdown is
+- Among those who agree with “iterative”: 31.3% HS, 27.6% college, 22.9% Bachelor’s, and 18.2% postgraduate.
+- Among those who agree with “unchanging”: 38.6% HS, 31.4% college, 19.7% Bachelor’s, and 10.3% postgraduate.
+- Among those “not sure”: 57.3% HS, 27.2% college, 9.7% Bachelor’s, and 5.8% postgraduate
+</div>
+<ol style="list-style-type: decimal">
+<li>Use the information to construct an appropriate two-way table.</li>
+<li>Overall, what percentage of adults have a postgraduate degree? How is this related to the values 18.2%, 10.3%, and 5.8%?</li>
+<li>What percent of those with a postgraduate degree agree that the scientific method is “iterative?” How is this related to the values provided?</li>
+</ol>
+
+<div class="solution">
+ <span class="solution"><em>Solution. </em></span> to Example <a href="baysian.html#exm:bayes-rule1">9.1</a>
+</div>
+<ol style="list-style-type: decimal">
+<li>Suppose there are 100000 hypothetical American adults. Of these 100000, <span class="math inline">\(100000\times 0.7 = 70000\)</span> agree with the “iterative” statement.
+Of the 70000 who agree with the “iterative” statement, <span class="math inline">\(70000\times 0.182 = 12740\)</span> also have a postgraduate degree.
+Continue in this way to complete the table below.</li>
+<li>Overall 15.11% of adults have a postgraduate degree (15110/100000 in the table).
+The overall percentage is a weighted average of the three percentages; 18.2% gets the most weight in the average because the “iterative” statement has the highest percentage of people that agree with it compared to “unchanging” and “not sure.”
+<span class="math display">\[
+ 0.1511 = (0.70)(0.182) + (0.14)(0.103) + (0.16)(0.058)  
+ \]</span></li>
+<li>Of the 15110 who have a postgraduate degree 12740 agree with the “iterative” statement, and <span class="math inline">\(12740/15110 = 0.843\)</span>. 84.3% of those with a graduate degree agree that the scientific method is “iterative.” The value 0.843 is equal to the product of (1) 0.70, the overall proportion who agree with the “iterative” statement, and (2) 0.182, the proportion of those who agree with the “iterative” statement that have a postgraduate degree; divided by 0.1511, the overall proportion who have a postgraduate degree.
+<span class="math display">\[
+  0.843 = \frac{0.182 \times 0.70}{0.1511} 
+ \]</span></li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">HS</th>
+<th align="right">college</th>
+<th align="right">Bachelors</th>
+<th align="right">postgrad</th>
+<th align="right">total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">iterative</td>
+<td align="right">21910</td>
+<td align="right">19320</td>
+<td align="right">16030</td>
+<td align="right">12740</td>
+<td align="right">70000</td>
+</tr>
+<tr class="even">
+<td align="left">unchanging</td>
+<td align="right">5404</td>
+<td align="right">4396</td>
+<td align="right">2758</td>
+<td align="right">1442</td>
+<td align="right">14000</td>
+</tr>
+<tr class="odd">
+<td align="left">not sure</td>
+<td align="right">9168</td>
+<td align="right">4352</td>
+<td align="right">1552</td>
+<td align="right">928</td>
+<td align="right">16000</td>
+</tr>
+<tr class="even">
+<td align="left">total</td>
+<td align="right">36482</td>
+<td align="right">28068</td>
+<td align="right">20340</td>
+<td align="right">15110</td>
+<td align="right">100000</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bayes’ rule for events</strong> specifies how a prior probability <span class="math inline">\(P(H)\)</span> of event <span class="math inline">\(H\)</span> is updated in response to the evidence <span class="math inline">\(E\)</span> to obtain the posterior probability <span class="math inline">\(P(H|E)\)</span>.
+<span class="math display">\[
+P(H|E) = \frac{P(E|H)P(H)}{P(E)}
+\]</span></p>
+<ul>
+<li>Event <span class="math inline">\(H\)</span> represents a particular hypothesis<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> (or model or case)</li>
+<li>Event <span class="math inline">\(E\)</span> represents observed evidence (or data or information)</li>
+<li><span class="math inline">\(P(H)\)</span> is the unconditional or <strong>prior probability</strong> of <span class="math inline">\(H\)</span> (prior to observing <span class="math inline">\(E\)</span>)</li>
+<li><span class="math inline">\(P(H|E)\)</span> is the conditional or <strong>posterior probability</strong> of <span class="math inline">\(H\)</span> after observing evidence <span class="math inline">\(E\)</span>.</li>
+<li><span class="math inline">\(P(E|H)\)</span> is the <strong>likelihood</strong> of evidence <span class="math inline">\(E\)</span> given hypothesis (or model or case) <span class="math inline">\(H\)</span></li>
+</ul>
+
+<div class="example">
+<span id="exm:bayes-rule2" class="example"><strong>Example 9.2  </strong></span>Continuing the previous example. Randomly select an American adult.
+</div>
+<ol style="list-style-type: decimal">
+<li>Consider the conditional probability that a randomly selected American adult agrees that the scientific method is “iterative” given that they have a postgraduate degree. Identify the prior probability, hypothesis, evidence, likelihood, and posterior probability, and use Bayes’ rule to compute the posterior probability.</li>
+<li>Find the conditional probability that a randomly selected American adult with a postgraduate degree agrees that the scientific method is “unchanging.”</li>
+<li>Find the conditional probability that a randomly selected American adult with a postgraduate degree is not sure about which statement is best.</li>
+<li>How many times more likely is it for an <em>American adult</em> to have a postgraduate degree and agree with the “iterative” statement than to have a postgraduate degree and agree with the “unchanging” statement?</li>
+<li>How many times more likely is it for an <em>American adult with a postgraduate degree</em> to agree with the “iterative” statement than to agree with the “unchanging” statement?</li>
+<li>What do you notice about the answers to the two previous parts?</li>
+</ol>
+
+<div class="solution">
+ <span class="solution"><em>Solution. </em></span> to Example <a href="baysian.html#exm:bayes-rule2">9.2</a>
+</div>
+<ol style="list-style-type: decimal">
+<li>This is essentially the same question as the last part of the previous problem, just with different terminology.
+<ul>
+<li>The hypothesis is <span class="math inline">\(H_1\)</span>, the event that the randomly selected adult agrees with the “iterative” statement.</li>
+<li>The prior probability is <span class="math inline">\(P(H_1) = 0.70\)</span>, the overall or unconditional probability that a randomly selected American adult agrees with the “iterative” statement.</li>
+<li>The given “evidence” <span class="math inline">\(E\)</span> is the event that the randomly selected adult has a postgraduate degree. The marginal probability of the evidence is <span class="math inline">\(P(E)=0.1511\)</span>, which can be obtained by the law of total probability as in the previous problem.</li>
+<li>The likelihood is <span class="math inline">\(P(E | H_1) = 0.182\)</span>, the conditional probability that the adult has a postgraduate degree (the evidence) given that the adult agrees with the “iterative” statement (the hypothesis).</li>
+<li>The posterior probability is <span class="math inline">\(P(H_1 |E)=0.843\)</span>, the conditional probability that a randomly selected American adult agrees that the scientific method is “iterative” given that they have a postgraduate degree. By Bayes rule
+<span class="math display">\[
+ P(H_1 | E) = \frac{P(E | H_1) P(H_1)}{P(E)} = \frac{0.182 \times 0.70}{0.1511} = 0.843
+ \]</span></li>
+</ul></li>
+<li>Let <span class="math inline">\(H_2\)</span> be the event that the randomly selected adult agrees with the “unchanging” statement; the prior probability is <span class="math inline">\(P(H_2) = 0.14\)</span>. The evidence <span class="math inline">\(E\)</span> is still “postgraduate degree” but now the likelihood of this evidence is <span class="math inline">\(P(E | H_2) = 0.103\)</span> under the “unchanging” hypothesis. The conditional probability that a randomly selected adult with a postgraduate degree agrees that the scientific method is “unchanging” is
+<span class="math display">\[
+ P(H_2 | E) = \frac{P(E | H_2) P(H_2)}{P(E)} = \frac{0.103 \times 0.14}{0.1511} = 0.095
+ \]</span></li>
+<li>Let <span class="math inline">\(H_3\)</span> be the event that the randomly selected adult is “not sure”; the prior probability is <span class="math inline">\(P(H_3) = 0.16\)</span>. The evidence <span class="math inline">\(E\)</span> is still “postgraduate degree” but now the likelihood of this evidence is <span class="math inline">\(P(E | H_3) = 0.058\)</span> under the “not sure” hypothesis. The conditional probability that a randomly selected adult with a postgraduate degree is “not sure” is
+<span class="math display">\[
+ P(H_3 | E) = \frac{P(E | H_3) P(H_3)}{P(E)} = \frac{0.058 \times 0.16}{0.1511} = 0.061
+ \]</span></li>
+<li>The probability that an <em>American adult</em> has a postgraduate degree and agrees with the “iterative” statement is <span class="math inline">\(P(E \cap H_1) = P(E|H_1)P(H_1) = 0.182\times 0.70 = 0.1274\)</span>. The probability that an <em>American adult</em> has a postgraduate degree and agrees with the “unchanging” statement is <span class="math inline">\(P(E \cap H_2) = P(E|H_2)P(H_2) = 0.103\times 0.14 = 0.01442\)</span>. Since
+<span class="math display">\[
+   \frac{P(E \cap H_1)}{P(E \cap H_2)} = \frac{0.182\times 0.70}{0.103\times 0.14} = \frac{0.1274}{0.01442} = 8.835
+ \]</span>
+an <em>American adult</em> is 8.835 times more likely to have a postgraduate degree and agree with the “iterative” statement than to have a postgraduate degree and agree with the “unchanging” statement.</li>
+<li>The conditional probability that an <em>American adult with a postgraduate degree</em> agrees with the “iterative” statement is <span class="math inline">\(P(H_1 | E) = P(E|H_1)P(H_1)/P(E) = 0.182\times 0.70/0.1511 = 0.843\)</span>. The conditional probability that an <em>American adult with a postgraduate degree</em> agrees with the “unchanging” statement is <span class="math inline">\(P(H_2|E) = P(E|H_2)P(H_2)/P(E) = 0.103\times 0.14/0.1511 = 0.09543\)</span>. Since
+<span class="math display">\[
+   \frac{P(H_1 | E)}{P(H_2 | E)} = \frac{0.182\times 0.70/0.1511}{0.103\times 0.14/0.1511} = \frac{0.84315}{0.09543} = 8.835
+ \]</span>
+An <em>American adult with a postgraduate degree</em> is 8.835 times more likely to agree with the “iterative” statement than to agree with the “unchanging” statement.</li>
+<li>The ratios are the same! Conditioning on having a postgraduate degree just “slices” out the Americans who have a postgraduate degree. The ratios are determined by the overall probabilities for Americans. The conditional probabilities, given postgraduate, simply rescale the probabilities for Americans who have a postgraduate degree to add up to 1 (by dividing by 0.1511.)</li>
+</ol>
+<p>Bayes rule is often used when there are multiple hypotheses or cases. Suppose <span class="math inline">\(H_1,\ldots, H_k\)</span> is a series of distinct hypotheses which together account for all possibilities<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>, and <span class="math inline">\(E\)</span> is any event (evidence). Then Bayes’ rule implies that the posterior probability of any particular hypothesis <span class="math inline">\(H_j\)</span> satisfies
+<span class="math display">\[\begin{align*}
+P(H_j |E) &amp; = \frac{P(E|H_j)P(H_j)}{P(E)}
+\end{align*}\]</span></p>
+<p>The marginal probability of the evidence, <span class="math inline">\(P(E)\)</span>, in the denominator can be calculated using the <em>law of total probability</em>
+<span class="math display">\[
+P(E) = \sum_{i=1}^k P(E|H_i) P(H_i)
+\]</span>
+The law of total probability says that we can interpret the unconditional probability <span class="math inline">\(P(E)\)</span> as a probability-weighted average of the case-by-case conditional probabilities <span class="math inline">\(P(E|H_i)\)</span> where the weights <span class="math inline">\(P(H_i)\)</span> represent the probability of encountering each case.</p>
+<p>Combining Bayes’ rule with the law of total probability,
+<span class="math display">\[\begin{align*}
+P(H_j |E) &amp; = \frac{P(E|H_j)P(H_j)}{P(E)}\\
+&amp; = \frac{P(E|H_j)P(H_j)}{\sum_{i=1}^k P(E|H_i) P(H_i)}\\
+&amp; \\
+P(H_j |E) &amp; \propto P(E|H_j)P(H_j)
+\end{align*}\]</span></p>
+<p>The symbol <span class="math inline">\(\propto\)</span> is read “is proportional to.” The relative <em>ratios</em> of the posterior probabilities of different hypotheses are determined by the product of the prior probabilities and the likelihoods, <span class="math inline">\(P(E|H_j)P(H_j)\)</span>. The marginal probability of the evidence, <span class="math inline">\(P(E)\)</span>, in the denominator simply normalizes the numerators to ensure that the updated probabilities sum to 1 over all the distinct hypotheses.</p>
+<p><strong>In short, Bayes’ rule says</strong><a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
+<span class="math display">\[
+\textbf{posterior} \propto \textbf{likelihood} \times \textbf{prior}
+\]</span></p>
+<p>In the previous examples, the prior probabilities for an American adult’s perception of the scientific method are 0.70 for “iterative,” 0.14 for “unchanging,” and 0.16 for “not sure.” After observing that the American has a postgraduate degree, the posterior probabilities for an American adult’s perception of the scientific method become 0.8432 for “iterative,” 0.0954 for “unchanging,” and 0.0614 for “not sure.” The following organizes the calculations in a <strong>Bayes’ table</strong> which illustrates “posterior is proportional to likelihood times prior.”</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">hypothesis</th>
+<th align="right">prior</th>
+<th align="right">likelihood</th>
+<th align="right">product</th>
+<th align="right">posterior</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">iterative</td>
+<td align="right">0.70</td>
+<td align="right">0.182</td>
+<td align="right">0.1274</td>
+<td align="right">0.8432</td>
+</tr>
+<tr class="even">
+<td align="right">unchanging</td>
+<td align="right">0.14</td>
+<td align="right">0.103</td>
+<td align="right">0.0144</td>
+<td align="right">0.0954</td>
+</tr>
+<tr class="odd">
+<td align="right">not sure</td>
+<td align="right">0.16</td>
+<td align="right">0.058</td>
+<td align="right">0.0093</td>
+<td align="right">0.0614</td>
+</tr>
+<tr class="even">
+<td align="right">sum</td>
+<td align="right">1.00</td>
+<td align="right">NA</td>
+<td align="right">0.1511</td>
+<td align="right">1.0000</td>
+</tr>
+</tbody>
+</table>
+<p>The likelihood column depends on the evidence, in this case, observing that the American has a postgraduate degree. This column contains the probability of the same event, <span class="math inline">\(E\)</span> = “the American has a postgraduate degree,” under each of the distinct hypotheses:</p>
+<ul>
+<li><span class="math inline">\(P(E |H_1) = 0.182\)</span>, given the American agrees with the “iterative” statement</li>
+<li><span class="math inline">\(P(E |H_2) = 0.103\)</span>, given the American agrees with the “unchanging” statement</li>
+<li><span class="math inline">\(P(E |H_3) = 0.058\)</span>, given the American is “not sure”</li>
+</ul>
+<p>Since each of these probabilities is computed under a different case, these values do not need to add up to anything in particular. The sum of the likelihoods is meaningless, which is why we have listed a sum of “NA” for the likelihood column.</p>
+<p>The “product” column contains the product of the values in the prior and likelihood columns. The product of prior and likelihood for “iterative” (0.1274) is 8.835 (0.1274/0.0144) times higher than the product of prior and likelihood for “unchanging” (0.0144).
+Therefore, Bayes rule implies that the conditional probability that an American with a postgraduate degree agrees with “iterative” should be 8.835 times higher than the conditional probability that an American with a postgraduate degree agrees with “unchanging.”
+Similarly, the conditional probability that an American with a postgraduate degree agrees with “iterative” should be <span class="math inline">\(0.1274 / 0.0093 = 13.73\)</span> times higher than the conditional probability that an American with a postgraduate degree is “not sure,”
+and the conditional probability that an American with a postgraduate degree agrees with “unchanging” should be <span class="math inline">\(0.0144 / 0.0093 = 1.55\)</span> times higher than the conditional probability that an American with a postgraduate degree is “not sure.”
+The last column just translates these relative relationships into probabilities that sum to 1.</p>
+<p>The sum of the “product” column is <span class="math inline">\(P(E)\)</span>, the marginal probability of the evidence. The sum of the product column represents the result of the law of total probability calculation. However, for the purposes of determining the posterior probabilities, it isn’t really important what <span class="math inline">\(P(E)\)</span> is. Rather, it is the <em>ratio</em> of the values in the “product” column that determine the posterior probabilities. <span class="math inline">\(P(E)\)</span> is whatever it needs to be to ensure that the posterior probabilities sum to 1 while maintaining the proper ratios.</p>
+<p>The process of conditioning can be thought of as <strong>“slicing and renormalizing.”</strong></p>
+<ul>
+<li>Extract the “slice” corresponding to the event being conditioned on (and discard the rest). For example, a slice might correspond to a particular row or column of a two-way table.<br />
+</li>
+<li>“Renormalize” the values in the slice so that corresponding probabilities add up to 1.</li>
+</ul>
+<p>We will see that the “slicing and renormalizing” interpretation also applies when dealing with conditional distributions of random variables, and corresponding plots. Slicing determines the <em>shape</em>; renormalizing determines the <em>scale</em>. Slicing determines relative probabilities; renormalizing just makes sure they “add up” to 1 while maintaining the proper ratios.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-9" class="example"><strong>Example 9.3  </strong></span>Now suppose we want to compute the posterior probabilities for an American adult’s perception of the scientific method given that the randomly selected American adult has a Bachelor’s degree (instead of a postgraduate degree).
+</div>
+<ol style="list-style-type: decimal">
+<li>Before computing, make an educated guess for the posterior probabilities. In particular, will the changes from prior to posterior be more or less extreme given the American has a Bachelor’s degree than when given the American has a postgraduate degree? Why?</li>
+<li>Construct a Bayes table and compute the posterior probabilities. Compare to the posterior probabilities given postgraduate degree from the previous examples.</li>
+</ol>
+<p>Like the scientific method, Bayesian analysis is often an iterative process.</p>
 <div class="figure" style="text-align: center"><span id="fig:seashell"></span>
 <img src="img/seashell.png" alt="'Seashell' from [xkcd.com/1236](https://xkcd.com/1236), used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/)." width="50%" />
 <p class="caption">
-Figure 9.3: ‘Seashell’ from <a href="https://xkcd.com/1236">xkcd.com/1236</a>, used under a <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5 license</a>.
+Figure 9.4: ‘Seashell’ from <a href="https://xkcd.com/1236">xkcd.com/1236</a>, used under a <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5 license</a>.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:usingbayes"></span>
 <img src="img/modifiedbayes.png" alt="'Modified Baye's Theorem' from [xkcd.com/2059](https://xkcd.com/2059), used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/)." width="50%" />
 <p class="caption">
-Figure 9.4: ‘Modified Baye’s Theorem’ from <a href="https://xkcd.com/2059">xkcd.com/2059</a>, used under a <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5 license</a>.
+Figure 9.5: ‘Modified Baye’s Theorem’ from <a href="https://xkcd.com/2059">xkcd.com/2059</a>, used under a <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5 license</a>.
 </p>
 </div>
 <p><span class="math inline">\(p\)</span> is unknown but expected to be around 1/3. Standard error will be approximated</p>
 <p><span class="math display">\[
 SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
 \]</span></p>
-<p>You can also use math in footnotes like this<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
-<p>We will approximate standard error to 0.027<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>You can also use math in footnotes like this<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
+<p>We will approximate standard error to 0.027<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
 
 </div>
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="2">
-<li id="fn2"><p>where we mention <span class="math inline">\(p = \frac{a}{b}\)</span><a href="baysian.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p><span class="math inline">\(p\)</span> is unknown but expected to be around 1/3. Standard error will be approximated</p>
+<ol start="1">
+<li id="fn1"><p>Here we’ll cover Bayes’ rule for events, becaue it’s simpler to explain. Bayes’ rule comes into it’s own when applied to distributions of random variables, which I’ll expand to later. The ideas are analogous.<a href="baysian.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>We’re using “hypothesis” in the sense of a general scientific hypothesis, not necessarily a statistical null or alternative hypothesis.<a href="baysian.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>More formally, <span class="math inline">\(H_1,\ldots, H_k\)</span> is a <em>partition</em> which satisfies <span class="math inline">\(P\left(\cup_{i=1}^k H_i\right)=1\)</span> and <span class="math inline">\(H_1, \ldots, H_k\)</span> are disjoint — <span class="math inline">\(H_i\cap H_j=\emptyset , i\neq j\)</span>.<a href="baysian.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>“Posterior is proportional to likelihood times prior” summarizes the whole course in a single sentence.<a href="baysian.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>where we mention <span class="math inline">\(p = \frac{a}{b}\)</span><a href="baysian.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p><span class="math inline">\(p\)</span> is unknown but expected to be around 1/3. Standard error will be approximated</p>
 <p><span class="math display">\[
 SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
-\]</span><a href="baysian.html#fnref3" class="footnote-back">↩︎</a></p></li>
+\]</span><a href="baysian.html#fnref6" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -358,7 +660,7 @@ SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
         </div>
       </div>
 <a href="projection-and-decision-support.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="uncertainty.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="prediction-and-uncertainty.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

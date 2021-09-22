@@ -115,7 +115,33 @@ And one more selfish reason (but don't tell anyone I said this): _**Should you d
 
 <br>
 
-## Scientific Workflows
+## Barriers to working reproducibly
+(Adapted from "A Beginner's Guide to Conducting Reproducible Research" [@Alston2021])
+
+**1. Complexity**
+
+- There can be a bit of a learning curve in getting to know and use the tools for reproducible research effectively.
+- One is always tempted by the "easy option" of doing it the way you already know or using "user-friendly" proprietary software.
+
+**2. Technological change**
+
+- Hardware and software used in analyses change over time - either changing with updates or going obsolete altogether - making it very difficult to rerun old analyses.
+- This should be less of a problem going forward because it is something people are aware of. Documenting hardware and software versions with analyses is an easy baseline. One can also use contained computing environments as we'll discuss below.
+
+**3. Human error**
+
+- Simple mistakes or failure to fully document protocols or analyses can easily make a study irreproducible.
+- Most reproducible research tools are aimed at solving this problem.
+
+**4. Intellectual property rights**
+
+- Rational self-interest can lead to hesitation to share data and code via many pathways:
+  - Fear of not getting credit; Concern that the materials shared will be used incorrectly or unethically; etc
+- Hopefully most of these issues will be solved by better awareness of licensing issues, attribution, etc, as the culture of reproducible research grows
+
+<br>
+
+## Reproducible Scientific Workflows
 
 ```{r datapipeline, echo=FALSE, fig.cap = "'Data Pipeline' from [xkcd.com/2054](https://xkcd.com/2054), used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/).", fig.width=3, fig.align = 'center'}
 knitr::include_graphics("img/xkcd_data_pipeline_2x.png")
@@ -127,20 +153,29 @@ Working reproducibly requires careful planning and documentation of each step in
 
 This entails a number of overlapping/intertwined components, namely:
 
-- Coding and code management (data analysis)
+(see https://www.earthdatascience.org/slide-shows/1_intro-reprod-science/#11 for a different way to slice the pie...)
+
+- Data management - which we'll spend more time on in Chapter \@ref(data)
+- File and folder management
+- Coding and code management - i.e. the data manipulation and analyses performed
 - Computing environment and software
-- Data management
+- Sharing of the data, metadata, code, publications and any other relevant materials
 
 For the rest of this section we'll work through these components and some of the tools that help you achieve this. **Data management** is big enough to warrant a separate chapter.
 
 <br>
 
+## File and folder management
 
-## Coding and code management
+
 
 <br>
 
+## Coding and code management
+
 - Why write code
+  - Automation
+  - Record of 
 - Some rules of coding
 - Version control
 
@@ -148,9 +183,22 @@ For the rest of this section we'll work through these components and some of the
 
 ## Computing environment and software
 
+- Why use open source software
+- Careful documentation of hardware and versions of software used in analyses 
+- Containers
+
 <br>
 
-- Why use open source software
-- Containers
+## Sharing of the data, code, publication etc
+
+This is touched on in more detail when we discuss data management in Chapter \@ref(data), but suffice to say there's no point working reproducibly if you're not going to share all the components necessary to complete your workflow...
+
+Another key component here is that ideally all your data, code, publication etc are shared _Open Access_ - i.e. they are not stuck behind some paywall
+
+<br>
+
+```{r reproducibilitysteps, echo=FALSE, fig.cap = "A 3-step, 10-point checklist to guide researchers toward greater reproducibility in their research [@Alston2021].", fig.width=3, fig.align = 'center', out.width="60%"}
+knitr::include_graphics("img/alstonreproducibility.jpg")
+```
 
 <br>

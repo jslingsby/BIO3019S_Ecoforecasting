@@ -25,7 +25,7 @@ The core outcomes/concepts I hope you'll come away with:
 * To be able to situate the role of models and the importance of forecasting in science and ecological decision making
 * Familiarity with the concepts and understand the need for Open, Reproducible Science
 * Familiarity with The Data Life Cycle
-* Familiarity with Open Science tools
+* Familiarity with Bayesian statistics
 * 
 
 <br>

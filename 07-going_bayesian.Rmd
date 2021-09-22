@@ -2,7 +2,7 @@
 
 While ecological forecasting and decision support can be done with traditional statistics (often termed "frequentist statistics") it is generally much easier to do in a Bayesian statistical framework, because:
 
-- It treats all terms as probability distributions, making it easier to quantify, propagate and partition uncertainties throughout the analysis (more on this later)
+- It can easily treat all terms as probability distributions, making it easier to quantify, propagate and partition uncertainties throughout the analysis (more on this later)
 - Bayesian analyses are inherently iterative, making it easier to update predictions as new data become available
 - They are highly flexible, allowing one to build relatively complex models with varied data sources (and/or of varying quality)
 - They are typically focused on estimating what properties  are (i.e. the actual value of a particular parameter) and not just establishing what they are not (i.e. testing for significant difference, as is usually the focus in frequentist statistics) - although there are frequentist approaches for doing this too
@@ -21,12 +21,17 @@ While _probability_ and _likelihood_ may seem like similar concepts, the distinc
 
 - e.g. if you have an unbias coin (the hypothesis), the probability of a coin toss landing heads up (the result) is 0.5.
 
-**Likelihood relates to hypotheses, given the results (i.e. data).**
+**Likelihood relates to the hypotheses, given the results (i.e. data).**
 
 - e.g. say we've performed 1000 tosses and the coin landed heads up 700 times (the data), it is less _likely_ that the hypothesis of an unbias coin is true relative to a hypothesis that the coin favours heads.
 
 This may seem like a subtle and potentially arbitrary distinction, but likelihood comes into it's own when comparing multiple hypotheses (usually specified as models).
 
+<br>
+
+**Here's an example** 
+
+We'll look at fynbos vegetation recovery after fire using a satellite measure of vegetation greeness or health - the normalized difference vegetation index (NDVI) from the MODIS satellite mission.
 
 Add Postfire example 
 
@@ -34,7 +39,7 @@ Add Postfire example
 - demonstrate fitting with MLE
 - fit negative exponential and compare likelihoods
 
-```{r, echo=F, message=F, fig.cap = "Time-series of 16-day normalized difference vegetation index (NDVI) from the MODIS satellite mission following fire in a seasonal wetland in the Silvermine section of Table Mountain National Park."}
+```{r postfireBayes, echo=F, message=F, fig.cap = "Time-series of 16-day normalized difference vegetation index (NDVI) from the MODIS satellite mission following fire in a seasonal wetland in the Silvermine section of Table Mountain National Park."}
 # #install.packages("MODISTools") #Remove "#" and run once per R installation
 # library("MODISTools") #Call R library MODISTools that allows us to download MODIS satellite data directly into R
 # library(readr)
@@ -49,6 +54,7 @@ Add Postfire example
 # 
 # write_csv(ndvi, "/home/jasper/GIT/BIO3019S_Ecoforecasting/data/modisdata.csv")
 
+library(knitr)
 library(tidyverse)
 library(hrbrthemes)
 library(readr)
@@ -67,14 +73,326 @@ dat %>%
     geom_path(color="black") +
     geom_point(shape=21, color="black", fill="#69b3a2", size=2) +
     theme_ipsum() +
-  xlab("Date")
+  xlab("Date") +
+  ylab("Normalized Difference Vegetation Index (NDVI)")
+```
+
+If we want to know the rate of vegetation recovery, we could fit a linear model to this and examine the slope, like so:
+
+```{r}
+fit_linear <- lm(NDVI ~ calendar_date, data = dat)
+
+summary(fit_linear)
+```
+From the p-value you can see that the result is highly significant - i.e. there is very little probability that the slope and intercept are zero - but does that mean we've done this right?
+
+Let's try adding the linear model to our plot:
+
+```{r, echo=F, message=F, fig.cap = "NDVI timeseries overlain with a linear regression."}
+
+dat %>%
+ # tail(10) %>%
+  ggplot(aes(x=calendar_date, y=NDVI)) +
+#    geom_polygon(fill = "grey") +
+    geom_path(color="black") +
+    geom_point(shape=21, color="black", fill="#69b3a2", size=2) +
+    theme_ipsum() +
+  xlab("Date") +
+  ylab("Normalized Difference Vegetation Index (NDVI)") +
+  geom_smooth(method = "lm")
+#geom_line(data = fortify(fit_linear), aes(x = calendar_date, y = .fitted))
+```
+
+Do you think a linear model is appropriate here?
+
+<br>
+
+Let's try something else:
+
+```{r}
+#fit_negexp <- nls(y ~ alpha * exp(beta * x) + theta , data = data.df, start = start)
+
+# ##' Fit logistic model
+# ##' 
+# ##' @param dat  dataframe of day of year (doy), gcc_mean, gcc_std
+# ##' @param par  vector of initial parameter guess
+# ##' @return  output from numerical optimization
+fit.negexp <- function(dat, par){
+
+  ## define log likelihood
+  lnL.logistic <- function(theta,dat){
+    -sum(dnorm(dat$gcc_mean,pred.logistic(theta,dat$doy),dat$gcc_std,log=TRUE),na.rm=TRUE)
+  }
+
+  ## fit by numerical optimization
+  optim(par,fn = lnL.logistic,dat=dat)
+}
 ```
 
 
+<br>
+
+## Bayes' theorum
 
 ```{r frequentistsVSbayesians, echo=FALSE, fig.cap = "'Frequentists vs Bayesians' from [xkcd.com/1132](https://xkcd.com/1132), used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/).", fig.width=3, fig.align = 'center', out.width="50%"}
 knitr::include_graphics("img/frequentistsVSbayesians.png")
 ```
+
+### Applied to parameters and data
+
+Here I express Baye's theorem in the terms data analysts tend to think with, parameters ($\theta$) and data ($D$).
+
+\begin{align*}
+p(\theta|D) & = \frac{p(D|\theta) \; p(\theta)}{p(D)} \;\;
+\end{align*}
+
+$\theta^*$ indicates all possible values of $\theta$. 
+
+$$
+\underbrace{p(\theta|D)}_\text{posterior} \; = \; \underbrace{p(D|\theta)}_\text{likelihood} \;\; \underbrace{p(\theta)}_\text{prior} \; / \; \underbrace{p(D)}_\text{evidence}.
+$$
+
+> The "prior," $p(\theta)$, is the credibility of the $\theta$ values without the data $D$. The "posterior," $p(\theta|D)$, is the credibility of $\theta$ values with the data $D$ taken into account. The "likelihood," $p(D|\theta)$, is the probability that the data could be generated by the model with parameter value $\theta$. The "evidence" for the model, $p(D)$, is the overall probability of the data according to the model, determined by averaging across all possible parameter values weighted by the strength of belief in those parameter values. (pp. 106--107)
+
+
+
+### Worked example
+
+From https://github.com/kevindavisross/bayesian-reasoning-and-methods/blob/main/02-bayes-rule.Rmd
+
+The mechanism that underpins all of Bayesian statistical analysis is *Bayes' rule*, which describes how to update uncertainty in light of new information, evidence, or data. ^[Here we'll cover Bayes' rule for events, becaue it's simpler to explain. Bayes' rule comes into it's own when applied to distributions of random variables, which I'll expand to later. The ideas are analogous.]
+
+```{example, bayes-rule1}
+A [recent survey](https://www.pewresearch.org/science/2019/03/28/what-americans-know-about-science/) of American adults asked:
+"Based on what you have heard or read, which of the following two statements best describes
+the scientific method?"
+- 70% selected "The scientific method produces findings meant to be continually tested
+and updated over time" ("iterative").
+- 14% selected "The scientific method identifies unchanging core principles and truths" (unchanging).
+- 16% were not sure which of the two statements was best.
+How does the response to this question change based on education level?  Suppose education level is classified as: high school or less (HS), some college but no Bachelor's degree (college), Bachelor's degree (Bachelor's), or postgraduate degree (postgraduate).  The education breakdown is
+- Among those who agree with "iterative": 31.3% HS, 27.6% college, 22.9% Bachelor's, and 18.2% postgraduate.
+- Among those who agree with "unchanging": 38.6% HS, 31.4% college, 19.7% Bachelor's, and 10.3% postgraduate.
+- Among those "not sure": 57.3% HS, 27.2% college, 9.7% Bachelor's, and 5.8% postgraduate
+```
+
+
+
+1. Use the information to construct an appropriate two-way table.
+1. Overall, what percentage of adults have a postgraduate degree?  How is this related to the values 18.2%, 10.3%, and 5.8%?
+1. What percent of those with a postgraduate degree agree that the scientific method is "iterative"?  How is this related to the values provided?
+
+```{solution bayes-rule1-sol}
+to Example \@ref(exm:bayes-rule1)
+```
+
+
+
+```{asis, fold.chunk = TRUE}
+1. Suppose there are 100000 hypothetical American adults. Of these 100000, $100000\times 0.7 = 70000$ agree with the "iterative" statement.
+Of the 70000 who agree with the "iterative" statement, $70000\times 0.182 = 12740$ also have a postgraduate degree.
+Continue in this way to complete the table below.
+1. Overall 15.11% of adults have a postgraduate degree (15110/100000 in the table).
+The overall percentage is a weighted average of the three percentages; 18.2% gets the most weight in the average because the "iterative" statement has the highest percentage of people that agree with it compared to "unchanging" and "not sure".
+    \[
+    0.1511 = (0.70)(0.182) + (0.14)(0.103) + (0.16)(0.058)  
+    \]
+1. Of the 15110 who have a postgraduate degree 12740 agree with the "iterative" statement, and $12740/15110 = 0.843$. 84.3% of those with a graduate degree agree that the scientific method is "iterative". The value 0.843 is equal to the product of (1) 0.70, the overall proportion who agree with the "iterative" statement, and (2) 0.182, the proportion of those who agree with the "iterative" statement that have a postgraduate degree; divided by 0.1511, the overall proportion who have a postgraduate degree.
+    \[
+     0.843 = \frac{0.182 \times 0.70}{0.1511} 
+    \]
+```
+
+
+
+```{r, echo = FALSE}
+options(scipen = 999)
+hypotheses = c("iterative", "unchanging", "not sure")
+evidence = c("HS", "college", "Bachelors", "postgrad")
+prior = c(0.70, 0.14, 0.16)
+E_given_H1 = c(0.313, 0.276, 0.229, 0.182)
+E_given_H2 = c(0.386, 0.314, 0.197, 0.103)
+E_given_H3 = c(0.573, 0.272, 0.097, 0.058)
+n = 100000
+df = n * rbind( 
+             prior[1] * E_given_H1,
+             prior[2] * E_given_H2,
+             prior[3] * E_given_H3)
+df = cbind(df, rowSums(df))
+df = rbind(df, colSums(df))
+df = cbind(c(hypotheses, "total"), df) %>% data.frame()
+names(df) = c("", evidence, "total")
+kable(df, align = c('l', rep('r', 5)))
+```
+
+**Bayes' rule for events** specifies how a prior probability $P(H)$ of event $H$ is updated in response to the evidence $E$ to obtain the posterior probability $P(H|E)$.
+\[
+P(H|E) = \frac{P(E|H)P(H)}{P(E)}
+\]
+
+- Event $H$ represents a particular hypothesis^[We're using "hypothesis" in the sense of a general scientific hypothesis, not necessarily a statistical null or alternative hypothesis.] (or model or case)
+- Event $E$ represents observed evidence (or data or information)
+- $P(H)$ is the unconditional or **prior probability** of $H$ (prior to observing $E$)
+- $P(H|E)$ is the conditional or **posterior probability** of $H$ after observing evidence $E$.
+- $P(E|H)$ is the **likelihood** of evidence $E$ given hypothesis (or model or case) $H$
+
+
+```{example, bayes-rule2}
+Continuing the previous example.  Randomly select an American adult.
+```
+
+1. Consider the conditional probability that a randomly selected American adult agrees that the scientific method is "iterative" given that they have a postgraduate degree. Identify the prior probability, hypothesis, evidence, likelihood, and posterior probability, and use Bayes' rule to compute the posterior probability. 
+1. Find the conditional probability that a randomly selected American adult with a postgraduate degree agrees that the scientific method is "unchanging".
+1. Find the conditional probability that a randomly selected American adult with a postgraduate degree is not sure about which statement is best.
+1. How many times more likely is it for an *American adult* to have a postgraduate degree and agree with the "iterative" statement than to have a postgraduate degree and agree with the "unchanging" statement?
+1. How many times more likely is it for an *American adult with a postgraduate degree* to agree with the "iterative" statement than to agree with the "unchanging" statement?
+1. What do you notice about the answers to the two previous parts?
+
+```{solution bayes-rule2-sol}
+to Example \@ref(exm:bayes-rule2)
+```
+
+```{asis, fold.chunk = TRUE}
+1. This is essentially the same question as the last part of the previous problem, just with different terminology.
+    - The hypothesis is $H_1$, the event that the randomly selected adult agrees with the "iterative" statement.
+    - The prior probability is $P(H_1) = 0.70$, the overall or unconditional probability that a randomly selected American adult agrees with the "iterative" statement.
+    - The given "evidence" $E$ is the event that the randomly selected adult has a postgraduate degree.  The marginal probability of the evidence is $P(E)=0.1511$, which can be obtained by the law of total probability as in the previous problem.
+    - The likelihood is $P(E | H_1) = 0.182$, the conditional probability that the adult has a postgraduate degree (the evidence) given that the adult agrees with the "iterative" statement (the hypothesis).
+    - The posterior probability is $P(H_1 |E)=0.843$, the conditional probability that a randomly selected American adult agrees that the scientific method is "iterative" given that they have a postgraduate degree. By Bayes rule
+    \[
+    P(H_1 | E) = \frac{P(E | H_1) P(H_1)}{P(E)} = \frac{0.182 \times 0.70}{0.1511} = 0.843
+    \]
+1. Let $H_2$ be the event that the randomly selected adult agrees with the "unchanging" statement; the prior probability is $P(H_2) = 0.14$. The evidence $E$ is still "postgraduate degree" but now the likelihood of this evidence is $P(E | H_2) = 0.103$ under the "unchanging" hypothesis.   The conditional probability that a randomly selected adult with a postgraduate degree agrees that the scientific method is "unchanging" is
+    \[
+    P(H_2 | E) = \frac{P(E | H_2) P(H_2)}{P(E)} = \frac{0.103 \times 0.14}{0.1511} = 0.095
+    \]
+1. Let $H_3$ be the event that the randomly selected adult is "not sure"; the prior probability is $P(H_3) = 0.16$. The evidence $E$ is still "postgraduate degree" but now the likelihood of this evidence is $P(E | H_3) = 0.058$ under the "not sure" hypothesis.   The conditional probability that a randomly selected adult with a postgraduate degree is "not sure" is
+    \[
+    P(H_3 | E) = \frac{P(E | H_3) P(H_3)}{P(E)} = \frac{0.058 \times 0.16}{0.1511} = 0.061
+    \]
+1. The probability that an *American adult* has a postgraduate degree and agrees with the "iterative" statement is $P(E \cap H_1) = P(E|H_1)P(H_1) = 0.182\times 0.70 = 0.1274$. The probability that an *American adult* has a postgraduate degree and agrees with the "unchanging" statement is $P(E \cap H_2) = P(E|H_2)P(H_2) = 0.103\times 0.14 = 0.01442$. Since
+    \[
+      \frac{P(E \cap H_1)}{P(E \cap H_2)} = \frac{0.182\times 0.70}{0.103\times 0.14} = \frac{0.1274}{0.01442} = 8.835
+    \]
+an *American adult* is 8.835 times more likely to have a postgraduate degree and agree with the "iterative" statement than to have a postgraduate degree and agree with the "unchanging" statement.
+1. The conditional probability that an *American adult with a postgraduate degree*  agrees with the "iterative" statement is $P(H_1 | E) = P(E|H_1)P(H_1)/P(E) = 0.182\times 0.70/0.1511 = 0.843$. The conditional probability that an *American adult with a postgraduate degree* agrees with the "unchanging" statement is $P(H_2|E) = P(E|H_2)P(H_2)/P(E) = 0.103\times 0.14/0.1511 = 0.09543$. Since
+    \[
+      \frac{P(H_1 | E)}{P(H_2 | E)} = \frac{0.182\times 0.70/0.1511}{0.103\times 0.14/0.1511} = \frac{0.84315}{0.09543} = 8.835
+    \]
+An *American adult with a postgraduate degree* is 8.835 times more likely to agree with the "iterative" statement than to agree with the "unchanging" statement.
+1. The ratios are the same! Conditioning on having a postgraduate degree just "slices" out the Americans who have a postgraduate degree.  The ratios are determined by the overall probabilities for Americans.  The conditional probabilities, given postgraduate, simply rescale the probabilities for Americans who have a postgraduate degree to add up to 1 (by dividing by 0.1511.)
+```
+
+Bayes rule is often used when there are multiple hypotheses or cases. Suppose $H_1,\ldots, H_k$ is a series of distinct hypotheses which together account for all possibilities^[More formally, $H_1,\ldots, H_k$ is a *partition* which satisfies $P\left(\cup_{i=1}^k H_i\right)=1$ and $H_1, \ldots, H_k$ are disjoint --- $H_i\cap H_j=\emptyset , i\neq j$.], and $E$ is any event (evidence).  Then Bayes' rule implies that the posterior probability of any particular hypothesis $H_j$ satisfies
+\begin{align*}
+P(H_j |E) & = \frac{P(E|H_j)P(H_j)}{P(E)}
+\end{align*}
+
+The marginal probability of the evidence, $P(E)$, in the denominator can be calculated using the *law of total probability*
+\[
+P(E) = \sum_{i=1}^k P(E|H_i) P(H_i)
+\]
+The law of total probability says that we can interpret the unconditional probability $P(E)$ as a probability-weighted average of the case-by-case conditional probabilities $P(E|H_i)$ where the weights $P(H_i)$ represent the probability of encountering each case.
+
+Combining Bayes' rule with the law of total probability,
+\begin{align*}
+P(H_j |E) & = \frac{P(E|H_j)P(H_j)}{P(E)}\\
+& = \frac{P(E|H_j)P(H_j)}{\sum_{i=1}^k P(E|H_i) P(H_i)}\\
+& \\
+P(H_j |E) & \propto P(E|H_j)P(H_j)
+\end{align*}
+
+The symbol $\propto$ is read "is proportional to". The relative *ratios* of the posterior probabilities of different hypotheses are determined by the product of the prior probabilities and the likelihoods, $P(E|H_j)P(H_j)$.  The marginal probability of the evidence, $P(E)$, in the denominator simply normalizes the numerators to ensure that the updated probabilities sum to 1 over all the distinct hypotheses.
+
+**In short, Bayes' rule says**^["Posterior is proportional to likelihood times prior" summarizes the whole course in a single sentence.]
+\[
+\textbf{posterior} \propto \textbf{likelihood} \times \textbf{prior}
+\]
+
+
+In the previous examples, the prior probabilities for an American adult's perception of the scientific method are 0.70 for "iterative", 0.14 for "unchanging", and 0.16 for "not sure".  After observing that the American has a postgraduate degree, the posterior probabilities for an American adult's perception of the scientific method become 0.8432 for "iterative", 0.0954 for "unchanging", and 0.0614 for "not sure".  The following organizes the calculations in a **Bayes' table** which illustrates  "posterior is proportional to likelihood times prior".  
+
+
+```{r, echo = FALSE}
+hypothesis = c("iterative", "unchanging", "not sure")
+prior = c(0.70, 0.14, 0.16)
+likelihood = c(0.182, 0.103, 0.058) # given postgraduate degree
+product = prior * likelihood
+posterior = product / sum(product)
+bayes_table = data.frame(hypothesis,
+                         prior,
+                         likelihood,
+                         product,
+                         posterior) %>%
+  add_row(hypothesis = "sum",
+          prior = sum(prior),
+          likelihood = NA,
+          product = sum(product),
+          posterior = sum(posterior))
+kable(bayes_table, digits = 4, align = 'r')
+```
+
+The likelihood column depends on the evidence, in this case, observing that the American has a postgraduate degree.  This column contains the probability of the same event, $E$ = "the American has a postgraduate degree", under each of the distinct hypotheses:
+
+- $P(E |H_1) = 0.182$, given the American agrees with the "iterative" statement
+- $P(E |H_2) = 0.103$, given the American agrees with the "unchanging" statement
+- $P(E |H_3) = 0.058$, given the American is "not sure"
+
+Since each of these probabilities is computed under a different case, these values do not need to add up to anything in particular.  The sum of the likelihoods is meaningless, which is why we have listed a sum of "NA" for the likelihood column.
+
+
+
+
+
+The "product" column contains the product of the values in the prior and likelihood columns. The product of prior and likelihood for "iterative" (0.1274) is 8.835 (0.1274/0.0144) times higher than the product of prior and likelihood for "unchanging" (0.0144).
+Therefore, Bayes rule implies that the conditional probability that an American with a postgraduate degree agrees with "iterative" should be 8.835 times higher than the conditional probability that an American with a postgraduate degree agrees with "unchanging".
+Similarly, the conditional probability that an American with a postgraduate degree agrees with "iterative" should be $0.1274 / 0.0093 = 13.73$ times higher than the conditional probability that an American with a postgraduate degree is "not sure",
+and the conditional probability that an American with a postgraduate degree agrees with "unchanging" should be $0.0144 / 0.0093 = 1.55$ times higher than the conditional probability that an American with a postgraduate degree is "not sure".
+The last column just translates these relative relationships into probabilities that sum to 1.
+
+The sum of the "product" column is $P(E)$, the marginal probability of the evidence.  The sum of the product column represents the result of the law of total probability calculation.  However, for the purposes of determining the posterior probabilities, it isn't really important what $P(E)$ is.  Rather, it is the *ratio* of the values in the "product" column that determine the posterior probabilities.  $P(E)$ is whatever it needs to be to ensure that the posterior probabilities sum to 1 while maintaining the proper ratios.
+
+
+The process of conditioning can be thought of as **"slicing and renormalizing".**
+
+- Extract the "slice" corresponding to the event being conditioned on (and discard the rest).  For example, a slice might correspond to a particular row or column of a two-way table.  
+- "Renormalize" the values in the slice so that corresponding probabilities add up to 1.
+
+We will see that the "slicing and renormalizing" interpretation also applies when dealing with conditional distributions of random variables, and corresponding plots.  Slicing determines the *shape*; renormalizing determines the *scale*.  Slicing determines relative probabilities; renormalizing just makes sure they "add up" to 1 while maintaining the proper ratios.
+
+
+```{example}
+Now suppose we want to compute the posterior probabilities  for an American adult's perception of the scientific method given that the randomly selected American adult has a Bachelor's degree (instead of a postgraduate degree).
+```
+
+1. Before computing, make an educated guess for the posterior probabilities.  In particular, will the changes from prior to posterior be more or less extreme given the American has a Bachelor's degree than when given the American has a postgraduate degree?  Why?
+1. Construct a Bayes table and compute the posterior probabilities.  Compare to the posterior probabilities given postgraduate degree from the previous examples.
+
+
+
+```{r, echo = FALSE, include = FALSE}
+hypothesis = c("iterative", "unchanging", "not sure")
+prior = c(0.70, 0.14, 0.16)
+likelihood = c(0.276, 0.314, 0.272) # given Bachelor's degree
+product = prior * likelihood
+posterior = product / sum(product)
+bayes_table = data.frame(hypothesis,
+                         prior,
+                         likelihood,
+                         product,
+                         posterior) %>%
+  add_row(hypothesis = "sum",
+          prior = sum(prior),
+          likelihood = NA,
+          product = sum(product),
+          posterior = sum(posterior))
+kable(bayes_table, digits = 4, align = 'r')
+```
+
+Like the scientific method, Bayesian analysis is often an iterative process.  
+
+
+
 
 
 ```{r seashell, echo=FALSE, fig.cap = "'Seashell' from [xkcd.com/1236](https://xkcd.com/1236), used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/).", fig.width=3, fig.align = 'center', out.width="50%"}

@@ -1,8 +1,18 @@
-# Uncertainty?
+# Prediction and uncertainty
+
+- What determines the limits to the utility of predictions?
+
+- What determines prediction uncertainty?
+
+- How can we reduce that uncertainty?
+
+<br>
 
 ## Sources and types of uncertainty
 
 
+
+<br>
 
 ## Propagating, analyzing and reducing uncertainty
 
