@@ -153,43 +153,157 @@ Working reproducibly requires careful planning and documentation of each step in
 
 This entails a number of overlapping/intertwined components, namely:
 
-(see https://www.earthdatascience.org/slide-shows/1_intro-reprod-science/#11 for a different way to slice the pie...)
-
 - Data management - which we'll spend more time on in Chapter \@ref(data)
 - File and folder management
 - Coding and code management - i.e. the data manipulation and analyses performed
 - Computing environment and software
 - Sharing of the data, metadata, code, publications and any other relevant materials
 
-For the rest of this section we'll work through these components and some of the tools that help you achieve this. **Data management** is big enough to warrant a separate chapter.
+For the rest of this section we'll work through these components and some of the tools that help you achieve this.
 
 <br>
 
-## File and folder management
+### File and folder management
 
+Project files and folders can get unwieldy fast, and can really bog you down and inhibit productivity when you don't know where your files are or what the latest version is.
 
-
-<br>
-
-## Coding and code management
-
-- Why write code
-  - Automation
-  - Record of 
-- Some rules of coding
-- Version control
+```{r documentnaming, echo=FALSE, fig.cap = "'Documents' from [xkcd.com/1459](https://xkcd.com/1459), used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/).", fig.width=3, fig.align = 'center', out.width="35%"}
+knitr::include_graphics("img/documentnaming.png")
+```
 
 <br>
 
-## Computing environment and software
+The two main considerations for addressing this issue are a) defining a simple, common **folder structure**, and b) using informative **file names**.
 
-- Why use open source software
-- Careful documentation of hardware and versions of software used in analyses 
-- Containers
+**Folders**
+
+Most ecological projects have similar requirements. Here's a screenshot of how I usually manage my folders.
 
 <br>
 
-## Sharing of the data, code, publication etc
+```{r folderstructure, echo=FALSE, fig.width=3, fig.align = 'center', out.width="75%"}
+knitr::include_graphics("img/gitrepofolders.png")
+```
+
+<br>
+
+- Within "Data" I often have separate folders of "Raw" and "Processed" data. 
+- "Output" contains figures and tables, often in separate folders.
+- "Code" we'll deal with in the next section.
+- I also often have a "Manuscript" folder if I'm working in LaTeX/Sweave or RMarkdown, although this is often in the "Code" folder (since you can embed code in RMarkdown and Sweave documents).
+
+<br>
+
+**File and folder naming**
+
+Your naming conventions should be: 
+
+- machine readable
+  - i.e. avoid spaces and funny punctuation
+  - support searching and splitting of names
+- human readable
+  - the contents should be self evident from the file name
+- support sorting
+  - i.e. use numeric or character prefixes to separate files into different components or steps (e.g. "data_raw_localities.csv", "data_clean_localities.csv", etc)
+  - some of this can be handled with folder structure, but you don't want too many folders either
+
+Find out more about file naming [here](https://www.earthdatascience.org/slide-shows/2-file-naming-jenny-bryan/#1).
+
+<br>
+
+### Coding and code management
+
+**Why write code?**
+
+Working in point-and-click GUI-based software like Excel, Statistica, SPSS, etc may seem easier, but you'll regret it in the long run...
+
+The beauty of writing code lies in"
+
+- **Automation**
+  - You will inevitably have to adjust and repeat your analysis as you get feedback from supervisors, collaborators and reviewers. Rerunning code is one click, and you're unlikely to introduce errors. Rerunning analyses in GUI-based software is lots of clicks and it's easy to make mistakes, alter default settings, etc etc.
+  - Next time you need to do the same analysis on a different dataset you can just copy, paste and tweak your code.
+- You code/script provides a **record of your analysis**
+- Linked to the above, mature scientific coding languages like Python or R allow you to **run almost any kind of analysis in one scrpited workflow**, even if it has diverse components like GIS, phylogenetics, multivariate or Bayesian statistics, etc. 
+  - Most proprietary software are limited to one or a few specialized areas (e.g. ArcGIS, etc), which leaves you manually exporting and importing data between multiple software packages...
+- Most scripting environments are **open source** (e.g. R, Python, JavaScript, etc)
+  - Anyone wanting to use your code doesn't have to pay for a software license
+  - It's great for transparency - Lots of people can and have checked the background code and functions you're using, versus only the software owner's employees have access to the raw code for most analytical software
+  - There's usually a culture of sharing code (online forums, with publications, etc)
+
+[Here's](https://fynbos.saeon.ac.za/docs/learningr/why-learn-r/) a motivation and some tutorials to help you learn R.
+
+<br>
+
+**Some coding rules**
+
+It's easy to write messy code. This can make it virtually indecipherable to others (and even yourself), slowing you and your collaborations down. It also makes it easy to make mistakes and not notice them. The overarching rule is to ***write code for people***, not computers. Some basic rules:
+
+- use consistent, meaningful and distinct names for variables and functions
+- use consistent code and formatting style
+- use commenting to document and explain what you're doing at each step or in each function - purpose, inputs and outputs
+- write functions rather than repeating the same code
+- check for mistakes at every step!!!
+- modularize code into manageable steps/chunks
+  - or even separate them into separate scripts that can all be called in order from a master script or Makefile
+- start with a "recipe" that outlines the steps/modules (usually as commented headers etc). This is very valuable for keeping you organized and on track, e.g. a common recipe:
+  - #Header indicating purpose, author, date, version etc
+  - #Define settings
+  - #Load required libraries
+  - #Read in data
+  - #Wrangle/reformat/clean/summarize data as required
+  - #Run analyses (often multiple steps)
+  - #Wrangle/reformat/summarize analysis outputs for visualization
+  - #Visualize outputs as figures or tables
+- avoid proprietary formats
+  - i.e. use an open source scripting langauge and open source file formats only
+- "notebooks" like RMarkdown or Jupyter Notebooks are very handy for fulfilling roles like documentation, master/makefiles etc and can be developed into reports or manuscripts
+- use version control!!!
+
+<br>
+
+**Version control**
+
+Using version control tools like Git, SVN, etc can be challenging at first, but they can also hugely simplify your code development (and adaptation) process. While they were designed by software developers for software development, they are hugely useful for quantitative biology.
+
+I can't speak authoritatively on version control systems (I've only ever used Git and [GitHub](https://github.com/)), but here are the advantages as I see them. This version is specific to Git, but I imagine they all have similar functions and functionality:
+
+> Words in _italics_ are technical terms used within GitHub. You can look them up [here](https://docs.github.com/en/get-started/quickstart). You'll also cover it in the brief tutorial you'll do when setting up your computer for the practical.
+
+- They generally help project management, especially **collaborations**
+- They allow you to **easily share code** with collaborators or the public at large - through _repositories_ or _gists_ (code snippets)
+- Users can easily **adapt or build on each others' code** by _forking_ repositories and working on their own _branch_. 
+  - This is truly powerful!!! It allows you to **repeat/replicate analyses** but even build websites (like this one!), etc
+- While the whole **system is online**, you **can also work offline** by _cloning_ the _repository_ to your local machine. Once you have a local version you can _push_ to or _pull_ from the online repository to keep everything updated
+- **Changes are tracked and reversible** through _commits_. If you change the contents of a _repository_ you must _commit_ them and write a _commit message_ before pulling or pushing to the online _repository_. Each _commit_ is essentially a recoverable _version_ that can be _compared_ or _reverted_ to
+  - This is **the essence of version control** and magically frees you from folders full of lists of files named "mycode_final.R", "mycode_finalfinal.R", "myfinalcode_finalfinal.R" etc as per Figure \@ref(fig:documentnaming)
+- They allow collaborators or the public at large to **propose changes** via _pull requests_ that allow you to _merge_ their _forked branch_ back to the _main (or master) branch_
+- They allow you to **accept and integrate changes seamlessly** when you accept and merge _pull requests_
+- They allow you to **keep written record of changes** through comments whenever a _commit_ or _pull request_ is made - these also track the user, date, time, etc and are useful for _blaming_ when things go wrong
+- There's a system for **_assigning_ logging and tracking _issues_ and _feature requests_**
+
+I'm sure this is all a bit much right now, but should make more sense after the practical...
+
+<br>
+
+### Computing environment and software
+
+We've already covered why you should **use open source software** whenever possible, but it bears repeating. Using proprietary software means that others have to purchase software, licenses, etc to build on your work and essentially makes it not reproducible by putting it behind a pay-wall. This is self-defeating...
+
+Another issue is that **software and hardware change with upgrades, new versions or changes in the preferences within user communities** (e.g. you'll all know MicroSoft Excel, but have you heard of Quattro Pro or Lotus that were the preferred spreadsheet software of yesteryear?).
+
+Just sharing your code, data and workflow does not make your work reproducible if we don't know what language the code is written in or if functions change or are deprecated in newer versions, breaking your code.
+
+The **simplest way** to avert this problem is to **carefully document the hardware and versions of software** used in your analyses so that others can recreate that computing environment if needed. This is very easy in R, because you can simply run the `sessionInfo()` function, like so:
+
+```{r}
+sessionInfo()
+```
+
+**A "better" way** to do this is to use **containers** like [docker](https://www.docker.com/) or [singularity](https://sylabs.io/singularity/). These are contained, lightweight computing environments similar to [virtual machines](https://en.wikipedia.org/wiki/Virtual_machine), that you can package with your software/workflow. You set your container up to have everything you need to run your code etc (and nothing extra), so anyone can download (or clone) your container, code and data and run your analyses perfectly first time.
+
+<br>
+
+### Sharing of the data, code, publication etc
 
 This is touched on in more detail when we discuss data management in Chapter \@ref(data), but suffice to say there's no point working reproducibly if you're not going to share all the components necessary to complete your workflow...
 

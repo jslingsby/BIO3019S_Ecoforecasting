@@ -123,7 +123,7 @@ knitr::include_graphics("img/veldwatch.png")
 
 <br>
 
-### Describe
+### Describe {#describe}
 
 There are few things worse than having a spreadsheet of what you think is the data you need, but you don't know what the column names mean, how variables were measured, what units they're reported in, etc... - *Especially when you were the one who collected and captured the data!!!* 
 
@@ -171,6 +171,12 @@ knitr::include_graphics("img/standards.png")
 Using common metadata schemas has many advantages in that they make data sharing easier, they allow you to search and integrate data across datasets, and they simplify metadata capture (i.e. having a list of required fields makes it easier to not forget any).
 
 There are [many standards](https://www.dcc.ac.uk/guidance/standards/metadata/list), but perhaps the most common ones you'll encounter in biological sciences (other than geospatial metadata standards) are [DarwinCore](https://www.tdwg.org/standards/dwc/) and [Ecological Metadata Language (EML)](https://knb.ecoinformatics.org/tools/eml).
+
+<br>
+
+```{r stacspec, echo=FALSE, fig.cap = "SpatioTemporal Asset Catalogs [(STAC; stacspec.org)](https://stacspec.org/) aims to provide a common specification to enable online search and discovery of geospatial assets in just about any format.", fig.width=3, fig.align = 'center', out.width="100%"}
+knitr::include_graphics("img/stacspec.png")
+```
 
 <br>
 
@@ -250,7 +256,7 @@ There are a few different components to data integration in this context:
   - you should always keep a copy of your raw data!!!
   - using scripting languages for data handling and analyses (e.g. R, Python, MatLab) can help you keep record of how you did any data summaries, transformations, etc, but only if you write clean, well-documented code and manage your code well!!!
 3. Curating your data such that they can easily be integrated with other, similar datasets for larger analyses or meta-analyses
-  - this is largely a metadata game, but also one of data formats etc. Many fields promote the use of common data standards with rules on measurement specifications, file formats, common data and metadata fields, controlled vocabularies etc that allow easy integration, searching and manipulation. This is what a lot of the online databases attempt to achieve (see "Preserve") 
+  - this is largely a metadata game, but also one of data formats etc. Many fields promote the use of common data standards with rules on measurement specifications, file formats, common data and metadata fields, controlled vocabularies etc that allow easy integration, searching and manipulation (see section \@ref(describe) for more details). This is what a lot of the online databases attempt to achieve. 
 
 <br>
 

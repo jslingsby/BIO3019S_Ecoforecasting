@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-09-22" />
+<meta name="date" content="2021-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -118,9 +118,12 @@ div.csl-indent {
 <li class="chapter" data-level="4.1" data-path="reproducibility.html"><a href="reproducibility.html#the-reproducibility-crisis"><i class="fa fa-check"></i><b>4.1</b> The Reproducibility Crisis</a></li>
 <li class="chapter" data-level="4.2" data-path="reproducibility.html"><a href="reproducibility.html#replication-and-the-reproducibility-spectrum"><i class="fa fa-check"></i><b>4.2</b> Replication and the Reproducibility Spectrum</a></li>
 <li class="chapter" data-level="4.3" data-path="reproducibility.html"><a href="reproducibility.html#why-work-reproducibly"><i class="fa fa-check"></i><b>4.3</b> Why work reproducibly?</a></li>
-<li class="chapter" data-level="4.4" data-path="reproducibility.html"><a href="reproducibility.html#scientific-workflows"><i class="fa fa-check"></i><b>4.4</b> Scientific Workflows</a></li>
-<li class="chapter" data-level="4.5" data-path="reproducibility.html"><a href="reproducibility.html#coding-and-code-management"><i class="fa fa-check"></i><b>4.5</b> Coding and code management</a></li>
-<li class="chapter" data-level="4.6" data-path="reproducibility.html"><a href="reproducibility.html#computing-environment-and-software"><i class="fa fa-check"></i><b>4.6</b> Computing environment and software</a></li>
+<li class="chapter" data-level="4.4" data-path="reproducibility.html"><a href="reproducibility.html#barriers-to-working-reproducibly"><i class="fa fa-check"></i><b>4.4</b> Barriers to working reproducibly</a></li>
+<li class="chapter" data-level="4.5" data-path="reproducibility.html"><a href="reproducibility.html#reproducible-scientific-workflows"><i class="fa fa-check"></i><b>4.5</b> Reproducible Scientific Workflows</a></li>
+<li class="chapter" data-level="4.6" data-path="reproducibility.html"><a href="reproducibility.html#file-and-folder-management"><i class="fa fa-check"></i><b>4.6</b> File and folder management</a></li>
+<li class="chapter" data-level="4.7" data-path="reproducibility.html"><a href="reproducibility.html#coding-and-code-management"><i class="fa fa-check"></i><b>4.7</b> Coding and code management</a></li>
+<li class="chapter" data-level="4.8" data-path="reproducibility.html"><a href="reproducibility.html#computing-environment-and-software"><i class="fa fa-check"></i><b>4.8</b> Computing environment and software</a></li>
+<li class="chapter" data-level="4.9" data-path="reproducibility.html"><a href="reproducibility.html#sharing-of-the-data-code-publication-etc"><i class="fa fa-check"></i><b>4.9</b> Sharing of the data, code, publication etc</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>5</b> Data Management</a>
 <ul>
@@ -357,6 +360,13 @@ Figure 5.7: How standards proliferate… from <a href="https://xkcd.com/927">xkc
 <p>Using common metadata schemas has many advantages in that they make data sharing easier, they allow you to search and integrate data across datasets, and they simplify metadata capture (i.e. having a list of required fields makes it easier to not forget any).</p>
 <p>There are <a href="https://www.dcc.ac.uk/guidance/standards/metadata/list">many standards</a>, but perhaps the most common ones you’ll encounter in biological sciences (other than geospatial metadata standards) are <a href="https://www.tdwg.org/standards/dwc/">DarwinCore</a> and <a href="https://knb.ecoinformatics.org/tools/eml">Ecological Metadata Language (EML)</a>.</p>
 <p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:stacspec"></span>
+<img src="img/stacspec.png" alt="SpatioTemporal Asset Catalogs [(STAC; stacspec.org)](https://stacspec.org/) aims to provide a common specification to enable online search and discovery of geospatial assets in just about any format." width="100%" />
+<p class="caption">
+Figure 5.8: SpatioTemporal Asset Catalogs <a href="https://stacspec.org/">(STAC; stacspec.org)</a> aims to provide a common specification to enable online search and discovery of geospatial assets in just about any format.
+</p>
+</div>
+<p><br></p>
 </div>
 <div id="preserve" class="section level3" number="5.2.4">
 <h3><span class="header-section-number">5.2.4</span> Preserve</h3>
@@ -435,7 +445,7 @@ Figure 5.7: How standards proliferate… from <a href="https://xkcd.com/927">xkc
 <li>Curating your data such that they can easily be integrated with other, similar datasets for larger analyses or meta-analyses</li>
 </ol>
 <ul>
-<li>this is largely a metadata game, but also one of data formats etc. Many fields promote the use of common data standards with rules on measurement specifications, file formats, common data and metadata fields, controlled vocabularies etc that allow easy integration, searching and manipulation. This is what a lot of the online databases attempt to achieve (see “Preserve”)</li>
+<li>this is largely a metadata game, but also one of data formats etc. Many fields promote the use of common data standards with rules on measurement specifications, file formats, common data and metadata fields, controlled vocabularies etc that allow easy integration, searching and manipulation (see section <a href="data.html#describe">5.2.3</a> for more details). This is what a lot of the online databases attempt to achieve.</li>
 </ul>
 <p><br></p>
 </div>
