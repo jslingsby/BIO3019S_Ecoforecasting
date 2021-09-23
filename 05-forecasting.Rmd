@@ -13,11 +13,25 @@ The demography of species in the Proteaceae is currently used for the management
 
 Unfortunately, the management guidelines for these two use cases are currently set by "rule of thumb"^[https://en.wikipedia.org/wiki/Rule_of_thumb]:
 
-- "No fire should be permitted in fynbos until at least 50% of the population of the slowest-maturing species in an area have flowered for at least three successive seasons (or at least 90% of the individuals of the slowest maturing species in the area have flowered and produced seed). Similarly, a fire is probably not necessary unless a third or more of the plants of these slow-maturing species are senescent (i.e. dying or no longer producing flowers and seed)." [@CapeNatureFire]
-- 
+> 1. _"No fire should be permitted in fynbos until at least 50% of the population of the slowest-maturing species in an area have flowered for at least three successive seasons (or at least 90% of the individuals of the slowest maturing species in the area have flowered and produced seed). Similarly, a fire is probably not necessary unless a third or more of the plants of these slow-maturing species are senescent (i.e. dying or no longer producing flowers and seed)." [@CapeNatureFire]_
+> 2. _"[There should be no] harvesting until at least 50% of the population had commenced flowering, a harvest of up to 50% of current season flower heads after this stage, and no harvesting at least one year prior to a prescribed burn" [@vanWilgen2016]_
+
+<br>
+
+- Treurnicht diagrams...
+
+- Merow model?
 
 <br>
 
 ## Post-fire recovery trajectories
+
+- Wilson paper
+- FRI diagram
+- link to Protea dem models
+
+- Change detection...
+- emma.eco
+- Developing into a state-space model with near-real time inputs?
 
 ## Impacts of IAPs on runoff
