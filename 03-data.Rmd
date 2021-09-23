@@ -104,12 +104,12 @@ knitr::include_graphics("img/datatypes.png")
 
 <br>
 
-While "Collect" and "Assure" are different steps in the life cycle, I advocate that it is foolish to collect data without doing quality assurance and quality control (QA/QC) as you go, irrespective of how you are collecting the data.
+While "Collect" and "Assure" are different steps in the life cycle, I advocate that **it is foolish to collect data without doing quality assurance and quality control (QA/QC) as you go**, irrespective of how you are collecting the data.
 
 For example:
 
-- automated logging instruments (weather stations, cameras, acoustic recorders) need to be checked that they're logging properly, are calibrated/focused, are reporting sensible values, etc
-- if you're filling in data sheets, you need to check that all fields have been completed, that there are no obvious errors and that any numbers or other values look realistic. In fact, if you're using handwritten data sheets it's best to capture them as soon as possible (i.e. that evening), because that helps you spot errors and omissions, you have a better chance of deciphering bad handwriting or cryptic notes, and you can plot any values to see if there are suspicious outliers (e.g. because someone wrote down a measurement in centimetres when they were meant to use metres).
+- automated logging instruments (weather stations, cameras, acoustic recorders) need to be **checked** that they're logging properly, are **calibrated/focused**, are reporting **sensible values**, etc
+- if you're filling in data sheets, you need to check that all fields have been completed (**no gaps**), that there are **no obvious errors** and that any numbers or other **values look realistic**. In fact, if you're using handwritten data sheets it's best to **capture them as soon as possible** (i.e. that evening), because that helps you spot errors and omissions, you have a better chance of deciphering bad handwriting or cryptic notes, and you can plot any values to see if there are suspicious outliers (e.g. because someone wrote down a measurement in centimetres when they were meant to use metres).
 
 When transcribing or capturing data into a spreadsheet or database it is often best to **use data validation** tricks like drop-down menus, conditional formatting, restricted value ranges etc to avoid spelling mistakes and highlight data entries that are outside the expected range of the data field. It may seem like a lot of effort to set this up, but *it'll save you a lot of time and pain in the long run!!!*
 
@@ -162,13 +162,13 @@ knitr::include_graphics("img/fairdata.jpg")
 
 Many data user communities have developed particular metadata standards or schemas in an attempt to enable the best possible description and interoperability of a data type for their needs.
 
-They are typically human and machine-readable data, so that the metadata records can also be read by machines, facilitating storing and querying multiple datasets in a common database (or across databases).
+They are typically human and machine-readable data, so that the metadata records can also be read by machines, to **facilitate storing and querying multiple datasets** in a common database (or across databases).
 
 ```{r datastandards, echo=FALSE, fig.cap = "How standards proliferate... from [xkcd.com/927](https://xkcd.com/927), used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/).", fig.width=3, fig.align = 'center', out.width="75%"}
 knitr::include_graphics("img/standards.png")
 ```
 
-Using common metadata schemas has many advantages in that they make data sharing easier, they allow you to search and integrate data across datasets, and they simplify metadata capture (i.e. having a list of required fields makes it easier to not forget any).
+Using **common metadata schemas has many advantages** in that they make data sharing easier, they allow you to search and integrate data across datasets, and they simplify metadata capture (i.e. having a list of required fields makes it easier to not forget any).
 
 There are [many standards](https://www.dcc.ac.uk/guidance/standards/metadata/list), but perhaps the most common ones you'll encounter in biological sciences (other than geospatial metadata standards) are [DarwinCore](https://www.tdwg.org/standards/dwc/) and [Ecological Metadata Language (EML)](https://knb.ecoinformatics.org/tools/eml).
 
@@ -177,6 +177,10 @@ There are [many standards](https://www.dcc.ac.uk/guidance/standards/metadata/lis
 ```{r stacspec, echo=FALSE, fig.cap = "SpatioTemporal Asset Catalogs [(STAC; stacspec.org)](https://stacspec.org/) aims to provide a common specification to enable online search and discovery of geospatial assets in just about any format.", fig.width=3, fig.align = 'center', out.width="100%"}
 knitr::include_graphics("img/stacspec.png")
 ```
+
+<br>
+
+Last, but not least, and not necessarily related to metadata, but it does make metadata capture easier, I strongly recommend you read this short paper on **[how to keep your data Tidy](http://dx.doi.org/10.18637/jss.v059.i10)** [@Wickham2014]. It will life it much easier for you once you get to the analysis step...
 
 <br>
 
@@ -200,7 +204,7 @@ This involves the deposition of your data (and metadata!) in a **data repository
 
 This is increasingly a requirement of funders and publishers (i.e. journals). Many journals allow you (or require you) to submit and publish your data with them as supplementary material. Unfortunately, many journals differ in how they curate the data and whether they are available open access. I prefer to publish my data in an online open access repository where you can get a permanent **Digital Object Identifier (DOI)** that you can link to from your paper.
 
-Another consideration, if you are keen for people to reuse your data (which if you are not you will fail this course by default) is where people are most likely to look for your data (i.e. making your data "Findable/Discoverable". There are many "bespoke" data repositories for different kinds of data, e.g.
+Another consideration, if you are keen for people to reuse your data (which if you are not you will fail this course by default) is **where people are most likely to look for your data** (i.e. making your data "Findable/Discoverable". There are many "bespoke" data repositories for different kinds of data, e.g.
 
 Global databases:
 

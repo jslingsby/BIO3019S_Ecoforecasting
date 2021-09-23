@@ -174,7 +174,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="models.html"><a href="models.html#getting-quantitative"><i class="fa fa-check"></i><b>3.2</b> Getting quantitative</a></li>
 <li class="chapter" data-level="3.3" data-path="models.html"><a href="models.html#iterative-decision-making-and-the-scientific-method"><i class="fa fa-check"></i><b>3.3</b> Iterative decision-making and the scientific method</a></li>
 <li class="chapter" data-level="3.4" data-path="models.html"><a href="models.html#the-importance-of-prediction-in-ecology"><i class="fa fa-check"></i><b>3.4</b> The importance of prediction in ecology</a></li>
-<li class="chapter" data-level="3.5" data-path="models.html"><a href="models.html#iterative-ecological-forecasting"><i class="fa fa-check"></i><b>3.5</b> Iterative ecological forecasting</a></li>
+<li class="chapter" data-level="3.5" data-path="models.html"><a href="models.html#near-term-iterative-ecological-forecasting"><i class="fa fa-check"></i><b>3.5</b> Near-term iterative ecological forecasting</a></li>
 <li class="chapter" data-level="3.6" data-path="models.html"><a href="models.html#delete-from-here-once-done---how-to-reference"><i class="fa fa-check"></i><b>3.6</b> Delete from here once done… - How to reference</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a>
@@ -236,16 +236,16 @@ div.csl-indent {
 <li class="chapter" data-level="6.10.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>6.10.2</b> OWNER</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="some-examples-of-forecast-needs-in-the-fynbos-biome.html"><a href="some-examples-of-forecast-needs-in-the-fynbos-biome.html"><i class="fa fa-check"></i><b>7</b> Some examples of forecast needs in the Fynbos Biome</a>
+<li class="chapter" data-level="7" data-path="forecasts.html"><a href="forecasts.html"><i class="fa fa-check"></i><b>7</b> Making forecasts</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="some-examples-of-forecast-needs-in-the-fynbos-biome.html"><a href="some-examples-of-forecast-needs-in-the-fynbos-biome.html#post-fire-recovery-trajectories"><i class="fa fa-check"></i><b>7.1</b> Post-fire recovery trajectories</a></li>
-<li class="chapter" data-level="7.2" data-path="some-examples-of-forecast-needs-in-the-fynbos-biome.html"><a href="some-examples-of-forecast-needs-in-the-fynbos-biome.html#proteas"><i class="fa fa-check"></i><b>7.2</b> Proteas</a></li>
-<li class="chapter" data-level="7.3" data-path="some-examples-of-forecast-needs-in-the-fynbos-biome.html"><a href="some-examples-of-forecast-needs-in-the-fynbos-biome.html#impacts-of-iaps-on-runoff"><i class="fa fa-check"></i><b>7.3</b> Impacts of IAPs on runoff</a></li>
+<li class="chapter" data-level="7.1" data-path="forecasts.html"><a href="forecasts.html#proteas"><i class="fa fa-check"></i><b>7.1</b> Proteas</a></li>
+<li class="chapter" data-level="7.2" data-path="forecasts.html"><a href="forecasts.html#post-fire-recovery-trajectories"><i class="fa fa-check"></i><b>7.2</b> Post-fire recovery trajectories</a></li>
+<li class="chapter" data-level="7.3" data-path="forecasts.html"><a href="forecasts.html#impacts-of-iaps-on-runoff"><i class="fa fa-check"></i><b>7.3</b> Impacts of IAPs on runoff</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="projection-and-decision-support.html"><a href="projection-and-decision-support.html"><i class="fa fa-check"></i><b>8</b> Projection and decision support</a>
+<li class="chapter" data-level="8" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>8</b> Projection and decision support</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="projection-and-decision-support.html"><a href="projection-and-decision-support.html#section"><i class="fa fa-check"></i><b>8.1</b> …</a></li>
-<li class="chapter" data-level="8.2" data-path="projection-and-decision-support.html"><a href="projection-and-decision-support.html#proteas-1"><i class="fa fa-check"></i><b>8.2</b> Proteas</a></li>
+<li class="chapter" data-level="8.1" data-path="decisions.html"><a href="decisions.html#section"><i class="fa fa-check"></i><b>8.1</b> …</a></li>
+<li class="chapter" data-level="8.2" data-path="decisions.html"><a href="decisions.html#proteas-1"><i class="fa fa-check"></i><b>8.2</b> Proteas</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="baysian.html"><a href="baysian.html"><i class="fa fa-check"></i><b>9</b> Going Bayesian</a>
 <ul>
@@ -558,7 +558,7 @@ Figure 4.5: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 <p>Another issue is that <strong>software and hardware change with upgrades, new versions or changes in the preferences within user communities</strong> (e.g. you’ll all know MicroSoft Excel, but have you heard of Quattro Pro or Lotus that were the preferred spreadsheet software of yesteryear?).</p>
 <p>Just sharing your code, data and workflow does not make your work reproducible if we don’t know what language the code is written in or if functions change or are deprecated in newer versions, breaking your code.</p>
 <p>The <strong>simplest way</strong> to avert this problem is to <strong>carefully document the hardware and versions of software</strong> used in your analyses so that others can recreate that computing environment if needed. This is very easy in R, because you can simply run the <code>sessionInfo()</code> function, like so:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="reproducibility.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="reproducibility.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>## R version 4.1.1 (2021-08-10)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Ubuntu 20.04.3 LTS
@@ -580,49 +580,41 @@ Figure 4.5: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 ## [6] methods   base     
 ## 
 ## other attached packages:
-##  [1] hrbrthemes_0.8.0 knitr_1.33       forcats_0.5.1   
-##  [4] stringr_1.4.0    dplyr_1.0.7      purrr_0.3.4     
-##  [7] readr_1.4.0      tidyr_1.1.3      tibble_3.1.3    
-## [10] ggplot2_3.3.5    tidyverse_1.3.1 
+## [1] forcats_0.5.1   stringr_1.4.0   dplyr_1.0.7    
+## [4] purrr_0.3.4     readr_1.4.0     tidyr_1.1.3    
+## [7] tibble_3.1.3    ggplot2_3.3.5   tidyverse_1.3.1
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] httr_1.4.2         sass_0.4.0        
-##  [3] jsonlite_1.7.2     splines_4.1.1     
-##  [5] modelr_0.1.8       bslib_0.2.5.1     
-##  [7] assertthat_0.2.1   highr_0.9         
-##  [9] cellranger_1.1.0   yaml_2.2.1        
-## [11] gdtools_0.2.3      Rttf2pt1_1.3.8    
-## [13] pillar_1.6.2       backports_1.2.1   
-## [15] lattice_0.20-44    glue_1.4.2        
-## [17] extrafontdb_1.0    digest_0.6.27     
-## [19] promises_1.2.0.1   RColorBrewer_1.1-2
-## [21] rvest_1.0.0        colorspace_2.0-2  
-## [23] httpuv_1.6.1       Matrix_1.3-4      
-## [25] htmltools_0.5.1.1  pkgconfig_2.0.3   
-## [27] broom_0.7.7        servr_0.22        
-## [29] haven_2.4.1        bookdown_0.22     
-## [31] scales_1.1.1       later_1.2.0       
-## [33] jpeg_0.1-9         mgcv_1.8-36       
-## [35] generics_0.1.0     farver_2.1.0      
-## [37] ellipsis_0.3.2     withr_2.4.2       
-## [39] cli_3.0.1          magrittr_2.0.1    
-## [41] crayon_1.4.1       readxl_1.3.1      
-## [43] evaluate_0.14      fs_1.5.0          
-## [45] fansi_0.5.0        nlme_3.1-152      
-## [47] xml2_1.3.2         tools_4.1.1       
-## [49] hms_1.1.0          lifecycle_1.0.0   
-## [51] munsell_0.5.0      reprex_2.0.0      
-## [53] compiler_4.1.1     jquerylib_0.1.4   
-## [55] systemfonts_1.0.2  rlang_0.4.11      
-## [57] grid_4.1.1         rstudioapi_0.13   
-## [59] labeling_0.4.2     rmarkdown_2.8     
-## [61] gtable_0.3.0       DBI_1.1.1         
-## [63] R6_2.5.0           lubridate_1.7.10  
-## [65] extrafont_0.17     utf8_1.2.2        
-## [67] stringi_1.6.2      Rcpp_1.0.6        
-## [69] vctrs_0.3.8        png_0.1-7         
-## [71] dbplyr_2.1.1       tidyselect_1.1.1  
-## [73] xfun_0.24</code></pre>
+##  [1] tidyselect_1.1.1   xfun_0.24         
+##  [3] bslib_0.2.5.1      haven_2.4.1       
+##  [5] colorspace_2.0-2   vctrs_0.3.8       
+##  [7] generics_0.1.0     htmltools_0.5.1.1 
+##  [9] yaml_2.2.1         utf8_1.2.2        
+## [11] rlang_0.4.11       jquerylib_0.1.4   
+## [13] pillar_1.6.2       withr_2.4.2       
+## [15] glue_1.4.2         DBI_1.1.1         
+## [17] RColorBrewer_1.1-2 dbplyr_2.1.1      
+## [19] readxl_1.3.1       modelr_0.1.8      
+## [21] jpeg_0.1-9         lifecycle_1.0.0   
+## [23] cellranger_1.1.0   munsell_0.5.0     
+## [25] gtable_0.3.0       rvest_1.0.0       
+## [27] evaluate_0.14      labeling_0.4.2    
+## [29] knitr_1.33         fansi_0.5.0       
+## [31] highr_0.9          broom_0.7.7       
+## [33] Rcpp_1.0.6         backports_1.2.1   
+## [35] scales_1.1.1       jsonlite_1.7.2    
+## [37] farver_2.1.0       fs_1.5.0          
+## [39] hms_1.1.0          png_0.1-7         
+## [41] digest_0.6.27      stringi_1.6.2     
+## [43] bookdown_0.22      grid_4.1.1        
+## [45] cli_3.0.1          tools_4.1.1       
+## [47] magrittr_2.0.1     sass_0.4.0        
+## [49] crayon_1.4.1       pkgconfig_2.0.3   
+## [51] ellipsis_0.3.2     xml2_1.3.2        
+## [53] reprex_2.0.0       lubridate_1.7.10  
+## [55] assertthat_0.2.1   rmarkdown_2.8     
+## [57] httr_1.4.2         rstudioapi_0.13   
+## [59] R6_2.5.0           compiler_4.1.1</code></pre>
 <p><strong>A “better” way</strong> to do this is to use <strong>containers</strong> like <a href="https://www.docker.com/">docker</a> or <a href="https://sylabs.io/singularity/">singularity</a>. These are contained, lightweight computing environments similar to <a href="https://en.wikipedia.org/wiki/Virtual_machine">virtual machines</a>, that you can package with your software/workflow. You set your container up to have everything you need to run your code etc (and nothing extra), so anyone can download (or clone) your container, code and data and run your analyses perfectly first time.</p>
 <p><br></p>
 </div>
@@ -726,6 +718,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

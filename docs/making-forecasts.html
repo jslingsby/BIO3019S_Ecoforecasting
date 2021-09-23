@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
+  <title>7 Making forecasts | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta property="og:title" content="7 Making forecasts | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta name="twitter:title" content="7 Making forecasts | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   
   <meta name="twitter:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-assimilation.html"/>
-
+<link rel="prev" href="practical.html"/>
+<link rel="next" href="projection-and-decision-support.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -55,93 +55,7 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -236,16 +150,16 @@ div.csl-indent {
 <li class="chapter" data-level="6.10.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>6.10.2</b> OWNER</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="forecasts.html"><a href="forecasts.html"><i class="fa fa-check"></i><b>7</b> Making forecasts</a>
+<li class="chapter" data-level="7" data-path="making-forecasts.html"><a href="making-forecasts.html"><i class="fa fa-check"></i><b>7</b> Making forecasts</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="forecasts.html"><a href="forecasts.html#proteas"><i class="fa fa-check"></i><b>7.1</b> Proteas</a></li>
-<li class="chapter" data-level="7.2" data-path="forecasts.html"><a href="forecasts.html#post-fire-recovery-trajectories"><i class="fa fa-check"></i><b>7.2</b> Post-fire recovery trajectories</a></li>
-<li class="chapter" data-level="7.3" data-path="forecasts.html"><a href="forecasts.html#impacts-of-iaps-on-runoff"><i class="fa fa-check"></i><b>7.3</b> Impacts of IAPs on runoff</a></li>
+<li class="chapter" data-level="7.1" data-path="making-forecasts.html"><a href="making-forecasts.html#post-fire-recovery-trajectories"><i class="fa fa-check"></i><b>7.1</b> Post-fire recovery trajectories</a></li>
+<li class="chapter" data-level="7.2" data-path="making-forecasts.html"><a href="making-forecasts.html#proteas"><i class="fa fa-check"></i><b>7.2</b> Proteas</a></li>
+<li class="chapter" data-level="7.3" data-path="making-forecasts.html"><a href="making-forecasts.html#impacts-of-iaps-on-runoff"><i class="fa fa-check"></i><b>7.3</b> Impacts of IAPs on runoff</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>8</b> Projection and decision support</a>
+<li class="chapter" data-level="8" data-path="projection-and-decision-support.html"><a href="projection-and-decision-support.html"><i class="fa fa-check"></i><b>8</b> Projection and decision support</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="decisions.html"><a href="decisions.html#section"><i class="fa fa-check"></i><b>8.1</b> …</a></li>
-<li class="chapter" data-level="8.2" data-path="decisions.html"><a href="decisions.html#proteas-1"><i class="fa fa-check"></i><b>8.2</b> Proteas</a></li>
+<li class="chapter" data-level="8.1" data-path="projection-and-decision-support.html"><a href="projection-and-decision-support.html#section"><i class="fa fa-check"></i><b>8.1</b> …</a></li>
+<li class="chapter" data-level="8.2" data-path="projection-and-decision-support.html"><a href="projection-and-decision-support.html#proteas-1"><i class="fa fa-check"></i><b>8.2</b> Proteas</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="baysian.html"><a href="baysian.html"><i class="fa fa-check"></i><b>9</b> Going Bayesian</a>
 <ul>
@@ -289,82 +203,28 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
+<div id="making-forecasts" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Making forecasts</h1>
+<p>We’ve got this far, and yet you haven’t stopped me and asked “What are ecological forecasts?” or “Where are we going with all this?”</p>
+<p>The focus of this section is to provide some context with examples of what I believe are some forecasting needs or opportunities in the Fynbos Biome.</p>
+<div id="post-fire-recovery-trajectories" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Post-fire recovery trajectories</h2>
+</div>
+<div id="proteas" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Proteas</h2>
+</div>
+<div id="impacts-of-iaps-on-runoff" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Impacts of IAPs on runoff</h2>
 
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div class="csl-entry">
-Alston, Jesse M, and Jessica A Rick. 2021. <span>“<span class="nocase">A beginner’s guide to conducting reproducible research</span>.”</span> <em>Bulletin of the Ecological Society of America</em> 102 (2). <a href="https://doi.org/10.1002/bes2.1801">https://doi.org/10.1002/bes2.1801</a>.
-</div>
-<div class="csl-entry">
-Baker, Monya. 2016. <span>“<span class="nocase">1,500 scientists lift the lid on reproducibility</span>.”</span> <em>Nature</em> 533 (7604): 452–54. <a href="https://doi.org/10.1038/533452a">https://doi.org/10.1038/533452a</a>.
-</div>
-<div class="csl-entry">
-Dietze, Michael C. 2017. <em><span>Ecological Forecasting</span></em>. Princeton University Press. <a href="https://doi.org/10.2307/j.ctvc7796h">https://doi.org/10.2307/j.ctvc7796h</a>.
-</div>
-<div class="csl-entry">
-Dietze, Michael C, Andrew Fox, Lindsay M Beck-Johnson, Julio L Betancourt, Mevin B Hooten, Catherine S Jarnevich, Timothy H Keitt, et al. 2018. <span>“<span class="nocase">Iterative near-term ecological forecasting: Needs, opportunities, and challenges</span>.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em> 115 (7): 1424–32. <a href="https://doi.org/10.1073/pnas.1710231115">https://doi.org/10.1073/pnas.1710231115</a>.
-</div>
-<div class="csl-entry">
-Houlahan, Jeff E, Shawn T McKinney, T Michael Anderson, and Brian J McGill. 2017. <span>“<span class="nocase">The priority of prediction in ecological understanding</span>.”</span> <em>Oikos</em> 126 (1): 1–7. <a href="https://doi.org/10.1111/oik.03726">https://doi.org/10.1111/oik.03726</a>.
-</div>
-<div class="csl-entry">
-Lindenmayer, David B, and Gene E Likens. 2009. <span>“<span class="nocase">Adaptive monitoring: a new paradigm for long-term research and monitoring</span>.”</span> <em>Trends in Ecology &amp; Evolution</em> 24 (9): 482–86. <a href="https://doi.org/10.1016/j.tree.2009.03.005">https://doi.org/10.1016/j.tree.2009.03.005</a>.
-</div>
-<div class="csl-entry">
-Markowetz, Florian. 2015. <span>“<span class="nocase">Five selfish reasons to work reproducibly</span>.”</span> <em>Genome Biology</em> 16 (December): 274. <a href="https://doi.org/10.1186/s13059-015-0850-7">https://doi.org/10.1186/s13059-015-0850-7</a>.
-</div>
-<div class="csl-entry">
-Michener, William K, James W Brunt, John J Helly, Thomas B Kirchner, and Susan G Stafford. 1997. <span>“<span class="nocase">Nongeospatial data for the ecological sciences</span>.”</span> <em>Ecological Applications: A Publication of the Ecological Society of America</em> 7 (1): 330–42. <a href="https://doi.org/10.1890/1051-0761(1997)007[0330:nmftes]2.0.co;2">https://doi.org/10.1890/1051-0761(1997)007[0330:nmftes]2.0.co;2</a>.
-</div>
-<div class="csl-entry">
-Michener, William K, and Matthew B Jones. 2012. <span>“<span class="nocase">Ecoinformatics: supporting ecology as a data-intensive science</span>.”</span> <em>Trends in Ecology &amp; Evolution</em> 27 (2): 85–93. <a href="https://doi.org/10.1016/j.tree.2011.11.016">https://doi.org/10.1016/j.tree.2011.11.016</a>.
-</div>
-<div class="csl-entry">
-Peng, Roger D. 2011. <span>“<span class="nocase">Reproducible research in computational science</span>.”</span> <em>Science</em> 334 (6060): 1226–27. <a href="https://doi.org/10.1126/science.1213847">https://doi.org/10.1126/science.1213847</a>.
-</div>
-<div class="csl-entry">
-Penny, Dan. 2016. <span>“<span class="nocase">Nature Reproducibility survey</span>,”</span> May. <a href="https://doi.org/10.6084/m9.figshare.3394951.v1">https://doi.org/10.6084/m9.figshare.3394951.v1</a>.
-</div>
-<div class="csl-entry">
-Slingsby, Jasper A, Cory Merow, Matthew Aiello-Lammens, Nicky Allsopp, Stuart Hall, Hayley Kilroy Mollmann, Ross Turner, Adam M Wilson, and John A Silander Jr. 2017. <span>“<span class="nocase">Intensifying postfire weather and biological invasion drive species loss in a Mediterranean-type biodiversity hotspot</span>.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em> 114 (18): 4697–4702. <a href="https://doi.org/10.1073/pnas.1619014114">https://doi.org/10.1073/pnas.1619014114</a>.
-</div>
-<div class="csl-entry">
-Wickham, Hadley. 2014. <span>“<span>Tidy Data</span>.”</span> <em>Journal of Statistical Software, Articles</em> 59 (10): 1–23. <a href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>.
-</div>
-<div class="csl-entry">
-Wilkinson, Mark D, Michel Dumontier, I Jsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. <span>“<span class="nocase">The FAIR Guiding Principles for scientific data management and stewardship</span>.”</span> <em>Scientific Data</em> 3 (March): 160018. <a href="https://doi.org/10.1038/sdata.2016.18">https://doi.org/10.1038/sdata.2016.18</a>.
-</div>
-<div class="csl-entry">
-Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a>.
-</div>
-<div class="csl-entry">
-———. 2021. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.
 </div>
 </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-assimilation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="practical.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="projection-and-decision-support.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -396,7 +256,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/10-references.Rmd",
+"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/05-forecasting.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -415,20 +275,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

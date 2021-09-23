@@ -19,9 +19,9 @@ knitr::include_graphics("img/decisions1.png")
 
 <br>
 
-Your decision is typically based on your expectation of the outcome. This expectation is based on existing evidence and/or previous experience. Uncertainty is a part of each step. There are a number of reasons why the existing evidence or previous experience may be imperfect for the decision at hand, leading to uncertainty in the expectations. There may also be uncertainty in the way in which you use the evidence and experience to develop your expectation. 
+Your decision is typically based on your **expectation of the outcome**. This expectation is based on **existing evidence** and/or **previous experience**. **Uncertainty** is a part of each step. There are a number of reasons why the existing evidence or previous experience may be imperfect for the decision at hand, leading to uncertainty in the expectations. There may also be uncertainty in the way in which you use the evidence and experience to develop your expectation. 
 
-We will come back to these sources of uncertainty later in the module, but needless to say, quantifying and understanding the uncertainty is crucial in any decision. If uncertainty is high your expectation may be no better than random, and thus useless for informing your decision. Quantifying uncertainty properly helps us circumvent two evils which could mislead decision makers: being falsely overconfident in our predictions (potentially leading to a "wrong" decision), or being falsely uncertain in our predictions (which would encourage overly conservative decisions/actions which may be wasteful or less effective). Lastly, ignoring or quantifying uncertainty incorrectly can lead to bias predictions.
+We'll come back to these sources of uncertainty later in the module, but needless to say, quantifying and understanding the uncertainty is crucial in any decision. If uncertainty is high your expectation may be no better than random, and thus useless for informing your decision. Quantifying uncertainty properly helps us circumvent two evils which could mislead decision makers: being falsely overconfident in our predictions (potentially leading to a "wrong" decision), or being falsely uncertain in our predictions (which would encourage overly conservative decisions/actions which may be wasteful or less effective). Lastly, ignoring or quantifying uncertainty incorrectly can lead to bias predictions.
 
 <br>
 
@@ -95,7 +95,7 @@ Testing predictions with new data collected after you've made your predictions i
 
 <br>
 
-## Iterative ecological forecasting
+## Near-term iterative ecological forecasting
 
 The recent growth in interest in iterative ecological forecasting seeks to not only make prediction a central focus in ecology, but to do so on a time scale that is both useful for decision makers and allows us to learn from testing our predictions (days to decades). This is a great initiative, but as we will see it poses a number of major challenges and requires a big improvement in quantitative skills in biology (hence this course...).
 

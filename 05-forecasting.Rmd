@@ -1,0 +1,23 @@
+# Making forecasts {#forecasts}
+
+We've got this far, and yet you haven't stopped me and asked _"What are ecological forecasts?"_ or _"Where are we going with all this?"_ The focus of this section is to provide some context with examples of what I believe are some forecasting needs or opportunities in the Fynbos Biome. These examples should hopefully also help provide practical context for some of the issues we'll address in the rest of the module.
+
+> Note: These examples have not yet been developed into full _near-term iterative ecological forecasts_ sensu Dietze et al (2018). I also don't think they necessarily have to get all the way there to be useful. Think of it as an "ecological forecasting spectrum" where the gold standard is fully developed near-term iterative ecological forecasts.
+
+## Protea demography
+
+The demography of species in the Proteaceae is currently used for the management of Fynbos in two ways:
+
+- Firstly, at the ecosystem level, to help determine acceptable fire return intervals
+- Secondly, at the species level, for setting guidelines for acceptable wild harvesting of Proteaceae inflorescences
+
+Unfortunately, the management guidelines for these two use cases are currently set by "rule of thumb"^[https://en.wikipedia.org/wiki/Rule_of_thumb]:
+
+- "No fire should be permitted in fynbos until at least 50% of the population of the slowest-maturing species in an area have flowered for at least three successive seasons (or at least 90% of the individuals of the slowest maturing species in the area have flowered and produced seed). Similarly, a fire is probably not necessary unless a third or more of the plants of these slow-maturing species are senescent (i.e. dying or no longer producing flowers and seed)." [@CapeNatureFire]
+- 
+
+<br>
+
+## Post-fire recovery trajectories
+
+## Impacts of IAPs on runoff

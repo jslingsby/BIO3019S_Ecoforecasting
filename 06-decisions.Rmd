@@ -1,4 +1,4 @@
-# Projection and decision support
+# Projection and decision support {#decisions}
 
 ## ...
 

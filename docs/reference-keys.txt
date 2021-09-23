@@ -11,6 +11,7 @@ fig:reprocrisis
 fig:peng
 fig:miracle
 fig:datapipeline
+fig:documentnaming
 fig:reproducibilitysteps
 fig:datadecay
 fig:datalifecycle
@@ -19,13 +20,14 @@ fig:datatypes
 fig:appsheet
 fig:fairdata
 fig:datastandards
+fig:stacspec
 fig:rstudiosuccess
 fig:postfireBayes
-fig:unnamed-chunk-8
+fig:unnamed-chunk-9
 fig:frequentistsVSbayesians
 exm:bayes-rule1
 exm:bayes-rule2
-exm:unnamed-chunk-14
+exm:unnamed-chunk-15
 fig:seashell
 fig:usingbayes
 overview
@@ -40,7 +42,7 @@ the-basics-of-making-a-decision
 getting-quantitative
 iterative-decision-making-and-the-scientific-method
 the-importance-of-prediction-in-ecology
-iterative-ecological-forecasting
+near-term-iterative-ecological-forecasting
 delete-from-here-once-done---how-to-reference
 reproducibility
 the-reproducibility-crisis
@@ -81,11 +83,11 @@ owner-3
 task-5-collaborator-adds-the-master-script
 collaborator-1
 owner-4
-some-examples-of-forecast-needs-in-the-fynbos-biome
-post-fire-recovery-trajectories
+forecasts
 proteas
+post-fire-recovery-trajectories
 impacts-of-iaps-on-runoff
-projection-and-decision-support
+decisions
 section
 proteas-1
 baysian
@@ -99,5 +101,4 @@ sources-and-types-of-uncertainty
 propagating-analyzing-and-reducing-uncertainty
 data-assimilation
 section-1
-fig:stacspec
-fig:documentnaming
+protea-demography
