@@ -1,4 +1,4 @@
-# Prediction and uncertainty
+# Prediction and uncertainty {#uncertainty}
 
 - What determines the limits to the utility of predictions?
 

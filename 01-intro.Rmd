@@ -52,11 +52,11 @@ knitr::include_graphics("img/decisions3.png")
 
 <br>
 
-When using quantitative forecasts this can be done by collecting new data and updating your prior knowledge by evaluating the outcomes of the decision against the original model forecasts. This can tell you whether your forecast was any good and whether you need to refine or replace your model, consider additional scenarios or inputs, etc. We'll discuss doing this quantitatively in section XXX, by fusing your new data and knowledge into a new forecast.
+When using quantitative forecasts this can be done by collecting new data and updating your prior knowledge by evaluating the outcomes of the decision against the original model forecasts. This can tell you whether your forecast was any good and whether you need to refine or replace your model, consider additional scenarios or inputs, etc. We'll discuss doing this quantitatively in section \@ref(datafusion), by fusing your new data and knowledge into a new forecast.
 
 <!--Implementing this process quantitatively requires careful management of the data and workflow and would greatly benefit from automation (i.e. it needs to be _reproducible_).-->
 
-It's worth highlighting the similarity between the iterative decision making cycle I've outlined in figure \@ref(fig:decisions3) and _the scientific method_, i.e.:
+It's worth highlighting the similarity between the iterative decision making cycle I've outlined in Figure \@ref(fig:decisions3) and _the scientific method_, i.e.:
 
 - _Observation > Hypothesis > Experiment > Analyze > Interpret > Report > (Repeat)_
 
@@ -119,7 +119,13 @@ In **Adaptive Management** and decision analysis, alternative decision scenarios
 
 Note that the iterative forecast cycle is also useful for adaptive management in that the analysis and partitioning of forecast uncertainties (from step C) can provide further guidance on what and how to monitor, so as to optimize the reduction in model uncertainties. This represents **Adaptive Monitoring** (dashed line) and is a cycle of itself [@Lindenmayer2009], but is largely subsumed by the other cycles here so we won't go into it any further here. Thus the iterative cycles of science, forecasting, management and monitoring are tightly intertwined and can interact continuously.
 
-What isn't clear from Figure \@ref(fig:dietze2018F1) is that all of this needs to be founded on a highly efficient informatics pipeline that is robust and rapidly updateable - i.e. follows **Reproducible Research** principles. Adding this link helps to highlight what I like to think of as _"The Olympian Challenge of data-driven ecological decision making"_.
+<br>
+
+## Reproducible research
+
+What isn't clear from Figure \@ref(fig:dietze2018F1) is that all of this needs to be founded on a **highly efficient informatics pipeline that is robust and rapidly updateable**. Since the emphasis here is on _near-term_ forecasts to inform management, if the process of adding new data and updating the forecasts is too slow, the value of the forecasts is lost. 
+
+As we'll see in future lectures, the best way to build a highly efficient informatics pipeline is to follow **reproducible research** principles (section \@ref(reproducibility)), including good (and rapid) **data management** (section \@ref(data)). Adding this link to Figure \@ref(fig:dietze2018F1) helps to highlight what I like to think of as _"The Olympian Challenge of data-driven ecological decision making"_.
  
 <br>
 
@@ -129,32 +135,7 @@ knitr::include_graphics("img/olympian_goal.png")
 
 <br>
 
-Working reproducibly requires learning a lot of skills and can take a lot of effort, but is well worth it in the long run - for you as an individual, and for science in general. This is going to be the focus of the next section (and the practical), before we continue with other components of the ecological forecasting cycle.
+Working reproducibly requires learning a lot of skills and can take a lot of effort, but is well worth it beyond it's utility for ecological forecasting - for you as an individual, and for science in general. This is why I decided to make it part of the title for the module and the focus of at least two lectures and the practical.
 
 <br>
 
-## Delete from here once done... - How to reference
-
-
-
-<br>
-
-You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(models). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(practical).
-
-Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
-
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
-```
-
-Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
-
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
-```
-
-You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].

@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-09-23" />
+<meta name="date" content="2021-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,70 +55,6 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
@@ -175,7 +111,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="models.html"><a href="models.html#iterative-decision-making-and-the-scientific-method"><i class="fa fa-check"></i><b>3.3</b> Iterative decision-making and the scientific method</a></li>
 <li class="chapter" data-level="3.4" data-path="models.html"><a href="models.html#the-importance-of-prediction-in-ecology"><i class="fa fa-check"></i><b>3.4</b> The importance of prediction in ecology</a></li>
 <li class="chapter" data-level="3.5" data-path="models.html"><a href="models.html#near-term-iterative-ecological-forecasting"><i class="fa fa-check"></i><b>3.5</b> Near-term iterative ecological forecasting</a></li>
-<li class="chapter" data-level="3.6" data-path="models.html"><a href="models.html#delete-from-here-once-done---how-to-reference"><i class="fa fa-check"></i><b>3.6</b> Delete from here once done… - How to reference</a></li>
+<li class="chapter" data-level="3.6" data-path="models.html"><a href="models.html#reproducible-research"><i class="fa fa-check"></i><b>3.6</b> Reproducible research</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a>
 <ul>
@@ -209,43 +145,33 @@ div.csl-indent {
 <li class="chapter" data-level="6" data-path="practical.html"><a href="practical.html"><i class="fa fa-check"></i><b>6</b> Practical: Pair coding with GitHub</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="practical.html"><a href="practical.html#pracprep"><i class="fa fa-check"></i><b>6.1</b> Preparation</a></li>
-<li class="chapter" data-level="6.2" data-path="practical.html"><a href="practical.html#the-practical"><i class="fa fa-check"></i><b>6.2</b> The practical</a></li>
-<li class="chapter" data-level="6.3" data-path="practical.html"><a href="practical.html#objectives"><i class="fa fa-check"></i><b>6.3</b> Objectives</a></li>
-<li class="chapter" data-level="6.4" data-path="practical.html"><a href="practical.html#prairie-phenology"><i class="fa fa-check"></i><b>6.4</b> Prairie Phenology</a></li>
-<li class="chapter" data-level="6.5" data-path="practical.html"><a href="practical.html#modular-design"><i class="fa fa-check"></i><b>6.5</b> Modular Design</a></li>
-<li class="chapter" data-level="6.6" data-path="practical.html"><a href="practical.html#task-1-create-clone-repository"><i class="fa fa-check"></i><b>6.6</b> Task 1: Create &amp; Clone Repository</a>
+<li class="chapter" data-level="6.2" data-path="practical.html"><a href="practical.html#the-practical"><i class="fa fa-check"></i><b>6.2</b> The practical</a>
 <ul>
-<li class="chapter" data-level="6.6.1" data-path="practical.html"><a href="practical.html#owner"><i class="fa fa-check"></i><b>6.6.1</b> OWNER</a></li>
-</ul></li>
-<li class="chapter" data-level="6.7" data-path="practical.html"><a href="practical.html#task-2-add-the-first-function-download.phenocam"><i class="fa fa-check"></i><b>6.7</b> Task 2: Add the first function: download.phenocam</a>
-<ul>
-<li class="chapter" data-level="6.7.1" data-path="practical.html"><a href="practical.html#owner-1"><i class="fa fa-check"></i><b>6.7.1</b> OWNER</a></li>
-</ul></li>
-<li class="chapter" data-level="6.8" data-path="practical.html"><a href="practical.html#task-3-collaborator-adds-plot.phenocam"><i class="fa fa-check"></i><b>6.8</b> Task 3: Collaborator adds plot.phenocam</a>
-<ul>
-<li class="chapter" data-level="6.8.1" data-path="practical.html"><a href="practical.html#collaborator"><i class="fa fa-check"></i><b>6.8.1</b> COLLABORATOR</a></li>
-<li class="chapter" data-level="6.8.2" data-path="practical.html"><a href="practical.html#owner-2"><i class="fa fa-check"></i><b>6.8.2</b> OWNER</a></li>
-</ul></li>
-<li class="chapter" data-level="6.9" data-path="practical.html"><a href="practical.html#task-4-owner-adds-pred.logistic-and-fit.logistic"><i class="fa fa-check"></i><b>6.9</b> Task 4: Owner adds pred.logistic and fit.logistic</a>
-<ul>
-<li class="chapter" data-level="6.9.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>6.9.1</b> OWNER</a></li>
-</ul></li>
-<li class="chapter" data-level="6.10" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script"><i class="fa fa-check"></i><b>6.10</b> Task 5: Collaborator adds the master script</a>
-<ul>
-<li class="chapter" data-level="6.10.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>6.10.1</b> COLLABORATOR</a></li>
-<li class="chapter" data-level="6.10.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>6.10.2</b> OWNER</a></li>
+<li class="chapter" data-level="6.2.1" data-path="practical.html"><a href="practical.html#objectives"><i class="fa fa-check"></i><b>6.2.1</b> Objectives</a></li>
+<li class="chapter" data-level="6.2.2" data-path="practical.html"><a href="practical.html#prairie-phenology"><i class="fa fa-check"></i><b>6.2.2</b> Prairie Phenology</a></li>
+<li class="chapter" data-level="6.2.3" data-path="practical.html"><a href="practical.html#modular-design"><i class="fa fa-check"></i><b>6.2.3</b> Modular Design</a></li>
+<li class="chapter" data-level="6.2.4" data-path="practical.html"><a href="practical.html#task-1-create-clone-repository"><i class="fa fa-check"></i><b>6.2.4</b> Task 1: Create &amp; Clone Repository</a></li>
+<li class="chapter" data-level="6.2.5" data-path="practical.html"><a href="practical.html#task-2-add-the-first-function-download.phenocam"><i class="fa fa-check"></i><b>6.2.5</b> Task 2: Add the first function: download.phenocam</a></li>
+<li class="chapter" data-level="6.2.6" data-path="practical.html"><a href="practical.html#task-3-collaborator-adds-plot.phenocam"><i class="fa fa-check"></i><b>6.2.6</b> Task 3: Collaborator adds plot.phenocam</a></li>
+<li class="chapter" data-level="6.2.7" data-path="practical.html"><a href="practical.html#task-4-owner-adds-pred.logistic-and-fit.logistic"><i class="fa fa-check"></i><b>6.2.7</b> Task 4: Owner adds pred.logistic and fit.logistic</a></li>
+<li class="chapter" data-level="6.2.8" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script"><i class="fa fa-check"></i><b>6.2.8</b> Task 5: Collaborator adds the master script</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="forecasts.html"><a href="forecasts.html"><i class="fa fa-check"></i><b>7</b> Making forecasts</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="forecasts.html"><a href="forecasts.html#proteas"><i class="fa fa-check"></i><b>7.1</b> Proteas</a></li>
+<li class="chapter" data-level="7.1" data-path="forecasts.html"><a href="forecasts.html#protea-demography"><i class="fa fa-check"></i><b>7.1</b> Protea demography</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="forecasts.html"><a href="forecasts.html#demographic-rates"><i class="fa fa-check"></i><b>7.1.1</b> Demographic rates</a></li>
+<li class="chapter" data-level="7.1.2" data-path="forecasts.html"><a href="forecasts.html#projecting-population-viability"><i class="fa fa-check"></i><b>7.1.2</b> Projecting population viability</a></li>
+<li class="chapter" data-level="7.1.3" data-path="forecasts.html"><a href="forecasts.html#near-term-iterative-ecological-forecasts"><i class="fa fa-check"></i><b>7.1.3</b> Near-term iterative ecological forecasts</a></li>
+</ul></li>
 <li class="chapter" data-level="7.2" data-path="forecasts.html"><a href="forecasts.html#post-fire-recovery-trajectories"><i class="fa fa-check"></i><b>7.2</b> Post-fire recovery trajectories</a></li>
 <li class="chapter" data-level="7.3" data-path="forecasts.html"><a href="forecasts.html#impacts-of-iaps-on-runoff"><i class="fa fa-check"></i><b>7.3</b> Impacts of IAPs on runoff</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>8</b> Projection and decision support</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="decisions.html"><a href="decisions.html#section"><i class="fa fa-check"></i><b>8.1</b> …</a></li>
-<li class="chapter" data-level="8.2" data-path="decisions.html"><a href="decisions.html#proteas-1"><i class="fa fa-check"></i><b>8.2</b> Proteas</a></li>
+<li class="chapter" data-level="8.2" data-path="decisions.html"><a href="decisions.html#proteas"><i class="fa fa-check"></i><b>8.2</b> Proteas</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="baysian.html"><a href="baysian.html"><i class="fa fa-check"></i><b>9</b> Going Bayesian</a>
 <ul>
@@ -259,14 +185,14 @@ div.csl-indent {
 <li class="chapter" data-level="9.2.2" data-path="baysian.html"><a href="baysian.html#worked-example"><i class="fa fa-check"></i><b>9.2.2</b> Worked example</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="prediction-and-uncertainty.html"><a href="prediction-and-uncertainty.html"><i class="fa fa-check"></i><b>10</b> Prediction and uncertainty</a>
+<li class="chapter" data-level="10" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>10</b> Prediction and uncertainty</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="prediction-and-uncertainty.html"><a href="prediction-and-uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>10.1</b> Sources and types of uncertainty</a></li>
-<li class="chapter" data-level="10.2" data-path="prediction-and-uncertainty.html"><a href="prediction-and-uncertainty.html#propagating-analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>10.2</b> Propagating, analyzing and reducing uncertainty</a></li>
+<li class="chapter" data-level="10.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>10.1</b> Sources and types of uncertainty</a></li>
+<li class="chapter" data-level="10.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>10.2</b> Propagating, analyzing and reducing uncertainty</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="data-assimilation.html"><a href="data-assimilation.html"><i class="fa fa-check"></i><b>11</b> Data assimilation</a>
+<li class="chapter" data-level="11" data-path="datafusion.html"><a href="datafusion.html"><i class="fa fa-check"></i><b>11</b> Data assimilation</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="data-assimilation.html"><a href="data-assimilation.html#section-1"><i class="fa fa-check"></i><b>11.1</b> </a></li>
+<li class="chapter" data-level="11.1" data-path="datafusion.html"><a href="datafusion.html#section-1"><i class="fa fa-check"></i><b>11.1</b> </a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -337,9 +263,9 @@ Figure 3.3: Iterative decision making.
 </p>
 </div>
 <p><br></p>
-<p>When using quantitative forecasts this can be done by collecting new data and updating your prior knowledge by evaluating the outcomes of the decision against the original model forecasts. This can tell you whether your forecast was any good and whether you need to refine or replace your model, consider additional scenarios or inputs, etc. We’ll discuss doing this quantitatively in section XXX, by fusing your new data and knowledge into a new forecast.</p>
+<p>When using quantitative forecasts this can be done by collecting new data and updating your prior knowledge by evaluating the outcomes of the decision against the original model forecasts. This can tell you whether your forecast was any good and whether you need to refine or replace your model, consider additional scenarios or inputs, etc. We’ll discuss doing this quantitatively in section <a href="datafusion.html#datafusion">11</a>, by fusing your new data and knowledge into a new forecast.</p>
 <!--Implementing this process quantitatively requires careful management of the data and workflow and would greatly benefit from automation (i.e. it needs to be _reproducible_).-->
-<p>It’s worth highlighting the similarity between the iterative decision making cycle I’ve outlined in figure <a href="models.html#fig:decisions3">3.3</a> and <em>the scientific method</em>, i.e.:</p>
+<p>It’s worth highlighting the similarity between the iterative decision making cycle I’ve outlined in Figure <a href="models.html#fig:decisions3">3.3</a> and <em>the scientific method</em>, i.e.:</p>
 <ul>
 <li><em>Observation &gt; Hypothesis &gt; Experiment &gt; Analyze &gt; Interpret &gt; Report &gt; (Repeat)</em></li>
 </ul>
@@ -393,7 +319,12 @@ Figure 3.6: The iterative ecological forecasting cycle in the context of the sci
 <p><strong>The iterative forecasting cycle also feeds into adaptive management and monitoring:</strong></p>
 <p>In <strong>Adaptive Management</strong> and decision analysis, alternative decision scenarios are generated (2) based on an assessment of a problem (1). These decision scenarios are typically used to define the scenarios (or boundary conditions) for which models are run (“Scenarios” arrow), but can also feed into scientific hypotheses (not shown). Forecasts (Fx) are key in assessing the trade-offs and relative merits between alternative decision options (3). The decision(s) taken (4) determine the monitoring requirements (5), which allow us to evaluate the outcomes and reassess the problem (1), and start the adaptive management cycle again.</p>
 <p>Note that the iterative forecast cycle is also useful for adaptive management in that the analysis and partitioning of forecast uncertainties (from step C) can provide further guidance on what and how to monitor, so as to optimize the reduction in model uncertainties. This represents <strong>Adaptive Monitoring</strong> (dashed line) and is a cycle of itself <span class="citation">(<a href="#ref-Lindenmayer2009" role="doc-biblioref">Lindenmayer and Likens 2009</a>)</span>, but is largely subsumed by the other cycles here so we won’t go into it any further here. Thus the iterative cycles of science, forecasting, management and monitoring are tightly intertwined and can interact continuously.</p>
-<p>What isn’t clear from Figure <a href="models.html#fig:dietze2018F1">3.6</a> is that all of this needs to be founded on a highly efficient informatics pipeline that is robust and rapidly updateable - i.e. follows <strong>Reproducible Research</strong> principles. Adding this link helps to highlight what I like to think of as <em>“The Olympian Challenge of data-driven ecological decision making”</em>.</p>
+<p><br></p>
+</div>
+<div id="reproducible-research" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Reproducible research</h2>
+<p>What isn’t clear from Figure <a href="models.html#fig:dietze2018F1">3.6</a> is that all of this needs to be founded on a <strong>highly efficient informatics pipeline that is robust and rapidly updateable</strong>. Since the emphasis here is on <em>near-term</em> forecasts to inform management, if the process of adding new data and updating the forecasts is too slow, the value of the forecasts is lost.</p>
+<p>As we’ll see in future lectures, the best way to build a highly efficient informatics pipeline is to follow <strong>reproducible research</strong> principles (section <a href="reproducibility.html#reproducibility">4</a>), including good (and rapid) <strong>data management</strong> (section <a href="data.html#data">5</a>). Adding this link to Figure <a href="models.html#fig:dietze2018F1">3.6</a> helps to highlight what I like to think of as <em>“The Olympian Challenge of data-driven ecological decision making”</em>.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:olympiangoal"></span>
 <img src="img/olympian_goal.png" alt="The Olympian Challenge of data-driven ecological decision making." width="480" />
@@ -402,182 +333,8 @@ Figure 3.7: The Olympian Challenge of data-driven ecological decision making.
 </p>
 </div>
 <p><br></p>
-<p>Working reproducibly requires learning a lot of skills and can take a lot of effort, but is well worth it in the long run - for you as an individual, and for science in general. This is going to be the focus of the next section (and the practical), before we continue with other components of the ecological forecasting cycle.</p>
+<p>Working reproducibly requires learning a lot of skills and can take a lot of effort, but is well worth it beyond it’s utility for ecological forecasting - for you as an individual, and for science in general. This is why I decided to make it part of the title for the module and the focus of at least two lectures and the practical.</p>
 <p><br></p>
-</div>
-<div id="delete-from-here-once-done---how-to-reference" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Delete from here once done… - How to reference</h2>
-<p><br></p>
-<p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="models.html#models">3</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="practical.html#practical">6</a>.</p>
-<p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="models.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))</span>
-<span id="cb1-2"><a href="models.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure, <span class="at">type =</span> <span class="st">&#39;b&#39;</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:nice-fig"></span>
-<img src="BIO3019S-Ecoforecasting_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
-<p class="caption">
-Figure 3.8: Here is a nice figure!
-</p>
-</div>
-<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="models.html#fig:nice-fig">3.8</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="models.html#tab:nice-tab">3.1</a>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="models.html#cb2-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb2-2"><a href="models.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(iris, <span class="dv">20</span>), <span class="at">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</span>
-<span id="cb2-3"><a href="models.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">booktabs =</span> <span class="cn">TRUE</span></span>
-<span id="cb2-4"><a href="models.html#cb2-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<table>
-<caption><span id="tab:nice-tab">Table 3.1: </span>Here is a nice table!</caption>
-<thead>
-<tr class="header">
-<th align="right">Sepal.Length</th>
-<th align="right">Sepal.Width</th>
-<th align="right">Petal.Length</th>
-<th align="right">Petal.Width</th>
-<th align="left">Species</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.7</td>
-<td align="right">3.2</td>
-<td align="right">1.3</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.6</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.0</td>
-<td align="right">3.6</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.7</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.6</td>
-<td align="right">3.4</td>
-<td align="right">1.4</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.0</td>
-<td align="right">3.4</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.4</td>
-<td align="right">2.9</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.4</td>
-<td align="right">3.7</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.8</td>
-<td align="right">3.4</td>
-<td align="right">1.6</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.8</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.3</td>
-<td align="right">3.0</td>
-<td align="right">1.1</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.8</td>
-<td align="right">4.0</td>
-<td align="right">1.2</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.7</td>
-<td align="right">4.4</td>
-<td align="right">1.5</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.3</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.7</td>
-<td align="right">3.8</td>
-<td align="right">1.7</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.1</td>
-<td align="right">3.8</td>
-<td align="right">1.5</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-</tbody>
-</table>
-<p>You can write citations, too. For example, we are using the <strong>bookdown</strong> package <span class="citation">(<a href="#ref-R-bookdown" role="doc-biblioref">Xie 2021</a>)</span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(<a href="#ref-xie2015" role="doc-biblioref">Xie 2015</a>)</span>.</p>
 
 </div>
 </div>
@@ -591,12 +348,6 @@ Houlahan, Jeff E, Shawn T McKinney, T Michael Anderson, and Brian J McGill. 2017
 </div>
 <div id="ref-Lindenmayer2009" class="csl-entry">
 Lindenmayer, David B, and Gene E Likens. 2009. <span>“<span class="nocase">Adaptive monitoring: a new paradigm for long-term research and monitoring</span>.”</span> <em>Trends in Ecology &amp; Evolution</em> 24 (9): 482–86. <a href="https://doi.org/10.1016/j.tree.2009.03.005">https://doi.org/10.1016/j.tree.2009.03.005</a>.
-</div>
-<div id="ref-xie2015" class="csl-entry">
-Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a>.
-</div>
-<div id="ref-R-bookdown" class="csl-entry">
-———. 2021. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.
 </div>
 </div>
             </section>
@@ -656,20 +407,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

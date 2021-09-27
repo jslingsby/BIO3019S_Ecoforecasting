@@ -12,8 +12,13 @@ knitr::include_graphics("img/datadecaycurve.jpg")
 
 <br>
 
-- Bad data management leads to data loss... (The "data decay curve" [@Michener1997])
-- Your future self will hate you if you lose it before you're finished with it - Eek!!! This is less likely in the world of Dropbox, Google Drive, iCloud etc, but I know people who had to repeat their PhD's because they lost their data or it was on a laptop that was stolen...
+Here are a bunch of reasons you really want to focus on doing good data management:
+
+- Bad data management leads to data loss... (Figure \@ref(fig:datadecay))
+- Your future self will hate you if you lose it before you're finished with it - Eek!!! This is less likely in the world of Dropbox, Google Drive, iCloud etc, but I know people who had to repeat their PhD's because they lost their data or it was on a laptop that was stolen... Also, ***beware cloud storage!!!*** It is very easy for you or a collaborator to delete/overwrite/lose access to items etc, e.g. 
+    - if someone leaves the project and deletes the folder on their Dropbox without "leaving" it first)
+    - if the "owner" of the Google Drive folder loses access to their Google account (_as will happen to your UCT Google Drive access as soon as you graduate!!!_)
+    - through all manner of random "accidents"
 - Data has value beyond your current project: 
   - to yourself for reuse in future projects, collaborations, etc (i.e. publications and citations), 
   - for others for follow-up studies, or combining multiple datasets for meta-analyses or synthesis etc
@@ -56,9 +61,9 @@ data$label <- paste0(data$category, "\n value: ", data$count)
 # Make the plot
 ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
   geom_rect() +
-  geom_text(x=3.5, aes(y=labelPosition, label=category, color=category)) + # x here controls label position (inner / outer)
+  geom_text(x=3.5, aes(y=labelPosition, label=category)) + #, color=category)) + # x here controls label position (inner / outer)
   scale_fill_brewer(palette="Blues") +
-  scale_color_brewer(palette="Blues", direction = -1) +
+#  scale_color_brewer(palette="Blues", direction = -1) +
   coord_polar(theta="y") +
   xlim(c(2, 4.5)) +
   theme_void() +

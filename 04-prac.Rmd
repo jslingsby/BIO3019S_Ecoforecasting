@@ -96,13 +96,13 @@ And you're done!!! I'll get a notification of your pull request and, if all's in
 
 <br>
 
-## Objectives
+### Objectives
 
 The primary goal of this exercise is to gain experience working collaboratively to develop a scientific workflow. As such, this assignment must be completed with a partner. Specifically, we will outline a simple analysis, break the overall job into parts, and have each person complete part of the project. To put these parts together we will be using Github. Along the way we will also be exploring the statistical concept of Likelihood.
 
 <br>
 
-## Prairie Phenology
+### Prairie Phenology
 
 The goal of our analysis is to investigate the phenological state of the U. Illinois Tall Grass Prairie. We will be using green chromatic coordinate (GCC), which is a color index. Before building the workflow you are encouraged to take a look at the site http://phenocam.sr.unh.edu/webcam/sites/uiefprairie/ and the raw csv data
 https://phenocam.sr.unh.edu/data/archive/uiefprairie2/ROI/uiefprairie2_AG_1000_1day.csv
@@ -127,7 +127,7 @@ From this overall design, let's next outline the specific steps involved as pseu
 ## Visualize model and data
 ```
 
-## Modular Design
+### Modular Design
 
 From this overall design we can look for ways to modularize the analysis. One feature that jumps out is that we need to visualize the data three times, so we should definitely make a function to do that. The inputs to the function would be an x-axis (`date`), y-axis (`gcc_mean`), and error estimate (`gcc_std`), which we might pass as a dataframe for convinience. Since this is a graphing function we'd also like the ability to set all sorts of plot characteristics, which can be done in R by passing `...` as an argument and then passing that on to the internal _plot_ call. The proposed function interface would thus be
 
@@ -173,11 +173,11 @@ pred.logistic <- function(theta,x)
 
 At this point we've spent a good bit of time up front on organization -- we have a detailed plan of attack and have thought carefully about what each module is responsible for doing. Each task has well-defined inputs, outputs, and goals. Rather than facing a thankless job of documenting our code after we're done, even though we haven't written a single line of code yet we are largely done with our documentation. What remains to do is implementation.
 
-## Task 1: Create & Clone Repository 
+### Task 1: Create & Clone Repository 
 
 Because we're going to employ version control in our project, our first step is to create the repository that our project will be stored in.  **To ensure that both you and your partner get to see every step of how to work with version control, for the rest of this exercise you are going to complete every step twice, once from the perspective of the OWNER of the repository and once as the COLLABORATOR**.
 
-### OWNER
+#### OWNER
 
 1. Go to your account on [github.com](https://github.com/) and under the Repositories tab click on the "New" button (green with a picture of a book on it)
 2. Choose a name for your repository, but **make sure it's different from your partner's** (Don't choose a "Repository template", and keep it a "Public" repository)
@@ -190,7 +190,7 @@ Because we're going to employ version control in our project, our first step is 
  + Select Version Control then Git
  + Paste the URL in and click Create Project
  
-## Task 2: Add the first function: download.phenocam
+### Task 2: Add the first function: download.phenocam
 
 Within this project we'll create separate files for each part of the analysis. To make the order of the workflow clear we'll want to name the files systematically. In the first file we'll implement the download.phenocam function
 
@@ -214,7 +214,7 @@ Within this project we'll create separate files for each part of the analysis. T
 # }
 ```
 
-### OWNER
+#### OWNER
 
 1. In RStudio, click File > New File > R Script
 2. Copy and Paste the above function into this file
@@ -223,11 +223,11 @@ Within this project we'll create separate files for each part of the analysis. T
 5. Click Commit, enter a log message, and click Commit. This is equivalent to _git commit_
 6. To push the change up to Github click on the green up arrow. This is equivalent to _git push_
 
-## Task 3: Collaborator adds plot.phenocam
+### Task 3: Collaborator adds plot.phenocam
 
 With the first function complete, let's now imagine that a **COLLABORATOR** has been tasked with adding the second function. To do so they must first fork and clone the repository
 
-### COLLABORATOR
+#### COLLABORATOR
 
 1. Go to Github and navigate to the project repository within the OWNER's workspace.
 2. Click Fork, which will make a copy of the repository to your own workspace.
@@ -282,7 +282,7 @@ With the first function complete, let's now imagine that a **COLLABORATOR** has 
 6. Next you want to perform a "pull request", which will send a request to the OWNER that they pull your new code into their mainline version. From your Github page for this project, click **New Pull Request**.
 7. Follow the instructions, creating a title, message, and confirming that you want to create the pull request
 
-### OWNER
+#### OWNER
 
 1. Once the COLLABORATOR has created the pull request, you should get an automatic email and also be able to see the pull request under the "Pull Requests" tab on the Github page for the project.
 2. Read the description of the proposed changes and then click on "Files Changed" to view the changes to the project. New code should be in green, while deleted code will be in pink.
@@ -290,11 +290,11 @@ With the first function complete, let's now imagine that a **COLLABORATOR** has 
 4. Click on the "Conversation" page to return where you started. All participants can also leave more general comments on this page. 
 5. If you are happy with the code, click "Merge Pull Request". Alternatively, to outright reject a pull request click "Close pull request"
 
-## Task 4: Owner adds pred.logistic and fit.logistic
+### Task 4: Owner adds pred.logistic and fit.logistic
 
 We are now past the 'set up' stage for both the OWNER and the COLLABORATOR, so for this task we'll explore the normal sequence of steps that the OWNER will use for day-to-day work
 
-### OWNER
+#### OWNER
 
 1. Pull the latest code from Github. In RStudio this is done by clicking the light blue down arrow on the Git tab. This is equivalent to the commandline _git pull origin master_ where origin refers to where the where you did your orginal clone from and master refers to your main branch (if you use branches you can pull other branches)
 2. Next, open up a new R file, add the code below, and save as "03_logistic.R"
@@ -340,11 +340,11 @@ Second is the negative log likelihood function, _lnL.logistic_, which we're tryi
 
 The third part is a call to a numerical optimization function, _optim_, that searches through parameter space to find the set of parameters that minimize the negative log likelihood (i.e. that Maximize the Likelihood). Arguements are the initial parameter guess, the function being minimized, and any additional parameters that get passed on to that function.
 
-## Task 5: Collaborator adds the master script
+### Task 5: Collaborator adds the master script
 
 The day-to-day workflow for the COLLABORATOR is similar, but not exactly the same as the OWNER. The biggest differences are that the COLLABORATOR needs to pull from the OWNER, not their own repository, and needs to do a pull request after the push.
 
-### COLLABORATOR
+#### COLLABORATOR
 
 1. Pull from OWNER. Unfortunately, this has to be done from the command line rather than the pull button within RStudio, which just pulls from the COLLABORATOR's repository. In RStudio go to Tools > Shell to open a terminal
 2. At the terminal type
@@ -395,7 +395,7 @@ git pull upstream master
 5. Within RStudio's Git tab, add the file and Commit. Use the Push (up arrow) button to push this to your own repository
 6. On Github.com, submit a pull request
 
-### OWNER
+#### OWNER
 1. Evaluate and accept pull request.
 
 At this point your workflow should be complete and you should be able to run the analysis.

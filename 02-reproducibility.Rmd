@@ -217,7 +217,7 @@ Find out more about file naming [here](https://www.earthdatascience.org/slide-sh
 
 Working in point-and-click GUI-based software like Excel, Statistica, SPSS, etc may seem easier, but you'll regret it in the long run...
 
-The beauty of writing code lies in"
+The beauty of writing code lies in:
 
 - **Automation**
   - You will inevitably have to adjust and repeat your analysis as you get feedback from supervisors, collaborators and reviewers. Rerunning code is one click, and you're unlikely to introduce errors. Rerunning analyses in GUI-based software is lots of clicks and it's easy to make mistakes, alter default settings, etc etc.
