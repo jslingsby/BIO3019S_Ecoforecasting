@@ -84,7 +84,7 @@ knitr::include_graphics("img/proteasensitivity2.jpg")
 
 <br>
 
-These models suggest that following the harvesting guidelines can greatly increase the probability of many populations going extinct (Figure \@ref(fig:proteasensitivity); @Treurnicht2021), but can also be used to explore population viability under changing climate, fire regimes, etc [e.g. @Merow2014].
+These models suggest that following the harvesting guidelines can greatly increase the probability of many populations going extinct (Figure \@ref(fig:proteasensitivity); @Treurnicht2021), but can also be used to explore population viability under changing climate, fire regimes, etc [e.g. @Merow2014] - or a combination of all of the above!
 
 <br>
 
@@ -94,12 +94,12 @@ While the work by @Merow2014, @Treurnicht2021 and others represent ecological fo
 
 To adapt these into near-term iterative ecological forecasts requires:
 
-- Making the forecasts more near-term
+- Making the forecasts more **near-term**
   - e.g. a range of scenarios 5-10 years into the future, or 1-2 years into the next fire cycle
-- Setting up formalized data collection and management systems to feed data back into the modelling workflow
-  - i.e. coordinating and guiding the efforts of citizen scientists and conservation authorities
-- Adapting the models and workflow to be able to ingest and assimilate new data and produce new forecasts automatically
-- Make sure that the models adequately characterize and propagate uncertainty throughout the analyses
+- Setting up formalized **data collection and management** systems to feed data back into the modelling workflow
+  - i.e. coordinating and guiding the efforts of citizen scientists, conservation authorities, etc.
+- Adapting the models and workflow to be able to ingest and **assimilate new data and produce new forecasts automatically**
+- Make sure that the models adequately **characterize and propagate uncertainty** throughout the analyses
 
 Clearly, while huge effort has been invested into the demography of Proteaceae, and they are likely to be one of the lowest hanging fruit for development into near-term iterative ecological forecasts, there is a lot more work to be done! Still, the history of productive research on Proteaceae shows it would clearly be worth the effort, and we already have decades of data that allow us to learn by backcasting or forecasting from old to more recently collected data. Even if early forecasts are woefully wrong, they will help us learn and improve.
 

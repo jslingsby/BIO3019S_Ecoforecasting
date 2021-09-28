@@ -4,10 +4,10 @@ While ecological forecasting and decision support can be done with traditional s
 
 - It can easily treat all terms as probability distributions, making it easier to quantify, propagate and partition uncertainties throughout the analysis (more on this later)
 - Bayesian analyses are inherently iterative, making it easier to update predictions as new data become available
-- They are highly flexible, allowing one to build relatively complex models with varied data sources (and/or of varying quality)
+- They are highly flexible, allowing one to build relatively complex models with varied data sources (and/or of varying quality), especially Hierarchical Bayesian models
 - They are typically focused on estimating what properties  are (i.e. the actual value of a particular parameter) and not just establishing what they are not (i.e. testing for significant difference, as is usually the focus in frequentist statistics) - although there are frequentist approaches for doing this too
 
-In this section I aim to provide a brief and soft introduction to Bayesian statistics and use an example from my own research to highlight the principles and benefits. We'll also use this example in the pair-coding practical. 
+In this section I aim to provide a brief and soft introduction to Bayesian statistics and and illustrate it using the postfire recovery example we worked on in the pair-coding practical. 
 
 ## Maximum likelihood
 
@@ -29,9 +29,17 @@ This may seem like a subtle and potentially arbitrary distinction, but likelihoo
 
 <br>
 
+***maximum likelihood estimation is a probabilistic framework for estimating model parameters***
+
+<br>
+
 **Here's an example** 
 
-We'll look at fynbos vegetation recovery after fire using a satellite measure of vegetation greeness or health - the normalized difference vegetation index (NDVI) from the MODIS satellite mission.
+We'll build on the fynbos postfire vegetation recovery example we used in the practical, where we looked at time series of a satellite measure of vegetation greenness or health - the normalized difference vegetation index (NDVI) from the MODIS satellite mission.
+
+Before, we were fitting the model using ***least squares***, which optimizes the parameters of the model to minimize the sum of the squares of the residuals (the residuals being the difference between each observed and fitted value provided by a model).
+
+Maximum likelihood
 
 Add Postfire example 
 
@@ -80,8 +88,14 @@ dat %>%
 If we want to know the rate of vegetation recovery, we could fit a linear model to this and examine the slope, like so:
 
 ```{r}
+# Here I fit a linear model to a dependent variable "NDVI" as a function 
+# of the independent variable "calendar_date", both of which are columns
+# in the dataframe "dat"
+
+# Fit model
 fit_linear <- lm(NDVI ~ calendar_date, data = dat)
 
+# Summarize and print output
 summary(fit_linear)
 ```
 From the p-value you can see that the result is highly significant - i.e. there is very little probability that the slope and intercept are zero - but does that mean we've done this right?
@@ -103,15 +117,132 @@ dat %>%
 #geom_line(data = fortify(fit_linear), aes(x = calendar_date, y = .fitted))
 ```
 
+<br>
+
 Do you think a linear model is appropriate here?
+
+Let's have a look at the residuals:
+
+```{r}
+par(mfrow = c(2,2)) # Make a panel plot 2 by 2
+plot(fit_linear)
+par(mfrow = c(1,1)) # Reset graphical parameters to single plot
+```
 
 <br>
 
-Let's try something else:
+It's actually not too bad, but there's still lots of interesting stuff going on there. I'm not sold that a linear model is the best we can do. Let's try something else:
 
 ```{r}
-#fit_negexp <- nls(y ~ alpha * exp(beta * x) + theta , data = data.df, start = start)
+# Here I fit a negative exponential model to a dependent variable "NDVI" 
+# as a function of the independent variable "age" (years since the fire), 
+# both of which are columns in the dataframe "dat"
 
+# Convert "calendar_date" to postfire age in days since fire
+dat$age <- (as.numeric(dat$calendar_date) - min(as.numeric(dat$calendar_date), na.rm = T))/365.25
+
+# Guesstimate list of initial parameter estimates to feed to the model fitting function
+start <- list(alpha = 0.2, lambda = 0.5, gamma = 0.4)
+
+# Fit the model
+fit_negexp <- nls(NDVI ~ alpha + gamma * (1 - exp(- age/lambda)), data = dat, 
+              start = start, trace = F, control = nls.control(maxiter = 500))
+
+# Plot the data points 
+plot(dat$age, dat$NDVI)
+
+# Overlay the fitted model on the plot
+lines(dat$age, predict(fit_negexp, list(x = dat$age)), col = 'skyblue', lwd = 3)
+
+```
+
+<br>
+
+Here we've fit the negative exponential function:
+
+\begin{gather}
+  \text{NDVI}_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)
+\end{gather}
+
+Where:
+
+- $\alpha$ is the NDVI at time 0 (i.e. directly after the fire)
+- $\gamma$ is the maximum average _increase_ in NDVI
+  - i.e. the maximum NDVI reached by the blue curve is $\alpha + \gamma$
+- $\lambda$ is the rate of increase in NDVI
+
+Since $\alpha$ and $\gamma$ are reasonably intuitive to read off the graph we can easily eyeball whether the model estimates for those parameters are any good:
+
+```{r}
+summary(fit_negexp)
+```
+
+Looks pretty good.
+
+The plot also suggests than a negative exponential is a lot better than a linear fit, but there's still a lot of noise! Let's look at the residuals of this model:
+
+```{r}
+# Plot the residuals of the model
+plot(fit_negexp)
+```
+
+There's still some weird stuff going on... especially an interesting oscillating pattern in the fitted values in the range 0.2 to 0.5. It may be present in values >0.5, but there are too many to tell.
+
+This is where thinking about the data becomes important! We know this is the trajectory of vegetation "greenness" following a fire. What factors other than fire may affect greenness at any particular point in time? Below I add a term to the model to account for variation we should expect in most temperate ecosystems. 
+
+```{r}
+# Here I fit a the same negative exponential model (plus a mystery additional term) 
+# to a dependent variable "NDVI" as a function of the independent variable 
+# "age" (years since the fire), both of which are in the dataframe "dat"
+
+# Guesstimate list of initial parameter estimates to feed to the model fitting function
+start <- list(alpha = 0.2, lambda = 0.5, gamma = 0.4, A = 0.6, phi = 0)
+
+# Fit the model
+fit_negexpS <- nls(NDVI ~ alpha + gamma * (1 - exp(- age/lambda)) +
+                  A*sin(2*pi*age + (phi + pi/6*(3 - 1))), data = dat,   
+               #Note that the 3 is the month of fire (March)
+              start = start, trace = F, control = nls.control(maxiter = 500))
+
+# Plot the data points 
+plot(dat$age, dat$NDVI)
+
+# Overlay the fitted model on the plot
+lines(dat$age, predict(fit_negexpS, list(x = dat$age)), col = 'skyblue', lwd = 3)
+
+# Plot the residuals of the model
+plot(fit_negexpS)
+```
+
+<br>
+
+Here's the equation including the additional term:
+
+\begin{gather}
+  \text{NDVI}_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)+
+      A_i\text{sin}\Big(2\pi\times\text{age}_{i,t}+\Big[\phi+\frac{\pi}{6}(m_{i,t}-1)\Big]\Big)
+\end{gather}
+
+This is a sinusoidal term to capture seasonal fluctuation in NDVI and includes two new parameters:
+
+- $A$ is the amplitude of the seasonality
+- $\phi$ adjusts the timing of the seasonal cycle to account for the month the fire occurred
+
+
+<br>
+
+<br>
+
+Version with a data model...
+
+\begin{gather}
+  \text{NDVI}_{i,t}\sim\mathcal{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}}) \\
+  \mu_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)+
+      A_i\text{sin}\Big(2\pi\times\text{age}_{i,t}+\Big[\phi+\frac{\pi}{6}(m_{i,t}-1)\Big]\Big)
+\end{gather}
+
+
+```{r}
 # ##' Fit logistic model
 # ##' 
 # ##' @param dat  dataframe of day of year (doy), gcc_mean, gcc_std
@@ -140,7 +271,7 @@ knitr::include_graphics("img/frequentistsVSbayesians.png")
 
 ### Applied to parameters and data
 
-Here I express Baye's theorem in the terms data analysts tend to think with, parameters ($\theta$) and data ($D$).
+Here I express Bayes' theorem in the terms data analysts tend to think with, parameters ($\theta$) and data ($D$).
 
 \begin{align*}
 p(\theta|D) & = \frac{p(D|\theta) \; p(\theta)}{p(D)} \;\;

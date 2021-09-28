@@ -92,14 +92,25 @@ And you're done!!! I'll get a notification of your pull request and, if all's in
 
 <br>
 
-> _Just a quick acknowledgement that I have borrowed and adapted much of the following from Michael Dietze's [**Pair coding practical**](https://github.com/EcoForecast/EF_Activities/blob/master/Exercise_04_PairCoding.Rmd) that is a living online supplement to his book [@Dietze2017]. Thanks for sharing the code under an MIT license Mike!_
+> _Just a quick acknowledgement that I have borrowed and adapted much of the framework for the following from Michael Dietze's [**Pair coding practical**](https://github.com/EcoForecast/EF_Activities/blob/master/Exercise_04_PairCoding.Rmd) that is a living online supplement to his book [@Dietze2017]. Thanks for sharing the code under an MIT license Mike! The main differences are that I've changes the subject matter from looking at phenology in Tall Grass Prairie using PhenoCam data to looking at postfire vegetation growth in Fynbos using MODIS satellite Normalized Difference Vegetation Index (NDVI), a measure of vegetation "greenness"._
 
 <br>
 
 ### Objectives
 
-The primary goal of this exercise is to gain experience working collaboratively to develop a scientific workflow. As such, this assignment must be completed with a partner. Specifically, we will outline a simple analysis, break the overall job into parts, and have each person complete part of the project. To put these parts together we will be using Github. Along the way we will also be exploring the statistical concept of Likelihood.
+The primary goal of this exercise is to gain experience working collaboratively to develop a scientific workflow. As such, this assignment must be completed with a partner. Specifically, we will outline a simple analysis, break the overall job into parts, and have each person complete part of the project. To put these parts together we will be using Github. 
 
+(Along the way we will also be exploring the statistical concept of Likelihood?).
+
+<br>
+
+### Postfire regeneration
+
+<br>
+- Develop framework to fit models and make plots
+- Questions about residuals etc etc
+- Compare recovery trajectories across multiple sites?
+- Compare recovery trajectories within sites, between 2000 and 2015 fires...
 <br>
 
 ### Prairie Phenology
