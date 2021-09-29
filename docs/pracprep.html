@@ -56,28 +56,6 @@
 
 
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -139,7 +117,7 @@ div.csl-indent {
 <p>Then get started with GitHub:</p>
 <ol start="4" style="list-style-type: decimal">
 <li>Create a <a href="https://github.com/">GitHub</a> account</li>
-<li>Run through the <a href="https://guides.github.com/activities/hello-world/">10 minute GitHb tutorial</a> that is offered when you activate your GitHub Account (It’ll really help you get the idea behind what Git does!)</li>
+<li>Run through the <a href="https://guides.github.com/activities/hello-world/">10 minute GitHub tutorial</a> that is offered when you activate your GitHub Account (It’ll really help you get the idea behind what Git does!)</li>
 </ol>
 <p>Now you have RStudio, R and Git installed, and you have a working GitHub account that lets you do stuff online, but what remains is to get GitHub working locally and configuring RStudio to use GitHub.</p>
 <ol start="6" style="list-style-type: decimal">
@@ -156,26 +134,26 @@ div.csl-indent {
 <li>When asked how you would like to authenticate select <code>Login with web browser</code></li>
 <li>Copy the 8-digit code and hit <code>Enter</code></li>
 <li>Github.com will open in your internet browser - paste the code and hit enter</li>
-<li>If any of these steps don’t work, just start with <code>gh auth login</code> in Terminal again</li>
+<li>If any of these steps don’t work, just start again with <code>gh auth login</code> in Terminal</li>
 </ul></li>
 </ul>
 <ol start="8" style="list-style-type: decimal">
 <li>In RStudio</li>
 </ol>
 <ul>
-<li>Go to Global Options (from the Tools menu)</li>
+<li>Go to <code>Global Options</code> (from the <code>Tools</code> menu)</li>
 <li>Click <code>Git/SVN</code></li>
 <li>Make sure <code>Enable version control interface for RStudio projects</code> is on</li>
-<li>If necessary, enter the path for your Git or SVN executable where provided</li>
+<li>If necessary, enter the path for your Git or SVN executable where provided (this shouldn’t be needed, but may)</li>
 <li>Click <code>Apply</code></li>
 <li>Restart RStudio</li>
 </ul>
-<p>Ok, now everything should be working. The next steps are to <em>fork</em> and <em>clone</em> your first repo to see if everything is working, and then to modify a file in RStudio, <em>push</em> it back to your forked repo, and then create a <em>pull request</em> for me to review and accept your changes. This let’s me know that you’ve made it through the preparation for the practical, and it gives me your GitHub username.</p>
+<p>Ok, now everything should be working. The next steps (explained below) are to <em>fork</em> and <em>clone</em> your first repo to see if everything is working, and then to modify a file in RStudio, <em>push</em> it back to your forked repo, and then create a <em>pull request</em> for me to review and accept your changes. This let’s me know that you’ve made it through the preparation for the practical, and it gives me your GitHub username.</p>
 <ol start="9" style="list-style-type: decimal">
 <li>In GitHub:</li>
 </ol>
 <ul>
-<li>Make sure you are logged in, search and navigate to <code>JasperUCT/pullltest</code></li>
+<li>Make sure you are logged in, search and navigate to <code>JasperUCT/pullltest</code> (spot the 3 “l”s!)</li>
 <li>Click <code>Fork</code>, which will make a copy of the repository to your own workspace</li>
 <li>Copy the URL to your own version and follow the instructions below for cloning the repository in RStudio</li>
 </ul>
@@ -186,21 +164,21 @@ div.csl-indent {
 <li>In the top-right of the window you’ll see <code>Project: (None)</code> - click on it and select <code>New Project</code> then <code>Version Control</code> then <code>Git</code></li>
 <li>In the <code>Repository URl:</code> box paste the URL to your forked repo (It should look something like : <code>https://github.com/YourGitHubUsername/your-forked-repo_name.git</code></li>
 <li><code>Project directory name</code> should fill automatically</li>
-<li>For <code>Create project as subdirectory of:</code> hit <code>Browse</code> and navigate through your file system to where you want to put your folder for storing your Git repositories stored. I recommend something like <code>~Documents/GIT</code> (If you’ve used Git before you may have set this already and can skip this step)</li>
+<li>For <code>Create project as subdirectory of:</code> hit <code>Browse</code> and navigate through your file system to where you want to put your folder for storing your Git repositories. I recommend something like <code>~Documents/GIT</code> (If you’ve used Git before you may have set this already and can skip this step)</li>
 <li>Click <code>Create Repository</code></li>
 </ul>
 <p>Your RStudio window should now look like this:</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:rstudiosuccess"></span>
-<img src="img/rstudiosuccess.png" alt="What you should see... **Note** there are three files in the `Files` tab in the bottom-right window, and you should see a `Git` tab for the top-right window. It also says `pulltest` in the project drop-down top-right on mine, but yours will display the name you gave your forked repo." width="90%" />
+<img src="img/rstudiosuccess.png" alt="What you should see... **Note** there are three files in the `Files` tab in the bottom-right window, and you should see a `Git` tab for the top-right window. It also says `pullltest` in the project drop-down top-right on mine, but yours will display the name you gave your forked repo." width="90%" />
 <p class="caption">
-Figure 2.1: What you should see… <strong>Note</strong> there are three files in the <code>Files</code> tab in the bottom-right window, and you should see a <code>Git</code> tab for the top-right window. It also says <code>pulltest</code> in the project drop-down top-right on mine, but yours will display the name you gave your forked repo.
+Figure 2.1: What you should see… <strong>Note</strong> there are three files in the <code>Files</code> tab in the bottom-right window, and you should see a <code>Git</code> tab for the top-right window. It also says <code>pullltest</code> in the project drop-down top-right on mine, but yours will display the name you gave your forked repo.
 </p>
 </div>
 <p><br></p>
 <ul>
 <li>Open the <code>README.md</code> file in RStudio</li>
-<li>Add your message and save the file</li>
+<li>Add your message (something like “Hi! This is <em>Real Name</em> and I’ve made it this far!!!”) and save the file</li>
 <li>Select the <code>Git</code> tab in the top-right window</li>
 <li>Check the box next to <code>README.md</code> and click <code>Commit</code></li>
 <li>Add a <code>Commit message</code> to say what changes you’ve made</li>
@@ -209,7 +187,7 @@ Figure 2.1: What you should see… <strong>Note</strong> there are three files i
 </ul>
 <p>If you get an error at this point to the effect of “You do not have permission to push to this repository,” then you may have forgotten to fork your own repo from my one and are trying to push to mine… If so, start again from step 9.</p>
 <ol start="11" style="list-style-type: decimal">
-<li>Final step!!! In GitHub</li>
+<li>Final step!!! In GitHub (i.e. online)</li>
 </ol>
 <ul>
 <li>Click <code>Pull requests</code> (top-leftish)</li>
