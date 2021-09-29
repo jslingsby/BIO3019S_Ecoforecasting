@@ -1,5 +1,15 @@
 # Models and decision making {#models}
 
+**What factors do you consider when making a decision?**
+
+```{r, echo = F}
+#knitr::include_url("https://docs.google.com/spreadsheets/d/e/1RxYCQaUkklkHyiAMPvktNsR5QhG7XhFtOBHZGn2-RIU/pubhtml?gid=665289068&amp")
+```
+
+<iframe src="https://docs.google.com/spreadsheets/d/1RxYCQaUkklkHyiAMPvktNsR5QhG7XhFtOBHZGn2-RIU/htmlembed/sheet?gid=665289068&range=B2:20" width="700" height="895" frameborder="0" marginheight="0" marginwidth="0"> </iframe>
+
+<br>
+
 ## The basics of making a decision
 
 Informing decisions typically requires knowing (or guessing at) something about the future. To this end, once a problem and the need to make a decision have been identified, the factors we consider when making that decision usually include:
@@ -40,14 +50,29 @@ knitr::include_graphics("img/decisions2.png")
 
 <br>
 
-Following a quantitative approach the "evidence" is typically empirical data, which can be fed into a model to make forecasts that can help inform the decision. The "experience" are the current state of knowledge and your prior belief, which you use to specify the type and structure of your model (or ensemble of models) and the scenario(s) you want to evaluate. The "experience" can also help you evaluate the assumptions of your model(s), and if you are using a Bayesian model, can be included directly in the model when specifying _priors_ (more on this later in the module).
+Following a quantitative approach the **"evidence"** is typically empirical **data**, which can be fed into a model to make forecasts that can help inform the decision. The **"experience"** are the **current state of knowledge and your prior belief**, which you use to specify the type and structure of your model (or ensemble of models) and the scenario(s) you want to evaluate. The "experience" can also help you evaluate the assumptions of your model(s), and, if you are using a Bayesian model, can be included directly in the model when specifying your _prior beliefs_ (more on this later in the module).
 
+```{r gettingquantitative, echo=F, message=F, fig.cap = "A hypothetical example where a model can help you make a decision. The **data** (points) are the **evidence**, while the **experience** or current state of knowledge are used to specify the model (a linear model in this case). Here the relationship between ***effort*** invested and ***reward*** is nearly 1 to 1, suggesting to the decision-maker that the more effort you invest, the more reward you will reap. That said, there is scatter around in the points around the 1:1 line, suggesting some **uncertainty**."}
+library(tidyverse)
+library(hrbrthemes)
+
+dat <- data.frame(Reward = 2:21 + rnorm(20, mean = 0, sd = 2), Effort = 2:21 + rnorm(20, mean = 0, sd = 2))
+
+dat %>%
+  ggplot(aes(x=Effort, y=Reward)) +
+    geom_point(shape=21, color="black", fill="#69b3a2", size=2) +
+    theme_ipsum() +
+  geom_smooth(method = "lm") +
+  ylim(-2,30) +
+  xlim(-2,30)
+
+```
 
 <br>
 
 ## Iterative decision-making and the scientific method
 
-Few decisions in natural resource management are once-off, and most are made repeatedly at some time-step (e.g. daily, monthly, seasonally, annually, decadally, etc). Should you burn, cull, harvest, restore, etc? While one should always evaluate the outcome of your decision, this is especially important when the decision will need to be repeated, so that you can **learn from experience**. 
+**Few decisions in natural resource management are once-off**, and most are made repeatedly at some time-step (e.g. daily, monthly, seasonally, annually, decadally, etc). Should you burn, cull, harvest, restore, etc? While one should always evaluate the outcome of your decision, this does not always happen... Evaluating the outcome is especially important when the decision will need to be repeated, so that you can **learn from experience**. 
 
 <br>
 
@@ -57,11 +82,27 @@ knitr::include_graphics("img/decisions3.png")
 
 <br>
 
-When using quantitative forecasts this can be done by collecting new data and updating your prior knowledge by evaluating the outcomes of the decision against the original model forecasts. This can tell you whether your forecast was any good and whether you need to refine or replace your model, consider additional scenarios or inputs, etc. We'll discuss doing this quantitatively in section \@ref(datafusion), by fusing your new data and knowledge into a new forecast.
+When using quantitative forecasts this can be done by collecting new data and updating your prior knowledge by evaluating the outcomes of the decision against the original model forecasts. **This can tell you whether your forecast was any good and whether you need to refine or replace your model, consider additional scenarios or inputs, etc.** We'll discuss doing this quantitatively in section \@ref(datafusion), by fusing your new data and knowledge into a new forecast.
+
+```{r iterativedecisions, echo=F, message=F, fig.cap = "Revisiting our *Effort to Reward* example, what would you do if the decision-maker decided to invest huge effort, but the next few data points looked like this?"}
+
+dat <- bind_rows(dat, data.frame(Reward = 30:37 + rnorm(8, mean = 0, sd = 2), Effort = seq(30,65,5) + rnorm(8, mean = 0, sd = 2)))
+
+dat %>%
+  ggplot(aes(x=Effort, y=Reward)) +
+    geom_point(shape=21, color="black", fill="#69b3a2", size=2) +
+    theme_ipsum() +
+  geom_abline(intercept = 0, slope = 1) +
+  ylim(-2,40) +
+  xlim(-2,70)
+
+```
 
 <!--Implementing this process quantitatively requires careful management of the data and workflow and would greatly benefit from automation (i.e. it needs to be _reproducible_).-->
 
-It's worth highlighting the similarity between the iterative decision making cycle I've outlined in Figure \@ref(fig:decisions3) and _the scientific method_, i.e.:
+<br>
+
+It's worth highlighting the similarity between the iterative decision making cycle I've outlined in Figure \@ref(fig:decisions3) and ***the scientific method***, i.e.:
 
 - _Observation > Hypothesis > Experiment > Analyze > Interpret > Report > (Repeat)_
 
@@ -73,7 +114,7 @@ knitr::include_graphics("img/scimethod.png")
 
 <br>
 
-So a focus on iterative decision-making facilitates iterative learning (i.e. scientific progress).
+**So a focus on iterative decision-making facilitates iterative learning (i.e. scientific progress).**
 
 <br>
 
@@ -81,7 +122,11 @@ So a focus on iterative decision-making facilitates iterative learning (i.e. sci
 
 > _"prediction is the only way to demonstrate scientific understanding"_ [@Houlahan2017]
 
-While this view may be slightly overstated, it is a very good point. **If we cannot make reasonably good predictions, we're missing something**. Unfortunately, prediction has not been a central focus in ecology, impeding progress in the improvement of our ecological understanding. **To make predictions we need models**, and **models provide structured summaries of our current ecological understanding** (conceptual or quantitative, but preferably quantitative, because these are easier to compare). Without making predictions and comparing the skill of new models to old ones, we can't track if we are making progress!
+While this view may be slightly overstated, it is a very good point. **If we cannot make reasonably good predictions, we're missing something**. Unfortunately, prediction has not been a central focus in ecology, impeding progress in the improvement of our ecological understanding. 
+
+In ecology we mostly  test  qualitative, imprecise hypotheses: _"Does X have an effect on Y?"_ rather than _"What is the relationship between X and Y?"_ or better yet _"What value would we expect Y to be, given a particular value of X?"_. **Without testing precise hypotheses and using the results to make _testable predictions_ we don't know if our findings are generalizable beyond the specific data set we collected.** If our results are not generalizable, then we're not really making progress towards a better understanding of ecology.
+
+<br>
 
 ```{r prediction, echo=FALSE, fig.cap = "Prediction... from [xkcd.com/2370](https://xkcd.com/2370), used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/).", fig.width=3, fig.align = 'center', out.width="75%"}
 knitr::include_graphics("img/prediction.png")
@@ -89,14 +134,14 @@ knitr::include_graphics("img/prediction.png")
 
 <br>
 
-In ecology we mostly  test  qualitative, imprecise hypotheses: _"Does X have an effect on Y?"_ rather than _"What is the relationship between X and Y?"_ or better yet _"What value would we expect Y to be, given a particular value of X?"_. **Without testing precise hypotheses and using the results to make _testable predictions_ we don't know if our findings are generalizable beyond the specific data set we collected.** If our results are not generalizable, then we're not really making progress towards a better understanding of ecology.
+**To make predictions we need models**, and **models provide structured summaries of our current ecological understanding** (conceptual or quantitative, but preferably quantitative, because these are easier to compare). Without making predictions and comparing the skill of new models to old ones, we can't track if we are making progress!
 
 A key point here is that the _predictions must be testable_! We do use a lot of models in ecology, and even use them to make predictions (e.g. species distribution models (SDMs), dynamic vegetation models (DVMs), etc), but these predictions are typically 50+ years into the future, which is way to long to wait to see if our predictions were reasonable or useful.
 
 <br>
 
 > **A quick aside on model validation vs testing predictions:** 
-Testing predictions with new data collected after you've made your predictions is the most robust way to validate a model, but you usually want to do some form of validation before you make your final predictionst o make sure the model is working reasonably well. For this we most commonly do some form of cross-validation, whereby we split the data into a "training" subset (that we use for fitting (or training) the model) and a "test" subset (that we try to predict). If your model is no good at predicting your test data, there's probably no point in making predictions into the future...
+Testing predictions with new data collected after you've made your predictions is the most robust way to validate a model, but you usually want to do some form of validation before you make your final predictions to make sure the model is working reasonably well. For this we most commonly do some form of cross-validation, whereby we split the data into a "training" subset (that we use for fitting (or training) the model) and a "test" subset (that we try to predict). If your model is no good at predicting your test data, there's probably no point in making predictions into the future...
 
 <br>
 

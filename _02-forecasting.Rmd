@@ -18,9 +18,7 @@ The management guidelines for these two use cases are currently set by "rule of 
 
 <br>
 
-Both these rules are based on the premise that the key to the persistence of Proteaceae populations is ensuring that there is a large enough seed bank present when a fire occurs for the population to recover.
-
-Do you foresee any issues with this premise?
+Both these rules are based on the **premise that maintaining seed banks are the key to the persistence of Proteaceae populations**. i.e. that there is a large enough seed bank present when a fire occurs for the population to recover.
 
 <br>
 
@@ -30,7 +28,7 @@ knitr::include_graphics("img/proteaharvesting.jpg")
 
 <br>
 
-### Demographic rates
+### Variation in demographic rates and issues with the rules of thumb
 
 Based on extensive collection of locality and demographic data by conservation authorities (CapeNature and SANParks), citizen scientists (Protea Atlas Project and iNaturalist) and researchers, we know there are many issues with these rules of thumb, illustrated in Figures \@ref(fig:protearates) and \@ref(fig:proteavariation).
 
@@ -68,9 +66,19 @@ knitr::include_graphics("img/proteavariation.jpg")
 
 <br>
 
-### Projecting population viability
+### Proteaceae as a model organisms
+
+```{r protearesearch, echo=FALSE, fig.cap = "Temporal dynamics of publications on South African Proteaceae based on a Web of Science search on 13 June 2012. Figure from @Schurr2012.", fig.width=3, fig.align = 'center', out.width="90%"}
+knitr::include_graphics("img/protearesearch.png")
+```
+
+<br>
 
 A huge benefit of the herculean Proteaceae data collection (and management) effort is that it provides all the data we need to parameterize various types of models. In fact, data on the Proteaceae have been hugely important for the global development of species distribution and demographic models (see @Schurr2012, but also many subsequent papers).
+
+<br>
+
+### Projecting population viability
 
 In the context of the current discussion, the data have also been used for things like population viability analysis under varying harvesting rates [e.g. @Treurnicht2021]. 
 
@@ -84,7 +92,31 @@ knitr::include_graphics("img/proteasensitivity2.jpg")
 
 <br>
 
-These models suggest that following the harvesting guidelines can greatly increase the probability of many populations going extinct (Figure \@ref(fig:proteasensitivity); @Treurnicht2021), but can also be used to explore population viability under changing climate, fire regimes, etc [e.g. @Merow2014] - or a combination of all of the above!
+These models suggest that following the harvesting guidelines can greatly increase the probability of many populations going extinct (Figure \@ref(fig:proteasensitivity); @Treurnicht2021). Note that they did not consider changing climate, fire regimes, etc, but this can be done [e.g. @Merow2014]!
+
+<br>
+
+### Changes in demographic rates and distribution shifts
+
+@Merow2014 developed a "Demographic Distribution Model" whereby they used spatial covariation between demographic rates and environmental conditions to infer where the species can maintain positive population growth rates under current and future climate conditions.
+
+<br>
+
+```{r merow2014vitalrates, echo=FALSE, fig.cap = "Estimated vital rates of _Protea repens_ across the CFR. Figure from @Merow2014.", fig.width=3, fig.align = 'center', out.width="80%"}
+knitr::include_graphics("img/merow2014vitalrates.jpg")
+```
+
+<br>
+
+Population growth rates were determined by modelling the individual demographic rates 
+
+> Explain IPMs...
+
+<br>
+
+```{r merow2014projections, echo=FALSE, fig.cap = "Projections of the change in population growth rates of _Protea repens_ under different scenarios. (a–b) Reducing (increasing) the observed fire return time by 4 yr. (c) Variation of mean population growth rate as a function of fire return time. The horizontal dashed line indicates where the growth rate = 1. (d) The difference between present day predictions and projections under future climate change scenario with temperature increased by 1 degree and precipitation reduced by 10%. Figure from @Merow2014.", fig.width=3, fig.align = 'center', out.width="90%"}
+knitr::include_graphics("img/merow2014projections.jpg")
+```
 
 <br>
 
