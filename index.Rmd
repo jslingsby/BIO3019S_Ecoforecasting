@@ -20,14 +20,15 @@ _This module is a minimal introduction to Ecological Forecasting and Reproducibl
 
 I provide a very brief introduction to the framework for Ecological Forecasting. We only have a two weeks, so this really is a minimalist introduction. I'll focus on providing a broad overview of the general framework and motivation for ecological forecasting, but won't have time to delve into the more gory theoretical and statistical details. I mostly use Ecological Forecasting as a framework to highlight various themes and principles that are increasingly important for quantitative biologists - understanding how we inform or make decisions; managing data; working reproducibly; propagating, understanding and reducing uncertainty, etc. 
 
-Unfortunately, not all of this is fun and exciting, but as I said, it is important stuff for quantitative biologists to know. I'll try my best to make it interesting! Hopefully by the end of the module you'll see the value in it all - both for you as an individual and for science and society in general.
+Not all of this is fun and exciting, but as I said, it is important stuff for quantitative biologists to know. I'll try my best to make it interesting! Hopefully by the end of the module you'll see the value in it all - both for you as an individual and for science and society in general.
 
-The core outcomes/concepts I hope you'll come away with:
+**The core outcomes/concepts I hope you'll come away with:**
 
 * To be able to situate the role of models and the importance of forecasting in science and ecological decision making
 * Familiarity with the concepts and understand the need for Open, Reproducible Science
 * Familiarity with The Data Life Cycle
-* Familiarity with value and flexibility of Bayesian statistical methods
+* Familiarity with the value and flexibility of Bayesian statistical methods
+* Some familiarity with sources of uncertainty and the need to characterize, propagate, analyze, reduce and present uncertainties when forecasting
 
 <br>
 
@@ -35,13 +36,17 @@ The core outcomes/concepts I hope you'll come away with:
 
 **Lectures** 
 
-Lectures will be held live, but online 12:00 - 12:45 from the 30th September to the 13th October. The zoom link (see Vula) should stay the same for all lecture sessions. 
+Lectures will be held live, but online 12:00 - 12:45 from the 30th September to the 13th October. The Zoom link (see Vula) should stay the same for all lecture sessions.
+
+I'll be adding to (and mostly teaching from) these online course notes as we go along.
 
 <br>
 
 **Practicals**
 
-There is only one practical for this module, 2-5PM on Tuesday the 5th October. 
+There is only one practical for this module, 2-5PM on Tuesday the 5th October. There is a separate Zoom link (see Vula). 
+
+Your report on th practical will be ***due on Friday, 8 October, 11AM*** - You will be evaluated on how well you completed the Github task during the prac and your answers to a short set of questions about the analyses. Answering the questions shouldn't take more than half an hour. **Note that we will be covering most of the questions in the lecture on Friday, so if you haven't submitted your report by 11AM on Friday you will get zero for those questions!**
 
 <br>
 
@@ -55,7 +60,7 @@ There is only one practical for this module, 2-5PM on Tuesday the 5th October.
 
 <br>
 
-- **You are expected to read [@Dietze2018] for Monday the 4th Octtober.** You can download it [here](http://dx.doi.org/10.1073/pnas.1710231115).
+- **You are expected to read @Dietze2018 for Monday the 4th October.** You can download it [here](http://dx.doi.org/10.1073/pnas.1710231115).
 
 <br>
 
@@ -63,24 +68,23 @@ There is only one practical for this module, 2-5PM on Tuesday the 5th October.
 
 You need to install and set up RStudio and Github and test your setup. You can find the 11-step instructions in section \@ref(pracprep). This may be a bit tedious, but there's no other option really. I've done my best to make it as painless as possible. It should take you about an hour if all goes well... (less if you have R and RStudio installed already).
 
-PLEASE DO THE SETUP THIS WEEK!!! I will check in on Monday to see if people are having issues...
+**PLEASE DO THE SETUP THIS WEEK!!!** I will check in on Monday to see if people are having issues, but don't expect my help if you haven't tried by yourself first. Trust me, I will be able to tell...
 
 <br>
 
 ## A bit about me
 
-I'm an ecologist who has become more quantitative through time, but has little formal training in quantitative methods (i.e. I've learnt by doing over the past 20 years). As such, I will make elementary mistakes. In fact, the entry requirements for this course are beyond my formal training, so you may have much to teach me! If you spot any errors, confusion or contradictions, please let me know and I'll get back to you and/or update the course notes accordingly. Hopefully by the end of the course you can suggest changes directly using [pull requests](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to the [GitHub repository](https://github.com/jslingsby/BIO3019S_Ecoforecasting) for the course notes.
+I'm an ecologist who has become more quantitative through time, but has little formal training in quantitative methods (i.e. I've learnt by doing over the past 20 years). As such, I still make elementary mistakes. In fact, the entry requirements for this course are beyond my formal training, so you may have much to teach me! If you spot any errors, confusion or contradictions, please let me know and I'll get back to you and/or update the course notes accordingly. Hopefully by the end of the course you can suggest changes directly using [pull requests](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to the [GitHub repository](https://github.com/jslingsby/BIO3019S_Ecoforecasting) for the course notes.
 
 <br>
 
 ## Acknowledgements and further reading:
 
-_Many of the following resources were instrumental in me pulling this material together and are worth spending time exploring_
+_The following resources were instrumental in me pulling this material together and are worth spending time exploring. I cite my sources throughout the course notes, so check out the references at the end of each section and the end of the course notes for more._
 
 * [ecoforecast.org](https://ecoforecast.org/)
 * Dietze, Michael C. 2017. Ecological Forecasting. Princeton University Press. https://doi.org/10.2307/j.ctvc7796h.
 * Dietze, Michael C. et al. 2018. “Iterative near-Term Ecological Forecasting: Needs, Opportunities, and Challenges.” Proceedings of the National Academy of Sciences of the United States of America 115 (7): 1424–32. https://doi.org/10.1073/pnas.1710231115.
-* 
 
 <br>
 

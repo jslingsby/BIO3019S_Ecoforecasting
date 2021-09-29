@@ -1,0 +1,85 @@
+# Preparation for the practical {#pracprep}
+
+For the practical, we'll be using the [R](https://cran.r-project.org/) statistical programming language and the [Git](https://git-scm.com/) version control system. We'll also be using an [integrated development environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment) for each: [RStudio](https://www.rstudio.com) and [GitHub](https://github.com/), respectively.
+
+The installation and setup can be a bit long-winded, but once done you should be good to go until you change or reformat your computer. The steps below are my summary and (hopefully) more intuitive adaptation of the instructions provided for setting up [GitHub](https://docs.github.com/en/get-started/quickstart/set-up-git?email_source=welcome) and [version control with R](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN). If my steps don't work its probably best to read up there.
+
+<br>
+
+First we'll start with the necessary software. 
+
+1. Download and install the ***latest*** version of [R](https://cran.r-project.org/)
+2. Download and install the ***latest*** free version of [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/)
+3. Download and install the latest version of [Git](https://git-scm.com/) - **accept all the defaults**
+
+Then get started with GitHub:
+
+4. Create a [GitHub](https://github.com/) account
+5. Run through the [10 minute GitHb tutorial](https://guides.github.com/activities/hello-world/) that is offered when you activate your GitHub Account (It'll really help you get the idea behind what Git does!)
+
+Now you have RStudio, R and Git installed, and you have a working GitHub account that lets you do stuff online, but what remains is to get GitHub working locally and configuring RStudio to use GitHub.
+
+6. Install [GitHub CLI](https://github.com/cli/cli#installation) (Command Line Interface). For Windows you can download the installer [here](https://cli.github.com/)
+7. Open RStudio. 
+- Select the `Terminal` tab (top left, next to `Console`)
+- Enter `gh auth login`, then follow the prompts:
+  - Select `GitHub.com`
+  - When prompted for your preferred protocol for Git operations, select `HTTPS`
+  - When asked if you would like to authenticate to Git with your GitHub credentials, enter `Y`
+  - When asked how you would like to authenticate select `Login with web browser`
+  - Copy the 8-digit code and hit `Enter`
+  - Github.com will open in your internet browser - paste the code and hit enter
+  - If any of these steps don't work, just start with `gh auth login` in Terminal again
+8. In RStudio
+- Go to Global Options (from the Tools menu)
+- Click `Git/SVN`
+- Make sure `Enable version control interface for RStudio projects` is on
+- If necessary, enter the path for your Git or SVN executable where provided
+- Click `Apply`
+- Restart RStudio
+
+Ok, now everything should be working. The next steps are to _fork_ and _clone_ your first repo to see if everything is working, and then to modify a file in RStudio, _push_ it back to your forked repo, and then create a _pull request_ for me to review and accept your changes. This let's me know that you've made it through the preparation for the practical, and it gives me your GitHub username.
+
+9. In GitHub:
+- Make sure you are logged in, search and navigate to `JasperUCT/pullltest` 
+- Click `Fork`, which will make a copy of the repository to your own workspace
+- Copy the URL to your own version and follow the instructions below for cloning the repository in RStudio
+
+10. In RStudio:
+- In the top-right of the window you'll see `Project: (None)` - click on it and select `New Project` then `Version Control` then `Git`
+- In the `Repository URl:` box paste the URL to your forked repo (It should look something like : `https://github.com/YourGitHubUsername/your-forked-repo_name.git`
+- `Project directory name` should fill automatically
+- For `Create project as subdirectory of:` hit `Browse` and navigate through your file system to where you want to put your folder for storing your Git repositories stored. I recommend something like `~Documents/GIT` (If you've used Git before you may have set this already and can skip this step)
+- Click `Create Repository`
+
+Your RStudio window should now look like this:
+
+<br>
+
+```{r rstudiosuccess, echo=FALSE, fig.cap = "What you should see... **Note** there are three files in the `Files` tab in the bottom-right window, and you should see a `Git` tab for the top-right window. It also says `pulltest` in the project drop-down top-right on mine, but yours will display the name you gave your forked repo.", fig.width=3, fig.align = 'center', out.width="90%"}
+knitr::include_graphics("img/rstudiosuccess.png")
+```
+
+<br>
+
+- Open the `README.md` file in RStudio
+- Add your message and save the file
+- Select the `Git` tab in the top-right window
+- Check the box next to `README.md` and click `Commit`
+- Add a `Commit message` to say what changes you've made
+- Then hit `Push`
+- It will ask you to authenticate. Select `Authenticate in your web browser`. The web browser will ask you to give Git permissions. Allow the permissions and it should work.
+
+If you get an error at this point to the effect of "You do not have permission to push to this repository", then you may have forgotten to fork your own repo from my one and are trying to push to mine... If so, start again from step 9.
+
+11. Final step!!! In GitHub
+- Click `Pull requests` (top-leftish)
+- Click `New pull request` (green, top-right)
+- Click `Create pull request` (green, top-right)
+  - It should already be on this repo unless you've been doing other things in Git
+- In the comment window put your name so I know who you are if it isn't obvious from your GitHub username
+- Click `Create pull request` (green, bottom-right)
+
+And you're done!!! I'll get a notification of your pull request and, if all's in order, I'll accept it. If not, I'll reply with a comment on the pull request. You should receive a notification via the email you registered with your GitHub account.
+
+<br>
