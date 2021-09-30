@@ -177,6 +177,8 @@ Using **common metadata schemas has many advantages** in that they make data sha
 
 There are [many standards](https://www.dcc.ac.uk/guidance/standards/metadata/list), but perhaps the most common ones you'll encounter in biological sciences (other than geospatial metadata standards) are [DarwinCore](https://www.tdwg.org/standards/dwc/) and [Ecological Metadata Language (EML)](https://knb.ecoinformatics.org/tools/eml).
 
+There's even [new standards for documenting ecological forecasts](https://projects.ecoforecast.org/EFIstandards/index.html)!
+
 <br>
 
 ```{r stacspec, echo=FALSE, fig.cap = "SpatioTemporal Asset Catalogs [(STAC; stacspec.org)](https://stacspec.org/) aims to provide a common specification to enable online search and discovery of geospatial assets in just about any format.", fig.width=3, fig.align = 'center', out.width="100%"}

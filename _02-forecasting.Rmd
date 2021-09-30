@@ -1,24 +1,76 @@
 # Making forecasts {#forecasts}
 
-We've got this far, and yet you haven't stopped me and asked _"What are ecological forecasts?"_ or _"Where are we going with all this?"_ The focus of this section is to provide some context with examples of what I believe are some forecasting needs or opportunities in the Fynbos Biome. These examples should hopefully also help provide practical context for some of the issues we'll address in the rest of the module.
+You're probably wondering _"What are ecological forecasts?"_ or _"Where are we going with all this?"_ The focus of this section is to provide some context with an example of what I believe is one forecasting need and opportunity in the Fynbos Biome. I was going to give 3 examples, but rapidly realized it would be too long a lecture. I'll be using the other examples to illustrate various principles in later lectures, but hopefully this example will provide some practical context for some of the issues we'll address in the rest of the module.
 
-> **Note:** These examples have not yet been developed into full _near-term iterative ecological forecasts_ sensu Dietze et al (2018). I also don't think they necessarily have to get all the way there to be useful. Think of it as an "ecological forecasting spectrum" where the gold standard is fully developed and automated near-term iterative ecological forecasts.
-
-## Protea demography
-
-The demography of species in the Proteaceae is used for the management of Fynbos in two ways:
-
-- Firstly, at the ecosystem level, to help determine **acceptable fire return intervals**
-- Secondly, at the species level, for setting guidelines for **sustainable wild harvesting** of Proteaceae inflorescences
-
-The management guidelines for these two use cases are currently set by "rule of thumb"^[https://en.wikipedia.org/wiki/Rule_of_thumb]:
-
-> 1. _"No fire should be permitted in fynbos until at least 50% of the population of the slowest-maturing species in an area have flowered for at least three successive seasons (or at least 90% of the individuals of the slowest maturing species in the area have flowered and produced seed). Similarly, a fire is probably not necessary unless a third or more of the plants of these slow-maturing species are senescent (i.e. dying or no longer producing flowers and seed)." [@CapeNatureFire]_
-> 2. _"[There should be no] harvesting until at least 50% of the population had commenced flowering, a harvest of up to 50% of current season flower heads after this stage, and no harvesting at least one year prior to a prescribed burn" [@vanWilgen2016]_
+> **Note:** This example has not yet been developed into full _near-term iterative ecological forecasts_ sensu Dietze et al (2018). I also don't think they necessarily have to get all the way there to be useful. Think of it as an "ecological forecasting spectrum" where the gold standard is fully developed and automated near-term iterative ecological forecasts.
 
 <br>
 
-Both these rules are based on the **premise that maintaining seed banks are the key to the persistence of Proteaceae populations**. i.e. that there is a large enough seed bank present when a fire occurs for the population to recover.
+```{r dietze2018F1, echo=FALSE, fig.cap = "Conceptual relationships between iterative ecological forecasting, adaptive decision-making, adaptive monitoring, and the scientific method cycles [@Dietze2018].", fig.width=3, fig.align = 'center'}
+knitr::include_graphics("img/dietze2018_F1.jpg")
+```
+
+<br>
+
+I'll start with a reminder that the goal here is to focus the forecasting effort on an **applied real-world problem** and to do so in a manner that allows us to **learn and improve our scientific understanding** of the system.
+
+<br>
+
+```{r proteacynaroides, echo=FALSE, fig.cap = "", fig.width=3, fig.align = 'center', out.width="90%"}
+knitr::include_graphics("img/cynaroideslive.jpg")
+```
+
+## Proteaceae as a model organisms
+
+The Proteaceae are probably the **best studied and understood plant family in the Fynbos Biome**. They have been the focus of a number of large, focused research programmes and are used as indicator species for various conservation management applications. There has been **extensive locality and demographic data** have been collected by conservation authorities (CapeNature and SANParks), citizen scientists (Protea Atlas Project and iNaturalist) and researchers since the late 1970s and before, and this is reflected in the large (and growing) scientific literature on the family.
+
+<br>
+
+```{r protearesearch, echo=FALSE, fig.cap = "Temporal dynamics of publications on South African Proteaceae based on a Web of Science search on 13 June 2012. Figure from @Schurr2012.", fig.width=3, fig.align = 'center', out.width="90%"}
+knitr::include_graphics("img/protearesearch.png")
+```
+
+<br>
+
+A huge benefit of the herculean Proteaceae data collection (and management) effort is that it provides **all the data we need to parameterize various types of models**. In fact, data on the Proteaceae have been hugely important for the global development of species distribution and demographic models (see @Schurr2012, but also many subsequent papers).
+
+Because they are the best-studied group of plants in the Fynbos, they are heavily-utilized for informing conservation planning, management and monitoring. Some examples include informing:
+
+- protected area planning
+- wildfire management
+- wildflower harvesting
+- climate change monitoring
+- I'm sure there are others I've forgotten...
+
+<br>
+
+## Proteaceae as management indicators
+
+Our knowledge of the demography of the Proteaceae is used for the direct management of Fynbos in two ways:
+
+- Firstly, at the _species level_, for setting guidelines for **sustainable wild harvesting** of their inflorescences
+- Secondly, at the _ecosystem level_, to help determine **acceptable fire return intervals**
+
+The management guidelines for these two use cases are currently set by "rule of thumb"^[https://en.wikipedia.org/wiki/Rule_of_thumb]:
+
+> 1. _"[There should be no] harvesting until at least 50% of the population had commenced flowering, a harvest of up to 50% of current season flower heads after this stage, and no harvesting at least one year prior to a prescribed burn" [@vanWilgen2016]_
+> 2. _"No fire should be permitted in fynbos until at least 50% of the population of the slowest-maturing species in an area have flowered for at least three successive seasons (or at least 90% of the individuals of the slowest maturing species in the area have flowered and produced seed). Similarly, a fire is probably not necessary unless a third or more of the plants of these slow-maturing species are senescent (i.e. dying or no longer producing flowers and seed)." [@CapeNatureFire]_
+
+<br>
+
+Both these rules are based on the **premise that maintaining seed banks is the key to the persistence of Proteaceae populations**. i.e. that there is a large enough seed bank present when a fire occurs for the population to recover.
+
+But is focusing on seeds alone reasonable? And if so, do the thresholds in the guidelines allow for enough seed?
+
+<br>
+
+## Protea demography and issues with the rules of thumb
+
+**First a quick refresher on Proteaceae life cycles and demography:**
+
+```{r proteacones, echo=FALSE, fig.cap = "*Protea cynaroides* on Table Mountain showing current inflorescences and older (grey), closed cones that protect seeds from fire and release them into the post-fire environment.", fig.width=3, fig.align = 'center', out.width="80%"}
+knitr::include_graphics("img/proteacones.jpeg")
+```
 
 <br>
 
@@ -28,9 +80,9 @@ knitr::include_graphics("img/proteaharvesting.jpg")
 
 <br>
 
-### Variation in demographic rates and issues with the rules of thumb
+Figure \@ref(fig:protearates) presents extensive field data for 26 Proteaceae species from @Treurnicht2016. 
 
-Based on extensive collection of locality and demographic data by conservation authorities (CapeNature and SANParks), citizen scientists (Protea Atlas Project and iNaturalist) and researchers, we know there are many issues with these rules of thumb, illustrated in Figures \@ref(fig:protearates) and \@ref(fig:proteavariation).
+What issues might these data suggest for the rules of thumb?
 
 <br>
 
@@ -54,6 +106,8 @@ These issues include:
 
 <br>
 
+Figure \@ref(fig:proteavariation) present variation within one species that suggests more issues...
+
 ```{r proteavariation, echo=FALSE, fig.cap = "Intraspecific variation in (a) fecundity and (b) recruitment in response to range-wide variation in fire return interval (time since fire), adult population density and soil moisture stress (% days with soil moisture stress) for *Protea punctata* [@Treurnicht2016].", fig.width=3, fig.align = 'center', out.width="80%"}
 knitr::include_graphics("img/proteavariation.jpg")
 ```
@@ -66,21 +120,9 @@ knitr::include_graphics("img/proteavariation.jpg")
 
 <br>
 
-### Proteaceae as a model organisms
+## Assessing population viability
 
-```{r protearesearch, echo=FALSE, fig.cap = "Temporal dynamics of publications on South African Proteaceae based on a Web of Science search on 13 June 2012. Figure from @Schurr2012.", fig.width=3, fig.align = 'center', out.width="90%"}
-knitr::include_graphics("img/protearesearch.png")
-```
-
-<br>
-
-A huge benefit of the herculean Proteaceae data collection (and management) effort is that it provides all the data we need to parameterize various types of models. In fact, data on the Proteaceae have been hugely important for the global development of species distribution and demographic models (see @Schurr2012, but also many subsequent papers).
-
-<br>
-
-### Projecting population viability
-
-In the context of the current discussion, the data have also been used for things like population viability analysis under varying harvesting rates [e.g. @Treurnicht2021]. 
+Fortunately, we can address these issues by using the data in demographic models to perform population viability analysis under varying harvesting rates [e.g. @Treurnicht2021]. 
 
 ```{r, echo=FALSE}
 knitr::include_graphics("img/proteasensitivity.jpg")
@@ -92,13 +134,25 @@ knitr::include_graphics("img/proteasensitivity2.jpg")
 
 <br>
 
-These models suggest that following the harvesting guidelines can greatly increase the probability of many populations going extinct (Figure \@ref(fig:proteasensitivity); @Treurnicht2021). Note that they did not consider changing climate, fire regimes, etc, but this can be done [e.g. @Merow2014]!
+These models suggest that following **the current harvesting guidelines can greatly increase the probability of many populations going extinct** (Figure \@ref(fig:proteasensitivity); @Treurnicht2021), and that they would threaten a large portion of populations for some species, including the most commercially valuable ones!
+
+But is that enough? So what should the harvesting guidelines be? Are we sure they would be effective and what if there are "ecological surprises" that make them inappropriate? For example, @Treurnicht2021 did not consider changing climate or fire regimes? Should we just ban wildflower harvesting altogether to be safe?
+
+While it isn't a huge industry, a ban would be undesirable for a number of reasons:
+
+- many livelihoods depend on wildflower harvesting, often among the very poor
+- while some species are targeted and may decline as a result, at least it's still Fynbos. Removing the option to earn from that land would risk forcing the landowner to consider more destructive land use activities or potentially convert it to other land cover types
+- while some species may struggle under the existing guidelines, others are largely unaffected
+
+What we really need is ongoing monitoring and updated forecasts that respond and adjust the guidelines to allow sustainable harvesting while not threatening the species. Ideally, these forecasts would include the impacts of changing climate and fire.
 
 <br>
 
-### Changes in demographic rates and distribution shifts
+## Climate and fire-driven changes in demographic rates and distribution
 
-@Merow2014 developed a "Demographic Distribution Model" whereby they used spatial covariation between demographic rates and environmental conditions to infer where the species can maintain positive population growth rates under current and future climate conditions.
+@Merow2014 developed a "Demographic Distribution Model" whereby they used spatial covariation between demographic rates and environmental conditions to infer where the species can maintain positive population growth rates under current and future climate and fire conditions.
+
+> **Interesting side note**: This analysis used _integral projection models_ (IPMs), which you can think of as the "next generation" of the Leslie matrix model that you will be familiar with. In IPMs the state variable is size (not age) and there are far more classes (i.e. rows and columns in the "matrix"). The (very oversimplified explanation of) the advantage of this is that you can build regression models for the vital rates as a function of plant size and environmental parameters and then relate those back to your transition matrix. This allows you to explore the effect of spatial covariates (climate, soil, fire, etc) on demographic rates, which would be very difficult to do if you only had a few size classes. This also allow you to make projections for different conditions, allowing you to explorethe effetcs of climate change, altered fire regimes, etc.
 
 <br>
 
@@ -108,9 +162,17 @@ knitr::include_graphics("img/merow2014vitalrates.jpg")
 
 <br>
 
-Population growth rates were determined by modelling the individual demographic rates 
+They modeled the species' individual vital rates as a function of environmental variation across its range (Figure \@ref(fig:merow2014vitalrates)) and then combined them to estimate the population growth rates $\lambda$ per pixel. This provided an indication of where the population should remain stable or increase ($\lambda>1$) or decline and go extinct ($\lambda<1$), and was used as a threshold to map the species' distribution (Figure \@ref(fig:merow2014lambda)).
 
-> Explain IPMs...
+<br>
+
+```{r merow2014lambda, echo=FALSE, fig.cap = "Model evaluation of the predicted population growth rate ($\\lambda$) and distribution of _Protea repens_ across the CFR. (a) Mean $\\lambda$ and (b) interquartile range of $\\lambda$. (c–d) Evaluation of (a) using presence/absence data. (e) Posterior probability that $\\lambda$ > 1, representing a viable population. (f) Evaluation of (a) using ordinal abundance data. Figure from @Merow2014.", fig.width=3, fig.align = 'center', out.width="90%"}
+knitr::include_graphics("img/merow2014lambda.jpg")
+```
+
+<br>
+
+Once they'd done this validation and established that the model worked reasonably well they were able to do projections under altered fire regimes or climate conditions (Figure \@ref(fig:merow2014projections)).
 
 <br>
 
@@ -120,22 +182,38 @@ knitr::include_graphics("img/merow2014projections.jpg")
 
 <br>
 
-### Near-term iterative ecological forecasts
+There's a lot of interesting spatial variation in the species' expected response to changing conditions! The beauty of this analysis is that it:
 
-While the work by @Merow2014, @Treurnicht2021 and others represent ecological forecasts, they are usually either not specific about when they are forecasting to (e.g. @Treurnicht2021 ran their models to estimate extinction probabilities over 100 years in response to different harvesting regimes), or they are too far into the future to be amenable to iterative assessment, learning and updating (e.g. @Merow2014 project to 2050).
+a. can tell us where we are most likely to see a negative response 
+b. can break that response down into its component vital rates - i.e. growth, seed production (fecundity), survival, etc - which are all things that are relatively easy to monitor!
 
-To adapt these into near-term iterative ecological forecasts requires:
+<br>
 
-- Making the forecasts more **near-term**
-  - e.g. a range of scenarios 5-10 years into the future, or 1-2 years into the next fire cycle
-- Setting up formalized **data collection and management** systems to feed data back into the modelling workflow
-  - i.e. coordinating and guiding the efforts of citizen scientists, conservation authorities, etc.
-- Adapting the models and workflow to be able to ingest and **assimilate new data and produce new forecasts automatically**
-- Make sure that the models adequately **characterize and propagate uncertainty** throughout the analyses
+## Near-term iterative ecological forecasts?
+
+```{r ecoforecastingloop2, echo=FALSE, fig.cap = "The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From [lecture on data assimilation by Michael Dietze](https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0). (Please excuse that the colours of the distributions have changed from above...).", fig.width=3, fig.align = 'center', out.width="70%"}
+knitr::include_graphics("img/ecoforecastingloop.png")
+```
+
+<br>
+
+While the work by @Merow2014, @Treurnicht2021 and others represent ecological forecasts, they currently aren't iterative, so we are missing the opportunity to learn and refine the models. This also means that we're not feeding up-to-date information to planners and decision makers.
+
+**Firstly,** they are either not specific about when they are forecasting to (e.g. @Treurnicht2021 ran their models to estimate extinction probabilities over 100 years in response to different harvesting regimes), or they are too far into the future to be amenable to iterative assessment, learning and updating (e.g. @Merow2014 project to 2050). We need to make the forecasts **near-term**, such as a range of scenarios 5-10 years into the future, or 1-2 years into the next fire cycle.
+
+**Secondly,** while various parties hold various datasets, we need to **coordinate data collection** among citizen scientists, conservation authorities, scientists, etc and **centralize data management** so that it can feed data back into the modelling workflow.
+
+**Thirdly,** we need to adapt the models and workflow to be able to **ingest and assimilate new data** and produce new **forecasts automatically**.
+
+**Lastly,** we need to make sure that the models adequately **characterize and propagate uncertainty** throughout the analyses so that we can focus data collection and model development to reduce the uncertainty in forecasts. Fortunately, the models are built in a **Bayesian framework** and already do a pretty good job of handling uncertainty.
 
 Clearly, while huge effort has been invested into the demography of Proteaceae, and they are likely to be one of the lowest hanging fruit for development into near-term iterative ecological forecasts, there is a lot more work to be done! Still, the history of productive research on Proteaceae shows it would clearly be worth the effort, and we already have decades of data that allow us to learn by backcasting or forecasting from old to more recently collected data. Even if early forecasts are woefully wrong, they will help us learn and improve.
 
 > "The need to start forecasting is now; the time for making ecology more predictive is here, and learning by doing is the fastest route to drive the science forward." - @Dietze2018
+
+<br>
+
+<br>
 
 <br>
 
