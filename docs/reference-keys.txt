@@ -1,4 +1,14 @@
 fig:rstudiosuccess
+fig:decisions1
+fig:decisions2
+fig:gettingquantitative
+fig:decisions3
+fig:iterativedecisions
+fig:scimethod
+fig:prediction
+fig:ecoforecastingloop
+fig:dietze2018F1
+fig:olympiangoal
 overview
 general
 lectures-and-practicals
@@ -6,3 +16,12 @@ preparation
 a-bit-about-me
 acknowledgements-and-further-reading
 pracprep
+models
+the-basics-of-making-a-decision
+getting-quantitative
+iterative-decision-making
+iterative-decision-making-and-the-scientific-method
+the-importance-of-prediction-in-ecology
+iterative-near-term-ecological-forecasting
+iterative-ecological-forecasting-in-context
+reproducible-research

@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-09-29" />
+<meta name="date" content="2021-09-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="pracprep.html"/>
-<link rel="next" href="forecasts.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -108,22 +108,12 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="3.1" data-path="models.html"><a href="models.html#the-basics-of-making-a-decision"><i class="fa fa-check"></i><b>3.1</b> The basics of making a decision</a></li>
 <li class="chapter" data-level="3.2" data-path="models.html"><a href="models.html#getting-quantitative"><i class="fa fa-check"></i><b>3.2</b> Getting quantitative</a></li>
-<li class="chapter" data-level="3.3" data-path="models.html"><a href="models.html#iterative-decision-making-and-the-scientific-method"><i class="fa fa-check"></i><b>3.3</b> Iterative decision-making and the scientific method</a></li>
-<li class="chapter" data-level="3.4" data-path="models.html"><a href="models.html#the-importance-of-prediction-in-ecology"><i class="fa fa-check"></i><b>3.4</b> The importance of prediction in ecology</a></li>
-<li class="chapter" data-level="3.5" data-path="models.html"><a href="models.html#near-term-iterative-ecological-forecasting"><i class="fa fa-check"></i><b>3.5</b> Near-term iterative ecological forecasting</a></li>
-<li class="chapter" data-level="3.6" data-path="models.html"><a href="models.html#reproducible-research"><i class="fa fa-check"></i><b>3.6</b> Reproducible research</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="forecasts.html"><a href="forecasts.html"><i class="fa fa-check"></i><b>4</b> Making forecasts</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="forecasts.html"><a href="forecasts.html#protea-demography"><i class="fa fa-check"></i><b>4.1</b> Protea demography</a>
-<ul>
-<li class="chapter" data-level="4.1.1" data-path="forecasts.html"><a href="forecasts.html#variation-in-demographic-rates-and-issues-with-the-rules-of-thumb"><i class="fa fa-check"></i><b>4.1.1</b> Variation in demographic rates and issues with the rules of thumb</a></li>
-<li class="chapter" data-level="4.1.2" data-path="forecasts.html"><a href="forecasts.html#proteaceae-as-a-model-organisms"><i class="fa fa-check"></i><b>4.1.2</b> Proteaceae as a model organisms</a></li>
-<li class="chapter" data-level="4.1.3" data-path="forecasts.html"><a href="forecasts.html#projecting-population-viability"><i class="fa fa-check"></i><b>4.1.3</b> Projecting population viability</a></li>
-<li class="chapter" data-level="4.1.4" data-path="forecasts.html"><a href="forecasts.html#near-term-iterative-ecological-forecasts"><i class="fa fa-check"></i><b>4.1.4</b> Near-term iterative ecological forecasts</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="forecasts.html"><a href="forecasts.html#post-fire-recovery-trajectories"><i class="fa fa-check"></i><b>4.2</b> Post-fire recovery trajectories</a></li>
-<li class="chapter" data-level="4.3" data-path="forecasts.html"><a href="forecasts.html#impacts-of-iaps-on-runoff"><i class="fa fa-check"></i><b>4.3</b> Impacts of IAPs on runoff</a></li>
+<li class="chapter" data-level="3.3" data-path="models.html"><a href="models.html#iterative-decision-making"><i class="fa fa-check"></i><b>3.3</b> Iterative decision-making</a></li>
+<li class="chapter" data-level="3.4" data-path="models.html"><a href="models.html#iterative-decision-making-and-the-scientific-method"><i class="fa fa-check"></i><b>3.4</b> Iterative decision-making and the scientific method</a></li>
+<li class="chapter" data-level="3.5" data-path="models.html"><a href="models.html#the-importance-of-prediction-in-ecology"><i class="fa fa-check"></i><b>3.5</b> The importance of prediction in ecology</a></li>
+<li class="chapter" data-level="3.6" data-path="models.html"><a href="models.html#iterative-near-term-ecological-forecasting"><i class="fa fa-check"></i><b>3.6</b> Iterative near-term ecological forecasting</a></li>
+<li class="chapter" data-level="3.7" data-path="models.html"><a href="models.html#iterative-ecological-forecasting-in-context"><i class="fa fa-check"></i><b>3.7</b> Iterative ecological forecasting in context</a></li>
+<li class="chapter" data-level="3.8" data-path="models.html"><a href="models.html#reproducible-research"><i class="fa fa-check"></i><b>3.8</b> Reproducible research</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -190,8 +180,6 @@ Figure 3.2: Using models and data when making a decision.
 </div>
 <p><br></p>
 <p>Following a quantitative approach the <strong>“evidence”</strong> is typically empirical <strong>data</strong>, which can be fed into a model to make forecasts that can help inform the decision. The <strong>“experience”</strong> are the <strong>current state of knowledge and your prior belief</strong>, which you use to specify the type and structure of your model (or ensemble of models) and the scenario(s) you want to evaluate. The “experience” can also help you evaluate the assumptions of your model(s), and, if you are using a Bayesian model, can be included directly in the model when specifying your <em>prior beliefs</em> (more on this later in the module).</p>
-<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
 <div class="figure"><span id="fig:gettingquantitative"></span>
 <img src="BIO3019S-Ecoforecasting_files/figure-html/gettingquantitative-1.png" alt="A hypothetical example where a model can help you make a decision. The **data** (points) are the **evidence**, while the **experience** or current state of knowledge are used to specify the model (a linear model in this case). Here the relationship between ***effort*** invested and ***reward*** is nearly 1 to 1, suggesting to the decision-maker that the more effort you invest, the more reward you will reap. That said, there is scatter around in the points around the 1:1 line, suggesting some **uncertainty**." width="672" />
 <p class="caption">
@@ -200,8 +188,8 @@ Figure 3.3: A hypothetical example where a model can help you make a decision. T
 </div>
 <p><br></p>
 </div>
-<div id="iterative-decision-making-and-the-scientific-method" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Iterative decision-making and the scientific method</h2>
+<div id="iterative-decision-making" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Iterative decision-making</h2>
 <p><strong>Few decisions in natural resource management are once-off</strong>, and most are made repeatedly at some time-step (e.g. daily, monthly, seasonally, annually, decadally, etc). Should you burn, cull, harvest, restore, etc? While one should always evaluate the outcome of your decision, this does not always happen… Evaluating the outcome is especially important when the decision will need to be repeated, so that you can <strong>learn from experience</strong>.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:decisions3"></span>
@@ -212,7 +200,6 @@ Figure 3.4: Iterative decision making.
 </div>
 <p><br></p>
 <p>When using quantitative forecasts this can be done by collecting new data and updating your prior knowledge by evaluating the outcomes of the decision against the original model forecasts. <strong>This can tell you whether your forecast was any good and whether you need to refine or replace your model, consider additional scenarios or inputs, etc.</strong> We’ll discuss doing this quantitatively in section <a href="#datafusion"><strong>??</strong></a>, by fusing your new data and knowledge into a new forecast.</p>
-<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
 <div class="figure"><span id="fig:iterativedecisions"></span>
 <img src="BIO3019S-Ecoforecasting_files/figure-html/iterativedecisions-1.png" alt="Revisiting our *Effort to Reward* example, what would you do if the decision-maker decided to invest huge effort, but the next few data points looked like this?" width="672" />
 <p class="caption">
@@ -221,6 +208,9 @@ Figure 3.5: Revisiting our <em>Effort to Reward</em> example, what would you do 
 </div>
 <!--Implementing this process quantitatively requires careful management of the data and workflow and would greatly benefit from automation (i.e. it needs to be _reproducible_).-->
 <p><br></p>
+</div>
+<div id="iterative-decision-making-and-the-scientific-method" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Iterative decision-making and the scientific method</h2>
 <p>It’s worth highlighting the similarity between the iterative decision making cycle I’ve outlined in Figure <a href="models.html#fig:decisions3">3.4</a> and <strong><em>the scientific method</em></strong>, i.e.:</p>
 <ul>
 <li><em>Observation &gt; Hypothesis &gt; Experiment &gt; Analyze &gt; Interpret &gt; Report &gt; (Repeat)</em></li>
@@ -236,8 +226,8 @@ Figure 3.6: <em>The Scientific Method</em> overlain on iterative decision making
 <p><strong>So a focus on iterative decision-making facilitates iterative learning (i.e. scientific progress).</strong></p>
 <p><br></p>
 </div>
-<div id="the-importance-of-prediction-in-ecology" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> The importance of prediction in ecology</h2>
+<div id="the-importance-of-prediction-in-ecology" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> The importance of prediction in ecology</h2>
 <blockquote>
 <p><em>“prediction is the only way to demonstrate scientific understanding”</em> <span class="citation">(<a href="#ref-Houlahan2017" role="doc-biblioref">Houlahan et al. 2017</a>)</span></p>
 </blockquote>
@@ -260,14 +250,63 @@ Testing predictions with new data collected after you’ve made your predictions
 </blockquote>
 <p><br></p>
 </div>
-<div id="near-term-iterative-ecological-forecasting" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Near-term iterative ecological forecasting</h2>
-<p>The recent growth in interest in iterative ecological forecasting seeks to not only make prediction a central focus in ecology, but to do so on a time scale that is both useful for decision makers and allows us to learn from testing our predictions (days to decades). This is a great initiative, but as we will see it poses a number of major challenges and requires a big improvement in quantitative skills in biology (hence this course…).</p>
+<div id="iterative-near-term-ecological-forecasting" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Iterative near-term ecological forecasting</h2>
+<p>The recent growth in interest in iterative ecological forecasting seeks to not only <strong>make prediction a central focus in ecology</strong>, but to do so <strong>on a time scale that is both useful for decision makers and allows us to learn</strong> from testing our predictions (days to decades).</p>
+<p>The <strong>“gold standard”</strong> here is an informatics pipeline that can ingest new data and <strong>make new forecasts automatically</strong> with minimal user input. This is a great initiative, but as we will see it poses a number of major challenges and requires a big improvement in quantitative skills in biology (hence this course…). Fortunately, as we will see during the module, any steps towards the gold standard is likely to be useful, even if you never get there.</p>
+<p>Here I break down the individual components of ecological forecasting (using figures from a <a href="https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0">lecture on data assimilation by Michael Dietze</a>):</p>
+<ol style="list-style-type: decimal">
+<li>You start with your initial conditions (data and knowledge that feeds into designing and fitting your model)</li>
+</ol>
+<p><img src="img/initialconditions.png" width="70%" style="display: block; margin: auto;" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>You make forecasts (i.e. predictions into the future) using your model, based on your initial conditions.</li>
+</ol>
+<p><img src="img/forecast.png" width="70%" style="display: block; margin: auto;" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>You monitor and collect new observations to compare with your forecasts and original observations (i.e. initial conditions).</li>
+</ol>
+<p><img src="img/newobservations.png" width="70%" style="display: block; margin: auto;" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Finally, you analyze the new observations in the context of your forecasts and original observations, and update the initial conditions for the next iteration of the forecast.</li>
+</ol>
+<p><img src="img/analyzeandupdate.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:ecoforecastingloop"></span>
+<img src="img/ecoforecastingloop.png" alt="The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From [lecture on data assimilation by Michael Dietze](https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0). (Please excuse that the colours of the distributions have changed from above...)." width="70%" />
+<p class="caption">
+Figure 3.8: The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From <a href="https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0">lecture on data assimilation by Michael Dietze</a>. (Please excuse that the colours of the distributions have changed from above…).
+</p>
+</div>
+<p><br></p>
+<p>The key steps are:</p>
+<ol style="list-style-type: decimal">
+<li>Make a <strong>forecast</strong> based on your current data and understanding</li>
+<li>Collect new observations and <strong>compare</strong> them to your forecast</li>
+<li><strong>Analyze</strong> the new observations in the context of your forecast and original data</li>
+<li><strong>Update</strong> estimates of the current state of the system (data and understanding), before making a new forecast</li>
+</ol>
+<p>Two things not indicated in this diagram are:</p>
+<ul>
+<li>that when making the forecast and analyzing the new observations you can learn about the various sources and drivers of <strong>uncertainty</strong> in your forecast and use that to <strong>adapt or guide what and how to monitor</strong> so that you can reduce those uncertainties</li>
+<li>developing this into an <strong>automated</strong> informatics pipeline is best dine in a <strong>reproducible research</strong> framework</li>
+</ul>
+<p>Iterative ecological forecasts are thus aimed at:</p>
+<ol style="list-style-type: decimal">
+<li><strong>applied</strong> outcomes, through providing evidence to support <strong>decision making</strong></li>
+<li><strong>knowledge generation</strong> through iterative learning i.e. <strong>the scientific method</strong></li>
+</ol>
+<p>So it’s a great way of getting scientists to engage in real-world problems, demonstrating the value of our science, and <strong>learning by doing</strong>!</p>
+<p><br></p>
+</div>
+<div id="iterative-ecological-forecasting-in-context" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Iterative ecological forecasting in context</h2>
+<p>The figure below from <span class="citation"><a href="#ref-Dietze2018" role="doc-biblioref">Dietze et al.</a> (<a href="#ref-Dietze2018" role="doc-biblioref">2018</a>)</span> provides an expanded representation of these conceptual links between iterative ecological forecasting, the scientific method, and decision making (here in the context of <em>adaptive management</em>, which is a management paradigm that focuses on learning by doing).</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:dietze2018F1"></span>
-<img src="img/dietze2018_F1.jpg" alt="The iterative ecological forecasting cycle in the context of the scientific method and the adaptive management and monitoring cycles [@Dietze2018]." width="640" />
+<img src="img/dietze2018_F1.jpg" alt="Conceptual relationships between iterative ecological forecasting, adaptive decision-making, adaptive monitoring, and the scientific method cycles [@Dietze2018]." width="640" />
 <p class="caption">
-Figure 3.8: The iterative ecological forecasting cycle in the context of the scientific method and the adaptive management and monitoring cycles <span class="citation">(<a href="#ref-Dietze2018" role="doc-biblioref">Dietze et al. 2018</a>)</span>.
+Figure 3.9: Conceptual relationships between iterative ecological forecasting, adaptive decision-making, adaptive monitoring, and the scientific method cycles <span class="citation">(<a href="#ref-Dietze2018" role="doc-biblioref">Dietze et al. 2018</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -279,15 +318,15 @@ Figure 3.8: The iterative ecological forecasting cycle in the context of the sci
 <p>Note that the iterative forecast cycle is also useful for adaptive management in that the analysis and partitioning of forecast uncertainties (from step C) can provide further guidance on what and how to monitor, so as to optimize the reduction in model uncertainties. This represents <strong>Adaptive Monitoring</strong> (dashed line) and is a cycle of itself <span class="citation">(<a href="#ref-Lindenmayer2009" role="doc-biblioref">Lindenmayer and Likens 2009</a>)</span>, but is largely subsumed by the other cycles here so we won’t go into it any further here. Thus the iterative cycles of science, forecasting, management and monitoring are tightly intertwined and can interact continuously.</p>
 <p><br></p>
 </div>
-<div id="reproducible-research" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Reproducible research</h2>
-<p>What isn’t clear from Figure <a href="models.html#fig:dietze2018F1">3.8</a> is that all of this needs to be founded on a <strong>highly efficient informatics pipeline that is robust and rapidly updateable</strong>. Since the emphasis here is on <em>near-term</em> forecasts to inform management, if the process of adding new data and updating the forecasts is too slow, the value of the forecasts is lost.</p>
-<p>As we’ll see in future lectures, the best way to build a highly efficient informatics pipeline is to follow <strong>reproducible research</strong> principles (section <a href="#reproducibility"><strong>??</strong></a>), including good (and rapid) <strong>data management</strong> (section <a href="#data"><strong>??</strong></a>). Adding this link to Figure <a href="models.html#fig:dietze2018F1">3.8</a> helps to highlight what I like to think of as <em>“The Olympian Challenge of data-driven ecological decision making”</em>.</p>
+<div id="reproducible-research" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Reproducible research</h2>
+<p>What isn’t clear from Figure <a href="models.html#fig:dietze2018F1">3.9</a> is that all of this needs to be founded on a <strong>highly efficient informatics pipeline that is robust and rapidly updateable</strong>. Since the emphasis here is on <em>near-term</em> forecasts to inform management, if the process of adding new data and updating the forecasts is too slow, the value of the forecasts is lost.</p>
+<p>As we’ll see in future lectures, the best way to build a highly efficient informatics pipeline is to follow <strong>reproducible research</strong> principles (section <a href="#reproducibility"><strong>??</strong></a>), including good (and rapid) <strong>data management</strong> (section <a href="#data"><strong>??</strong></a>). Adding this link to Figure <a href="models.html#fig:dietze2018F1">3.9</a> helps to highlight what I like to think of as <em>“The Olympian Challenge of data-driven ecological decision making”</em>.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:olympiangoal"></span>
 <img src="img/olympian_goal.png" alt="The Olympian Challenge of data-driven ecological decision making." width="480" />
 <p class="caption">
-Figure 3.9: The Olympian Challenge of data-driven ecological decision making.
+Figure 3.10: The Olympian Challenge of data-driven ecological decision making.
 </p>
 </div>
 <p><br></p>
@@ -314,7 +353,7 @@ Lindenmayer, David B, and Gene E Likens. 2009. <span>“<span class="nocase">Ada
         </div>
       </div>
 <a href="pracprep.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="forecasts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

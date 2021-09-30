@@ -70,7 +70,7 @@ dat %>%
 
 <br>
 
-## Iterative decision-making and the scientific method
+## Iterative decision-making
 
 **Few decisions in natural resource management are once-off**, and most are made repeatedly at some time-step (e.g. daily, monthly, seasonally, annually, decadally, etc). Should you burn, cull, harvest, restore, etc? While one should always evaluate the outcome of your decision, this does not always happen... Evaluating the outcome is especially important when the decision will need to be repeated, so that you can **learn from experience**. 
 
@@ -101,6 +101,8 @@ dat %>%
 <!--Implementing this process quantitatively requires careful management of the data and workflow and would greatly benefit from automation (i.e. it needs to be _reproducible_).-->
 
 <br>
+
+## Iterative decision-making and the scientific method
 
 It's worth highlighting the similarity between the iterative decision making cycle I've outlined in Figure \@ref(fig:decisions3) and ***the scientific method***, i.e.:
 
@@ -145,13 +147,74 @@ Testing predictions with new data collected after you've made your predictions i
 
 <br>
 
-## Near-term iterative ecological forecasting
+## Iterative near-term ecological forecasting
 
-The recent growth in interest in iterative ecological forecasting seeks to not only make prediction a central focus in ecology, but to do so on a time scale that is both useful for decision makers and allows us to learn from testing our predictions (days to decades). This is a great initiative, but as we will see it poses a number of major challenges and requires a big improvement in quantitative skills in biology (hence this course...).
+The recent growth in interest in iterative ecological forecasting seeks to not only **make prediction a central focus in ecology**, but to do so **on a time scale that is both useful for decision makers and allows us to learn** from testing our predictions (days to decades). 
+
+The **"gold standard"** here is an informatics pipeline that can ingest new data and **make new forecasts automatically** with minimal user input. This is a great initiative, but as we will see it poses a number of major challenges and requires a big improvement in quantitative skills in biology (hence this course...). Fortunately, as we will see during the module, any steps towards the gold standard is likely to be useful, even if you never get there.
+
+Here I break down the individual components of ecological forecasting (using figures from a [lecture on data assimilation by Michael Dietze](https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0)):
+
+1. You start with your initial conditions (data and knowledge that feeds into designing and fitting your model)
+
+```{r initialconditions, echo=FALSE, fig.width=3, fig.align = 'center', out.width="70%"}
+knitr::include_graphics("img/initialconditions.png")
+```
+
+2. You make forecasts (i.e. predictions into the future) using your model, based on your initial conditions.
+
+```{r forecast, echo=FALSE, fig.width=3, fig.align = 'center', out.width="70%"}
+knitr::include_graphics("img/forecast.png")
+```
+
+3. You monitor and collect new observations to compare with your forecasts and original observations (i.e. initial conditions).
+
+```{r newobservations, echo=FALSE, fig.width=3, fig.align = 'center', out.width="70%"}
+knitr::include_graphics("img/newobservations.png")
+```
+
+4. Finally, you analyze the new observations in the context of your forecasts and original observations, and update the initial conditions for the next iteration of the forecast. 
+
+```{r analyzeandupdate, echo=FALSE, fig.width=3, fig.align = 'center', out.width="70%"}
+knitr::include_graphics("img/analyzeandupdate.png")
+```
 
 <br>
 
-```{r dietze2018F1, echo=FALSE, fig.cap = "The iterative ecological forecasting cycle in the context of the scientific method and the adaptive management and monitoring cycles [@Dietze2018].", fig.width=3, fig.align = 'center'}
+```{r ecoforecastingloop, echo=FALSE, fig.cap = "The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From [lecture on data assimilation by Michael Dietze](https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0). (Please excuse that the colours of the distributions have changed from above...).", fig.width=3, fig.align = 'center', out.width="70%"}
+knitr::include_graphics("img/ecoforecastingloop.png")
+```
+
+<br>
+
+The key steps are:
+
+1. Make a **forecast** based on your current data and understanding
+2. Collect new observations and **compare** them to your forecast
+3. **Analyze** the new observations in the context of your forecast and original data
+4. **Update** estimates of the current state of the system (data and understanding), before making a new forecast
+
+Two things not indicated in this diagram are:
+
+- that when making the forecast and analyzing the new observations you can learn about the various sources and drivers of **uncertainty** in your forecast and use that to **adapt or guide what and how to monitor** so that you can reduce those uncertainties
+- developing this into an **automated** informatics pipeline is best dine in a **reproducible research** framework
+
+Iterative ecological forecasts are thus aimed at:
+
+1. **applied** outcomes, through providing evidence to support **decision making**
+2. **knowledge generation** through iterative learning i.e. **the scientific method**
+
+So it's a great way of getting scientists to engage in real-world problems, demonstrating the value of our science, and **learning by doing**!
+
+<br>
+
+## Iterative ecological forecasting in context
+
+The figure below from @Dietze2018 provides an expanded representation of these conceptual links between iterative ecological forecasting, the scientific method, and decision making (here in the context of _adaptive management_, which is a management paradigm that focuses on learning by doing).
+
+<br>
+
+```{r dietze2018F1, echo=FALSE, fig.cap = "Conceptual relationships between iterative ecological forecasting, adaptive decision-making, adaptive monitoring, and the scientific method cycles [@Dietze2018].", fig.width=3, fig.align = 'center'}
 knitr::include_graphics("img/dietze2018_F1.jpg")
 ```
 

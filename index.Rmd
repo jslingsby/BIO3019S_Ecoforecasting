@@ -18,7 +18,7 @@ _This module is a minimal introduction to Ecological Forecasting and Reproducibl
 
 ## General
 
-I provide a very brief introduction to the framework for Ecological Forecasting. We only have a two weeks, so this really is a minimalist introduction. I'll focus on providing a broad overview of the general framework and motivation for ecological forecasting, but won't have time to delve into the more gory theoretical and statistical details. I mostly use Ecological Forecasting as a framework to highlight various themes and principles that are increasingly important for quantitative biologists - understanding how we inform or make decisions; managing data; working reproducibly; propagating, understanding and reducing uncertainty, etc. 
+I provide a very brief introduction to the framework for Ecological Forecasting. We only have a two weeks, so this really is a minimalist introduction. I'll focus on providing a **broad overview of the general framework and motivation for ecological forecasting**, but won't have time to delve into the more gory theoretical and statistical details. I mostly use Ecological Forecasting as a framework to **highlight various themes and principles that are increasingly important for quantitative biologists** - understanding how we inform or make decisions; managing data; working reproducibly; propagating, understanding and reducing uncertainty, etc.
 
 Not all of this is fun and exciting, but as I said, it is important stuff for quantitative biologists to know. I'll try my best to make it interesting! Hopefully by the end of the module you'll see the value in it all - both for you as an individual and for science and society in general.
 
