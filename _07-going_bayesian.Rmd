@@ -56,11 +56,11 @@ Add Postfire example
 #                         lat = -34.100875,
 #                         lon = 18.449375,
 #                         band = "250m_16_days_NDVI",
-#                         start = "2015-03-31",
-#                         end = "2021-03-31",
+#                         start = "2000-01-01",
+#                         end = "2021-10-01",
 #                         progress = FALSE)
 # 
-# write_csv(ndvi, "/home/jasper/GIT/BIO3019S_Ecoforecasting/data/modisdata.csv")
+# write_csv(ndvi, "/home/jasper/GIT/BIO3019S_Ecoforecasting/data/modisdata20002021.csv")
 
 library(knitr)
 library(tidyverse)
