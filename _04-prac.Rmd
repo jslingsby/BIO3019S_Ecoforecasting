@@ -10,7 +10,7 @@
 
 The primary goal of this exercise is to gain experience working collaboratively to develop a scientific workflow. As such, this assignment must be completed with a partner. Specifically, we will outline an analysis, break the overall job into parts, and have each person complete part of the project. To put these parts together we will be using GitHub. 
 
-Along the way we will also be exploring the statistical concept of Likelihood by fitting the same model and estimating the parameters with two very different approaches - _Least Squares_ and _Maximum Likelihood_.
+Along the way we will also be exploring the statistical concept of Likelihood by fitting the same model and estimating the parameters with two different approaches - _Least Squares_ (what you'd usually use for traditional linear models etc) and _Maximum Likelihood_.
 
 <br>
 
@@ -26,7 +26,7 @@ The workflow for this analysis with have three components:
 1. Download MODIS NDVI data
 2. Visualize the data
 3. Fit two competing negative exponential model using non-linear least squares (NLS)
-4. Fit the same models using Maximum Likelihood Estimation (MLE) and compare them using a likelihood ratio test
+4. Fit the same models using Maximum Likelihood Estimation (MLE) and compare them using Akaike's Information Criterion (AIC)
 
 From this overall design, let's next outline the specific steps involved as pseudocode
 
@@ -38,12 +38,12 @@ From this overall design, let's next outline the specific steps involved as pseu
 ## Visualize models and data
 ## Fit two variants of the negative exponential model with MLE
 ## Visualize models and data
-## Compare model variants using a Likelihood Ratio Test
+## Compare model variants using AIC
 ```
 
 ## Modular Design
 
-From this overall design we can look for ways to modularize the analysis. One feature that jumps out is that we need to visualize the data three times, so we should definitely make a function to do that. The inputs to the function would be an x-axis (`age`) and a y-axis (`NDVI`), which we might pass to the function as a dataframe for convenience. Since this is a graphing function we'd also like the ability to set all sorts of plot characteristics, which can be done in R by passing `...` as an argument and then passing that on to the internal _plot_ call. The proposed function interface would thus be
+From this overall design we can look for ways to modularize the analysis. One feature that jumps out is that we need to visualize the data three times, so we should definitely make a function to do that. The inputs to the function would be an x-axis (`age`) and a y-axis (`NDVI`), which we might pass to the function as a dataframe for convenience. Since this is a graphing function we'd also like the ability to set all sorts of plot characteristics, which can be done in R by passing `...` as an argument and then passing that on to the internal _plot()_ call. The proposed function interface (i.e. metadata about inputs and outputs, but excluding the code) would thus be:
 
 ```
 ##' Plot NDVI data
@@ -55,7 +55,7 @@ From this overall design we can look for ways to modularize the analysis. One fe
 plot.NDVI <- function(dat, fit = NA, ...)
 ```
 
-Next, because the raw data will be downloaded off the web and we need to convert the dates from "character" to "Date" class and convert the dates let's go ahead and create a download function. This function just needs to know the URL for where to find the data. Unlike the plot function, this function will return something (the data that was downloaded), so it would be good design to document what is returned and how it will be formatted
+Next, because the raw data will be downloaded off the web and we need to convert the dates from "character" to "Date" class and convert the NDVI data from Digital Numbers (DN; most satellite sensors store and transmit data as DN for various reasons like because they are smaller and easier to transmit) to true NDVI values, let's go ahead and create a download function. This function just needs to know the URL for where to find the data. Unlike the plot function, this function will return something (the data that was downloaded), so it would be good design to document what is returned and how it will be formatted:
 
 ```
 ##' Download NDVI data
@@ -67,7 +67,12 @@ download.NDVI <- function(URL)
 
 Next we'll fit two variants of a negative exponential model to the postfire NDVI trajectory data, and we're going to do this twice - once using non-linear least squares (NLS), and again using Maximum Likelihood Estimation (MLE). Fortunately, there is already an efficient base R function for fitting the NLS model `nls()`, so we'll only need to define functions for the MLE fits.
 
-The input to such a fit would obviously be the same data.frame that we're using to make the plot. We'll also need to input a vector of initial guesses at the model parameters to help the numerical optimization converge, and we'll want to return the full output from that numerical optimization so that we can check if it converged successfully. Finally, optimizing MLE requires a) defining the model and b) defining a function to optimize the parameters by minimizing the negative log of the likelihood. Because all that's returned from the MLE optimization is the list if parameters of the model (and not the model itself), if we want to make a plot of models afterward, we need a separate function that can take the parameters and perform the model calculation to predict the shape of the curve. Since we need the same function to do the optimization and the plotting, it's more efficient to define it as a separate function.
+The input to such a fit would obviously be the same data.frame that we're using to make the plot. We'll also need to input a vector of initial guesses at the model parameters to help the numerical optimization converge, and we'll want to return the full output from that numerical optimization so that we can check if it converged successfully. Finally, optimizing MLE requires 
+
+a) defining the model, and 
+b) defining a function to optimize the parameters by minimizing the negative log of the likelihood 
+
+We're going to make (a) an independent function that we can call within (b), but can also call independently. The reason we want to be able to call it independently is that the MLE optimization will only return the list if parameters of the model (and not the model itself), so we won't be able to plot the curve. If we make (a) a separate function, we can feed it the estimated model parameters to perform the model calculation and predict the shape of the curve, allowing us to plot it. In short, since we need the same function for two separate applications (the optimization and the plotting), it's more efficient to define it as a separate function.
 
 First we'll do the functions for the simpler variant of the model:
 
@@ -114,7 +119,7 @@ Because we're going to employ version control in our project, our first step is 
 3. Click the "Initialize this repository with a README" checkbox
 4. Optionally also provide a Description, Add a licence (e.g. MIT), and add R to the .gitignore (check ".gitignore" and search for the *R* template)
 5. Click "Create Repository"
-6. Copy the URL of your new repository by clicking the clipboard icon
+6. Copy the URL of your new repository either from the URL line in your internet browser or by clicking the clipboard icon
 7. To clone the repository, open up RStudio and create a New Project using this URL. **Note:** If you already have a project open it will close when you do so. Don't worry, you can return to that project after the prac using the drop-down in the top-right of the RStudio window.
  + Select New Project from the menu in the top right corner
  + Select Version Control then Git
@@ -171,11 +176,11 @@ download.NDVI <- function(URL) {
 
 ### OWNER
 
-1. In RStudio, click File > New File > R Script
+1. In RStudio, click `File` > `New File` > `R Script`
 2. Copy and Paste the above function into this file
 3. Select the code you have pasted in go to the menu `Code` > `Comment/Uncomment lines` or alternatively use the quick keystroke `Ctrl` + `Shift` + `c` at once to remove the comments `#`
-4. Save the file as "01_download.NDVI.R"
-5. From the Git tab, click the box next to the file you just created. This is equivalent to _git add_ if you were doing this command line in bash or terminal
+4. Save the file as "01_download.NDVI.R" in the default directory for the R project
+5. From the "Git" tab (top-right window in RStudio), click the box next to the file you just created. This is equivalent to _git add_ if you were doing this command line in bash or terminal
 6. Click Commit, enter a log message, and click Commit. This is equivalent to _git commit_ in command line
 7. To push the change up to Github click on the green up arrow. This is equivalent to _git push_
 
@@ -218,16 +223,16 @@ plot.NDVI <- function(dat, fit = NA, ...){
 ```
 
 5. Follow the instructions above to Add, Commit, and Push the file back to your Github
-6. Next you want to perform a "pull request", which will send a request to the OWNER that they pull your new code into their mainline version. From your Github page for this project, click **New Pull Request**.
-7. Follow the instructions, creating a title, message, and confirming that you want to create the pull request
+6. Next you want to perform a "pull request", which will send a request to the OWNER that they pull your new code into their mainline version. From your Github page for this project, click on "Pull requests" (top left) and hit the green **New Pull Request** button.
+7. Follow the instructions, creating a title, message, and confirming that you want to create the pull request (you may be asked to confirm a couple of times).
 
 ### OWNER
 
 1. Once the COLLABORATOR has created the pull request, you should get an automatic email and also be able to see the pull request under the "Pull Requests" tab on the Github page for the project.
 2. Read the description of the proposed changes and then click on "Files Changed" to view the changes to the project. New code should be in green, while deleted code will be in pink.
-3. The purpose of a pull request is to allow the OWNER to evaluate the code being added before it is added. As you read through the code, if you hover your mouse over any line of code you can insert an inline comment in the code. The COLLABORATOR would then have the ability to respond to any comments. In larger projects, all participants can discuss the code and decide whether it should be accepted or not. Furthermore, if the COLLABORATOR does any further pushes to Github before the pull request is accepted these changes will automatically become part of the pull request. While this is a very handy feature, it can also easily backfire if the COLLABORATOR starts working on something different in the meantime. This is the reason that experienced users of version control will use BRANCHES to keep different parts separate.
+3. The purpose of a pull request is to allow the OWNER to evaluate the code being added before it is added. You can see this option under the "Review" button. You can also hover your mouse over any line of code and insert an inline comment in the code (don't do this during the prac). The COLLABORATOR would then have the ability to respond to any comments. In larger projects, all participants can discuss the code and decide whether it should be accepted or not. Furthermore, if the COLLABORATOR does any further pushes to Github before the pull request is accepted these changes will automatically become part of the pull request. While this is a very handy feature, it can also easily backfire if the COLLABORATOR starts working on something different in the meantime. This is the reason that experienced users of version control will use BRANCHES to keep different parts separate.
 4. Click on the "Conversation" page to return where you started. All participants can also leave more general comments on this page. 
-5. If you are happy with the code, click "Merge Pull Request". Alternatively, to outright reject a pull request you could click "Close pull request" (but please don't do this in the prac unless your partner has made an error)
+5. If you are happy with the code, click "Merge Pull Request". Alternatively, to outright reject a pull request you could click "Close pull request" (but please don't do this in the prac unless your partner has made an error - PLEASE CHECK IF THEY'VE ADDED THE RIGHT FUNCTION ETC)
 
 ## Task 4: Owner adds functions for model fitting using MLE
 
@@ -235,7 +240,7 @@ We are now past the 'set up' stage for both the OWNER and the COLLABORATOR, so f
 
 ### OWNER
 
-1. Pull the latest code from Github. In RStudio this is done by clicking the light blue down arrow on the Git tab. This is equivalent to the command line _git pull origin master_ where origin refers to where you did your original clone from and master refers to your main branch (if you use branches you can pull other branches)
+1. Pull the latest code from Github (which includes the new function added by your collaborator). In RStudio this is done by clicking the light blue down arrow on the Git tab. This is equivalent to the command line _git pull origin master_ where origin refers to where you did your original clone from and master refers to your main branch (if you use branches you can pull other branches). Once you've pulled the latest code you should see the latest function file added to the files you can see in the "Files" tab of the bottom-right window of RStudio.
 2. Next, open up a new R file, add the code below, and save as "03_negexp.R"
 
 ```{r}
@@ -305,9 +310,13 @@ fit.negexpS.MLE <- function(dat,par){
 
 <br>
 
-To estimate the parameters in the model we're using the likelihood principle which states that "a parameter value is more likely than another if it is the one for which the data are more probable". To do this we need to define a Likelihood, which is the relationship between the value of the parameter and the probability of some observed data. [For the record, the Likelihood is not a probability distribution because it does not integrate to 1]. In this case we're assuming a Normal likelihood (hence the use of `dnorm()` in the function) and use a standard deviation (0.001) that I've made up to represent the uncertainty (ideally this should come from the data; e.g. the radiative transfer modelling that was used to estimate the "surface reflectance" MODIS product from the "top of atmosphere reflectance" that is actually observed by the satellite). In a more detailed analysis we'd want to follow up to check both these assumptions, but it's a simple starting point for this practical demonstration.
+***A quick explanation of the Maximum Likelihood Estimation (MLE) functions***
 
-Applying the likelihood principle we would then look for the most likely value of $\theta$, the vector of parameters in the model ($\alpha$, $\gamma$ and $\lambda$ in the simpler model, and adding $A$ and $\phi$ in the full model), which we call the Maximum Likelihood estimate. For a number or reasons that we won't go into in this module, it is common to work with negative log likelihoods instead of likelihoods, in which case the negative implies that instead of looking for the maximum we're now looking for the minimum (perhaps a bit difficult to get your head around, but it's a small trade-off that makes for much easier mathematics). The fact that logarithm is a monotonic transformation means that taking the log does not change the location of this minimum. 
+To estimate the parameters in the model this function uses the likelihood principle which states that "a parameter value is more likely than another if it is the one for which the data are more probable". In other words, the maximum likelihood estimate of a parameter is the value of the parameter for which the probability of obtaining the observed data if the highest. 
+
+To use MLE we need to define a Likelihood, which is the relationship between the value of the parameter and the probability of some observed data. [For the record, the Likelihood is not a probability distribution because it does not integrate to 1]. In this case we're assuming a Normal likelihood (hence the use of `dnorm()` in the function) and use a standard deviation (0.001) that I've made up to represent the uncertainty (ideally this should come from the data; e.g. the radiative transfer modelling that was used to estimate the "surface reflectance" MODIS product from the "top of atmosphere reflectance" that is actually observed by the satellite). In a more detailed analysis we'd want to follow up to check both these assumptions, but it's a simple starting point for this practical demonstration.
+
+Applying the likelihood principle we would then look for the most likely value of $\theta$, the vector of parameters in the model ($\alpha$, $\gamma$ and $\lambda$ in the simpler model, and adding $A$ and $\phi$ in the full model - see model equations below), which we call the Maximum Likelihood estimate. For a number or reasons that we won't go into in this module, it is common to work with negative log likelihoods instead of likelihoods, in which case the negative implies that instead of looking for the maximum we're now looking for the minimum (perhaps a bit difficult to get your head around, but it's a small trade-off that makes for much easier mathematics). The fact that logarithm is a monotonic transformation means that taking the log does not change the location of this minimum. 
 
 The code for this comes in three parts. 
 
@@ -319,7 +328,7 @@ First are the models themselves, _pred.negexp()_ and _pred.negexpS()_, which tra
   \text{NDVI}_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)
 \end{gather}
 
-- For the "full" model (*pred.negexpS()*) we include a sine term:
+- For the "full" model (*pred.negexpS()*) we add a sine term:
 
 \begin{gather}
   \text{NDVI}_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)+
@@ -339,7 +348,7 @@ Second is the negative log likelihood function, _lnL.negexp()_, which we're tryi
 
 The third part is a call to a numerical optimization function, _optim_, that searches through parameter space to find the set of parameters that minimize the negative log likelihood (i.e. that Maximize the Likelihood). Arguments are the initial parameter guesstimates, the function being minimized, and any additional parameters that get passed on to that function.
 
-## Task 5: Collaborator adds the master script
+## Task 5: Collaborator adds the master script, Owner answers the questions
 
 The day-to-day workflow for the COLLABORATOR is similar, but not exactly the same as the OWNER. The biggest differences are that the COLLABORATOR needs to pull from the OWNER, not their own repository, and needs to do a pull request after the push.
 
@@ -349,7 +358,7 @@ The day-to-day workflow for the COLLABORATOR is similar, but not exactly the sam
 2. At the terminal type
 
 ```
-git pull URL master
+git pull URL main
 ```
 
 where URL is the address of the OWNER's Github repository. Because it is a pain to always remember and type in the OWNER's URL, it is common to define this as _upstream_
@@ -361,186 +370,32 @@ git remote add upstream URL
 which is a one-time task, after which you can do the pull as
 
 ```
-git pull upstream master
+git pull upstream main
 ```
 
-3. Open a new Rmd file and add the text and code chunks below. This code just flushes out the pseudocode outline we started with at the beginning of this activity.
-
-## Master script for postfire analysis
-
-First we'll _source()_ (i.e. "run all code in") the scripts with the functions we made. Then we'll set the URL, read in the data with _download.NDVI()_, and plot it with _plot.NDVI()_.
-
-```{r}
-## Load required functions
-# if(file.exists("01_download.NDVI.R")) source("01_download.NDVI.R")
-# if(file.exists("02_plot.NDVI.R"))     source("02_plot.NDVI.R")
-# if(file.exists("03_negexp.R"))        source("03_negexp.R")
-
-## Download NDVI data
-URL = "https://raw.githubusercontent.com/jslingsby/BIO3019S_Ecoforecasting/master/data/modisdata.csv"
-dat <- download.NDVI(URL)
-
-# Convert "calendar_date" to postfire age in days since fire - assuming the first date in the times eries is the time of the fire 
-dat$age <- (as.numeric(dat$calendar_date) - min(as.numeric(dat$calendar_date), na.rm = T))/365.25
-
-## Plot overall NDVI time series
-plot.NDVI(dat)
-```
-
-Now we'll fit the simple and full negative exponential models using Non-linear Least Squares (NLS).
-
-First the simpler model:
-
-```{r}
-## Simple model
-
-# set parameters
-par <- c(alpha = 0.2, gamma = 0.4, lambda = 0.5)
-
-# fit model
-fit_negexp <- fit.negexp.nls(dat = dat, theta = par)
-
-# plot
-plot.NDVI(dat = dat, fit = fit_negexp)
-```
-
-And let's look at the model summary with parameter estimates
-
-```{r}
-# print model summary
-summary(fit_negexp)
-```
-
-Now the full model:
-
-```{r}
-## Full model
-
-# set parameters
-par <- c(alpha = 0.2, gamma = 0.4, lambda = 0.5, A = 0.6, phi = 0)
-
-# fit model
-fit_negexpS <- fit.negexpS.nls(dat = dat, theta = par)
-
-# plot
-plot.NDVI(dat = dat, fit = fit_negexpS)
-
-```
-
-
-```{r}
-# print model summary
-summary(fit_negexpS)
-```
-
-Lots more parameters, but how do the estimates for the common parameters compare?
-
-How do we know which model is better?
-
-A great way to compare models is using the Akaike information criterion (AIC), which is an estimator of prediction error (i.e. relative quality) of statistical models for a given set of data. The formula for the Akaike information criterion is:
-
-$AIC = 2K -2(ln(L))$
-
-Where:
-
-- $k$ = the number of estimated parameters in the model
-- $L$ = maximum value of the likelihood function for the model
-
-When comparing models, the lower the AIC the better, and in general a difference in AIC of 3 or more is analagous to the models being significantly different at an $\alpha$ of $p < 0.05$.
-
-```{r}
-AIC(fit_negexp, fit_negexpS)
-```
-
-So it looks like the full model is much better than the simpler model...?
-
-Q1: Why is it not okay to compare these models using AIC?
-
-```{r}
-exp((AIC(fit_negexpS) - AIC(fit_negexp))/2)
-```
-
-
-```{r}
-anova(fit_negexp, fit_negexpS)
-```
-
-Now we'll fit the simple and full negative exponential models using Maximum Likelihood Estimation (MLE).
-
-First the simpler model:
-
-```{r}
-## Fit the simpler model using MLE
-
-# set parameters
-par <- c(alpha = 0.2, gamma = 0.4, lambda = 0.5)
-
-# fit model
-fit_negexpMLE <- fit.negexp.MLE(dat, par)
-
-# plot
-plot.NDVI(dat)
-# add curve with MLE parameters
-lines(dat$age, pred.negexp(fit_negexpMLE$par,dat$age), col = 'skyblue', lwd = 3)
-
-```
-
-
-```{r}
-fit_negexpMLE
-```
-
-Then the full model:
-
-```{r}
-## Fit the full model using MLE
-
-# set parameters
-par <- c(alpha = 0.2, gamma = 0.4, lambda = 0.5, A = 0.6, phi = 0)
-
-# fit model
-fit_negexpMLES <- fit.negexpS.MLE(dat, par)
-
-# plot
-plot.NDVI(dat)
-# add curve with MLE parameters
-lines(dat$age, pred.negexpS(fit_negexpMLES$par,dat$age), col = 'skyblue', lwd = 3)
-```
-
-```{r}
-fit_negexpMLES
-```
-
-> DELETE: The Likelihood Ratio test statistic is chi-squared distributed, with degrees of freedom equal to the number of parameters that are constrained (in the current example, the number of parameters that differ between the models, i.e., 2). If you look it up on a chi-squared table, you'll find that at 2 degrees of freedom the chi-squared statistic needs to be >10.597 to be significant at an $\alpha$ of P<0.05.
-
-When interpretting the relative difference in AIC between two models the model with the higher (worse) AIC is exp((AIC_lower - AIC_higher)/2) times as probable as the model with the lower (better) model to minimize the information loss. Let's calculate this for our models:
-
-```{r}
-
-AIC_simple = 6 + 2*fit_negexpMLE$value
-
-AIC_simple
-
-AIC_full = 6 + 2*fit_negexpMLES$value
-
-AIC_full
-
-exp((AIC_full - AIC_simple)/2)
-
-#LRstatistic = 2*(fit_negexpMLE$value - fit_negexpMLES$value)
-
-#LRstatistic
-```
-
-i.e. the probability of the worse model being as good as the better model is so low that R is happy to call it zero!!!
-
-4. Save this file as "04_Master.Rmd". 
-5. Within RStudio's Git tab, add the file and Commit. Use the Push (up arrow) button to push this to your own repository
-6. On Github.com, submit a pull request
+3. Navigate to [https://github.com/jslingsby/BIO3019S_Ecoforecasting/blob/master/_04_Master.Rmd](https://github.com/jslingsby/BIO3019S_Ecoforecasting/blob/master/_04_Master.Rmd), copy the raw contents
+4. Open a new Rmd file in RStudio and paste the contents.
+5. Save this file as "04_Master.Rmd". 
+6. Within RStudio's Git tab, add the file and Commit. Use the Push (up arrow) button to push this to your own repository
+7. On Github.com, submit a pull request
 
 ### OWNER
-1. Evaluate and accept pull request.
 
-At this point your workflow should be complete and you should be able to run the analysis.
+1. Evaluate and accept pull request.
+>At this point your workflow should be complete and you should be able to run the analysis.
+
+2. Pull the updated repo to your local machine
+3. Open "04_Master.Rmd" and click "Knit" (top-centre of script window in RStudio)
+4. Answer the questions wherever you see the numbered questions "Q" and ">Answer:"
+5. Once complete, commit "04_Master.Rmd" and push it back to the repo
+6. Finally, in RStudio
+  - Switch project to "pullltest" (or whatever you named the repo you forked when doing the preparation for the practical (steps 9-11 in section \@ref(pracprep)))
+  - At the terminal type `git pull https://github.com/JasperUCT/pullltest main` to pull the repo to update
+  - Open the ReadMe
+  - Add your name and the link to the repo you owned and the repo you contributed to
+    - e.g. Jasper; Owner: https://github.com/JasperUCT/practest; Contributor: https://github.com/jslingsby/practest
+  - Save and commit
+  - Push to your fork of the repo
+  - Submit a pull request to me
 
 <br>

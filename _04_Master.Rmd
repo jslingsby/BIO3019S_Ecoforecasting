@@ -1,0 +1,237 @@
+---
+title: "Master script for postfire analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### 1. Source functions, get data and plot
+
+First we'll _source()_ (i.e. "run all code in") the scripts with the functions we made. Then we'll set the URL, read in the data with _download.NDVI()_, and plot it with _plot.NDVI()_.
+
+```{r}
+## Load required functions by running source() on the individual function files
+if(file.exists("01_download.NDVI.R")) source("01_download.NDVI.R")
+if(file.exists("02_plot.NDVI.R"))     source("02_plot.NDVI.R")
+if(file.exists("03_negexp.R"))        source("03_negexp.R")
+
+## Download NDVI data
+URL = "https://raw.githubusercontent.com/jslingsby/BIO3019S_Ecoforecasting/master/data/modisdata.csv"
+dat <- download.NDVI(URL)
+
+# Convert "calendar_date" to postfire age in days since fire - assuming the first date in the times eries is the time of the fire 
+dat$age <- (as.numeric(dat$calendar_date) - min(as.numeric(dat$calendar_date), na.rm = T))/365.25
+
+## Plot overall NDVI time series
+plot.NDVI(dat)
+```
+
+<br>
+
+Q1: This plot suggests that Fynbos greenness (NDVI) as observed from satellite saturates with time since fire. Why do you think it saturates rather than increasing linearly with time?
+
+>*Answer 1:*
+
+<br>
+
+### 2. Fit models using Non-linear Least Squares (NLS)
+
+Now we'll fit the simple and full negative exponential models using Non-linear Least Squares (NLS).
+
+First the simpler model:
+
+```{r}
+## Simple model
+
+# set parameters
+par <- c(alpha = 0.2, gamma = 0.4, lambda = 0.5)
+
+# fit model
+fit_negexp <- nls(NDVI ~ alpha + gamma * (1 - exp(- age/lambda)),
+                  data = dat, start = par, trace = F, 
+                  control = nls.control(maxiter = 500))
+
+# plot
+plot.NDVI(dat = dat, fit = fit_negexp)
+```
+
+<br>
+
+And let's look at the model summary with parameter estimates
+
+```{r}
+# print model summary
+summary(fit_negexp)
+```
+
+<br>
+
+Now the full model:
+
+```{r}
+## Full model
+
+# set parameters
+par <- c(alpha = 0.2, gamma = 0.4, lambda = 0.5, A = 0.6, phi = 0)
+
+# fit model
+fit_negexpS <- nls(NDVI ~ alpha + gamma * (1 - exp(- age/lambda))
+                   + A*sin(2*pi*age + (phi + pi/6*(3 - 1))), 
+                   data = dat, start = par, trace = F, 
+                   control = nls.control(maxiter = 500))
+
+# plot
+plot.NDVI(dat = dat, fit = fit_negexpS)
+
+```
+
+
+```{r}
+# print model summary
+summary(fit_negexpS)
+```
+
+<br>
+
+Lots more parameters...
+
+Q2: How do the estimates for the common parameters compare?
+
+>*Answer 2:*
+
+<br>
+
+### 3. Compare NLS models using ANOVA
+
+Modelers often want to know which of a set of models are better. One way to do this when comparing nested* models using least squares is using analysis of variance (ANOVA). In this case the `anova()` function will take the model objects as arguments, and return an ANOVA testing whether the full model results in a significant reduction in the residual sum of squares (and thus is better at capturing the data), returning an F-statistic, Degrees of Freedom (the difference in the number of parameters between the models) and p-value.
+
+*i.e. one model is a subset of the other, as in our case
+
+```{r}
+anova(fit_negexp, fit_negexpS)
+```
+
+<br>
+
+Q3: Which model is better?
+
+>*Answer 3:*
+
+Q4: How many degrees of freedom are there in this ANOVA and why (i.e. what are they)?
+
+>*Answer 4:*
+
+<br>
+
+### 4. Fit models using Maximum Likelihood Estimation (MLE)
+
+First let's fit the simpler model:
+
+```{r}
+## Fit the simpler model using MLE
+
+# set parameters
+par <- c(alpha = 0.2, gamma = 0.4, lambda = 0.5)
+
+# fit model
+fit_negexpMLE <- fit.negexp.MLE(dat, par)
+
+# plot
+plot.NDVI(dat)
+# add curve with MLE parameters
+lines(dat$age, pred.negexp(fit_negexpMLE$par,dat$age), col = 'skyblue', lwd = 3)
+
+```
+
+
+```{r}
+fit_negexpMLE
+```
+
+<br>
+
+Then the full model:
+
+```{r}
+## Fit the full model using MLE
+
+# set parameters
+par <- c(alpha = 0.2, gamma = 0.4, lambda = 0.5, A = 0.6, phi = 0)
+
+# fit model
+fit_negexpMLES <- fit.negexpS.MLE(dat, par)
+
+# plot
+plot.NDVI(dat)
+# add curve with MLE parameters
+lines(dat$age, pred.negexpS(fit_negexpMLES$par,dat$age), col = 'skyblue', lwd = 3)
+```
+
+```{r}
+fit_negexpMLES
+```
+
+<br>
+
+### 5. Compare MLE models using Akaike's information criterion (AIC)
+
+Note that we can't compare our MLE models using ANOVA because our custom functions do not return full model fits like the `nls()` function - only the parameter estimates, negative log-likelihoods and a few other diagnostics.
+
+Another way to compare models (and probably the most common) is using the Akaike information criterion (AIC), which is an estimator of prediction error (i.e. relative quality) of statistical models for a given set of data. 
+
+The formula for the Akaike information criterion is:
+
+$AIC = 2K -2(ln(L))$
+
+Where:
+
+- $k$ = the number of estimated parameters in the model
+- $L$ = maximum value of the likelihood function for the model
+
+Since we have our negative log likelihoods (i.e. $-ln(L)$ in the formula above), we can calculate the AICs and compare them.
+
+```{r}
+AIC_simple = 6 + 2*fit_negexpMLE$value
+
+AIC_simple
+
+AIC_full = 6 + 2*fit_negexpMLES$value
+
+AIC_full
+```
+
+<br>
+
+When comparing models, the lower the AIC the better, and in general a difference in AIC of 3 or more is analagous to the models being significantly different at an $\alpha$ of $p < 0.05$.
+
+```{r}
+AIC_simple - AIC_full
+```
+
+<br>
+
+Q5: Is there a preferred model and if so, which one?
+
+>*Answer 5:*
+
+<br>
+
+The nice thing about AIC is that the models you compare do not have to be nested like they do for ANOVA, as long as the data are the same. There are a few other constraints however... 
+
+Here are the AIC scores for our pair of NLS models:
+
+```{r}
+AIC(fit_negexp, fit_negexpS)
+```
+
+<br>
+
+You'll notice that these are completely different to the AICs for the MLE models...
+
+Q6: Why is it not okay to compare the AIC of these NLS models with the AIC of the MLE models? Hint: type `?AIC` into the R console and do some reading.
+
+>*Answer 6:*
+
+<br>
