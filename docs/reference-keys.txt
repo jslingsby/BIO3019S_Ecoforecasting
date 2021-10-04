@@ -20,6 +20,12 @@ fig:merow2014vitalrates
 fig:merow2014lambda
 fig:merow2014projections
 fig:ecoforecastingloop2
+fig:reprocrisis
+fig:peng
+fig:miracle
+fig:datapipeline
+fig:documentnaming
+fig:reproducibilitysteps
 overview
 general
 lectures-and-practicals
@@ -43,3 +49,13 @@ potential-issues-with-the-rules-of-thumb
 assessing-population-viability
 climate-and-fire-driven-changes-in-demographic-rates-and-distribution
 near-term-iterative-ecological-forecasts
+reproducibility
+the-reproducibility-crisis
+replication-and-the-reproducibility-spectrum
+why-work-reproducibly
+barriers-to-working-reproducibly
+reproducible-scientific-workflows
+file-and-folder-management
+coding-and-code-management
+computing-environment-and-software
+sharing-of-the-data-code-publication-etc
