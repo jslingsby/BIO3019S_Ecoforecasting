@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="forecasts.html"/>
-<link rel="next" href="references.html"/>
+<link rel="next" href="practical.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -200,6 +200,34 @@ div.csl-indent {
 <li class="chapter" data-level="5.5.2" data-path="reproducibility.html"><a href="reproducibility.html#coding-and-code-management"><i class="fa fa-check"></i><b>5.5.2</b> Coding and code management</a></li>
 <li class="chapter" data-level="5.5.3" data-path="reproducibility.html"><a href="reproducibility.html#computing-environment-and-software"><i class="fa fa-check"></i><b>5.5.3</b> Computing environment and software</a></li>
 <li class="chapter" data-level="5.5.4" data-path="reproducibility.html"><a href="reproducibility.html#sharing-of-the-data-code-publication-etc"><i class="fa fa-check"></i><b>5.5.4</b> Sharing of the data, code, publication etc</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="practical.html"><a href="practical.html"><i class="fa fa-check"></i><b>6</b> Practical: Pair coding with GitHub</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="practical.html"><a href="practical.html#objectives"><i class="fa fa-check"></i><b>6.1</b> Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="practical.html"><a href="practical.html#postfire-regeneration"><i class="fa fa-check"></i><b>6.2</b> Postfire regeneration</a></li>
+<li class="chapter" data-level="6.3" data-path="practical.html"><a href="practical.html#modular-design"><i class="fa fa-check"></i><b>6.3</b> Modular Design</a></li>
+<li class="chapter" data-level="6.4" data-path="practical.html"><a href="practical.html#task-1-create-clone-repository"><i class="fa fa-check"></i><b>6.4</b> Task 1: Create &amp; Clone Repository</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="practical.html"><a href="practical.html#owner"><i class="fa fa-check"></i><b>6.4.1</b> OWNER</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="practical.html"><a href="practical.html#task-2-add-the-first-function-download.ndvi"><i class="fa fa-check"></i><b>6.5</b> Task 2: Add the first function: download.NDVI</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="practical.html"><a href="practical.html#owner-1"><i class="fa fa-check"></i><b>6.5.1</b> OWNER</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="practical.html"><a href="practical.html#task-3-collaborator-adds-plot.ndvi"><i class="fa fa-check"></i><b>6.6</b> Task 3: Collaborator adds plot.NDVI</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="practical.html"><a href="practical.html#collaborator"><i class="fa fa-check"></i><b>6.6.1</b> COLLABORATOR</a></li>
+<li class="chapter" data-level="6.6.2" data-path="practical.html"><a href="practical.html#owner-2"><i class="fa fa-check"></i><b>6.6.2</b> OWNER</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="practical.html"><a href="practical.html#task-4-owner-adds-functions-for-model-fitting-using-mle"><i class="fa fa-check"></i><b>6.7</b> Task 4: Owner adds functions for model fitting using MLE</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>6.7.1</b> OWNER</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script-owner-answers-the-questions"><i class="fa fa-check"></i><b>6.8</b> Task 5: Collaborator adds the master script, Owner answers the questions</a>
+<ul>
+<li class="chapter" data-level="6.8.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>6.8.1</b> COLLABORATOR</a></li>
+<li class="chapter" data-level="6.8.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>6.8.2</b> OWNER</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -540,7 +568,7 @@ Figure 5.5: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 <p>Another issue is that <strong>software and hardware change with upgrades, new versions or changes in the preferences within user communities</strong> (e.g. you’ll all know MicroSoft Excel, but have you heard of Quattro Pro or Lotus that were the preferred spreadsheet software of yesteryear?).</p>
 <p>Just sharing your code, data and workflow does not make your work reproducible if we don’t know what language the code is written in or if functions change or are deprecated in newer versions, breaking your code.</p>
 <p>The <strong>simplest way</strong> to avert this problem is to <strong>carefully document the hardware and versions of software</strong> used in your analyses so that others can recreate that computing environment if needed. This is very easy in R, because you can simply run the <code>sessionInfo()</code> function, like so:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="reproducibility.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="reproducibility.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>## R version 4.1.1 (2021-08-10)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Ubuntu 20.04.3 LTS
@@ -652,7 +680,7 @@ Treurnicht, Martina, Jörn Pagel, Karen J Esler, Annelise Schutte-Vlok, Henning 
         </div>
       </div>
 <a href="forecasts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="practical.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

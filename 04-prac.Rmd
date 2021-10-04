@@ -6,6 +6,10 @@
 
 <br>
 
+***To complete this practical, you need to have done the preparation outlined in section \@ref(pracprep).***
+
+<br>
+
 ## Objectives
 
 The primary goal of this exercise is to gain experience working collaboratively to develop a scientific workflow. As such, this assignment must be completed with a partner. Specifically, we will outline an analysis, break the overall job into parts, and have each person complete part of the project. To put these parts together we will be using GitHub. 
@@ -16,8 +20,7 @@ Along the way we will also be exploring the statistical concept of Likelihood by
 
 ## Postfire regeneration
 
-<br>
-The goal of our analysis is to investigate the regeneration of Fynbos vegetation after fire by exploring a time-series of 16-day composite Normalized Difference Vegetation Index (NDVI) from the MODIS satellite mission, a measure of vegetation "greenness". You can read up on the data product [here](https://modis.gsfc.nasa.gov/data/dataprod/mod13.php). We'll be using data for one location (250m by 250m pixel) from the Silvermine section of Table Mountain National Park. You can view the raw data in comma-separated value (.csv) format [here](https://github.com/jslingsby/BIO3019S_Ecoforecasting/blob/master/data/modisdata.csv).
+The goal of our analysis is to investigate the regeneration of Fynbos vegetation after fire by exploring a time-series of 16-day composite Normalized Difference Vegetation Index (NDVI) from the MODIS satellite mission, a measure of vegetation "greenness". You can read up on the data product [here](https://modis.gsfc.nasa.gov/data/dataprod/mod13.php). We'll be using data for one location (250m by 250m pixel) from the Silvermine section of Table Mountain National Park, and will be exploring the NDVI trajectory since the March 2015 fire. You can view the raw data in comma-separated value (.csv) format [here](https://github.com/jslingsby/BIO3019S_Ecoforecasting/blob/master/data/modisdata.csv).
 
 <br>
 
