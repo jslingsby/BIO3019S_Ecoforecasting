@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-04" />
+<meta name="date" content="2021-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -230,6 +230,29 @@ div.csl-indent {
 <li class="chapter" data-level="6.8.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>6.8.2</b> OWNER</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html"><i class="fa fa-check"></i><b>7</b> Practical output: Master script for postfire analysis</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#source-functions-get-data-and-plot"><i class="fa fa-check"></i><b>7.1</b> Source functions, get data and plot</a></li>
+<li class="chapter" data-level="7.2" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#fit-models-using-non-linear-least-squares-nls"><i class="fa fa-check"></i><b>7.2</b> Fit models using Non-linear Least Squares (NLS)</a></li>
+<li class="chapter" data-level="7.3" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#compare-nls-models-using-anova"><i class="fa fa-check"></i><b>7.3</b> Compare NLS models using ANOVA</a></li>
+<li class="chapter" data-level="7.4" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#fit-models-using-maximum-likelihood-estimation-mle"><i class="fa fa-check"></i><b>7.4</b> Fit models using Maximum Likelihood Estimation (MLE)</a></li>
+<li class="chapter" data-level="7.5" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#compare-mle-models-using-akaikes-information-criterion-aic"><i class="fa fa-check"></i><b>7.5</b> Compare MLE models using Akaike’s information criterion (AIC)</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>8</b> Data Management</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="data.html"><a href="data.html#why-do-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>8.1</b> Why do you need to manage your data?</a></li>
+<li class="chapter" data-level="8.2" data-path="data.html"><a href="data.html#the-data-life-cycle"><i class="fa fa-check"></i><b>8.2</b> The Data Life Cycle</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="data.html"><a href="data.html#plan"><i class="fa fa-check"></i><b>8.2.1</b> Plan</a></li>
+<li class="chapter" data-level="8.2.2" data-path="data.html"><a href="data.html#collect-and-assure"><i class="fa fa-check"></i><b>8.2.2</b> Collect and Assure</a></li>
+<li class="chapter" data-level="8.2.3" data-path="data.html"><a href="data.html#describe"><i class="fa fa-check"></i><b>8.2.3</b> Describe</a></li>
+<li class="chapter" data-level="8.2.4" data-path="data.html"><a href="data.html#preserve"><i class="fa fa-check"></i><b>8.2.4</b> Preserve</a></li>
+<li class="chapter" data-level="8.2.5" data-path="data.html"><a href="data.html#discover"><i class="fa fa-check"></i><b>8.2.5</b> Discover</a></li>
+<li class="chapter" data-level="8.2.6" data-path="data.html"><a href="data.html#integrate"><i class="fa fa-check"></i><b>8.2.6</b> Integrate</a></li>
+<li class="chapter" data-level="8.2.7" data-path="data.html"><a href="data.html#analyze"><i class="fa fa-check"></i><b>8.2.7</b> Analyze</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="data.html"><a href="data.html#data-and-decisions"><i class="fa fa-check"></i><b>8.3</b> Data and decisions</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting" target="blank">Published with bookdown</a></li>
@@ -421,7 +444,7 @@ Figure 5.4: ‘Data Pipeline’ from <a href="https://xkcd.com/2054">xkcd.com/20
 <p>Working reproducibly requires careful planning and documentation of each step in your scientific workflow from <em>planning</em> your data collection to <em>sharing</em> your results.</p>
 <p>This entails a number of overlapping/intertwined components, namely:</p>
 <ul>
-<li>Data management - which we’ll spend more time on in Chapter <a href="#data"><strong>??</strong></a></li>
+<li>Data management - which we’ll spend more time on in Chapter <a href="data.html#data">8</a></li>
 <li>File and folder management</li>
 <li>Coding and code management - i.e. the data manipulation and analyses performed</li>
 <li>Computing environment and software</li>
@@ -586,8 +609,8 @@ Figure 5.5: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 ## [11] LC_MEASUREMENT=en_ZA.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets 
-## [6] methods   base     
+## [1] stats     graphics  grDevices utils     datasets  methods  
+## [7] base     
 ## 
 ## other attached packages:
 ##  [1] hrbrthemes_0.8.0 forcats_0.5.1    stringr_1.4.0   
@@ -596,7 +619,7 @@ Figure 5.5: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 ## [10] tidyverse_1.3.1 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.6         lattice_0.20-44    lubridate_1.7.10  
+##  [1] Rcpp_1.0.6         lattice_0.20-45    lubridate_1.7.10  
 ##  [4] png_0.1-7          assertthat_0.2.1   digest_0.6.27     
 ##  [7] utf8_1.2.2         R6_2.5.0           cellranger_1.1.0  
 ## [10] backports_1.2.1    reprex_2.0.0       evaluate_0.14     
@@ -606,7 +629,7 @@ Figure 5.5: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 ## [22] Matrix_1.3-4       rmarkdown_2.11     labeling_0.4.2    
 ## [25] splines_4.1.1      extrafont_0.17     munsell_0.5.0     
 ## [28] broom_0.7.7        compiler_4.1.1     modelr_0.1.8      
-## [31] xfun_0.24          pkgconfig_2.0.3    systemfonts_1.0.2 
+## [31] xfun_0.24          systemfonts_1.0.2  pkgconfig_2.0.3   
 ## [34] mgcv_1.8-37        htmltools_0.5.1.1  tidyselect_1.1.1  
 ## [37] bookdown_0.22      fansi_0.5.0        crayon_1.4.1      
 ## [40] dbplyr_2.1.1       withr_2.4.2        grid_4.1.1        
@@ -627,7 +650,7 @@ Figure 5.5: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 </div>
 <div id="sharing-of-the-data-code-publication-etc" class="section level3" number="5.5.4">
 <h3><span class="header-section-number">5.5.4</span> Sharing of the data, code, publication etc</h3>
-<p>This is touched on in more detail when we discuss data management in Chapter <a href="#data"><strong>??</strong></a>, but suffice to say there’s no point working reproducibly if you’re not going to share all the components necessary to complete your workflow…</p>
+<p>This is touched on in more detail when we discuss data management in Chapter <a href="data.html#data">8</a>, but suffice to say there’s no point working reproducibly if you’re not going to share all the components necessary to complete your workflow…</p>
 <p>Another key component here is that ideally all your data, code, publication etc are shared <em>Open Access</em> - i.e. they are not stuck behind some paywall</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:reproducibilitysteps"></span>

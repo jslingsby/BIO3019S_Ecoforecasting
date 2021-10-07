@@ -2,7 +2,7 @@
 
 <br>
 
-> _Just a quick acknowledgement that I have adapted much of the framework for the following from Michael Dietze's [**Pair coding practical**](https://github.com/EcoForecast/EF_Activities/blob/master/Exercise_04_PairCoding.Rmd) that is a living online supplement to his book [@Dietze2017]. Thanks for sharing the code under an MIT license Mike! The main differences are that I've changes the subject matter from looking at phenology in Tall Grass Prairie using PhenoCam data to looking at postfire vegetation growth in Fynbos using MODIS satellite Normalized Difference Vegetation Index (NDVI), a measure of vegetation "greenness". This includes changing the core model we fit too._
+> _Just a quick acknowledgement that I have adapted much of the framework for the following from Michael Dietze's [**Pair coding practical**](https://github.com/EcoForecast/EF_Activities/blob/master/Exercise_04_PairCoding.Rmd) that is a living online supplement to the book [@Dietze2017]. Thanks for sharing the code under an MIT license Mike! The main differences are that I've changes the subject matter from looking at phenology in Tall Grass Prairie using PhenoCam data to looking at postfire vegetation growth in Fynbos using MODIS satellite Normalized Difference Vegetation Index (NDVI), a measure of vegetation "greenness". This includes changing the core model we fit too._
 
 <br>
 

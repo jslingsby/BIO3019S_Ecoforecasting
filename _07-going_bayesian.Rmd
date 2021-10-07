@@ -1,35 +1,208 @@
 # Going Bayesian {#baysian}
 
-While ecological forecasting and decision support can be done with traditional statistics (often termed "frequentist statistics") it is generally much easier to do in a Bayesian statistical framework, because:
+While ecological forecasting and decision support can be done with traditional statistics (often termed "frequentist statistics") it is generally much easier to do in a Bayesian statistical framework.
 
-- It can easily treat all terms as probability distributions, making it easier to quantify, propagate and partition uncertainties throughout the analysis (more on this later)
-- Bayesian analyses are inherently iterative, making it easier to update predictions as new data become available
-- They are highly flexible, allowing one to build relatively complex models with varied data sources (and/or of varying quality), especially Hierarchical Bayesian models
-- They are typically focused on estimating what properties  are (i.e. the actual value of a particular parameter) and not just establishing what they are not (i.e. testing for significant difference, as is usually the focus in frequentist statistics) - although there are frequentist approaches for doing this too
+**Bayesian approaches have several advantages:**
+
+> *NOTE: there are frequentist approaches for doing much of this, but they are typically cumbersome "add-ons" that require many additional assumptions. Once you're using Bayes you can achieve all this without much extra work.*
+
+- They are typically **focused on estimating what properties  are** (i.e. the actual value of a particular parameter) and not just establishing what they are not (i.e. testing for significant difference (null hypothesis testing), as is usually the focus in frequentist statistics)
+- They can easily treat all terms as probability distributions, making it **easier to quantify, propagate and partition uncertainties throughout the analysis probabilistically** (more on this later)
+- They are highly **flexible**, allowing one to build relatively **complex models with varied data sources** (and/or of varying quality), especially Hierarchical Bayesian models
+- They are inherently **iterative**, making it easier to update predictions as new data become available
 
 In this section I aim to provide a brief and soft introduction to Bayesian statistics and and illustrate it using the postfire recovery example we worked on in the pair-coding practical. 
 
+Before I can introduce Bayes, there are a few basic building blocks we need to establish first. The main one is the concept of likelihood and the estimation of maximum likelihood, since this is a major component of Bayes' Theorem. 
+
+> *NOTE: This really is a minimalist introduction that only provides the tidbits I need you to know to follow the rest of the module. This note is a proviso to make it clear that I am withholding important details, before anyone accuses me of lies of ommission.* 
+
+## Learning objectives
+
+- How Least Squares works, and why this is a major limitation
+  - especially with relation to the "data model"
+- How Maximum Likelihood works, and how it gets around the limitations of Least Squares by allowing for more flexible data models
+
+(- dealing with the second assumption of Least Squares? identically independently distributed (the iid assumption)?)
+
+- The difference between likelihood and probability, and why it's easier to deal with uncertainty if it is expressed in the context of probability
+- How converting likelihood to probability gives you Bayes Theorem
+- The "unexpected" advantages of Bayes...
+  - Priors
+  - Hierarchical models
+
+
+- data vs process vs parameter models
+- 
+
+<br>
+
+## Least Squares
+
+But before I introduce Maximum Likelihood, let's start with Least Squares, which is probably what you are most familiar with.
+
+Traditional parametric statistics like regression analysis and analysis of variance (ANOVA) rely on Ordinary Least Squares (OLS). There are a few other flavours of least squares that allow a bit more flexibility (e.g. nonlinear (NLS) that we used in the practical in section \@ref(practical), partial least squares, etc), but I'm not going to go into these distinctions.
+
+In general, least squares approaches fit models by **minimizing the sums of the squared residuals**. Let's explore this by looking at an example of a linear regression.
+
+```{r leastsquares1, echo=F, message=F, fig.cap = "A hypothetical example showing a linear model fit."}
+library(tidyverse)
+library(hrbrthemes)
+
+set.seed(1066)
+
+dat <- data.frame(Reward = 2:71 + rnorm(70, mean = 0, sd = 5), Effort = 2:71 + rnorm(70, mean = 0, sd = 5))
+
+dat %>%
+  ggplot(aes(x=Effort, y=Reward)) +
+  geom_point() +
+  geom_smooth(method = "lm") + 
+  theme_bw()
+```
+
+<br>
+
+Here the model (blue line) is drawn through the cloud of points so as to minimize the sum of the squared vertical (y-axis) differences (i.e. residuals) between each point and the regression line.
+
+Let's redraw this highlighting the residuals:
+
+
+```{r leastsquares2, echo=F, message=F, fig.cap = "The linear model highlighting the residuals."}
+
+# Fit linear model and calculate the residuals
+fit <- lm(Reward ~ Effort, data = dat)
+dat$predicted <- predict(fit)   # Save the predicted values
+dat$residuals <- residuals(fit) # Save the residual values
+
+# Plot
+dat %>%
+  ggplot(aes(x=Effort, y=Reward)) +
+  geom_smooth(method = "lm", se = FALSE, color = "lightgrey") +
+  geom_segment(aes(xend = Effort, yend = predicted), alpha = .2) +
+  geom_point(aes(color = residuals)) +
+  scale_color_gradient2(low = "blue", mid = "white", high = "red") +
+  geom_point(aes(y = predicted), shape = 1) +
+  theme_bw()
+```
+
+<br>
+
+So the grey lines linking each observed data point to the regression line are the residuals. Note that they are vertical and not orthogonal to the regression line, because they represent the variance in Y (_Reward_ in this case) that is not explained by X (_Effort_ in this case). The open black circles are the Y-values that our linear model predicts for a given X-value. There is no scatter in the predicted values, because the scatter is residual variance that the model cannot account for and predict.
+
+Now let's have a look at a histogram of the residuals:
+
+<br>
+
+```{r leastsquares3, echo=F, message=F, fig.cap = "A histogram of the residuals from the linear model above."}
+
+dat %>% ggplot() +
+  geom_histogram(aes(residuals), binwidth = 3, col="grey") +
+   theme_bw()
+```
+
+<br>
+
+As you can see in this case, the residuals approximate a ***normal distribution*** (or should, since I generated them from a normal distribution...). You'll recall that this is **one of the assumptions when using linear models or ANOVA (often termed "homoscedasticity" or "homogeneity of variance")** - i.e. it is an assumption of the Least Squares method. Least squares cannot handle residuals that are not normally distributed. If the residuals were not normally distributed, then either we are fitting the wrong model (e.g. we should consider a non-linear rather than a linear model), or our assumptions are violated and we should not be using this technique! 
+
+The reason Least Squares requires this assumption is that for minimizing the sums of squares to work, **a unit change in the residuals should be scale invariant**. In other words, the difference between 1 and 2 needs to be the same as the difference between 101 and 102. This is only the case when the residuals are normally distributed (versus log-scale for example). If the scale is variable, then **minimizing the sums of squares does not work**. People often try to get around the assumption of homogeneity of variance by **tranforming** their data (e.g. log or arcsine transform) to try to get them to an invariant scale.
+
+> So where does **significance testing** come into it? Well significance testing is the ability to reject (or to fail to reject) the null hypothesis. In the case of a linear model, **the null hypothesis is that the slope is zero (i.e. there is no effect of X on Y)** and sometimes includes that the intercept should be zero too (although this is not usually required). I don't have the time to go through the full explanation of how the null hypothesis is tested in this lecture, but it is useful to highlight that the linear model is only considered useful when you can reject the null hypothesis (usually at an alpha of P < 0.05).
+
+<br>
+
+## Data versus process models
+
+It's useful at this stage to make a distinction between data models and process models.
+
+- The _process model_ is the bit you'll be used to, where we describe how the model creates a prediction for a particular set of inputs or covariates (i.e. the linear model in the case above).
+- The _data model_ describes the residuals (i.e. the mismatch between the process model and the data). It is also often called the data observation process.
+
+Because of the reliance on minimizing the sums of squares, **the data model in a Least Squares analysis can only ever be a normal distribution** (i.e. homogeneity of variance). This is suboptimal because:
+
+a) the data model can take many other forms
+  - e.g. Binomial coin flips, Poisson counts of individuals, Exponential waiting times
+  - this is where Maximum Likelihood comes into it's own
+b) there are times when one would like to include additional information in the data model
+  - e.g. sampling variability (e.g. different observers or instruments), measurement errors, instrument calibration, proxy data, unequal variances, missing data
+  - this is where Bayesian models come into their own
+
+<br>
+
 ## Maximum likelihood
 
-Before I can introduce Bayes, there are a few basic building blocks we need to establish first. The main one is the concept of likelihood and the estimation of maximum likelihood, since this is a major component of Bayes' Theorum.
+***Maximum likelihood is a method for estimating model parameters***
+
+*The likelihood principle states a that parameter value is more likely than another if it is the one for which the data are more probable.*
+
+Maximum Likelihood Estimation (MLE) applies this principle by optimizing the parameter values such that they maximize the likelihood that the process described by the given model produced the data that were observed.
+
+If this seems like a tongue-twister full of double-negatives that's because it is...
+
+Viewed differently, when using MLE we assume that we have the correct model and apply MLE to choose the parameters so as to maximize the *conditional probability* of the data given those parameter estimates. The notation for this conditional probability is $P(Data|Parameters)$.
+
+This process leaves us knowing the likelihood of the best set of parameters and the conditional probability of the data given those parameters $P(Data|Parameters)$. The problem is that in the context of forecasting (and many other modelling approaches) **what we really want is to be able to express the uncertainty in the parameter estimates as probabilities**. In other words, we are interested in the conditional probability of the parameters given the data $P(Parameters|Data)$. To get there, we need to apply a little probability theory, which provides a somewhat surprising and very useful byproduct. 
+
+First, let's brush up on our probability theory...
+
+### Joint, conditional and marginal probabilities
+
+Here we'll look at the interactions between two random variables and illustrate it with the Venn diagram below.
+
+```{r vennprobability, echo=FALSE, fig.cap = "Venn diagram illustrating ten events (points) across two sets $x$ and $y$.", fig.width=3, fig.align = 'center', out.width="75%"}
+knitr::include_graphics("img/vennprobability.png")
+```
+
+<br>
+
+First, we can define the ***joint probability***, $P(x,y)$, which is the probability of both $x$ and $y$ occurring simultaneously, which in the case of Figure \@ref(fig:vennprobability) is the probability of occurring within the overlap of the circles = 3/10.
+
+Second, based on the joint probability we can define two ***conditional probabilities***, the probability of $x$ given $y$, $P(x|y)$, and the probability of $y$ given $x$, $P(y|x)$. In the context of the Venn diagram these would be the probability of being in set $x$ given that we are only considering the points in set $y$ (= 3/6) and the probability of being in set $y$ given that we are only considering the points in set $x$ (= 3/7).
+
+Last, we can define two ***marginal probabilities*** $P(x)$ = 7/10 and $P(y)$ = 6/10.
+
+From this, we can see that **the joint probabilities $P(x,y)$ and $P(y,x)$ are identical** (= 0.3).
+
+We can also show that **the joint probabilities are the product of the conditional and marginal probabilities**:
+
+$P(x,y)$ = $P(x|y)$ * $P(y)$ = 3/6 * 6/10 = 0.3 
+
+And by the same token: 
+
+$P(y,x)$ = $P(y|x)$ * $P(y)$ = 3/7 * 7/10 = 0.3
+
+Why I'm telling you all this is because this means that we can derive what we want to know, $P(Parameters|Data)$, as a function of what our maximum likelihood estimation has given us, $P(Data|Parameters)$...
+
+## Bayes' Theorem 
+
+<!--- ### Maximum Likelihood Estimation vs Null Hypothesis Testing
+
+In null hypothesis testing you usually want to know the probability of the null hypothesis conditional on the data. Formally, this is called the *conditional probability* of the hypothesis given the data, and can be written in model form as $P(Hypothesis|Data)$.
+
+The somewhat bizarre thing in null hypothesis testing is that the aim is usually to falsify or reject the null hypothesis. So when you're fitting a linear model to data (which you would presumably only do if you believed there may be some effect of the independent (X) variable on the dependent (Y) and variable), your null hypothesis is actually that there is no effect of X on Y (the inverse of your belief).
+
+
+The maximum likelihood estimator selects the parameter value which gives the observed data the largest possible probability (or probability density, in the continuous case).
+
 
 ### Probability vs Likelihood
 
 While _probability_ and _likelihood_ may seem like similar concepts, the distinction between them is fundamentally important in statistics. 
 
-**Probability relates to possible results given a hypothesis.** 
+**Probability relates to possible results (i.e. the data) given a hypothesis.** 
 
 - e.g. if you have an unbias coin (the hypothesis), the probability of a coin toss landing heads up (the result) is 0.5.
+- This can also be termed the *conditional probability* of the data given the model, or written in model form $P(Model|Data)$.
 
-**Likelihood relates to the hypotheses, given the results (i.e. data).**
+**Likelihood relates to the hypotheses, given the results.**
 
 - e.g. say we've performed 1000 tosses and the coin landed heads up 700 times (the data), it is less _likely_ that the hypothesis of an unbias coin is true relative to a hypothesis that the coin favours heads.
+- This is the conditional probability of the data given the model, or written in model form $P(Data|Model)$.
 
-This may seem like a subtle and potentially arbitrary distinction, but likelihood comes into it's own when comparing multiple hypotheses (usually specified as models).
+This may seem like a subtle and potentially arbitrary distinction, but likelihood comes into it's own when comparing multiple hypotheses - either specified as different parameters for a given model, or as different models altogether. --->
 
 <br>
 
-***maximum likelihood estimation is a probabilistic framework for estimating model parameters***
+
 
 <br>
 
@@ -431,6 +604,10 @@ P(H_j |E) & = \frac{P(E|H_j)P(H_j)}{P(E)}\\
 & = \frac{P(E|H_j)P(H_j)}{\sum_{i=1}^k P(E|H_i) P(H_i)}\\
 & \\
 P(H_j |E) & \propto P(E|H_j)P(H_j)
+\end{align*}
+
+\begin{align*}
+P(Having Fun|Cape Town) & \propto P(Cape Town|Being A Fun Place)P(Your Ability To Have Fun)
 \end{align*}
 
 The symbol $\propto$ is read "is proportional to". The relative *ratios* of the posterior probabilities of different hypotheses are determined by the product of the prior probabilities and the likelihoods, $P(E|H_j)P(H_j)$.  The marginal probability of the evidence, $P(E)$, in the denominator simply normalizes the numerators to ensure that the updated probabilities sum to 1 over all the distinct hypotheses.

@@ -2,7 +2,9 @@
 
 ## Why do you need to manage your data?
 
-Data management is often the last thing on a scientists mind when doing a new study - "I have a cool idea, and I'm going to test it!". You don't want to "waste" time planning how you're going to manage your data and implementing that plan... Unfortunately, this never ends well and really is a realm where "haste makes waste".
+Data management is often the last thing on a scientists mind when doing a new study - "I have a cool idea, and I'm going to test it!". You don't want to "waste" time planning how you're going to manage your data and implementing that plan... 
+
+Unfortunately, this never ends well and really is a realm where "haste makes waste".
 
 <br>
 
@@ -14,18 +16,27 @@ knitr::include_graphics("img/datadecaycurve.jpg")
 
 Here are a bunch of reasons you really want to focus on doing good data management:
 
-- Bad data management leads to data loss... (Figure \@ref(fig:datadecay))
-- Your future self will hate you if you lose it before you're finished with it - Eek!!! This is less likely in the world of Dropbox, Google Drive, iCloud etc, but I know people who had to repeat their PhD's because they lost their data or it was on a laptop that was stolen... Also, ***beware cloud storage!!!*** It is very easy for you or a collaborator to delete/overwrite/lose access to items etc, e.g. 
-    - if someone leaves the project and deletes the folder on their Dropbox without "leaving" it first)
-    - if the "owner" of the Google Drive folder loses access to their Google account (_as will happen to your UCT Google Drive access as soon as you graduate!!!_)
+- **Bad data management leads to data loss**... (Figure \@ref(fig:datadecay))
+- **Your future self will hate you if you lose it before you're finished with it!!!** This is less likely in the world of Dropbox, Google Drive, iCloud etc, but I know people who had to repeat their PhD's because they lost their data because it was on a laptop that crashed or was stolen... Also, ***beware cloud storage!!!*** It's very easy for you or a collaborator to delete/overwrite/lose access to items, e.g. 
+    - if someone leaves the project and deletes the folder on their Dropbox without "leaving" it first
+    - if the "owner" of the Google Drive folder loses access to their Google account (***as will happen to your UCT Google Drive access as soon as you graduate!!!***)
     - through all manner of random "accidents"
-- Data has value beyond your current project: 
+    
+- **Data has value beyond your current project**: 
   - to yourself for reuse in future projects, collaborations, etc (i.e. publications and citations), 
   - for others for follow-up studies, or combining multiple datasets for meta-analyses or synthesis etc
   - for science on general (especially long-term ecology in a time of global change)
-- We've covered this before, but it is also key for transparency and accountability.
-- Data collection is expensive, and is often paid for with taxpayers' money. You owe it to them to make sure that science gets the most out of that data in the long term.
-- Lastly, good planning and data management can help iron out issues like intellectual property, permissions for ethics, collection permits, etc, in addition to outlining expectations for who will be authors on the paper(s), responsible for managing different aspects of the data etc up front. If you don't establish these permissions and ground rules early they can result in data loss, not being able to publish the study, damage careers, and/or damage relationships in collaborations (including student-supervisor), etc. 
+  
+- We've covered this before, but **sharing your data is key for transparency and accountability**.
+- Data collection is expensive, and is often paid for with taxpayers' money. **You owe it to your funder (and humanity in general) to make sure that science gets the most out of your data** in the long term.
+- Lastly, **good planning and data management can help iron out issues** up front, like: 
+
+  - intellectual property, 
+  - permissions for ethics, collection permits, etc, 
+  - outlining expectations for who will be authors on the paper(s),
+  - responsibilities for managing different aspects of the data etc 
+  
+If you don't establish these permissions and ground rules early they can result in data loss, not being able to publish the study, damage relationships in collaborations (including student-supervisor), and ultimately damage careers... 
 
 To avoid data (and relationship) decay, and to reap the benefits of good data management, it is important to consider the full *Data Life Cycle*.
 
@@ -33,7 +44,7 @@ To avoid data (and relationship) decay, and to reap the benefits of good data ma
 
 ## The Data Life Cycle
 
-```{r datalifecycle, echo=FALSE, fig.cap = "The Data Life Cycle, adapted from https://www.dataone.org/", fig.width=6, fig.align = 'center'}
+```{r datalifecycle, echo=FALSE, fig.cap = "The Data Life Cycle, adapted from https://www.dataone.org/", fig.width=6, fig.align = 'center', out.width="110%"}
 # load library
 #library(ggplot2)
 
@@ -72,18 +83,21 @@ ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
 
 <br>
 
-Note that there are quite a few different versions of the data life cycle out there. This is the most comprehensive one I know of, and covers all the steps relevant to a range of different kinds of research projects. A full description of this data life cycle and related ecoinformatics issues can be found in [@Michener2012]. 
+Note that there are quite a few **different versions** of the data life cycle out there. **This is the most comprehensive one I know of**, and covers all the steps relevant to a range of different kinds of research projects. A full description of this data life cycle and related ecoinformatics issues can be found in [@Michener2012]. 
 
-Not all projects need to do all steps, nor will they necessarily follow the order here, but it is worth being aware of and considering all steps. For example, often the first thing you do when you have a new hypothesis is search around for any existing data that could be used to test it without having to spend money and time collecting new data (i.e. skip to step 6 - "Discover"). In this case I would argue that you should still do step 1 (Plan), and you'd want to do some checking to assure the quality of the data (step 3), but you can certainly skip steps 2, 4 and 5. A meta-analysis or synthesis paper would probably do the same. On the other hand, if you're collecting new data you would do steps 1 to 5 and possibly skip 6 and 7, although in my experience few studies do not reuse existing data (e.g. weather or various GIS data to put your new samples in context).
+**Not all projects need to do all steps, nor will they necessarily follow the order here**, but it is worth being aware of and considering all steps. For example: 
+
+- Often the first thing you do when you have a new hypothesis is **start by searching for any existing data** that could be used to test it without having to spend money and time collecting new data (i.e. skip to step 6 - "Discover"). In this case I would argue that you should still do step 1 (Plan), and you'd want to do some checking to assure the quality of the data (step 3), but you can certainly skip steps 2, 4 and 5. A meta-analysis or synthesis paper would probably do the same. 
+- If you're collecting new data you would do steps 1 to 5 and possibly skip 6 and 7, although in my experience few studies do not reuse existing data (e.g. weather or various GIS data to put your new samples into context).
 
 <br>
 
 ### Plan 
-Good data management begins with planning. In this step you essentially outline the plan for every step of the cycle in as much detail as possible. Usually this is done by constructing a document or Data Management Plan (DMP). 
+Good data management begins with planning. In this step you essentially **outline the plan for every step of the cycle in as much detail as possible**. Usually this is done by constructing a document or **Data Management Plan (DMP)**. 
 
-While developing DMPs can seem tedious, they are essential for the reasons I gave above, and because most funders and universities now require them.
+While developing DMPs can seem tedious, they are essential for the reasons I gave above, and because **most funders and universities now require them**.
 
-Fortunately, there are a number of online data management planning tools that make it easy by providing templates and prompts to ensure that you cover all the bases, like the Digital Curation Centre's [DMPOnline](https://dmponline.dcc.ac.uk/) and [UCT's DMP Tool](https://dmp.lib.uct.ac.za/).
+Fortunately, there are a number of **online data management planning tools** that make it easy by providing templates and prompts to ensure that you cover all the bases, like the Digital Curation Centre's [DMPOnline](https://dmponline.dcc.ac.uk/) and [UCT's DMP Tool](https://dmp.lib.uct.ac.za/).
 
 <br>
 
@@ -93,7 +107,7 @@ knitr::include_graphics("img/UCTDMP.png")
 
 <br>
 
-A key thing to bear in mind is that a DMP is a living document and should be regularly revised during the life of a project, especially when big changes happen - e.g. new team members, new funding, new direction, change of institution, etc.
+A key thing to bear in mind is that **a DMP is a living document and should be regularly revised during the life of a project**, especially when big changes happen - e.g. new team members, new funding, new direction, change of institution, etc.
 
 I typically develop one overarching DMP for an umbrella project (e.g. a particular grant), but then add specifics for subprojects (e.g. separate student projects etc).
 
@@ -116,15 +130,21 @@ For example:
 - automated logging instruments (weather stations, cameras, acoustic recorders) need to be **checked** that they're logging properly, are **calibrated/focused**, are reporting **sensible values**, etc
 - if you're filling in data sheets, you need to check that all fields have been completed (**no gaps**), that there are **no obvious errors** and that any numbers or other **values look realistic**. In fact, if you're using handwritten data sheets it's best to **capture them as soon as possible** (i.e. that evening), because that helps you spot errors and omissions, you have a better chance of deciphering bad handwriting or cryptic notes, and you can plot any values to see if there are suspicious outliers (e.g. because someone wrote down a measurement in centimetres when they were meant to use metres).
 
-When transcribing or capturing data into a spreadsheet or database it is often best to **use data validation** tricks like drop-down menus, conditional formatting, restricted value ranges etc to avoid spelling mistakes and highlight data entries that are outside the expected range of the data field. It may seem like a lot of effort to set this up, but *it'll save you a lot of time and pain in the long run!!!*
+When transcribing or capturing data into a spreadsheet or database it is often best to **use data validation** tricks like drop-down menus, conditional formatting, restricted value ranges etc to avoid spelling mistakes and highlight data entries that are outside the expected range of the data field. ***It may seem like a lot of effort to set this up, but it'll save you a lot of time and pain in the long run!!!***
 
-Increasingly, I've started moving towards capturing data directly into a spreadsheet on a tablet, or better yet, into an App on my phone. There are a number of "no code" app builders these days like [AppSheet](https://www.appsheet.com) that inserts data directly into Google Sheets and saves photos to your Google Drive.
+Increasingly, I've started moving towards **capturing data directly into a spreadsheet** with data validation rules using a phone or tablet. There are also a number of "no code" app builders these days like [**AppSheet**](https://www.appsheet.com) that allows you to easily collect data on your phone and sync data directly into Google Sheets and photos to your Google Drive. AppSheet is proprietary software, but does allow a lot of utility with their free accounts. [**QField**](https://qfield.org/) is another handy open source app built on QGIS, allowing you to setup maps and forms in QGIS on your workstation and deploy them to your phone, tablet etc. It seems to be getting better all the time.
 
 <br>
 
 ```{r appsheet, echo=FALSE, fig.cap = "An example data collection app I built in [AppSheet](https://www.appsheet.com) that allows you to log GPS coordinates, take photos, record various fields, etc.", fig.width=3, fig.align = 'center', out.width="90%"}
 knitr::include_graphics("img/veldwatch.png")
 ```
+
+<br>
+
+**Tidy Data**
+
+Last, but not least. We haven't discussed different data formats etc, but if you are working with tabular data (i.e. spreadsheets, tables) I strongly recommend you read this short paper on **[how to keep your data Tidy](http://dx.doi.org/10.18637/jss.v059.i10)** [@Wickham2014]. Following these principles will make life much easier for you once you get to the analysis step...
 
 <br>
 
@@ -156,10 +176,13 @@ knitr::include_graphics("img/fairdata.jpg")
 - the data content
   - what was measured
   - how it was measured
-  - what units was it reported in
+  - what the columns and rows are
+  - what units it's reported in
   - what QA/QC has been applied
   - is it raw data or a derived data product (e.g. spatially interpolated climate layers)
-  - if derived, how it was analyzed
+    - if derived, how it was analyzed
+  - etc
+
 
 <br>
 
@@ -169,9 +192,15 @@ Many data user communities have developed particular metadata standards or schem
 
 They are typically human and machine-readable data, so that the metadata records can also be read by machines, to **facilitate storing and querying multiple datasets** in a common database (or across databases).
 
+Imagine how difficult it would be to pay for something electronically **if banks didn't use common metadata standards?** Each transaction would require someone to manually look things up in multiple tables etc etc. Chaos!!!
+
+<br>
+
 ```{r datastandards, echo=FALSE, fig.cap = "How standards proliferate... from [xkcd.com/927](https://xkcd.com/927), used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/).", fig.width=3, fig.align = 'center', out.width="75%"}
 knitr::include_graphics("img/standards.png")
 ```
+
+<br>
 
 Using **common metadata schemas has many advantages** in that they make data sharing easier, they allow you to search and integrate data across datasets, and they simplify metadata capture (i.e. having a list of required fields makes it easier to not forget any).
 
@@ -181,13 +210,10 @@ There's even [new standards for documenting ecological forecasts](https://projec
 
 <br>
 
-```{r stacspec, echo=FALSE, fig.cap = "SpatioTemporal Asset Catalogs [(STAC; stacspec.org)](https://stacspec.org/) aims to provide a common specification to enable online search and discovery of geospatial assets in just about any format.", fig.width=3, fig.align = 'center', out.width="100%"}
+```{r stacspec, echo=FALSE, fig.cap = "An example of a geospatial metadata standard. SpatioTemporal Asset Catalogs [(STAC; stacspec.org)](https://stacspec.org/) aims to provide a common specification to enable online search and discovery of geospatial assets in just about any format.", fig.width=3, fig.align = 'center', out.width="100%"}
 knitr::include_graphics("img/stacspec.png")
 ```
 
-<br>
-
-Last, but not least, and not necessarily related to metadata, but it does make metadata capture easier, I strongly recommend you read this short paper on **[how to keep your data Tidy](http://dx.doi.org/10.18637/jss.v059.i10)** [@Wickham2014]. It will life it much easier for you once you get to the analysis step...
 
 <br>
 
@@ -211,7 +237,7 @@ This involves the deposition of your data (and metadata!) in a **data repository
 
 This is increasingly a requirement of funders and publishers (i.e. journals). Many journals allow you (or require you) to submit and publish your data with them as supplementary material. Unfortunately, many journals differ in how they curate the data and whether they are available open access. I prefer to publish my data in an online open access repository where you can get a permanent **Digital Object Identifier (DOI)** that you can link to from your paper.
 
-Another consideration, if you are keen for people to reuse your data (which if you are not you will fail this course by default) is **where people are most likely to look for your data** (i.e. making your data "Findable/Discoverable". There are many "bespoke" data repositories for different kinds of data, e.g.
+Another consideration, if you are keen for people to reuse your data (which if you are not you will fail this course by default) is **where people are most likely to look for your data** (i.e. making your data "Findable/Discoverable"). There are many "bespoke" discipline-specific data repositories for different kinds of data, e.g.
 
 Global databases:
 
@@ -256,18 +282,22 @@ A final consideration is whether you have **permission to use the data**. You ca
 
 <br>
 
+> *NOTE: As an aside, for some reason software licenses are a bit more complicated and code is rarely shared under CC licenses, other than CCO. A rough equivalent of CC BY for code is MIT, and there are others that can add various constraints similar to Creative Commons' SA, ND and NC. See [here](https://fossa.com/blog/open-source-licenses-101-mit-license/).*
+
+<br>
+
 ### Integrate
 
 There are a few different components to data integration in this context:
 
-1. Linking different kinds of data, usually through spatial and or temporal information 
+1. **Linking different kinds of data**, usually through spatial and or temporal information 
   - e.g. matching you biodiversity collections with weather records or GIS information about the sites
-2. Keeping track of changes you've made to your data as you prepare it for analyses (versioning)
+2. **Keeping track of changes** you've made to your data as you prepare it for analyses (**versioning**)
   - e.g. you may be wanting to compare species richness across sites. This requires estimating species richness from your field data (usually lists of species by site occurrences and/or abundances)
   - you should always keep a copy of your raw data!!!
   - using scripting languages for data handling and analyses (e.g. R, Python, MatLab) can help you keep record of how you did any data summaries, transformations, etc, but only if you write clean, well-documented code and manage your code well!!!
-3. Curating your data such that they can easily be integrated with other, similar datasets for larger analyses or meta-analyses
-  - this is largely a metadata game, but also one of data formats etc. Many fields promote the use of common data standards with rules on measurement specifications, file formats, common data and metadata fields, controlled vocabularies etc that allow easy integration, searching and manipulation (see section \@ref(describe) for more details). This is what a lot of the online databases attempt to achieve. 
+3. **Curating your data** such that they can easily be integrated with other, similar datasets for larger analyses or meta-analyses
+  - this is largely a metadata game, but also one of data formats etc. Many fields promote the use of common data standards with rules on measurement specifications, file formats, common data and metadata fields, controlled vocabularies etc that allow easy integration, searching and manipulation (see section \@ref(describe) for more details). This is what a lot of the discipline-specific online databases attempt to achieve. 
 
 <br>
 
@@ -279,10 +309,11 @@ There are a few different components to data integration in this context:
 
 ## Data and decisions
 
-There are some other aspects of data, while still important if the goal is purely academic, that are make-or-break when the goal is informing decisions. 
+This is not part of *The Data Life Cycle* per se, but it's worth remembering that there are some other aspects of data, while still important if the goal is purely academic, that are make-or-break when the goal is informing decisions, e.g. (mostly paraphrased from @Dietze2018):
 
-- latency
-- uncertainty
-- 
+1. **Latency** - the time between data collection and it's availability for modelling. Depending on the model's need for the latest data, if the latency is too long then it can preclude the ability to make useful forecasts (e.g. it's very difficult to make useful weekly forecasts if you only get new data once a year...).
+2. **Uncertainty** - the model can only ever be as good as the data (**GIGO: garbage in = garbage out**). We'll also see that assimilating data into forecasts requires uncertainty estimates. Not including uncertainty can create **bias or overconfident predictions**... Unfortunately, very rarely does anyone report the uncertainty in their data... Unfortunately, there are also many reasons why **data can never be certain** - sampling variability, random and systematic instrument errors, calibration uncertainty, classification errors (e.g. species identification), transcription errors, corrupt files (or collaborators!) etc. I live by the creed *there is nothing as sinister as a certainty*. If you tell me your model has an $R^2$ of 1, I will tell you (with 100% certainty, ironically) that your model is wrong.
+3. **Repeated sampling** - most forecasts are in time and thus require time-series to develop the models. Frequent repeated sampling can often come at a trade-off with the spatial extent (or spatial replication) of sampling though. Forecasters need to optimize this trade-off to inform the most efficient data collection while also reducing uncertainty in the model.
+4. **Interoperability** - this is largely covered under the *Describe, Preserve, Discover* and *Integrate* steps in *The Data Life Cycle*
 
 <br>
