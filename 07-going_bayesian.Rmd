@@ -1,6 +1,6 @@
 # Going Bayesian {#baysian}
 
-In this section I aim to provide a brief and (relatively) soft introduction to Bayesian statistics. 
+In this section I aim to provide a brief and (relatively) soft introduction to Bayesian statistical theory. 
 
 While ecological forecasting and decision support can be done with traditional statistics (often termed "frequentist statistics") it is generally much easier to do in a Bayesian statistical framework.
 
@@ -300,7 +300,7 @@ The prior is incredibly powerful, but, as always the [Peter Parker Principle](ht
 
 **The prior also comes with great responsibility, because:** 
 
-> In short, it is very easy to specify an inappropriate prior!
+> In short, it is very easy to specify an inappropriate prior and bias the outcome of your analysis!
 
 - First and foremost, as tempting as it may be, ***the one place the prior CANNOT come from is the data used in the analysis!!!***
 - Second, while many people favour specifying "uninformative" priors, it is often **incredibly difficult to know what "uninformative"** is for different models or parameters.
