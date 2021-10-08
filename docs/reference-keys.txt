@@ -34,6 +34,11 @@ fig:appsheet
 fig:fairdata
 fig:datastandards
 fig:stacspec
+fig:leastsquares1
+fig:leastsquares2
+fig:leastsquares3
+fig:likelihood
+fig:vennprobability
 overview
 general
 lectures-and-practicals
@@ -100,3 +105,11 @@ discover
 integrate
 analyze
 data-and-decisions
+baysian
+least-squares
+least-squares-analyses-dont-explicitly-include-a-data-model
+least-squares-focuses-on-what-the-parameters-are-not-rather-than-what-they-are
+maximum-likelihood
+joint-conditional-and-marginal-probabilities
+bayes-theorem
+the-beauty-of-bayes-theorem

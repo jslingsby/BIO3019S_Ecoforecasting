@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-07" />
+<meta name="date" content="2021-10-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -252,6 +252,22 @@ div.csl-indent {
 <li class="chapter" data-level="8.2.7" data-path="data.html"><a href="data.html#analyze"><i class="fa fa-check"></i><b>8.2.7</b> Analyze</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="data.html"><a href="data.html#data-and-decisions"><i class="fa fa-check"></i><b>8.3</b> Data and decisions</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="baysian.html"><a href="baysian.html"><i class="fa fa-check"></i><b>9</b> Going Bayesian</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="baysian.html"><a href="baysian.html#least-squares"><i class="fa fa-check"></i><b>9.1</b> Least Squares</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="baysian.html"><a href="baysian.html#least-squares-analyses-dont-explicitly-include-a-data-model"><i class="fa fa-check"></i><b>9.1.1</b> Least Squares analyses don’t explicitly include a data model</a></li>
+<li class="chapter" data-level="9.1.2" data-path="baysian.html"><a href="baysian.html#least-squares-focuses-on-what-the-parameters-are-not-rather-than-what-they-are"><i class="fa fa-check"></i><b>9.1.2</b> Least squares focuses on what the parameters are not, rather than what they are</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="baysian.html"><a href="baysian.html#maximum-likelihood"><i class="fa fa-check"></i><b>9.2</b> Maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="baysian.html"><a href="baysian.html#joint-conditional-and-marginal-probabilities"><i class="fa fa-check"></i><b>9.2.1</b> Joint, conditional and marginal probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="baysian.html"><a href="baysian.html#bayes-theorem"><i class="fa fa-check"></i><b>9.3</b> Bayes’ Theorem</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="baysian.html"><a href="baysian.html#the-beauty-of-bayes-theorem"><i class="fa fa-check"></i><b>9.3.1</b> The beauty of Bayes’ Theorem</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -591,7 +607,7 @@ Figure 5.5: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 <p>Another issue is that <strong>software and hardware change with upgrades, new versions or changes in the preferences within user communities</strong> (e.g. you’ll all know MicroSoft Excel, but have you heard of Quattro Pro or Lotus that were the preferred spreadsheet software of yesteryear?).</p>
 <p>Just sharing your code, data and workflow does not make your work reproducible if we don’t know what language the code is written in or if functions change or are deprecated in newer versions, breaking your code.</p>
 <p>The <strong>simplest way</strong> to avert this problem is to <strong>carefully document the hardware and versions of software</strong> used in your analyses so that others can recreate that computing environment if needed. This is very easy in R, because you can simply run the <code>sessionInfo()</code> function, like so:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="reproducibility.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="reproducibility.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>## R version 4.1.1 (2021-08-10)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Ubuntu 20.04.3 LTS
@@ -629,7 +645,7 @@ Figure 5.5: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 ## [22] Matrix_1.3-4       rmarkdown_2.11     labeling_0.4.2    
 ## [25] splines_4.1.1      extrafont_0.17     munsell_0.5.0     
 ## [28] broom_0.7.7        compiler_4.1.1     modelr_0.1.8      
-## [31] xfun_0.24          systemfonts_1.0.2  pkgconfig_2.0.3   
+## [31] xfun_0.24          pkgconfig_2.0.3    systemfonts_1.0.2 
 ## [34] mgcv_1.8-37        htmltools_0.5.1.1  tidyselect_1.1.1  
 ## [37] bookdown_0.22      fansi_0.5.0        crayon_1.4.1      
 ## [40] dbplyr_2.1.1       withr_2.4.2        grid_4.1.1        
