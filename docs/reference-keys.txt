@@ -105,7 +105,7 @@ discover
 integrate
 analyze
 data-and-decisions
-baysian
+bayesian
 least-squares
 least-squares-analyses-dont-explicitly-include-a-data-model
 least-squares-focuses-on-what-the-parameters-are-not-rather-than-what-they-are

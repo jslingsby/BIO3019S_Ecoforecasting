@@ -1,4 +1,4 @@
-# Going Bayesian {#baysian}
+# Going Bayesian {#bayesian}
 
 In this section I aim to provide a brief and (relatively) soft introduction to Bayesian statistical theory. 
 
@@ -8,7 +8,7 @@ While ecological forecasting and decision support can be done with traditional s
 
 > *NOTE: there are frequentist approaches for doing much of this, but they are typically cumbersome "add-ons" that require many additional assumptions. Once you're using Bayes you can achieve all this without much extra work.*
 
-1. They are typically **focused on estimating what properties  are** (i.e. the actual value of a particular parameter) and not just establishing what they are not (i.e. testing for significant difference (*null hypothesis testing*), as is usually the focus in frequentist statistics)
+1. They are typically **focused on estimating what properties are** (i.e. the actual value of a particular parameter) and not just establishing what they are not (i.e. testing for significant difference (*null hypothesis testing*), as is usually the focus in frequentist statistics)
 2. They are highly **flexible**, allowing one to build relatively **complex models with varied data sources** (and/or of varying quality), especially Hierarchical Bayesian models
 3. They can easily treat all terms as probability distributions, making it **easier to quantify, propagate, partition and represent uncertainties throughout the analysis probabilistically**. More on this later, but it addresses two of the key components of the ecological forecasting cycle:
   - being able to **present the uncertainty** in the forecast to the decision maker
@@ -57,7 +57,7 @@ Let's redraw this highlighting the residuals:
 
 <br>
 
-```{r leastsquares2, echo=F, message=F, fig.cap = "The linear model highlighting the residuals."}
+```{r leastsquares2, echo=F, message=F, fig.cap = "The linear model highlighting the residuals (lollypops) relative to the values predicted by the model (open circles along the regression line)."}
 
 # Fit linear model and calculate the residuals
 fit <- lm(Reward ~ Effort, data = dat)
