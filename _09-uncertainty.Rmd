@@ -1,20 +1,85 @@
-# Prediction and uncertainty {#uncertainty}
+# Uncertainty {#uncertainty}
 
-- What determines the limits to the utility of predictions?
+Uncertainty determines the utility of a forecast. If the uncertainty in a forecast is too high, then it is of no utility to a decision maker. Similarly, if the uncertainty is not properly quantified and presented, it can lead to poor decisions. This leaves forecasters with three overarching questions:
 
-- What determines prediction uncertainty?
+1. What determines the limits to the utility of predictions?
+2. What determines prediction uncertainty?
+3. How can we reduce prediction uncertainty?
 
-- How can we reduce that uncertainty?
+<br>
+
+**Question 1** is very much dependent on question 2, but more specifically it depends on the combination of the rate of **accumulation of uncertainty** through time, as it tends towards being no better than chance (the forecast "event horizon"), and the **precision required for the decision** in question. If both are high, the prediction loses value rapidly and the forecast window can only be very short. Conversely, if both are low, the value of the prediction can remain high over a long forecast window. You obviously get variable combinations between the two.
 
 <br>
 
 ## Sources and types of uncertainty
 
+Addressing **question 2**, "What determines prediction uncertainty?" involves exploring the sources and types of uncertainty.
 
+Dietze provides a nice classification of prediction uncertainty in his book [@Dietze2017] and subsequent paper [@Dietze2017b]: 
+
+<br>
+
+$$
+\underbrace{Var[Y_{t+1}]}_\text{predictive variance} \approx \; 
+\underbrace{stability*uncertainty}_\text{initial conditions} \; +  \\
+\space\\
+\underbrace{sensitivity*uncertainty}_\text{drivers} \; +  \\
+\space\\
+\underbrace{sensitivity*(uncertainty+variability)}_\text{(parameters + random effects)} \; + \\
+\space\\
+\underbrace{Var[\epsilon]}_\text{process error} \; \;
+$$
+
+<br>
+
+If we break the terms down into (something near) English, we get:
+
+$$Var[Y_{t+1}] \approx$$
+
+*"The uncertainty in the prediction for the variable of interest ($Y$) in the next time step ($t+1$) is approximately equal to..."*
+
+$$\underbrace{stability*uncertainty}_\text{initial conditions} \; +$$
+
+*"The stability multiplied by the uncertainty in the initial conditions, plus"*
+
+- Here, the initial conditions = the state of $Y$ at time $t$.
+- **Stability** refers to whether it is a variable with **stabilizing feedbacks** (think of alternate stable states), versus whether it changes very quickly (with the extreme being one that **tends towards chaos** such as atmospheric conditions often do). Another example may be the populations of $r$ (unstable) versus $K$ (stable) selected species.
+- **Uncertainty** is just uncertainty in the state of $Y$ due to **observation error**.
+
+$$\underbrace{sensitivity * uncertainty}_\text{drivers} \; + $$
+
+*"The sensitivity to, multiplied by the uncertainty in, external drivers, plus"*
+
+- The **external drivers are just the independent variables** in the process model (i.e. the covariates).
+- So the predictability of $Y$ depends on its **sensitivity** to each covariate (i.e. how much change would we expect in $Y$ for a given change in the covariate), and the **uncertainty** in those covariates. Worst case scenario would be if $Y$ was highly sensitive and the covariates were highly uncertain. Note that given we are forecasting through time, uncertainty in each covariate also depends on how predictable it is. If we can't predict $X$, we can't use it to predict $Y$... That said, if $Y$ is relatively insensitive to $X$, then there's less of a problem (apart from the question of why we've included it in the mopdel in the first place?).
+
+$$\underbrace{sensitivity*(uncertainty+variability)}_\text{(parameters + random effects)} + $$
+
+*"The sensitivity to, multiplied by the uncertainty and variability in, the parameters of the model, plus"*
+
+- Parameter **uncertainty** pertains to **how good our estimates of the parameters** are. This is usually a question of sample size - "Do we have enough data to obtain a good estimate (i.e. accurate mean, low uncertainty) of the parameters?". It is also linked to the number of parameters in the model. The more parameters, the more data you need to obtain good parameter estimates. This is another reason to avoid overly complex models.
+- Parameter **sensitivity** is similar to driver sensitivity - **"How much change do we expect in $Y$ for a given change in the parameter?"**
+- The **overall contribution** of a parameter to the predictive variance (i.e. uncertainty in the forecast) depends on its **sensitivity multiplied by its uncertainty**. 
+  - Targeting fieldwork etc to better constrain poorly estimated parameters is one of the best ways to reduce prediction uncertainty.
+- **Variability** reflects factors that cause deviation (or offsets) from the mean of the parameter that may be known, but may either be poorly estimated or not included in the rest of the model. These are **random effects** that can be caused by factors like space, time, phylogeny, etc.
+
+$$\underbrace{Var[\epsilon]}_\text{process error}$$
+*"The process error."*
+
+- This refers to errors in the model due to structural uncertainty and stochasticity.
+- **Stochasticity** refers to ecological phenomena of relevance that are very difficult to predict (at least within the context of the focal model). Examples include the occurrence of **fire, dispersal or mortality** that are often **chance events** similar to a coin toss.
+- Model **structural uncertainty** simply reflects that all models are simplifications of reality and none are perfect. That said, this could also include "user error" where the forecaster specified the wrong model. Working with multiple models and employing model selection or averaging can help reduce structural uncertainty (in addition to thinking really hard about how to specify a better model...).
 
 <br>
 
 ## Propagating, analyzing and reducing uncertainty
+
+Question 3, "How can we reduce uncertainty?" requires:
+
+1. Working out how much there is (by propagating it through the model).
+2. Working out where it's coming from (by analyzing and partitioning the uncertainties).
+3. Targeting sources of uncertainty that can be reduced with the best return on investment (important to note that these may not be the biggest sources of uncertainty, just the cheapest and easiest to resolve).
 
 - Sensitivity Analysis
   - How does a change in X translate into a change in Y?
@@ -29,10 +94,28 @@
   - How does the uncertainty in X affect the uncertainty in Y?
   - How do we forecast Y with uncertainty?
   - 5 ways
-  
+
+I think this table goes here? Could add links to the forcast uncertainty propagation methods?
+
+<br>
+
+```{r propagatinguncertainty, echo=F}
+
+upm <- data.frame(
+  Approach = c("Analytic", "", "Numeric"),
+  Distribution = c("Variable Transform", "", "Monte Carlo"),
+  Moments = c("Analytical Moments", "Taylor Series", "Ensemble")
+)
+
+knitr::kable(upm, caption = "Methods for propagating uncertainty through models tabled by whether they provide distributions or moments and whether they are derived analytically or numerically")
+
+```
+
+<br>
+
   [Uncertainty in predictions are determined by the uncertainties in our inputs and the sensitivity of our outputs to those inputs...]
   
-  [Jensen's Inequality: If you run your model under your mean parameter set, what comes out is not your mean outcome. Especially when your model isnon-linear...]
+  [Jensen's Inequality: If you run your model under your mean parameter set, what comes out is not your mean outcome. Especially when your model is non-linear...]
   
   [Linear model variance shape example? https://www.youtube.com/watch?v=TyYQAOGyOUQ at ~35 mins]
 
@@ -57,3 +140,30 @@
 **Engineering (or decision-makers') view** - start building a model with no or very little data, and use that to guide what data to collect and how to improve the model. It may be completely wrong to begin with, but will rapidly improve.
 
 
+
+
+<br>
+
+## Propogating and quantifying uncertainty using MCMC
+
+@Moncrieff2021 example somewhere?
+
+```{r moncrieffmethod, echo=F, out.width='70%', fig.align='center', fig.cap='... [@Moncrieff2021]'}
+knitr::include_graphics("img/moncrieff_figure1.png")
+```
+
+```{r moncrieffcurve, echo=F, out.width='100%', fig.align='center', fig.cap='...[@Moncrieff2021]'}
+knitr::include_graphics("img/moncrieff_figure2.png")
+```
+
+```{r moncrieffrunoff, echo=F, out.width='80%', fig.align='center', fig.cap='...[@Moncrieff2021]'}
+knitr::include_graphics("img/moncrieff_fig_s3.png")
+```
+
+```{r moncrieffuncertainty, echo=F, out.width='80%', fig.align='center', fig.cap='...[@Moncrieff2021]'}
+knitr::include_graphics("img/moncrieff_figure6.png")
+```
+
+
+
+<br>

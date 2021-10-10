@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-09" />
+<meta name="date" content="2021-10-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="bayesian.html"/>
-<link rel="next" href="references.html"/>
+<link rel="next" href="uncertainty.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -55,7 +55,93 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -192,9 +278,20 @@
 <li class="chapter" data-level="10.2" data-path="datafusion.html"><a href="datafusion.html#data-fusion"><i class="fa fa-check"></i><b>10.2</b> Data fusion</a>
 <ul>
 <li class="chapter" data-level="10.2.1" data-path="datafusion.html"><a href="datafusion.html#model-layers"><i class="fa fa-check"></i><b>10.2.1</b> Model layers</a></li>
+<li class="chapter" data-level="10.2.2" data-path="datafusion.html"><a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example"><i class="fa fa-check"></i><b>10.2.2</b> Hierarchical Bayes and postfire recovery example</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="datafusion.html"><a href="datafusion.html#propogating-and-quantifying-uncertainty-using-mcmc"><i class="fa fa-check"></i><b>10.3</b> Propogating and quantifying uncertainty using MCMC</a></li>
-<li class="chapter" data-level="10.4" data-path="datafusion.html"><a href="datafusion.html#completing-the-forecast-cycle"><i class="fa fa-check"></i><b>10.4</b> Completing the forecast cycle</a></li>
+<li class="chapter" data-level="10.3" data-path="datafusion.html"><a href="datafusion.html#completing-the-forecast-cycle-data-assimilation"><i class="fa fa-check"></i><b>10.3</b> Completing the forecast cycle (data assimilation)</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="datafusion.html"><a href="datafusion.html#operational-data-assimilation"><i class="fa fa-check"></i><b>10.3.1</b> Operational data assimilation</a></li>
+<li class="chapter" data-level="10.3.2" data-path="datafusion.html"><a href="datafusion.html#the-forecast-step"><i class="fa fa-check"></i><b>10.3.2</b> The Forecast Step</a></li>
+<li class="chapter" data-level="10.3.3" data-path="datafusion.html"><a href="datafusion.html#the-analysis-step"><i class="fa fa-check"></i><b>10.3.3</b> The Analysis Step</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>11</b> Uncertainty</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
+<li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating, analyzing and reducing uncertainty</a></li>
+<li class="chapter" data-level="11.3" data-path="uncertainty.html"><a href="uncertainty.html#propogating-and-quantifying-uncertainty-using-mcmc"><i class="fa fa-check"></i><b>11.3</b> Propogating and quantifying uncertainty using MCMC</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -219,12 +316,12 @@
             <section class="normal" id="section-">
 <div id="datafusion" class="section level1" number="10">
 <h1><span class="header-section-number">10</span> Data Fusion and Assimilation</h1>
-<p>This lecture builds on section <a href="bayesian.html#bayesian">9</a>, “Going Bayesian,” with a focus on how a Bayesian framework allows us to:</p>
+<p>This lecture builds on section <a href="bayesian.html#bayesian">9</a>, “Going Bayesian,” focusing on how a Bayes Theorem allows us to:</p>
 <ol style="list-style-type: decimal">
 <li><strong><em>Fuse</em></strong> multiple sources of data that vary in their spatial or temporal scale, uncertainty, gaps, etc into our models, and</li>
 <li><strong><em>Assimilate</em></strong> the previous forecast and new observations so that we can update our forecasts for the next iteration</li>
 </ol>
-<p>Along the way I’ll also discuss <strong>propogating and quantifying uncertainty</strong> in a Bayesian model using MCMC, because it’s important for the narrative, but we’ll go into uncertainty in more detail in section <a href="#uncertainty"><strong>??</strong></a>.</p>
+<p>Along the way I’ll also discuss <strong>propogating and quantifying uncertainty</strong> in a Bayesian model using MCMC, because it’s important for the narrative, but we’ll go into uncertainty in more detail in section <a href="uncertainty.html#uncertainty">11</a>.</p>
 <p><br></p>
 <div id="a-quick-reminder-of-bayes-theorem-and-the-benefits-it-provides" class="section level2" number="10.1">
 <h2><span class="header-section-number">10.1</span> A quick reminder of Bayes Theorem and the benefits it provides</h2>
@@ -248,7 +345,7 @@ Where the <strong><em>posterior</em></strong> is a probability distribution repr
 <li>They can easily treat all terms as probability distributions, making it <strong>easier to quantify, propagate, partition and represent uncertainties throughout the analysis probabilistically</strong>.</li>
 </ol>
 <ul>
-<li>Which we’ll touch on today, but is the focus of section <a href="#uncertainty"><strong>??</strong></a> (our next lecture).</li>
+<li>Which we’ll touch on today, but is the focus of section <a href="uncertainty.html#uncertainty">11</a> (our next lecture).</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
 <li>They provide an <strong>iterative</strong> probabilistic framework that makes it easier to update predictions as new data become available, mirroring the scientific method and completing the forecasting cycle.</li>
@@ -261,13 +358,8 @@ Where the <strong><em>posterior</em></strong> is a probability distribution repr
 </div>
 <div id="data-fusion" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> Data fusion</h2>
-<p>Here we’ll revisit the Fynbos postfire recovery model we played with in the practical to highlight:</p>
-<ul>
-<li>including varied data sources</li>
-<li>using priors to borrow strength across your data (by using Hierarchical Bayes and hyperpriors)</li>
-<li>gap filling</li>
-</ul>
-<p>To illustrate all this we should quickly revisit how our model structure has changed as we’ve moved from Least Squares to Maximum Likelihood Estimation to “single-level” Bayes to Hierarchical Bayes.</p>
+<p>Data can enter (or be fused with) a model in a variety of ways. Here we’ll discuss these and then give an example by revisiting the Fynbos postfire recovery model we played with in the practical.</p>
+<p>The opportunities for data fusion are linked to model structure, so we’ll revisit how our model structure has changed as we’ve moved from Least Squares to Maximum Likelihood Estimation to “single-level” Bayes to Hierarchical Bayes and how data can be input to each.</p>
 <p><br></p>
 <div id="model-layers" class="section level3" number="10.2.1">
 <h3><span class="header-section-number">10.2.1</span> Model layers</h3>
@@ -277,6 +369,7 @@ Where the <strong><em>posterior</em></strong> is a probability distribution repr
 <p><span class="math display">\[\begin{gather}
   \text{NDVI}_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)
 \end{gather}\]</span></p>
+<p><strong>The process model was the only opportunity for inputting data</strong>, and here we input time series for NDVI and date (or postfire age since our time series started at the time of a fire).</p>
 <p><br></p>
 <p><strong><em>Maximum Likelihood</em></strong></p>
 <p>MLE does make a distinction between the <strong>data model</strong> and the <strong>process model</strong>, like so:</p>
@@ -287,15 +380,17 @@ Figure 10.1: Maximum Likelihood makes a distinction between the process and data
 </p>
 </div>
 <p><br></p>
-<p>I didn’t make the distinction in the equations presented in the practical, but we did in the functions we wrote, where we included the <strong>data model</strong>:</p>
+<p>I didn’t make the distinction in the equations presented in the practical, but we did in the functions, where we included the <strong>data model</strong>:</p>
 <p><span class="math display">\[\begin{gather}
 NDVI_{i,t}\sim\mathcal{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}}) \\
 \end{gather}\]</span></p>
-<p>which is a Gaussian (normal) distribution, just like the NLS analysis, and was included as part of the the likelihood function, and separated from the function for the <strong>process model</strong>:</p>
+<p>which is the likelihood function. In this case we specified a Gaussian (normal) distribution, just like the NLS analysis. We then had a separate function for the <strong>process model</strong>:</p>
 <p><span class="math display">\[\begin{gather}  
 \mu_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)\\
 \end{gather}\]</span></p>
-<p>Where <span class="math inline">\(\mu\)</span> is now the mean of the process model, not accounting for the residual error described by the data model - similar to the open circles in Figure <a href="#fig:leastsquares2"><strong>??</strong></a>.</p>
+<p>Where <span class="math inline">\(\mu\)</span> is now the mean of the process model, not accounting for the residual error described by the data model - similar to the open circles in Figure <a href="bayesian.html#fig:leastsquares2">9.2</a>.</p>
+<p>What splitting the data and process models means, is that <strong>we are now feeding out dependent variable (NDVI) to the data model, and our independent variable (time or postfire age) to the process model</strong>.</p>
+<p>The beauty of having a separate data model is that you are no longer restricted to the normal distribution and have flexibility to specify probability distributions that suit the data observation process, e.g. Binomial coin flips, Poisson counts of individuals, Exponential waiting times, etc. <strong>You can even specify custom data models with their own covariates</strong>, which is useful if you have information on things like instrument drift and calibration, etc - i.e. <strong>another opportunity for data fusion</strong>.</p>
 <p><br></p>
 <p><strong><em>Single-level Bayes</em></strong></p>
 <p>When we use Bayesian models we now have the <strong>priors</strong>, which are essentially models describing our prior expectation for each of the parameters in the process model, like so:</p>
@@ -312,48 +407,193 @@ Figure 10.2: Bayesian models include an additional layer; parameter models that 
 \gamma_i\sim\mathcal{N}(\mu_{\gamma},\frac{1}{\sqrt{\tau_{\gamma}}})\\
 \lambda_i\sim\mathcal{N}(\mu_{\lambda},\frac{1}{\sqrt{\tau_{\lambda}}})\\
 \end{gather}\]</span></p>
-<p>Where (in this case) we believe they are all sampled from normal distributions with means <span class="math inline">\(\mu\)</span> and standard deviations <span class="math inline">\(\tau\)</span>.</p>
-<p>Note that you need priors (i.e. parameter models) for all parameters.</p>
+<p>Where (in this case) we believe they are all sampled from normal distributions with independent means and variances.</p>
+<p>Note that you need priors (i.e. parameter models) for all parameters. They don’t all have to be independent though, which can be useful, for example if you have multiple separate sets drawn from the same population, etc.</p>
+<p>While you can’t specify new data in single-level Bayes (because that is then a Hierarchical model) it does still provide new opportunities for data fusion, because <strong>the conditional nature of Bayes Theorem allows you to chain multiple likelihoods (i.e. data models) together</strong>. I’m not going to go into the details of how you do this, but one important consideration is that there need to be links between all terms - e.g. two datasets that share the same parameters, or one dataset is conditional on another, that is conditional on parameters, etc.</p>
 <p><br></p>
 <p><strong><em>Hierarchical Bayes</em></strong></p>
+<p>Hierarchical Bayes is a form of multilevel modelling that provides <strong>incredible flexibility</strong> for model specification. Of course, with great flexibility comes more opportunities to tie yourself into knots, but such is life.</p>
+<p>Most of this flexibility comes from <strong>specifying relationships among the priors, or from one prior to multiple layers in the model</strong>. In the example I give below, we used a set of environmental variables (soil, climate, topography, etc.) to explain the variation in the priors and constrain the parameters of the postfire recovery curve.</p>
+<p>In other words, <strong>when using a Hierarchical Bayesian model you can fuse data through the parameter model</strong>. Of course, when you start treating your priors as parameters like this, you have to specify priors on your priors (<strong>hyperpriors</strong>) to your parameter model.</p>
+<div class="figure" style="text-align: center"><span id="fig:hbayeslayers"></span>
+<img src="img/hbayeslayers.png" alt="Hierarchical Bayesian models allow considerable flexibility through the inclusion of hyperparameters that can drive the priors." width="50%" />
+<p class="caption">
+Figure 10.3: Hierarchical Bayesian models allow considerable flexibility through the inclusion of hyperparameters that can drive the priors.
+</p>
+</div>
+<p><br></p>
+</div>
+<div id="hierarchical-bayes-and-postfire-recovery-example" class="section level3" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Hierarchical Bayes and postfire recovery example</h3>
+<p>Until now we have only been considering a single postfire recovery curve in isolation, but one can fit every MODIS pixel in the Fynbos Biome in one model, like <span class="citation"><a href="#ref-Wilson2015" role="doc-biblioref">Wilson, Latimer, and Silander</a> (<a href="#ref-Wilson2015" role="doc-biblioref">2015</a>)</span> did, (here including the seasonality term in the process model):</p>
+<div class="figure" style="text-align: center"><span id="fig:hbpostfire"></span>
+<img src="img/hbpostfire.png" alt="Schematic of the Hierarchical Bayesian model of postfire NDVI recovery developed by @Wilson2015." width="70%" />
+<p class="caption">
+Figure 10.4: Schematic of the Hierarchical Bayesian model of postfire NDVI recovery developed by <span class="citation"><a href="#ref-Wilson2015" role="doc-biblioref">Wilson, Latimer, and Silander</a> (<a href="#ref-Wilson2015" role="doc-biblioref">2015</a>)</span>.
+</p>
+</div>
+<p><br></p>
+<p>The beauty of this model is that it <strong>simultaneously estimates</strong> the posterior distributions of <strong>the parameters</strong> (by maximizing their likelihood given the observed NDVI data) while also estimating their relationship with a set of <strong>environmental covariates</strong>. This was done by <strong>fusing multiple data sources</strong> at different levels of the model.</p>
 <ul>
-<li>The value of priors and HB for Data Fusion with post-fire recovery as an example?</li>
+<li>to the <strong>data model</strong> we’ve passed the NDVI time-series for each pixel
+<ul>
+<li>note that we could fuse more data here as covariates or additional likelihood functions if we thought that additional complexity was useful</li>
+</ul></li>
+<li>to the <strong>process model</strong> we’ve passed the fire history for each pixel (as a time-series of vegetation age since fire) and the month in which each fire occurred (needed for the seasonality term)</li>
+<li>to the <strong>parameter model</strong> we’ve passed static layers of each environmental covariate</li>
 </ul>
 <p><br></p>
-<p><span class="math display">\[\begin{gather}  
-\mu_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)+
-      A_i\times sin\Big(2\pi\times age_{i,t}+\Big[\phi+\frac{\pi}{6}(m_{i,t}-1)\Big]\Big) \\
-\end{gather}\]</span></p>
+<p><strong>The advantages</strong> of including the regression of the parameters on environmental covariates are many:</p>
+<ul>
+<li>It allows you to <strong>explore the dependence</strong> of postfire recovery trajectories on environmental covariates</li>
+<li>This allows one to <strong>project the expected parameters</strong> (and recovery trajectories) under altered environments (e.g. future climate scenarios - as <span class="citation"><a href="#ref-Wilson2015" role="doc-biblioref">Wilson, Latimer, and Silander</a> (<a href="#ref-Wilson2015" role="doc-biblioref">2015</a>)</span> did)</li>
+<li>It allows you to <strong>predict the expected postfire recovery trajectory</strong> for any site with known environmental covariates</li>
+<li>It puts an additional constraint on the parameter estimates for each pixel (i.e. “borrowing strength” across the analysis), <strong>down-weighting the effects of anomalous or noisy NDVI data</strong></li>
+<li>The structure of the model allows you to easily <strong>estimate any missing data</strong> (i.e. <em>inverse modelling</em>) all within one model run</li>
+</ul>
+<p><br></p>
+<blockquote>
+<p><strong>A brief note on data fusion, model complexity and uncertainty:</strong> Increasing model complexity can provide many opportunities for fusing new data into your model, but you should be aware that this comes with trade-offs. Firstly, all data are uncertain (even if they don’t come with with uncertainty estimates), so adding new data sets or types to your model includes adding new sources of uncertainty. For example, a major failing of the postfire recovery model is that we did not include estimates of uncertainty in the covariates. This falsely reduces the uncertainty, resulting in overconfidence in our parameter estimates…
+Secondly, more terms and interactions in the model creates greater opportunity for strange feedbacks and trade-offs in the model’s mechanics, biasing estimates etc… Last, this is all over and above the usual dangers of overfitting.</p>
+</blockquote>
+<p><br></p>
+<p><strong>Utility for decision makers</strong></p>
+<p>While the model <strong>does not make explicit near-term forecasts</strong> in its current form, it can give us an estimate of the <strong>expected NDVI signal</strong> for any location for a given vegetation age and time of year, which <strong>can be very useful!</strong></p>
+<p><span class="citation"><a href="#ref-Slingsby2020" role="doc-biblioref">Slingsby, Moncrieff, and Wilson</a> (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span> used the model to develop a proof of concept for a near-real time satellite change detection system for the Fymbos Biome.</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:emma"></span>
+<img src="img/emmaprocessdiagram.png" alt="Overview of the near-real time satellite change detection workflow from @Slingsby2020." width="70%" />
+<p class="caption">
+Figure 10.5: Overview of the near-real time satellite change detection workflow from <span class="citation"><a href="#ref-Slingsby2020" role="doc-biblioref">Slingsby, Moncrieff, and Wilson</a> (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span>.
+</p>
+</div>
+<p><br></p>
+<p>The work low comprises four major steps (Figure <a href="datafusion.html#fig:emma">10.5</a>):</p>
+<ol style="list-style-type: decimal">
+<li>Fit the <strong>model</strong> to get parameter estimates that describe the postfire recovery trajectory for all pixels</li>
+<li><strong>Evaluate</strong> the deviation of the observed NDVI from model expectation using departure metrics to identify areas that are not ‘behaving’ as expected.</li>
+<li><strong>Diagnose</strong> the change agents driving deviations through a combination of:</li>
+</ol>
+<ul>
+<li>interpreting the model predictions and observed NDVI signal</li>
+<li>exploring high resolution imagery like Sentinel or PlanetLabs</li>
+<li>field visits</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Finally, as new information is learned or false deviations are detected, the model is iteratively <strong>updated</strong> (manually at this stage) to improve its predictive accuracy.</li>
+</ol>
+<p><br></p>
+<p>Preliminary results from the Cape Peninsula are very promising for detecting drought, vegetation clearing, vegetation mortality (e.g. drought impacts), and alien plant invasions.</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:emmachange"></span>
+<img src="img/emmachange.jpg" alt="Examples of changes detected by @Slingsby2020." width="90%" />
+<p class="caption">
+Figure 10.6: Examples of changes detected by <span class="citation"><a href="#ref-Slingsby2020" role="doc-biblioref">Slingsby, Moncrieff, and Wilson</a> (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span>.
+</p>
+</div>
+<p><br></p>
+<p>So managers can get an overview of change in the landscape every time new MODIS data are collected (daily, or 16-day averages).</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:emmaexceedmap"></span>
+<img src="img/emmaexceedmap.png" alt="Overview map of changes detected by @Slingsby2020." width="90%" />
+<p class="caption">
+Figure 10.7: Overview map of changes detected by <span class="citation"><a href="#ref-Slingsby2020" role="doc-biblioref">Slingsby, Moncrieff, and Wilson</a> (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span>.
+</p>
+</div>
+<p><br></p>
+<p>We currently have a grant from NASA and are working with CapeNature, SANParks, SANBI, SAEON and others to develop into a fully operational system - currently called <a href="https://www.emma.eco/">EMMA (Ecosystem Monitoring for Management Application)</a>. We’re also exploring methods to turn it into a bona fide near-term iterative ecological forecasting system, which brings us to…</p>
 <p><br></p>
 </div>
 </div>
-<div id="propogating-and-quantifying-uncertainty-using-mcmc" class="section level2" number="10.3">
-<h2><span class="header-section-number">10.3</span> Propogating and quantifying uncertainty using MCMC</h2>
-<p><strong><em>Move to next lecture!!!</em></strong></p>
-<p>Moncrieff et al example</p>
+<div id="completing-the-forecast-cycle-data-assimilation" class="section level2" number="10.3">
+<h2><span class="header-section-number">10.3</span> Completing the forecast cycle (data assimilation)</h2>
+<div class="figure" style="text-align: center"><span id="fig:ecoforecastingloop3"></span>
+<img src="img/ecoforecastingloop.png" alt="The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From [lecture on data assimilation by Michael Dietze](https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0). (Please excuse that the colours of the distributions have changed from above...)." width="70%" />
+<p class="caption">
+Figure 10.8: The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From <a href="https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0">lecture on data assimilation by Michael Dietze</a>. (Please excuse that the colours of the distributions have changed from above…).
+</p>
+</div>
+<p><br></p>
+<p>You’ll recall from the introductory lecture on models and decision making (section <a href="models.html#models">3</a>) that we outlined iterative ecological forecasting and the scientific method as closely aligned cycles or loops. You’ll also recall that I made the point in the last lecture (section <a href="bayesian.html#bayesian">9</a>)that Bayes Theorem provides an <strong>iterative</strong> probabilistic framework that makes it easier to update predictions as new data become available, mirroring the scientific method and completing the forecasting cycle. Here we’ll unpack this in a bit more detail.</p>
+<div id="operational-data-assimilation" class="section level3" number="10.3.1">
+<h3><span class="header-section-number">10.3.1</span> Operational data assimilation</h3>
+<p>Most modelling workflows are set up to (a) fit the available data and estimate parameters etc (we’ll call this <strong>analysis</strong>), which they then often use to (b) make predictions (which if made forward through time are typically <strong>forecasts</strong>). They usually stop there. Few workflows are set up to make forecasts repeatedly or iteratively, updating predictions as new observations are made.</p>
+<p>When making iterative forecasts, one could just <strong>refit the model</strong> and entire dataset with the new observations added, but there are a few reasons this may not be ideal:</p>
+<ol style="list-style-type: decimal">
+<li>If it’s a complex model and/or a large dataset this could be very <strong>computationally taxing</strong> (e.g. <span class="citation"><a href="#ref-Slingsby2020" role="doc-biblioref">Slingsby, Moncrieff, and Wilson</a> (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span> ran the Hierarchical postfire model for the Cape Peninsula (~4000 MODIS pixels) and it took 4 days on a computing cluster with 64 cores and 1TB of RAM…).</li>
+<li>Refitting the model <strong>doesn’t make the most of learning</strong> from new observations…</li>
+</ol>
+<p>The alternative is to <strong>assimilate the data sequentially</strong>, imputing observations a bit at a time as they’re observed. This approach has several advantages:</p>
+<ol style="list-style-type: decimal">
+<li>They can handle larger datasets, because you don’t have to assimilate all data in one go.</li>
+<li>If you start the model far in the past and update towards present day, you have the opportunity to validate your predictions, telling you how well the model does, and whether it improves with each iteration (i.e. is it learning), which gives you a good feel for how well it should do at forecasting into the future. Think of it as letting your model get a run-up like a sportsperson before jumping/bowling/throwing.</li>
+</ol>
+<p>Assimilating data sequentially is known as the <strong><em>sequential or operational data assimilation problem</em></strong> and occurs through two steps (the main components of the forecast cycle), <strong><em>the forecast step</em></strong>, where we project our estimates of the state forward in time, and <strong><em>the analysis step</em></strong>, where we update our estimate of the state based on new observations.</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:forecaststeps"></span>
+<img src="BIO3019S-Ecoforecasting_files/figure-html/forecaststeps-1.png" alt="The two main components of the forecast cycle are **the forecast step**(stippled lines), where we project from the initial state at time 0 (t0) to the next time step (t0+1), and **the analysis step**, where we use the forecast and new observations to get an updated estimate of the current state at t0+1." width="75%" />
+<p class="caption">
+Figure 10.9: The two main components of the forecast cycle are <strong>the forecast step</strong>(stippled lines), where we project from the initial state at time 0 (t0) to the next time step (t0+1), and <strong>the analysis step</strong>, where we use the forecast and new observations to get an updated estimate of the current state at t0+1.
+</p>
+</div>
 <p><br></p>
 </div>
-<div id="completing-the-forecast-cycle" class="section level2" number="10.4">
-<h2><span class="header-section-number">10.4</span> Completing the forecast cycle</h2>
-<ul>
-<li>Revisiting the forecast cycle… (forecast vs analysis step) - Ch13.1
-<ul>
-<li>Forecast step is just propagating the uncertainty in our variable(s) of interest into the future…</li>
-<li>Analysis step is combining our prior knowledge with the new data
-<ul>
-<li>This is better than just using the new data, because
+<div id="the-forecast-step" class="section level3" number="10.3.2">
+<h3><span class="header-section-number">10.3.2</span> The Forecast Step</h3>
+<p>While it gets a bit like <a href="https://en.wikipedia.org/wiki/Chicken_or_the_egg">the chicken and the egg dilemma</a>, the first step has to be analysis, because you have to fit your model before you can make your first forecast (although you could argue that your first analysis requires priors, which could be viewed as your first forecast…).</p>
+<p>Either way, the forecast step is probably easier to explain first.</p>
+<p>The goals of the forecast step are to:</p>
+<ol style="list-style-type: decimal">
+<li>To <strong>predict</strong> what we think may happen (or what the focal variable(s) will be) at the next time step</li>
+<li>Indicate the <strong>uncertainty</strong> in our forecast (based on the uncertainty that we have propagated through our model from various sources (data, priors, etc))</li>
+</ol>
+<p>In short, we want to <strong><em>propagate uncertainty in our variable(s) of interest forward through time</em></strong> (and sometimes through space, depending on the goals).</p>
+<p>There are <strong>a number of methods</strong> for propagating uncertainty into a forecast, mostly based on the same methods one would use to propagate the uncertainty through a model. Explaining the different methods is beyond the scope of this module, but suffice to say that (as with almost everything in statistics) there’s <strong>a trade-off</strong> between the methods whereby the most efficient (the Kalman filter in this case) also come with the most stringent assumptions (linear models and homogeneity of variance only), while the most flexible (Markov chain Monte Carlo (MCMC) in this case) are the most computationally taxing. In short, if your model isn’t too taxing, or you have cheap access to a very large computer and time to kill, MCMC is probably easiest and best…</p>
+<p><br></p>
+</div>
+<div id="the-analysis-step" class="section level3" number="10.3.3">
+<h3><span class="header-section-number">10.3.3</span> The Analysis Step</h3>
+<p>This step involves using Bayes Theorem to combine our prior knowledge (our forecast) with our new observations (at t0+1 in Figure <a href="datafusion.html#fig:forecaststeps">10.9</a>) to generate an updated state for the next forecast (i.e. to t0+2).</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:dataassimilation"></span>
+<img src="img/dataassimilation.png" alt="The forecast cycle chaining together applications of Bayes Theorem at each timestep (t0, t1, ...). The forecast from one timestep becomes the prior for the next. The forecast is directly sampled from the posterior distribution when using MCMC, but can also be propagated using other methods." width="90%" />
+<p class="caption">
+Figure 10.10: The forecast cycle chaining together applications of Bayes Theorem at each timestep (t0, t1, …). The forecast from one timestep becomes the prior for the next. The forecast is directly sampled from the posterior distribution when using MCMC, but can also be propagated using other methods.
+</p>
+</div>
+<p><br></p>
+<p>This is better than just using the new data, because:</p>
 <ul>
 <li>it uses our prior information and understanding</li>
-<li>there is likely error (noise) in the data</li>
-<li>somewhat similar to borrowing strength across your data in space in the postfire example, but in time?</li>
-<li>if the forecast is uncertain and the data precise then the data will prevail</li>
-<li>if the forecast is precise and the data uncertain, then we retain the legacy of previous observations</li>
-</ul></li>
-</ul></li>
-<li>There are a number of methods for achieving these steps, but they come with trade-offs between their assumptions and computational efficiency, with MCMC being the most flexible (i.e. least assumptions), but computationally taxing because it is a numerical solution. More efficient analytical methods (e.g. Kalman filter) have many limitations and assumptions (e.g. linear, normal only).</li>
-</ul></li>
+<li>there is likely error (noise) in the new data, so it can’t necessarily be trusted more than our prior understanding</li>
 </ul>
+<p>Fortunately, Bayes Theorem deals with this very nicely, because if the forecast (prior) is uncertain and the ew data precise then the data will prevail, whereas if the forecast is precise and the new data uncertain, then the posterior will retain the legacy of previous observations (Figure <a href="datafusion.html#fig:analysissteps">10.11</a>).</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:analysissteps"></span>
+<img src="BIO3019S-Ecoforecasting_files/figure-html/analysissteps-1.png" alt="The result of (A) high forecast uncertainty (the prior) and low observation error (data), and (B) low forecast uncertainty and high observation error on the posterior probability from the analysis step." width="75%" />
+<p class="caption">
+Figure 10.11: The result of (A) high forecast uncertainty (the prior) and low observation error (data), and (B) low forecast uncertainty and high observation error on the posterior probability from the analysis step.
+</p>
+</div>
+<p><br></p>
+<p>Lastly, just a note that I’ve mostly dealt with single forecasts and haven’t talked about how to deal with <strong><em>ensemble forecasts</em></strong>. In short, there are methods to deal with them, but we don’t have time to cover them. The methods, and how you apply them, depend on what kind of ensemble you are dealing with. Usually, ensembles can be divided into three kinds, but you can have mixes of all three:</p>
+<ol style="list-style-type: decimal">
+<li>Where you use the <strong>same model</strong>, but vary the inputs to explore <strong>different scenarios</strong>.</li>
+<li>Where you have a set of <strong>nested models</strong> of increasing complexity (e.g. like our postfire models with and without the seasonality term).</li>
+<li>A mix of models with <strong>completely different model structures</strong> aimed at forecasting the same thing.</li>
+</ol>
+<p><br></p>
 
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Slingsby2020" class="csl-entry">
+Slingsby, Jasper A, Glenn R Moncrieff, and Adam M Wilson. 2020. <span>“<span class="nocase">Near-real time forecasting and change detection for an open ecosystem with complex natural dynamics</span>.”</span> <em>ISPRS Journal of Photogrammetry and Remote Sensing: Official Publication of the International Society for Photogrammetry and Remote Sensing</em> 166 (August): 15–25. <a href="https://doi.org/10.1016/j.isprsjprs.2020.05.017">https://doi.org/10.1016/j.isprsjprs.2020.05.017</a>.
+</div>
+<div id="ref-Wilson2015" class="csl-entry">
+Wilson, Adam M, Andrew M Latimer, and John A Silander Jr. 2015. <span>“<span class="nocase">Climatic controls on ecosystem resilience: Postfire regeneration in the Cape Floristic Region of South Africa</span>.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em> 112 (29): 9058–63. <a href="https://doi.org/10.1073/pnas.1416710112">https://doi.org/10.1073/pnas.1416710112</a>.
 </div>
 </div>
             </section>
@@ -362,7 +602,7 @@ Figure 10.2: Bayesian models include an additional layer; parameter models that 
         </div>
       </div>
 <a href="bayesian.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="uncertainty.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

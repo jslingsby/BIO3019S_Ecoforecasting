@@ -139,11 +139,11 @@ Least Squares focuses on **significance testing** - the ability to reject (or to
 
 *The likelihood principle states a that parameter value is more likely than another if it is the one for which the data are more probable.*
 
-```{r likelihood, echo=F, message=F, fig.cap = "The probability of a observed point (the dotted line) being generated under two alternative hypotheses (sets of parameter values). In this case H1 is more likely, because the probability density at $x$ = 1 is higher for H1 than H2 (0.25 vs 0.025). This makes H1 0.25/0.025 = 10 times more likely.", fig.align = 'center', out.width="75%"}
+```{r likelihood, echo=F, message=F, fig.cap = "The probability of a observed point (the dotted line) being generated under two alternative hypotheses (sets of parameter values). In this case H1 is more likely, because the probability density at $x$ = 1 is higher for H1 than H2 (roughly 0.25 vs 0.025). This makes H1 0.25/0.025 = 10 times more likely.", fig.align = 'center', out.width="75%"}
 ddat <- data.frame(x = c(rnorm(5000, 0, 1), rnorm(5000, 5, 2)), Hypotheses = c(rep("H1", 5000), rep("H2", 5000))) 
 
 ggplot(ddat, aes(x, fill = Hypotheses, colour = Hypotheses)) +
-  geom_density(alpha = 0.1) +
+  geom_density(alpha = 0.1, bw = 1) +
   geom_segment(aes(x = 1, y = 0, xend = 1, yend = 0.4), col = "gray25", size = 0.5, alpha = .2, linetype = 3) +
   ylab("Density")
 
