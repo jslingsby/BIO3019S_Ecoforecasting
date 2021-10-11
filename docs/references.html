@@ -24,14 +24,14 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-10" />
+<meta name="date" content="2021-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="bayesian.html"/>
+<link rel="prev" href="datafusion.html"/>
 
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -269,6 +269,24 @@ div.csl-indent {
 <li class="chapter" data-level="9.3.1" data-path="bayesian.html"><a href="bayesian.html#the-beauty-of-bayes-theorem"><i class="fa fa-check"></i><b>9.3.1</b> The beauty of Bayes’ Theorem</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="10" data-path="datafusion.html"><a href="datafusion.html"><i class="fa fa-check"></i><b>10</b> Data Fusion and Assimilation</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="datafusion.html"><a href="datafusion.html#a-quick-reminder-of-bayes-theorem-and-the-benefits-it-provides"><i class="fa fa-check"></i><b>10.1</b> A quick reminder of Bayes Theorem and the benefits it provides</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="datafusion.html"><a href="datafusion.html#the-benefits-of-bayes"><i class="fa fa-check"></i><b>10.1.1</b> The benefits of Bayes</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="datafusion.html"><a href="datafusion.html#data-fusion"><i class="fa fa-check"></i><b>10.2</b> Data fusion</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="datafusion.html"><a href="datafusion.html#model-layers"><i class="fa fa-check"></i><b>10.2.1</b> Model layers</a></li>
+<li class="chapter" data-level="10.2.2" data-path="datafusion.html"><a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example"><i class="fa fa-check"></i><b>10.2.2</b> Hierarchical Bayes and postfire recovery example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="datafusion.html"><a href="datafusion.html#completing-the-forecast-cycle-data-assimilation"><i class="fa fa-check"></i><b>10.3</b> Completing the forecast cycle (data assimilation)</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="datafusion.html"><a href="datafusion.html#operational-data-assimilation"><i class="fa fa-check"></i><b>10.3.1</b> Operational data assimilation</a></li>
+<li class="chapter" data-level="10.3.2" data-path="datafusion.html"><a href="datafusion.html#the-forecast-step"><i class="fa fa-check"></i><b>10.3.2</b> The Forecast Step</a></li>
+<li class="chapter" data-level="10.3.3" data-path="datafusion.html"><a href="datafusion.html#the-analysis-step"><i class="fa fa-check"></i><b>10.3.3</b> The Analysis Step</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting" target="blank">Published with bookdown</a></li>
@@ -340,6 +358,9 @@ Schurr, Frank M, Karen J Esler, Jasper A Slingsby, and Nicky Allsopp. 2012. <spa
 Slingsby, Jasper A, Cory Merow, Matthew Aiello-Lammens, Nicky Allsopp, Stuart Hall, Hayley Kilroy Mollmann, Ross Turner, Adam M Wilson, and John A Silander Jr. 2017. <span>“<span class="nocase">Intensifying postfire weather and biological invasion drive species loss in a Mediterranean-type biodiversity hotspot</span>.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em> 114 (18): 4697–4702. <a href="https://doi.org/10.1073/pnas.1619014114">https://doi.org/10.1073/pnas.1619014114</a>.
 </div>
 <div class="csl-entry">
+Slingsby, Jasper A, Glenn R Moncrieff, and Adam M Wilson. 2020. <span>“<span class="nocase">Near-real time forecasting and change detection for an open ecosystem with complex natural dynamics</span>.”</span> <em>ISPRS Journal of Photogrammetry and Remote Sensing: Official Publication of the International Society for Photogrammetry and Remote Sensing</em> 166 (August): 15–25. <a href="https://doi.org/10.1016/j.isprsjprs.2020.05.017">https://doi.org/10.1016/j.isprsjprs.2020.05.017</a>.
+</div>
+<div class="csl-entry">
 Treurnicht, Martina, Jörn Pagel, Karen J Esler, Annelise Schutte-Vlok, Henning Nottebrock, Tineke Kraaij, Anthony G Rebelo, and Frank M Schurr. 2016. <span>“<span class="nocase">Environmental drivers of demographic variation across the global geographical range of 26 plant species</span>.”</span> Edited by Roberto Salguero-Gómez. <em>The Journal of Ecology</em> 104 (2): 331–42. <a href="https://doi.org/10.1111/1365-2745.12508">https://doi.org/10.1111/1365-2745.12508</a>.
 </div>
 <div class="csl-entry">
@@ -353,6 +374,9 @@ Wilgen, Brian W van, Jane Carruthers, Richard M Cowling, Karen J Esler, Aurelia 
 </div>
 <div class="csl-entry">
 Wilkinson, Mark D, Michel Dumontier, I Jsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. <span>“<span class="nocase">The FAIR Guiding Principles for scientific data management and stewardship</span>.”</span> <em>Scientific Data</em> 3 (March): 160018. <a href="https://doi.org/10.1038/sdata.2016.18">https://doi.org/10.1038/sdata.2016.18</a>.
+</div>
+<div class="csl-entry">
+Wilson, Adam M, Andrew M Latimer, and John A Silander Jr. 2015. <span>“<span class="nocase">Climatic controls on ecosystem resilience: Postfire regeneration in the Cape Floristic Region of South Africa</span>.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em> 112 (29): 9058–63. <a href="https://doi.org/10.1073/pnas.1416710112">https://doi.org/10.1073/pnas.1416710112</a>.
 </div>
 </div>
 </div>
@@ -369,7 +393,7 @@ Wilkinson, Mark D, Michel Dumontier, I Jsbrand Jan Aalbersberg, Gabrielle Applet
           </div>
         </div>
       </div>
-<a href="bayesian.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datafusion.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

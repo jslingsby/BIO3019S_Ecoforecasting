@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-10" />
+<meta name="date" content="2021-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -269,6 +269,24 @@ div.csl-indent {
 <li class="chapter" data-level="9.3.1" data-path="bayesian.html"><a href="bayesian.html#the-beauty-of-bayes-theorem"><i class="fa fa-check"></i><b>9.3.1</b> The beauty of Bayes’ Theorem</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="10" data-path="datafusion.html"><a href="datafusion.html"><i class="fa fa-check"></i><b>10</b> Data Fusion and Assimilation</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="datafusion.html"><a href="datafusion.html#a-quick-reminder-of-bayes-theorem-and-the-benefits-it-provides"><i class="fa fa-check"></i><b>10.1</b> A quick reminder of Bayes Theorem and the benefits it provides</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="datafusion.html"><a href="datafusion.html#the-benefits-of-bayes"><i class="fa fa-check"></i><b>10.1.1</b> The benefits of Bayes</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="datafusion.html"><a href="datafusion.html#data-fusion"><i class="fa fa-check"></i><b>10.2</b> Data fusion</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="datafusion.html"><a href="datafusion.html#model-layers"><i class="fa fa-check"></i><b>10.2.1</b> Model layers</a></li>
+<li class="chapter" data-level="10.2.2" data-path="datafusion.html"><a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example"><i class="fa fa-check"></i><b>10.2.2</b> Hierarchical Bayes and postfire recovery example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="datafusion.html"><a href="datafusion.html#completing-the-forecast-cycle-data-assimilation"><i class="fa fa-check"></i><b>10.3</b> Completing the forecast cycle (data assimilation)</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="datafusion.html"><a href="datafusion.html#operational-data-assimilation"><i class="fa fa-check"></i><b>10.3.1</b> Operational data assimilation</a></li>
+<li class="chapter" data-level="10.3.2" data-path="datafusion.html"><a href="datafusion.html#the-forecast-step"><i class="fa fa-check"></i><b>10.3.2</b> The Forecast Step</a></li>
+<li class="chapter" data-level="10.3.3" data-path="datafusion.html"><a href="datafusion.html#the-analysis-step"><i class="fa fa-check"></i><b>10.3.3</b> The Analysis Step</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting" target="blank">Published with bookdown</a></li>
@@ -353,7 +371,7 @@ Figure 3.4: Iterative decision making.
 </p>
 </div>
 <p><br></p>
-<p>When using quantitative forecasts this can be done by collecting new data and updating your prior knowledge by evaluating the outcomes of the decision against the original model forecasts. <strong>This can tell you whether your forecast was any good and whether you need to refine or replace your model, consider additional scenarios or inputs, etc.</strong> We’ll discuss doing this quantitatively in section <a href="#datafusion"><strong>??</strong></a>, by fusing your new data and knowledge into a new forecast.</p>
+<p>When using quantitative forecasts this can be done by collecting new data and updating your prior knowledge by evaluating the outcomes of the decision against the original model forecasts. <strong>This can tell you whether your forecast was any good and whether you need to refine or replace your model, consider additional scenarios or inputs, etc.</strong> We’ll discuss doing this quantitatively in section <a href="datafusion.html#datafusion">10</a>, by fusing your new data and knowledge into a new forecast.</p>
 <div class="figure"><span id="fig:iterativedecisions"></span>
 <img src="BIO3019S-Ecoforecasting_files/figure-html/iterativedecisions-1.png" alt="Revisiting our *Effort to Reward* example, what would you do if the decision-maker decided to invest huge effort, but the next few data points looked like this?" width="672" />
 <p class="caption">
