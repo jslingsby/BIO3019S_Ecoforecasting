@@ -1,6 +1,114 @@
-# Projection and decision support {#decisions}
+# Completing the forecast cycle {#decisions}
 
-## ...
+Here we'll complete the forecast cycle and spend a little time discussing decision support - stakeholder engagement, identifying the need, metrics, scenarios, etc
+
+## Data assimilation
+
+```{r ecoforecastingloop3, echo=FALSE, fig.cap = "The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From [lecture on data assimilation by Michael Dietze](https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0). (Please excuse that the colours of the distributions have changed from above...).", fig.width=3, fig.align = 'center', out.width="70%"}
+knitr::include_graphics("img/ecoforecastingloop.png")
+```
+
+<br>
+
+You'll recall from the introductory lecture on models and decision making (section \@ref(models)) that we outlined iterative ecological forecasting and the scientific method as closely aligned cycles or loops. You'll also recall that I made the point in the last lecture (section \@ref(bayesian)) that **Bayes Theorem provides an iterative probabilistic framework** that makes it easier to update predictions as new data become available, mirroring the scientific method and completing the forecasting cycle. Here we'll unpack this in a bit more detail.
+
+### Operational data assimilation
+
+Most modelling workflows are set up to **(a) fit the available data** and estimate parameters etc (we'll call this ***analysis***), which they then often use to **(b) make predictions** (which if made forward through time are typically ***forecasts***). They usually stop there. Few workflows are set up to make forecasts repeatedly or iteratively, updating predictions as new observations are made.
+
+When making iterative forecasts, one **could just refit the model** and entire dataset with the new observations added, but there are a few reasons this may not be ideal:
+
+1. If it's a complex model and/or a large dataset this could be very **computationally taxing** (e.g. @Slingsby2020 ran the Hierarchical postfire model for the Cape Peninsula (~4000 MODIS pixels) and it took 4 days on a computing cluster with 64 cores and 1TB of RAM...).
+2. Refitting the model **doesn't make the most of learning** from new observations and the forecast cycle...
+
+The alternative is to **assimilate the data sequentially**, through forecast cycles, imputing observations a bit at a time as they're observed. This approach has several advantages:
+
+1. They can handle larger datasets, because **you don't have to assimilate all data in one go**.
+2. If you start the model far in the past and update towards present day, you have **the opportunity to validate your predictions**, telling you how well the model does, and whether it improves with each iteration (i.e. is it learning), which gives you a good feel for how well it should do at forecasting into the future. Think of it as letting your model get a run-up like a sportsperson before jumping/bowling/throwing.
+
+Assimilating data sequentially is known as the ***sequential or operational data assimilation problem*** and occurs through two steps (the main components of the forecast cycle), ***the forecast step***, where we project our estimates of the state forward in time, and ***the analysis step***, where we update our estimate of the state based on new observations.
+
+<br>
+
+```{r forecaststeps, echo=F, message=F, fig.cap = "The two main components of the forecast cycle are **the forecast step**(stippled lines), where we project from the initial state at time 0 (t0) to the next time step (t0+1), and **the analysis step**, where we use the forecast and new observations to get an updated estimate of the current state at t0+1.", fig.align = 'center', out.width="75%"}
+ddat <- data.frame(x = c(rnorm(5000, 0, 1), rnorm(5000, 5, 2), rnorm(5000, -1, 1), rnorm(5000, 1, 1)), 
+                   Label = factor(c(rep("1. Initial state", 5000), rep("2. Forecast", 5000), rep("3. New observations", 5000), rep("4. Updated state", 5000)), levels = c("1. Initial state", "2. Forecast", "3. New observations", "4. Updated state")), 
+                   Facet = c(rep("t0", 5000), rep("t0+1", 15000))) 
+
+ggplot(ddat, aes(x, fill = Label, colour = Label)) +
+  geom_density(alpha = 0.1, bw = 1) +
+  geom_segment(aes(x = 4, y = 0, xend = 10, yend = 0.4), col = "gray50", size = 0.5, alpha = .2, linetype = 3, data = subset(ddat, Facet == "t0")) +
+    geom_segment(aes(x = 0, y = 0, xend = 5, yend = 0.4), col = "gray50", size = 0.5, alpha = .2, linetype = 3, data = subset(ddat, Facet == "t0")) +
+    geom_segment(aes(x = -4, y = 0, xend = 0, yend = 0.4), col = "gray50", size = 0.5, alpha = .2, linetype = 3, data = subset(ddat, Facet == "t0")) +
+  ylab("Density") +
+  coord_flip() +
+  facet_wrap(vars(Facet))
+
+```
+
+<br>
+
+### The Forecast Step
+
+While it gets a bit like [the chicken and the egg dilemma](https://en.wikipedia.org/wiki/Chicken_or_the_egg), the first step has to be analysis, because you have to fit your model before you can make your first forecast (although you could argue that your first analysis requires priors, which could be viewed as your first forecast...).
+
+Either way, the forecast step is probably easier to explain first.
+
+The goals of the forecast step are to:
+
+1. To **predict** what we think may happen (or what the focal variable(s) will be) at the next time step
+2. Indicate the **uncertainty** in our forecast (based on the uncertainty that we have propagated through our model from various sources (data, priors, etc))
+
+In short, we want to ***propagate uncertainty in our variable(s) of interest forward through time*** (and sometimes through space, depending on the goals).
+
+There are **a number of methods** for propagating uncertainty into a forecast, mostly based on the same methods one would use to propagate the uncertainty through a model. Explaining the different methods is beyond the scope of this module, but suffice to say that (as with almost everything in statistics) there's **a trade-off** between the methods whereby the most efficient (the Kalman filter in this case) also come with the most stringent assumptions (linear models and homogeneity of variance only), while the most flexible (Markov chain Monte Carlo (MCMC) in this case) are the most computationally taxing. In short, if your model isn't too taxing, or you have cheap access to a very large computer and time to kill, MCMC is probably easiest and best...
+
+<br>
+
+### The Analysis Step
+
+This step involves using Bayes Theorem to combine our prior knowledge (our forecast) with our new observations (at t0+1 in Figure \@ref(fig:forecaststeps)) to generate an updated state for the next forecast (i.e. to t0+2). 
+
+<br>
+
+```{r dataassimilation, echo=FALSE, fig.cap = "The forecast cycle chaining together applications of Bayes Theorem at each timestep (t0, t1, ...). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods.", fig.width=3, fig.align = 'center', out.width="100%"}
+knitr::include_graphics("img/dataassimilation.png")
+```
+
+<br>
+
+This is better than just using the new data as your updated state, because:
+
+- it **uses our prior information** and understanding
+- it allows our model to **learn and (hopefully) improve** with each iteration
+- there is likely **error (noise) in the new data**, so it can't necessarily be trusted more than our prior understanding
+
+Fortunately, **Bayes Theorem deals with the third point very nicely**, because if the forecast (prior) is uncertain and the new data precise then the data will prevail, whereas if the forecast is precise and the new data uncertain, then the posterior will retain the legacy of previous observations (Figure \@ref(fig:analysissteps)).
+
+<br>
+
+```{r analysissteps, echo=F, message=F, fig.cap = "The result of (A) high forecast uncertainty (the prior) and low observation error (data), and (B) low forecast uncertainty and high observation error on the posterior probability from the analysis step.", fig.align = 'center', out.width="75%"}
+ddat <- data.frame(x = c(rnorm(5000, 0, 1), rnorm(5000, 0, 3), rnorm(5000, 1, 0.75), rnorm(5000, 4, 0.75), rnorm(5000, 5, 3), rnorm(5000, 5, 1)), 
+                   Label = c(rep("Data", 10000), rep("Posterior", 10000), rep("Prior", 10000)), 
+                   Facet = rep(c(rep("A", 5000), rep("B", 5000)), 3)) 
+ggplot(ddat, aes(x, fill = Label, colour = Label)) +
+  geom_density(alpha = 0.1, bw = 1) +
+  ylab("Density") +
+  coord_flip() +
+  facet_wrap(vars(Facet))
+```
+
+<br>
+
+Lastly, just a note that I've mostly dealt with single forecasts and haven't talked about how to deal with ***ensemble forecasts***. In short, there are methods to deal with them, but we don't have time to cover them. The methods, and how you apply them, depend on what kind of ensemble you are dealing with. Usually, ensembles can be divided into **three kinds**, but you can have mixes of all three:
+
+1. Where you use the **same model**, but vary the inputs to explore **different scenarios**.
+2. Where you have a set of **nested models** of increasing complexity (e.g. like our postfire models with and without the seasonality term).
+3. A mix of models with **completely different model structures** aimed at forecasting the same thing.
+
+<br>
+
+## Decision support
 
 Use CoCT water crisis as the example?
 
@@ -17,6 +125,13 @@ Decisions within conservation/ecology…
 From adaptive management to ecoforecasting? (With AM as the qualitative model that subsequently becomes more quantitative as more data and understanding are accumulated…
 
 
-## Proteas
+## Proteas?
 
-- "To safeguard the canopy seed banks of these spe-cies, regional conservation guidelines recommend that at least 50% of flowers (reproductive units, including inflorescences or cones) should remain in the canopy after harvesting (reviewed in Van Wilgen et  al.,   2016."
+## Final words
+
+**The traditional ecologist's view** - after decades' years worth of data collection and hypothesis testing, maybe we'll know enough to start building a predictive model.
+
+**Engineering (or decision-makers') view** - start building a model with no or very little data, and use that to guide what data to collect and how to improve the model. It may be completely wrong to begin with, but will rapidly improve.
+
+
+

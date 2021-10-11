@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>10 Data Fusion and Assimilation | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
+  <title>10 Data Fusion | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="10 Data Fusion and Assimilation | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta property="og:title" content="10 Data Fusion | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="10 Data Fusion and Assimilation | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta name="twitter:title" content="10 Data Fusion | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   
   <meta name="twitter:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   
@@ -269,7 +269,7 @@ div.csl-indent {
 <li class="chapter" data-level="9.3.1" data-path="bayesian.html"><a href="bayesian.html#the-beauty-of-bayes-theorem"><i class="fa fa-check"></i><b>9.3.1</b> The beauty of Bayes’ Theorem</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="datafusion.html"><a href="datafusion.html"><i class="fa fa-check"></i><b>10</b> Data Fusion and Assimilation</a>
+<li class="chapter" data-level="10" data-path="datafusion.html"><a href="datafusion.html"><i class="fa fa-check"></i><b>10</b> Data Fusion</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="datafusion.html"><a href="datafusion.html#a-quick-reminder-of-bayes-theorem-and-the-benefits-it-provides"><i class="fa fa-check"></i><b>10.1</b> A quick reminder of Bayes Theorem and the benefits it provides</a>
 <ul>
@@ -279,12 +279,6 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="10.2.1" data-path="datafusion.html"><a href="datafusion.html#model-layers"><i class="fa fa-check"></i><b>10.2.1</b> Model layers</a></li>
 <li class="chapter" data-level="10.2.2" data-path="datafusion.html"><a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example"><i class="fa fa-check"></i><b>10.2.2</b> Hierarchical Bayes and postfire recovery example</a></li>
-</ul></li>
-<li class="chapter" data-level="10.3" data-path="datafusion.html"><a href="datafusion.html#completing-the-forecast-cycle-data-assimilation"><i class="fa fa-check"></i><b>10.3</b> Completing the forecast cycle (data assimilation)</a>
-<ul>
-<li class="chapter" data-level="10.3.1" data-path="datafusion.html"><a href="datafusion.html#operational-data-assimilation"><i class="fa fa-check"></i><b>10.3.1</b> Operational data assimilation</a></li>
-<li class="chapter" data-level="10.3.2" data-path="datafusion.html"><a href="datafusion.html#the-forecast-step"><i class="fa fa-check"></i><b>10.3.2</b> The Forecast Step</a></li>
-<li class="chapter" data-level="10.3.3" data-path="datafusion.html"><a href="datafusion.html#the-analysis-step"><i class="fa fa-check"></i><b>10.3.3</b> The Analysis Step</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -309,12 +303,9 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="datafusion" class="section level1" number="10">
-<h1><span class="header-section-number">10</span> Data Fusion and Assimilation</h1>
-<p>This lecture builds on section <a href="bayesian.html#bayesian">9</a>, “Going Bayesian,” focusing on how a Bayes Theorem allows us to:</p>
-<ol style="list-style-type: decimal">
-<li><strong><em>Fuse</em></strong> multiple sources of data that vary in their spatial or temporal scale, uncertainty, gaps, etc into our models, and</li>
-<li><strong><em>Assimilate</em></strong> the previous forecast and new observations so that we can update our forecasts for the next iteration</li>
-</ol>
+<h1><span class="header-section-number">10</span> Data Fusion</h1>
+<p>This lecture builds on section <a href="bayesian.html#bayesian">9</a>, “Going Bayesian,” focusing on how the opportunities for imputing (or “fusing”) data with models increase as one moves from the method of Least Squares to Hierarchical Bayesian models.</p>
+<p>First a little revision of our last lecture…</p>
 <p><br></p>
 <div id="a-quick-reminder-of-bayes-theorem-and-the-benefits-it-provides" class="section level2" number="10.1">
 <h2><span class="header-section-number">10.1</span> A quick reminder of Bayes Theorem and the benefits it provides</h2>
@@ -330,11 +321,11 @@ div.csl-indent {
 <div id="the-benefits-of-bayes" class="section level3" number="10.1.1">
 <h3><span class="header-section-number">10.1.1</span> The benefits of Bayes</h3>
 <ol style="list-style-type: decimal">
-<li>They are <strong>focused on estimating what properties are</strong> (i.e. the actual values of particular parameters) and not null hypothesis testing</li>
-<li>They are highly <strong>flexible</strong>, allowing one to build relatively <strong>complex models with varied data sources</strong> (and/or of varying quality), especially Hierarchical Bayesian models</li>
+<li>They are <strong>focused on estimating what properties are</strong> (i.e. the actual values of particular parameters) and not null hypothesis testing.</li>
+<li>They are highly <strong>flexible</strong>, allowing one to build relatively <strong>complex models with varied data sources</strong> (and/or of varying quality), especially Hierarchical Bayesian models.</li>
 </ol>
 <ul>
-<li>This is important for <strong><em>Data Fusion</em></strong> that we’ll discuss today</li>
+<li>This is important for <strong><em>Data Fusion</em></strong> that we’ll discuss today.</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
 <li>They can easily treat all terms as probability distributions, making it <strong>easier to quantify, propagate, partition and represent uncertainties throughout the analysis probabilistically</strong>.</li>
@@ -346,7 +337,7 @@ div.csl-indent {
 <li>They provide an <strong>iterative probabilistic framework</strong> that makes it easier to update predictions as new data become available, mirroring the scientific method and completing the forecasting cycle.</li>
 </ol>
 <ul>
-<li>This closing of the forecast loop is termed <strong><em>Data Assimilation</em></strong> and we’ll discuss it towards the end of the lecture.</li>
+<li>This closing of the forecast loop is termed <strong><em>Data Assimilation</em></strong> and we’ll discuss it in the final lecture in section <a href="#decisions"><strong>??</strong></a>.</li>
 </ul>
 <p><br></p>
 </div>
@@ -514,87 +505,6 @@ Figure 10.7: Overview map highlighting some of the major changes detected by <sp
 </div>
 <p><br></p>
 <p>We currently have a grant from NASA and are working with CapeNature, SANParks, SANBI, SAEON and others to develop into a fully operational system - currently called <a href="https://www.emma.eco/">EMMA (Ecosystem Monitoring for Management Application)</a>. We’re also exploring methods to turn it into a <em>bona fide</em> near-term iterative ecological forecasting system, which brings us to…</p>
-<p><br></p>
-</div>
-</div>
-<div id="completing-the-forecast-cycle-data-assimilation" class="section level2" number="10.3">
-<h2><span class="header-section-number">10.3</span> Completing the forecast cycle (data assimilation)</h2>
-<div class="figure" style="text-align: center"><span id="fig:ecoforecastingloop3"></span>
-<img src="img/ecoforecastingloop.png" alt="The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From [lecture on data assimilation by Michael Dietze](https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0). (Please excuse that the colours of the distributions have changed from above...)." width="70%" />
-<p class="caption">
-Figure 10.8: The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From <a href="https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0">lecture on data assimilation by Michael Dietze</a>. (Please excuse that the colours of the distributions have changed from above…).
-</p>
-</div>
-<p><br></p>
-<p>You’ll recall from the introductory lecture on models and decision making (section <a href="models.html#models">3</a>) that we outlined iterative ecological forecasting and the scientific method as closely aligned cycles or loops. You’ll also recall that I made the point in the last lecture (section <a href="bayesian.html#bayesian">9</a>) that <strong>Bayes Theorem provides an iterative probabilistic framework</strong> that makes it easier to update predictions as new data become available, mirroring the scientific method and completing the forecasting cycle. Here we’ll unpack this in a bit more detail.</p>
-<div id="operational-data-assimilation" class="section level3" number="10.3.1">
-<h3><span class="header-section-number">10.3.1</span> Operational data assimilation</h3>
-<p>Most modelling workflows are set up to <strong>(a) fit the available data</strong> and estimate parameters etc (we’ll call this <strong><em>analysis</em></strong>), which they then often use to <strong>(b) make predictions</strong> (which if made forward through time are typically <strong><em>forecasts</em></strong>). They usually stop there. Few workflows are set up to make forecasts repeatedly or iteratively, updating predictions as new observations are made.</p>
-<p>When making iterative forecasts, one <strong>could just refit the model</strong> and entire dataset with the new observations added, but there are a few reasons this may not be ideal:</p>
-<ol style="list-style-type: decimal">
-<li>If it’s a complex model and/or a large dataset this could be very <strong>computationally taxing</strong> (e.g. <span class="citation"><a href="#ref-Slingsby2020" role="doc-biblioref">Slingsby, Moncrieff, and Wilson</a> (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span> ran the Hierarchical postfire model for the Cape Peninsula (~4000 MODIS pixels) and it took 4 days on a computing cluster with 64 cores and 1TB of RAM…).</li>
-<li>Refitting the model <strong>doesn’t make the most of learning</strong> from new observations and the forecast cycle…</li>
-</ol>
-<p>The alternative is to <strong>assimilate the data sequentially</strong>, through forecast cycles, imputing observations a bit at a time as they’re observed. This approach has several advantages:</p>
-<ol style="list-style-type: decimal">
-<li>They can handle larger datasets, because <strong>you don’t have to assimilate all data in one go</strong>.</li>
-<li>If you start the model far in the past and update towards present day, you have <strong>the opportunity to validate your predictions</strong>, telling you how well the model does, and whether it improves with each iteration (i.e. is it learning), which gives you a good feel for how well it should do at forecasting into the future. Think of it as letting your model get a run-up like a sportsperson before jumping/bowling/throwing.</li>
-</ol>
-<p>Assimilating data sequentially is known as the <strong><em>sequential or operational data assimilation problem</em></strong> and occurs through two steps (the main components of the forecast cycle), <strong><em>the forecast step</em></strong>, where we project our estimates of the state forward in time, and <strong><em>the analysis step</em></strong>, where we update our estimate of the state based on new observations.</p>
-<p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:forecaststeps"></span>
-<img src="BIO3019S-Ecoforecasting_files/figure-html/forecaststeps-1.png" alt="The two main components of the forecast cycle are **the forecast step**(stippled lines), where we project from the initial state at time 0 (t0) to the next time step (t0+1), and **the analysis step**, where we use the forecast and new observations to get an updated estimate of the current state at t0+1." width="75%" />
-<p class="caption">
-Figure 10.9: The two main components of the forecast cycle are <strong>the forecast step</strong>(stippled lines), where we project from the initial state at time 0 (t0) to the next time step (t0+1), and <strong>the analysis step</strong>, where we use the forecast and new observations to get an updated estimate of the current state at t0+1.
-</p>
-</div>
-<p><br></p>
-</div>
-<div id="the-forecast-step" class="section level3" number="10.3.2">
-<h3><span class="header-section-number">10.3.2</span> The Forecast Step</h3>
-<p>While it gets a bit like <a href="https://en.wikipedia.org/wiki/Chicken_or_the_egg">the chicken and the egg dilemma</a>, the first step has to be analysis, because you have to fit your model before you can make your first forecast (although you could argue that your first analysis requires priors, which could be viewed as your first forecast…).</p>
-<p>Either way, the forecast step is probably easier to explain first.</p>
-<p>The goals of the forecast step are to:</p>
-<ol style="list-style-type: decimal">
-<li>To <strong>predict</strong> what we think may happen (or what the focal variable(s) will be) at the next time step</li>
-<li>Indicate the <strong>uncertainty</strong> in our forecast (based on the uncertainty that we have propagated through our model from various sources (data, priors, etc))</li>
-</ol>
-<p>In short, we want to <strong><em>propagate uncertainty in our variable(s) of interest forward through time</em></strong> (and sometimes through space, depending on the goals).</p>
-<p>There are <strong>a number of methods</strong> for propagating uncertainty into a forecast, mostly based on the same methods one would use to propagate the uncertainty through a model. Explaining the different methods is beyond the scope of this module, but suffice to say that (as with almost everything in statistics) there’s <strong>a trade-off</strong> between the methods whereby the most efficient (the Kalman filter in this case) also come with the most stringent assumptions (linear models and homogeneity of variance only), while the most flexible (Markov chain Monte Carlo (MCMC) in this case) are the most computationally taxing. In short, if your model isn’t too taxing, or you have cheap access to a very large computer and time to kill, MCMC is probably easiest and best…</p>
-<p><br></p>
-</div>
-<div id="the-analysis-step" class="section level3" number="10.3.3">
-<h3><span class="header-section-number">10.3.3</span> The Analysis Step</h3>
-<p>This step involves using Bayes Theorem to combine our prior knowledge (our forecast) with our new observations (at t0+1 in Figure <a href="datafusion.html#fig:forecaststeps">10.9</a>) to generate an updated state for the next forecast (i.e. to t0+2).</p>
-<p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:dataassimilation"></span>
-<img src="img/dataassimilation.png" alt="The forecast cycle chaining together applications of Bayes Theorem at each timestep (t0, t1, ...). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods." width="100%" />
-<p class="caption">
-Figure 10.10: The forecast cycle chaining together applications of Bayes Theorem at each timestep (t0, t1, …). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods.
-</p>
-</div>
-<p><br></p>
-<p>This is better than just using the new data as your updated state, because:</p>
-<ul>
-<li>it <strong>uses our prior information</strong> and understanding</li>
-<li>it allows our model to <strong>learn and (hopefully) improve</strong> with each iteration</li>
-<li>there is likely <strong>error (noise) in the new data</strong>, so it can’t necessarily be trusted more than our prior understanding</li>
-</ul>
-<p>Fortunately, <strong>Bayes Theorem deals with the third point very nicely</strong>, because if the forecast (prior) is uncertain and the new data precise then the data will prevail, whereas if the forecast is precise and the new data uncertain, then the posterior will retain the legacy of previous observations (Figure <a href="datafusion.html#fig:analysissteps">10.11</a>).</p>
-<p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:analysissteps"></span>
-<img src="BIO3019S-Ecoforecasting_files/figure-html/analysissteps-1.png" alt="The result of (A) high forecast uncertainty (the prior) and low observation error (data), and (B) low forecast uncertainty and high observation error on the posterior probability from the analysis step." width="75%" />
-<p class="caption">
-Figure 10.11: The result of (A) high forecast uncertainty (the prior) and low observation error (data), and (B) low forecast uncertainty and high observation error on the posterior probability from the analysis step.
-</p>
-</div>
-<p><br></p>
-<p>Lastly, just a note that I’ve mostly dealt with single forecasts and haven’t talked about how to deal with <strong><em>ensemble forecasts</em></strong>. In short, there are methods to deal with them, but we don’t have time to cover them. The methods, and how you apply them, depend on what kind of ensemble you are dealing with. Usually, ensembles can be divided into <strong>three kinds</strong>, but you can have mixes of all three:</p>
-<ol style="list-style-type: decimal">
-<li>Where you use the <strong>same model</strong>, but vary the inputs to explore <strong>different scenarios</strong>.</li>
-<li>Where you have a set of <strong>nested models</strong> of increasing complexity (e.g. like our postfire models with and without the seasonality term).</li>
-<li>A mix of models with <strong>completely different model structures</strong> aimed at forecasting the same thing.</li>
-</ol>
 <p><br></p>
 
 </div>

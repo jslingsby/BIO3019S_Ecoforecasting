@@ -1,10 +1,11 @@
 # Uncertainty {#uncertainty}
 
-Uncertainty determines the utility of a forecast. If the uncertainty in a forecast is too high, then it is of no utility to a decision maker. Similarly, if the uncertainty is not properly quantified and presented, it can lead to poor decisions. This leaves forecasters with three overarching questions:
+Uncertainty determines the utility of a forecast. If the uncertainty in a forecast is too high, then it is of no utility to a decision maker. Similarly, if the uncertainty is not properly quantified and presented, it can lead to poor decisions. This leaves forecasters with four overarching questions:
 
 1. What determines the limits to the utility of predictions?
 2. What determines prediction uncertainty?
-3. How can we reduce prediction uncertainty?
+3. How can we propagate uncertainty through our models and into our predictions?
+4. How can we reduce prediction uncertainty?
 
 <br>
 
@@ -16,7 +17,7 @@ Uncertainty determines the utility of a forecast. If the uncertainty in a foreca
 
 Addressing **question 2**, "What determines prediction uncertainty?" involves exploring the sources and types of uncertainty.
 
-Dietze provides a nice classification of prediction uncertainty in his book [@Dietze2017] and subsequent paper [@Dietze2017b]: 
+Dietze provides a nice classification of prediction uncertainty in his book [@Dietze2017] and subsequent paper [@Dietze2017b] in the form of an equation (note that I've spread it over multiple lines): 
 
 <br>
 
@@ -47,12 +48,20 @@ $$\underbrace{stability*uncertainty}_\text{initial conditions} \; +$$
 - **Stability** refers to whether it is a variable with **stabilizing feedbacks** (think of alternate stable states), versus whether it changes very quickly (with the extreme being one that **tends towards chaos** such as atmospheric conditions often do). Another example may be the populations of $r$ (unstable) versus $K$ (stable) selected species.
 - **Uncertainty** is just uncertainty in the state of $Y$ due to **observation error**.
 
+<br>
+
+Then
+
 $$\underbrace{sensitivity * uncertainty}_\text{drivers} \; + $$
 
 *"The sensitivity to, multiplied by the uncertainty in, external drivers, plus"*
 
 - The **external drivers are just the independent variables** in the process model (i.e. the covariates).
 - So the predictability of $Y$ depends on its **sensitivity** to each covariate (i.e. how much change would we expect in $Y$ for a given change in the covariate), and the **uncertainty** in those covariates. Worst case scenario would be if $Y$ was highly sensitive and the covariates were highly uncertain. Note that given we are forecasting through time, uncertainty in each covariate also depends on how predictable it is. If we can't predict $X$, we can't use it to predict $Y$... That said, if $Y$ is relatively insensitive to $X$, then there's less of a problem (apart from the question of why we've included it in the mopdel in the first place?).
+
+<br>
+
+Then
 
 $$\underbrace{sensitivity*(uncertainty+variability)}_\text{(parameters + random effects)} + $$
 
@@ -64,52 +73,169 @@ $$\underbrace{sensitivity*(uncertainty+variability)}_\text{(parameters + random 
   - Targeting fieldwork etc to better constrain poorly estimated parameters is one of the best ways to reduce prediction uncertainty.
 - **Variability** reflects factors that cause deviation (or offsets) from the mean of the parameter that may be known, but may either be poorly estimated or not included in the rest of the model. These are **random effects** that can be caused by factors like space, time, phylogeny, etc.
 
+<br>
+
+Then
+
 $$\underbrace{Var[\epsilon]}_\text{process error}$$
 *"The process error."*
 
 - This refers to errors in the model due to structural uncertainty and stochasticity.
 - **Stochasticity** refers to ecological phenomena of relevance that are very difficult to predict (at least within the context of the focal model). Examples include the occurrence of **fire, dispersal or mortality** that are often **chance events** similar to a coin toss.
-- Model **structural uncertainty** simply reflects that all models are simplifications of reality and none are perfect. That said, this could also include "user error" where the forecaster specified the wrong model. Working with multiple models and employing model selection or averaging can help reduce structural uncertainty (in addition to thinking really hard about how to specify a better model...).
+- Model **structural uncertainty** simply reflects that all models are simplifications of reality and none are perfect. That said, this could also include "user error" where the forecaster specified the wrong model, probability distribution, etc. Working with multiple models and employing model selection or averaging can help reduce structural uncertainty (in addition to thinking really hard about how to specify a better model...).
 
 <br>
 
-## Propagating, analyzing and reducing uncertainty
+## Propagating uncertainty 
 
-Question 3, "How can we reduce uncertainty?" requires:
+There are many methods to address question 3, *"How can we propagate uncertainty through our models and into our predictions?"*, but it's worth recognizing that these are actually two steps:
 
-1. Working out how much there is (by propagating it through the model).
-2. Working out where it's coming from (by analyzing and partitioning the uncertainties).
-3. Targeting sources of uncertainty that can be reduced with the best return on investment (important to note that these may not be the biggest sources of uncertainty, just the cheapest and easiest to resolve).
+1. Propagating uncertainty through the model 
+  + i.e. in the fitting of the model so we can include uncertainty in our parameter estimates
+  + This is typically focused on "How does the uncertainty in X affect the uncertainty in Y?"
+2. Propagating uncertainty into our forecasts
+  + i.e. exploring the implications of uncertainty in our model (parameters etc) for our confidence in the forecast
+  + Here we focus on "How do we forecast Y with uncertainty?"
+  + This second step is actually the first step in ***data assimilation*** as we'll see in a minute 
 
-- Sensitivity Analysis
-  - How does a change in X translate into a change in Y?
-  - Lots of methods! (Local vs Global?)
-  - Generally revolve around varying the input parameters to see how they alter the output parameters
-      - e.g. Monte Carlo methods
-      - There are usually trade-offs between computational expense/time and how thoroughly you explore parameter space
-      - The nice thing about knowing the uncertainty in your input variables is it gives good guidance on the space you need to explore (e.g. quantiles or standard deviations of your input variable uncertainty)
-      - Because Bayesian approaches are based on MCMC, you usually get your sensitivity analysis for free!!! It's just a matter of sampling and analyzing your posterior distributions.
-      
-- Uncertainty Propagation
-  - How does the uncertainty in X affect the uncertainty in Y?
-  - How do we forecast Y with uncertainty?
-  - 5 ways
+<br>
 
-I think this table goes here? Could add links to the forcast uncertainty propagation methods?
+I'm not going to spend much time on this, but suffice to say it could be a lecture series of its own. In (very) short, there are 5 methods to address step 1, and most of these cross-walk to related methods for step 2 (see Table \@ref(tab:propagatinguncertainty)). Among these methods are distinctions among whether they:
+
+- Return **distributions** (e.g. Gaussian curve) or **moments** (means, medians, standard deviations, etc)
+- They have **analytical** solutions, or need to be approximated **numerically**
+
+They also have trade-offs between **efficiency vs flexibility**, with the most efficient having the most rigid requirements and assumptions (analytical), while the most flexible (numeric) can be very computationally taxing (or impossible given a complex enough model).
 
 <br>
 
 ```{r propagatinguncertainty, echo=F}
 
 upm <- data.frame(
-  Approach = c("Analytic", "", "Numeric"),
-  Distribution = c("Variable Transform", "", "Monte Carlo"),
-  Moments = c("Analytical Moments", "Taylor Series", "Ensemble")
+  Approach = c("Analytical", "", "Numerical"),
+  Distribution = c("Variable Transform", "", "Monte Carlo (Particle Filter)"),
+  Moments = c("Analytical Moments (Kalman Filter)", "Taylor Series (Extended Kalman Filter)", "Ensemble (Ensemble Kalman Filter)")
 )
 
-knitr::kable(upm, caption = "Methods for propagating uncertainty through models tabled by whether they provide distributions or moments and whether they are derived analytically or numerically")
+knitr::kable(upm, caption = "**Methods for propagating uncertainty through models (and into forecasts)**")
 
 ```
+
+<br>
+
+## Analyzing and reducing uncertainty
+
+Question 4, "How can we reduce prediction uncertainty?" requires:
+
+1. Working out where it's coming from (by analyzing and partitioning the sources of uncertainty).
+2. Targeting sources of uncertainty that can be reduced with the best return on investment (important to note that these may not be the biggest sources of uncertainty, just the cheapest and easiest to resolve).
+
+Addressing 1  requires looking at the two ways in which things can be important for the uncertainty in predictions:
+
+- because they're **highly uncertain**, requiring 
+  - **propagating** uncertainty through the model as above
+  - **partitioning** uncertainty among your different drivers (covariates) and parameters
+- because they're **highly sensitive**, requiring
+  - **sensitivity analysis**
+    - I assume you covered these when you did matrix models. I'm not going to go into them here, but they focus on **how a change in X translates into a change in Y**. The bigger the relative change in Y, the more sensitive.
+
+Parameters that are highly uncertain and to which your state variable (Y) are highly sensitive will cause the most uncertainty in your predictions. That said, given limited resources, they may not be the best target for reducing uncertainty for a number of reasons, e.g.
+
+- they may be inherently uncertain and that uncertainty may remain even if you invest vast sampling effort 
+  - power analysis can help you determine this (i.e. exploring how uncertainty changes with sample size)
+- they may be hugely costly or time-consuming, trading off against resources you could focus on reducing other sources of uncertainty
+
+In fact, by this stage you should have most of the pieces of the puzzle to help you build a model to predict where your effort is best invested by exploring the relationship between sample size and variance contribution to overall model uncertainty! You can even include economic principles to estimate monetary or person-hour implications. This is called *Observational Design*.
+
+<br>
+
+## Propogating and partitioning uncertainty in the impacts of invasive alien plants on streamflow using MCMC
+
+### The background
+
+During the "Day Zero" drought municipalities like the City of Cape Town scrambled to access "alternative sources" of water for bulk supply. The options they explored (beyond demand management) included:
+
+- Desalination
+- Reclamation (i.e. purifying waste water)
+- Groundwater (from two very different aquifers, the Cape Flats Sand Aquifer and the Table Mountain Group Aquifer)
+
+At that stage there was published peer-reviewed research by @Le_Maitre2016 indicating that as of 2008 invasive alien plants were estimated to be using around 5% of runoff (almost as much as Wemmershoek Dam or ~80 days worth of water under restrictions). There was additional research showing that the extent of alien invasions had become much worse since 2008, so these figures were likely to be an underestimate.
+
+When asked why they were not considering clearing invasive alien plants from the major mountain catchments, one of the excuses was "because we don't trust the estimates, they don't provide any estimates of uncertainty".
+
+While we knew this was a load of crock (they didn't have uncertainty estimates for any of the other options either) @Moncrieff2021 decided that it'd be a good idea to explore this issue and:
+
+1. use a Bayesian framework to update and include uncertainty in the estimates of the volume and percent of streamflow lost to IAPs from the catchments
+2. explore the relative contribution of sources of uncertainty to overall uncertainty in streamflow losses to guide efforts to improve future estimates
+3. make it easy for anyone to recalculate estimates as and when updated data become available by adopting an open science approach, using only open-source software and sharing all data and code to provide a fully repeatable workflow
+
+<br>
+
+### The Analysis
+
+The impacts of invasive alien plants (IAPs) on streamflow is predominantly determined from streamflow reduction curves from long-term catchment experiments whereby the proportional reduction in streamflow is expressed as a function of plantation age and/or density.
+
+<br>
+
+```{r moncrieffcurve, echo=F, out.width='100%', fig.align='center', fig.cap='Streamflow reduction curves for pine and eucalypt plantations under normal (suboptimal) or wet (optimal) conditions (from @Moncrieff2021).'}
+knitr::include_graphics("img/moncrieff_figure2.png")
+```
+
+<br>
+
+These curves are then used to extrapolate spatially to MODIS pixels (250m) within catchments, informed by the naturalized runoff and IAP density.
+
+<br>
+
+For our analysis, we made sure that all inputs were sampled with uncertainty (i.e. from probability distributions) and then propagated that uncertainty through to our streamflow reduction estimates using Monte Carlo (MC).
+
+<br>
+
+```{r moncrieffmethod, echo=F, out.width='70%', fig.align='center', fig.cap='Overview of the simulations run by @Moncrieff2021 to estimate the impacts of IAPs on streamflow in the catchments of the Cape Floristic Region including uncertainty (from @Moncrieff2021)'}
+knitr::include_graphics("img/moncrieff_figure1.png")
+```
+
+<br>
+
+**The MC simulation steps were:**
+
+1. For each model run we:
+    a. Assigned each species to a streamflow reduction curve (optimal or sub-optimal, Eucalypt or Pine)
+    b. Sampled a map of vegetation age from the distribution of fire return time
+    c. Estimated proportional streamflow reduction for every IAP species from the assigned curve (sampled from posterior distribution of curves) and age.
+    d. Determined additional water usage by IAPs in riparian zones and areas where groundwater is accessible
+2. Within each run, for each catchment we sample the density of each IAP species
+3. Within each catchment, for each pixel we
+    a. Estimated pixel-level naturalized runoff by sampling precipitation and converting to runoff
+    b. Corrected for bias in naturalized runoff by summing naturalized runoff across all pixels within each quaternary catchment and rescaling to match estimates from Bailey and Pitman (2015)
+    c. Determined whether additional water in riparian zones or groundwater is accessible to IAPs
+    d. Calculated the runoff lost to IAPs by multiplying potential runoff from each pixel by the proportional streamflow reduction for every IAP species, and summing across all species.
+
+<br>
+
+```{r moncrieffrunoff, echo=F, out.width='80%', fig.align='center', fig.cap=' Posterior probability distributions of the impacts of IAPs on streamflow in the catchments feeding Cape Town's major dams (from @Moncrieff2021).'}
+knitr::include_graphics("img/moncrieff_fig_s3.png")
+```
+
+<br>
+
+This process provided us with estimates of the impacts of IAPs on streamflow for all catchments in the Cape Floristic Region as posterior probability distributions - i.e. *with uncertainty*.   
+
+The mean estimated streamflow loss to IAPs in the quaternary catchments surrounding Cape Town's major dams was 25.5 million m$^3$ per annum, with lower and upper estimates of 20.3 and 43.4 million m$^3$ respectively. Given the City's target water use of 0.45 million m$^3$ per day at the height of the drought, this translates to between 45 and 97 days of water supply!!! Note that this was still using the 2008 estimates of IAP invasions...
+
+<br>
+
+Beyond estimating the impacts of IAPs with uncertainty, @Moncrieff2021 performed additional analyses to partition the uncertainty among the various potential sources. For this we examined the relative contribution of a each source to overall uncertainty in streamflow reduction by setting the uncertainty in all other inputs to zero.
+
+<br>
+
+```{r moncrieffuncertainty, echo=F, out.width='80%', fig.align='center', fig.cap='...[@Moncrieff2021]'}
+knitr::include_graphics("img/moncrieff_figure6.png")
+```
+
+<br>
+
+
 
 <br>
 
@@ -120,50 +246,6 @@ knitr::kable(upm, caption = "Methods for propagating uncertainty through models 
   [Linear model variance shape example? https://www.youtube.com/watch?v=TyYQAOGyOUQ at ~35 mins]
 
   [MCMC distribution example at ~42 mins]
-
-- Uncertainty Analysis
-  - Which sources of input uncertainty are most important for output uncertainty?
-  - 2 ways in which things can be important for the uncertainty in predictions (Fig 11.8 in book)
-      - because they're highly sensitive
-      - because they're highly uncertain
   
-- Optimal design
-  - How can we best reduce the uncertainty in our model/forecast?
-  
-  - Power analysis
-  - Observational design
-    - e.g. hugely expensive investments like satellites etc
-    
-    
-**The traditional ecologist's view** - after decades' years worth of data collection and hypothesis testing, maybe we'll know enough to start building a predictive model.
-
-**Engineering (or decision-makers') view** - start building a model with no or very little data, and use that to guide what data to collect and how to improve the model. It may be completely wrong to begin with, but will rapidly improve.
-
-
-
-
 <br>
 
-## Propogating and quantifying uncertainty using MCMC
-
-@Moncrieff2021 example somewhere?
-
-```{r moncrieffmethod, echo=F, out.width='70%', fig.align='center', fig.cap='... [@Moncrieff2021]'}
-knitr::include_graphics("img/moncrieff_figure1.png")
-```
-
-```{r moncrieffcurve, echo=F, out.width='100%', fig.align='center', fig.cap='...[@Moncrieff2021]'}
-knitr::include_graphics("img/moncrieff_figure2.png")
-```
-
-```{r moncrieffrunoff, echo=F, out.width='80%', fig.align='center', fig.cap='...[@Moncrieff2021]'}
-knitr::include_graphics("img/moncrieff_fig_s3.png")
-```
-
-```{r moncrieffuncertainty, echo=F, out.width='80%', fig.align='center', fig.cap='...[@Moncrieff2021]'}
-knitr::include_graphics("img/moncrieff_figure6.png")
-```
-
-
-
-<br>

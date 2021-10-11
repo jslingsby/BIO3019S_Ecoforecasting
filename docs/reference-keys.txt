@@ -46,10 +46,6 @@ fig:hbpostfire
 fig:emma
 fig:emmachange
 fig:emmaexceedmap
-fig:ecoforecastingloop3
-fig:forecaststeps
-fig:dataassimilation
-fig:analysissteps
 overview
 general
 lectures-and-practicals
@@ -130,7 +126,3 @@ the-benefits-of-bayes
 data-fusion
 model-layers
 hierarchical-bayes-and-postfire-recovery-example
-completing-the-forecast-cycle-data-assimilation
-operational-data-assimilation
-the-forecast-step
-the-analysis-step
