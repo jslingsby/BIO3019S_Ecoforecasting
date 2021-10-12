@@ -1,7 +1,23 @@
-# Bayesian lecture leftovers
+# Bayesian lecture leftovers and other bits
 
 
+```{r uncertainty, echo = F, fig.cap = "The utility of a forecast depends on the precision required by the decision maker. Forecasts typically accumulate uncertainty through time, so the precision requirements determine the forecast event horizon."}
+library(tidyverse)
 
+set.seed(1066)
+
+dat <- data.frame(Uncertainty = 1:100, Time = 1:100)
+
+dat %>%
+  ggplot(aes(x=Time, y=Uncertainty)) +
+  geom_line() +
+  geom_segment(aes(x = 0, y = 10, xend = 100, yend = 10), col = "gray50", size = 0.5, alpha = .2, linetype = 3) +
+  geom_text(aes(x = 75, y = 15), label = "High precision required", colour = "gray20") +
+  geom_segment(aes(x = 0, y = 40, xend = 100, yend = 40), col = "gray50", size = 0.5, alpha = .2, linetype = 3) +
+  geom_text(aes(x = 75, y = 45), label = "Low precision required", colour = "gray20")
+  #geom_smooth(method = "lm") + 
+  #theme_bw()
+```
 
 <!--- ### Maximum Likelihood Estimation vs Null Hypothesis Testing
 

@@ -46,6 +46,11 @@ fig:hbpostfire
 fig:emma
 fig:emmachange
 fig:emmaexceedmap
+tab:propagatinguncertainty
+fig:moncrieffcurve
+fig:moncrieffmethod
+fig:moncrieffrunoff
+fig:moncrieffuncertainty
 overview
 general
 lectures-and-practicals
@@ -126,3 +131,14 @@ the-benefits-of-bayes
 data-fusion
 model-layers
 hierarchical-bayes-and-postfire-recovery-example
+uncertainty
+sources-and-types-of-uncertainty
+propagating-uncertainty
+analyzing-and-reducing-uncertainty
+propogating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow-using-mcmc
+the-background
+the-analysis
+fig:moncrieffresults
+the-results
+fig:forecasteventhorizon
+fig:uncertainty

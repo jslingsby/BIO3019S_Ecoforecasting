@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>11 Uncertainty and Data Assimilation | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
+  <title>11 Uncertainty | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="11 Uncertainty and Data Assimilation | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta property="og:title" content="11 Uncertainty | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="11 Uncertainty and Data Assimilation | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta name="twitter:title" content="11 Uncertainty | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   
   <meta name="twitter:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-11" />
+<meta name="date" content="2021-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -217,7 +217,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.2.2" data-path="datafusion.html"><a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example"><i class="fa fa-check"></i><b>10.2.2</b> Hierarchical Bayes and postfire recovery example</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>11</b> Uncertainty and Data Assimilation</a>
+<li class="chapter" data-level="11" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>11</b> Uncertainty</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
 <li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating uncertainty</a></li>
@@ -226,6 +226,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="11.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>11.4.1</b> The background</a></li>
 <li class="chapter" data-level="11.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>11.4.2</b> The Analysis</a></li>
+<li class="chapter" data-level="11.4.3" data-path="uncertainty.html"><a href="uncertainty.html#the-results"><i class="fa fa-check"></i><b>11.4.3</b> The Results</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -250,8 +251,7 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="uncertainty" class="section level1" number="11">
-<h1><span class="header-section-number">11</span> Uncertainty and Data Assimilation</h1>
-<p>This section provides a brief discussion of <strong>dealing with uncertainty in forecasts</strong>, followed by a section on <strong>data assimilation</strong>, whereby we <strong>close the forecast loop</strong> by assimilating the previous forecast and new observations so we can update our forecasts for the next iteration. It may not be obvious now, but you’ll see that they are tightly linked.</p>
+<h1><span class="header-section-number">11</span> Uncertainty</h1>
 <p>Uncertainty determines the utility of a forecast. If the uncertainty in a forecast is too high, then it is of no utility to a decision maker. Similarly, if the uncertainty is not properly quantified and presented, it can lead to poor decisions. This leaves forecasters with four overarching questions:</p>
 <ol style="list-style-type: decimal">
 <li>What determines the limits to the utility of predictions?</li>
@@ -260,12 +260,19 @@ div.csl-indent {
 <li>How can we reduce prediction uncertainty?</li>
 </ol>
 <p><br></p>
-<p><strong>Question 1</strong> is very much dependent on question 2, but more specifically it depends on the combination of the rate of <strong>accumulation of uncertainty</strong> through time, as it tends towards being no better than chance (the forecast “event horizon”), and the <strong>precision required for the decision</strong> in question. If both are high, the prediction loses value rapidly and the forecast window can only be very short. Conversely, if both are low, the value of the prediction can remain high over a long forecast window. You obviously get variable combinations between the two.</p>
+<p><strong>Question 1</strong> is very much dependent on question 2, but more specifically it depends on the combination of the rate of <strong>accumulation of uncertainty</strong> (or loss of proficiency) through time, as it tends towards being no better than chance, combined with the precision or <strong>“forecast proficiency threshold” required</strong> for the decision in question. Together these determine the <strong><em>“ecological forecast horizon”</em></strong> (Figure <a href="uncertainty.html#fig:forecasteventhorizon">11.1</a>; <span class="citation"><a href="#ref-Petchey2015" role="doc-biblioref">Petchey et al.</a> (<a href="#ref-Petchey2015" role="doc-biblioref">2015</a>)</span>). Some forecasts may lose proficiency very quickly, crossing (or starting below) the forecast proficiency threshold. Conversely, if the forecast loses proficiency more slowly, or the proficiency threshold requirements are lower, the forecast horizon is further into the future.</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:forecasteventhorizon"></span>
+<img src="img/forecasteventhorizon.jpg" alt="The ecological forecast horizon (from @Petchey2015)." width="80%" />
+<p class="caption">
+Figure 11.1: The ecological forecast horizon (from <span class="citation"><a href="#ref-Petchey2015" role="doc-biblioref">Petchey et al.</a> (<a href="#ref-Petchey2015" role="doc-biblioref">2015</a>)</span>).
+</p>
+</div>
 <p><br></p>
 <div id="sources-and-types-of-uncertainty" class="section level2" number="11.1">
 <h2><span class="header-section-number">11.1</span> Sources and types of uncertainty</h2>
-<p>Addressing <strong>question 2</strong>, “What determines prediction uncertainty?” involves exploring the sources and types of uncertainty.</p>
-<p>Dietze provides a nice classification of prediction uncertainty in his book <span class="citation">(<a href="#ref-Dietze2017" role="doc-biblioref">Dietze 2017a</a>)</span> and subsequent paper <span class="citation">(<a href="#ref-Dietze2017b" role="doc-biblioref">Dietze 2017b</a>)</span> in the form of an equation (note that I’ve spread it over multiple lines):</p>
+<p>Addressing <strong>question 2</strong>, <em>“What determines prediction uncertainty?”</em> involves exploring the sources and types of uncertainty.</p>
+<p>Dietze provides a nice classification of prediction uncertainty in his book <span class="citation">(<a href="#ref-Dietze2017" role="doc-biblioref">Dietze 2017a</a>)</span> and subsequent paper <span class="citation">(<a href="#ref-Dietze2017b" role="doc-biblioref">Dietze 2017b</a>)</span> in the form of <strong>an equation</strong> (note that I’ve spread it over multiple lines):</p>
 <p><br></p>
 <p><span class="math display">\[
 \underbrace{Var[Y_{t+1}]}_\text{predictive variance} \approx \; 
@@ -279,44 +286,53 @@ div.csl-indent {
 \]</span></p>
 <p><br></p>
 <p>If we break the terms down into (something near) English, we get:</p>
+<p>The dependent variable:</p>
+<p><br></p>
 <p><span class="math display">\[Var[Y_{t+1}] \approx\]</span></p>
+<p><br></p>
 <p><em>“The uncertainty in the prediction for the variable of interest (<span class="math inline">\(Y\)</span>) in the next time step (<span class="math inline">\(t+1\)</span>) is approximately equal to…”</em></p>
+<p><br></p>
+<p>And now the independent variables (or terms in the model):</p>
+<p><br></p>
 <p><span class="math display">\[\underbrace{stability*uncertainty}_\text{initial conditions} \; +\]</span></p>
+<p><br></p>
 <p><em>“The stability multiplied by the uncertainty in the initial conditions, plus”</em></p>
 <ul>
-<li>Here, the initial conditions = the state of <span class="math inline">\(Y\)</span> at time <span class="math inline">\(t\)</span>.</li>
+<li>Here, the initial conditions = the state of <span class="math inline">\(Y\)</span> at time <span class="math inline">\(t\)</span> (our starting time point).</li>
 <li><strong>Stability</strong> refers to whether it is a variable with <strong>stabilizing feedbacks</strong> (think of alternate stable states), versus whether it changes very quickly (with the extreme being one that <strong>tends towards chaos</strong> such as atmospheric conditions often do). Another example may be the populations of <span class="math inline">\(r\)</span> (unstable) versus <span class="math inline">\(K\)</span> (stable) selected species.</li>
 <li><strong>Uncertainty</strong> is just uncertainty in the state of <span class="math inline">\(Y\)</span> due to <strong>observation error</strong>.</li>
 </ul>
 <p><br></p>
 <p>Then</p>
 <p><span class="math display">\[\underbrace{sensitivity * uncertainty}_\text{drivers} \; + \]</span></p>
+<p><br></p>
 <p><em>“The sensitivity to, multiplied by the uncertainty in, external drivers, plus”</em></p>
 <ul>
-<li>The <strong>external drivers are just the independent variables</strong> in the process model (i.e. the covariates).</li>
-<li>So the predictability of <span class="math inline">\(Y\)</span> depends on its <strong>sensitivity</strong> to each covariate (i.e. how much change would we expect in <span class="math inline">\(Y\)</span> for a given change in the covariate), and the <strong>uncertainty</strong> in those covariates. Worst case scenario would be if <span class="math inline">\(Y\)</span> was highly sensitive and the covariates were highly uncertain. Note that given we are forecasting through time, uncertainty in each covariate also depends on how predictable it is. If we can’t predict <span class="math inline">\(X\)</span>, we can’t use it to predict <span class="math inline">\(Y\)</span>… That said, if <span class="math inline">\(Y\)</span> is relatively insensitive to <span class="math inline">\(X\)</span>, then there’s less of a problem (apart from the question of why we’ve included it in the mopdel in the first place?).</li>
+<li>The <strong>external drivers are just the independent variables</strong> in the model (i.e. the covariates).</li>
+<li>So the predictability of <span class="math inline">\(Y\)</span> depends on its <strong>sensitivity</strong> to each covariate (i.e. how much change would we expect in <span class="math inline">\(Y\)</span> for a given change in the covariate), and the <strong>uncertainty</strong> in those covariates. Worst case scenario would be if <span class="math inline">\(Y\)</span> was highly sensitive and the covariates were highly uncertain. Note that given we are forecasting through time, uncertainty in each covariate reflects <strong>how well we can forecast that covariate</strong> (e.g. future climate). If we can’t predict <span class="math inline">\(X\)</span>, we can’t use it to predict <span class="math inline">\(Y\)</span>… That said, if <span class="math inline">\(Y\)</span> is relatively insensitive to <span class="math inline">\(X\)</span>, then there’s less of a problem (apart from the question of why we’ve included it in the model in the first place?).</li>
 </ul>
 <p><br></p>
 <p>Then</p>
 <p><span class="math display">\[\underbrace{sensitivity*(uncertainty+variability)}_\text{(parameters + random effects)} + \]</span></p>
+<p><br></p>
 <p><em>“The sensitivity to, multiplied by the uncertainty and variability in, the parameters of the model, plus”</em></p>
 <ul>
-<li>Parameter <strong>uncertainty</strong> pertains to <strong>how good our estimates of the parameters</strong> are. This is usually a question of sample size - “Do we have enough data to obtain a good estimate (i.e. accurate mean, low uncertainty) of the parameters?” It is also linked to the number of parameters in the model. The more parameters, the more data you need to obtain good parameter estimates. This is another reason to avoid overly complex models.</li>
-<li>Parameter <strong>sensitivity</strong> is similar to driver sensitivity - <strong>“How much change do we expect in <span class="math inline">\(Y\)</span> for a given change in the parameter?”</strong></li>
+<li><strong><em>Parameter uncertainty</em></strong> pertains to <strong>how good our estimates of the parameters</strong> are. This is usually a question of sample size - <em>“Do we have enough data to obtain a good estimate (i.e. accurate mean, low uncertainty) of the parameters?”</em>. It is also linked to the <strong>number of parameters</strong> in the model. The more parameters, the more data you need to obtain good parameter estimates. This is another reason to avoid overly complex models.</li>
+<li><strong><em>Parameter sensitivity</em></strong> is similar to driver sensitivity - <strong>“How much change do we expect in <span class="math inline">\(Y\)</span> for a given change in the parameter?”</strong></li>
 <li>The <strong>overall contribution</strong> of a parameter to the predictive variance (i.e. uncertainty in the forecast) depends on its <strong>sensitivity multiplied by its uncertainty</strong>.
 <ul>
 <li>Targeting fieldwork etc to better constrain poorly estimated parameters is one of the best ways to reduce prediction uncertainty.</li>
 </ul></li>
-<li><strong>Variability</strong> reflects factors that cause deviation (or offsets) from the mean of the parameter that may be known, but may either be poorly estimated or not included in the rest of the model. These are <strong>random effects</strong> that can be caused by factors like space, time, phylogeny, etc.</li>
+<li><strong><em>Parameter variability</em></strong> reflects factors that cause deviation (or offsets) from the mean of the parameter that may be known, but may either be poorly estimated or not included in the rest of the model. These are <strong>random effects</strong> that can be caused by factors like space, time, phylogeny, etc.</li>
 </ul>
 <p><br></p>
 <p>Then</p>
 <p><span class="math display">\[\underbrace{Var[\epsilon]}_\text{process error}\]</span>
 <em>“The process error.”</em></p>
 <ul>
-<li>This refers to errors in the model due to structural uncertainty and stochasticity.</li>
+<li>This refers to <strong>errors in the model</strong> due to structural uncertainty and stochasticity.</li>
 <li><strong>Stochasticity</strong> refers to ecological phenomena of relevance that are very difficult to predict (at least within the context of the focal model). Examples include the occurrence of <strong>fire, dispersal or mortality</strong> that are often <strong>chance events</strong> similar to a coin toss.</li>
-<li>Model <strong>structural uncertainty</strong> simply reflects that all models are simplifications of reality and none are perfect. That said, this could also include “user error” where the forecaster specified the wrong model, probability distribution, etc. Working with multiple models and employing model selection or averaging can help reduce structural uncertainty (in addition to thinking really hard about how to specify a better model…).</li>
+<li>Model <strong>structural uncertainty</strong> simply reflects that <strong>all models are simplifications</strong> of reality and none are perfect. We’ll always be missing something. That said, this could also include <strong>“user error”</strong> where the forecaster specified the wrong process model, or applied the wrong probability distribution in the data model, etc. Working with multiple models and employing model selection or averaging can help reduce structural uncertainty (in addition to thinking really hard about how to specify a better model of course…).</li>
 </ul>
 <p><br></p>
 </div>
@@ -324,20 +340,18 @@ div.csl-indent {
 <h2><span class="header-section-number">11.2</span> Propagating uncertainty</h2>
 <p>There are many methods to address question 3, <em>“How can we propagate uncertainty through our models and into our predictions?”</em>, but it’s worth recognizing that these are actually two steps:</p>
 <ol style="list-style-type: decimal">
-<li>Propagating uncertainty through the model</li>
-</ol>
+<li>Propagating uncertainty <strong>through the model</strong>
 <ul>
-<li>i.e. in the fitting of the model so we can include uncertainty in our parameter estimates</li>
-<li>This is typically focused on “How does the uncertainty in X affect the uncertainty in Y?”</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li>Propagating uncertainty into our forecasts</li>
-</ol>
+<li>i.e. in <strong>fitting the model</strong>, so we can include uncertainty in our parameter estimates</li>
+<li>This is typically focused on <em>“How does the uncertainty in X affect the uncertainty in Y?”</em></li>
+</ul></li>
+<li>Propagating uncertainty <strong>into our forecasts</strong>
 <ul>
-<li>i.e. exploring the implications of uncertainty in our model (parameters etc) for our confidence in the forecast</li>
-<li>Here we focus on “How do we forecast Y with uncertainty?”</li>
-<li>This second step is actually the first step in <strong><em>data assimilation</em></strong> as we’ll see in a minute</li>
-</ul>
+<li>i.e. exploring the implications of uncertainty in our model (parameters etc) for our confidence in the forecast <strong>when making predictions with our fitted model</strong></li>
+<li>Here we focus on <em>“How do we forecast Y with uncertainty?”(</em>)</li>
+<li>This second step is actually the first step in <strong><em>data assimilation</em></strong>, which we’ll discuss tomorrow</li>
+</ul></li>
+</ol>
 <p><br></p>
 <p>I’m not going to spend much time on this, but suffice to say it could be a lecture series of its own. In (very) short, there are 5 methods to address step 1, and most of these cross-walk to related methods for step 2 (see Table <a href="uncertainty.html#tab:propagatinguncertainty">11.1</a>). Among these methods are distinctions among whether they:</p>
 <ul>
@@ -374,22 +388,26 @@ div.csl-indent {
 </tbody>
 </table>
 <p><br></p>
+<blockquote>
+<p><strong><em>Note:</em></strong> It is possible to propagate uncertainty through the model and into your forecast in one step with Bayesian methods, by treating the forecast states as “missing data” values and estimating posterior distributions for them. This would essentially fit with Monte Carlo methods in Table <a href="uncertainty.html#tab:propagatinguncertainty">11.1</a>. This approach may not suit all forecasting circumstances though.</p>
+</blockquote>
+<p><br></p>
 </div>
 <div id="analyzing-and-reducing-uncertainty" class="section level2" number="11.3">
 <h2><span class="header-section-number">11.3</span> Analyzing and reducing uncertainty</h2>
-<p>Question 4, “How can we reduce prediction uncertainty?” requires:</p>
+<p>Question 4, <em>“How can we reduce prediction uncertainty?”</em> requires:</p>
 <ol style="list-style-type: decimal">
-<li>Working out where it’s coming from (by analyzing and partitioning the sources of uncertainty).</li>
-<li>Targeting sources of uncertainty that can be reduced with the best return on investment (important to note that these may not be the biggest sources of uncertainty, just the cheapest and easiest to resolve).</li>
+<li>Working out <strong>where it’s coming from</strong> (by analyzing and partitioning the sources of uncertainty).</li>
+<li><strong>Targeting sources of uncertainty</strong> that can be reduced with the best return on investment (important to note that these may not be the biggest sources of uncertainty, just the cheapest and easiest to resolve).</li>
 </ol>
-<p>Addressing 1 requires looking at the two ways in which things can be important for the uncertainty in predictions:</p>
+<p><strong>Addressing 1</strong> requires looking at the two ways in which things can be important for the uncertainty in predictions (largely covered in Dietze’s equation above):</p>
 <ul>
-<li>because they’re <strong>highly uncertain</strong>, requiring
+<li>because they’re <strong>highly uncertain</strong>, which requies you:
 <ul>
 <li><strong>propagating</strong> uncertainty through the model as above</li>
 <li><strong>partitioning</strong> uncertainty among your different drivers (covariates) and parameters</li>
 </ul></li>
-<li>because they’re <strong>highly sensitive</strong>, requiring
+<li>because they’re <strong>highly sensitive</strong>, requiring you to perform:
 <ul>
 <li><strong>sensitivity analysis</strong>
 <ul>
@@ -397,15 +415,15 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 </ul>
-<p>Parameters that are highly uncertain and to which your state variable (Y) are highly sensitive will cause the most uncertainty in your predictions. That said, given limited resources, they may not be the best target for reducing uncertainty for a number of reasons, e.g.</p>
+<p><strong>Addressing 2</strong> may not be as straightforward as you’d hope. Parameters that are highly uncertain and to which your state variable (Y) are highly sensitive will cause the most uncertainty in your predictions. That said, <strong>given </strong>limited resources, they may not be the best target** for reducing uncertainty for a number of reasons, e.g.</p>
 <ul>
-<li>they may be inherently uncertain and that uncertainty may remain even if you invest vast sampling effort
+<li>they may be <strong>inherently uncertain</strong> and uncertainty may remain high even with vast sampling effort
 <ul>
-<li>power analysis can help you determine this (i.e. exploring how uncertainty changes with sample size)</li>
+<li><strong>power analysis</strong> can help here (i.e. exploring how uncertainty changes with sample size)</li>
 </ul></li>
-<li>they may be hugely costly or time-consuming, trading off against resources you could focus on reducing other sources of uncertainty</li>
+<li>they may be <strong>hugely costly or time-consuming</strong>, trading off against resources you could focus on reducing other sources of uncertainty</li>
 </ul>
-<p>In fact, by this stage you should have most of the pieces of the puzzle to help you build a model to predict where your effort is best invested by exploring the relationship between sample size and variance contribution to overall model uncertainty! You can even include economic principles to estimate monetary or person-hour implications. This is called <em>Observational Design</em>.</p>
+<p>In fact, by this stage you should have most of the pieces of the puzzle to help you <strong>build a model to predict where your effort is best invested</strong> by exploring the relationship between sample size and variance contribution to overall model uncertainty! You can even include economic principles to estimate monetary or person-hour implications. This is called <em>observational design</em>.</p>
 <p><br></p>
 </div>
 <div id="propogating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow-using-mcmc" class="section level2" number="11.4">
@@ -418,39 +436,40 @@ div.csl-indent {
 <li>Reclamation (i.e. purifying waste water)</li>
 <li>Groundwater (from two very different aquifers, the Cape Flats Sand Aquifer and the Table Mountain Group Aquifer)</li>
 </ul>
-<p>At that stage there was published peer-reviewed research by <span class="citation"><a href="#ref-Le_Maitre2016" role="doc-biblioref">Le Maitre et al.</a> (<a href="#ref-Le_Maitre2016" role="doc-biblioref">2016</a>)</span> indicating that as of 2008 invasive alien plants were estimated to be using around 5% of runoff (almost as much as Wemmershoek Dam or ~80 days worth of water under restrictions). There was additional research showing that the extent of alien invasions had become much worse since 2008, so these figures were likely to be an underestimate.</p>
-<p>When asked why they were not considering clearing invasive alien plants from the major mountain catchments, one of the excuses was “because we don’t trust the estimates, they don’t provide any estimates of uncertainty.”</p>
+<p>At that stage there was published peer-reviewed research by <span class="citation"><a href="#ref-Le_Maitre2016" role="doc-biblioref">Le Maitre et al.</a> (<a href="#ref-Le_Maitre2016" role="doc-biblioref">2016</a>)</span> indicating that as of 2008 invasive alien plants were estimated to be <strong>using around 5% of runoff (almost as much as Wemmershoek Dam or ~80 days worth of water under restrictions)</strong>. There was additional research showing that the extent of alien invasions had become much worse since 2008, so these figures were likely to be an underestimate.</p>
+<p>When asked why they were not considering clearing invasive alien plants from the major mountain catchments, one of the excuses was <strong><em>[paraphrased] “because we don’t trust the estimates, they don’t provide any estimates of uncertainty”</em></strong>.</p>
 <p>While we knew this was a load of crock (they didn’t have uncertainty estimates for any of the other options either) <span class="citation"><a href="#ref-Moncrieff2021" role="doc-biblioref">Moncrieff, Slingsby, and Le Maitre</a> (<a href="#ref-Moncrieff2021" role="doc-biblioref">2021</a>)</span> decided that it’d be a good idea to explore this issue and:</p>
 <ol style="list-style-type: decimal">
-<li>use a Bayesian framework to update and include uncertainty in the estimates of the volume and percent of streamflow lost to IAPs from the catchments</li>
-<li>explore the relative contribution of sources of uncertainty to overall uncertainty in streamflow losses to guide efforts to improve future estimates</li>
-<li>make it easy for anyone to recalculate estimates as and when updated data become available by adopting an open science approach, using only open-source software and sharing all data and code to provide a fully repeatable workflow</li>
+<li>use a <strong>Bayesian framework</strong> to update and <strong>include uncertainty</strong> in the estimates of the volume and percent of streamflow lost to IAPs from the catchments</li>
+<li>explore the relative contribution of sources of uncertainty to overall uncertainty in streamflow losses to <strong>guide efforts to improve future estimates</strong></li>
+<li>make it easy for anyone to recalculate estimates as and when updated data become available by adopting an open science approach, using only open-source software and sharing all data and code to provide <strong>a fully repeatable workflow</strong></li>
 </ol>
 <p><br></p>
 </div>
 <div id="the-analysis" class="section level3" number="11.4.2">
 <h3><span class="header-section-number">11.4.2</span> The Analysis</h3>
-<p>The impacts of invasive alien plants (IAPs) on streamflow is predominantly determined from streamflow reduction curves from long-term catchment experiments whereby the proportional reduction in streamflow is expressed as a function of plantation age and/or density.</p>
+<p>The impacts of invasive alien plants (IAPs) on streamflow is predominantly determined from <strong>streamflow reduction curves from long-term catchment experiments</strong>, whereby the proportional reduction in streamflow is expressed as a function of plantation age and/or density. These can take 40 years to collect, and the <a href="https://fynbos.saeon.ac.za/authors/jonkershoek/">Jonkershoek catchment study</a> has been running for &gt;80 years <span class="citation">(<a href="#ref-Slingsby2021" role="doc-biblioref">Slingsby et al. 2021</a>)</span>!!!</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:moncrieffcurve"></span>
 <img src="img/moncrieff_figure2.png" alt="Streamflow reduction curves for pine and eucalypt plantations under normal (suboptimal) or wet (optimal) conditions (from @Moncrieff2021)." width="100%" />
 <p class="caption">
-Figure 11.1: Streamflow reduction curves for pine and eucalypt plantations under normal (suboptimal) or wet (optimal) conditions (from <span class="citation"><a href="#ref-Moncrieff2021" role="doc-biblioref">Moncrieff, Slingsby, and Le Maitre</a> (<a href="#ref-Moncrieff2021" role="doc-biblioref">2021</a>)</span>).
+Figure 11.2: Streamflow reduction curves for pine and eucalypt plantations under normal (suboptimal) or wet (optimal) conditions (from <span class="citation"><a href="#ref-Moncrieff2021" role="doc-biblioref">Moncrieff, Slingsby, and Le Maitre</a> (<a href="#ref-Moncrieff2021" role="doc-biblioref">2021</a>)</span>).
 </p>
 </div>
 <p><br></p>
-<p>These curves are then used to extrapolate spatially to MODIS pixels (250m) within catchments, informed by the naturalized runoff and IAP density.</p>
+<p>These curves are then used to extrapolate spatially to MODIS pixels (250m) nested within catchments, informed by the naturalized runoff and IAP density.</p>
 <p><br></p>
-<p>For our analysis, we made sure that all inputs were sampled with uncertainty (i.e. from probability distributions) and then propagated that uncertainty through to our streamflow reduction estimates using Monte Carlo (MC).</p>
+<p><strong>Propagating uncertainty in streamflow reduction</strong></p>
+<p>For our analysis, we made sure that we only used <strong>inputs</strong> (rainfall, streamflow reduction curves, fire history, soil moisture, invasion density) that could be <strong>sampled with uncertainty</strong> (i.e. from probability distributions) and then propagated that uncertainty through to our streamflow reduction estimates using a <strong>Monte Carlo (MC)</strong> approach.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:moncrieffmethod"></span>
-<img src="img/moncrieff_figure1.png" alt="... [@Moncrieff2021]" width="70%" />
+<img src="img/moncrieff_figure1.png" alt="Overview of the simulations run by @Moncrieff2021 to estimate the impacts of IAPs on streamflow in the catchments of the Cape Floristic Region including uncertainty (from @Moncrieff2021)" width="70%" />
 <p class="caption">
-Figure 11.2: … <span class="citation">(<a href="#ref-Moncrieff2021" role="doc-biblioref">Moncrieff, Slingsby, and Le Maitre 2021</a>)</span>
+Figure 11.3: Overview of the simulations run by <span class="citation"><a href="#ref-Moncrieff2021" role="doc-biblioref">Moncrieff, Slingsby, and Le Maitre</a> (<a href="#ref-Moncrieff2021" role="doc-biblioref">2021</a>)</span> to estimate the impacts of IAPs on streamflow in the catchments of the Cape Floristic Region including uncertainty (from <span class="citation"><a href="#ref-Moncrieff2021" role="doc-biblioref">Moncrieff, Slingsby, and Le Maitre</a> (<a href="#ref-Moncrieff2021" role="doc-biblioref">2021</a>)</span>)
 </p>
 </div>
 <p><br></p>
-<p>The MC simulation steps were:</p>
+<p><strong>The MC simulation steps</strong> follow a series of nested loops:</p>
 <ol style="list-style-type: decimal">
 <li>For each model run we:
 <ol style="list-style-type: lower-alpha">
@@ -460,7 +479,7 @@ Figure 11.2: … <span class="citation">(<a href="#ref-Moncrieff2021" role="doc-
 <li>Determined additional water usage by IAPs in riparian zones and areas where groundwater is accessible</li>
 </ol></li>
 <li>Within each run, for each catchment we sample the density of each IAP species</li>
-<li>Within each catchment, for each pixel we
+<li>Within each catchment, for each pixel we:
 <ol style="list-style-type: lower-alpha">
 <li>Estimated pixel-level naturalized runoff by sampling precipitation and converting to runoff</li>
 <li>Corrected for bias in naturalized runoff by summing naturalized runoff across all pixels within each quaternary catchment and rescaling to match estimates from Bailey and Pitman (2015)</li>
@@ -469,28 +488,44 @@ Figure 11.2: … <span class="citation">(<a href="#ref-Moncrieff2021" role="doc-
 </ol></li>
 </ol>
 <p><br></p>
+</div>
+<div id="the-results" class="section level3" number="11.4.3">
+<h3><span class="header-section-number">11.4.3</span> The Results</h3>
 <div class="figure" style="text-align: center"><span id="fig:moncrieffrunoff"></span>
-<img src="img/moncrieff_fig_s3.png" alt="...[@Moncrieff2021]" width="80%" />
+<img src="img/moncrieff_fig_s3.png" alt=" Posterior probability distributions showing uncertainty in the impacts of IAPs on streamflow in the catchments feeding Cape Towns major dams (from @Moncrieff2021)." width="80%" />
 <p class="caption">
-Figure 11.3: …<span class="citation">(<a href="#ref-Moncrieff2021" role="doc-biblioref">Moncrieff, Slingsby, and Le Maitre 2021</a>)</span>
+Figure 11.4:  Posterior probability distributions showing uncertainty in the impacts of IAPs on streamflow in the catchments feeding Cape Towns major dams (from <span class="citation"><a href="#ref-Moncrieff2021" role="doc-biblioref">Moncrieff, Slingsby, and Le Maitre</a> (<a href="#ref-Moncrieff2021" role="doc-biblioref">2021</a>)</span>).
 </p>
 </div>
 <p><br></p>
-<p>This process provided us with estimates of the impacts</p>
-<p>25.5 million m^3 per annum</p>
-<p><span class="citation"><a href="#ref-Moncrieff2021" role="doc-biblioref">Moncrieff, Slingsby, and Le Maitre</a> (<a href="#ref-Moncrieff2021" role="doc-biblioref">2021</a>)</span></p>
+<p>This process provided us with estimates of the impacts of IAPs on streamflow for all catchments in the Cape Floristic Region as posterior probability distributions - i.e. <em>with uncertainty</em>.</p>
+<p>The posterior mean estimated streamflow loss to IAPs in the quaternary catchments surrounding Cape Town’s major dams was <strong>25.5 million m<span class="math inline">\(^3\)</span> per annum</strong>, with lower and upper estimates of <strong>20.3 and 43.4</strong> million m<span class="math inline">\(^3\)</span> respectively. Given the City’s target water use of 0.45 million m<span class="math inline">\(^3\)</span> per day at the height of the drought, this translates to between <strong>45 and 97 days of water supply!!!</strong> Note that this was still using the <strong>2008</strong> estimates of IAP invasions…</p>
+<p><br></p>
+<p><strong>Partitioning sources of uncertainty</strong></p>
+<p>Beyond estimating the impacts of IAPs with uncertainty, <span class="citation"><a href="#ref-Moncrieff2021" role="doc-biblioref">Moncrieff, Slingsby, and Le Maitre</a> (<a href="#ref-Moncrieff2021" role="doc-biblioref">2021</a>)</span> performed additional analyses to <strong>partition the uncertainty</strong> among the various potential sources. For this we examined the relative contribution of a each source to overall uncertainty in streamflow reduction by <strong>setting the uncertainty in all other inputs to zero</strong>.</p>
+<p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:moncrieffuncertainty"></span>
-<img src="img/moncrieff_figure6.png" alt="...[@Moncrieff2021]" width="80%" />
+<img src="img/moncrieff_figure6.png" alt="The estimated uncertainty attributed to each of the model inputs [@Moncrieff2021]" width="80%" />
 <p class="caption">
-Figure 11.4: …<span class="citation">(<a href="#ref-Moncrieff2021" role="doc-biblioref">Moncrieff, Slingsby, and Le Maitre 2021</a>)</span>
+Figure 11.5: The estimated uncertainty attributed to each of the model inputs <span class="citation">(<a href="#ref-Moncrieff2021" role="doc-biblioref">Moncrieff, Slingsby, and Le Maitre 2021</a>)</span>
 </p>
 </div>
 <p><br></p>
+<p>From this it’s clear that the data we need most is better estimates of the extent and density of invasions!!! Fortunately, this is easier to get than more 40-year catchment experiments!</p>
 <p><br></p>
-<p>[Uncertainty in predictions are determined by the uncertainties in our inputs and the sensitivity of our outputs to those inputs…]</p>
-<p>[Jensen’s Inequality: If you run your model under your mean parameter set, what comes out is not your mean outcome. Especially when your model is non-linear…]</p>
-<p>[Linear model variance shape example? <a href="https://www.youtube.com/watch?v=TyYQAOGyOUQ" class="uri">https://www.youtube.com/watch?v=TyYQAOGyOUQ</a> at ~35 mins]</p>
-<p>[MCMC distribution example at ~42 mins]</p>
+<p><strong>How did our results compare to the original estimates?</strong></p>
+<div class="figure" style="text-align: center"><span id="fig:moncrieffresults"></span>
+<img src="img/moncrieff_figure3.png" alt="Comparison of estimates of IAP impacts on streamflow with [@Moncrieff2021] and without [@Le_Maitre2016] uncertainty." width="60%" />
+<p class="caption">
+Figure 11.6: Comparison of estimates of IAP impacts on streamflow with <span class="citation">(<a href="#ref-Moncrieff2021" role="doc-biblioref">Moncrieff, Slingsby, and Le Maitre 2021</a>)</span> and without <span class="citation">(<a href="#ref-Le_Maitre2016" role="doc-biblioref">Le Maitre et al. 2016</a>)</span> uncertainty.
+</p>
+</div>
+<p><br></p>
+<p>By comparing our results to <span class="citation"><a href="#ref-Le_Maitre2016" role="doc-biblioref">Le Maitre et al.</a> (<a href="#ref-Le_Maitre2016" role="doc-biblioref">2016</a>)</span> we can see that our estimates are very similar, albeit slightly higher for low density invasions and lower for high density invasions. Either way, the losses are huge and likely to have been much worse during the “Day Zero” drought. Fortunately, a lot of effort has been invested in advocating for alien clearing and catchment restoration and this is starting to happen at scale through interventions like <a href="https://www.nature.org/en-us/about-us/where-we-work/africa/south-africa/">The Greater Cape Town Water Fund</a>.</p>
+<p>While Glenn is adamant that these differences aren’t the result of Jensen’s Inequality, I thought it worth flagging Jensen’s inequality since (a) it’s likely to trip youup one day, and (b) I find it to be another good reason why we should always estimate things with uncertainty!</p>
+<p><strong><em>Jensen’s Inequality</em></strong> takes many forms, but in this context it indicates that <em>the mean of a nonlinear function is not equal to the function evaluated at the mean of its inputs…</em> (i.e. If you run your model under your mean parameter set and your model contains non-linear components, what comes out is not your mean outcome…)</p>
+<p><br></p>
+<p>Incidentally, this entire analysis is completely reproducible, with all data, code and a docker container on GitHub <a href="https://github.com/GMoncrieff/streamflow-reduction">here</a>.</p>
 <p><br></p>
 
 </div>
@@ -509,6 +544,12 @@ Le Maitre, David C, Greg G Forsyth, Sebinasi Dzikiti, and Mark B Gush. 2016. <sp
 </div>
 <div id="ref-Moncrieff2021" class="csl-entry">
 Moncrieff, Glenn R, Jasper A Slingsby, and David C Le Maitre. 2021. <span>“<span class="nocase">Propagating uncertainty from catchment experiments to estimates of streamflow reduction by invasive alien plants in southwestern South Africa</span>.”</span> <em>Hydrological Processes</em>, April. <a href="https://doi.org/10.1002/hyp.14161">https://doi.org/10.1002/hyp.14161</a>.
+</div>
+<div id="ref-Petchey2015" class="csl-entry">
+Petchey, Owen L, Mikael Pontarp, Thomas M Massie, Sonia Kéfi, Arpat Ozgul, Maja Weilenmann, Gian Marco Palamara, et al. 2015. <span>“<span class="nocase">The ecological forecast horizon, and examples of its uses and determinants</span>.”</span> <em>Ecology Letters</em> 18 (7): 597–611. <a href="https://doi.org/10.1111/ele.12443">https://doi.org/10.1111/ele.12443</a>.
+</div>
+<div id="ref-Slingsby2021" class="csl-entry">
+Slingsby, Jasper A, Abri Buys, Adrian D A Simmers, Eric Prinsloo, Greg G Forsyth, Julia Glenday, and Nicky Allsopp. 2021. <span>“<span class="nocase">Jonkershoek: Africa’s oldest catchment experiment ‐ 80 years and counting</span>.”</span> <em>Hydrological Processes</em>, February. <a href="https://doi.org/10.1002/hyp.14101">https://doi.org/10.1002/hyp.14101</a>.
 </div>
 </div>
             </section>

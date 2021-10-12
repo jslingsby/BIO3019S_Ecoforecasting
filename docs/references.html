@@ -24,14 +24,14 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-11" />
+<meta name="date" content="2021-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="datafusion.html"/>
+<link rel="prev" href="uncertainty.html"/>
 
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -281,6 +281,17 @@ div.csl-indent {
 <li class="chapter" data-level="10.2.2" data-path="datafusion.html"><a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example"><i class="fa fa-check"></i><b>10.2.2</b> Hierarchical Bayes and postfire recovery example</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>11</b> Uncertainty</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
+<li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating uncertainty</a></li>
+<li class="chapter" data-level="11.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>11.3</b> Analyzing and reducing uncertainty</a></li>
+<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propogating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow-using-mcmc"><i class="fa fa-check"></i><b>11.4</b> Propogating and partitioning uncertainty in the impacts of invasive alien plants on streamflow using MCMC</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>11.4.1</b> The background</a></li>
+<li class="chapter" data-level="11.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>11.4.2</b> The Analysis</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting" target="blank">Published with bookdown</a></li>
@@ -316,13 +327,19 @@ Baker, Monya. 2016. <span>“<span class="nocase">1,500 scientists lift the lid 
 CapeNature. n.d. <span>“<span class="nocase">What a landowner needs to know about fire management Fact Sheet</span>.”</span>
 </div>
 <div class="csl-entry">
-Dietze, Michael C. 2017. <em><span>Ecological Forecasting</span></em>. Princeton University Press. <a href="https://doi.org/10.2307/j.ctvc7796h">https://doi.org/10.2307/j.ctvc7796h</a>.
+Dietze, Michael C. 2017a. <em><span>Ecological Forecasting</span></em>. Princeton University Press. <a href="https://doi.org/10.2307/j.ctvc7796h">https://doi.org/10.2307/j.ctvc7796h</a>.
+</div>
+<div class="csl-entry">
+———. 2017b. <span>“<span class="nocase">Prediction in ecology: a first-principles framework</span>.”</span> <em>Ecological Applications: A Publication of the Ecological Society of America</em> 27 (7): 2048–60. <a href="https://doi.org/10.1002/eap.1589">https://doi.org/10.1002/eap.1589</a>.
 </div>
 <div class="csl-entry">
 Dietze, Michael C, Andrew Fox, Lindsay M Beck-Johnson, Julio L Betancourt, Mevin B Hooten, Catherine S Jarnevich, Timothy H Keitt, et al. 2018. <span>“<span class="nocase">Iterative near-term ecological forecasting: Needs, opportunities, and challenges</span>.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em> 115 (7): 1424–32. <a href="https://doi.org/10.1073/pnas.1710231115">https://doi.org/10.1073/pnas.1710231115</a>.
 </div>
 <div class="csl-entry">
 Houlahan, Jeff E, Shawn T McKinney, T Michael Anderson, and Brian J McGill. 2017. <span>“<span class="nocase">The priority of prediction in ecological understanding</span>.”</span> <em>Oikos</em> 126 (1): 1–7. <a href="https://doi.org/10.1111/oik.03726">https://doi.org/10.1111/oik.03726</a>.
+</div>
+<div class="csl-entry">
+Le Maitre, David C, Greg G Forsyth, Sebinasi Dzikiti, and Mark B Gush. 2016. <span>“<span class="nocase">Estimates of the impacts of invasive alien plants on water flows in South Africa</span>.”</span> <em>Water SA</em> 42 (4): 659–72. <a href="https://doi.org/10.4314/wsa.v42i4.17">https://doi.org/10.4314/wsa.v42i4.17</a>.
 </div>
 <div class="csl-entry">
 Lindenmayer, David B, and Gene E Likens. 2009. <span>“<span class="nocase">Adaptive monitoring: a new paradigm for long-term research and monitoring</span>.”</span> <em>Trends in Ecology &amp; Evolution</em> 24 (9): 482–86. <a href="https://doi.org/10.1016/j.tree.2009.03.005">https://doi.org/10.1016/j.tree.2009.03.005</a>.
@@ -338,6 +355,9 @@ Michener, William K, James W Brunt, John J Helly, Thomas B Kirchner, and Susan G
 </div>
 <div class="csl-entry">
 Michener, William K, and Matthew B Jones. 2012. <span>“<span class="nocase">Ecoinformatics: supporting ecology as a data-intensive science</span>.”</span> <em>Trends in Ecology &amp; Evolution</em> 27 (2): 85–93. <a href="https://doi.org/10.1016/j.tree.2011.11.016">https://doi.org/10.1016/j.tree.2011.11.016</a>.
+</div>
+<div class="csl-entry">
+Moncrieff, Glenn R, Jasper A Slingsby, and David C Le Maitre. 2021. <span>“<span class="nocase">Propagating uncertainty from catchment experiments to estimates of streamflow reduction by invasive alien plants in southwestern South Africa</span>.”</span> <em>Hydrological Processes</em>, April. <a href="https://doi.org/10.1002/hyp.14161">https://doi.org/10.1002/hyp.14161</a>.
 </div>
 <div class="csl-entry">
 Peng, Roger D. 2011. <span>“<span class="nocase">Reproducible research in computational science</span>.”</span> <em>Science</em> 334 (6060): 1226–27. <a href="https://doi.org/10.1126/science.1213847">https://doi.org/10.1126/science.1213847</a>.
@@ -387,7 +407,7 @@ Wilson, Adam M, Andrew M Latimer, and John A Silander Jr. 2015. <span>“<span c
           </div>
         </div>
       </div>
-<a href="datafusion.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="uncertainty.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
