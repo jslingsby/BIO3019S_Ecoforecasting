@@ -46,11 +46,13 @@ fig:hbpostfire
 fig:emma
 fig:emmachange
 fig:emmaexceedmap
+fig:forecasteventhorizon
 tab:propagatinguncertainty
 fig:moncrieffcurve
 fig:moncrieffmethod
 fig:moncrieffrunoff
 fig:moncrieffuncertainty
+fig:moncrieffresults
 overview
 general
 lectures-and-practicals
@@ -135,10 +137,7 @@ uncertainty
 sources-and-types-of-uncertainty
 propagating-uncertainty
 analyzing-and-reducing-uncertainty
-propogating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow-using-mcmc
+propogating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow
 the-background
 the-analysis
-fig:moncrieffresults
 the-results
-fig:forecasteventhorizon
-fig:uncertainty

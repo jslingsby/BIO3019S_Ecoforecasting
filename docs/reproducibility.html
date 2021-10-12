@@ -286,10 +286,11 @@ div.csl-indent {
 <li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
 <li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating uncertainty</a></li>
 <li class="chapter" data-level="11.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>11.3</b> Analyzing and reducing uncertainty</a></li>
-<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propogating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow-using-mcmc"><i class="fa fa-check"></i><b>11.4</b> Propogating and partitioning uncertainty in the impacts of invasive alien plants on streamflow using MCMC</a>
+<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propogating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propogating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
 <ul>
 <li class="chapter" data-level="11.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>11.4.1</b> The background</a></li>
 <li class="chapter" data-level="11.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>11.4.2</b> The Analysis</a></li>
+<li class="chapter" data-level="11.4.3" data-path="uncertainty.html"><a href="uncertainty.html#the-results"><i class="fa fa-check"></i><b>11.4.3</b> The Results</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -654,24 +655,25 @@ Figure 5.5: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 ##  [9] ggplot2_3.3.5    tidyverse_1.3.1 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.6         lattice_0.20-45    lubridate_1.7.10   png_0.1-7         
-##  [5] assertthat_0.2.1   digest_0.6.27      utf8_1.2.2         R6_2.5.0          
-##  [9] cellranger_1.1.0   backports_1.2.1    reprex_2.0.0       evaluate_0.14     
-## [13] httr_1.4.2         highr_0.9          pillar_1.6.2       gdtools_0.2.3     
-## [17] rlang_0.4.11       readxl_1.3.1       rstudioapi_0.13    extrafontdb_1.0   
-## [21] jquerylib_0.1.4    Matrix_1.3-4       rmarkdown_2.11     labeling_0.4.2    
-## [25] splines_4.1.1      extrafont_0.17     munsell_0.5.0      broom_0.7.7       
-## [29] compiler_4.1.1     modelr_0.1.8       xfun_0.24          pkgconfig_2.0.3   
-## [33] systemfonts_1.0.2  mgcv_1.8-37        htmltools_0.5.1.1  tidyselect_1.1.1  
-## [37] bookdown_0.22      fansi_0.5.0        crayon_1.4.1       dbplyr_2.1.1      
-## [41] withr_2.4.2        grid_4.1.1         nlme_3.1-152       jsonlite_1.7.2    
-## [45] Rttf2pt1_1.3.8     gtable_0.3.0       lifecycle_1.0.0    DBI_1.1.1         
-## [49] magrittr_2.0.1     scales_1.1.1       cli_3.0.1          stringi_1.6.2     
-## [53] farver_2.1.0       fs_1.5.0           xml2_1.3.2         bslib_0.2.5.1     
-## [57] ellipsis_0.3.2     generics_0.1.0     vctrs_0.3.8        RColorBrewer_1.1-2
-## [61] tools_4.1.1        glue_1.4.2         jpeg_0.1-9         hms_1.1.0         
-## [65] yaml_2.2.1         colorspace_2.0-2   rvest_1.0.0        knitr_1.33        
-## [69] haven_2.4.1        sass_0.4.0</code></pre>
+##  [1] httr_1.4.2         sass_0.4.0         jsonlite_1.7.2     splines_4.1.1     
+##  [5] modelr_0.1.8       bslib_0.2.5.1      assertthat_0.2.1   highr_0.9         
+##  [9] cellranger_1.1.0   yaml_2.2.1         gdtools_0.2.3      Rttf2pt1_1.3.8    
+## [13] pillar_1.6.2       backports_1.2.1    lattice_0.20-45    glue_1.4.2        
+## [17] extrafontdb_1.0    digest_0.6.27      promises_1.2.0.1   RColorBrewer_1.1-2
+## [21] rvest_1.0.0        colorspace_2.0-2   htmltools_0.5.1.1  httpuv_1.6.1      
+## [25] Matrix_1.3-4       pkgconfig_2.0.3    broom_0.7.7        servr_0.22        
+## [29] haven_2.4.1        bookdown_0.22      scales_1.1.1       later_1.2.0       
+## [33] jpeg_0.1-9         mgcv_1.8-37        generics_0.1.0     farver_2.1.0      
+## [37] ellipsis_0.3.2     withr_2.4.2        cli_3.0.1          magrittr_2.0.1    
+## [41] crayon_1.4.1       readxl_1.3.1       evaluate_0.14      fs_1.5.0          
+## [45] fansi_0.5.0        nlme_3.1-152       xml2_1.3.2         tools_4.1.1       
+## [49] hms_1.1.0          lifecycle_1.0.0    munsell_0.5.0      reprex_2.0.0      
+## [53] compiler_4.1.1     jquerylib_0.1.4    systemfonts_1.0.2  rlang_0.4.11      
+## [57] grid_4.1.1         rstudioapi_0.13    labeling_0.4.2     rmarkdown_2.11    
+## [61] gtable_0.3.0       DBI_1.1.1          R6_2.5.0           lubridate_1.7.10  
+## [65] knitr_1.33         extrafont_0.17     utf8_1.2.2         stringi_1.6.2     
+## [69] Rcpp_1.0.6         vctrs_0.3.8        png_0.1-7          dbplyr_2.1.1      
+## [73] tidyselect_1.1.1   xfun_0.24</code></pre>
 <p><br></p>
 <p><strong>Containers</strong></p>
 <p><strong>A “better” way</strong> to do this is to use <strong>containers</strong> like <a href="https://www.docker.com/">docker</a> or <a href="https://sylabs.io/singularity/">singularity</a>. These are contained, lightweight computing environments similar to <a href="https://en.wikipedia.org/wiki/Virtual_machine">virtual machines</a>, that you can package with your software/workflow. You set your container up to have everything you need to run your code etc (and nothing extra), so anyone can download (or clone) your container, code and data and run your analyses perfectly first time.</p>

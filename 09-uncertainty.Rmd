@@ -178,7 +178,7 @@ In fact, by this stage you should have most of the pieces of the puzzle to help 
 
 <br>
 
-## Propogating and partitioning uncertainty in the impacts of invasive alien plants on streamflow using MCMC
+## Propogating and partitioning uncertainty in the impacts of invasive alien plants on streamflow
 
 ### The background
 
