@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Projection and decision support | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
+  <title>12 Completing the forecast cycle | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Projection and decision support | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta property="og:title" content="12 Completing the forecast cycle | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Projection and decision support | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
+  <meta name="twitter:title" content="12 Completing the forecast cycle | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   
   <meta name="twitter:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   
@@ -24,16 +24,16 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-09-27" />
+<meta name="date" content="2021-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="forecasts.html"/>
-<link rel="next" href="baysian.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<link rel="prev" href="uncertainty.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -55,70 +55,6 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
@@ -156,7 +92,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Introduction to Reproducible Research and Ecological Forecasting</a></li>
+<li><a href="./">A Minimal Introduction to Ecological Forecasting and Reproducible Research</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
@@ -167,106 +103,147 @@ div.csl-indent {
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#a-bit-about-me"><i class="fa fa-check"></i><b>1.4</b> A bit about me</a></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#acknowledgements-and-further-reading"><i class="fa fa-check"></i><b>1.5</b> Acknowledgements and further reading:</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="quiz.html"><a href="quiz.html"><i class="fa fa-check"></i><b>2</b> How do we make decisions?</a></li>
+<li class="chapter" data-level="2" data-path="pracprep.html"><a href="pracprep.html"><i class="fa fa-check"></i><b>2</b> Preparation for the practical</a></li>
 <li class="chapter" data-level="3" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>3</b> Models and decision making</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="models.html"><a href="models.html#the-basics-of-making-a-decision"><i class="fa fa-check"></i><b>3.1</b> The basics of making a decision</a></li>
 <li class="chapter" data-level="3.2" data-path="models.html"><a href="models.html#getting-quantitative"><i class="fa fa-check"></i><b>3.2</b> Getting quantitative</a></li>
-<li class="chapter" data-level="3.3" data-path="models.html"><a href="models.html#iterative-decision-making-and-the-scientific-method"><i class="fa fa-check"></i><b>3.3</b> Iterative decision-making and the scientific method</a></li>
-<li class="chapter" data-level="3.4" data-path="models.html"><a href="models.html#the-importance-of-prediction-in-ecology"><i class="fa fa-check"></i><b>3.4</b> The importance of prediction in ecology</a></li>
-<li class="chapter" data-level="3.5" data-path="models.html"><a href="models.html#near-term-iterative-ecological-forecasting"><i class="fa fa-check"></i><b>3.5</b> Near-term iterative ecological forecasting</a></li>
-<li class="chapter" data-level="3.6" data-path="models.html"><a href="models.html#delete-from-here-once-done---how-to-reference"><i class="fa fa-check"></i><b>3.6</b> Delete from here once done… - How to reference</a></li>
+<li class="chapter" data-level="3.3" data-path="models.html"><a href="models.html#iterative-decision-making"><i class="fa fa-check"></i><b>3.3</b> Iterative decision-making</a></li>
+<li class="chapter" data-level="3.4" data-path="models.html"><a href="models.html#iterative-decision-making-and-the-scientific-method"><i class="fa fa-check"></i><b>3.4</b> Iterative decision-making and the scientific method</a></li>
+<li class="chapter" data-level="3.5" data-path="models.html"><a href="models.html#the-importance-of-prediction-in-ecology"><i class="fa fa-check"></i><b>3.5</b> The importance of prediction in ecology</a></li>
+<li class="chapter" data-level="3.6" data-path="models.html"><a href="models.html#iterative-near-term-ecological-forecasting"><i class="fa fa-check"></i><b>3.6</b> Iterative near-term ecological forecasting</a></li>
+<li class="chapter" data-level="3.7" data-path="models.html"><a href="models.html#iterative-ecological-forecasting-in-context"><i class="fa fa-check"></i><b>3.7</b> Iterative ecological forecasting in context</a></li>
+<li class="chapter" data-level="3.8" data-path="models.html"><a href="models.html#reproducible-research"><i class="fa fa-check"></i><b>3.8</b> Reproducible research</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>4</b> Reproducible research</a>
+<li class="chapter" data-level="4" data-path="forecasts.html"><a href="forecasts.html"><i class="fa fa-check"></i><b>4</b> Making forecasts</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="reproducibility.html"><a href="reproducibility.html#the-reproducibility-crisis"><i class="fa fa-check"></i><b>4.1</b> The Reproducibility Crisis</a></li>
-<li class="chapter" data-level="4.2" data-path="reproducibility.html"><a href="reproducibility.html#replication-and-the-reproducibility-spectrum"><i class="fa fa-check"></i><b>4.2</b> Replication and the Reproducibility Spectrum</a></li>
-<li class="chapter" data-level="4.3" data-path="reproducibility.html"><a href="reproducibility.html#why-work-reproducibly"><i class="fa fa-check"></i><b>4.3</b> Why work reproducibly?</a></li>
-<li class="chapter" data-level="4.4" data-path="reproducibility.html"><a href="reproducibility.html#barriers-to-working-reproducibly"><i class="fa fa-check"></i><b>4.4</b> Barriers to working reproducibly</a></li>
-<li class="chapter" data-level="4.5" data-path="reproducibility.html"><a href="reproducibility.html#reproducible-scientific-workflows"><i class="fa fa-check"></i><b>4.5</b> Reproducible Scientific Workflows</a>
-<ul>
-<li class="chapter" data-level="4.5.1" data-path="reproducibility.html"><a href="reproducibility.html#file-and-folder-management"><i class="fa fa-check"></i><b>4.5.1</b> File and folder management</a></li>
-<li class="chapter" data-level="4.5.2" data-path="reproducibility.html"><a href="reproducibility.html#coding-and-code-management"><i class="fa fa-check"></i><b>4.5.2</b> Coding and code management</a></li>
-<li class="chapter" data-level="4.5.3" data-path="reproducibility.html"><a href="reproducibility.html#computing-environment-and-software"><i class="fa fa-check"></i><b>4.5.3</b> Computing environment and software</a></li>
-<li class="chapter" data-level="4.5.4" data-path="reproducibility.html"><a href="reproducibility.html#sharing-of-the-data-code-publication-etc"><i class="fa fa-check"></i><b>4.5.4</b> Sharing of the data, code, publication etc</a></li>
+<li class="chapter" data-level="4.1" data-path="forecasts.html"><a href="forecasts.html#proteaceae-as-a-model-organisms"><i class="fa fa-check"></i><b>4.1</b> Proteaceae as a model organisms</a></li>
+<li class="chapter" data-level="4.2" data-path="forecasts.html"><a href="forecasts.html#proteaceae-as-management-indicators"><i class="fa fa-check"></i><b>4.2</b> Proteaceae as management indicators</a></li>
+<li class="chapter" data-level="4.3" data-path="forecasts.html"><a href="forecasts.html#potential-issues-with-the-rules-of-thumb"><i class="fa fa-check"></i><b>4.3</b> Potential issues with the rules of thumb…</a></li>
+<li class="chapter" data-level="4.4" data-path="forecasts.html"><a href="forecasts.html#assessing-population-viability"><i class="fa fa-check"></i><b>4.4</b> Assessing population viability</a></li>
+<li class="chapter" data-level="4.5" data-path="forecasts.html"><a href="forecasts.html#climate-and-fire-driven-changes-in-demographic-rates-and-distribution"><i class="fa fa-check"></i><b>4.5</b> Climate and fire-driven changes in demographic rates and distribution</a></li>
+<li class="chapter" data-level="4.6" data-path="forecasts.html"><a href="forecasts.html#near-term-iterative-ecological-forecasts"><i class="fa fa-check"></i><b>4.6</b> Near-term iterative ecological forecasts?</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>5</b> Data Management</a>
+<li class="chapter" data-level="5" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>5</b> Reproducible research</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="data.html"><a href="data.html#why-do-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>5.1</b> Why do you need to manage your data?</a></li>
-<li class="chapter" data-level="5.2" data-path="data.html"><a href="data.html#the-data-life-cycle"><i class="fa fa-check"></i><b>5.2</b> The Data Life Cycle</a>
+<li class="chapter" data-level="5.1" data-path="reproducibility.html"><a href="reproducibility.html#the-reproducibility-crisis"><i class="fa fa-check"></i><b>5.1</b> The Reproducibility Crisis</a></li>
+<li class="chapter" data-level="5.2" data-path="reproducibility.html"><a href="reproducibility.html#replication-and-the-reproducibility-spectrum"><i class="fa fa-check"></i><b>5.2</b> Replication and the Reproducibility Spectrum</a></li>
+<li class="chapter" data-level="5.3" data-path="reproducibility.html"><a href="reproducibility.html#why-work-reproducibly"><i class="fa fa-check"></i><b>5.3</b> Why work reproducibly?</a></li>
+<li class="chapter" data-level="5.4" data-path="reproducibility.html"><a href="reproducibility.html#barriers-to-working-reproducibly"><i class="fa fa-check"></i><b>5.4</b> Barriers to working reproducibly</a></li>
+<li class="chapter" data-level="5.5" data-path="reproducibility.html"><a href="reproducibility.html#reproducible-scientific-workflows"><i class="fa fa-check"></i><b>5.5</b> Reproducible Scientific Workflows</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="data.html"><a href="data.html#plan"><i class="fa fa-check"></i><b>5.2.1</b> Plan</a></li>
-<li class="chapter" data-level="5.2.2" data-path="data.html"><a href="data.html#collect-and-assure"><i class="fa fa-check"></i><b>5.2.2</b> Collect and Assure</a></li>
-<li class="chapter" data-level="5.2.3" data-path="data.html"><a href="data.html#describe"><i class="fa fa-check"></i><b>5.2.3</b> Describe</a></li>
-<li class="chapter" data-level="5.2.4" data-path="data.html"><a href="data.html#preserve"><i class="fa fa-check"></i><b>5.2.4</b> Preserve</a></li>
-<li class="chapter" data-level="5.2.5" data-path="data.html"><a href="data.html#discover"><i class="fa fa-check"></i><b>5.2.5</b> Discover</a></li>
-<li class="chapter" data-level="5.2.6" data-path="data.html"><a href="data.html#integrate"><i class="fa fa-check"></i><b>5.2.6</b> Integrate</a></li>
-<li class="chapter" data-level="5.2.7" data-path="data.html"><a href="data.html#analyze"><i class="fa fa-check"></i><b>5.2.7</b> Analyze</a></li>
+<li class="chapter" data-level="5.5.1" data-path="reproducibility.html"><a href="reproducibility.html#file-and-folder-management"><i class="fa fa-check"></i><b>5.5.1</b> File and folder management</a></li>
+<li class="chapter" data-level="5.5.2" data-path="reproducibility.html"><a href="reproducibility.html#coding-and-code-management"><i class="fa fa-check"></i><b>5.5.2</b> Coding and code management</a></li>
+<li class="chapter" data-level="5.5.3" data-path="reproducibility.html"><a href="reproducibility.html#computing-environment-and-software"><i class="fa fa-check"></i><b>5.5.3</b> Computing environment and software</a></li>
+<li class="chapter" data-level="5.5.4" data-path="reproducibility.html"><a href="reproducibility.html#sharing-of-the-data-code-publication-etc"><i class="fa fa-check"></i><b>5.5.4</b> Sharing of the data, code, publication etc</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="data.html"><a href="data.html#data-and-decisions"><i class="fa fa-check"></i><b>5.3</b> Data and decisions</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="practical.html"><a href="practical.html"><i class="fa fa-check"></i><b>6</b> Practical: Pair coding with GitHub</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="practical.html"><a href="practical.html#pracprep"><i class="fa fa-check"></i><b>6.1</b> Preparation</a></li>
-<li class="chapter" data-level="6.2" data-path="practical.html"><a href="practical.html#the-practical"><i class="fa fa-check"></i><b>6.2</b> The practical</a></li>
-<li class="chapter" data-level="6.3" data-path="practical.html"><a href="practical.html#objectives"><i class="fa fa-check"></i><b>6.3</b> Objectives</a></li>
-<li class="chapter" data-level="6.4" data-path="practical.html"><a href="practical.html#prairie-phenology"><i class="fa fa-check"></i><b>6.4</b> Prairie Phenology</a></li>
-<li class="chapter" data-level="6.5" data-path="practical.html"><a href="practical.html#modular-design"><i class="fa fa-check"></i><b>6.5</b> Modular Design</a></li>
-<li class="chapter" data-level="6.6" data-path="practical.html"><a href="practical.html#task-1-create-clone-repository"><i class="fa fa-check"></i><b>6.6</b> Task 1: Create &amp; Clone Repository</a>
+<li class="chapter" data-level="6.1" data-path="practical.html"><a href="practical.html#objectives"><i class="fa fa-check"></i><b>6.1</b> Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="practical.html"><a href="practical.html#postfire-regeneration"><i class="fa fa-check"></i><b>6.2</b> Postfire regeneration</a></li>
+<li class="chapter" data-level="6.3" data-path="practical.html"><a href="practical.html#modular-design"><i class="fa fa-check"></i><b>6.3</b> Modular Design</a></li>
+<li class="chapter" data-level="6.4" data-path="practical.html"><a href="practical.html#task-1-create-clone-repository"><i class="fa fa-check"></i><b>6.4</b> Task 1: Create &amp; Clone Repository</a>
 <ul>
-<li class="chapter" data-level="6.6.1" data-path="practical.html"><a href="practical.html#owner"><i class="fa fa-check"></i><b>6.6.1</b> OWNER</a></li>
+<li class="chapter" data-level="6.4.1" data-path="practical.html"><a href="practical.html#owner"><i class="fa fa-check"></i><b>6.4.1</b> OWNER</a></li>
 </ul></li>
-<li class="chapter" data-level="6.7" data-path="practical.html"><a href="practical.html#task-2-add-the-first-function-download.phenocam"><i class="fa fa-check"></i><b>6.7</b> Task 2: Add the first function: download.phenocam</a>
+<li class="chapter" data-level="6.5" data-path="practical.html"><a href="practical.html#task-2-add-the-first-function-download.ndvi"><i class="fa fa-check"></i><b>6.5</b> Task 2: Add the first function: download.NDVI</a>
 <ul>
-<li class="chapter" data-level="6.7.1" data-path="practical.html"><a href="practical.html#owner-1"><i class="fa fa-check"></i><b>6.7.1</b> OWNER</a></li>
+<li class="chapter" data-level="6.5.1" data-path="practical.html"><a href="practical.html#owner-1"><i class="fa fa-check"></i><b>6.5.1</b> OWNER</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="practical.html"><a href="practical.html#task-3-collaborator-adds-plot.phenocam"><i class="fa fa-check"></i><b>6.8</b> Task 3: Collaborator adds plot.phenocam</a>
+<li class="chapter" data-level="6.6" data-path="practical.html"><a href="practical.html#task-3-collaborator-adds-plot.ndvi"><i class="fa fa-check"></i><b>6.6</b> Task 3: Collaborator adds plot.NDVI</a>
 <ul>
-<li class="chapter" data-level="6.8.1" data-path="practical.html"><a href="practical.html#collaborator"><i class="fa fa-check"></i><b>6.8.1</b> COLLABORATOR</a></li>
-<li class="chapter" data-level="6.8.2" data-path="practical.html"><a href="practical.html#owner-2"><i class="fa fa-check"></i><b>6.8.2</b> OWNER</a></li>
+<li class="chapter" data-level="6.6.1" data-path="practical.html"><a href="practical.html#collaborator"><i class="fa fa-check"></i><b>6.6.1</b> COLLABORATOR</a></li>
+<li class="chapter" data-level="6.6.2" data-path="practical.html"><a href="practical.html#owner-2"><i class="fa fa-check"></i><b>6.6.2</b> OWNER</a></li>
 </ul></li>
-<li class="chapter" data-level="6.9" data-path="practical.html"><a href="practical.html#task-4-owner-adds-pred.logistic-and-fit.logistic"><i class="fa fa-check"></i><b>6.9</b> Task 4: Owner adds pred.logistic and fit.logistic</a>
+<li class="chapter" data-level="6.7" data-path="practical.html"><a href="practical.html#task-4-owner-adds-functions-for-model-fitting-using-mle"><i class="fa fa-check"></i><b>6.7</b> Task 4: Owner adds functions for model fitting using MLE</a>
 <ul>
-<li class="chapter" data-level="6.9.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>6.9.1</b> OWNER</a></li>
+<li class="chapter" data-level="6.7.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>6.7.1</b> OWNER</a></li>
 </ul></li>
-<li class="chapter" data-level="6.10" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script"><i class="fa fa-check"></i><b>6.10</b> Task 5: Collaborator adds the master script</a>
+<li class="chapter" data-level="6.8" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script-owner-answers-the-questions"><i class="fa fa-check"></i><b>6.8</b> Task 5: Collaborator adds the master script, Owner answers the questions</a>
 <ul>
-<li class="chapter" data-level="6.10.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>6.10.1</b> COLLABORATOR</a></li>
-<li class="chapter" data-level="6.10.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>6.10.2</b> OWNER</a></li>
+<li class="chapter" data-level="6.8.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>6.8.1</b> COLLABORATOR</a></li>
+<li class="chapter" data-level="6.8.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>6.8.2</b> OWNER</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="forecasts.html"><a href="forecasts.html"><i class="fa fa-check"></i><b>7</b> Making forecasts</a>
+<li class="chapter" data-level="7" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html"><i class="fa fa-check"></i><b>7</b> Practical output: Master script for postfire analysis</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="forecasts.html"><a href="forecasts.html#protea-demography"><i class="fa fa-check"></i><b>7.1</b> Protea demography</a></li>
-<li class="chapter" data-level="7.2" data-path="forecasts.html"><a href="forecasts.html#post-fire-recovery-trajectories"><i class="fa fa-check"></i><b>7.2</b> Post-fire recovery trajectories</a></li>
-<li class="chapter" data-level="7.3" data-path="forecasts.html"><a href="forecasts.html#impacts-of-iaps-on-runoff"><i class="fa fa-check"></i><b>7.3</b> Impacts of IAPs on runoff</a></li>
+<li class="chapter" data-level="7.1" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#source-functions-get-data-and-plot"><i class="fa fa-check"></i><b>7.1</b> Source functions, get data and plot</a></li>
+<li class="chapter" data-level="7.2" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#fit-models-using-non-linear-least-squares-nls"><i class="fa fa-check"></i><b>7.2</b> Fit models using Non-linear Least Squares (NLS)</a></li>
+<li class="chapter" data-level="7.3" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#compare-nls-models-using-anova"><i class="fa fa-check"></i><b>7.3</b> Compare NLS models using ANOVA</a></li>
+<li class="chapter" data-level="7.4" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#fit-models-using-maximum-likelihood-estimation-mle"><i class="fa fa-check"></i><b>7.4</b> Fit models using Maximum Likelihood Estimation (MLE)</a></li>
+<li class="chapter" data-level="7.5" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#compare-mle-models-using-akaikes-information-criterion-aic"><i class="fa fa-check"></i><b>7.5</b> Compare MLE models using Akaike’s information criterion (AIC)</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>8</b> Projection and decision support</a>
+<li class="chapter" data-level="8" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>8</b> Data Management</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="decisions.html"><a href="decisions.html#section"><i class="fa fa-check"></i><b>8.1</b> …</a></li>
-<li class="chapter" data-level="8.2" data-path="decisions.html"><a href="decisions.html#proteas"><i class="fa fa-check"></i><b>8.2</b> Proteas</a></li>
+<li class="chapter" data-level="8.1" data-path="data.html"><a href="data.html#why-do-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>8.1</b> Why do you need to manage your data?</a></li>
+<li class="chapter" data-level="8.2" data-path="data.html"><a href="data.html#the-data-life-cycle"><i class="fa fa-check"></i><b>8.2</b> The Data Life Cycle</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="data.html"><a href="data.html#plan"><i class="fa fa-check"></i><b>8.2.1</b> Plan</a></li>
+<li class="chapter" data-level="8.2.2" data-path="data.html"><a href="data.html#collect-and-assure"><i class="fa fa-check"></i><b>8.2.2</b> Collect and Assure</a></li>
+<li class="chapter" data-level="8.2.3" data-path="data.html"><a href="data.html#describe"><i class="fa fa-check"></i><b>8.2.3</b> Describe</a></li>
+<li class="chapter" data-level="8.2.4" data-path="data.html"><a href="data.html#preserve"><i class="fa fa-check"></i><b>8.2.4</b> Preserve</a></li>
+<li class="chapter" data-level="8.2.5" data-path="data.html"><a href="data.html#discover"><i class="fa fa-check"></i><b>8.2.5</b> Discover</a></li>
+<li class="chapter" data-level="8.2.6" data-path="data.html"><a href="data.html#integrate"><i class="fa fa-check"></i><b>8.2.6</b> Integrate</a></li>
+<li class="chapter" data-level="8.2.7" data-path="data.html"><a href="data.html#analyze"><i class="fa fa-check"></i><b>8.2.7</b> Analyze</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="baysian.html"><a href="baysian.html"><i class="fa fa-check"></i><b>9</b> Going Bayesian</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="baysian.html"><a href="baysian.html#maximum-likelihood"><i class="fa fa-check"></i><b>9.1</b> Maximum likelihood</a>
-<ul>
-<li class="chapter" data-level="9.1.1" data-path="baysian.html"><a href="baysian.html#probability-vs-likelihood"><i class="fa fa-check"></i><b>9.1.1</b> Probability vs Likelihood</a></li>
+<li class="chapter" data-level="8.3" data-path="data.html"><a href="data.html#data-and-decisions"><i class="fa fa-check"></i><b>8.3</b> Data and decisions</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="baysian.html"><a href="baysian.html#bayes-theorum"><i class="fa fa-check"></i><b>9.2</b> Bayes’ theorum</a>
+<li class="chapter" data-level="9" data-path="bayesian.html"><a href="bayesian.html"><i class="fa fa-check"></i><b>9</b> Going Bayesian</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="baysian.html"><a href="baysian.html#applied-to-parameters-and-data"><i class="fa fa-check"></i><b>9.2.1</b> Applied to parameters and data</a></li>
-<li class="chapter" data-level="9.2.2" data-path="baysian.html"><a href="baysian.html#worked-example"><i class="fa fa-check"></i><b>9.2.2</b> Worked example</a></li>
+<li class="chapter" data-level="9.1" data-path="bayesian.html"><a href="bayesian.html#least-squares"><i class="fa fa-check"></i><b>9.1</b> Least Squares</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="bayesian.html"><a href="bayesian.html#least-squares-analyses-dont-explicitly-include-a-data-model"><i class="fa fa-check"></i><b>9.1.1</b> Least Squares analyses don’t explicitly include a data model</a></li>
+<li class="chapter" data-level="9.1.2" data-path="bayesian.html"><a href="bayesian.html#least-squares-focuses-on-what-the-parameters-are-not-rather-than-what-they-are"><i class="fa fa-check"></i><b>9.1.2</b> Least squares focuses on what the parameters are not, rather than what they are</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="bayesian.html"><a href="bayesian.html#maximum-likelihood"><i class="fa fa-check"></i><b>9.2</b> Maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="bayesian.html"><a href="bayesian.html#joint-conditional-and-marginal-probabilities"><i class="fa fa-check"></i><b>9.2.1</b> Joint, conditional and marginal probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="bayesian.html"><a href="bayesian.html#bayes-theorem"><i class="fa fa-check"></i><b>9.3</b> Bayes’ Theorem</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="bayesian.html"><a href="bayesian.html#the-beauty-of-bayes-theorem"><i class="fa fa-check"></i><b>9.3.1</b> The beauty of Bayes’ Theorem</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="prediction-and-uncertainty.html"><a href="prediction-and-uncertainty.html"><i class="fa fa-check"></i><b>10</b> Prediction and uncertainty</a>
+<li class="chapter" data-level="10" data-path="datafusion.html"><a href="datafusion.html"><i class="fa fa-check"></i><b>10</b> Data Fusion</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="prediction-and-uncertainty.html"><a href="prediction-and-uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>10.1</b> Sources and types of uncertainty</a></li>
-<li class="chapter" data-level="10.2" data-path="prediction-and-uncertainty.html"><a href="prediction-and-uncertainty.html#propagating-analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>10.2</b> Propagating, analyzing and reducing uncertainty</a></li>
+<li class="chapter" data-level="10.1" data-path="datafusion.html"><a href="datafusion.html#a-quick-reminder-of-bayes-theorem-and-the-benefits-it-provides"><i class="fa fa-check"></i><b>10.1</b> A quick reminder of Bayes Theorem and the benefits it provides</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="datafusion.html"><a href="datafusion.html#the-benefits-of-bayes"><i class="fa fa-check"></i><b>10.1.1</b> The benefits of Bayes</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="data-assimilation.html"><a href="data-assimilation.html"><i class="fa fa-check"></i><b>11</b> Data assimilation</a>
+<li class="chapter" data-level="10.2" data-path="datafusion.html"><a href="datafusion.html#data-fusion"><i class="fa fa-check"></i><b>10.2</b> Data fusion</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="data-assimilation.html"><a href="data-assimilation.html#section-1"><i class="fa fa-check"></i><b>11.1</b> </a></li>
+<li class="chapter" data-level="10.2.1" data-path="datafusion.html"><a href="datafusion.html#model-layers"><i class="fa fa-check"></i><b>10.2.1</b> Model layers</a></li>
+<li class="chapter" data-level="10.2.2" data-path="datafusion.html"><a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example"><i class="fa fa-check"></i><b>10.2.2</b> Hierarchical Bayes and postfire recovery example</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>11</b> Uncertainty</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
+<li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating uncertainty</a></li>
+<li class="chapter" data-level="11.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>11.3</b> Analyzing and reducing uncertainty</a></li>
+<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propogating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propogating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>11.4.1</b> The background</a></li>
+<li class="chapter" data-level="11.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>11.4.2</b> The Analysis</a></li>
+<li class="chapter" data-level="11.4.3" data-path="uncertainty.html"><a href="uncertainty.html#the-results"><i class="fa fa-check"></i><b>11.4.3</b> The Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>12</b> Completing the forecast cycle</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="decisions.html"><a href="decisions.html#data-assimilation"><i class="fa fa-check"></i><b>12.1</b> Data assimilation</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="decisions.html"><a href="decisions.html#operational-data-assimilation"><i class="fa fa-check"></i><b>12.1.1</b> Operational data assimilation</a></li>
+<li class="chapter" data-level="12.1.2" data-path="decisions.html"><a href="decisions.html#the-forecast-step"><i class="fa fa-check"></i><b>12.1.2</b> The Forecast Step</a></li>
+<li class="chapter" data-level="12.1.3" data-path="decisions.html"><a href="decisions.html#the-analysis-step"><i class="fa fa-check"></i><b>12.1.3</b> The Analysis Step</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="decisions.html"><a href="decisions.html#decision-support"><i class="fa fa-check"></i><b>12.2</b> Decision support</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>12.2.1</b> In an ideal world…</a></li>
+<li class="chapter" data-level="12.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>12.2.2</b> In reality…</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.3</b> Final words</a></li>
+<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#revision-questions"><i class="fa fa-check"></i><b>12.4</b> Revision questions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -289,24 +266,180 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="decisions" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> Projection and decision support</h1>
-<div id="section" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> …</h2>
-<p>Use CoCT water crisis as the example?</p>
-<p>There’s more to decision making than models and not all decisions are amenable to modelling…</p>
-<p>“Quantitative approach to decision-making produces the best results when the problem is clearly defined, several alternatives exist, and decision outcomes are easily measurable. However, in the case that many external factors are outside of the decision-maker’s control and their probability is unknown, the quantitative methods can become unreliable.” - <a href="https://study.com/academy/lesson/the-quantitative-approach-to-decision-making-methods-purpose-benefits.html#" class="uri">https://study.com/academy/lesson/the-quantitative-approach-to-decision-making-methods-purpose-benefits.html#</a>:~:text=we’ve%20learned.-,The%20quantitative%20approach%20is%20to%20make%20an%20optimal%20decision%20by,helps%20managers%20solve%20complex%20problems.</p>
-<p>We can model properties and performance measures, but decisions are ultimately about values and often require evaluating trade offs among properties with incomparable units -e.g. people housed/fed/watered vs species saved from extinction…</p>
-<p>In the context of ecology, the first step is making sure that the environment is even considered among the objectives and performance measures…</p>
-<p>Decisions within conservation/ecology…</p>
-<p>From adaptive management to ecoforecasting? (With AM as the qualitative model that subsequently becomes more quantitative as more data and understanding are accumulated…</p>
+<div id="decisions" class="section level1" number="12">
+<h1><span class="header-section-number">12</span> Completing the forecast cycle</h1>
+<p>Here we’ll complete the forecast cycle (through data assimilation) and spend a little time discussing decision support.</p>
+<div id="data-assimilation" class="section level2" number="12.1">
+<h2><span class="header-section-number">12.1</span> Data assimilation</h2>
+<div class="figure" style="text-align: center"><span id="fig:ecoforecastingloop3"></span>
+<img src="img/ecoforecastingloop.png" alt="The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From [lecture on data assimilation by Michael Dietze](https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0). (Please excuse that the colours of the distributions have changed from above...)." width="70%" />
+<p class="caption">
+Figure 12.1: The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From <a href="https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0">lecture on data assimilation by Michael Dietze</a>. (Please excuse that the colours of the distributions have changed from above…).
+</p>
 </div>
-<div id="proteas" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> Proteas</h2>
+<p><br></p>
+<p>You’ll recall from the introductory lecture on models and decision making (section <a href="models.html#models">3</a>) that we outlined iterative ecological forecasting and the scientific method as closely aligned cycles or loops. You’ll also recall that I made the point in section <a href="bayesian.html#bayesian">9</a> that <strong>Bayes Theorem provides an iterative probabilistic framework</strong> that makes it easier to update predictions as new data become available, mirroring the scientific method and completing the forecasting cycle. Here we’ll unpack this in a bit more detail.</p>
+<div id="operational-data-assimilation" class="section level3" number="12.1.1">
+<h3><span class="header-section-number">12.1.1</span> Operational data assimilation</h3>
+<p>Most modelling workflows are set up to <strong>(a) fit the available data</strong> and estimate parameters etc (we’ll call this <strong><em>analysis</em></strong>), which they then often use to <strong>(b) make predictions</strong> (which if made forward through time are typically <strong><em>forecasts</em></strong>). They usually stop there. Few workflows are set up to make forecasts repeatedly or iteratively, updating predictions as new observations are made.</p>
+<p>When making iterative forecasts, one <strong>could just refit the model</strong> and entire dataset with the new observations added, but there are a few reasons this may not be ideal:</p>
+<ol style="list-style-type: decimal">
+<li>If it’s a complex model and/or a large dataset this could be very <strong>computationally taxing</strong> (e.g. <span class="citation"><a href="#ref-Slingsby2020" role="doc-biblioref">Slingsby, Moncrieff, and Wilson</a> (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span> ran the Hierarchical postfire model for the Cape Peninsula (~4000 MODIS pixels) and it took 4 days on a computing cluster with 64 cores and 1TB of RAM…).</li>
+<li>Refitting the model <strong>doesn’t make the most of learning</strong> from new observations and the forecast cycle…</li>
+</ol>
+<p>The alternative is to <strong>assimilate the data sequentially</strong>, through forecast cycles, imputing observations a bit at a time as they’re observed. This approach has several advantages:</p>
+<ol style="list-style-type: decimal">
+<li>They can handle larger datasets, because <strong>you don’t have to assimilate all data in one go</strong>.</li>
+<li>If you start the model far in the past and update towards present day, you have <strong>the opportunity to validate your predictions</strong>, telling you how well the model does, and whether it improves with each iteration (i.e. is it learning), which gives you a good feel for how well it should do at forecasting into the future. Think of it as letting your model get a run-up like a sportsperson before jumping/bowling/throwing.</li>
+</ol>
+<p>Assimilating data sequentially is known as the <strong><em>sequential or operational data assimilation problem</em></strong> and occurs through two steps (the main components of the forecast cycle), <strong><em>the forecast step</em></strong>, where we project our estimates of the current state forward in time, and <strong><em>the analysis step</em></strong>, where we update our estimate of the state based on new observations.</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:forecaststeps"></span>
+<img src="BIO3019S-Ecoforecasting_files/figure-html/forecaststeps-1.png" alt="The two main components of the forecast cycle are **the forecast step** (stippled lines), where we project from the initial state at time 0 (t0) to the next time step (t0+1), and **the analysis step**, where we use the forecast and new observations to get an updated estimate of the current state at t0+1." width="75%" />
+<p class="caption">
+Figure 12.2: The two main components of the forecast cycle are <strong>the forecast step</strong> (stippled lines), where we project from the initial state at time 0 (t0) to the next time step (t0+1), and <strong>the analysis step</strong>, where we use the forecast and new observations to get an updated estimate of the current state at t0+1.
+</p>
+</div>
+<p><br></p>
+</div>
+<div id="the-forecast-step" class="section level3" number="12.1.2">
+<h3><span class="header-section-number">12.1.2</span> The Forecast Step</h3>
+<p>While it gets a bit like <a href="https://en.wikipedia.org/wiki/Chicken_or_the_egg">the chicken and the egg dilemma</a>, the first step has to be analysis, because you have to fit your model before you can make your first forecast (although you could argue that your first analysis requires priors, which could be viewed as your first forecast…).</p>
+<p>Either way, the forecast step is probably easier to explain first.</p>
+<p>The goals of the forecast step are to:</p>
+<ol style="list-style-type: decimal">
+<li>To <strong>predict</strong> what we think may happen (or what the focal variable(s) will be) at the next time step</li>
+<li>Indicate the <strong>uncertainty</strong> in our forecast (based on the uncertainty that we have propagated through our model from various sources (data, priors, etc))</li>
+</ol>
+<p>In short, we want to <strong><em>propagate uncertainty in our variable(s) of interest forward through time</em></strong> (and sometimes through space, depending on the goals).</p>
+<p>There are <strong>a number of methods</strong> for propagating uncertainty into a forecast, mostly based on the same methods one would use to propagate the uncertainty through a model (see Table <a href="#tab:propagatinguncertainty"><strong>??</strong></a>). Explaining the different methods more than I did in section (<a href="uncertainty.html#uncertainty">11</a>) is beyond the scope of this module, but just a reminder that (as with almost everything in statistics) there’s <strong>a trade-off</strong> between the methods whereby the most efficient (the Kalman filter in this case) also come with the most stringent assumptions (linear models and homogeneity of variance only), while the most flexible (Markov chain Monte Carlo (MCMC) in this case) are the most computationally taxing. In short, if your model isn’t too taxing, or you have cheap access to a very large computer and time to kill, MCMC is probably easiest and best…</p>
+<p><br></p>
+</div>
+<div id="the-analysis-step" class="section level3" number="12.1.3">
+<h3><span class="header-section-number">12.1.3</span> The Analysis Step</h3>
+<p>This step involves using Bayes Theorem to combine our prior knowledge (our forecast) with our new observations (at t0+1 in Figure <a href="decisions.html#fig:forecaststeps">12.2</a>) to generate an updated state for the next forecast (i.e. to t0+2).</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:dataassimilation"></span>
+<img src="img/dataassimilation.png" alt="The forecast cycle chaining together applications of Bayes Theorem at each timestep (t0, t1, ...). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods (see Table \@ref(tab:propagatinguncertainty))." width="100%" />
+<p class="caption">
+Figure 12.3: The forecast cycle chaining together applications of Bayes Theorem at each timestep (t0, t1, …). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods (see Table <a href="#tab:propagatinguncertainty"><strong>??</strong></a>).
+</p>
+</div>
+<p><br></p>
+<p>This is better than just using the new data as your updated state, because:</p>
 <ul>
-<li>“To safeguard the canopy seed banks of these spe-cies, regional conservation guidelines recommend that at least 50% of flowers (reproductive units, including inflorescences or cones) should remain in the canopy after harvesting (reviewed in Van Wilgen et al., 2016.”</li>
+<li>it <strong>uses our prior information</strong> and understanding</li>
+<li>it allows our model to <strong>learn and (hopefully) improve</strong> with each iteration</li>
+<li>there is likely <strong>error (noise) in the new data</strong>, so it can’t necessarily be trusted more than our prior understanding anyway</li>
 </ul>
+<p>Fortunately, <strong>Bayes Theorem deals with all of this very nicely</strong>, because if the forecast (prior) is uncertain and the new data precise then the data will prevail, whereas if the forecast is precise and the new data uncertain, then the posterior will retain the legacy of previous observations (Figure <a href="decisions.html#fig:analysissteps">12.4</a>).</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:analysissteps"></span>
+<img src="BIO3019S-Ecoforecasting_files/figure-html/analysissteps-1.png" alt="The result of (A) high forecast uncertainty (the prior) and low observation error (data), and (B) low forecast uncertainty and high observation error on the posterior probability from the analysis step." width="75%" />
+<p class="caption">
+Figure 12.4: The result of (A) high forecast uncertainty (the prior) and low observation error (data), and (B) low forecast uncertainty and high observation error on the posterior probability from the analysis step.
+</p>
+</div>
+<p><br></p>
+<p>Lastly, just a note that I’ve mostly dealt with single forecasts and haven’t talked about how to deal with <strong><em>ensemble forecasts</em></strong>. In short, there are data assimilation methods to deal with them, but we don’t have time to cover them. The methods, and how you apply them, depend on what kind of ensemble you are dealing with. Usually, ensembles can be divided into <strong>three kinds</strong>, but you can have mixes of all three:</p>
+<ol style="list-style-type: decimal">
+<li>Where you use the <strong>same model</strong>, but vary the inputs to explore <strong>different scenarios</strong>.</li>
+<li>Where you have a set of <strong>nested models</strong> of increasing complexity (e.g. like our postfire models with and without the seasonality term).</li>
+<li>A mix of models with <strong>completely different model structures</strong> aimed at forecasting the same thing.</li>
+</ol>
+<p><br></p>
+</div>
+</div>
+<div id="decision-support" class="section level2" number="12.2">
+<h2><span class="header-section-number">12.2</span> Decision support</h2>
+<p>This is probably the hardest part of the whole ecological forecasting business - people…</p>
+<p>It is also a huge topic and not one I can cover in half a lecture. Here I just touch on a few hints and difficulties.</p>
+<p><br></p>
+<p>First and foremost, <strong>the decision at hand may not be amenable to a quantitative approach</strong>. Ecological forecasting requires a <strong>clearly defined</strong> information need with a <strong>measurable</strong> (and modelable) state variable, framed within one or multiple <strong>decision alternatives</strong> (scenarios). There’s also the risk of <strong>external factors making the forecasts unreliable</strong>, especially if they are not controlled by the decision maker and/or their probability is unknown (e.g. fire, pandemics, etc).</p>
+<p>These external factors are where developing <strong>scenarios with different boundary conditions can be very useful</strong> e.g. a scenario with versus a scenario without a fire, or the different future climate states under the alternative development pathways, etc. Scenarios are often <em>“what if”</em> statements designed to address major sources of uncertainty that make it near-impossible to make accurate predictions with a single forecast.</p>
+<blockquote>
+<p>It’s perhaps useful to note the distinction between <strong>predictions <em>versus</em> projections</strong> at this point:</p>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>predictions</strong> are statements about the probability of the occurrence of events or the state of variables in the future <strong>based on what we currently know</strong></li>
+<li><strong>projections</strong> are statements about the probability of the occurrence of events or the state of variables in the future <strong>given specific scenarios with clear boundary conditions</strong></li>
+</ul>
+</blockquote>
+<p><br></p>
+<p>If the prerequisites to be able to do ecological forecasting are met, then…</p>
+<p><br></p>
+<div id="in-an-ideal-world" class="section level3" number="12.2.1">
+<h3><span class="header-section-number">12.2.1</span> In an ideal world…</h3>
+<p>You’ll be working with an organized team that is a well-oiled machine at implementing <strong>Adaptive Management</strong> and <strong>Structured Decision Making</strong> and you can naturally slot into their workflow.</p>
+<p>The advantages of Adaptive Management and Structured Decision Making are that they are founded on the concept of <strong>iterative learning cycles</strong>, which they have in common with the ecological forecasting cycle and the scientific method.</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:dietze2018F1b"></span>
+<img src="img/dietze2018_F1.jpg" alt="Conceptual relationships between iterative ecological forecasting, adaptive decision-making, adaptive monitoring, and the scientific method cycles [@Dietze2018]." width="640" />
+<p class="caption">
+Figure 12.5: Conceptual relationships between iterative ecological forecasting, adaptive decision-making, adaptive monitoring, and the scientific method cycles <span class="citation">(<a href="#ref-Dietze2018" role="doc-biblioref">Dietze et al. 2018</a>)</span>.
+</p>
+</div>
+<p><br></p>
+<p>You’re already familiar with how the iterative ecological forecast cycle integrates with the Adaptive Management Cycle…</p>
+<p>The beauty for the forecaster in this scenario is that <strong>a lot of the work is already done</strong>. The decision alternatives (scenarios) have been well framed, the performance measures, state variables of interest and associated covariates identified. Iterations of the learning cycle may even have already begun (through the Adaptive Management Cycle) and all you need do is <strong>develop the existing qualitative model into something more quantitative</strong> as more data and understanding are accumulated. Think of the <em>Protea</em> example in section <a href="forecasts.html#forecasts">4</a>, where the demography of these species is already used for decision making using semi-quantitative “rules of thumb.”</p>
+<p><br></p>
+<div class="figure" style="text-align: center"><span id="fig:structureddecisions"></span>
+<img src="img/structureddecisions.png" alt="The Structured Decision Making Cycle *sensu* @Gregory2012." width="60%" />
+<p class="caption">
+Figure 12.6: The Structured Decision Making Cycle <em>sensu</em> <span class="citation"><a href="#ref-Gregory2012" role="doc-biblioref">Gregory et al.</a> (<a href="#ref-Gregory2012" role="doc-biblioref">2012</a>)</span>.
+</p>
+</div>
+<p><br></p>
+<p>Structured Decision Making, as the name suggests, is far more <strong>focused on</strong> assisting with the process of <strong>coming to a decision</strong> than the process of management, but it is particularly useful in the <strong>first iteration</strong> of the Adaptive Management Cycle. <span class="citation"><a href="#ref-Gregory2012" role="doc-biblioref">Gregory et al.</a> (<a href="#ref-Gregory2012" role="doc-biblioref">2012</a>)</span> provide a very nice magnum opus on Structured Decision Making in natural resource management. It is particularly valuable when there are many stakeholders with <strong>disparate interests</strong>.</p>
+<p>We can model properties and performance measures, but <strong>decisions are ultimately about values</strong> and often require evaluating trade-offs among properties with <strong>incomparable units</strong>, e.g. people housed/fed/watered vs species saved from extinction… This can rapidly become a highly emotive space. It is also a space where the values that dominate are often the ones that are shouted the loudest and other important values are marginalized. One of the major goals of Structured Decision Making is to make sure <strong>all issues and values are brought to light</strong> and considered in a transparent framework so that <strong>trade-offs</strong> can be clearly identified and considered. It also aims to <strong>ensure that all alternatives are considered</strong>, since <strong><em>it’s impossible to make the right choice if it isn’t even on the table</em></strong>.</p>
+<p>A key strength in Structured Decision Making is in <strong>attempting to directly address the social, political or cognitive biases that limit</strong> the ability to highlight all values or alternatives.
+- e.g. many decisions in South Africa (and globally) pit people’s immediate needs (water, housing, etc) against the environment. These are incredibly difficult decisions, and while people (especially politicians) would rather ignore the fact that choosing one is choosing against the other, <strong><em>if we’re not transparent about this we’re not going to learn from our decisions and improve them in the next iteration.</em></strong></p>
+<p><br></p>
+</div>
+<div id="in-reality" class="section level3" number="12.2.2">
+<h3><span class="header-section-number">12.2.2</span> In reality…</h3>
+<p><strong><em>Many (if not most) decisions are made with very little information and/or within institutional structures that are not well designed for iterative learning and adaptation.</em></strong></p>
+<p>In fact, you’ll often encounter situations where <strong>people aren’t interested</strong> in the information you have to offer, even if it’s exactly what they need. You may often find <strong>they don’t know what they need</strong>, so you may need to tell them, if you can get the chance… This may well be met with <strong>resistance</strong>, because you’re adding what is perceived to be <strong>unnecessary complexity</strong> to an otherwise straightforward decision scenario (e.g. most engineers prefer to ignore environmental concerns - <strong><em>the first step is often just making sure that the environment is even considered among the objectives and performance measures…</em></strong>).</p>
+<p>That said, you should also have the <strong>humility</strong> recognize that it is very possible that what you have to offer is not what the decision maker needs, despite <strong>your preconceptions</strong>.</p>
+<p>Effective engagement with decision makers requires a lot of <strong>empathy</strong> (putting yourself in their shoes) and willingness to listen, combined with a good dose of <strong>taking them to task</strong> when needed (i.e. when they’re ignoring important information out if ignorance or conveniance). You’re unlikely to know the full <strong>complexity and constraints</strong> of the institutional (and legal) frameworks within which they have to work. They may well be on your side personally, but can’t show that formally. That said, they may be <strong>overly blinkered</strong> by their institutional frameworks and norms and need a little disruption to force them to <strong>think outside the box</strong>.</p>
+<p>There’s also a tricky <strong>balance between knowing what you can offer</strong> (based on the available data and the various factors that determine whether you can develop a useful forecast) and learning <strong>what is needed</strong> (either from or by working with decision makers). On the one hand, designing an <strong>“over-the-wall”</strong> forecasting solution without engagement with stakeholders is unlikely to be well received. On the other hand, discussion of potential forecasting solutions with decision makers does need to be <strong>constrained by the reality of the limits to forecasting</strong>, otherwise you may be asked to (or worse - you may promise to) deliver on an impossible forecasting task. “Unconstrained” discussions typically lead to <strong>time-wasting and anymosity</strong> - <em>“Why were we discussing this if it was never a possibility?!”</em></p>
+<p>In many ways working with decision makers is about <strong>slowly building relationships</strong> and exploring possibilities together, possibly focusing on one or a few <strong>allies</strong> who see the potential value early. If you can use their input to help develop something useful, it becomes much easier <strong>to demonstrate realistic value</strong> to the broader group, often championed by your allies. Then you’re well placed to refine and improve it.</p>
+<p><br></p>
+</div>
+</div>
+<div id="final-words" class="section level2" number="12.3">
+<h2><span class="header-section-number">12.3</span> Final words</h2>
+<p>We need to move past <strong>the traditional ecologist’s view</strong> that <em>after decades’ years worth of data collection and hypothesis testing, maybe we’ll know enough to start building a predictive model…</em></p>
+<p>And start adopting an <strong>engineering (or decision-makers’) view</strong> (at least one that subscribes to some iterative learning paradigm) - <em>start building a model with no or very little data, and use that to guide what data to collect and how to improve the it. It may be completely wrong to begin with, but will rapidly improve.</em></p>
+<p><br></p>
+</div>
+<div id="revision-questions" class="section level2" number="12.4">
+<h2><span class="header-section-number">12.4</span> Revision questions</h2>
+<p>Because you asked so nicely…</p>
+<p>These would all be essay questions (30-50 marks, with how much you write depending on the mark and time allocation).</p>
+<ul>
+<li><p>Discuss the main requirements for data used in ecological forecasts and how they may (or may not) be resolved through adherence to the Data Life Cycle.</p></li>
+<li><p>Why is there a crisis in the way we do science, what can we do about it, and what are the additional benefits?</p></li>
+<li><p>What are the benefits of Bayesian approaches over other statistical frameworks in the context of ecological forecasting and how does the Bayesian framework make them possible?</p></li>
+<li><p>Discuss the ways in which one can fuse data with models and how this may be limited by your statistical approach.</p></li>
+<li><p>You have been tasked with improving the proficiency of an ecological forecasting model. Discuss the potential sources of uncertainty, how you would identify them and deploy limited resources to reduce them.</p></li>
+<li><p>Discuss the ecological forecasting cycle and how it integrates with and accelerates learning within existing management and knowledge generation frameworks.</p></li>
+</ul>
+<p><br></p>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Dietze2018" class="csl-entry">
+Dietze, Michael C, Andrew Fox, Lindsay M Beck-Johnson, Julio L Betancourt, Mevin B Hooten, Catherine S Jarnevich, Timothy H Keitt, et al. 2018. <span>“<span class="nocase">Iterative near-term ecological forecasting: Needs, opportunities, and challenges</span>.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em> 115 (7): 1424–32. <a href="https://doi.org/10.1073/pnas.1710231115">https://doi.org/10.1073/pnas.1710231115</a>.
+</div>
+<div id="ref-Gregory2012" class="csl-entry">
+Gregory, Robin, Lee Failing, Michael Harstone, Graham Long, Tim McDaniels, and Dan Ohlson. 2012. <em><span class="nocase">Structured Decision Making: A Practical Guide to Environmental Management Choices</span></em>. John Wiley &amp; Sons.
+</div>
+<div id="ref-Slingsby2020" class="csl-entry">
+Slingsby, Jasper A, Glenn R Moncrieff, and Adam M Wilson. 2020. <span>“<span class="nocase">Near-real time forecasting and change detection for an open ecosystem with complex natural dynamics</span>.”</span> <em>ISPRS Journal of Photogrammetry and Remote Sensing: Official Publication of the International Society for Photogrammetry and Remote Sensing</em> 166 (August): 15–25. <a href="https://doi.org/10.1016/j.isprsjprs.2020.05.017">https://doi.org/10.1016/j.isprsjprs.2020.05.017</a>.
 </div>
 </div>
             </section>
@@ -314,8 +447,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="forecasts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="baysian.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="uncertainty.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -347,7 +480,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/06-decisions.Rmd",
+"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/10-decisions.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -366,20 +499,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

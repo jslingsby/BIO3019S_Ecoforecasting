@@ -53,6 +53,12 @@ fig:moncrieffmethod
 fig:moncrieffrunoff
 fig:moncrieffuncertainty
 fig:moncrieffresults
+fig:ecoforecastingloop3
+fig:forecaststeps
+fig:dataassimilation
+fig:analysissteps
+fig:dietze2018F1b
+fig:structureddecisions
 overview
 general
 lectures-and-practicals
@@ -141,3 +147,14 @@ propogating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants
 the-background
 the-analysis
 the-results
+decisions
+data-assimilation
+operational-data-assimilation
+the-forecast-step
+the-analysis-step
+decision-support
+in-an-ideal-world
+in-reality
+proteas
+final-words
+revision-questions

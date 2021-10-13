@@ -11,8 +11,8 @@ While ecological forecasting and decision support can be done with traditional s
 1. They are typically **focused on estimating what properties are** (i.e. the actual value of a particular parameter) and not just establishing what they are not (i.e. testing for significant difference (*null hypothesis testing*), as is usually the focus in frequentist statistics)
 2. They are highly **flexible**, allowing one to build relatively **complex models with varied data sources** (and/or of varying quality), especially Hierarchical Bayesian models
 3. They can easily treat all terms as probability distributions, making it **easier to quantify, propagate, partition and represent uncertainties throughout the analysis probabilistically**. More on this later, but it addresses two of the key components of the ecological forecasting cycle:
-  - being able to **present the uncertainty** in the forecast to the decision maker
-  - being able to **analyze the uncertainty** in the forecast, in the hope that this can guide reducing the uncertainty and improving the next forecast, e.g. through targeted data collection or altering the model.
+    - being able to **present the uncertainty** in the forecast to the decision maker
+    - being able to **analyze the uncertainty** in the forecast, in the hope that this can guide reducing the uncertainty and improving the next forecast, e.g. through targeted data collection or altering the model.
 4. They provide an **iterative** probabilistic framework that mirrors the scientific method, allowing us to formalize learning from new evidence in the context of existing knowledge. In the context of forecasting, this framework makes it easier to update predictions as new data become available, completing the forecasting cycle.
 
 <br>
@@ -118,12 +118,12 @@ Least Squares analyses don't explicitly include a data model, because the relian
 This is a major limitation of the Least Squares method, because:
 
 a) in reality, the **data model can take many forms**
-  - e.g. Binomial coin flips, Poisson counts of individuals, Exponential waiting times, etc
-  - this is where Maximum Likelihood comes into it's own
-    - recall that in the practical we specified two separate functions for the MLE analyses. One specified the process model (`pred.negexp/S`), the other specified the likelihood function (`fit.negexp/S.MLE`), which includes the data model.
+    - e.g. Binomial coin flips, Poisson counts of individuals, Exponential waiting times, etc
+    - this is where Maximum Likelihood comes into it's own
+      - recall that in the practical we specified two separate functions for the MLE analyses. One specified the process model (`pred.negexp/S`), the other specified the likelihood function (`fit.negexp/S.MLE`), which includes the data model.
 b) there are times when **one would like to include additional information in the data model**
-  - e.g. sampling variability (e.g. different observers or instruments), measurement errors, instrument calibration, proxy data, unequal variances, missing data, etc
-  - this is where Bayesian models come into their own
+    - e.g. sampling variability (e.g. different observers or instruments), measurement errors, instrument calibration, proxy data, unequal variances, missing data, etc
+    - this is where Bayesian models come into their own
 
 <br>
 
@@ -290,11 +290,11 @@ The prior is incredibly powerful, but, as always the [Peter Parker Principle](ht
 **The prior is incredibly powerful, because:**
 
 1. It allows Bayesian analyses to be **iterative**. The posterior from one analysis can become the prior for the next! 
-  - This provides a formal probabilistic framework for the scientific method! New evidence must be considered in the context of previous knowledge or information, and provides us the opportunity to update our beliefs.
-  - This is also ideal for iterative forecasting, because the previous forecast can be the prior for the next, (and the observed outcome of the previous forecast window can be the new data that's fed into the likelihood function for the next forecast). 
+    - This provides a formal probabilistic framework for the scientific method! New evidence must be considered in the context of previous knowledge or information, and provides us the opportunity to update our beliefs.
+    - This is also ideal for iterative forecasting, because the previous forecast can be the prior for the next, (and the observed outcome of the previous forecast window can be the new data that's fed into the likelihood function for the next forecast). 
 2. It makes Bayesian modelling **incredibly flexible** by allowing us to specify complex models like hierarchical models in a completely probabilistic framework relatively intuitively.
-  - For example, in some cases we may not have any strong direct "prior beliefs" about the parameter values, but we may know something about another parameter or process that influences the parameter value of interest. In this case we can specify a prior on our prior (usually called a **hyperprior**).
-  - Another key component here is that we can specify separate or linked priors or hyperpriors for different parameters or priors.
+    - For example, in some cases we may not have any strong direct "prior beliefs" about the parameter values, but we may know something about another parameter or process that influences the parameter value of interest. In this case we can specify a prior on our prior (usually called a **hyperprior**).
+    - Another key component here is that we can specify separate or linked priors or hyperpriors for different parameters or priors.
 
 <br>
 

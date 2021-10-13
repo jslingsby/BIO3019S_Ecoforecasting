@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-12" />
+<meta name="date" content="2021-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -293,6 +293,22 @@ div.csl-indent {
 <li class="chapter" data-level="11.4.3" data-path="uncertainty.html"><a href="uncertainty.html#the-results"><i class="fa fa-check"></i><b>11.4.3</b> The Results</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>12</b> Completing the forecast cycle</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="decisions.html"><a href="decisions.html#data-assimilation"><i class="fa fa-check"></i><b>12.1</b> Data assimilation</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="decisions.html"><a href="decisions.html#operational-data-assimilation"><i class="fa fa-check"></i><b>12.1.1</b> Operational data assimilation</a></li>
+<li class="chapter" data-level="12.1.2" data-path="decisions.html"><a href="decisions.html#the-forecast-step"><i class="fa fa-check"></i><b>12.1.2</b> The Forecast Step</a></li>
+<li class="chapter" data-level="12.1.3" data-path="decisions.html"><a href="decisions.html#the-analysis-step"><i class="fa fa-check"></i><b>12.1.3</b> The Analysis Step</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="decisions.html"><a href="decisions.html#decision-support"><i class="fa fa-check"></i><b>12.2</b> Decision support</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>12.2.1</b> In an ideal world…</a></li>
+<li class="chapter" data-level="12.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>12.2.2</b> In reality…</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#proteas"><i class="fa fa-check"></i><b>12.3</b> Proteas?</a></li>
+<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.4</b> Final words</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting" target="blank">Published with bookdown</a></li>
@@ -334,23 +350,19 @@ div.csl-indent {
 <h3><span class="header-section-number">10.1.1</span> The benefits of Bayes</h3>
 <ol style="list-style-type: decimal">
 <li>They are <strong>focused on estimating what properties are</strong> (i.e. the actual values of particular parameters) and not null hypothesis testing.</li>
-<li>They are highly <strong>flexible</strong>, allowing one to build relatively <strong>complex models with varied data sources</strong> (and/or of varying quality), especially Hierarchical Bayesian models.</li>
-</ol>
+<li>They are highly <strong>flexible</strong>, allowing one to build relatively <strong>complex models with varied data sources</strong> (and/or of varying quality), especially Hierarchical Bayesian models.
 <ul>
 <li>This is important for <strong><em>Data Fusion</em></strong> that we’ll discuss today.</li>
-</ul>
-<ol start="3" style="list-style-type: decimal">
-<li>They can easily treat all terms as probability distributions, making it <strong>easier to quantify, propagate, partition and represent uncertainties throughout the analysis probabilistically</strong>.</li>
-</ol>
+</ul></li>
+<li>They can easily treat all terms as probability distributions, making it <strong>easier to quantify, propagate, partition and represent uncertainties throughout the analysis probabilistically</strong>.
 <ul>
 <li>Which is the focus of section <a href="uncertainty.html#uncertainty">11</a> (our next lecture).</li>
-</ul>
-<ol start="4" style="list-style-type: decimal">
-<li>They provide an <strong>iterative probabilistic framework</strong> that makes it easier to update predictions as new data become available, mirroring the scientific method and completing the forecasting cycle.</li>
-</ol>
+</ul></li>
+<li>They provide an <strong>iterative probabilistic framework</strong> that makes it easier to update predictions as new data become available, mirroring the scientific method and completing the forecasting cycle.
 <ul>
-<li>This closing of the forecast loop is termed <strong><em>Data Assimilation</em></strong> and we’ll discuss it in the final lecture in section <a href="#decisions"><strong>??</strong></a>.</li>
-</ul>
+<li>This closing of the forecast loop is termed <strong><em>Data Assimilation</em></strong> and we’ll discuss it in the final lecture in section <a href="decisions.html#decisions">12</a>.</li>
+</ul></li>
+</ol>
 <p><br></p>
 </div>
 </div>
@@ -487,14 +499,12 @@ Figure 10.5: Overview of the near-real time satellite change detection workflow 
 <ol style="list-style-type: decimal">
 <li>Fit the <strong>model</strong> to get parameter estimates that describe the postfire recovery trajectory for all pixels</li>
 <li><strong>Evaluate</strong> the deviation of the observed NDVI from model expectation using departure metrics to identify areas that are not ‘behaving’ as expected.</li>
-<li><strong>Diagnose</strong> the change agents driving deviations through a combination of:</li>
-</ol>
+<li><strong>Diagnose</strong> the change agents driving deviations through a combination of:
 <ul>
 <li>interpreting the model predictions and observed NDVI signal</li>
 <li>exploring high resolution imagery like Sentinel or PlanetLabs</li>
 <li>field visits</li>
-</ul>
-<ol start="4" style="list-style-type: decimal">
+</ul></li>
 <li>Finally, as new information is learned or false deviations are detected, the model is iteratively <strong>updated</strong> (manually at this stage) to improve its predictive accuracy.</li>
 </ol>
 <p><br></p>

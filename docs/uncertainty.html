@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-12" />
+<meta name="date" content="2021-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="datafusion.html"/>
-<link rel="next" href="references.html"/>
+<link rel="next" href="decisions.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -293,6 +293,22 @@ div.csl-indent {
 <li class="chapter" data-level="11.4.3" data-path="uncertainty.html"><a href="uncertainty.html#the-results"><i class="fa fa-check"></i><b>11.4.3</b> The Results</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>12</b> Completing the forecast cycle</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="decisions.html"><a href="decisions.html#data-assimilation"><i class="fa fa-check"></i><b>12.1</b> Data assimilation</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="decisions.html"><a href="decisions.html#operational-data-assimilation"><i class="fa fa-check"></i><b>12.1.1</b> Operational data assimilation</a></li>
+<li class="chapter" data-level="12.1.2" data-path="decisions.html"><a href="decisions.html#the-forecast-step"><i class="fa fa-check"></i><b>12.1.2</b> The Forecast Step</a></li>
+<li class="chapter" data-level="12.1.3" data-path="decisions.html"><a href="decisions.html#the-analysis-step"><i class="fa fa-check"></i><b>12.1.3</b> The Analysis Step</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="decisions.html"><a href="decisions.html#decision-support"><i class="fa fa-check"></i><b>12.2</b> Decision support</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>12.2.1</b> In an ideal world…</a></li>
+<li class="chapter" data-level="12.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>12.2.2</b> In reality…</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#proteas"><i class="fa fa-check"></i><b>12.3</b> Proteas?</a></li>
+<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.4</b> Final words</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting" target="blank">Published with bookdown</a></li>
@@ -412,7 +428,7 @@ Figure 11.1: The ecological forecast horizon (from <span class="citation"><a hre
 <li>Propagating uncertainty <strong>into our forecasts</strong>
 <ul>
 <li>i.e. exploring the implications of uncertainty in our model (parameters etc) for our confidence in the forecast <strong>when making predictions with our fitted model</strong></li>
-<li>Here we focus on <em>“How do we forecast Y with uncertainty?”(</em>)</li>
+<li>Here we focus on <em>“How do we forecast Y with uncertainty?”</em></li>
 <li>This second step is actually the first step in <strong><em>data assimilation</em></strong>, which we’ll discuss tomorrow</li>
 </ul></li>
 </ol>
@@ -479,7 +495,7 @@ Figure 11.1: The ecological forecast horizon (from <span class="citation"><a hre
 </ul></li>
 </ul></li>
 </ul>
-<p><strong>Addressing 2</strong> may not be as straightforward as you’d hope. Parameters that are highly uncertain and to which your state variable (Y) are highly sensitive will cause the most uncertainty in your predictions. That said, <strong>given </strong>limited resources, they may not be the best target** for reducing uncertainty for a number of reasons, e.g.</p>
+<p><strong>Addressing 2</strong> may not be as straightforward as you’d hope. Parameters that are highly uncertain and to which your state variable (Y) are highly sensitive will cause the most uncertainty in your predictions. That said, <strong>given limited resources</strong>, they may not be the best target for reducing uncertainty for a number of reasons, e.g.</p>
 <ul>
 <li>they may be <strong>inherently uncertain</strong> and uncertainty may remain high even with vast sampling effort
 <ul>
@@ -586,7 +602,7 @@ Figure 11.6: Comparison of estimates of IAP impacts on streamflow with <span cla
 </div>
 <p><br></p>
 <p>By comparing our results to <span class="citation"><a href="#ref-Le_Maitre2016" role="doc-biblioref">Le Maitre et al.</a> (<a href="#ref-Le_Maitre2016" role="doc-biblioref">2016</a>)</span> we can see that our estimates are very similar, albeit slightly higher for low density invasions and lower for high density invasions. Either way, the losses are huge and likely to have been much worse during the “Day Zero” drought. Fortunately, a lot of effort has been invested in advocating for alien clearing and catchment restoration and this is starting to happen at scale through interventions like <a href="https://www.nature.org/en-us/about-us/where-we-work/africa/south-africa/">The Greater Cape Town Water Fund</a>.</p>
-<p>While Glenn is adamant that these differences aren’t the result of Jensen’s Inequality, I thought it worth flagging Jensen’s inequality since (a) it’s likely to trip youup one day, and (b) I find it to be another good reason why we should always estimate things with uncertainty!</p>
+<p>While Glenn is adamant that these differences aren’t the result of Jensen’s Inequality, I thought it worth flagging Jensen’s inequality since (a) it’s likely to trip you up one day, and (b) I find it to be another good reason why we should always estimate things with uncertainty!</p>
 <p><strong><em>Jensen’s Inequality</em></strong> takes many forms, but in this context it indicates that <em>the mean of a nonlinear function is not equal to the function evaluated at the mean of its inputs…</em> (i.e. If you run your model under your mean parameter set and your model contains non-linear components, what comes out is not your mean outcome…)</p>
 <p><br></p>
 <p>Incidentally, this entire analysis is completely reproducible, with all data, code and a docker container on GitHub <a href="https://github.com/GMoncrieff/streamflow-reduction">here</a>.</p>
@@ -622,7 +638,7 @@ Slingsby, Jasper A, Abri Buys, Adrian D A Simmers, Eric Prinsloo, Greg G Forsyth
         </div>
       </div>
 <a href="datafusion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="decisions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

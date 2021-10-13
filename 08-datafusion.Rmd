@@ -27,13 +27,13 @@ The ***prior*** probability distribution is the marginal probability of the para
 
 1. They are **focused on estimating what properties are** (i.e. the actual values of particular parameters) and not null hypothesis testing.
 2. They are highly **flexible**, allowing one to build relatively **complex models with varied data sources** (and/or of varying quality), especially Hierarchical Bayesian models.
-- This is important for ***Data Fusion*** that we'll discuss today.
+    - This is important for ***Data Fusion*** that we'll discuss today.
 
 3. They can easily treat all terms as probability distributions, making it **easier to quantify, propagate, partition and represent uncertainties throughout the analysis probabilistically**. 
-- Which is the focus of section \@ref(uncertainty) (our next lecture).
+    - Which is the focus of section \@ref(uncertainty) (our next lecture).
 
 4. They provide an **iterative probabilistic framework** that makes it easier to update predictions as new data become available, mirroring the scientific method and completing the forecasting cycle.
-- This closing of the forecast loop is termed ***Data Assimilation*** and we'll discuss it in the final lecture in section \@ref(decisions).
+    - This closing of the forecast loop is termed ***Data Assimilation*** and we'll discuss it in the final lecture in section \@ref(decisions).
 
 <br>
 
@@ -206,9 +206,9 @@ The work flow comprises four major steps (Figure \@ref(fig:emma)):
 1. Fit the **model** to get parameter estimates that describe the postfire recovery trajectory for all pixels 
 2. **Evaluate** the deviation of the observed NDVI from model expectation using departure metrics to identify areas that are not 'behaving' as expected. 
 3. **Diagnose** the change agents driving deviations through a combination of: 
-  - interpreting the model predictions and observed NDVI signal 
-  - exploring high resolution imagery like Sentinel or PlanetLabs
-  - field visits
+    - interpreting the model predictions and observed NDVI signal 
+    - exploring high resolution imagery like Sentinel or PlanetLabs
+    - field visits
 4. Finally, as new information is learned or false deviations are detected, the model is iteratively **updated** (manually at this stage) to improve its predictive accuracy.
 
 <br>

@@ -119,7 +119,7 @@ There are many methods to address question 3, *"How can we propagate uncertainty
     + This is typically focused on *"How does the uncertainty in X affect the uncertainty in Y?"*
 2. Propagating uncertainty **into our forecasts**
     + i.e. exploring the implications of uncertainty in our model (parameters etc) for our confidence in the forecast **when making predictions with our fitted model**
-    + Here we focus on *"How do we forecast Y with uncertainty?"(*)
+    + Here we focus on *"How do we forecast Y with uncertainty?"*
     + This second step is actually the first step in ***data assimilation***, which we'll discuss tomorrow
 
 <br>
@@ -168,7 +168,7 @@ Question 4, *"How can we reduce prediction uncertainty?"* requires:
     - I assume you covered these when you did matrix models. I'm not going to go into them here, but they focus on **how a change in X translates into a change in Y**. The bigger the relative change in Y, the more sensitive.
 
 
-**Addressing 2** may not be as straightforward as you'd hope. Parameters that are highly uncertain and to which your state variable (Y) are highly sensitive will cause the most uncertainty in your predictions. That said, **given **limited resources, they may not be the best target** for reducing uncertainty for a number of reasons, e.g.
+**Addressing 2** may not be as straightforward as you'd hope. Parameters that are highly uncertain and to which your state variable (Y) are highly sensitive will cause the most uncertainty in your predictions. That said, **given limited resources**, they may not be the best target for reducing uncertainty for a number of reasons, e.g.
 
 - they may be **inherently uncertain** and uncertainty may remain high even with vast sampling effort 
   - **power analysis** can help here (i.e. exploring how uncertainty changes with sample size)
@@ -284,7 +284,7 @@ knitr::include_graphics("img/moncrieff_figure3.png")
 
 By comparing our results to @Le_Maitre2016 we can see that our estimates are very similar, albeit slightly higher for low density invasions and lower for high density invasions. Either way, the losses are huge and likely to have been much worse during the "Day Zero" drought. Fortunately, a lot of effort has been invested in advocating for alien clearing and catchment restoration and this is starting to happen at scale through interventions like [The Greater Cape Town Water Fund](https://www.nature.org/en-us/about-us/where-we-work/africa/south-africa/).
 
-While Glenn is adamant that these differences aren't the result of Jensen's Inequality, I thought it worth flagging Jensen's inequality since (a) it's likely to trip youup one day, and (b) I find it to be another good reason why we should always estimate things with uncertainty!
+While Glenn is adamant that these differences aren't the result of Jensen's Inequality, I thought it worth flagging Jensen's inequality since (a) it's likely to trip you up one day, and (b) I find it to be another good reason why we should always estimate things with uncertainty!
 
 ***Jensen's Inequality*** takes many forms, but in this context it indicates that *the mean of a nonlinear function is not equal to the function evaluated at the mean of its inputs...* (i.e. If you run your model under your mean parameter set and your model contains non-linear components, what comes out is not your mean outcome...)
 

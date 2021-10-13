@@ -24,7 +24,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-12" />
+<meta name="date" content="2021-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -293,6 +293,22 @@ div.csl-indent {
 <li class="chapter" data-level="11.4.3" data-path="uncertainty.html"><a href="uncertainty.html#the-results"><i class="fa fa-check"></i><b>11.4.3</b> The Results</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>12</b> Completing the forecast cycle</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="decisions.html"><a href="decisions.html#data-assimilation"><i class="fa fa-check"></i><b>12.1</b> Data assimilation</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="decisions.html"><a href="decisions.html#operational-data-assimilation"><i class="fa fa-check"></i><b>12.1.1</b> Operational data assimilation</a></li>
+<li class="chapter" data-level="12.1.2" data-path="decisions.html"><a href="decisions.html#the-forecast-step"><i class="fa fa-check"></i><b>12.1.2</b> The Forecast Step</a></li>
+<li class="chapter" data-level="12.1.3" data-path="decisions.html"><a href="decisions.html#the-analysis-step"><i class="fa fa-check"></i><b>12.1.3</b> The Analysis Step</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="decisions.html"><a href="decisions.html#decision-support"><i class="fa fa-check"></i><b>12.2</b> Decision support</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>12.2.1</b> In an ideal world…</a></li>
+<li class="chapter" data-level="12.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>12.2.2</b> In reality…</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#proteas"><i class="fa fa-check"></i><b>12.3</b> Proteas?</a></li>
+<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.4</b> Final words</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting" target="blank">Published with bookdown</a></li>
@@ -325,13 +341,11 @@ div.csl-indent {
 <ol style="list-style-type: decimal">
 <li>They are typically <strong>focused on estimating what properties are</strong> (i.e. the actual value of a particular parameter) and not just establishing what they are not (i.e. testing for significant difference (<em>null hypothesis testing</em>), as is usually the focus in frequentist statistics)</li>
 <li>They are highly <strong>flexible</strong>, allowing one to build relatively <strong>complex models with varied data sources</strong> (and/or of varying quality), especially Hierarchical Bayesian models</li>
-<li>They can easily treat all terms as probability distributions, making it <strong>easier to quantify, propagate, partition and represent uncertainties throughout the analysis probabilistically</strong>. More on this later, but it addresses two of the key components of the ecological forecasting cycle:</li>
-</ol>
+<li>They can easily treat all terms as probability distributions, making it <strong>easier to quantify, propagate, partition and represent uncertainties throughout the analysis probabilistically</strong>. More on this later, but it addresses two of the key components of the ecological forecasting cycle:
 <ul>
 <li>being able to <strong>present the uncertainty</strong> in the forecast to the decision maker</li>
 <li>being able to <strong>analyze the uncertainty</strong> in the forecast, in the hope that this can guide reducing the uncertainty and improving the next forecast, e.g. through targeted data collection or altering the model.</li>
-</ul>
-<ol start="4" style="list-style-type: decimal">
+</ul></li>
 <li>They provide an <strong>iterative</strong> probabilistic framework that mirrors the scientific method, allowing us to formalize learning from new evidence in the context of existing knowledge. In the context of forecasting, this framework makes it easier to update predictions as new data become available, completing the forecasting cycle.</li>
 </ol>
 <p><br></p>
@@ -393,22 +407,20 @@ Figure 9.3: A histogram of the residuals from the linear model above.
 <p><br></p>
 <p>This is a major limitation of the Least Squares method, because:</p>
 <ol style="list-style-type: lower-alpha">
-<li>in reality, the <strong>data model can take many forms</strong></li>
-</ol>
+<li>in reality, the <strong>data model can take many forms</strong>
 <ul>
 <li>e.g. Binomial coin flips, Poisson counts of individuals, Exponential waiting times, etc</li>
 <li>this is where Maximum Likelihood comes into it’s own
 <ul>
 <li>recall that in the practical we specified two separate functions for the MLE analyses. One specified the process model (<code>pred.negexp/S</code>), the other specified the likelihood function (<code>fit.negexp/S.MLE</code>), which includes the data model.</li>
 </ul></li>
-</ul>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>there are times when <strong>one would like to include additional information in the data model</strong></li>
-</ol>
+</ul></li>
+<li>there are times when <strong>one would like to include additional information in the data model</strong>
 <ul>
 <li>e.g. sampling variability (e.g. different observers or instruments), measurement errors, instrument calibration, proxy data, unequal variances, missing data, etc</li>
 <li>this is where Bayesian models come into their own</li>
-</ul>
+</ul></li>
+</ol>
 <p><br></p>
 </div>
 <div id="least-squares-focuses-on-what-the-parameters-are-not-rather-than-what-they-are" class="section level3" number="9.1.2">
@@ -525,19 +537,17 @@ First, let’s start with the last term, the <strong><em>evidence</em></strong> 
 <p><br></p>
 <p><strong>The prior is incredibly powerful, because:</strong></p>
 <ol style="list-style-type: decimal">
-<li>It allows Bayesian analyses to be <strong>iterative</strong>. The posterior from one analysis can become the prior for the next!</li>
-</ol>
+<li>It allows Bayesian analyses to be <strong>iterative</strong>. The posterior from one analysis can become the prior for the next!
 <ul>
 <li>This provides a formal probabilistic framework for the scientific method! New evidence must be considered in the context of previous knowledge or information, and provides us the opportunity to update our beliefs.</li>
 <li>This is also ideal for iterative forecasting, because the previous forecast can be the prior for the next, (and the observed outcome of the previous forecast window can be the new data that’s fed into the likelihood function for the next forecast).</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li>It makes Bayesian modelling <strong>incredibly flexible</strong> by allowing us to specify complex models like hierarchical models in a completely probabilistic framework relatively intuitively.</li>
-</ol>
+</ul></li>
+<li>It makes Bayesian modelling <strong>incredibly flexible</strong> by allowing us to specify complex models like hierarchical models in a completely probabilistic framework relatively intuitively.
 <ul>
 <li>For example, in some cases we may not have any strong direct “prior beliefs” about the parameter values, but we may know something about another parameter or process that influences the parameter value of interest. In this case we can specify a prior on our prior (usually called a <strong>hyperprior</strong>).</li>
 <li>Another key component here is that we can specify separate or linked priors or hyperpriors for different parameters or priors.</li>
-</ul>
+</ul></li>
+</ol>
 <p><br></p>
 <p><strong>The prior also comes with great responsibility, because:</strong></p>
 <blockquote>
