@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 Practical output: Master script for postfire analysis | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 Practical output: Master script for postfire analysis | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-13" />
+<meta name="date" content="2022-07-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="practical.html"/>
 <link rel="next" href="data.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -286,7 +285,7 @@ div.csl-indent {
 <li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
 <li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating uncertainty</a></li>
 <li class="chapter" data-level="11.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>11.3</b> Analyzing and reducing uncertainty</a></li>
-<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propogating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propogating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
+<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
 <ul>
 <li class="chapter" data-level="11.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>11.4.1</b> The background</a></li>
 <li class="chapter" data-level="11.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>11.4.2</b> The Analysis</a></li>
@@ -306,8 +305,8 @@ div.csl-indent {
 <li class="chapter" data-level="12.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>12.2.1</b> In an ideal world…</a></li>
 <li class="chapter" data-level="12.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>12.2.2</b> In reality…</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#proteas"><i class="fa fa-check"></i><b>12.3</b> Proteas?</a></li>
-<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.4</b> Final words</a></li>
+<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.3</b> Final words</a></li>
+<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#revision-questions"><i class="fa fa-check"></i><b>12.4</b> Revision questions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -330,10 +329,10 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="practical-output-master-script-for-postfire-analysis" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Practical output: Master script for postfire analysis</h1>
-<div id="source-functions-get-data-and-plot" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Source functions, get data and plot</h2>
+<div id="practical-output-master-script-for-postfire-analysis" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> Practical output: Master script for postfire analysis<a href="practical-output-master-script-for-postfire-analysis.html#practical-output-master-script-for-postfire-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="source-functions-get-data-and-plot" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Source functions, get data and plot<a href="practical-output-master-script-for-postfire-analysis.html#source-functions-get-data-and-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>First we’ll <em>source()</em> (i.e. “run all code in”) the scripts with the functions we made. Then we’ll set the URL, read in the data with <em>download.NDVI()</em>, and plot it with <em>plot.NDVI()</em>.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Load required functions by running source() on the individual function files</span></span>
 <span id="cb14-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">file.exists</span>(<span class="st">&quot;praccode/01_download.NDVI.R&quot;</span>)) <span class="fu">source</span>(<span class="st">&quot;praccode/01_download.NDVI.R&quot;</span>)</span>
@@ -357,8 +356,8 @@ div.csl-indent {
 </blockquote>
 <p><br></p>
 </div>
-<div id="fit-models-using-non-linear-least-squares-nls" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Fit models using Non-linear Least Squares (NLS)</h2>
+<div id="fit-models-using-non-linear-least-squares-nls" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Fit models using Non-linear Least Squares (NLS)<a href="practical-output-master-script-for-postfire-analysis.html#fit-models-using-non-linear-least-squares-nls" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now we’ll fit the simple and full negative exponential models using Non-linear Least Squares (NLS).</p>
 <p>First the simpler model:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Simple model</span></span>
@@ -437,8 +436,8 @@ div.csl-indent {
 </blockquote>
 <p><br></p>
 </div>
-<div id="compare-nls-models-using-anova" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> Compare NLS models using ANOVA</h2>
+<div id="compare-nls-models-using-anova" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Compare NLS models using ANOVA<a href="practical-output-master-script-for-postfire-analysis.html#compare-nls-models-using-anova" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Modelers often want to know which of a set of models are better. One way to do this when comparing nested* models using least squares is using analysis of variance (ANOVA). In this case the <code>anova()</code> function will take the model objects as arguments, and return an ANOVA testing whether the full model results in a significant reduction in the residual sum of squares (and thus is better at capturing the data), returning an F-statistic, Degrees of Freedom (the difference in the number of parameters between the models) and p-value.</p>
 <p>*i.e. one model is a subset of the other, as in our case</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit_negexp, fit_negexpS)</span></code></pre></div>
@@ -462,8 +461,8 @@ div.csl-indent {
 </blockquote>
 <p><br></p>
 </div>
-<div id="fit-models-using-maximum-likelihood-estimation-mle" class="section level2" number="7.4">
-<h2><span class="header-section-number">7.4</span> Fit models using Maximum Likelihood Estimation (MLE)</h2>
+<div id="fit-models-using-maximum-likelihood-estimation-mle" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Fit models using Maximum Likelihood Estimation (MLE)<a href="practical-output-master-script-for-postfire-analysis.html#fit-models-using-maximum-likelihood-estimation-mle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>First let’s fit the simpler model:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Fit the simpler model using MLE</span></span>
 <span id="cb23-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -529,8 +528,8 @@ div.csl-indent {
 ## NULL</code></pre>
 <p><br></p>
 </div>
-<div id="compare-mle-models-using-akaikes-information-criterion-aic" class="section level2" number="7.5">
-<h2><span class="header-section-number">7.5</span> Compare MLE models using Akaike’s information criterion (AIC)</h2>
+<div id="compare-mle-models-using-akaikes-information-criterion-aic" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Compare MLE models using Akaike’s information criterion (AIC)<a href="practical-output-master-script-for-postfire-analysis.html#compare-mle-models-using-akaikes-information-criterion-aic" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Note that we can’t compare our MLE models using ANOVA because our custom functions do not return full model fits like the <code>nls()</code> function - only the parameter estimates, negative log-likelihoods and a few other diagnostics.</p>
 <p>Another way to compare models (and probably the most common) is using the Akaike information criterion (AIC), which is an estimator of prediction error (i.e. relative quality) of statistical models for a given set of data.</p>
 <p>The formula for the Akaike information criterion is:</p>
@@ -585,7 +584,6 @@ div.csl-indent {
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -625,6 +623,10 @@ gitbook.start({
 "text": null
 },
 "download": ["BIO3019S Ecoforecasting.pdf", "BIO3019S Ecoforecasting.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

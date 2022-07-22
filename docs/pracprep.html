@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Preparation for the practical | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Preparation for the practical | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-13" />
+<meta name="date" content="2022-07-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="models.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -286,7 +285,7 @@ div.csl-indent {
 <li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
 <li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating uncertainty</a></li>
 <li class="chapter" data-level="11.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>11.3</b> Analyzing and reducing uncertainty</a></li>
-<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propogating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propogating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
+<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
 <ul>
 <li class="chapter" data-level="11.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>11.4.1</b> The background</a></li>
 <li class="chapter" data-level="11.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>11.4.2</b> The Analysis</a></li>
@@ -306,8 +305,8 @@ div.csl-indent {
 <li class="chapter" data-level="12.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>12.2.1</b> In an ideal world…</a></li>
 <li class="chapter" data-level="12.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>12.2.2</b> In reality…</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#proteas"><i class="fa fa-check"></i><b>12.3</b> Proteas?</a></li>
-<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.4</b> Final words</a></li>
+<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.3</b> Final words</a></li>
+<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#revision-questions"><i class="fa fa-check"></i><b>12.4</b> Revision questions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -330,8 +329,8 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pracprep" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Preparation for the practical</h1>
+<div id="pracprep" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Preparation for the practical<a href="pracprep.html#pracprep" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>For the practical, we’ll be using the <a href="https://cran.r-project.org/">R</a> statistical programming language and the <a href="https://git-scm.com/">Git</a> version control system. We’ll also be using an <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">integrated development environment (IDE)</a> for each: <a href="https://www.rstudio.com">RStudio</a> and <a href="https://github.com/">GitHub</a>, respectively.</p>
 <p>The installation and setup can be a bit long-winded, but once done you should be good to go until you change or reformat your computer. The steps below are my summary and (hopefully) more intuitive adaptation of the instructions provided for setting up <a href="https://docs.github.com/en/get-started/quickstart/set-up-git?email_source=welcome">GitHub</a> and <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">version control with R</a>. If my steps don’t work its probably best to read up there.</p>
 <p><br></p>
@@ -396,7 +395,7 @@ div.csl-indent {
 </ul>
 <p>Your RStudio window should now look like this:</p>
 <p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:rstudiosuccess"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:rstudiosuccess"></span>
 <img src="img/rstudiosuccess.png" alt="What you should see... **Note** there are three files in the `Files` tab in the bottom-right window, and you should see a `Git` tab for the top-right window. It also says `pullltest` in the project drop-down top-right on mine, but yours will display the name you gave your forked repo." width="90%" />
 <p class="caption">
 Figure 2.1: What you should see… <strong>Note</strong> there are three files in the <code>Files</code> tab in the bottom-right window, and you should see a <code>Git</code> tab for the top-right window. It also says <code>pullltest</code> in the project drop-down top-right on mine, but yours will display the name you gave your forked repo.
@@ -412,7 +411,7 @@ Figure 2.1: What you should see… <strong>Note</strong> there are three files i
 <li>Then hit <code>Push</code></li>
 <li>It will ask you to authenticate. Select <code>Authenticate in your web browser</code>. The web browser will ask you to give Git permissions. Allow the permissions and it should work.</li>
 </ul>
-<p>If you get an error at this point to the effect of “You do not have permission to push to this repository,” then you may have forgotten to fork your own repo from my one and are trying to push to mine… If so, start again from step 9.</p>
+<p>If you get an error at this point to the effect of “You do not have permission to push to this repository”, then you may have forgotten to fork your own repo from my one and are trying to push to mine… If so, start again from step 9.</p>
 <ol start="11" style="list-style-type: decimal">
 <li>Final step!!! In GitHub (i.e. online)</li>
 </ol>
@@ -440,7 +439,6 @@ Figure 2.1: What you should see… <strong>Note</strong> there are three files i
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -480,6 +478,10 @@ gitbook.start({
 "text": null
 },
 "download": ["BIO3019S Ecoforecasting.pdf", "BIO3019S Ecoforecasting.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

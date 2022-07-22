@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10 Data Fusion | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10 Data Fusion | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-13" />
+<meta name="date" content="2022-07-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="bayesian.html"/>
 <link rel="next" href="uncertainty.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -286,7 +285,7 @@ div.csl-indent {
 <li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
 <li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating uncertainty</a></li>
 <li class="chapter" data-level="11.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>11.3</b> Analyzing and reducing uncertainty</a></li>
-<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propogating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propogating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
+<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
 <ul>
 <li class="chapter" data-level="11.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>11.4.1</b> The background</a></li>
 <li class="chapter" data-level="11.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>11.4.2</b> The Analysis</a></li>
@@ -306,8 +305,8 @@ div.csl-indent {
 <li class="chapter" data-level="12.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>12.2.1</b> In an ideal world…</a></li>
 <li class="chapter" data-level="12.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>12.2.2</b> In reality…</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#proteas"><i class="fa fa-check"></i><b>12.3</b> Proteas?</a></li>
-<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.4</b> Final words</a></li>
+<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.3</b> Final words</a></li>
+<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#revision-questions"><i class="fa fa-check"></i><b>12.4</b> Revision questions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -330,13 +329,13 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="datafusion" class="section level1" number="10">
-<h1><span class="header-section-number">10</span> Data Fusion</h1>
-<p>This lecture builds on section <a href="bayesian.html#bayesian">9</a>, “Going Bayesian,” focusing on how the opportunities for imputing (or “fusing”) data with models increase as one moves from the method of Least Squares to Hierarchical Bayesian models.</p>
+<div id="datafusion" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">10</span> Data Fusion<a href="datafusion.html#datafusion" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This lecture builds on section <a href="bayesian.html#bayesian">9</a>, “Going Bayesian”, focusing on how the opportunities for imputing (or “fusing”) data with models increase as one moves from the method of Least Squares to Hierarchical Bayesian models.</p>
 <p>First a little revision of our last lecture…</p>
 <p><br></p>
-<div id="a-quick-reminder-of-bayes-theorem-and-the-benefits-it-provides" class="section level2" number="10.1">
-<h2><span class="header-section-number">10.1</span> A quick reminder of Bayes Theorem and the benefits it provides</h2>
+<div id="a-quick-reminder-of-bayes-theorem-and-the-benefits-it-provides" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> A quick reminder of Bayes Theorem and the benefits it provides<a href="datafusion.html#a-quick-reminder-of-bayes-theorem-and-the-benefits-it-provides" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><br></p>
 <p><span class="math display">\[
 \underbrace{p(\theta|D)}_\text{posterior} \; \propto \; \underbrace{p(D|\theta)}_\text{likelihood} \;\; \underbrace{p(\theta)}_\text{prior} \;
@@ -346,8 +345,8 @@ div.csl-indent {
 <p>The <strong><em>likelihood</em></strong>, <span class="math inline">\(p(D|\theta)\)</span> represents the probability that the data could be generated by the model with parameter values <span class="math inline">\(\theta\)</span>. This term looks for the best estimate of the parameters using Maximum Likelihood Estimation, where the likelihood of the parameters are maximized by choosing the parameters that maximize the probability of the data.</p>
 <p>The <strong><em>prior</em></strong> probability distribution is the marginal probability of the parameters, <span class="math inline">\(p(\theta)\)</span>, and represents the credibility of the parameter values, <span class="math inline">\(\theta\)</span>, without the data, <span class="math inline">\(D\)</span>. Since <strong><em>it must not</em></strong> be inferred from the data, it is specified using our <strong>prior belief</strong> of what the parameters should be, before interrogating the data. Prior information can be sourced from previous analyses (of other data!), literature, meta-analyses, expert opinion or ecological theory. We need to be very careful about how we specify our priors so as not to bias the analysis!</p>
 <p><br></p>
-<div id="the-benefits-of-bayes" class="section level3" number="10.1.1">
-<h3><span class="header-section-number">10.1.1</span> The benefits of Bayes</h3>
+<div id="the-benefits-of-bayes" class="section level3 hasAnchor" number="10.1.1">
+<h3><span class="header-section-number">10.1.1</span> The benefits of Bayes<a href="datafusion.html#the-benefits-of-bayes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>They are <strong>focused on estimating what properties are</strong> (i.e. the actual values of particular parameters) and not null hypothesis testing.</li>
 <li>They are highly <strong>flexible</strong>, allowing one to build relatively <strong>complex models with varied data sources</strong> (and/or of varying quality), especially Hierarchical Bayesian models.
@@ -366,13 +365,13 @@ div.csl-indent {
 <p><br></p>
 </div>
 </div>
-<div id="data-fusion" class="section level2" number="10.2">
-<h2><span class="header-section-number">10.2</span> Data fusion</h2>
+<div id="data-fusion" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Data fusion<a href="datafusion.html#data-fusion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Data can enter (or be fused with) a model in a variety of ways. Here we’ll discuss these and then give an example by revisiting the Fynbos postfire recovery model we played with in the practical.</p>
 <p>The <strong>opportunities for data fusion are linked to model structure</strong>, so we’ll revisit how some aspects of model structure change as we move from Least Squares to Maximum Likelihood Estimation to “single-level” Bayes to Hierarchical Bayes and the data fusion opportunities provided by each.</p>
 <p><br></p>
-<div id="model-layers" class="section level3" number="10.2.1">
-<h3><span class="header-section-number">10.2.1</span> Model layers</h3>
+<div id="model-layers" class="section level3 hasAnchor" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Model layers<a href="datafusion.html#model-layers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong><em>Least Squares</em></strong></p>
 <p>The method of <strong>Least Squares</strong> makes no explicit distinction between the <strong>process model</strong> (that models the drivers determining the pattern observed) and the <strong>data model</strong> (that models the observation error or data observation process, i.e. the factors that may cause mismatch between the process model and the data). This is because we require homogeneity of variance in order to minimize the sums of squares, so the data model can only ever be a <strong>normal distribution</strong>.</p>
 <p>Looking back at the practical, what this means is that for the Nonlinear Least Squares all we fitted was the process model, which for our simpler negative exponential model not including the seasonality term:</p>
@@ -384,7 +383,7 @@ div.csl-indent {
 <p><strong><em>Maximum Likelihood</em></strong></p>
 <p>MLE does make a distinction between the <strong>data model</strong> and the <strong>process model</strong>, like so:</p>
 <p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:mlelayers"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mlelayers"></span>
 <img src="img/MLElayers.png" alt="Maximum Likelihood makes a distinction between the process and data models." width="40%" />
 <p class="caption">
 Figure 10.1: Maximum Likelihood makes a distinction between the process and data models.
@@ -410,7 +409,7 @@ NDVI_{i,t}\sim\mathcal{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}}) \\
 <p><strong><em>Single-level Bayes</em></strong></p>
 <p>When we use Bayesian models we now have the <strong>priors</strong>, which are essentially models describing our prior expectation for each of the parameters in the process model, like so:</p>
 <p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:bayeslayers"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bayeslayers"></span>
 <img src="img/bayeslayers.png" alt="Bayesian models include an additional layer; parameter models that describe our prior expectation for the parameters in the process." width="40%" />
 <p class="caption">
 Figure 10.2: Bayesian models include an additional layer; parameter models that describe our prior expectation for the parameters in the process.
@@ -442,7 +441,7 @@ etc.</p>
 <p>Most of this flexibility comes from <strong>specifying the priors as models with inputs and specifying relationships among the priors, or from one prior to multiple layers in the model</strong>. We don’t have time to explore all the options (because they’re almost endless). In the example I give below, we used a set of <strong>environmental covariates</strong> (soil, climate, topography, etc.) to explain the variation in the priors and constrain the parameters of the postfire recovery curve.</p>
 <p>In other words, <strong>Hierarchical Bayesian models allow you to fuse data through the parameter model</strong>. Of course, when you start treating your priors as parameters like this, you have to specify priors on your priors (<strong>hyperpriors</strong>) to your parameter model.</p>
 <p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:hbayeslayers"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:hbayeslayers"></span>
 <img src="img/hbayeslayers.png" alt="Hierarchical Bayesian models allow considerable flexibility through the inclusion of hyperparameters that can drive the priors." width="40%" />
 <p class="caption">
 Figure 10.3: Hierarchical Bayesian models allow considerable flexibility through the inclusion of hyperparameters that can drive the priors.
@@ -450,13 +449,13 @@ Figure 10.3: Hierarchical Bayesian models allow considerable flexibility through
 </div>
 <p><br></p>
 </div>
-<div id="hierarchical-bayes-and-postfire-recovery-example" class="section level3" number="10.2.2">
-<h3><span class="header-section-number">10.2.2</span> Hierarchical Bayes and postfire recovery example</h3>
-<p>Until now we have only been considering a single postfire recovery curve in isolation, but one can fit every MODIS pixel in the Fynbos Biome in one model, like <span class="citation"><a href="#ref-Wilson2015" role="doc-biblioref">Wilson, Latimer, and Silander</a> (<a href="#ref-Wilson2015" role="doc-biblioref">2015</a>)</span> did, (here including the seasonality term in the process model):</p>
-<div class="figure" style="text-align: center"><span id="fig:hbpostfire"></span>
+<div id="hierarchical-bayes-and-postfire-recovery-example" class="section level3 hasAnchor" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Hierarchical Bayes and postfire recovery example<a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Until now we have only been considering a single postfire recovery curve in isolation, but one can fit every MODIS pixel in the Fynbos Biome in one model, like <span class="citation">Wilson, Latimer, and Silander (<a href="#ref-Wilson2015" role="doc-biblioref">2015</a>)</span> did, (here including the seasonality term in the process model):</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:hbpostfire"></span>
 <img src="img/hbpostfire.png" alt="Schematic of the Hierarchical Bayesian model of postfire NDVI recovery developed by @Wilson2015." width="90%" />
 <p class="caption">
-Figure 10.4: Schematic of the Hierarchical Bayesian model of postfire NDVI recovery developed by <span class="citation"><a href="#ref-Wilson2015" role="doc-biblioref">Wilson, Latimer, and Silander</a> (<a href="#ref-Wilson2015" role="doc-biblioref">2015</a>)</span>.
+Figure 10.4: Schematic of the Hierarchical Bayesian model of postfire NDVI recovery developed by <span class="citation">Wilson, Latimer, and Silander (<a href="#ref-Wilson2015" role="doc-biblioref">2015</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -473,7 +472,7 @@ Figure 10.4: Schematic of the Hierarchical Bayesian model of postfire NDVI recov
 <p><strong>The advantages</strong> of including the regression of the parameters on environmental covariates are many:</p>
 <ul>
 <li>It allows you to <strong>explore the dependence</strong> of recovery trajectories on environmental covariates</li>
-<li>This allows one to <strong>project the expected parameters</strong> (and recovery trajectories) under altered environments (e.g. future climate scenarios - as <span class="citation"><a href="#ref-Wilson2015" role="doc-biblioref">Wilson, Latimer, and Silander</a> (<a href="#ref-Wilson2015" role="doc-biblioref">2015</a>)</span> did)</li>
+<li>This allows one to <strong>project the expected parameters</strong> (and recovery trajectories) under altered environments (e.g. future climate scenarios - as <span class="citation">Wilson, Latimer, and Silander (<a href="#ref-Wilson2015" role="doc-biblioref">2015</a>)</span> did)</li>
 <li>It allows you to <strong>predict the expected postfire recovery trajectory</strong> for any site with known environmental covariates</li>
 <li>It puts an additional constraint on the parameter estimates for each pixel (i.e. “borrowing strength” across the analysis), <strong>down-weighting the effects of anomalous or noisy NDVI data</strong></li>
 <li>The structure of the model allows you to easily <strong>estimate any missing data</strong> (i.e. <em>inverse modelling</em>) all within one model run</li>
@@ -486,12 +485,12 @@ Secondly, more terms and interactions in the model creates greater opportunity f
 <p><br></p>
 <p><strong>Utility of this model for decision makers</strong></p>
 <p>While the model <strong>does not make explicit near-term forecasts</strong> in its current form, it can give us an estimate of the <strong>expected NDVI signal</strong> for any location for a given vegetation age since fire and time of year, which <strong>can be very useful!</strong></p>
-<p><span class="citation"><a href="#ref-Slingsby2020" role="doc-biblioref">Slingsby, Moncrieff, and Wilson</a> (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span> used the model to develop a proof of concept for a near-real time satellite change detection system for the Fynbos Biome.</p>
+<p><span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span> used the model to develop a proof of concept for a near-real time satellite change detection system for the Fynbos Biome.</p>
 <p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:emma"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:emma"></span>
 <img src="img/emmaprocessdiagram.png" alt="Overview of the near-real time satellite change detection workflow from @Slingsby2020." width="70%" />
 <p class="caption">
-Figure 10.5: Overview of the near-real time satellite change detection workflow from <span class="citation"><a href="#ref-Slingsby2020" role="doc-biblioref">Slingsby, Moncrieff, and Wilson</a> (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span>.
+Figure 10.5: Overview of the near-real time satellite change detection workflow from <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -510,19 +509,19 @@ Figure 10.5: Overview of the near-real time satellite change detection workflow 
 <p><br></p>
 <p>Preliminary results from the Cape Peninsula are very promising for detecting fire scars, vegetation clearing, vegetation mortality (e.g. drought impacts), and alien plant invasions.</p>
 <p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:emmachange"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:emmachange"></span>
 <img src="img/emmachange.jpg" alt="Examples of changes detected by @Slingsby2020. Postfire recovery curves (a, d, g, j, l, n) show the model predictions (dark grey $=$ 50% Confidence Interval, light grey $=$ 95% Confidence Interval) and observed MODIS NDVI signal (blue line) for different impacts. Satellite images and ground photos allow for diagnosis of detected anomalies, including fire at Karbonkelberg (a-c), gradual clearing of alien vegetation at Miller's Point (d-f), clearing of indigenous vegetation for a housing development near Silvermine (g-i, labeled 1), high mortality in a dense stand of *Leucadendron coniferum* near Silvermine (h-k, labelled 2), a flush of alien Australian Port Jackson Willow (*Acacia saligna*) recruitment from seed at Silvermine triggered by fire (l, m), and retarded postfire vegetation recovery and high mortality of the large fire-resistant shrub *Mimetes fimbriifolius* due to drought near the Cape of Good Hope (n, o). Satellite imagery &amp;copy; 2017 Planet Labs Inc." width="90%" />
 <p class="caption">
-Figure 10.6: Examples of changes detected by <span class="citation"><a href="#ref-Slingsby2020" role="doc-biblioref">Slingsby, Moncrieff, and Wilson</a> (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span>. Postfire recovery curves (a, d, g, j, l, n) show the model predictions (dark grey <span class="math inline">\(=\)</span> 50% Confidence Interval, light grey <span class="math inline">\(=\)</span> 95% Confidence Interval) and observed MODIS NDVI signal (blue line) for different impacts. Satellite images and ground photos allow for diagnosis of detected anomalies, including fire at Karbonkelberg (a-c), gradual clearing of alien vegetation at Miller’s Point (d-f), clearing of indigenous vegetation for a housing development near Silvermine (g-i, labeled 1), high mortality in a dense stand of <em>Leucadendron coniferum</em> near Silvermine (h-k, labelled 2), a flush of alien Australian Port Jackson Willow (<em>Acacia saligna</em>) recruitment from seed at Silvermine triggered by fire (l, m), and retarded postfire vegetation recovery and high mortality of the large fire-resistant shrub <em>Mimetes fimbriifolius</em> due to drought near the Cape of Good Hope (n, o). Satellite imagery © 2017 Planet Labs Inc.
+Figure 10.6: Examples of changes detected by <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span>. Postfire recovery curves (a, d, g, j, l, n) show the model predictions (dark grey <span class="math inline">\(=\)</span> 50% Confidence Interval, light grey <span class="math inline">\(=\)</span> 95% Confidence Interval) and observed MODIS NDVI signal (blue line) for different impacts. Satellite images and ground photos allow for diagnosis of detected anomalies, including fire at Karbonkelberg (a-c), gradual clearing of alien vegetation at Miller’s Point (d-f), clearing of indigenous vegetation for a housing development near Silvermine (g-i, labeled 1), high mortality in a dense stand of <em>Leucadendron coniferum</em> near Silvermine (h-k, labelled 2), a flush of alien Australian Port Jackson Willow (<em>Acacia saligna</em>) recruitment from seed at Silvermine triggered by fire (l, m), and retarded postfire vegetation recovery and high mortality of the large fire-resistant shrub <em>Mimetes fimbriifolius</em> due to drought near the Cape of Good Hope (n, o). Satellite imagery © 2017 Planet Labs Inc.
 </p>
 </div>
 <p><br></p>
 <p>So managers can get an overview of change in the landscape every time new MODIS data are collected (daily, or 16-day averages).</p>
 <p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:emmaexceedmap"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:emmaexceedmap"></span>
 <img src="img/emmaexceedmap.png" alt="Overview map highlighting some of the major changes detected by @Slingsby2020." width="90%" />
 <p class="caption">
-Figure 10.7: Overview map highlighting some of the major changes detected by <span class="citation"><a href="#ref-Slingsby2020" role="doc-biblioref">Slingsby, Moncrieff, and Wilson</a> (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span>.
+Figure 10.7: Overview map highlighting some of the major changes detected by <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -532,7 +531,7 @@ Figure 10.7: Overview map highlighting some of the major changes detected by <sp
 </div>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Slingsby2020" class="csl-entry">
 Slingsby, Jasper A, Glenn R Moncrieff, and Adam M Wilson. 2020. <span>“<span class="nocase">Near-real time forecasting and change detection for an open ecosystem with complex natural dynamics</span>.”</span> <em>ISPRS Journal of Photogrammetry and Remote Sensing: Official Publication of the International Society for Photogrammetry and Remote Sensing</em> 166 (August): 15–25. <a href="https://doi.org/10.1016/j.isprsjprs.2020.05.017">https://doi.org/10.1016/j.isprsjprs.2020.05.017</a>.
@@ -551,7 +550,6 @@ Wilson, Adam M, Andrew M Latimer, and John A Silander Jr. 2015. <span>“<span c
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -591,6 +589,10 @@ gitbook.start({
 "text": null
 },
 "download": ["BIO3019S Ecoforecasting.pdf", "BIO3019S Ecoforecasting.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

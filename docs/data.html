@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Data Management | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Data Management | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-13" />
+<meta name="date" content="2022-07-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="practical-output-master-script-for-postfire-analysis.html"/>
 <link rel="next" href="bayesian.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -286,7 +285,7 @@ div.csl-indent {
 <li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
 <li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating uncertainty</a></li>
 <li class="chapter" data-level="11.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>11.3</b> Analyzing and reducing uncertainty</a></li>
-<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propogating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propogating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
+<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
 <ul>
 <li class="chapter" data-level="11.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>11.4.1</b> The background</a></li>
 <li class="chapter" data-level="11.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>11.4.2</b> The Analysis</a></li>
@@ -306,8 +305,8 @@ div.csl-indent {
 <li class="chapter" data-level="12.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>12.2.1</b> In an ideal world…</a></li>
 <li class="chapter" data-level="12.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>12.2.2</b> In reality…</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#proteas"><i class="fa fa-check"></i><b>12.3</b> Proteas?</a></li>
-<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.4</b> Final words</a></li>
+<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.3</b> Final words</a></li>
+<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#revision-questions"><i class="fa fa-check"></i><b>12.4</b> Revision questions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -330,14 +329,14 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> Data Management</h1>
-<div id="why-do-you-need-to-manage-your-data" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Why do you need to manage your data?</h2>
-<p>Data management is often the last thing on a scientists mind when doing a new study - “I have a cool idea, and I’m going to test it!” You don’t want to “waste” time planning how you’re going to manage your data and implementing that plan…</p>
-<p>Unfortunately, this never ends well and really is a realm where “haste makes waste.”</p>
+<div id="data" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Data Management<a href="data.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="why-do-you-need-to-manage-your-data" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Why do you need to manage your data?<a href="data.html#why-do-you-need-to-manage-your-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Data management is often the last thing on a scientists mind when doing a new study - “I have a cool idea, and I’m going to test it!”. You don’t want to “waste” time planning how you’re going to manage your data and implementing that plan…</p>
+<p>Unfortunately, this never ends well and really is a realm where “haste makes waste”.</p>
 <p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:datadecay"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:datadecay"></span>
 <img src="img/datadecaycurve.jpg" alt="The 'Data Decay Curve' [@Michener1997]" width="75%" />
 <p class="caption">
 Figure 8.1: The ‘Data Decay Curve’ <span class="citation">(<a href="#ref-Michener1997" role="doc-biblioref">Michener et al. 1997</a>)</span>
@@ -373,9 +372,9 @@ Figure 8.1: The ‘Data Decay Curve’ <span class="citation">(<a href="#ref-Mic
 <p>To avoid data (and relationship) decay, and to reap the benefits of good data management, it is important to consider the full <em>Data Life Cycle</em>.</p>
 <p><br></p>
 </div>
-<div id="the-data-life-cycle" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> The Data Life Cycle</h2>
-<div class="figure" style="text-align: center"><span id="fig:datalifecycle"></span>
+<div id="the-data-life-cycle" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> The Data Life Cycle<a href="data.html#the-data-life-cycle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:datalifecycle"></span>
 <img src="BIO3019S-Ecoforecasting_files/figure-html/datalifecycle-1.png" alt="The Data Life Cycle, adapted from https://www.dataone.org/" width="110%" />
 <p class="caption">
 Figure 8.2: The Data Life Cycle, adapted from <a href="https://www.dataone.org/" class="uri">https://www.dataone.org/</a>
@@ -389,13 +388,13 @@ Figure 8.2: The Data Life Cycle, adapted from <a href="https://www.dataone.org/"
 <li>If you’re collecting new data you would do steps 1 to 5 and possibly skip 6 and 7, although in my experience few studies do not reuse existing data (e.g. weather or various GIS data to put your new samples into context).</li>
 </ul>
 <p><br></p>
-<div id="plan" class="section level3" number="8.2.1">
-<h3><span class="header-section-number">8.2.1</span> Plan</h3>
+<div id="plan" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Plan<a href="data.html#plan" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Good data management begins with planning. In this step you essentially <strong>outline the plan for every step of the cycle in as much detail as possible</strong>. Usually this is done by constructing a document or <strong>Data Management Plan (DMP)</strong>.</p>
 <p>While developing DMPs can seem tedious, they are essential for the reasons I gave above, and because <strong>most funders and universities now require them</strong>.</p>
 <p>Fortunately, there are a number of <strong>online data management planning tools</strong> that make it easy by providing templates and prompts to ensure that you cover all the bases, like the Digital Curation Centre’s <a href="https://dmponline.dcc.ac.uk/">DMPOnline</a> and <a href="https://dmp.lib.uct.ac.za/">UCT’s DMP Tool</a>.</p>
 <p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:uctdmp"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:uctdmp"></span>
 <img src="img/UCTDMP.png" alt="Screenshot of [UCT's Data Management Planning Tool's Data Management Checklist.](http://www.digitalservices.lib.uct.ac.za/dls/systems/uct-dmp)" width="90%" />
 <p class="caption">
 Figure 8.3: Screenshot of <a href="http://www.digitalservices.lib.uct.ac.za/dls/systems/uct-dmp">UCT’s Data Management Planning Tool’s Data Management Checklist.</a>
@@ -406,10 +405,10 @@ Figure 8.3: Screenshot of <a href="http://www.digitalservices.lib.uct.ac.za/dls/
 <p>I typically develop one overarching DMP for an umbrella project (e.g. a particular grant), but then add specifics for subprojects (e.g. separate student projects etc).</p>
 <p><br></p>
 </div>
-<div id="collect-and-assure" class="section level3" number="8.2.2">
-<h3><span class="header-section-number">8.2.2</span> Collect and Assure</h3>
+<div id="collect-and-assure" class="section level3 hasAnchor" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> Collect and Assure<a href="data.html#collect-and-assure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are many, many different kinds of data that can be collected in a vast number of ways!</p>
-<div class="figure" style="text-align: center"><span id="fig:datatypes"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:datatypes"></span>
 <img src="img/datatypes.png" alt="[Springer Nature Infographic](https://doi.org/10.6084/m9.figshare.5883193.v1) illustrating the vast range of research data types." width="90%" />
 <p class="caption">
 Figure 8.4: <a href="https://doi.org/10.6084/m9.figshare.5883193.v1">Springer Nature Infographic</a> illustrating the vast range of research data types.
@@ -425,7 +424,7 @@ Figure 8.4: <a href="https://doi.org/10.6084/m9.figshare.5883193.v1">Springer Na
 <p>When transcribing or capturing data into a spreadsheet or database it is often best to <strong>use data validation</strong> tricks like drop-down menus, conditional formatting, restricted value ranges etc to avoid spelling mistakes and highlight data entries that are outside the expected range of the data field. <strong><em>It may seem like a lot of effort to set this up, but it’ll save you a lot of time and pain in the long run!!!</em></strong></p>
 <p>Increasingly, I’ve started moving towards <strong>capturing data directly into a spreadsheet</strong> with data validation rules using a phone or tablet. There are also a number of “no code” app builders these days like <a href="https://www.appsheet.com"><strong>AppSheet</strong></a> that allows you to easily collect data on your phone and sync data directly into Google Sheets and photos to your Google Drive. AppSheet is proprietary software, but does allow a lot of utility with their free accounts. <a href="https://qfield.org/"><strong>QField</strong></a> is another handy open source app built on QGIS, allowing you to setup maps and forms in QGIS on your workstation and deploy them to your phone, tablet etc. It seems to be getting better all the time.</p>
 <p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:appsheet"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:appsheet"></span>
 <img src="img/veldwatch.png" alt="An example data collection app I built in [AppSheet](https://www.appsheet.com) that allows you to log GPS coordinates, take photos, record various fields, etc." width="90%" />
 <p class="caption">
 Figure 8.5: An example data collection app I built in <a href="https://www.appsheet.com">AppSheet</a> that allows you to log GPS coordinates, take photos, record various fields, etc.
@@ -436,12 +435,12 @@ Figure 8.5: An example data collection app I built in <a href="https://www.appsh
 <p>Last, but not least. We haven’t discussed different data formats etc, but if you are working with tabular data (i.e. spreadsheets, tables) I strongly recommend you read this short paper on <strong><a href="http://dx.doi.org/10.18637/jss.v059.i10">how to keep your data Tidy</a></strong> <span class="citation">(<a href="#ref-Wickham2014" role="doc-biblioref">Wickham 2014</a>)</span>. Following these principles will make life much easier for you once you get to the analysis step…</p>
 <p><br></p>
 </div>
-<div id="describe" class="section level3" number="8.2.3">
-<h3><span class="header-section-number">8.2.3</span> Describe</h3>
+<div id="describe" class="section level3 hasAnchor" number="8.2.3">
+<h3><span class="header-section-number">8.2.3</span> Describe<a href="data.html#describe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are few things worse than having a spreadsheet of what you think is the data you need, but you don’t know what the column names mean, how variables were measured, what units they’re reported in, etc… - <em>Especially when you were the one who collected and captured the data!!!</em></p>
 <p>This descriptive data about the data is called <strong><em>metadata</em></strong> and is essential for making the data reusable, but is also useful for many other purposes like making the data findable (e.g. using keyword searches). In fact, metadata makes up the majority of what are called the <a href="https://www.go-fair.org/fair-principles/"><strong>FAIR data principles</strong></a> <span class="citation">(<a href="#ref-Wilkinson2016" role="doc-biblioref">Wilkinson et al. 2016</a>)</span>, which largely focus on this and the next few steps of the Data Life Cycle. I’m not going to dwell on them other than to say that they are a key component of making your work reproducible, and that like reproducibility, practicing FAIR data principles is a spectrum.</p>
 <p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:fairdata"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fairdata"></span>
 <img src="img/fairdata.jpg" alt="The FAIR data principles [ErrantScience.com](https://errantscience.com/)." width="75%" />
 <p class="caption">
 Figure 8.6: The FAIR data principles <a href="https://errantscience.com/">ErrantScience.com</a>.
@@ -485,7 +484,7 @@ Figure 8.6: The FAIR data principles <a href="https://errantscience.com/">Errant
 <p>They are typically human and machine-readable data, so that the metadata records can also be read by machines, to <strong>facilitate storing and querying multiple datasets</strong> in a common database (or across databases).</p>
 <p>Imagine how difficult it would be to pay for something electronically <strong>if banks didn’t use common metadata standards?</strong> Each transaction would require someone to manually look things up in multiple tables etc etc. Chaos!!!</p>
 <p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:datastandards"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:datastandards"></span>
 <img src="img/standards.png" alt="How standards proliferate... from [xkcd.com/927](https://xkcd.com/927), used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/)." width="75%" />
 <p class="caption">
 Figure 8.7: How standards proliferate… from <a href="https://xkcd.com/927">xkcd.com/927</a>, used under a <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5 license</a>.
@@ -496,7 +495,7 @@ Figure 8.7: How standards proliferate… from <a href="https://xkcd.com/927">xkc
 <p>There are <a href="https://www.dcc.ac.uk/guidance/standards/metadata/list">many standards</a>, but perhaps the most common ones you’ll encounter in biological sciences (other than geospatial metadata standards) are <a href="https://www.tdwg.org/standards/dwc/">DarwinCore</a> and <a href="https://knb.ecoinformatics.org/tools/eml">Ecological Metadata Language (EML)</a>.</p>
 <p>There’s even <a href="https://projects.ecoforecast.org/EFIstandards/index.html">new standards for documenting ecological forecasts</a>!</p>
 <p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:stacspec"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:stacspec"></span>
 <img src="img/stacspec.png" alt="An example of a geospatial metadata standard. SpatioTemporal Asset Catalogs [(STAC; stacspec.org)](https://stacspec.org/) aims to provide a common specification to enable online search and discovery of geospatial assets in just about any format." width="100%" />
 <p class="caption">
 Figure 8.8: An example of a geospatial metadata standard. SpatioTemporal Asset Catalogs <a href="https://stacspec.org/">(STAC; stacspec.org)</a> aims to provide a common specification to enable online search and discovery of geospatial assets in just about any format.
@@ -504,8 +503,8 @@ Figure 8.8: An example of a geospatial metadata standard. SpatioTemporal Asset C
 </div>
 <p><br></p>
 </div>
-<div id="preserve" class="section level3" number="8.2.4">
-<h3><span class="header-section-number">8.2.4</span> Preserve</h3>
+<div id="preserve" class="section level3 hasAnchor" number="8.2.4">
+<h3><span class="header-section-number">8.2.4</span> Preserve<a href="data.html#preserve" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are two major components to preserving your data:</p>
 <ol style="list-style-type: decimal">
 <li><strong><em>Back your data up now!!! (and repeat regularly)</em></strong></li>
@@ -543,8 +542,8 @@ Figure 8.8: An example of a geospatial metadata standard. SpatioTemporal Asset C
 <p>I haven’t discussed <strong>physical samples</strong> at all. These are obviously a huge (if not bigger) challenge too, although there are some obvious homes for common biological data, like herbaria for plant collections and museums for animal specimens.</p>
 <p><br></p>
 </div>
-<div id="discover" class="section level3" number="8.2.5">
-<h3><span class="header-section-number">8.2.5</span> Discover</h3>
+<div id="discover" class="section level3 hasAnchor" number="8.2.5">
+<h3><span class="header-section-number">8.2.5</span> Discover<a href="data.html#discover" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is perhaps the main point of the Data Life Cycle and FAIR data principles - to make data findable so that it can be reused.</p>
 <p>The biggest challenge to discovering data is that <strong>so many datasets are not online</strong> and are in the “filing cabinet in a bath in the basement under a leaking pipe” as in Figure <a href="data.html#fig:fairdata">8.6</a>. If you <strong><em>preserve and publish</em></strong> them in an online data repository, this overcomes the biggest hurdle.</p>
 <p>The next biggest challenge is <strong>that there is so much online that finding what you need can be quite challenging</strong> (like looking for a needle in a haystack…). This is where choosing the right portal can be important. It is also what metadata standards are aimed at - allowing interoperable searches for specific data types across multiple repositories.</p>
@@ -564,8 +563,8 @@ Figure 8.8: An example of a geospatial metadata standard. SpatioTemporal Asset C
 </blockquote>
 <p><br></p>
 </div>
-<div id="integrate" class="section level3" number="8.2.6">
-<h3><span class="header-section-number">8.2.6</span> Integrate</h3>
+<div id="integrate" class="section level3 hasAnchor" number="8.2.6">
+<h3><span class="header-section-number">8.2.6</span> Integrate<a href="data.html#integrate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are a few different components to data integration in this context:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Linking different kinds of data</strong>, usually through spatial and or temporal information</li>
@@ -589,15 +588,15 @@ Figure 8.8: An example of a geospatial metadata standard. SpatioTemporal Asset C
 </ul>
 <p><br></p>
 </div>
-<div id="analyze" class="section level3" number="8.2.7">
-<h3><span class="header-section-number">8.2.7</span> Analyze</h3>
-<p>“The fun bit,” but again, there are many things to bear in mind and keep track of so that your analysis is repeatable. This is largely covered by the sections on <em>Coding and code management</em> and <em>Computing environment and software</em> in Chapter <a href="reproducibility.html#reproducibility">5</a></p>
+<div id="analyze" class="section level3 hasAnchor" number="8.2.7">
+<h3><span class="header-section-number">8.2.7</span> Analyze<a href="data.html#analyze" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>“The fun bit”, but again, there are many things to bear in mind and keep track of so that your analysis is repeatable. This is largely covered by the sections on <em>Coding and code management</em> and <em>Computing environment and software</em> in Chapter <a href="reproducibility.html#reproducibility">5</a></p>
 <p><br></p>
 </div>
 </div>
-<div id="data-and-decisions" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> Data and decisions</h2>
-<p>This is not part of <em>The Data Life Cycle</em> per se, but it’s worth remembering that there are some other aspects of data, while still important if the goal is purely academic, that are make-or-break when the goal is informing decisions, e.g. (mostly paraphrased from <span class="citation"><a href="#ref-Dietze2018" role="doc-biblioref">Dietze et al.</a> (<a href="#ref-Dietze2018" role="doc-biblioref">2018</a>)</span>):</p>
+<div id="data-and-decisions" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Data and decisions<a href="data.html#data-and-decisions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This is not part of <em>The Data Life Cycle</em> per se, but it’s worth remembering that there are some other aspects of data, while still important if the goal is purely academic, that are make-or-break when the goal is informing decisions, e.g. (mostly paraphrased from <span class="citation">Dietze et al. (<a href="#ref-Dietze2018" role="doc-biblioref">2018</a>)</span>):</p>
 <ol style="list-style-type: decimal">
 <li><strong>Latency</strong> - the time between data collection and it’s availability for modelling. Depending on the model’s need for the latest data, if the latency is too long then it can preclude the ability to make useful forecasts (e.g. it’s very difficult to make useful weekly forecasts if you only get new data once a year…).</li>
 <li><strong>Uncertainty</strong> - the model can only ever be as good as the data (<strong>GIGO: garbage in = garbage out</strong>). We’ll also see that assimilating data into forecasts requires uncertainty estimates. Not including uncertainty can create <strong>bias or overconfident predictions</strong>… Unfortunately, very rarely does anyone report the uncertainty in their data… Unfortunately, there are also many reasons why <strong>data can never be certain</strong> - sampling variability, random and systematic instrument errors, calibration uncertainty, classification errors (e.g. species identification), transcription errors, corrupt files (or collaborators!) etc. I live by the creed <em>there is nothing as sinister as a certainty</em>. If you tell me your model has an <span class="math inline">\(R^2\)</span> of 1, I will tell you (with 100% certainty, ironically) that your model is wrong.</li>
@@ -608,7 +607,7 @@ Figure 8.8: An example of a geospatial metadata standard. SpatioTemporal Asset C
 
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Dietze2018" class="csl-entry">
 Dietze, Michael C, Andrew Fox, Lindsay M Beck-Johnson, Julio L Betancourt, Mevin B Hooten, Catherine S Jarnevich, Timothy H Keitt, et al. 2018. <span>“<span class="nocase">Iterative near-term ecological forecasting: Needs, opportunities, and challenges</span>.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em> 115 (7): 1424–32. <a href="https://doi.org/10.1073/pnas.1710231115">https://doi.org/10.1073/pnas.1710231115</a>.
@@ -636,7 +635,6 @@ Wilkinson, Mark D, Michel Dumontier, I Jsbrand Jan Aalbersberg, Gabrielle Applet
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -676,6 +674,10 @@ gitbook.start({
 "text": null
 },
 "download": ["BIO3019S Ecoforecasting.pdf", "BIO3019S Ecoforecasting.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

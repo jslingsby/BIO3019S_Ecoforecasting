@@ -160,7 +160,7 @@ Question 4, *"How can we reduce prediction uncertainty?"* requires:
 
 **Addressing 1** requires looking at the two ways in which things can be important for the uncertainty in predictions (largely covered in Dietze's equation above):
 
-- because they're **highly uncertain**, which requies you: 
+- because they're **highly uncertain**, which requires you: 
   - **propagating** uncertainty through the model as above
   - **partitioning** uncertainty among your different drivers (covariates) and parameters
 - because they're **highly sensitive**, requiring you to perform:
@@ -178,7 +178,7 @@ In fact, by this stage you should have most of the pieces of the puzzle to help 
 
 <br>
 
-## Propogating and partitioning uncertainty in the impacts of invasive alien plants on streamflow
+## Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow
 
 ### The background
 

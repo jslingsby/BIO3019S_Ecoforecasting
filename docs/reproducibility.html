@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Reproducible research | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Reproducible research | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-13" />
+<meta name="date" content="2022-07-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="forecasts.html"/>
 <link rel="next" href="practical.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -286,7 +285,7 @@ div.csl-indent {
 <li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
 <li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating uncertainty</a></li>
 <li class="chapter" data-level="11.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>11.3</b> Analyzing and reducing uncertainty</a></li>
-<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propogating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propogating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
+<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
 <ul>
 <li class="chapter" data-level="11.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>11.4.1</b> The background</a></li>
 <li class="chapter" data-level="11.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>11.4.2</b> The Analysis</a></li>
@@ -306,8 +305,8 @@ div.csl-indent {
 <li class="chapter" data-level="12.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>12.2.1</b> In an ideal world…</a></li>
 <li class="chapter" data-level="12.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>12.2.2</b> In reality…</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#proteas"><i class="fa fa-check"></i><b>12.3</b> Proteas?</a></li>
-<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.4</b> Final words</a></li>
+<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.3</b> Final words</a></li>
+<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#revision-questions"><i class="fa fa-check"></i><b>12.4</b> Revision questions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -330,17 +329,17 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="reproducibility" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Reproducible research</h1>
-<div id="the-reproducibility-crisis" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> The Reproducibility Crisis</h2>
+<div id="reproducibility" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Reproducible research<a href="reproducibility.html#reproducibility" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="the-reproducibility-crisis" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> The Reproducibility Crisis<a href="reproducibility.html#the-reproducibility-crisis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
 <p><em>“<strong>Replication</strong> is the ultimate standard by which scientific claims are judged.”</em> <span class="citation">(<a href="#ref-Peng2011" role="doc-biblioref">Peng 2011</a>)</span></p>
 </blockquote>
 <p><strong><em>Replication is one of the fundamental tenets of science</em></strong> and if the results of a study or experiment cannot by replicated by an independent set of investigators then whatever scientific claims were made should be treated with caution! At best, it suggests that evidence for the claim is weak or mixed, or specific to particular ecosystems or other circumstances and cannot be generalized. At worst, there was error (or even dishonesty) in the original study and the claims were plainly false.</p>
 <p>In other words, published research should be robust enough and the methods described in enough detail that anyone else should be able to repeat the study (using the publication only) and find similar results. Sadly, this is rarely the case!!!</p>
-<div class="figure" style="text-align: center"><span id="fig:reprocrisis"></span>
-<img src="BIO3019S-Ecoforecasting_files/figure-html/reprocrisis-1.png" alt="'Is there a reproducibility* crisis?' Results from a survey of &gt;1500 top scientists [@Baker2016; @Penny2016]. *Note that they did not discern between reproducibility and replicability, and that the terms are often used interchangeably." width="125%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:reprocrisis"></span>
+<img src="img/reprocrisis-1.png" alt="'Is there a reproducibility* crisis?' Results from a survey of &gt;1500 top scientists [@Baker2016; @Penny2016]. *Note that they did not discern between reproducibility and replicability, and that the terms are often used interchangeably." width="125%" />
 <p class="caption">
 Figure 5.1: ‘Is there a reproducibility* crisis?’ Results from a survey of &gt;1500 top scientists <span class="citation">(<a href="#ref-Baker2016" role="doc-biblioref">Baker 2016</a>; <a href="#ref-Penny2016" role="doc-biblioref">Penny 2016</a>)</span>. *Note that they did not discern between reproducibility and replicability, and that the terms are often used interchangeably.
 </p>
@@ -351,12 +350,12 @@ Figure 5.1: ‘Is there a reproducibility* crisis?’ Results from a survey of &
 <p>Working reproducibly is not just a requirement for using quantitative approaches in iterative decision-making, it is <strong>central to scientific progress!!!</strong></p>
 <p><br></p>
 </div>
-<div id="replication-and-the-reproducibility-spectrum" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Replication and the Reproducibility Spectrum</h2>
+<div id="replication-and-the-reproducibility-spectrum" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Replication and the Reproducibility Spectrum<a href="reproducibility.html#replication-and-the-reproducibility-spectrum" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>While <strong>full replication is a huge challenge</strong> (and sometimes impossible) to achieve, it is something all scientists should be working towards.</p>
 <p>Understandably, <strong>some studies may not be entirely replicable</strong> purely due to the nature of the data or phenomenon (e.g. rare phenomena, long term records, loss of species or ecosystems, or very expensive once-off science projects like space missions). In these cases the “gold standard” of full replication (from new data collection to results) cannot be achieved, and we have to settle for a lower rung on the <strong>reproducibility spectrum</strong> (Figure <a href="reproducibility.html#fig:peng">5.2</a>).</p>
 <p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:peng"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:peng"></span>
 <img src="img/peng_reproducibility.jpg" alt="The Reproducibility Spectrum [@Peng2011]." width="640" />
 <p class="caption">
 Figure 5.2: The Reproducibility Spectrum <span class="citation">(<a href="#ref-Peng2011" role="doc-biblioref">Peng 2011</a>)</span>.
@@ -366,9 +365,9 @@ Figure 5.2: The Reproducibility Spectrum <span class="citation">(<a href="#ref-P
 <p><strong>Reproducibility</strong> falls short of full <strong>replication</strong> because it focuses on reproducing the same result <strong><em>from the same data set</em></strong>, rather than analyzing independently collected data. While this may seem trivial, you’d be surprised at how few studies are even reproducible, let alone replicable.</p>
 <p><br></p>
 </div>
-<div id="why-work-reproducibly" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Why work reproducibly?</h2>
-<div class="figure" style="text-align: center"><span id="fig:miracle"></span>
+<div id="why-work-reproducibly" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Why work reproducibly?<a href="reproducibility.html#why-work-reproducibly" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:miracle"></span>
 <img src="img/miracle.jpg" alt="Let's start being more specific about our miracles... Cartoon &amp;copy; Sidney Harris. Used with permission [ScienceCartoonsPlus.com](www.ScienceCartoonsPlus.com)" width="150%" />
 <p class="caption">
 Figure 5.3: Let’s start being more specific about our miracles… Cartoon © Sidney Harris. Used with permission <a href="www.ScienceCartoonsPlus.com">ScienceCartoonsPlus.com</a>
@@ -431,7 +430,7 @@ Figure 5.3: Let’s start being more specific about our miracles… Cartoon © S
 <li><em><strong>It makes it easy to repeat the same analyses when new data are collected or added</strong></em></li>
 </ol>
 <ul>
-<li>This is key for iterative forecasting, but also useful if you want to apply the same method/model to a new data set (e.g. applying <span class="citation"><a href="#ref-Merow2014" role="doc-biblioref">Merow et al.</a> (<a href="#ref-Merow2014" role="doc-biblioref">2014</a>)</span>’s analysis on all 26 Proteaceae studied by <span class="citation"><a href="#ref-Treurnicht2016" role="doc-biblioref">Treurnicht et al.</a> (<a href="#ref-Treurnicht2016" role="doc-biblioref">2016</a>)</span>).</li>
+<li>This is key for iterative forecasting, but also useful if you want to apply the same method/model to a new data set (e.g. applying <span class="citation">Merow et al. (<a href="#ref-Merow2014" role="doc-biblioref">2014</a>)</span>’s analysis on all 26 Proteaceae studied by <span class="citation">Treurnicht et al. (<a href="#ref-Treurnicht2016" role="doc-biblioref">2016</a>)</span>).</li>
 </ul>
 <ol start="9" style="list-style-type: decimal">
 <li><em><strong>Most skills and software used in Reproducible Research are very useful beyond Reproducible Research alone!</strong></em></li>
@@ -454,8 +453,8 @@ Figure 5.3: Let’s start being more specific about our miracles… Cartoon © S
 </ul>
 <p><br></p>
 </div>
-<div id="barriers-to-working-reproducibly" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Barriers to working reproducibly</h2>
+<div id="barriers-to-working-reproducibly" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Barriers to working reproducibly<a href="reproducibility.html#barriers-to-working-reproducibly" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>(Adapted from “A Beginner’s Guide to Conducting Reproducible Research” <span class="citation">(<a href="#ref-Alston2021" role="doc-biblioref">Alston and Rick 2021</a>)</span>)</p>
 <p><strong>1. Complexity</strong></p>
 <ul>
@@ -488,9 +487,9 @@ Figure 5.3: Let’s start being more specific about our miracles… Cartoon © S
 </ul>
 <p><br></p>
 </div>
-<div id="reproducible-scientific-workflows" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> Reproducible Scientific Workflows</h2>
-<div class="figure" style="text-align: center"><span id="fig:datapipeline"></span>
+<div id="reproducible-scientific-workflows" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Reproducible Scientific Workflows<a href="reproducibility.html#reproducible-scientific-workflows" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:datapipeline"></span>
 <img src="img/xkcd_data_pipeline_2x.png" alt="'Data Pipeline' from [xkcd.com/2054](https://xkcd.com/2054), used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/)." width="740" />
 <p class="caption">
 Figure 5.4: ‘Data Pipeline’ from <a href="https://xkcd.com/2054">xkcd.com/2054</a>, used under a <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5 license</a>.
@@ -508,10 +507,10 @@ Figure 5.4: ‘Data Pipeline’ from <a href="https://xkcd.com/2054">xkcd.com/20
 </ul>
 <p>For the rest of this section we’ll work through these components and some of the tools that help you achieve this.</p>
 <p><br></p>
-<div id="file-and-folder-management" class="section level3" number="5.5.1">
-<h3><span class="header-section-number">5.5.1</span> File and folder management</h3>
+<div id="file-and-folder-management" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> File and folder management<a href="reproducibility.html#file-and-folder-management" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Project files and folders can get unwieldy fast, and can really bog you down and inhibit productivity when you don’t know where your files are or what the latest version is.</p>
-<div class="figure" style="text-align: center"><span id="fig:documentnaming"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:documentnaming"></span>
 <img src="img/documentnaming.png" alt="'Documents' from [xkcd.com/1459](https://xkcd.com/1459), used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/)." width="35%" />
 <p class="caption">
 Figure 5.5: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</a>, used under a <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5 license</a>.
@@ -544,7 +543,7 @@ Figure 5.5: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 <li>machine readable
 <ul>
 <li>i.e. avoid spaces and funny punctuation</li>
-<li>support searching and splitting of names (e.g. “data_raw_CO2.csv,” “data_clean_CO2.csv,” “data_raw_species.csv” can all be searched by keywords and can be split by “_” into 3 useful fields: type (data vs other), class (raw vs clean), variable (CO2 vs species), etc)</li>
+<li>support searching and splitting of names (e.g. “data_raw_CO2.csv”, “data_clean_CO2.csv”, “data_raw_species.csv” can all be searched by keywords and can be split by “_” into 3 useful fields: type (data vs other), class (raw vs clean), variable (CO2 vs species), etc)</li>
 </ul></li>
 <li>human readable
 <ul>
@@ -552,15 +551,15 @@ Figure 5.5: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 </ul></li>
 <li>support sorting
 <ul>
-<li>i.e. use numeric or character prefixes to separate files into different components or steps (e.g. “data_raw_localities.csv,” “data_clean_localities.csv,” etc)</li>
+<li>i.e. use numeric or character prefixes to separate files into different components or steps (e.g. “data_raw_localities.csv”, “data_clean_localities.csv”, etc)</li>
 <li>some of this can be handled with folder structure, but you don’t want too many folders either</li>
 </ul></li>
 </ul>
 <p>Find out more about file naming <a href="https://www.earthdatascience.org/slide-shows/2-file-naming-jenny-bryan/#1">here</a>.</p>
 <p><br></p>
 </div>
-<div id="coding-and-code-management" class="section level3" number="5.5.2">
-<h3><span class="header-section-number">5.5.2</span> Coding and code management</h3>
+<div id="coding-and-code-management" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> Coding and code management<a href="reproducibility.html#coding-and-code-management" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Why write code?</strong></p>
 <p>Working in point-and-click GUI-based software like Excel, Statistica, SPSS, etc may seem easier, but you’ll regret it in the long run…</p>
 <p>The beauty of writing code lies in:</p>
@@ -631,7 +630,7 @@ Figure 5.5: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 <li>While the whole <strong>system is online</strong>, you <strong>can also work offline</strong> by <em>cloning</em> the <em>repository</em> to your local machine. Once you have a local version you can <em>push</em> to or <em>pull</em> from the online repository to keep everything updated</li>
 <li><strong>Changes are tracked and reversible</strong> through <em>commits</em>. If you change the contents of a <em>repository</em> you must <em>commit</em> them and write a <em>commit message</em> before pulling or pushing to the online <em>repository</em>. Each <em>commit</em> is essentially a recoverable <em>version</em> that can be <em>compared</em> or <em>reverted</em> to
 <ul>
-<li>This is <strong>the essence of version control</strong> and magically frees you from folders full of lists of files named “mycode_final.R,” “mycode_finalfinal.R,” “myfinalcode_finalfinal.R” etc as per Figure <a href="reproducibility.html#fig:documentnaming">5.5</a></li>
+<li>This is <strong>the essence of version control</strong> and magically frees you from folders full of lists of files named “mycode_final.R”, “mycode_finalfinal.R”, “myfinalcode_finalfinal.R” etc as per Figure <a href="reproducibility.html#fig:documentnaming">5.5</a></li>
 </ul></li>
 <li>They allow collaborators or the public at large to <strong>propose changes</strong> via <em>pull requests</em> that allow you to <em>merge</em> their <em>forked branch</em> back to the <em>main (or master) branch</em></li>
 <li>They allow you to <strong>accept and integrate changes seamlessly</strong> when you accept and merge <em>pull requests</em></li>
@@ -641,75 +640,66 @@ Figure 5.5: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 <p>I’m sure this is all a bit much right now, but should make more sense after the practical…</p>
 <p><br></p>
 </div>
-<div id="computing-environment-and-software" class="section level3" number="5.5.3">
-<h3><span class="header-section-number">5.5.3</span> Computing environment and software</h3>
+<div id="computing-environment-and-software" class="section level3 hasAnchor" number="5.5.3">
+<h3><span class="header-section-number">5.5.3</span> Computing environment and software<a href="reproducibility.html#computing-environment-and-software" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We’ve already covered why you should <strong>use open source software</strong> whenever possible, but it bears repeating. Using proprietary software means that others have to purchase software, licenses, etc to build on your work and essentially makes it not reproducible by putting it behind a pay-wall. This is self-defeating…</p>
 <p>Another issue is that <strong>software and hardware change with upgrades, new versions or changes in the preferences within user communities</strong> (e.g. you’ll all know MicroSoft Excel, but have you heard of Quattro Pro or Lotus that were the preferred spreadsheet software of yesteryear?).</p>
 <p>Just sharing your code, data and workflow does not make your work reproducible if we don’t know what language the code is written in or if functions change or are deprecated in newer versions, breaking your code.</p>
 <p>The <strong>simplest way</strong> to avert this problem is to <strong>carefully document the hardware and versions of software</strong> used in your analyses so that others can recreate that computing environment if needed. This is very easy in R, because you can simply run the <code>sessionInfo()</code> function, like so:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="reproducibility.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 4.1.1 (2021-08-10)
+<pre><code>## R version 4.2.1 (2022-06-23)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 20.04.3 LTS
+## Running under: Ubuntu 20.04.4 LTS
 ## 
 ## Matrix products: default
 ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
 ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_ZA.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_ZA.UTF-8        LC_COLLATE=en_ZA.UTF-8    
-##  [5] LC_MONETARY=en_ZA.UTF-8    LC_MESSAGES=en_ZA.UTF-8   
-##  [7] LC_PAPER=en_ZA.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_ZA.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=en_ZA.UTF-8       LC_NUMERIC=C               LC_TIME=en_ZA.UTF-8       
+##  [4] LC_COLLATE=en_ZA.UTF-8     LC_MONETARY=en_ZA.UTF-8    LC_MESSAGES=en_ZA.UTF-8   
+##  [7] LC_PAPER=en_ZA.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
+## [10] LC_TELEPHONE=C             LC_MEASUREMENT=en_ZA.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods  
-## [7] base     
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] hrbrthemes_0.8.0 forcats_0.5.1    stringr_1.4.0   
-##  [4] dplyr_1.0.7      purrr_0.3.4      readr_1.4.0     
-##  [7] tidyr_1.1.3      tibble_3.1.3     ggplot2_3.3.5   
-## [10] tidyverse_1.3.1 
+##  [1] hrbrthemes_0.8.0 forcats_0.5.1    stringr_1.4.0    dplyr_1.0.9     
+##  [5] purrr_0.3.4      readr_2.1.2      tidyr_1.2.0      tibble_3.1.7    
+##  [9] ggplot2_3.3.6    tidyverse_1.3.1 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.6         lattice_0.20-45    lubridate_1.7.10  
-##  [4] png_0.1-7          assertthat_0.2.1   digest_0.6.27     
-##  [7] utf8_1.2.2         R6_2.5.0           cellranger_1.1.0  
-## [10] backports_1.2.1    reprex_2.0.0       evaluate_0.14     
-## [13] httr_1.4.2         highr_0.9          pillar_1.6.2      
-## [16] gdtools_0.2.3      rlang_0.4.11       readxl_1.3.1      
-## [19] rstudioapi_0.13    extrafontdb_1.0    jquerylib_0.1.4   
-## [22] Matrix_1.3-4       rmarkdown_2.11     labeling_0.4.2    
-## [25] splines_4.1.1      extrafont_0.17     munsell_0.5.0     
-## [28] broom_0.7.7        compiler_4.1.1     modelr_0.1.8      
-## [31] xfun_0.24          pkgconfig_2.0.3    systemfonts_1.0.2 
-## [34] mgcv_1.8-37        htmltools_0.5.1.1  tidyselect_1.1.1  
-## [37] bookdown_0.22      fansi_0.5.0        crayon_1.4.1      
-## [40] dbplyr_2.1.1       withr_2.4.2        grid_4.1.1        
-## [43] nlme_3.1-152       jsonlite_1.7.2     Rttf2pt1_1.3.8    
-## [46] gtable_0.3.0       lifecycle_1.0.0    DBI_1.1.1         
-## [49] magrittr_2.0.1     scales_1.1.1       cli_3.0.1         
-## [52] stringi_1.6.2      farver_2.1.0       fs_1.5.0          
-## [55] xml2_1.3.2         bslib_0.2.5.1      ellipsis_0.3.2    
-## [58] generics_0.1.0     vctrs_0.3.8        RColorBrewer_1.1-2
-## [61] tools_4.1.1        glue_1.4.2         jpeg_0.1-9        
-## [64] hms_1.1.0          yaml_2.2.1         colorspace_2.0-2  
-## [67] rvest_1.0.0        knitr_1.33         haven_2.4.1       
-## [70] sass_0.4.0</code></pre>
+##  [1] httr_1.4.3        sass_0.4.1        bit64_4.0.5       vroom_1.5.7      
+##  [5] jsonlite_1.8.0    splines_4.2.1     modelr_0.1.8      bslib_0.3.1      
+##  [9] assertthat_0.2.1  highr_0.9         cellranger_1.1.0  yaml_2.3.5       
+## [13] gdtools_0.2.4     Rttf2pt1_1.3.10   pillar_1.7.0      backports_1.4.1  
+## [17] lattice_0.20-45   glue_1.6.2        extrafontdb_1.0   digest_0.6.29    
+## [21] rvest_1.0.2       colorspace_2.0-3  htmltools_0.5.2   Matrix_1.4-1     
+## [25] pkgconfig_2.0.3   broom_0.8.0       haven_2.5.0       bookdown_0.26    
+## [29] scales_1.2.0      jpeg_0.1-9        tzdb_0.3.0        mgcv_1.8-40      
+## [33] generics_0.1.2    farver_2.1.0      ellipsis_0.3.2    withr_2.5.0      
+## [37] cli_3.3.0         magrittr_2.0.3    crayon_1.5.1      readxl_1.4.0     
+## [41] evaluate_0.15     fs_1.5.2          fansi_1.0.3       nlme_3.1-157     
+## [45] xml2_1.3.3        tools_4.2.1       hms_1.1.1         lifecycle_1.0.1  
+## [49] munsell_0.5.0     reprex_2.0.1      compiler_4.2.1    jquerylib_0.1.4  
+## [53] systemfonts_1.0.4 rlang_1.0.2       grid_4.2.1        rstudioapi_0.13  
+## [57] labeling_0.4.2    rmarkdown_2.14    gtable_0.3.0      DBI_1.1.2        
+## [61] R6_2.5.1          lubridate_1.8.0   knitr_1.39        bit_4.0.4        
+## [65] fastmap_1.1.0     extrafont_0.18    utf8_1.2.2        stringi_1.7.6    
+## [69] parallel_4.2.1    Rcpp_1.0.8.3      vctrs_0.4.1       png_0.1-7        
+## [73] dbplyr_2.1.1      tidyselect_1.1.2  xfun_0.30</code></pre>
 <p><br></p>
 <p><strong>Containers</strong></p>
 <p><strong>A “better” way</strong> to do this is to use <strong>containers</strong> like <a href="https://www.docker.com/">docker</a> or <a href="https://sylabs.io/singularity/">singularity</a>. These are contained, lightweight computing environments similar to <a href="https://en.wikipedia.org/wiki/Virtual_machine">virtual machines</a>, that you can package with your software/workflow. You set your container up to have everything you need to run your code etc (and nothing extra), so anyone can download (or clone) your container, code and data and run your analyses perfectly first time.</p>
 <p><br></p>
 </div>
-<div id="sharing-of-the-data-code-publication-etc" class="section level3" number="5.5.4">
-<h3><span class="header-section-number">5.5.4</span> Sharing of the data, code, publication etc</h3>
+<div id="sharing-of-the-data-code-publication-etc" class="section level3 hasAnchor" number="5.5.4">
+<h3><span class="header-section-number">5.5.4</span> Sharing of the data, code, publication etc<a href="reproducibility.html#sharing-of-the-data-code-publication-etc" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is touched on in more detail when we discuss data management in Chapter <a href="data.html#data">8</a>, but suffice to say there’s no point working reproducibly if you’re not going to share all the components necessary to complete your workflow…</p>
 <p>Another key component here is that ideally all your data, code, publication etc are shared <em>Open Access</em> - i.e. they are not stuck behind some paywall</p>
 <p><br></p>
-<div class="figure" style="text-align: center"><span id="fig:reproducibilitysteps"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:reproducibilitysteps"></span>
 <img src="img/alstonreproducibility.jpg" alt="A 3-step, 10-point checklist to guide researchers toward greater reproducibility in their research [@Alston2021]." width="60%" />
 <p class="caption">
 Figure 5.6: A 3-step, 10-point checklist to guide researchers toward greater reproducibility in their research <span class="citation">(<a href="#ref-Alston2021" role="doc-biblioref">Alston and Rick 2021</a>)</span>.
@@ -720,7 +710,7 @@ Figure 5.6: A 3-step, 10-point checklist to guide researchers toward greater rep
 </div>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Alston2021" class="csl-entry">
 Alston, Jesse M, and Jessica A Rick. 2021. <span>“<span class="nocase">A beginner’s guide to conducting reproducible research</span>.”</span> <em>Bulletin of the Ecological Society of America</em> 102 (2). <a href="https://doi.org/10.1002/bes2.1801">https://doi.org/10.1002/bes2.1801</a>.
@@ -763,7 +753,6 @@ Treurnicht, Martina, Jörn Pagel, Karen J Esler, Annelise Schutte-Vlok, Henning 
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -803,6 +792,10 @@ gitbook.start({
 "text": null
 },
 "download": ["BIO3019S Ecoforecasting.pdf", "BIO3019S Ecoforecasting.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

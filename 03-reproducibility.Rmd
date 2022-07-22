@@ -9,46 +9,49 @@
 In other words, published research should be robust enough and the methods described in enough detail that anyone else should be able to repeat the study (using the publication only) and find similar results. Sadly, this is rarely the case!!!
 
 ```{r reprocrisis, echo=FALSE, fig.cap = "'Is there a reproducibility* crisis?' Results from a survey of >1500 top scientists [@Baker2016; @Penny2016]. *Note that they did not discern between reproducibility and replicability, and that the terms are often used interchangeably.", fig.width=6, fig.align = 'center', warning = F, message = F, out.width="125%"}
-# load library
-library(tidyverse)
 
-# Get Baker data.
-cridata <- read_delim("/home/jasper/GIT/BIO3019S_Ecoforecasting/data/Reproducibilitysurveyrawdata20160523.txt", delim = "\t")
+knitr::include_graphics("img/reprocrisis-1.png")
 
-#20 (is there a crisis)
-names(cridata)[20] <- "Crisis"
-
-cridata <- cridata %>% group_by(Crisis) %>% summarize(count = n()) %>%na.omit()
-
-cridata$Crisis <- c("7% \n I don't know", "52% \n Significant crisis", "Slight crisis \n 38%", "No crisis \n 3%")
-
-cridata$Crisis <- factor(cridata$Crisis, levels = c("52% \n Significant crisis", "No crisis \n 3%", "7% \n I don't know", "Slight crisis \n 38%"))
-
-# Compute percentages
-cridata$fraction <- cridata$count / sum(cridata$count)
-
-# Compute the cumulative percentages (top of each rectangle)
-cridata$ymax <- cumsum(cridata$fraction)
-
-# Compute the bottom of each rectangle
-cridata$ymin <- c(0, head(cridata$ymax, n=-1))
-
-# Compute label position
-cridata$labelPosition <- (cridata$ymax + cridata$ymin) / 2
-
-# # Compute a good label
-# data$label <- paste0(data$category, "\n value: ", data$count)
+# # load library
+# library(tidyverse)
 # 
-# Make the plot
-ggplot(cridata, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=Crisis)) +
-  geom_rect() +
-  geom_text(x=4.6, aes(y=labelPosition, label=Crisis, color=Crisis)) + # x here controls label position (inner / outer)
-  scale_fill_brewer(palette="Set1", direction = 1) +
-  scale_color_brewer(palette="Set1", direction = 1) +
-  coord_polar(theta="y") +
-  xlim(c(2, 4.5)) +
-  theme_void() +
-  theme(legend.position = "none")
+# # Get Baker data.
+# cridata <- read_delim("/home/jasper/GIT/BIO3019S_Ecoforecasting/data/Reproducibilitysurveyrawdata20160523.txt", delim = "\t")
+# 
+# #20 (is there a crisis)
+# names(cridata)[20] <- "Crisis"
+# 
+# cridata <- cridata %>% group_by(Crisis) %>% summarize(count = n()) %>%na.omit()
+# 
+# cridata$Crisis <- c("7% \n I don't know", "52% \n Significant crisis", "Slight crisis \n 38%", "No crisis \n 3%")
+# 
+# cridata$Crisis <- factor(cridata$Crisis, levels = c("52% \n Significant crisis", "No crisis \n 3%", "7% \n I don't know", "Slight crisis \n 38%"))
+# 
+# # Compute percentages
+# cridata$fraction <- cridata$count / sum(cridata$count)
+# 
+# # Compute the cumulative percentages (top of each rectangle)
+# cridata$ymax <- cumsum(cridata$fraction)
+# 
+# # Compute the bottom of each rectangle
+# cridata$ymin <- c(0, head(cridata$ymax, n=-1))
+# 
+# # Compute label position
+# cridata$labelPosition <- (cridata$ymax + cridata$ymin) / 2
+# 
+# # # Compute a good label
+# # data$label <- paste0(data$category, "\n value: ", data$count)
+# # 
+# # Make the plot
+# ggplot(cridata, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=Crisis)) +
+#   geom_rect() +
+#   geom_text(x=4.6, aes(y=labelPosition, label=Crisis, color=Crisis)) + # x here controls label position (inner / outer)
+#   scale_fill_brewer(palette="Set1", direction = 1) +
+#   scale_color_brewer(palette="Set1", direction = 1) +
+#   coord_polar(theta="y") +
+#   xlim(c(2, 4.5)) +
+#   theme_void() +
+#   theme(legend.position = "none")
 ```
 
 <br>

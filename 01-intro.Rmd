@@ -197,7 +197,7 @@ The key steps are:
 Two things not indicated in this diagram are:
 
 - that when making the forecast and analyzing the new observations you can learn about the various sources and drivers of **uncertainty** in your forecast and use that to **adapt or guide what and how to monitor** so that you can reduce those uncertainties
-- developing this into an **automated** informatics pipeline is best dine in a **reproducible research** framework
+- developing this into an **automated** informatics pipeline is best done in a **reproducible research** framework
 
 Iterative ecological forecasts are thus aimed at:
 

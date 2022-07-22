@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-13" />
+<meta name="date" content="2022-07-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 
 <link rel="next" href="pracprep.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -286,7 +285,7 @@ div.csl-indent {
 <li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
 <li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating uncertainty</a></li>
 <li class="chapter" data-level="11.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>11.3</b> Analyzing and reducing uncertainty</a></li>
-<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propogating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propogating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
+<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
 <ul>
 <li class="chapter" data-level="11.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>11.4.1</b> The background</a></li>
 <li class="chapter" data-level="11.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>11.4.2</b> The Analysis</a></li>
@@ -306,8 +305,8 @@ div.csl-indent {
 <li class="chapter" data-level="12.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>12.2.1</b> In an ideal world…</a></li>
 <li class="chapter" data-level="12.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>12.2.2</b> In reality…</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#proteas"><i class="fa fa-check"></i><b>12.3</b> Proteas?</a></li>
-<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.4</b> Final words</a></li>
+<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.3</b> Final words</a></li>
+<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#revision-questions"><i class="fa fa-check"></i><b>12.4</b> Revision questions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -333,13 +332,13 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">A Minimal Introduction to Ecological Forecasting and Reproducible Research</h1>
 <p class="author"><em>Jasper Slingsby</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-10-13</em></p>
+<p class="date"><em>2022-07-22</em></p>
 </div>
-<div id="overview" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Overview</h1>
+<div id="overview" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Overview<a href="index.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><em>This module is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town.</em></p>
-<div id="general" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> General</h2>
+<div id="general" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> General<a href="index.html#general" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>I provide a very brief introduction to the framework for Ecological Forecasting. We only have a two weeks, so this really is a minimalist introduction. I’ll focus on providing a <strong>broad overview of the general framework and motivation for ecological forecasting</strong>, but won’t have time to delve into the more gory theoretical and statistical details. I mostly use Ecological Forecasting as a framework to <strong>highlight various themes and principles that are increasingly important for quantitative biologists</strong> - understanding how we inform or make decisions; managing data; working reproducibly; propagating, understanding and reducing uncertainty, etc.</p>
 <p>Not all of this is fun and exciting, but as I said, it is important stuff for quantitative biologists to know. I’ll try my best to make it interesting! Hopefully by the end of the module you’ll see the value in it all - both for you as an individual and for science and society in general.</p>
 <p><strong>The core outcomes/concepts I hope you’ll come away with:</strong></p>
@@ -352,8 +351,8 @@ div.csl-indent {
 </ul>
 <p><br></p>
 </div>
-<div id="lectures-and-practicals" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Lectures and practicals</h2>
+<div id="lectures-and-practicals" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Lectures and practicals<a href="index.html#lectures-and-practicals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Lectures</strong></p>
 <p>Lectures will be held live, but online 12:00 - 12:45 from the 30th September to the 13th October. The Zoom link (see Vula) should stay the same for all lecture sessions.</p>
 <p>I’ll be adding to (and mostly teaching from) these online course notes as we go along.</p>
@@ -363,8 +362,8 @@ div.csl-indent {
 <p>Your report on th practical will be <strong><em>due on Friday, 8 October, 11AM</em></strong> - You will be evaluated on how well you completed the Github task during the prac and your answers to a short set of questions about the analyses. Answering the questions shouldn’t take more than half an hour. <strong>Note that we will be covering most of the questions in the lecture on Friday, so if you haven’t submitted your report by 11AM on Friday you will get zero for those questions!</strong></p>
 <p><br></p>
 </div>
-<div id="preparation" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Preparation</h2>
+<div id="preparation" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Preparation<a href="index.html#preparation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>For the lecture content:</strong></p>
 <ul>
 <li>The following 4 minute video will give yo a glossy overview of what most of this module is about</li>
@@ -373,7 +372,7 @@ div.csl-indent {
 </iframe>
 <p><br></p>
 <ul>
-<li><strong>You are expected to read <span class="citation"><a href="#ref-Dietze2018" role="doc-biblioref">Dietze et al.</a> (<a href="#ref-Dietze2018" role="doc-biblioref">2018</a>)</span> for Monday the 4th October.</strong> You can download it <a href="http://dx.doi.org/10.1073/pnas.1710231115">here</a>.</li>
+<li><strong>You are expected to read <span class="citation">Dietze et al. (<a href="#ref-Dietze2018" role="doc-biblioref">2018</a>)</span> for Monday the 4th October.</strong> You can download it <a href="http://dx.doi.org/10.1073/pnas.1710231115">here</a>.</li>
 </ul>
 <p><br></p>
 <p><strong>For the practical:</strong></p>
@@ -381,13 +380,13 @@ div.csl-indent {
 <p><strong>PLEASE DO THE SETUP THIS WEEK!!!</strong> I will check in on Monday to see if people are having issues, but don’t expect my help if you haven’t tried by yourself first. Trust me, I will be able to tell…</p>
 <p><br></p>
 </div>
-<div id="a-bit-about-me" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> A bit about me</h2>
+<div id="a-bit-about-me" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> A bit about me<a href="index.html#a-bit-about-me" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>I’m an ecologist who has become more quantitative through time, but has little formal training in quantitative methods (i.e. I’ve learnt by doing over the past 20 years). As such, I still make elementary mistakes. In fact, the entry requirements for this course are beyond my formal training, so you may have much to teach me! If you spot any errors, confusion or contradictions, please let me know and I’ll get back to you and/or update the course notes accordingly. Hopefully by the end of the course you can suggest changes directly using <a href="https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">pull requests</a> to the <a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting">GitHub repository</a> for the course notes.</p>
 <p><br></p>
 </div>
-<div id="acknowledgements-and-further-reading" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Acknowledgements and further reading:</h2>
+<div id="acknowledgements-and-further-reading" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Acknowledgements and further reading:<a href="index.html#acknowledgements-and-further-reading" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><em>The following resources were instrumental in me pulling this material together and are worth spending time exploring. I cite my sources throughout the course notes, so check out the references at the end of each section and the end of the course notes for more.</em></p>
 <ul>
 <li><a href="https://ecoforecast.org/">ecoforecast.org</a></li>
@@ -401,7 +400,7 @@ div.csl-indent {
 
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Dietze2018" class="csl-entry">
 Dietze, Michael C, Andrew Fox, Lindsay M Beck-Johnson, Julio L Betancourt, Mevin B Hooten, Catherine S Jarnevich, Timothy H Keitt, et al. 2018. <span>“<span class="nocase">Iterative near-term ecological forecasting: Needs, opportunities, and challenges</span>.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em> 115 (7): 1424–32. <a href="https://doi.org/10.1073/pnas.1710231115">https://doi.org/10.1073/pnas.1710231115</a>.
@@ -417,7 +416,6 @@ Dietze, Michael C, Andrew Fox, Lindsay M Beck-Johnson, Julio L Betancourt, Mevin
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -457,6 +455,10 @@ gitbook.start({
 "text": null
 },
 "download": ["BIO3019S Ecoforecasting.pdf", "BIO3019S Ecoforecasting.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

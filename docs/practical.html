@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Practical: Pair coding with GitHub | A Minimal Introduction to Ecological Forecasting and Reproducible Research</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Practical: Pair coding with GitHub | A Minimal Introduction to Ecological Forecasting and Reproducible Research" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2021-10-13" />
+<meta name="date" content="2022-07-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="reproducibility.html"/>
 <link rel="next" href="practical-output-master-script-for-postfire-analysis.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -286,7 +285,7 @@ div.csl-indent {
 <li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
 <li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating uncertainty</a></li>
 <li class="chapter" data-level="11.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>11.3</b> Analyzing and reducing uncertainty</a></li>
-<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propogating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propogating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
+<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
 <ul>
 <li class="chapter" data-level="11.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>11.4.1</b> The background</a></li>
 <li class="chapter" data-level="11.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>11.4.2</b> The Analysis</a></li>
@@ -306,8 +305,8 @@ div.csl-indent {
 <li class="chapter" data-level="12.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>12.2.1</b> In an ideal world…</a></li>
 <li class="chapter" data-level="12.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>12.2.2</b> In reality…</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#proteas"><i class="fa fa-check"></i><b>12.3</b> Proteas?</a></li>
-<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.4</b> Final words</a></li>
+<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.3</b> Final words</a></li>
+<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#revision-questions"><i class="fa fa-check"></i><b>12.4</b> Revision questions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -330,24 +329,24 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="practical" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Practical: Pair coding with GitHub</h1>
+<div id="practical" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Practical: Pair coding with GitHub<a href="practical.html#practical" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><br></p>
 <blockquote>
-<p><em>Just a quick acknowledgement that I have adapted much of the framework for the following from Michael Dietze’s <a href="https://github.com/EcoForecast/EF_Activities/blob/master/Exercise_04_PairCoding.Rmd"><strong>Pair coding practical</strong></a> that is a living online supplement to the book <span class="citation">(<a href="#ref-Dietze2017" role="doc-biblioref">Dietze 2017a</a>)</span>. Thanks for sharing the code under an MIT license Mike! The main differences are that I’ve changes the subject matter from looking at phenology in Tall Grass Prairie using PhenoCam data to looking at postfire vegetation growth in Fynbos using MODIS satellite Normalized Difference Vegetation Index (NDVI), a measure of vegetation “greenness.” This includes changing the core model we fit too.</em></p>
+<p><em>Just a quick acknowledgement that I have adapted much of the framework for the following from Michael Dietze’s <a href="https://github.com/EcoForecast/EF_Activities/blob/master/Exercise_04_PairCoding.Rmd"><strong>Pair coding practical</strong></a> that is a living online supplement to the book <span class="citation">(<a href="#ref-Dietze2017" role="doc-biblioref">Dietze 2017a</a>)</span>. Thanks for sharing the code under an MIT license Mike! The main differences are that I’ve changes the subject matter from looking at phenology in Tall Grass Prairie using PhenoCam data to looking at postfire vegetation growth in Fynbos using MODIS satellite Normalized Difference Vegetation Index (NDVI), a measure of vegetation “greenness”. This includes changing the core model we fit too.</em></p>
 </blockquote>
 <p><br></p>
 <p><strong><em>To complete this practical, you need to have done the preparation outlined in section <a href="pracprep.html#pracprep">2</a>.</em></strong></p>
 <p><br></p>
-<div id="objectives" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Objectives</h2>
+<div id="objectives" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Objectives<a href="practical.html#objectives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The primary goal of this exercise is to gain experience working collaboratively to develop a scientific workflow. As such, this assignment must be completed with a partner. Specifically, we will outline an analysis, break the overall job into parts, and have each person complete part of the project. To put these parts together we will be using GitHub.</p>
 <p>Along the way we will also be exploring the statistical concept of Likelihood by fitting the same model and estimating the parameters with two different approaches - <em>Least Squares</em> (what you’d usually use for traditional linear models etc) and <em>Maximum Likelihood</em>.</p>
 <p><br></p>
 </div>
-<div id="postfire-regeneration" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Postfire regeneration</h2>
-<p>The goal of our analysis is to investigate the regeneration of Fynbos vegetation after fire by exploring a time-series of 16-day composite Normalized Difference Vegetation Index (NDVI) from the MODIS satellite mission, a measure of vegetation “greenness.” You can read up on the data product <a href="https://modis.gsfc.nasa.gov/data/dataprod/mod13.php">here</a>. We’ll be using data for one location (250m by 250m pixel) from the Silvermine section of Table Mountain National Park, and will be exploring the NDVI trajectory since the March 2015 fire. You can view the raw data in comma-separated value (.csv) format <a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting/blob/master/data/modisdata.csv">here</a>.</p>
+<div id="postfire-regeneration" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Postfire regeneration<a href="practical.html#postfire-regeneration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The goal of our analysis is to investigate the regeneration of Fynbos vegetation after fire by exploring a time-series of 16-day composite Normalized Difference Vegetation Index (NDVI) from the MODIS satellite mission, a measure of vegetation “greenness”. You can read up on the data product <a href="https://modis.gsfc.nasa.gov/data/dataprod/mod13.php">here</a>. We’ll be using data for one location (250m by 250m pixel) from the Silvermine section of Table Mountain National Park, and will be exploring the NDVI trajectory since the March 2015 fire. You can view the raw data in comma-separated value (.csv) format <a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting/blob/master/data/modisdata.csv">here</a>.</p>
 <p><br></p>
 <p>The workflow for this analysis with have three components:</p>
 <ol style="list-style-type: decimal">
@@ -366,8 +365,8 @@ div.csl-indent {
 ## Visualize models and data
 ## Compare model variants using AIC</code></pre>
 </div>
-<div id="modular-design" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Modular Design</h2>
+<div id="modular-design" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Modular Design<a href="practical.html#modular-design" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>From this overall design we can look for ways to modularize the analysis. One feature that jumps out is that we need to visualize the data three times, so we should definitely make a function to do that. The inputs to the function would be an x-axis (<code>age</code>) and a y-axis (<code>NDVI</code>), which we might pass to the function as a dataframe for convenience. Since this is a graphing function we’d also like the ability to set all sorts of plot characteristics, which can be done in R by passing <code>...</code> as an argument and then passing that on to the internal <em>plot()</em> call. The proposed function interface (i.e. metadata about inputs and outputs, but excluding the code) would thus be:</p>
 <pre><code>##&#39; Plot NDVI data
 ##&#39;
@@ -415,14 +414,14 @@ pred.negexpS &lt;- function(theta, x)
 fit.negexpS.MLE &lt;- function(dat,par)</code></pre>
 <p>At this point we’ve spent a good bit of time up front on organization – we have a detailed plan of attack and have thought carefully about what each module is responsible for doing. Each task has well-defined inputs, outputs, and goals. Rather than facing a thankless job of documenting our code after we’re done, even though we haven’t written a single line of code yet we are largely done with our documentation. What remains to do is implementation.</p>
 </div>
-<div id="task-1-create-clone-repository" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Task 1: Create &amp; Clone Repository</h2>
+<div id="task-1-create-clone-repository" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Task 1: Create &amp; Clone Repository<a href="practical.html#task-1-create-clone-repository" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Because we’re going to employ version control in our project, our first step is to create the repository that our project will be stored in. <strong>To ensure that both you and your partner get to see every step of how to work with version control, for the rest of this exercise you are going to complete every step twice, once from the perspective of the OWNER of the repository and once as the COLLABORATOR</strong>.</p>
-<div id="owner" class="section level3" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> OWNER</h3>
+<div id="owner" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> OWNER<a href="practical.html#owner" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Go to your account on <a href="https://github.com/">github.com</a> and under the Repositories tab click on the “New” button (green with a picture of a book on it)</li>
-<li>Choose a name for your repository, but <strong>make sure it’s different from your partner’s</strong> (Don’t choose a “Repository template,” and keep it a “Public” repository)</li>
+<li>Choose a name for your repository, but <strong>make sure it’s different from your partner’s</strong> (Don’t choose a “Repository template”, and keep it a “Public” repository)</li>
 <li>Click the “Initialize this repository with a README” checkbox</li>
 <li>Optionally also provide a Description, Add a licence (e.g. MIT), and add R to the .gitignore (check “.gitignore” and search for the <em>R</em> template)</li>
 <li>Click “Create Repository”</li>
@@ -436,8 +435,8 @@ fit.negexpS.MLE &lt;- function(dat,par)</code></pre>
 </ul>
 </div>
 </div>
-<div id="task-2-add-the-first-function-download.ndvi" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Task 2: Add the first function: download.NDVI</h2>
+<div id="task-2-add-the-first-function-download.ndvi" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Task 2: Add the first function: download.NDVI<a href="practical.html#task-2-add-the-first-function-download.ndvi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Within this project we’ll create separate files for each part of the analysis. To make the order of the workflow clear we’ll want to name the files systematically. In the first file we’ll implement the download.NDVI() function.</p>
 <blockquote>
 <p>NOTE: You’ll see that I’ve provided the R code for how I actually accessed the data using library(“MODISTools”), but have left that commented out. The function can take quite a long time so I thought best that we just read the output of that call from a file I’ve saved to the GitHub repository.</p>
@@ -482,8 +481,8 @@ fit.negexpS.MLE &lt;- function(dat,par)</code></pre>
 <span id="cb8-38"><a href="practical.html#cb8-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;download.NDVI: Input URL not provided correctly&quot;</span>,URL))</span>
 <span id="cb8-39"><a href="practical.html#cb8-39" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb8-40"><a href="practical.html#cb8-40" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div id="owner-1" class="section level3" number="6.5.1">
-<h3><span class="header-section-number">6.5.1</span> OWNER</h3>
+<div id="owner-1" class="section level3 hasAnchor" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> OWNER<a href="practical.html#owner-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>In RStudio, click <code>File</code> &gt; <code>New File</code> &gt; <code>R Script</code></li>
 <li>Copy and Paste the above function into this file</li>
@@ -495,14 +494,14 @@ fit.negexpS.MLE &lt;- function(dat,par)</code></pre>
 </ol>
 </div>
 </div>
-<div id="task-3-collaborator-adds-plot.ndvi" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Task 3: Collaborator adds plot.NDVI</h2>
+<div id="task-3-collaborator-adds-plot.ndvi" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Task 3: Collaborator adds plot.NDVI<a href="practical.html#task-3-collaborator-adds-plot.ndvi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>With the first function complete, let’s now imagine that a <strong>COLLABORATOR</strong> has been tasked with adding the second function. To do so they must first fork and clone the repository</p>
-<div id="collaborator" class="section level3" number="6.6.1">
-<h3><span class="header-section-number">6.6.1</span> COLLABORATOR</h3>
+<div id="collaborator" class="section level3 hasAnchor" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> COLLABORATOR<a href="practical.html#collaborator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Go to Github and navigate to the project repository within the OWNER’s workspace.</li>
-<li>Click “Fork,” which will make a copy of the repository to your own workspace.</li>
+<li>Click “Fork”, which will make a copy of the repository to your own workspace.</li>
 <li>Copy the URL to your own version and follow the instructions above for cloning the repository in RStudio.</li>
 <li>Open a new file, enter the code below, and then save the file as “02_plot.NDVI.R”</li>
 </ol>
@@ -532,26 +531,26 @@ fit.negexpS.MLE &lt;- function(dat,par)</code></pre>
 <span id="cb9-24"><a href="practical.html#cb9-24" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Follow the instructions above to Add, Commit, and Push the file back to your Github</li>
-<li>Next you want to perform a “pull request,” which will send a request to the OWNER that they pull your new code into their mainline version. From your Github page for this project, click on “Pull requests” (top left) and hit the green <strong>New Pull Request</strong> button.</li>
+<li>Next you want to perform a “pull request”, which will send a request to the OWNER that they pull your new code into their mainline version. From your Github page for this project, click on “Pull requests” (top left) and hit the green <strong>New Pull Request</strong> button.</li>
 <li>Follow the instructions, creating a title, message, and confirming that you want to create the pull request (you may be asked to confirm a couple of times).</li>
 </ol>
 </div>
-<div id="owner-2" class="section level3" number="6.6.2">
-<h3><span class="header-section-number">6.6.2</span> OWNER</h3>
+<div id="owner-2" class="section level3 hasAnchor" number="6.6.2">
+<h3><span class="header-section-number">6.6.2</span> OWNER<a href="practical.html#owner-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Once the COLLABORATOR has created the pull request, you should get an automatic email and also be able to see the pull request under the “Pull Requests” tab on the Github page for the project.</li>
 <li>Read the description of the proposed changes and then click on “Files Changed” to view the changes to the project. New code should be in green, while deleted code will be in pink.</li>
 <li>The purpose of a pull request is to allow the OWNER to evaluate the code being added before it is added. You can see this option under the “Review” button. You can also hover your mouse over any line of code and insert an inline comment in the code (don’t do this during the prac). The COLLABORATOR would then have the ability to respond to any comments. In larger projects, all participants can discuss the code and decide whether it should be accepted or not. Furthermore, if the COLLABORATOR does any further pushes to Github before the pull request is accepted these changes will automatically become part of the pull request. While this is a very handy feature, it can also easily backfire if the COLLABORATOR starts working on something different in the meantime. This is the reason that experienced users of version control will use BRANCHES to keep different parts separate.</li>
 <li>Click on the “Conversation” page to return where you started. All participants can also leave more general comments on this page.</li>
-<li>If you are happy with the code, click “Merge Pull Request.” Alternatively, to outright reject a pull request you could click “Close pull request” (but please don’t do this in the prac unless your partner has made an error - PLEASE CHECK IF THEY’VE ADDED THE RIGHT FUNCTION ETC)</li>
+<li>If you are happy with the code, click “Merge Pull Request”. Alternatively, to outright reject a pull request you could click “Close pull request” (but please don’t do this in the prac unless your partner has made an error - PLEASE CHECK IF THEY’VE ADDED THE RIGHT FUNCTION ETC)</li>
 </ol>
 </div>
 </div>
-<div id="task-4-owner-adds-functions-for-model-fitting-using-mle" class="section level2" number="6.7">
-<h2><span class="header-section-number">6.7</span> Task 4: Owner adds functions for model fitting using MLE</h2>
+<div id="task-4-owner-adds-functions-for-model-fitting-using-mle" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> Task 4: Owner adds functions for model fitting using MLE<a href="practical.html#task-4-owner-adds-functions-for-model-fitting-using-mle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We are now past the ‘set up’ stage for both the OWNER and the COLLABORATOR, so for this task we’ll explore the normal sequence of steps that the OWNER will use for day-to-day work</p>
-<div id="owner-3" class="section level3" number="6.7.1">
-<h3><span class="header-section-number">6.7.1</span> OWNER</h3>
+<div id="owner-3" class="section level3 hasAnchor" number="6.7.1">
+<h3><span class="header-section-number">6.7.1</span> OWNER<a href="practical.html#owner-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Pull the latest code from Github (which includes the new function added by your collaborator). In RStudio this is done by clicking the light blue down arrow on the Git tab. This is equivalent to the command line <em>git pull origin master</em> where origin refers to where you did your original clone from and master refers to your main branch (if you use branches you can pull other branches). Once you’ve pulled the latest code you should see the latest function file added to the files you can see in the “Files” tab of the bottom-right window of RStudio.</li>
 <li>Next, open up a new R file, add the code below, and save as “03_negexp.R”</li>
@@ -620,7 +619,7 @@ fit.negexpS.MLE &lt;- function(dat,par)</code></pre>
 </ol>
 <p><br></p>
 <p><strong><em>A quick explanation of the Maximum Likelihood Estimation (MLE) functions</em></strong></p>
-<p>To estimate the parameters in the model this function uses the likelihood principle which states that “a parameter value is more likely than another if it is the one for which the data are more probable.” In other words, the maximum likelihood estimate of a parameter is the value of the parameter for which the probability of obtaining the observed data if the highest.</p>
+<p>To estimate the parameters in the model this function uses the likelihood principle which states that “a parameter value is more likely than another if it is the one for which the data are more probable”. In other words, the maximum likelihood estimate of a parameter is the value of the parameter for which the probability of obtaining the observed data if the highest.</p>
 <p>To use MLE we need to define a Likelihood, which is the relationship between the value of the parameter and the probability of some observed data. [For the record, the Likelihood is not a probability distribution because it does not integrate to 1]. In this case we’re assuming a Normal likelihood (hence the use of <code>dnorm()</code> in the function) and use a standard deviation (0.001) that I’ve made up to represent the uncertainty (ideally this should come from the data; e.g. the radiative transfer modelling that was used to estimate the “surface reflectance” MODIS product from the “top of atmosphere reflectance” that is actually observed by the satellite). In a more detailed analysis we’d want to follow up to check both these assumptions, but it’s a simple starting point for this practical demonstration.</p>
 <p>Applying the likelihood principle we would then look for the most likely value of <span class="math inline">\(\theta\)</span>, the vector of parameters in the model (<span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\lambda\)</span> in the simpler model, and adding <span class="math inline">\(A\)</span> and <span class="math inline">\(\phi\)</span> in the full model - see model equations below), which we call the Maximum Likelihood estimate. For a number or reasons that we won’t go into in this module, it is common to work with negative log likelihoods instead of likelihoods, in which case the negative implies that instead of looking for the maximum we’re now looking for the minimum (perhaps a bit difficult to get your head around, but it’s a small trade-off that makes for much easier mathematics). The fact that logarithm is a monotonic transformation means that taking the log does not change the location of this minimum.</p>
 <p>The code for this comes in three parts.</p>
@@ -653,11 +652,11 @@ fit.negexpS.MLE &lt;- function(dat,par)</code></pre>
 <p>The third part is a call to a numerical optimization function, <em>optim</em>, that searches through parameter space to find the set of parameters that minimize the negative log likelihood (i.e. that Maximize the Likelihood). Arguments are the initial parameter guesstimates, the function being minimized, and any additional parameters that get passed on to that function.</p>
 </div>
 </div>
-<div id="task-5-collaborator-adds-the-master-script-owner-answers-the-questions" class="section level2" number="6.8">
-<h2><span class="header-section-number">6.8</span> Task 5: Collaborator adds the master script, Owner answers the questions</h2>
+<div id="task-5-collaborator-adds-the-master-script-owner-answers-the-questions" class="section level2 hasAnchor" number="6.8">
+<h2><span class="header-section-number">6.8</span> Task 5: Collaborator adds the master script, Owner answers the questions<a href="practical.html#task-5-collaborator-adds-the-master-script-owner-answers-the-questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The day-to-day workflow for the COLLABORATOR is similar, but not exactly the same as the OWNER. The biggest differences are that the COLLABORATOR needs to pull from the OWNER, not their own repository, and needs to do a pull request after the push.</p>
-<div id="collaborator-1" class="section level3" number="6.8.1">
-<h3><span class="header-section-number">6.8.1</span> COLLABORATOR</h3>
+<div id="collaborator-1" class="section level3 hasAnchor" number="6.8.1">
+<h3><span class="header-section-number">6.8.1</span> COLLABORATOR<a href="practical.html#collaborator-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Pull from OWNER. Unfortunately, this has to be done from the command line rather than the pull button within RStudio, which just pulls from the COLLABORATOR’s repository. In RStudio go to Tools &gt; Shell to open a terminal</li>
 <li>At the terminal type</li>
@@ -670,13 +669,13 @@ fit.negexpS.MLE &lt;- function(dat,par)</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Navigate to <a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting/blob/master/_04_Master.Rmd">https://github.com/jslingsby/BIO3019S_Ecoforecasting/blob/master/_04_Master.Rmd</a>, copy the raw contents</li>
 <li>Open a new Rmd file in RStudio and paste the contents.</li>
-<li>Save this file as “04_Master.Rmd.”</li>
+<li>Save this file as “04_Master.Rmd”.</li>
 <li>Within RStudio’s Git tab, add the file and Commit. Use the Push (up arrow) button to push this to your own repository</li>
 <li>On Github.com, submit a pull request</li>
 </ol>
 </div>
-<div id="owner-4" class="section level3" number="6.8.2">
-<h3><span class="header-section-number">6.8.2</span> OWNER</h3>
+<div id="owner-4" class="section level3 hasAnchor" number="6.8.2">
+<h3><span class="header-section-number">6.8.2</span> OWNER<a href="practical.html#owner-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li><p>Evaluate and accept pull request.
 &gt;At this point your workflow should be complete and you should be able to run the analysis.</p></li>
@@ -703,7 +702,7 @@ fit.negexpS.MLE &lt;- function(dat,par)</code></pre>
 </div>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Dietze2017" class="csl-entry">
 Dietze, Michael C. 2017a. <em><span>Ecological Forecasting</span></em>. Princeton University Press. <a href="https://doi.org/10.2307/j.ctvc7796h">https://doi.org/10.2307/j.ctvc7796h</a>.
@@ -719,7 +718,6 @@ Dietze, Michael C. 2017a. <em><span>Ecological Forecasting</span></em>. Princeto
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -759,6 +757,10 @@ gitbook.start({
 "text": null
 },
 "download": ["BIO3019S Ecoforecasting.pdf", "BIO3019S Ecoforecasting.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
