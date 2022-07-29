@@ -1,5 +1,5 @@
 --- 
-title: "A Minimal Introduction to Ecological Forecasting and Reproducible Research"
+title: "A Minimal Introduction to Ecological Forecasting"
 author: "Jasper Slingsby"
 date: "`r Sys.Date()`"
 output:
@@ -19,7 +19,7 @@ description: This is a minimal introduction to Ecological Forecasting and Reprod
 
 # Overview
 
-_This module is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town._
+_This module is a minimal introduction to Ecological Forecasting for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town._
 
 ## General
 
