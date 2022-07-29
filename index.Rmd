@@ -59,13 +59,13 @@ Your report on the practical will be ***due on Monday, 8 August*** - You will be
 
 **For the lecture content:**
 
-- The following 4 minute video will give yo a glossy overview of what most of this module is about
+- The following 4 minute video will give you a glossy overview of what most of this module is about
 
 <iframe width="584" height="330" src="https://www.youtube.com/embed/Lgi_e7N-C8E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <br>
 
-- **You are expected to read @Dietze2018 for Monday the 4th October.** You can download it [here](http://dx.doi.org/10.1073/pnas.1710231115).
+- **You are expected to read @Dietze2018 for Thursday the 4th August.** You can download it [here](http://dx.doi.org/10.1073/pnas.1710231115).
 
 <br>
 

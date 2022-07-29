@@ -209,9 +209,9 @@ The key steps are:
 
 Two things not indicated in this diagram are:
 
-- comparing forecasts and new observations allows you to learn about the various sources and drivers of **uncertainty** in your forecast
-  - this can be used to **refine your model** or **adapt or guide what and how to monitor** so that you can reduce those uncertainties
-- iterative ecological forecsts require **automated** informatics pipeline, which are best done in a **reproducible research** framework
+- comparing forecasts and new observations allows you to learn about the various sources and drivers of _**uncertainty**_ in your forecast
+  - this can be used to _**refine your model**_ or _**adapt or guide what and how to monitor**_ so that you can reduce those uncertainties
+- iterative ecological forecsts require **automated** informatics pipeline, which are best done in a _**reproducible research**_ framework
 
 
 ## {background-color="#33431e"}
