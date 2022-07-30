@@ -58,7 +58,9 @@ knitr::include_graphics("img/reprocrisis-1.png")
 
 We have a problem...
 
-Since we're failing the [gentleman's agreement](https://en.wikipedia.org/wiki/Gentlemen%27s_agreement)^[I know many may find the use of this term offensive. In fact, I have used it here because that offense highlights my point. "Gentlemen's agreements" have been used for nefarious purposes since the dawn of time should have no place in science as we strive to make the discipline more transparent, open and inclusive.] that we'll describe our methods in enough detail that anyone else should be able to repeat the study (using the publication only) and find similar results, modern scientists are trying to formalize the process in the form of ***Reproducible Research***. Reproducible research makes use of modern software tools to share data, code and other resources required to allow others to reproduce the same result as the original study, thus **making all analyses open and transparent**.
+Since we're failing the [gentleman's agreement](https://en.wikipedia.org/wiki/Gentlemen%27s_agreement)^[I know many may find the use of this term offensive. In fact, I have used it here because that offense highlights my point. "Gentlemen's agreements" have been used for nefarious purposes since the dawn of time should have no place in science as we strive to make the discipline more transparent, open and inclusive.] that we'll describe our methods in enough detail that anyone else should be able to repeat the study (using the publication only) and find similar results, modern scientists are trying to formalize the process in the form of ***Reproducible Research***.
+
+Reproducible research makes use of modern software tools to share data, code and other resources required to allow others to reproduce the same result as the original study, thus **making all analyses open and transparent**.
 
 Working reproducibly is not just a requirement for using quantitative approaches in iterative decision-making, it is **central to scientific progress!!!**
 
@@ -79,86 +81,6 @@ knitr::include_graphics("img/peng_reproducibility.jpg")
 <br>
 
 **Reproducibility** falls short of full **replication** because it focuses on reproducing the same result ***from the same data set***, rather than analyzing independently collected data. While this may seem trivial, you'd be surprised at how few studies are even reproducible, let alone replicable.
-
-<br>
-
-## Why work reproducibly?
-
-```{r miracle, echo=FALSE, fig.cap = "Let's start being more specific about our miracles... Cartoon &copy; Sidney Harris. Used with permission [ScienceCartoonsPlus.com](www.ScienceCartoonsPlus.com)", fig.width=6, fig.align = 'center', out.width="150%"}
-knitr::include_graphics("img/miracle.jpg")
-```
-
-<br>
-
-***In addition to basic scientific rigour, working reproducibly is hugely valuable, because:***
-
-(Adapted from "_Five selfish reasons to work reproducibly_" [@Markowetz2015])
-
-1. _**Its transparent and open, helping us avoid mistakes and/or track down errors in analyses**_
-- This is what highlighted the importance of working reproducibly for me. In 2017 I published the first evidence of observed climate change impacts on biodiversity in the Fynbos Biome [@Slingsby2017]. The analyses were quite complicated, and when working on the revisions I found an error in my R code. Fortunately, it didn't change the results qualitatively, but it made me realize how easy it is to make a mistake and potentially put the wrong message out there! This encouraged me to make all data and R code from the paper available, so that anyone is free to check my data and analyses and let me (and/or the world) know if they find any errors.
-2. _**It makes it easier to write papers**_
-- e.g. Dynamic documents like RMarkdown or Jupyter Notebooks update automatically when you change your analyses, so you don't have to copy/paste or save/insert all tables and figures - or worry about whether you included the latest versions.
-3. _**It helps the review process**_
-- Often issues picked at by reviewers are matters of clarity/confusion. Sharing your data and analyses allows them to see exactly what you did, not just what you said you did, allowing them to identify the problem and make constructive suggestions.
-- It's also handy to be able to respond to a reviewer's comment with something like:
-  - _"That's a great suggestion, but not really in line with the objectives of the study. We have chosen not to include the suggested analysis, but do provide all data and code so that interested readers can explore this for themselves."_ (Feel free to copy and paste - [CCO 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-4. _**It enables continuity of the research**_
-- When people leave a project (e.g. students/postdocs), or you forget what you did _X_ days/weeks/months/years ago, it can be a serious setback for a project and make it difficult for you or a new student to pick up where things left off. If the data and workflow are well curated and documented this problem is avoided. _Trust me, this is a very common problem!!!_ I have many papers that I (or my students) never published and may never go back to, because I know it'll take me a few days or weeks to understand the datasets and analyses again...
-- This is obviously incredibly important for long-term projects!
-- A little bit of extra effort early on can save a lot of time further down the road!!!
-5. _**It helps to build your reputation**_
-- Working reproducibly makes it clear you're an honest, open, careful and transparent researcher, and should errors be found in your work you're unlikely to be accused of dishonesty (e.g. see my paper example under point 1 - although no one has told me of any errors yet...).
-- When others reuse your data, code, etc you're likely to get credit for it - either just informally, or formally through citations or acknowledgements (depending on the licensing conditions you specify - see "Preserve" in the Data Life Cycle).
-
-And some less selfish reasons (and relevant for ecoforecasting):
-
-6. _**It speeds progress in science by allowing you (or others) to rapidly build on previous findings and analyses**_
-  - Somewhat linked to point 4, but here the focus is on building on published work. For example, if I read a paper and have an idea (or develop a new hypothesis) that may explain some of their results or add to the story, I can start from where they left off rather than collecting new data, recoding their whole analysis, etc before I can even start. 
-7. _**It allows easy comparison of new analytical approaches (methods, models, etc) to older ones**_
-  - Linked to 6, but more specific to model or methods development where the need to "benchmark" your new method relative to an older one is important. If the benchmark model exists you can make an honest comparison, but if you have to set up the older one yourself, some may accuse you of gaming the system by chosing settings etc that advantage your new method.
-8. _**It makes it easy to repeat the same analyses when new data are collected or added**_
-  - This is key for iterative forecasting, but also useful if you want to apply the same method/model to a new data set (e.g. applying @Merow2014's analysis on all 26 Proteaceae studied by @Treurnicht2016).
-9. _**Most skills and software used in Reproducible Research are very useful beyond Reproducible Research alone!**_ 
-  - e.g. GitHub - in addition to versioning code etc is great for code management, collaborative projects and can be used for all kinds of things like building websites (e.g. these course notes).
-
-And one more selfish reason (but don't tell anyone I said this):
-
-10. _**Reproducible research skills are highly sought after in careers like data science etc...**_
-  - Skills are important should you decide to leave biology...
-  - Even withing biology, more and more environmental organizations and NGOs are hiring data scientists or scientists with strong data and quantitative skills. Some examples I know of:
-    - The South African Environmental Observation Network ([SAEON](www.saeon.ac.za) - especially their data node [uLwazi](https://ulwazi.saeon.ac.za/))
-    - The Endangered Wildlife Trust ([EWT](https://www.ewt.org.za/))
-    - [The Nature Conservancy](https://www.nature.org/)
-
-<br>
-
-## Barriers to working reproducibly
-(Adapted from "A Beginner's Guide to Conducting Reproducible Research" [@Alston2021])
-
-**1. Complexity**
-
-- There can be a bit of a learning curve in getting to know and use the tools for reproducible research effectively.
-- One is always tempted by the "easy option" of doing it the way you already know or using "user-friendly" proprietary software.
-
-**2. Technological change**
-
-- Hardware and software used in analyses change over time - either changing with updates or going obsolete altogether - making it very difficult to rerun old analyses.
-- This should be less of a problem going forward because:
-  - it is something people are now aware of (so we're working on solutions)
-  - we're increasingly using open source software, for which older versions are usually still made available and there is little risk of it disappearing when the software company stops supporting the software or goes bankrupt
-  - documenting hardware and software versions with analyses is an easy baseline
-  - increasingly people are using contained computing environments as we'll discuss below
-
-**3. Human error**
-
-- Simple mistakes or failure to fully document protocols or analyses can easily make a study irreproducible.
-- Most reproducible research tools are aimed at solving this problem.
-
-**4. Intellectual property rights**
-
-- Rational self-interest can lead to hesitation to share data and code via many pathways:
-  - Fear of not getting credit; Concern that the materials shared will be used incorrectly or unethically; etc
-- Hopefully most of these issues will be solved by better awareness of licensing issues, attribution, etc, as the culture of reproducible research grows
 
 <br>
 
@@ -345,3 +267,85 @@ knitr::include_graphics("img/alstonreproducibility.jpg")
 ```
 
 <br>
+
+## Why work reproducibly?
+
+```{r miracle, echo=FALSE, fig.cap = "Let's start being more specific about our miracles... Cartoon &copy; Sidney Harris. Used with permission [ScienceCartoonsPlus.com](www.ScienceCartoonsPlus.com)", fig.width=6, fig.align = 'center', out.width="150%"}
+knitr::include_graphics("img/miracle.jpg")
+```
+
+<br>
+
+***In addition to basic scientific rigour, working reproducibly is hugely valuable, because:***
+
+(Adapted from "_Five selfish reasons to work reproducibly_" [@Markowetz2015])
+
+1. _**Its transparent and open, helping us avoid mistakes and/or track down errors in analyses**_
+- This is what highlighted the importance of working reproducibly for me. In 2017 I published the first evidence of observed climate change impacts on biodiversity in the Fynbos Biome [@Slingsby2017]. The analyses were quite complicated, and when working on the revisions I found an error in my R code. Fortunately, it didn't change the results qualitatively, but it made me realize how easy it is to make a mistake and potentially put the wrong message out there! This encouraged me to make all data and R code from the paper available, so that anyone is free to check my data and analyses and let me (and/or the world) know if they find any errors.
+2. _**It makes it easier to write papers**_
+- e.g. Dynamic documents like RMarkdown or Jupyter Notebooks update automatically when you change your analyses, so you don't have to copy/paste or save/insert all tables and figures - or worry about whether you included the latest versions.
+3. _**It helps the review process**_
+- Often issues picked at by reviewers are matters of clarity/confusion. Sharing your data and analyses allows them to see exactly what you did, not just what you said you did, allowing them to identify the problem and make constructive suggestions.
+- It's also handy to be able to respond to a reviewer's comment with something like:
+  - _"That's a great suggestion, but not really in line with the objectives of the study. We have chosen not to include the suggested analysis, but do provide all data and code so that interested readers can explore this for themselves."_ (Feel free to copy and paste - [CCO 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+4. _**It enables continuity of the research**_
+- When people leave a project (e.g. students/postdocs), or you forget what you did _X_ days/weeks/months/years ago, it can be a serious setback for a project and make it difficult for you or a new student to pick up where things left off. If the data and workflow are well curated and documented this problem is avoided. _Trust me, this is a very common problem!!!_ I have many papers that I (or my students) never published and may never go back to, because I know it'll take me a few days or weeks to understand the datasets and analyses again...
+- This is obviously incredibly important for long-term projects!
+- A little bit of extra effort early on can save a lot of time further down the road!!!
+5. _**It helps to build your reputation**_
+- Working reproducibly makes it clear you're an honest, open, careful and transparent researcher, and should errors be found in your work you're unlikely to be accused of dishonesty (e.g. see my paper example under point 1 - although no one has told me of any errors yet...).
+- When others reuse your data, code, etc you're likely to get credit for it - either just informally, or formally through citations or acknowledgements (depending on the licensing conditions you specify - see "Preserve" in the Data Life Cycle).
+
+And some less selfish reasons (and relevant for ecoforecasting):
+
+6. _**It speeds progress in science by allowing you (or others) to rapidly build on previous findings and analyses**_
+  - Somewhat linked to point 4, but here the focus is on building on published work. For example, if I read a paper and have an idea (or develop a new hypothesis) that may explain some of their results or add to the story, I can start from where they left off rather than collecting new data, recoding their whole analysis, etc before I can even start. 
+7. _**It allows easy comparison of new analytical approaches (methods, models, etc) to older ones**_
+  - Linked to 6, but more specific to model or methods development where the need to "benchmark" your new method relative to an older one is important. If the benchmark model exists you can make an honest comparison, but if you have to set up the older one yourself, some may accuse you of gaming the system by chosing settings etc that advantage your new method.
+8. _**It makes it easy to repeat the same analyses when new data are collected or added**_
+  - This is key for iterative forecasting, but also useful if you want to apply the same method/model to a new data set (e.g. applying @Merow2014's analysis on all 26 Proteaceae studied by @Treurnicht2016).
+9. _**Most skills and software used in Reproducible Research are very useful beyond Reproducible Research alone!**_ 
+  - e.g. GitHub - in addition to versioning code etc is great for code management, collaborative projects and can be used for all kinds of things like building websites (e.g. these course notes).
+
+And one more selfish reason (but don't tell anyone I said this):
+
+10. _**Reproducible research skills are highly sought after in careers like data science etc...**_
+  - Skills are important should you decide to leave biology...
+  - Even withing biology, more and more environmental organizations and NGOs are hiring data scientists or scientists with strong data and quantitative skills. Some examples I know of:
+    - The South African Environmental Observation Network ([SAEON](www.saeon.ac.za) - especially their data node [uLwazi](https://ulwazi.saeon.ac.za/))
+    - The Endangered Wildlife Trust ([EWT](https://www.ewt.org.za/))
+    - [The Nature Conservancy](https://www.nature.org/)
+
+<br>
+
+## Barriers to working reproducibly
+(Adapted from "A Beginner's Guide to Conducting Reproducible Research" [@Alston2021])
+
+**1. Complexity**
+
+- There can be a bit of a learning curve in getting to know and use the tools for reproducible research effectively.
+- One is always tempted by the "easy option" of doing it the way you already know or using "user-friendly" proprietary software.
+
+**2. Technological change**
+
+- Hardware and software used in analyses change over time - either changing with updates or going obsolete altogether - making it very difficult to rerun old analyses.
+- This should be less of a problem going forward because:
+  - it is something people are now aware of (so we're working on solutions)
+  - we're increasingly using open source software, for which older versions are usually still made available and there is little risk of it disappearing when the software company stops supporting the software or goes bankrupt
+  - documenting hardware and software versions with analyses is an easy baseline
+  - increasingly people are using contained computing environments as we'll discuss below
+
+**3. Human error**
+
+- Simple mistakes or failure to fully document protocols or analyses can easily make a study irreproducible.
+- Most reproducible research tools are aimed at solving this problem.
+
+**4. Intellectual property rights**
+
+- Rational self-interest can lead to hesitation to share data and code via many pathways:
+  - Fear of not getting credit; Concern that the materials shared will be used incorrectly or unethically; etc
+- Hopefully most of these issues will be solved by better awareness of licensing issues, attribution, etc, as the culture of reproducible research grows
+
+<br>
+
+
