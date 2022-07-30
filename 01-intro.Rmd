@@ -1,5 +1,17 @@
 # Models and decision making {#models}
 
+This section is also available as a slideshow hold `Ctrl` or `Command` and [click this link](presentations/1_Introduction.html) to view in full screen.
+
+<div>
+
+```{=html}
+<iframe width="600" height="400" marginheight="0" marginwidth="0" src="presentations/1_Introduction.html"></iframe>
+```
+
+</div>
+
+<br>
+
 **What factors do you consider when making a decision?**
 
 ```{r, echo = F}

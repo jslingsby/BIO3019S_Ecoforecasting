@@ -5,6 +5,7 @@ format:
   revealjs:
     theme: dark
     slide-number: true
+    self-contained: true
 editor: visual
 ---
 
@@ -12,7 +13,7 @@ editor: visual
 
 Jasper Slingsby
 
-## {background-color="#33431e"}
+##  {background-color="#33431e"}
 
 ### What do you consider when making a decision?
 
@@ -28,14 +29,13 @@ We base our *expectation* on:
 -   *Uncertainty*
 :::
 
-## {background-color="#33431e"}
+##  {background-color="#33431e"}
 
-### What do you consider when making a decision? 
+### What do you consider when making a decision?
 
 This can be represented like so:
 
 ![](img/decisions1.png)
-
 
 ## Getting quantitative {background-color="#33431e"}
 
@@ -43,10 +43,9 @@ This framework is similar if you are approaching the decision quantitatively (i.
 
 ![Using models and data when making a decision](img/decisions2.png)
 
-
 ## A hypothetical example {.smaller background-color="#c2c190"}
 
-```{r, echo=F, message=F}
+```{r, echo=F, message=F, fig.align='center'}
 library(tidyverse)
 library(hrbrthemes)
 
@@ -62,27 +61,25 @@ dat %>%
 
 ```
 
-:::{.smaller}
-- **data** (points) are the **evidence**
-- **experience** (current state of knowledge) is used to specify the model (e.g. linear)
+::: smaller
+-   **data** (points) are the **evidence**
+-   **experience** (current state of knowledge) is used to specify the model (e.g. linear)
 
 The relationship between ***effort*** and ***reward*** is nearly 1 to 1, suggesting that the more effort you invest, the more reward. That said, there is scatter around in the points around the 1:1 line, suggesting **uncertainty**.
 :::
 
 ## Iterative decision-making {.smaller background-color="#33431e"}
 
-![](img/decisions3.png)
+![](img/decisions3.png){fig-align="center"}
 
-
-- Few decisions are once-off
-- Evaluating the outcome is crucial, so we can ***learn from experience***
-  - Was your forecast was any good? 
-  - Should you refine or replace your model, consider additional scenarios or inputs?
-
+-   Few decisions are once-off
+-   Evaluating the outcome is crucial, so we can ***learn from experience***
+    -   Was your forecast was any good?
+    -   Should you refine or replace your model, consider additional scenarios or inputs?
 
 ## Our hypothetical example {background-color="#c2c190"}
 
-```{r, echo=F, message=F}
+```{r, echo=F, message=F, fig.align='center'}
 dat <- bind_rows(dat, data.frame(Reward = 30:37 + rnorm(8, mean = 0, sd = 2), Effort = seq(30,65,5) + rnorm(8, mean = 0, sd = 2)))
 
 dat %>%
@@ -97,39 +94,38 @@ dat %>%
 
 Revisiting our *Effort to Reward* example, what would you do if the decision-maker decided to invest huge effort, but the next few data points looked like this?
 
-## {.smaller background-color="#33431e"}
+##  {.smaller background-color="#33431e"}
 
-### Iterative decision-making and the scientific method 
+### Iterative decision-making and the scientific method
 
 The iterative decision making cycle mirrors the scientific method, i.e.:
 
-Observation > Hypothesis > Experiment > Analyze > Interpret > Report > (Repeat)
+Observation \> Hypothesis \> Experiment \> Analyze \> Interpret \> Report \> (Repeat)
 
-![](img/scimethod.png)
+![](img/scimethod.png){fig-align="center"}
 
 So iterative decision-making facilitates iterative learning (i.e. scientific progress).
 
-## {.smaller background-color="#33431e"}
+##  {.smaller background-color="#33431e"}
 
-### The importance of prediction in ecology 
+### The importance of prediction in ecology
 
 > "prediction is the only way to demonstrate scientific understanding" - Houlahan et al. 2017
 
 If we cannot make reasonably good predictions, we're missing something.
 
-In ecology, we mostly test qualitative, imprecise hypotheses: 
+In ecology, we mostly test qualitative, imprecise hypotheses:
 
-- _"Does X have an effect on Y?"_, rather than:
-- _"What is the relationship between X and Y?"_ or better yet - _"What value would we expect Y to be, given a particular value of X?"_ 
+-   *"Does X have an effect on Y?"*, rather than:
+-   *"What is the relationship between X and Y?"* or better yet - *"What value would we expect Y to be, given a particular value of X?"*
 
-**Without testing precise hypotheses and using the results to make _testable predictions_ we don't know if our findings are generalizable beyond our specific data set.** 
+**Without testing precise hypotheses and using the results to make *testable predictions* we don't know if our findings are generalizable beyond our specific data set.**
 
-- If our results are not generalisable, then we're not making progress towards a better understanding of ecology.
+-   If our results are not generalisable, then we're not making progress towards a better understanding of ecology.
 
+##  {.smaller background-color="#33431e"}
 
-## {.smaller background-color="#33431e"}
-
-### Iterative near-term ecological forecasting 
+### Iterative near-term ecological forecasting
 
 <br/>
 
@@ -137,11 +133,11 @@ In ecology, we mostly test qualitative, imprecise hypotheses:
 
 <br/>
 
-- The **"gold standard"** is an informatics pipeline that can ingest new data and **make new forecasts automatically** with minimal user input. 
-- This poses a number of major challenges and requires a big improvement in quantitative skills in biology (hence this course...). 
-- Fortunately, any steps towards the gold standard is likely to be useful, even if you never get there.
+-   The **"gold standard"** is an informatics pipeline that can ingest new data and **make new forecasts automatically** with minimal user input.
+-   This poses a number of major challenges and requires a big improvement in quantitative skills in biology (hence this course...).
+-   Fortunately, any steps towards the gold standard is likely to be useful, even if you never get there.
 
-## {.smaller background-color="#33431e"}
+##  {.smaller background-color="#33431e"}
 
 ### Iterative near-term ecological forecasting
 
@@ -149,8 +145,7 @@ In ecology, we mostly test qualitative, imprecise hypotheses:
 
 ![](img/initialconditions.png){fig-align="center"}
 
-
-## {.smaller background-color="#33431e"}
+##  {.smaller background-color="#33431e"}
 
 ### Iterative near-term ecological forecasting
 
@@ -158,8 +153,7 @@ In ecology, we mostly test qualitative, imprecise hypotheses:
 
 ![](img/forecast.png){fig-align="center"}
 
-
-## {.smaller background-color="#33431e"}
+##  {.smaller background-color="#33431e"}
 
 ### Iterative near-term ecological forecasting
 
@@ -167,7 +161,7 @@ In ecology, we mostly test qualitative, imprecise hypotheses:
 
 ![](img/newobservations.png){fig-align="center"}
 
-## {.smaller background-color="#33431e"}
+##  {.smaller background-color="#33431e"}
 
 ### Iterative near-term ecological forecasting
 
@@ -175,15 +169,13 @@ In ecology, we mostly test qualitative, imprecise hypotheses:
 
 ![](img/analyzeandupdate.png){fig-align="center"}
 
-
-## {.smaller background-color="#c2c190"}
+##  {.smaller background-color="#c2c190"}
 
 ### Iterative near-term ecological forecasting
 
 This can also be represented as a cycle, mirroring the scientific method:
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="45%"}
 ![](img/ecoforecastingloop.png){fig-align="center"}
 :::
@@ -194,58 +186,52 @@ This can also be represented as a cycle, mirroring the scientific method:
 ::: {.column width="45%"}
 The key steps are:
 
-1. Make a **forecast** based on initial conditions
-2. **Compare** your forecast to new observations
-3. **Analyze** the new observations in the context of your forecast and original data
-4. **Update** estimates of the current state of the system (data and understanding), before making a new forecast
+1.  Make a **forecast** based on initial conditions
+2.  **Compare** your forecast to new observations
+3.  **Analyze** the new observations in the context of your forecast and original data
+4.  **Update** estimates of the current state of the system (data and understanding), before making a new forecast
+:::
 :::
 
-::::
-
-
-## {background-color="#33431e"}
+##  {background-color="#33431e"}
 
 ### Iterative near-term ecological forecasting
 
 Two things not indicated in this diagram are:
 
-- comparing forecasts and new observations allows you to learn about the various sources and drivers of _**uncertainty**_ in your forecast
-  - this can be used to _**refine your model**_ or _**adapt or guide what and how to monitor**_ so that you can reduce those uncertainties
-- iterative ecological forecsts require **automated** informatics pipeline, which are best done in a _**reproducible research**_ framework
+-   comparing forecasts and new observations allows you to learn about the various sources and drivers of ***uncertainty*** in your forecast
+    -   this can be used to ***refine your model*** or ***adapt or guide what and how to monitor*** so that you can reduce those uncertainties
+-   iterative ecological forecsts require **automated** informatics pipeline, which are best done in a ***reproducible research*** framework
 
-
-## {background-color="#33431e"}
+##  {background-color="#33431e"}
 
 ### Iterative near-term ecological forecasting
 
 Iterative ecological forecasts are thus aimed at:
 
-1. **applied** outcomes, through providing evidence to support **decision making**
-2. **knowledge generation** through iterative learning i.e. **the scientific method**
+1.  **applied** outcomes, through providing evidence to support **decision making**
+2.  **knowledge generation** through iterative learning i.e. **the scientific method**
 
 So it's a great way of getting scientists to engage in real-world problems, demonstrating the value of our science, and **learning by doing**!
 
-
-## {.smaller background-color="#33431e"}
+##  {.smaller background-color="#33431e"}
 
 ### Iterative ecological forecasting in context
 
 ![](img/dietze2018_F1.jpg){fig-align="center"}
 
-This figure from Dietze et al. 2018 provides an expanded representation of these conceptual links between iterative ecological forecasting, the scientific method, and decision making (here in the context of _adaptive management_, which is a management paradigm that focuses on learning by doing).
+This figure from Dietze et al. 2018 provides an expanded representation of these conceptual links between iterative ecological forecasting, the scientific method, and decision making (here in the context of *adaptive management*, which is a management paradigm that focuses on learning by doing).
 
-
-## {.smaller background-color="#33431e"}
+##  {.smaller background-color="#33431e"}
 
 ### Reproducible research
 
-Iterative ecological forecasts need to be founded on a **highly efficient informatics pipelines that are robust and rapidly updateable**. 
+Iterative ecological forecasts need to be founded on a **highly efficient informatics pipelines that are robust and rapidly updateable**.
 
-- The emphasis is on _near-term_ forecasts to inform management. If the process of adding new data and updating forecasts is too slow, the value of the forecasts is lost. 
+-   The emphasis is on *near-term* forecasts to inform management. If the process of adding new data and updating forecasts is too slow, the value of the forecasts is lost.
 
-- The best way to build the ecoinformatics pipeline is to follow **reproducible research** principles, including good (and rapid) **data management** 
+-   The best way to build the ecoinformatics pipeline is to follow **reproducible research** principles, including good (and rapid) **data management**
 
 ![](img/olympian_goal.png){fig-align="center"}
 
-Adding this to previous slide highlights what I like to think of as _"The Olympian Challenge of data-driven ecological decision making"_.
-
+Adding this to previous slide highlights what I like to think of as *"The Olympian Challenge of data-driven ecological decision making"*.
