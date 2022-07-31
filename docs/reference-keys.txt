@@ -22,10 +22,10 @@ fig:merow2014projections
 fig:ecoforecastingloop2
 fig:reprocrisis
 fig:peng
-fig:miracle
 fig:datapipeline
 fig:documentnaming
 fig:reproducibilitysteps
+fig:miracle
 fig:datadecay
 fig:datalifecycle
 fig:uctdmp
@@ -85,13 +85,13 @@ near-term-iterative-ecological-forecasts
 reproducibility
 the-reproducibility-crisis
 replication-and-the-reproducibility-spectrum
-why-work-reproducibly
-barriers-to-working-reproducibly
 reproducible-scientific-workflows
 file-and-folder-management
 coding-and-code-management
 computing-environment-and-software
 sharing-of-the-data-code-publication-etc
+why-work-reproducibly
+barriers-to-working-reproducibly
 practical
 objectives
 postfire-regeneration

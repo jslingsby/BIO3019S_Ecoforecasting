@@ -183,7 +183,7 @@ The beauty of writing code lies in:
 
 **Some coding rules**
 
-It's easy to write messy code. This can make it virtually indecipherable to others (and even yourself), slowing you and your collaborations down. It also makes it easy to make mistakes and not notice them. The overarching rule is to ***write code for people***, not computers. Some basic rules:
+It's easy to write messy code. This can make it virtually indecipherable to others (and even yourself), slowing you and your collaborations down. It also makes it easy to make mistakes and not notice them. The overarching rule is to ***write code for people***, not computers. Check out the [Tidyverse style guide](https://style.tidyverse.org/index.html) for R-specific guidance, but here are some basic rules:
 
 - use consistent, meaningful and distinct names for variables and functions
 - use consistent code and formatting style
@@ -311,7 +311,7 @@ And one more selfish reason (but don't tell anyone I said this):
 
 10. _**Reproducible research skills are highly sought after in careers like data science etc...**_
   - Skills are important should you decide to leave biology...
-  - Even withing biology, more and more environmental organizations and NGOs are hiring data scientists or scientists with strong data and quantitative skills. Some examples I know of:
+  - Even within biology, more and more environmental organizations and NGOs are hiring data scientists or scientists with strong data and quantitative skills. Some examples I know of:
     - The South African Environmental Observation Network ([SAEON](www.saeon.ac.za) - especially their data node [uLwazi](https://ulwazi.saeon.ac.za/))
     - The Endangered Wildlife Trust ([EWT](https://www.ewt.org.za/))
     - [The Nature Conservancy](https://www.nature.org/)
