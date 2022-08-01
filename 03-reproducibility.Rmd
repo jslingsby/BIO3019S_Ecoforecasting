@@ -1,5 +1,15 @@
 # Reproducible research {#reproducibility}
 
+This section is also available as a slideshow. Right click or hold `Ctrl` or `Command` and [click this link](presentations/1_reproducibility.html) to view in full screen.
+
+<div>
+
+```{=html}
+<iframe width="600" height="400" marginheight="0" marginwidth="0" src="presentations/1_reproducibility.html"></iframe>
+```
+
+</div>
+
 ## The Reproducibility Crisis
 
 > _"**Replication** is the ultimate standard by which scientific claims are judged."_ [@Peng2011]
