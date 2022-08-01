@@ -311,11 +311,11 @@ This should all make more sense after the practical, but here are some pretty pi
 
 ## Version control {.smaller background-color="#c2c190"}
 
-![Allison Horst [CC-BY-4.0](https://github.com/allisonhorst/stats-illustrations/blob/main/license)](img/git_commit.png)
+![Artwork by \@allison_horst [CC-BY-4.0](https://github.com/allisonhorst/stats-illustrations/blob/main/license)](img/git_commit.png)
 
 ## Version control {.smaller background-color="#c2c190"}
 
-![Allison Horst [CC-BY-4.0](https://github.com/allisonhorst/stats-illustrations/blob/main/license)](img/git_navigate.png)
+![Artwork by \@allison_horst [CC-BY-4.0](https://github.com/allisonhorst/stats-illustrations/blob/main/license)](img/git_navigate.png)
 
 ## 4. Computing environment {.smaller background-color="#33431e"}
 

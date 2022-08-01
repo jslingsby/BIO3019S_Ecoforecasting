@@ -146,6 +146,18 @@ knitr::include_graphics("img/veldwatch.png")
 
 Last, but not least. We haven't discussed different data formats etc, but if you are working with tabular data (i.e. spreadsheets, tables) I strongly recommend you read this short paper on **[how to keep your data Tidy](http://dx.doi.org/10.18637/jss.v059.i10)** [@Wickham2014]. Following these principles will make life much easier for you once you get to the analysis step...
 
+The basic idea in mice illustrations by \@allison_horst:
+
+![Tidy data principles mean that all datasets follow the same rules. Artwork \@allison_horst](img/tidydata_2.jpg)
+
+<br>
+
+![Following the rules simplifies analysis and reduces the diversity of tools required. Artwork \@allison_horst](img/tidydata_3.jpg)
+
+<br>
+
+![The rules are pretty simple and easy to follow. It's worth investing the effort! Artwork \@allison_horst](img/tidydata_1.jpg)
+
 <br>
 
 ### Describe {#describe}
@@ -304,6 +316,8 @@ There are a few different components to data integration in this context:
 ### Analyze
 
 "The fun bit", but again, there are many things to bear in mind and keep track of so that your analysis is repeatable. This is largely covered by the sections on _Coding and code management_ and _Computing environment and software_ in Chapter \@ref(reproducibility)
+
+![Artwork \@allison_horst](img/tidydata_5.jpg)
 
 <br>
 

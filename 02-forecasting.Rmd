@@ -1,6 +1,23 @@
 # Making forecasts {#forecasts}
 
-You're probably wondering _"What are ecological forecasts?"_ or _"Where are we going with all this?"_ The focus of this section is to provide some context with an example of what I believe is one forecasting need and opportunity in the Fynbos Biome. I was going to give 3 examples, but rapidly realized it would be too long a lecture. I'll be using the other examples to illustrate various principles in later lectures, but hopefully this example will provide some practical context for some of the issues we'll address in the rest of the module.
+You're probably wondering _"What are ecological forecasts?"_ or _"Where are we going with all this?"_ The focus of this section is to provide some context.
+
+Firstly, there's a long list of existing (or in development) ecological forecasting projects on the [Ecological Forecasting Initiative's website](https://ecoforecast.org/member-forecasting-profiles/) that you can peruse. These include diverse forecasts for (_inter alia_):
+
+- species population sizes
+- plant or ecosystem phenology
+- land cover change
+- tree/forest die-off
+- carbon stocks and sequestration rates
+- water quality
+- disease spread/risk
+- fishing quotas
+- risk of bycatch of species of concern
+- risk of shipping collisions with whales
+- risk of harmful algal blooms
+- etc
+
+For the rest of this section, I'm going to focus on an example of what I believe is one forecasting need and opportunity in the Fynbos Biome. I was going to give 3 examples, but rapidly realized it would be too long a lecture. I'll be using the other examples to illustrate various principles in later lectures, but hopefully this example will provide some practical context for some of the issues we'll address in the rest of the module.
 
 > **Note:** This example has not yet been developed into full _near-term iterative ecological forecasts_ sensu Dietze et al (2018). I also don't think they necessarily have to get all the way there to be useful. Think of it as an "ecological forecasting spectrum" where the gold standard is fully developed and automated near-term iterative ecological forecasts.
 
@@ -39,7 +56,7 @@ Because they are the best-studied group of plants in the Fynbos, they are heavil
 - protected area planning
 - wildfire management
 - wildflower harvesting
-- climate change monitoring
+- climate change vulnerability assessment and monitoring
 - I'm sure there are others I've forgotten...
 
 <br>
@@ -48,8 +65,8 @@ Because they are the best-studied group of plants in the Fynbos, they are heavil
 
 Our knowledge of the demography of the Proteaceae is used for the direct management of Fynbos in two ways:
 
-- Firstly, at the _species level_, for setting guidelines for **sustainable wild harvesting** of their inflorescences
-- Secondly, at the _ecosystem level_, to help determine **acceptable fire return intervals**
+1. At the _species level_, for setting guidelines for **sustainable wild harvesting** of their inflorescences
+2. At the _ecosystem level_, to help determine **acceptable fire return intervals**
 
 <br>
 
