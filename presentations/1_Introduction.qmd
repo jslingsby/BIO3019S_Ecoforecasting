@@ -7,6 +7,7 @@ format:
     slide-number: true
     self-contained: true
 editor: visual
+bibliography: book.bib
 ---
 
 # Introduction to Ecological Forecasting {background-color="#33431e"}
@@ -237,3 +238,5 @@ Iterative ecological forecasts need to be founded on a **highly efficient inform
 ![](img/olympian_goal.png){fig-align="center"}
 
 Adding this to previous slide highlights what I like to think of as *"The Olympian Challenge of data-driven ecological decision making"*.
+
+## References {background-color="#33431e"}

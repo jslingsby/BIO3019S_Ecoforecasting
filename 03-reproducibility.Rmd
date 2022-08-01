@@ -1,11 +1,11 @@
 # Reproducible research {#reproducibility}
 
-This section is also available as a slideshow. Right click or hold `Ctrl` or `Command` and [click this link](presentations/1_reproducibility.html) to view in full screen.
+This section is also available as a slideshow. Right click or hold `Ctrl` or `Command` and [click this link](presentations/3_reproducibility.html) to view in full screen.
 
 <div>
 
 ```{=html}
-<iframe width="600" height="400" marginheight="0" marginwidth="0" src="presentations/1_reproducibility.html"></iframe>
+<iframe width="600" height="400" marginheight="0" marginwidth="0" src="presentations/3_reproducibility.html"></iframe>
 ```
 
 </div>

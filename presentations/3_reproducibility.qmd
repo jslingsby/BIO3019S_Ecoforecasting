@@ -7,6 +7,7 @@ format:
     slide-number: true
     self-contained: true
 editor: visual
+bibliography: book.bib
 ---
 
 # Reproducible Research {background-color="#33431e"}
@@ -17,16 +18,17 @@ Jasper Slingsby
 
 <br>
 
-> *"**Replication** is the ultimate standard by which scientific claims are judged."* [@Peng2011]
+> *"**Replication** is the ultimate standard by which scientific claims are judged."* - @Peng2011
 
 -   Replication is one of the fundamental tenets of science
 -   Findings from studies that cannot be independently replicated should be treated with caution!
+    -   Either they are not generalisable (cf. prediction) or worse, there was an error in the study!
 
 ## The Reproducibility Crisis {background-color="#33431e"}
 
 Sadly, we have a problem...
 
-!["'Is there a reproducibility crisis?' <br> A survey of \>1500 top scientists [@Baker2016; @Penny2016].](img/reprocrisis-1.png)
+!['Is there a reproducibility crisis?' - A survey of \>1500 scientists [@Baker2016; @Penny2016].](img/reprocrisis-1.png)
 
 ## Reproducible Research {background-color="#33431e"}
 
@@ -47,16 +49,83 @@ Sadly, we have a problem...
 
 ![](img/peng_reproducibility.jpg)
 
--   **Full replication is a huge challenge** (and sometimes impossible)
--   **Some studies may not be entirely replicable** (e.g. rare phenomena, long term records, very expensive projects like space missions).
--   Where the "gold standard" of full replication cannot be achieved, we have to settle for a lower rung on **The Reproducibility Spectrum** [@Peng2011]
+-   Full replication is a huge challenge, and sometimes impossible, e.g.
+    -   rare phenomena, long term records, very expensive projects like space missions, etc
+-   Where the "gold standard" of full replication cannot be achieved, we have to settle for a lower rung somewhere on ***The Reproducibility Spectrum*** [@Peng2011]
 
 ## Replication vs Reproducibility {background-color="#33431e"}
 
 <br>
 
--   **Reproducibility** falls short of full **replication** because it focuses on reproducing the same result ***from the same data set***, rather than analyzing independently collected data.
+-   ***Reproducibility*** falls short of full ***replication*** because it focuses on reproducing the same result ***from the same data set***, rather than analyzing independently collected data.
+
+<br>
+
 -   This difference may seem trivial, but you'd be surprised at how few studies are even reproducible, let alone replicable.
+
+## Why work reproducibly? {.smaller background-color="#33431e"}
+
+![Let's start being more specific about our miracles... Cartoon © Sidney Harris. Used with permission [ScienceCartoonsPlus.com](www.ScienceCartoonsPlus.com)](img/miracle.jpg)
+
+## Why work reproducibly? {.smaller background-color="#33431e"}
+
+<br>
+
+> "*Five selfish reasons to work reproducibly*" [@Markowetz2015]
+
+1.  Its ***transparent and open***    - helping avoid mistakes or track down errors
+2.  It makes it ***easier to write papers***   - faster tracking of changes and manuscript updates
+3.  It ***helps the review process***   - reviewers can actually see what you did
+4.  It ***enables continuity*** of research    - simplifying project handover (esp. past to future you!)
+5.  It builds ***reputation***    - showing integrity and gaining credit where your work is reused
+
+## Why work reproducibly? {.smaller background-color="#33431e"}
+
+<br>
+
+Some less selfish reasons (and relevant for ecoforecasting):
+
+6.  It ***speeds progress in science*** by allowing you (or others) to rapidly build on previous findings and analyses
+
+7.  It ***allows easy comparison*** of new analytical approaches to older ones
+
+8.  It makes it easy to ***repeat analyses on new data***, e.g. for ecological forecasting or LTER
+
+9.  The tools used are ***useful beyond Reproducible Research***, e.g. building websites
+
+10. Reproducible research ***skills are highly sought after!***
+
+-   Skills are important should you decide to leave science...
+-   Within science, more and more environmental organizations and NGOs are hiring data scientists or scientists with strong data and quantitative skills.
+
+## Barriers to working reproducibly {.smaller background-color="#33431e"}
+
+From "A Beginner's Guide to Conducting Reproducible Research" [@Alston2021]:
+
+<br>
+
+**1. Complexity**
+
+-   There's a learning curve in getting to know and use the tools effectively.
+-   One is always tempted by the "easy option" of doing it the way you already know or using "user-friendly" proprietary software.
+
+**2. Technological change**
+
+-   Hardware and software used in analyses change over time, making it very difficult to rerun old analyses etc.
+    -   This should be less of a problem as more tools like contained computing environments become available
+
+## Barriers to working reproducibly {.smaller background-color="#33431e"}
+
+**3. Human error**
+
+-   Simple mistakes or poor documentation can easily make a study irreproducible.
+-   Most reproducible research tools are actually aimed at solving this problem!
+
+**4. Intellectual property rights**
+
+-   Rational self-interest can lead to hesitation to share data and code via many pathways:
+    -   Fear of not getting credit; Concern that the materials shared will be used incorrectly or unethically; etc
+-   Hopefully most of these issues will be solved by better awareness of licensing issues, attribution, etc, as the culture of reproducible research grows
 
 ## Reproducible Scientific Workflows {.smaller background-color="#33431e"}
 
@@ -68,14 +137,13 @@ Working reproducibly requires careful planning and documentation of each step in
 
 ## Reproducible Scientific Workflows {background-color="#33431e"}
 
-This entails overlapping/intertwined components, namely:
+Entail overlapping/intertwined components, namely:
 
-1.   Data management (more on this in a later lecture)
-2.   File and folder management
-3.   Coding and code management (data manipulation and analyses)
-4.   Computing environment and software
-5.   Sharing of the data, metadata, code, publications and any other relevant materials
-
+1.  Data management (more on this in a later lecture)
+2.  File and folder management
+3.  Coding and code management (data manipulation and analyses)
+4.  Computing environment and software
+5.  Sharing of the data, metadata, code, publications and any other relevant materials
 
 ## 2. File and folder management {.smaller background-color="#33431e"}
 
@@ -87,15 +155,16 @@ This entails overlapping/intertwined components, namely:
 ::: {.column width="55%"}
 <br>
 
-Project files and folders can get unwieldy fast and really bog you down! 
+Project files and folders can get unwieldy fast and really bog you down!
 
 <br>
 
 The main considerations are:
 
-- defining a simple, common, intuitive folder structure
-- using informative file names
-- version control
+-   defining a simple, common, intuitive folder structure
+-   using informative file names
+-   version control where possible
+    -   e.g. GitHub or Google Docs
 :::
 :::
 
@@ -111,18 +180,17 @@ Here's how I usually manage my folders:
 
 ![](img/gitrepofolders.png) <br>
 
-- "code"contains code for analyses
-- "data" often has separate "raw" and "processed" (or "clean") folders
-    - Large files may be stored elsewhere
-- "output" contains figures and tables
+-   "code"contains code for analyses
+-   "data" often has separate "raw" and "processed" (or "clean") folders
+    -   Large files may be stored elsewhere
+-   "output" contains figures and tables
 :::
 
 ::: {.column width="4%"}
 :::
 
-
 ::: {.column width="50%"}
-::: {.fragment}
+::: fragment
 ### Names should be
 
 -   machine readable
@@ -147,15 +215,15 @@ Here's how I usually manage my folders:
 
 <br>
 
-::: {.fragment}
+::: fragment
 ### Coding rules
 
-Coding is communication. Messy code is bad communication, hampering collaboration and making it easier to make mistakes...
+Coding is communication. Messy code is bad communication. Bad communication hampers collaboration and makes it easier to make mistakes...
 :::
 
 <br>
 
-::: {.fragment}
+::: fragment
 ### Version control
 
 [Streamline, collaborate, reuse, contribute, and fail safely...](https://www.openscapes.org/blog/2022/05/27/github-illustrated-series/)
@@ -163,20 +231,21 @@ Coding is communication. Messy code is bad communication, hampering collaboratio
 
 ## Why write code? {.smaller background-color="#c2c190"}
 
-- **Automation** - reusing code is one click, and you're unlikely to introduce errors
-- A script provides a **record of your analysis**
-- Scientific coding languages like Python or R allow you to **run almost any kind of analysis in one scripted workflow** 
-    - GIS, phylogenetics, multivariate or Bayesian statistics, etc 
-    - saves you manually exporting and importing data between softwares 
-- Most coding languages are **open source** (e.g. R, Python, JavaScript, etc)
-    - You can share your code other users don't have to pay
-    - Transparency - Lots of people have checked the background code and functions you're using, not just the software company
-    - A culture of sharing code (online forums, with publications, etc)
-
+-   **Automation** - reusing code is one click, and you're unlikely to introduce errors
+-   A script provides a **record of your analysis**
+-   **Uninterrupted workflows** - scientific coding languages like Python or R allow you to run almost any kind of analysis in one scripted workflow
+    -   GIS, phylogenetics, multivariate or Bayesian statistics, etc
+    -   saves you manually exporting and importing data between softwares
+-   Most coding languages are **open source** (e.g. R, Python, JavaScript, etc)
+    -   **Free!** No one has to pay to reuse any code you share
+    -   **Transparent** - You (and others) can check the background code and functions you're using, not just the software company
+    -   A **culture of sharing** code (online forums, with publications, etc)
 
 ## Some coding rules {.smaller background-color="#c2c190"}
 
-It'seasytowritemessyindecipherablecode! ***Write code for people, not computers!!!***
+It'seasytowritemessyindecipherablecode!!! - ***Write code for people, not computers!!!***
+
+<br>
 
 Check out the [Tidyverse style guide](https://style.tidyverse.org/index.html) for R-specific guidance, but here are some basics:
 
@@ -185,14 +254,15 @@ Check out the [Tidyverse style guide](https://style.tidyverse.org/index.html) fo
 -   **modularize code** into manageable steps/chunks
     -   or separate scripts that can be called in order from a master script or Makefile
 -   use **commenting** to explain what you're doing at each step or in each function
-    - "notebooks" like RMarkdown or Jupyter Notebooks are handy for fulfilling roles like documentation, master/Makefiles, etc and can be developed into manuscripts
+    -   "notebooks" like RMarkdown, Quarto, Jupyter or Sweave allow embedded code, simplifying documentation, master/Makefiles, etc and can used to write manuscripts, presentations or websites (e.g. all my teaching materials)
 -   write **functions** rather than repeating the same code
 -   **check for mistakes** at every step!!! Do the outputs make sense?
 
 ## Some coding rules continued... {.smaller background-color="#c2c190"}
--   start with a "recipe" 
-    - outline the steps/modules before you start coding to keep you on track
-    - e.g. a common recipe in R (using commented headers):
+
+-   start with a "**recipe**"
+    -   outline the steps/modules before you start coding to keep you on track
+    -   e.g. a common recipe in R (using commented headers):
 
 ```{r, echo = T}
 #Header indicating purpose, author, date, version etc
@@ -210,51 +280,54 @@ Check out the [Tidyverse style guide](https://style.tidyverse.org/index.html) fo
 #Visualize outputs as figures or tables
 ```
 
--   avoid proprietary formats! i.e. use open source scripting languages and file formats
+-   avoid proprietary formats! i.e. use **open source** scripting languages and file formats
 -   use version control!!!
-
 
 ## Version control {.smaller background-color="#c2c190"}
 
 Version control tools can be challenging , but also hugely simplify your workflow!
 
-I've only ever used Git and [GitHub](https://github.com/), but they all have similar functions. Technical terms from GitHub appear like `this`. You can look them up [here](https://docs.github.com/en/get-started/quickstart).
+The advantages of version control[^3_reproducibility-1]:
 
-The advantages of version control as I see them:
+[^3_reproducibility-1]: We'll use Git and [GitHub](https://github.com/), but most have similar functions. You can look up `technical terms` [here](https://docs.github.com/en/get-started/quickstart).
 
 -   They generally help project management, especially **collaborations**
 -   They allow **easy code sharing** with collaborators or the public at large - through `repositories` ("repos") or `gists` (code snippets)
--   Users can easily **adapt or build on each others' code** by `forking` repos and working on their own `branch`.
-    -   This allows you to **repeat/replicate analyses** or even build websites (like this one!)
--   The **system is online**, but you **can also work offline** by `cloning` the repo to your local machine. You can `push` to or `pull` from the online repo to keep local and online versions updated.
+-   The **system is online**, but you **can also work offline** by `cloning` the repo to your local PC. You can "`push` to" or "`pull` from" the online repo to keep versions in sync.
+-   **Changes are tracked and reversible** through `commits`
+    -   Any changes in a repo must be `commit`ed with a `commit message`. Each `commit` is a recoverable `version` that can be `compared` or `reverted` to
+    -   This is **the essence of version control** and magically frees you from duplicated files!
 
 ## Version control continued... {.smaller background-color="#c2c190"}
 
--   **Changes are tracked and reversible** through `commits`
-    - Changes in the contents of a repo you must by `commit`ed with a `commit message` before pushing to the online repo. Each `commit` is a recoverable `version` that can be `compared` or `reverted` to
-    -   This is **the essence of version control** and magically frees you from duplicated files! 
--   Collaborators can **propose changes** via `pull requests` 
-    - Repo `owners` can **accept and integrate changes seamlessly** by `review` and `merge` the *forked branch* back to the `main` branch
-    - Comments associated with `commit` or `pull request`s provide a **written record of changes** and track the user, date, time, etc - all of which and are useful tracking mistakes and `blaming` when things go wrong
+-   Users can easily **adapt or build on each others' code** by `forking` repos and working on their own `branch`.
+    -   This allows you to **repeat/replicate analyses** or even build websites (like this one!)
+-   Collaborators can **propose changes** via `pull requests`
+    -   Repo `owners` can **accept and integrate changes seamlessly** by `review` and `merge` the *forked branch* back to the `main` branch
+    -   Comments associated with `commit` or `pull request`s provide a **written record of changes** and track the user, date, time, etc - all of which and are useful tracking mistakes and `blaming` when things go wrong
 -   You can `assign`, log and track `issues` and `feature requests`
 
-This should make more sense after the practical...
+This should all make more sense after the practical, but here are some pretty pictures to drive some of this home...
 
-<br>
+## Version control {.smaller background-color="#c2c190"}
+
+![Allison Horst [CC-BY-4.0](https://github.com/allisonhorst/stats-illustrations/blob/main/license)](img/git_commit.png)
+
+## Version control {.smaller background-color="#c2c190"}
+
+![Allison Horst [CC-BY-4.0](https://github.com/allisonhorst/stats-illustrations/blob/main/license)](img/git_navigate.png)
 
 ## 4. Computing environment {.smaller background-color="#33431e"}
 
 Sharing your code and data is not enough to maintain reproducibility...
 
+***Software and hardware change with upgrades, versions or user community preferences!***
 
-**Software and hardware change with upgrades, versions or user community preferences**
+-   You'll all know MicroSoft Excel, but have you heard of Quattro Pro or Lotus that were the preferred spreadsheet software of yesteryear?
 
-- You'll all know MicroSoft Excel, but have you heard of Quattro Pro or Lotus that were the preferred spreadsheet software of yesteryear?
+The ***simple solution*** is to **carefully document the hardware and versions of software** used so that others can recreate that computing environment if needed.
 
-
-The ***simple solution*** is to **carefully document the hardware and versions of software** used so that others can recreate that computing environment if needed. 
-
-- In R, you can simply run the `sessionInfo()` function, like so:
+-   In R, you can simply run the `sessionInfo()` function, giving details like so:
 
 ```{r}
 sessionInfo()
@@ -266,11 +339,11 @@ sessionInfo()
 
 ### Containers
 
-A ***better solution*** is to use **containers** like [docker](https://www.docker.com/) or [singularity](https://sylabs.io/singularity/). 
+A ***better solution*** is to use **containers** like [docker](https://www.docker.com/) or [singularity](https://sylabs.io/singularity/).
 
 <br>
 
-These are contained, lightweight computing environments similar to [virtual machines](https://en.wikipedia.org/wiki/Virtual_machine), that you can package with your software/workflow. 
+These are contained, lightweight computing environments similar to [virtual machines](https://en.wikipedia.org/wiki/Virtual_machine), that you can package with your software/workflow.
 
 <br>
 
@@ -293,76 +366,8 @@ Another key component here is that ideally all your data, code, publication etc 
 :::
 
 ::: {.column width="45%"}
-![A 3-step, 10-point checklist to guide researchers toward greater reproducibility in their research [@Alston2021].](img/alstonreproducibility.jpg)
+![A 3-step, 10-point checklist to guide researchers toward greater reproducibility [@Alston2021].](img/alstonreproducibility.jpg)
 :::
 :::
 
-
-## Why work reproducibly? {.smaller background-color="#33431e"}
-
-![Let's start being more specific about our miracles... Cartoon &copy; Sidney Harris. Used with permission [ScienceCartoonsPlus.com](www.ScienceCartoonsPlus.com)](img/miracle.jpg)
-
-
-## Why work reproducibly? {.smaller background-color="#33431e"}
-
-<br>
-
-> "*Five selfish reasons to work reproducibly*" [@Markowetz2015]
-
-1.  Its ***transparent and open***, helping us avoid mistakes or track down errors in analyses
-
-2.  It makes it ***easier to write papers***
-
-3.  It ***helps the review process***
-
-4.  It ***enables continuity*** of the research
-
-5.  It helps to build your ***reputation***
-
-## Why work reproducibly? {.smaller background-color="#33431e"}
-
-<br>
-
-Some less selfish reasons (and relevant for ecoforecasting):
-
-6.  It ***speeds progress in science*** by allowing you (or others) to rapidly build on previous findings and analyses
-
-7.  It ***allows easy comparison*** of new analytical approaches to older ones
-
-8.  It makes it easy to ***repeat analyses on new data***, e.g. for ecological forecasting or LTER
-
-9.  The tools used are ***useful beyond Reproducible Research***, e.g. building websites
-
-10. Reproducible research ***skills are highly sought after!*** 
-
--   Skills are important should you decide to leave science...
--   Within science, more and more environmental organizations and NGOs are hiring data scientists or scientists with strong data and quantitative skills.
-
-## Barriers to working reproducibly {.smaller background-color="#33431e"}
-
-(Adapted from "A Beginner's Guide to Conducting Reproducible Research" [@Alston2021])
-
-**1. Complexity**
-
--   There's a learning curve in getting to know and use the tools effectively.
--   One is always tempted by the "easy option" of doing it the way you already know or using "user-friendly" proprietary software.
-
-**2. Technological change**
-
--   Hardware and software used in analyses change over time, making it very difficult to rerun old analyses etc.
--   This should be less of a problem as more tools lik contained computing environments become available
-
-## Barriers to working reproducibly {.smaller background-color="#33431e"}
-
-**3. Human error**
-
--   Simple mistakes or poor documentation can easily make a study irreproducible.
--   Most reproducible research tools are actually aimed at solving this problem!
-
-**4. Intellectual property rights**
-
--   Rational self-interest can lead to hesitation to share data and code via many pathways:
-    -   Fear of not getting credit; Concern that the materials shared will be used incorrectly or unethically; etc
--   Hopefully most of these issues will be solved by better awareness of licensing issues, attribution, etc, as the culture of reproducible research grows
-
-
+## References {.smaller background-color="#33431e"}
