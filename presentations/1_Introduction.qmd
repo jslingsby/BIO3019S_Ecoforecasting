@@ -15,7 +15,7 @@ Jasper Slingsby
 
 ##  {background-color="#33431e"}
 
-### What do you consider when making a decision?
+### What do you consider when making decisions?
 
 . . .
 
@@ -31,7 +31,7 @@ We base our *expectation* on:
 
 ##  {background-color="#33431e"}
 
-### What do you consider when making a decision?
+### What do you consider when making decisions?
 
 This can be represented like so:
 
@@ -41,7 +41,7 @@ This can be represented like so:
 
 This framework is similar if you are approaching the decision quantitatively (i.e. using models and data).
 
-![Using models and data when making a decision](img/decisions2.png)
+![](img/decisions2.png)
 
 ## A hypothetical example {.smaller background-color="#c2c190"}
 
@@ -108,20 +108,22 @@ So iterative decision-making facilitates iterative learning (i.e. scientific pro
 
 ##  {.smaller background-color="#33431e"}
 
-### The importance of prediction in ecology
+### The importance of forecasting in ecology
 
-> "prediction is the only way to demonstrate scientific understanding" - Houlahan et al. 2017
-
-If we cannot make reasonably good predictions, we're missing something.
+> "prediction[^1] is the only way to demonstrate scientific understanding" - Houlahan et al. 2017 
+>
+> ...if we cannot make reasonably good predictions, we're missing something.
 
 In ecology, we mostly test qualitative, imprecise hypotheses:
 
 -   *"Does X have an effect on Y?"*, rather than:
 -   *"What is the relationship between X and Y?"* or better yet - *"What value would we expect Y to be, given a particular value of X?"*
 
-**Without testing precise hypotheses and using the results to make *testable predictions* we don't know if our findings are generalizable beyond our specific data set.**
+Without testing precise hypotheses and using the results to make ***testable predictions*** we don't know if our findings are generalizable beyond our specific data set.
 
--   If our results are not generalisable, then we're not making progress towards a better understanding of ecology.
+-   If results are not generalisable, they're not improving our understanding of ecology.
+
+[^1]: Prediction is estimating the outcomes for unseen data. Forecasting is prediction into the future.
 
 ##  {.smaller background-color="#33431e"}
 
@@ -143,7 +145,7 @@ In ecology, we mostly test qualitative, imprecise hypotheses:
 
 **Step 1:** Start with your *initial conditions* (data and knowledge that feed into designing and fitting your model)
 
-![](img/initialconditions.png){fig-align="center"}
+![From @Dietze2018](img/initialconditions.png){fig-align="center"}
 
 ##  {.smaller background-color="#33431e"}
 
@@ -151,7 +153,7 @@ In ecology, we mostly test qualitative, imprecise hypotheses:
 
 **Step 2:** Make *forecasts* (i.e. predictions into the future - in blue) using your model, based on your *initial conditions* (red).
 
-![](img/forecast.png){fig-align="center"}
+![From @Dietze2018](img/forecast.png){fig-align="center"}
 
 ##  {.smaller background-color="#33431e"}
 
@@ -159,7 +161,7 @@ In ecology, we mostly test qualitative, imprecise hypotheses:
 
 **Step 3:** Monitor and collect *new observations* (green) to compare with your *forecasts* (blue) and original observations (i.e. initial conditions (red)).
 
-![](img/newobservations.png){fig-align="center"}
+![From @Dietze2018](img/newobservations.png){fig-align="center"}
 
 ##  {.smaller background-color="#33431e"}
 
@@ -167,7 +169,7 @@ In ecology, we mostly test qualitative, imprecise hypotheses:
 
 **Step 4:** Analyze the new observations in the context of your forecasts and original observations, and update the initial conditions for the next iteration of the forecast.
 
-![](img/analyzeandupdate.png){fig-align="center"}
+![From @Dietze2018](img/analyzeandupdate.png){fig-align="center"}
 
 ##  {.smaller background-color="#c2c190"}
 
@@ -177,7 +179,7 @@ This can also be represented as a cycle, mirroring the scientific method:
 
 ::: columns
 ::: {.column width="45%"}
-![](img/ecoforecastingloop.png){fig-align="center"}
+![From @Dietze2018](img/ecoforecastingloop.png){fig-align="center"}
 :::
 
 ::: {.column width="10%"}
@@ -197,11 +199,11 @@ The key steps are:
 
 ### Iterative near-term ecological forecasting
 
-Two things not indicated in this diagram are:
+Two things not obvious from this diagram are:
 
--   comparing forecasts and new observations allows you to learn about the various sources and drivers of ***uncertainty*** in your forecast
-    -   this can be used to ***refine your model*** or ***adapt or guide what and how to monitor*** so that you can reduce those uncertainties
--   iterative ecological forecsts require **automated** informatics pipeline, which are best done in a ***reproducible research*** framework
+-   comparing forecasts and new observations allows you to learn about sources and drivers of ***uncertainty*** in your forecast
+    -   allowing you to ***refine your model*** or ***adapt or guide what and how to monitor*** to reduce those uncertainties
+-   iterative ecological forecasts require **automated** informatics pipelines, best done in a ***reproducible research*** framework
 
 ##  {background-color="#33431e"}
 
@@ -209,10 +211,10 @@ Two things not indicated in this diagram are:
 
 Iterative ecological forecasts are thus aimed at:
 
-1.  **applied** outcomes, through providing evidence to support **decision making**
-2.  **knowledge generation** through iterative learning i.e. **the scientific method**
+1.  ***applied*** outcomes, through providing evidence to support ***decision making***
+2.  ***knowledge generation*** through iterative learning i.e. ***the scientific method***
 
-So it's a great way of getting scientists to engage in real-world problems, demonstrating the value of our science, and **learning by doing**!
+So it's a great way of getting scientists to engage in real-world problems, demonstrating the value of our science, and ***learning by doing!***
 
 ##  {.smaller background-color="#33431e"}
 
