@@ -3,7 +3,7 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">A Minimal Introduction to Ecological Forecasting and Reproducible Research</a></li>
+        <li><a href="./">A Minimal Introduction to Ecological Forecasting</a></li>
       after: |
         <li><a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting" target="blank">Published with bookdown</a></li>
     edit: https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/%s

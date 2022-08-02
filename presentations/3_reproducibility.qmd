@@ -43,6 +43,16 @@ Sadly, we have a problem...
 
 <br>
 
+## Replication vs Reproducibility {background-color="#33431e"}
+
+<br>
+
+-   ***Reproducibility*** falls short of full ***replication*** because it focuses on reproducing the same result ***from the same data set***, rather than analyzing independently collected data.
+
+<br>
+
+-   This difference may seem trivial, but you'd be surprised at how few studies are even reproducible, let alone replicable.
+
 ##  {.smaller background-color="#33431e"}
 
 ### Replication and the Reproducibility Spectrum
@@ -53,15 +63,6 @@ Sadly, we have a problem...
     -   rare phenomena, long term records, very expensive projects like space missions, etc
 -   Where the "gold standard" of full replication cannot be achieved, we have to settle for a lower rung somewhere on ***The Reproducibility Spectrum*** [@Peng2011]
 
-## Replication vs Reproducibility {background-color="#33431e"}
-
-<br>
-
--   ***Reproducibility*** falls short of full ***replication*** because it focuses on reproducing the same result ***from the same data set***, rather than analyzing independently collected data.
-
-<br>
-
--   This difference may seem trivial, but you'd be surprised at how few studies are even reproducible, let alone replicable.
 
 ## Why work reproducibly? {.smaller background-color="#33431e"}
 
@@ -89,14 +90,16 @@ Some less selfish reasons (and relevant for ecoforecasting):
 
 7.  It ***allows easy comparison*** of new analytical approaches to older ones
 
-8.  It makes it easy to ***repeat analyses on new data***, e.g. for ecological forecasting or LTER
+8.  It makes it easy to ***repeat analyses on new data***, e.g. for ecological forecasting or LTER[^1]
 
 9.  The tools used are ***useful beyond Reproducible Research***, e.g. building websites
 
 10. Reproducible research ***skills are highly sought after!***
 
 -   Skills are important should you decide to leave science...
--   Within science, more and more environmental organizations and NGOs are hiring data scientists or scientists with strong data and quantitative skills.
+-   Within science, more and more environmental organizations and NGOs are hiring data scientists or scientists with strong data and quantitative skills
+
+[^1]: Long Term Ecological Research
 
 ## Barriers to working reproducibly {.smaller background-color="#33431e"}
 
@@ -106,12 +109,12 @@ From "A Beginner's Guide to Conducting Reproducible Research" [@Alston2021]:
 
 **1. Complexity**
 
--   There's a learning curve in getting to know and use the tools effectively.
--   One is always tempted by the "easy option" of doing it the way you already know or using "user-friendly" proprietary software.
+-   There's a learning curve in getting to know and use the tools effectively
+-   One is always tempted by the "easy option" of doing it the way you already know or using "user-friendly" proprietary software
 
 **2. Technological change**
 
--   Hardware and software used in analyses change over time, making it very difficult to rerun old analyses etc.
+-   Hardware and software used in analyses change over time, making it very difficult to rerun old analyses etc
     -   This should be less of a problem as more tools like contained computing environments become available
 
 ## Barriers to working reproducibly {.smaller background-color="#33431e"}
@@ -250,7 +253,7 @@ It'seasytowritemessyindecipherablecode!!! - ***Write code for people, not comput
 Check out the [Tidyverse style guide](https://style.tidyverse.org/index.html) for R-specific guidance, but here are some basics:
 
 -   use consistent, meaningful and distinct **names** for variables and functions
--   use consistent code and **formatting style**
+-   use consistent code and **formatting style** - indents, spaces, line-breaks, etc
 -   **modularize code** into manageable steps/chunks
     -   or separate scripts that can be called in order from a master script or Makefile
 -   use **commenting** to explain what you're doing at each step or in each function
