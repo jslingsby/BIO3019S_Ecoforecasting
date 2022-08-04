@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2022-08-02" />
+<meta name="date" content="2022-08-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -155,7 +155,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Introduction to Ecological Forecasting and Reproducible Research</a></li>
+<li><a href="./">A Minimal Introduction to Ecological Forecasting</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
@@ -334,20 +334,20 @@ div.csl-indent {
 <div id="source-functions-get-data-and-plot" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Source functions, get data and plot<a href="practical-output-master-script-for-postfire-analysis.html#source-functions-get-data-and-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>First we’ll <em>source()</em> (i.e. “run all code in”) the scripts with the functions we made. Then we’ll set the URL, read in the data with <em>download.NDVI()</em>, and plot it with <em>plot.NDVI()</em>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Load required functions by running source() on the individual function files</span></span>
-<span id="cb14-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">file.exists</span>(<span class="st">&quot;praccode/01_download.NDVI.R&quot;</span>)) <span class="fu">source</span>(<span class="st">&quot;praccode/01_download.NDVI.R&quot;</span>)</span>
-<span id="cb14-3"><a href="practical-output-master-script-for-postfire-analysis.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">file.exists</span>(<span class="st">&quot;praccode/02_plot.NDVI.R&quot;</span>))     <span class="fu">source</span>(<span class="st">&quot;praccode/02_plot.NDVI.R&quot;</span>)</span>
-<span id="cb14-4"><a href="practical-output-master-script-for-postfire-analysis.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">file.exists</span>(<span class="st">&quot;praccode/03_negexp.R&quot;</span>))        <span class="fu">source</span>(<span class="st">&quot;praccode/03_negexp.R&quot;</span>)</span>
-<span id="cb14-5"><a href="practical-output-master-script-for-postfire-analysis.html#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="practical-output-master-script-for-postfire-analysis.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Download NDVI data</span></span>
-<span id="cb14-7"><a href="practical-output-master-script-for-postfire-analysis.html#cb14-7" aria-hidden="true" tabindex="-1"></a>URL <span class="ot">=</span> <span class="st">&quot;https://raw.githubusercontent.com/jslingsby/BIO3019S_Ecoforecasting/master/data/modisdata.csv&quot;</span></span>
-<span id="cb14-8"><a href="practical-output-master-script-for-postfire-analysis.html#cb14-8" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">download.NDVI</span>(URL)</span>
-<span id="cb14-9"><a href="practical-output-master-script-for-postfire-analysis.html#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-10"><a href="practical-output-master-script-for-postfire-analysis.html#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert &quot;calendar_date&quot; to postfire age in days since fire - assuming the first date in the times eries is the time of the fire </span></span>
-<span id="cb14-11"><a href="practical-output-master-script-for-postfire-analysis.html#cb14-11" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>age <span class="ot">&lt;-</span> (<span class="fu">as.numeric</span>(dat<span class="sc">$</span>calendar_date) <span class="sc">-</span> <span class="fu">min</span>(<span class="fu">as.numeric</span>(dat<span class="sc">$</span>calendar_date), <span class="at">na.rm =</span> T))<span class="sc">/</span><span class="fl">365.25</span></span>
-<span id="cb14-12"><a href="practical-output-master-script-for-postfire-analysis.html#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="practical-output-master-script-for-postfire-analysis.html#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Plot overall NDVI time series</span></span>
-<span id="cb14-14"><a href="practical-output-master-script-for-postfire-analysis.html#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.NDVI</span>(dat)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Load required functions by running source() on the individual function files</span></span>
+<span id="cb15-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">file.exists</span>(<span class="st">&quot;praccode/01_download.NDVI.R&quot;</span>)) <span class="fu">source</span>(<span class="st">&quot;praccode/01_download.NDVI.R&quot;</span>)</span>
+<span id="cb15-3"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">file.exists</span>(<span class="st">&quot;praccode/02_plot.NDVI.R&quot;</span>))     <span class="fu">source</span>(<span class="st">&quot;praccode/02_plot.NDVI.R&quot;</span>)</span>
+<span id="cb15-4"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">file.exists</span>(<span class="st">&quot;praccode/03_negexp.R&quot;</span>))        <span class="fu">source</span>(<span class="st">&quot;praccode/03_negexp.R&quot;</span>)</span>
+<span id="cb15-5"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Download NDVI data</span></span>
+<span id="cb15-7"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-7" aria-hidden="true" tabindex="-1"></a>URL <span class="ot">=</span> <span class="st">&quot;https://raw.githubusercontent.com/jslingsby/BIO3019S_Ecoforecasting/master/data/modisdata.csv&quot;</span></span>
+<span id="cb15-8"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-8" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">download.NDVI</span>(URL)</span>
+<span id="cb15-9"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert &quot;calendar_date&quot; to postfire age in days since fire - assuming the first date in the times eries is the time of the fire </span></span>
+<span id="cb15-11"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-11" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>age <span class="ot">&lt;-</span> (<span class="fu">as.numeric</span>(dat<span class="sc">$</span>calendar_date) <span class="sc">-</span> <span class="fu">min</span>(<span class="fu">as.numeric</span>(dat<span class="sc">$</span>calendar_date), <span class="at">na.rm =</span> T))<span class="sc">/</span><span class="fl">365.25</span></span>
+<span id="cb15-12"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Plot overall NDVI time series</span></span>
+<span id="cb15-14"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.NDVI</span>(dat)</span></code></pre></div>
 <p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p><br></p>
 <p>Q1: This plot suggests that Fynbos greenness (NDVI) as observed from satellite saturates with time since fire. Why do you think it saturates rather than increasing linearly with time?</p>
@@ -360,23 +360,23 @@ div.csl-indent {
 <h2><span class="header-section-number">7.2</span> Fit models using Non-linear Least Squares (NLS)<a href="practical-output-master-script-for-postfire-analysis.html#fit-models-using-non-linear-least-squares-nls" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now we’ll fit the simple and full negative exponential models using Non-linear Least Squares (NLS).</p>
 <p>First the simpler model:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Simple model</span></span>
-<span id="cb15-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># set parameters</span></span>
-<span id="cb15-4"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-4" aria-hidden="true" tabindex="-1"></a>par <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">gamma =</span> <span class="fl">0.4</span>, <span class="at">lambda =</span> <span class="fl">0.5</span>)</span>
-<span id="cb15-5"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># fit model</span></span>
-<span id="cb15-7"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-7" aria-hidden="true" tabindex="-1"></a>fit_negexp <span class="ot">&lt;-</span> <span class="fu">nls</span>(NDVI <span class="sc">~</span> alpha <span class="sc">+</span> gamma <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span> age<span class="sc">/</span>lambda)),</span>
-<span id="cb15-8"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> dat, <span class="at">start =</span> par, <span class="at">trace =</span> F, </span>
-<span id="cb15-9"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">control =</span> <span class="fu">nls.control</span>(<span class="at">maxiter =</span> <span class="dv">500</span>))</span>
-<span id="cb15-10"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
-<span id="cb15-12"><a href="practical-output-master-script-for-postfire-analysis.html#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.NDVI</span>(<span class="at">dat =</span> dat, <span class="at">fit =</span> fit_negexp)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Simple model</span></span>
+<span id="cb16-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="practical-output-master-script-for-postfire-analysis.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># set parameters</span></span>
+<span id="cb16-4"><a href="practical-output-master-script-for-postfire-analysis.html#cb16-4" aria-hidden="true" tabindex="-1"></a>par <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">gamma =</span> <span class="fl">0.4</span>, <span class="at">lambda =</span> <span class="fl">0.5</span>)</span>
+<span id="cb16-5"><a href="practical-output-master-script-for-postfire-analysis.html#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="practical-output-master-script-for-postfire-analysis.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># fit model</span></span>
+<span id="cb16-7"><a href="practical-output-master-script-for-postfire-analysis.html#cb16-7" aria-hidden="true" tabindex="-1"></a>fit_negexp <span class="ot">&lt;-</span> <span class="fu">nls</span>(NDVI <span class="sc">~</span> alpha <span class="sc">+</span> gamma <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span> age<span class="sc">/</span>lambda)),</span>
+<span id="cb16-8"><a href="practical-output-master-script-for-postfire-analysis.html#cb16-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> dat, <span class="at">start =</span> par, <span class="at">trace =</span> F, </span>
+<span id="cb16-9"><a href="practical-output-master-script-for-postfire-analysis.html#cb16-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">control =</span> <span class="fu">nls.control</span>(<span class="at">maxiter =</span> <span class="dv">500</span>))</span>
+<span id="cb16-10"><a href="practical-output-master-script-for-postfire-analysis.html#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="practical-output-master-script-for-postfire-analysis.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb16-12"><a href="practical-output-master-script-for-postfire-analysis.html#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.NDVI</span>(<span class="at">dat =</span> dat, <span class="at">fit =</span> fit_negexp)</span></code></pre></div>
 <p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p><br></p>
 <p>And let’s look at the model summary with parameter estimates</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print model summary</span></span>
-<span id="cb16-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_negexp)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print model summary</span></span>
+<span id="cb17-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_negexp)</span></code></pre></div>
 <pre><code>## 
 ## Formula: NDVI ~ alpha + gamma * (1 - exp(-age/lambda))
 ## 
@@ -395,22 +395,22 @@ div.csl-indent {
 ## Achieved convergence tolerance: 3.924e-06</code></pre>
 <p><br></p>
 <p>Now the full model:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Full model</span></span>
-<span id="cb18-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="practical-output-master-script-for-postfire-analysis.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># set parameters</span></span>
-<span id="cb18-4"><a href="practical-output-master-script-for-postfire-analysis.html#cb18-4" aria-hidden="true" tabindex="-1"></a>par <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">gamma =</span> <span class="fl">0.4</span>, <span class="at">lambda =</span> <span class="fl">0.5</span>, <span class="at">A =</span> <span class="fl">0.6</span>, <span class="at">phi =</span> <span class="dv">0</span>)</span>
-<span id="cb18-5"><a href="practical-output-master-script-for-postfire-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="practical-output-master-script-for-postfire-analysis.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># fit model</span></span>
-<span id="cb18-7"><a href="practical-output-master-script-for-postfire-analysis.html#cb18-7" aria-hidden="true" tabindex="-1"></a>fit_negexpS <span class="ot">&lt;-</span> <span class="fu">nls</span>(NDVI <span class="sc">~</span> alpha <span class="sc">+</span> gamma <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span> age<span class="sc">/</span>lambda))</span>
-<span id="cb18-8"><a href="practical-output-master-script-for-postfire-analysis.html#cb18-8" aria-hidden="true" tabindex="-1"></a>                   <span class="sc">+</span> A<span class="sc">*</span><span class="fu">sin</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>age <span class="sc">+</span> (phi <span class="sc">+</span> pi<span class="sc">/</span><span class="dv">6</span><span class="sc">*</span>(<span class="dv">3</span> <span class="sc">-</span> <span class="dv">1</span>))), </span>
-<span id="cb18-9"><a href="practical-output-master-script-for-postfire-analysis.html#cb18-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> dat, <span class="at">start =</span> par, <span class="at">trace =</span> F, </span>
-<span id="cb18-10"><a href="practical-output-master-script-for-postfire-analysis.html#cb18-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">control =</span> <span class="fu">nls.control</span>(<span class="at">maxiter =</span> <span class="dv">500</span>))</span>
-<span id="cb18-11"><a href="practical-output-master-script-for-postfire-analysis.html#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-12"><a href="practical-output-master-script-for-postfire-analysis.html#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
-<span id="cb18-13"><a href="practical-output-master-script-for-postfire-analysis.html#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.NDVI</span>(<span class="at">dat =</span> dat, <span class="at">fit =</span> fit_negexpS)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Full model</span></span>
+<span id="cb19-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="practical-output-master-script-for-postfire-analysis.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># set parameters</span></span>
+<span id="cb19-4"><a href="practical-output-master-script-for-postfire-analysis.html#cb19-4" aria-hidden="true" tabindex="-1"></a>par <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">gamma =</span> <span class="fl">0.4</span>, <span class="at">lambda =</span> <span class="fl">0.5</span>, <span class="at">A =</span> <span class="fl">0.6</span>, <span class="at">phi =</span> <span class="dv">0</span>)</span>
+<span id="cb19-5"><a href="practical-output-master-script-for-postfire-analysis.html#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="practical-output-master-script-for-postfire-analysis.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># fit model</span></span>
+<span id="cb19-7"><a href="practical-output-master-script-for-postfire-analysis.html#cb19-7" aria-hidden="true" tabindex="-1"></a>fit_negexpS <span class="ot">&lt;-</span> <span class="fu">nls</span>(NDVI <span class="sc">~</span> alpha <span class="sc">+</span> gamma <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span> age<span class="sc">/</span>lambda))</span>
+<span id="cb19-8"><a href="practical-output-master-script-for-postfire-analysis.html#cb19-8" aria-hidden="true" tabindex="-1"></a>                   <span class="sc">+</span> A<span class="sc">*</span><span class="fu">sin</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>age <span class="sc">+</span> (phi <span class="sc">+</span> pi<span class="sc">/</span><span class="dv">6</span><span class="sc">*</span>(<span class="dv">3</span> <span class="sc">-</span> <span class="dv">1</span>))), </span>
+<span id="cb19-9"><a href="practical-output-master-script-for-postfire-analysis.html#cb19-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> dat, <span class="at">start =</span> par, <span class="at">trace =</span> F, </span>
+<span id="cb19-10"><a href="practical-output-master-script-for-postfire-analysis.html#cb19-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">control =</span> <span class="fu">nls.control</span>(<span class="at">maxiter =</span> <span class="dv">500</span>))</span>
+<span id="cb19-11"><a href="practical-output-master-script-for-postfire-analysis.html#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="practical-output-master-script-for-postfire-analysis.html#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb19-13"><a href="practical-output-master-script-for-postfire-analysis.html#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.NDVI</span>(<span class="at">dat =</span> dat, <span class="at">fit =</span> fit_negexpS)</span></code></pre></div>
 <p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print model summary</span></span>
-<span id="cb19-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_negexpS)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print model summary</span></span>
+<span id="cb20-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_negexpS)</span></code></pre></div>
 <pre><code>## 
 ## Formula: NDVI ~ alpha + gamma * (1 - exp(-age/lambda)) + A * sin(2 * pi * 
 ##     age + (phi + pi/6 * (3 - 1)))
@@ -442,7 +442,7 @@ div.csl-indent {
 <h2><span class="header-section-number">7.3</span> Compare NLS models using ANOVA<a href="practical-output-master-script-for-postfire-analysis.html#compare-nls-models-using-anova" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Modelers often want to know which of a set of models are better. One way to do this when comparing nested* models using least squares is using analysis of variance (ANOVA). In this case the <code>anova()</code> function will take the model objects as arguments, and return an ANOVA testing whether the full model results in a significant reduction in the residual sum of squares (and thus is better at capturing the data), returning an F-statistic, Degrees of Freedom (the difference in the number of parameters between the models) and p-value.</p>
 <p>*i.e. one model is a subset of the other, as in our case</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit_negexp, fit_negexpS)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit_negexp, fit_negexpS)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Model 1: NDVI ~ alpha + gamma * (1 - exp(-age/lambda))
@@ -467,20 +467,20 @@ div.csl-indent {
 <div id="fit-models-using-maximum-likelihood-estimation-mle" class="section level2 hasAnchor" number="7.4">
 <h2><span class="header-section-number">7.4</span> Fit models using Maximum Likelihood Estimation (MLE)<a href="practical-output-master-script-for-postfire-analysis.html#fit-models-using-maximum-likelihood-estimation-mle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>First let’s fit the simpler model:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Fit the simpler model using MLE</span></span>
-<span id="cb23-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="practical-output-master-script-for-postfire-analysis.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># set parameters</span></span>
-<span id="cb23-4"><a href="practical-output-master-script-for-postfire-analysis.html#cb23-4" aria-hidden="true" tabindex="-1"></a>par <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">gamma =</span> <span class="fl">0.4</span>, <span class="at">lambda =</span> <span class="fl">0.5</span>)</span>
-<span id="cb23-5"><a href="practical-output-master-script-for-postfire-analysis.html#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-6"><a href="practical-output-master-script-for-postfire-analysis.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># fit model</span></span>
-<span id="cb23-7"><a href="practical-output-master-script-for-postfire-analysis.html#cb23-7" aria-hidden="true" tabindex="-1"></a>fit_negexpMLE <span class="ot">&lt;-</span> <span class="fu">fit.negexp.MLE</span>(dat, par)</span>
-<span id="cb23-8"><a href="practical-output-master-script-for-postfire-analysis.html#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-9"><a href="practical-output-master-script-for-postfire-analysis.html#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
-<span id="cb23-10"><a href="practical-output-master-script-for-postfire-analysis.html#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.NDVI</span>(dat)</span>
-<span id="cb23-11"><a href="practical-output-master-script-for-postfire-analysis.html#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co"># add curve with MLE parameters</span></span>
-<span id="cb23-12"><a href="practical-output-master-script-for-postfire-analysis.html#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(dat<span class="sc">$</span>age, <span class="fu">pred.negexp</span>(fit_negexpMLE<span class="sc">$</span>par,dat<span class="sc">$</span>age), <span class="at">col =</span> <span class="st">&#39;skyblue&#39;</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Fit the simpler model using MLE</span></span>
+<span id="cb24-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="practical-output-master-script-for-postfire-analysis.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># set parameters</span></span>
+<span id="cb24-4"><a href="practical-output-master-script-for-postfire-analysis.html#cb24-4" aria-hidden="true" tabindex="-1"></a>par <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">gamma =</span> <span class="fl">0.4</span>, <span class="at">lambda =</span> <span class="fl">0.5</span>)</span>
+<span id="cb24-5"><a href="practical-output-master-script-for-postfire-analysis.html#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="practical-output-master-script-for-postfire-analysis.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># fit model</span></span>
+<span id="cb24-7"><a href="practical-output-master-script-for-postfire-analysis.html#cb24-7" aria-hidden="true" tabindex="-1"></a>fit_negexpMLE <span class="ot">&lt;-</span> <span class="fu">fit.negexp.MLE</span>(dat, par)</span>
+<span id="cb24-8"><a href="practical-output-master-script-for-postfire-analysis.html#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="practical-output-master-script-for-postfire-analysis.html#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb24-10"><a href="practical-output-master-script-for-postfire-analysis.html#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.NDVI</span>(dat)</span>
+<span id="cb24-11"><a href="practical-output-master-script-for-postfire-analysis.html#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="co"># add curve with MLE parameters</span></span>
+<span id="cb24-12"><a href="practical-output-master-script-for-postfire-analysis.html#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(dat<span class="sc">$</span>age, <span class="fu">pred.negexp</span>(fit_negexpMLE<span class="sc">$</span>par,dat<span class="sc">$</span>age), <span class="at">col =</span> <span class="st">&#39;skyblue&#39;</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb24-1" aria-hidden="true" tabindex="-1"></a>fit_negexpMLE</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb25-1" aria-hidden="true" tabindex="-1"></a>fit_negexpMLE</span></code></pre></div>
 <pre><code>## $par
 ##     alpha     gamma    lambda 
 ## 0.2510442 0.3237419 1.1767370 
@@ -499,20 +499,20 @@ div.csl-indent {
 ## NULL</code></pre>
 <p><br></p>
 <p>Then the full model:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Fit the full model using MLE</span></span>
-<span id="cb26-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="practical-output-master-script-for-postfire-analysis.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># set parameters</span></span>
-<span id="cb26-4"><a href="practical-output-master-script-for-postfire-analysis.html#cb26-4" aria-hidden="true" tabindex="-1"></a>par <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">gamma =</span> <span class="fl">0.4</span>, <span class="at">lambda =</span> <span class="fl">0.5</span>, <span class="at">A =</span> <span class="fl">0.6</span>, <span class="at">phi =</span> <span class="dv">0</span>)</span>
-<span id="cb26-5"><a href="practical-output-master-script-for-postfire-analysis.html#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-6"><a href="practical-output-master-script-for-postfire-analysis.html#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># fit model</span></span>
-<span id="cb26-7"><a href="practical-output-master-script-for-postfire-analysis.html#cb26-7" aria-hidden="true" tabindex="-1"></a>fit_negexpMLES <span class="ot">&lt;-</span> <span class="fu">fit.negexpS.MLE</span>(dat, par)</span>
-<span id="cb26-8"><a href="practical-output-master-script-for-postfire-analysis.html#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-9"><a href="practical-output-master-script-for-postfire-analysis.html#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
-<span id="cb26-10"><a href="practical-output-master-script-for-postfire-analysis.html#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.NDVI</span>(dat)</span>
-<span id="cb26-11"><a href="practical-output-master-script-for-postfire-analysis.html#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co"># add curve with MLE parameters</span></span>
-<span id="cb26-12"><a href="practical-output-master-script-for-postfire-analysis.html#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(dat<span class="sc">$</span>age, <span class="fu">pred.negexpS</span>(fit_negexpMLES<span class="sc">$</span>par,dat<span class="sc">$</span>age), <span class="at">col =</span> <span class="st">&#39;skyblue&#39;</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Fit the full model using MLE</span></span>
+<span id="cb27-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="practical-output-master-script-for-postfire-analysis.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># set parameters</span></span>
+<span id="cb27-4"><a href="practical-output-master-script-for-postfire-analysis.html#cb27-4" aria-hidden="true" tabindex="-1"></a>par <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">gamma =</span> <span class="fl">0.4</span>, <span class="at">lambda =</span> <span class="fl">0.5</span>, <span class="at">A =</span> <span class="fl">0.6</span>, <span class="at">phi =</span> <span class="dv">0</span>)</span>
+<span id="cb27-5"><a href="practical-output-master-script-for-postfire-analysis.html#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="practical-output-master-script-for-postfire-analysis.html#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co"># fit model</span></span>
+<span id="cb27-7"><a href="practical-output-master-script-for-postfire-analysis.html#cb27-7" aria-hidden="true" tabindex="-1"></a>fit_negexpMLES <span class="ot">&lt;-</span> <span class="fu">fit.negexpS.MLE</span>(dat, par)</span>
+<span id="cb27-8"><a href="practical-output-master-script-for-postfire-analysis.html#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="practical-output-master-script-for-postfire-analysis.html#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb27-10"><a href="practical-output-master-script-for-postfire-analysis.html#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.NDVI</span>(dat)</span>
+<span id="cb27-11"><a href="practical-output-master-script-for-postfire-analysis.html#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co"># add curve with MLE parameters</span></span>
+<span id="cb27-12"><a href="practical-output-master-script-for-postfire-analysis.html#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(dat<span class="sc">$</span>age, <span class="fu">pred.negexpS</span>(fit_negexpMLES<span class="sc">$</span>par,dat<span class="sc">$</span>age), <span class="at">col =</span> <span class="st">&#39;skyblue&#39;</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb27-1" aria-hidden="true" tabindex="-1"></a>fit_negexpMLES</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb28-1" aria-hidden="true" tabindex="-1"></a>fit_negexpMLES</span></code></pre></div>
 <pre><code>## $par
 ##       alpha       gamma      lambda           A 
 ##  0.20772317  0.36449293  0.98919689  0.06310554 
@@ -545,17 +545,17 @@ div.csl-indent {
 <li><span class="math inline">\(L\)</span> = maximum value of the likelihood function for the model</li>
 </ul>
 <p>Since we have our negative log likelihoods (i.e. <span class="math inline">\(-ln(L)\)</span> in the formula above), we can calculate the AICs and compare them.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb29-1" aria-hidden="true" tabindex="-1"></a>AIC_simple <span class="ot">=</span> <span class="dv">6</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>fit_negexpMLE<span class="sc">$</span>value</span>
-<span id="cb29-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="practical-output-master-script-for-postfire-analysis.html#cb29-3" aria-hidden="true" tabindex="-1"></a>AIC_simple</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb30-1" aria-hidden="true" tabindex="-1"></a>AIC_simple <span class="ot">=</span> <span class="dv">6</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>fit_negexpMLE<span class="sc">$</span>value</span>
+<span id="cb30-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="practical-output-master-script-for-postfire-analysis.html#cb30-3" aria-hidden="true" tabindex="-1"></a>AIC_simple</span></code></pre></div>
 <pre><code>## [1] 718113.1</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb31-1" aria-hidden="true" tabindex="-1"></a>AIC_full <span class="ot">=</span> <span class="dv">6</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>fit_negexpMLES<span class="sc">$</span>value</span>
-<span id="cb31-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="practical-output-master-script-for-postfire-analysis.html#cb31-3" aria-hidden="true" tabindex="-1"></a>AIC_full</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb32-1" aria-hidden="true" tabindex="-1"></a>AIC_full <span class="ot">=</span> <span class="dv">6</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>fit_negexpMLES<span class="sc">$</span>value</span>
+<span id="cb32-2"><a href="practical-output-master-script-for-postfire-analysis.html#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="practical-output-master-script-for-postfire-analysis.html#cb32-3" aria-hidden="true" tabindex="-1"></a>AIC_full</span></code></pre></div>
 <pre><code>## [1] 451155.3</code></pre>
 <p><br></p>
 <p>When comparing models, the lower the AIC the better, and in general a difference in AIC of 3 or more is analagous to the models being significantly different at an <span class="math inline">\(\alpha\)</span> of <span class="math inline">\(p &lt; 0.05\)</span>.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb33-1" aria-hidden="true" tabindex="-1"></a>AIC_simple <span class="sc">-</span> AIC_full</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb34-1" aria-hidden="true" tabindex="-1"></a>AIC_simple <span class="sc">-</span> AIC_full</span></code></pre></div>
 <pre><code>## [1] 266957.8</code></pre>
 <p><br></p>
 <p>Q5: Is there a preferred model and if so, which one?</p>
@@ -565,7 +565,7 @@ div.csl-indent {
 <p><br></p>
 <p>The nice thing about AIC is that the models you compare do not have to be nested like they do for ANOVA, as long as the data are the same. There are a few other constraints however…</p>
 <p>Here are the AIC scores for our pair of NLS models:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(fit_negexp, fit_negexpS)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="practical-output-master-script-for-postfire-analysis.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(fit_negexp, fit_negexpS)</span></code></pre></div>
 <pre><code>##             df       AIC
 ## fit_negexp   4 -325.7135
 ## fit_negexpS  6 -385.6718</code></pre>

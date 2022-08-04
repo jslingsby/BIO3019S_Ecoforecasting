@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2022-08-02" />
+<meta name="date" content="2022-08-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -155,7 +155,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Introduction to Ecological Forecasting and Reproducible Research</a></li>
+<li><a href="./">A Minimal Introduction to Ecological Forecasting</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
@@ -529,7 +529,7 @@ Figure 5.4: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 <p>Another issue is that <strong>software and hardware change with upgrades, new versions or changes in the preferences within user communities</strong> (e.g. you’ll all know MicroSoft Excel, but have you heard of Quattro Pro or Lotus that were the preferred spreadsheet software of yesteryear?).</p>
 <p>Just sharing your code, data and workflow does not make your work reproducible if we don’t know what language the code is written in or if functions change or are deprecated in newer versions, breaking your code.</p>
 <p>The <strong>simplest way</strong> to avert this problem is to <strong>carefully document the hardware and versions of software</strong> used in your analyses so that others can recreate that computing environment if needed. This is very easy in R, because you can simply run the <code>sessionInfo()</code> function, like so:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="reproducibility.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="reproducibility.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>## R version 4.2.1 (2022-06-23)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Ubuntu 20.04.4 LTS
@@ -539,18 +539,12 @@ Figure 5.4: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_ZA.UTF-8      
-##  [2] LC_NUMERIC=C              
-##  [3] LC_TIME=en_ZA.UTF-8       
-##  [4] LC_COLLATE=en_ZA.UTF-8    
-##  [5] LC_MONETARY=en_ZA.UTF-8   
-##  [6] LC_MESSAGES=en_ZA.UTF-8   
-##  [7] LC_PAPER=en_ZA.UTF-8      
-##  [8] LC_NAME=C                 
-##  [9] LC_ADDRESS=C              
-## [10] LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_ZA.UTF-8
-## [12] LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=en_ZA.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_ZA.UTF-8        LC_COLLATE=en_ZA.UTF-8    
+##  [5] LC_MONETARY=en_ZA.UTF-8    LC_MESSAGES=en_ZA.UTF-8   
+##  [7] LC_PAPER=en_ZA.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_ZA.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets 
@@ -563,42 +557,30 @@ Figure 5.4: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 ## [10] tidyverse_1.3.1 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.8.3      lattice_0.20-45  
-##  [3] lubridate_1.8.0   png_0.1-7        
-##  [5] assertthat_0.2.1  digest_0.6.29    
-##  [7] utf8_1.2.2        R6_2.5.1         
-##  [9] cellranger_1.1.0  backports_1.4.1  
-## [11] reprex_2.0.1      evaluate_0.15    
-## [13] httr_1.4.3        highr_0.9        
-## [15] pillar_1.7.0      gdtools_0.2.4    
-## [17] rlang_1.0.2       readxl_1.4.0     
-## [19] rstudioapi_0.13   extrafontdb_1.0  
-## [21] jquerylib_0.1.4   Matrix_1.4-1     
-## [23] rmarkdown_2.14    labeling_0.4.2   
-## [25] splines_4.2.1     extrafont_0.18   
-## [27] munsell_0.5.0     broom_0.8.0      
-## [29] compiler_4.2.1    modelr_0.1.8     
-## [31] xfun_0.30         systemfonts_1.0.4
-## [33] pkgconfig_2.0.3   mgcv_1.8-40      
-## [35] htmltools_0.5.2   tidyselect_1.1.2 
-## [37] bookdown_0.26     fansi_1.0.3      
-## [39] crayon_1.5.1      tzdb_0.3.0       
-## [41] dbplyr_2.1.1      withr_2.5.0      
-## [43] grid_4.2.1        nlme_3.1-157     
-## [45] jsonlite_1.8.0    Rttf2pt1_1.3.10  
-## [47] gtable_0.3.0      lifecycle_1.0.1  
-## [49] DBI_1.1.2         magrittr_2.0.3   
-## [51] scales_1.2.0      cli_3.3.0        
-## [53] stringi_1.7.6     farver_2.1.0     
-## [55] fs_1.5.2          xml2_1.3.3       
-## [57] bslib_0.3.1       ellipsis_0.3.2   
-## [59] generics_0.1.2    vctrs_0.4.1      
-## [61] tools_4.2.1       glue_1.6.2       
-## [63] jpeg_0.1-9        hms_1.1.1        
-## [65] fastmap_1.1.0     yaml_2.3.5       
-## [67] colorspace_2.0-3  rvest_1.0.2      
-## [69] knitr_1.39        haven_2.5.0      
-## [71] sass_0.4.1</code></pre>
+##  [1] Rcpp_1.0.8.3      lattice_0.20-45   lubridate_1.8.0  
+##  [4] png_0.1-7         assertthat_0.2.1  digest_0.6.29    
+##  [7] utf8_1.2.2        R6_2.5.1          cellranger_1.1.0 
+## [10] backports_1.4.1   reprex_2.0.1      evaluate_0.15    
+## [13] httr_1.4.3        highr_0.9         pillar_1.7.0     
+## [16] gdtools_0.2.4     rlang_1.0.2       readxl_1.4.0     
+## [19] rstudioapi_0.13   extrafontdb_1.0   jquerylib_0.1.4  
+## [22] Matrix_1.4-1      rmarkdown_2.14    labeling_0.4.2   
+## [25] splines_4.2.1     extrafont_0.18    munsell_0.5.0    
+## [28] broom_0.8.0       compiler_4.2.1    modelr_0.1.8     
+## [31] xfun_0.30         systemfonts_1.0.4 pkgconfig_2.0.3  
+## [34] mgcv_1.8-40       htmltools_0.5.2   tidyselect_1.1.2 
+## [37] bookdown_0.26     fansi_1.0.3       crayon_1.5.1     
+## [40] tzdb_0.3.0        dbplyr_2.1.1      withr_2.5.0      
+## [43] grid_4.2.1        nlme_3.1-157      jsonlite_1.8.0   
+## [46] Rttf2pt1_1.3.10   gtable_0.3.0      lifecycle_1.0.1  
+## [49] DBI_1.1.2         magrittr_2.0.3    scales_1.2.0     
+## [52] cli_3.3.0         stringi_1.7.6     farver_2.1.0     
+## [55] fs_1.5.2          xml2_1.3.3        bslib_0.3.1      
+## [58] ellipsis_0.3.2    generics_0.1.2    vctrs_0.4.1      
+## [61] tools_4.2.1       glue_1.6.2        jpeg_0.1-9       
+## [64] hms_1.1.1         fastmap_1.1.0     yaml_2.3.5       
+## [67] colorspace_2.0-3  rvest_1.0.2       knitr_1.39       
+## [70] haven_2.5.0       sass_0.4.1</code></pre>
 <p><br></p>
 <p><strong>Containers</strong></p>
 <p><strong>A “better” way</strong> to do this is to use <strong>containers</strong> like <a href="https://www.docker.com/">docker</a> or <a href="https://sylabs.io/singularity/">singularity</a>. These are contained, lightweight computing environments similar to <a href="https://en.wikipedia.org/wiki/Virtual_machine">virtual machines</a>, that you can package with your software/workflow. You set your container up to have everything you need to run your code etc (and nothing extra), so anyone can download (or clone) your container, code and data and run your analyses perfectly first time.</p>

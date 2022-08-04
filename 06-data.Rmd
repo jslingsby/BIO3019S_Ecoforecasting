@@ -17,18 +17,18 @@ knitr::include_graphics("img/datadecaycurve.jpg")
 Here are a bunch of reasons you really want to focus on doing good data management:
 
 - **Bad data management leads to data loss**... (Figure \@ref(fig:datadecay))
-- **Your future self will hate you if you lose it before you're finished with it!!!** This is less likely in the world of Dropbox, Google Drive, iCloud etc, but I know people who had to repeat their PhD's because they lost their data because it was on a laptop that crashed or was stolen... Also, ***beware cloud storage!!!*** It's very easy for you or a collaborator to delete/overwrite/lose access to items, e.g. 
+- **Your future self will hate you if you lose it before you're finished with it!!!** This is less likely in the world of Dropbox, Google Drive, iCloud etc, but I know people who had to repeat their PhD's because they lost their data because it was on a laptop that crashed or was stolen... Also, ***beware cloud storage!!!*** It's easy for you or a collaborator to delete/overwrite/lose access to items, e.g. 
     - if someone leaves the project and deletes the folder on their Dropbox without "leaving" it first
     - if the "owner" of the Google Drive folder loses access to their Google account (***as will happen to your UCT Google Drive access as soon as you graduate!!!***)
     - through all manner of random "accidents"
     
 - **Data has value beyond your current project**: 
-  - to yourself for reuse in future projects, collaborations, etc (i.e. publications and citations), 
-  - for others for follow-up studies, or combining multiple datasets for meta-analyses or synthesis etc
+  - to yourself for reuse in future projects, collaborations, etc (i.e. publications and citations) 
+  - for others for follow-up studies, or meta-analyses or synthesis across multiple datasets
   - for science on general (especially long-term ecology in a time of global change)
   
 - We've covered this before, but **sharing your data is key for transparency and accountability**.
-- Data collection is expensive, and is often paid for with taxpayers' money. **You owe it to your funder (and humanity in general) to make sure that science gets the most out of your data** in the long term.
+- Data collection is expensive, and often paid for by taxpayers. **You owe it to your funder (and humanity in general) to ensure that science gets the most out of your data** in the long term.
 - Lastly, **good planning and data management can help iron out issues** up front, like: 
 
   - intellectual property, 
@@ -146,7 +146,7 @@ knitr::include_graphics("img/veldwatch.png")
 
 Last, but not least. We haven't discussed different data formats etc, but if you are working with tabular data (i.e. spreadsheets, tables) I strongly recommend you read this short paper on **[how to keep your data Tidy](http://dx.doi.org/10.18637/jss.v059.i10)** [@Wickham2014]. Following these principles will make life much easier for you once you get to the analysis step...
 
-The basic idea in mice illustrations by \@allison_horst:
+The basic idea in nice illustrations by \@allison_horst:
 
 ![Tidy data principles mean that all datasets follow the same rules. Artwork \@allison_horst](img/tidydata_2.jpg)
 
@@ -328,6 +328,6 @@ This is not part of *The Data Life Cycle* per se, but it's worth remembering tha
 1. **Latency** - the time between data collection and it's availability for modelling. Depending on the model's need for the latest data, if the latency is too long then it can preclude the ability to make useful forecasts (e.g. it's very difficult to make useful weekly forecasts if you only get new data once a year...).
 2. **Uncertainty** - the model can only ever be as good as the data (**GIGO: garbage in = garbage out**). We'll also see that assimilating data into forecasts requires uncertainty estimates. Not including uncertainty can create **bias or overconfident predictions**... Unfortunately, very rarely does anyone report the uncertainty in their data... Unfortunately, there are also many reasons why **data can never be certain** - sampling variability, random and systematic instrument errors, calibration uncertainty, classification errors (e.g. species identification), transcription errors, corrupt files (or collaborators!) etc. I live by the creed *there is nothing as sinister as a certainty*. If you tell me your model has an $R^2$ of 1, I will tell you (with 100% certainty, ironically) that your model is wrong.
 3. **Repeated sampling** - most forecasts are in time and thus require time-series to develop the models. Frequent repeated sampling can often come at a trade-off with the spatial extent (or spatial replication) of sampling though. Forecasters need to optimize this trade-off to inform the most efficient data collection while also reducing uncertainty in the model.
-4. **Interoperability** - this is largely covered under the *Describe, Preserve, Discover* and *Integrate* steps in *The Data Life Cycle*
+4. **Interoperability** - this is largely covered under the *Describe, Preserve, Discover* and *Integrate* steps in *The Data Life Cycle*, but also relates to data fusion, which we'll address in a later lecture.
 
 <br>
