@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2022-08-04" />
+<meta name="date" content="2022-08-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,93 +54,7 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -256,7 +170,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="9.1" data-path="bayesian.html"><a href="bayesian.html#least-squares"><i class="fa fa-check"></i><b>9.1</b> Least Squares</a>
 <ul>
-<li class="chapter" data-level="9.1.1" data-path="bayesian.html"><a href="bayesian.html#least-squares-analyses-dont-explicitly-include-a-data-model"><i class="fa fa-check"></i><b>9.1.1</b> Least Squares analyses don’t explicitly include a data model</a></li>
+<li class="chapter" data-level="9.1.1" data-path="bayesian.html"><a href="bayesian.html#least-squares-doesnt-explicitly-include-a-data-model"><i class="fa fa-check"></i><b>9.1.1</b> Least Squares doesn’t explicitly include a data model</a></li>
 <li class="chapter" data-level="9.1.2" data-path="bayesian.html"><a href="bayesian.html#least-squares-focuses-on-what-the-parameters-are-not-rather-than-what-they-are"><i class="fa fa-check"></i><b>9.1.2</b> Least squares focuses on what the parameters are not, rather than what they are</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="bayesian.html"><a href="bayesian.html#maximum-likelihood"><i class="fa fa-check"></i><b>9.2</b> Maximum likelihood</a>
@@ -331,7 +245,18 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="bayesian" class="section level1 hasAnchor" number="9">
 <h1><span class="header-section-number">9</span> Going Bayesian<a href="bayesian.html#bayesian" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This section is also available as a slideshow. Right click or hold <code>Ctrl</code> or <code>Command</code> and <a href="presentations/7_bayesian.html">click this link</a> to view in full screen.</p>
+<div>
+<iframe width="600" height="400" marginheight="0" marginwidth="0" src="presentations/7_bayesian.html"></iframe>
+</div>
+<p><br></p>
 <p>In this section I aim to provide a brief and (relatively) soft introduction to Bayesian statistical theory.</p>
+<p>Iterative near-term ecological forecasting presents new challenges you don’t commonly encounter in the world of null hypothesis testing that has dominated ecology to date…</p>
+<div class="figure">
+<img src="img/ecoforecastingloop.png" style="width:70.0%" alt="" />
+<p class="caption">The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts.</p>
+</div>
+<p><br></p>
 <p>While ecological forecasting and decision support can be done with traditional statistics (often termed “frequentist statistics”) it is generally much easier to do in a Bayesian statistical framework.</p>
 <p><strong>Bayesian approaches have several advantages for forecasting:</strong></p>
 <blockquote>
@@ -345,7 +270,7 @@ div.csl-indent {
 <li>being able to <strong>present the uncertainty</strong> in the forecast to the decision maker</li>
 <li>being able to <strong>analyze the uncertainty</strong> in the forecast, in the hope that this can guide reducing the uncertainty and improving the next forecast, e.g. through targeted data collection or altering the model.</li>
 </ul></li>
-<li>They provide an <strong>iterative</strong> probabilistic framework that mirrors the scientific method, allowing us to formalize learning from new evidence in the context of existing knowledge. In the context of forecasting, this framework makes it easier to update predictions as new data become available, completing the forecasting cycle.</li>
+<li>They provide an <strong>iterative</strong> probabilistic framework that mirrors the scientific method, allowing us to formalize learning from new evidence (i.e. new data) in the context of existing knowledge (<em>prior</em> information). This framework makes it easier to update predictions as new data become available, completing the forecasting cycle.</li>
 </ol>
 <p><br></p>
 <p><strong>Before I can introduce Bayes</strong>, there are a few basic building blocks we need to establish first.</p>
@@ -394,8 +319,8 @@ Figure 9.3: A histogram of the residuals from the linear model above.
 <p><br></p>
 <p>So to look at the shortcomings of Least Squares:</p>
 <p><br></p>
-<div id="least-squares-analyses-dont-explicitly-include-a-data-model" class="section level3 hasAnchor" number="9.1.1">
-<h3><span class="header-section-number">9.1.1</span> Least Squares analyses don’t explicitly include a data model<a href="bayesian.html#least-squares-analyses-dont-explicitly-include-a-data-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="least-squares-doesnt-explicitly-include-a-data-model" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Least Squares doesn’t explicitly include a data model<a href="bayesian.html#least-squares-doesnt-explicitly-include-a-data-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It’s useful at this stage to make a distinction between data models and process models.</p>
 <ul>
 <li>The <strong>process model</strong> is the bit you’ll be used to, where we describe how the model creates a prediction for a particular set of inputs or covariates (i.e. the linear model in the case above).</li>
@@ -446,7 +371,7 @@ Figure 9.4: The probability of a observed point (the dotted line) being generate
 <p><br></p>
 <p>Viewed differently, when using MLE we assume that we have the correct model and apply MLE to choose the parameters so as to maximize the <em>conditional probability</em> of the data given those parameter estimates. The notation for this conditional probability is <span class="math inline">\(P(Data|Parameters)\)</span>.</p>
 <p>This process leaves us knowing the likelihood of the best set of parameters and the conditional probability of the data given those parameters <span class="math inline">\(P(Data|Parameters)\)</span>.</p>
-<p>The problem is that in the context of forecasting (and many other modelling approaches) <strong>what we really want is to know is the conditional probability of the parameters given the data <span class="math inline">\(P(Parameters|Data)\)</span></strong>, because this allow us to <strong><em>express the uncertainty in the parameter estimates as probabilities</em></strong><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. To get there, we need to apply a little probability theory, which provides a somewhat surprising and very useful byproduct.</p>
+<p>The problem is that in the context of forecasting (and many other modelling approaches) <strong>what we really want is to know is the conditional probability of the parameters given the data</strong> <span class="math inline">\(P(Parameters|Data)\)</span>, because this allow us to <strong><em>express the uncertainty in the parameter estimates as probabilities</em></strong><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. To get there, we need to apply a little probability theory, which provides a somewhat surprising and very useful byproduct.</p>
 <p><br></p>
 <p>First, let’s brush up on our probability theory…</p>
 <p><br></p>
@@ -460,7 +385,7 @@ Figure 9.5: Venn diagram illustrating ten events (points) across two sets <span 
 </p>
 </div>
 <p><br></p>
-<p>First, we can define the <strong><em>joint probability</em></strong>, <span class="math inline">\(P(x,y)\)</span>, which is the probability of both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> occurring simultaneously, which in the case of Figure <a href="bayesian.html#fig:vennprobability">9.5</a> is the probability of occurring within the overlap of the circles = 3/10. Needless to say <strong>the joint probability of <span class="math inline">\(P(y,x)\)</span> is identical to <span class="math inline">\(P(x,y)\)</span></strong> (= 3/10).</p>
+<p>First, we can define the <strong><em>joint probability</em></strong>, <span class="math inline">\(P(x,y)\)</span>, which is the probability of both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> occurring simultaneously, which in the case of Figure <a href="bayesian.html#fig:vennprobability">9.5</a> is the probability of occurring within the overlap of the circles = 3/10. Needless to say <strong>the joint probability of</strong> <span class="math inline">\(P(y,x)\)</span> is identical to <span class="math inline">\(P(x,y)\)</span> (= 3/10).</p>
 <p>Second, based on the joint probability we can define two <strong><em>conditional probabilities</em></strong>:</p>
 <ul>
 <li>the probability of <span class="math inline">\(x\)</span> given <span class="math inline">\(y\)</span>, <span class="math inline">\(P(x|y)\)</span>, and</li>
@@ -477,13 +402,13 @@ Figure 9.5: Venn diagram illustrating ten events (points) across two sets <span 
 <li><span class="math inline">\(P(y)\)</span> = 6/10.</li>
 </ul>
 <p>We can also show that <strong>the joint probabilities are the product of the conditional and marginal probabilities</strong>:</p>
-<p><span class="math display">\[\begin{align*}
+<span class="math display">\[\begin{align*}
 P(x,y) = P(x|y) P(y) = 3/6 * 6/10 = 0.3
-\end{align*}\]</span></p>
+\end{align*}\]</span>
 <p>And by the same token:</p>
-<p><span class="math display">\[\begin{align*}
+<span class="math display">\[\begin{align*}
 P(y,x) = P(y|x) P(y) = 3/7 * 7/10 = 0.3
-\end{align*}\]</span></p>
+\end{align*}\]</span>
 <p><br></p>
 <p>Why I’m telling you all this is because knowing this last equation (that the joint probabilities are the product of the conditional and marginal probabilities) means that we can derive the information we want to know, <span class="math inline">\(P(Parameters|Data)\)</span>, as a function of the information maximum likelihood estimation has given us, <span class="math inline">\(P(Data|Parameters)\)</span>…</p>
 <p><br></p>
@@ -494,21 +419,21 @@ P(y,x) = P(y|x) P(y) = 3/7 * 7/10 = 0.3
 <p>From here I’ll refer to the parameters as <span class="math inline">\(\theta\)</span> and the data as (<span class="math inline">\(D\)</span>), because writing them out in full is a bit clunky and grownups don’t usually do that.</p>
 <p>Since we are interested in the conditional probability of the parameters given the data, <span class="math inline">\(p(\theta|D)\)</span>, we need to take the equations above and solve for <span class="math inline">\(p(\theta|D)\)</span>.</p>
 <p>From above, we know</p>
-<p><span class="math display">\[\begin{align*}
+<span class="math display">\[\begin{align*}
 p(\theta,D) = p(\theta|D)p(D)
-\end{align*}\]</span></p>
+\end{align*}\]</span>
 <p>and we know that the joint probabilities are identical, so we can also write</p>
-<p><span class="math display">\[\begin{align*}
+<span class="math display">\[\begin{align*}
 p(\theta,D) = p(D|\theta)p(\theta)
-\end{align*}\]</span></p>
+\end{align*}\]</span>
 <p>so we can rewrite this to compare the right hand side of the last two equations</p>
-<p><span class="math display">\[\begin{align*}
+<span class="math display">\[\begin{align*}
 p(\theta|D)p(D) = p(D|\theta)p(\theta)
-\end{align*}\]</span></p>
+\end{align*}\]</span>
 <p>which if we solve for <span class="math inline">\(p(\theta|D)\)</span> is</p>
-<p><span class="math display">\[\begin{align*}
+<span class="math display">\[\begin{align*}
 p(\theta|D) &amp; = \frac{p(D|\theta) \; p(\theta)}{p(D)} \;\;
-\end{align*}\]</span></p>
+\end{align*}\]</span>
 <p>which is known as Bayes’ Theorem.</p>
 <p><br></p>
 <div id="the-beauty-of-bayes-theorem" class="section level3 hasAnchor" number="9.3.1">
@@ -517,8 +442,7 @@ p(\theta|D) &amp; = \frac{p(D|\theta) \; p(\theta)}{p(D)} \;\;
 <p>Rewriting the terms on one line allows us to label them with the names by which they are commonly known:</p>
 <p><span class="math display">\[
 \underbrace{p(\theta|D)}_\text{posterior} \; = \; \underbrace{p(D|\theta)}_\text{likelihood} \;\; \underbrace{p(\theta)}_\text{prior} \; / \; \underbrace{p(D)}_\text{evidence}
-\]</span>
-First, let’s start with the last term, the <strong><em>evidence</em></strong> as this will allow us to simplify things.</p>
+\]</span> First, let’s start with the last term, the <strong><em>evidence</em></strong> as this will allow us to simplify things.</p>
 <p>The marginal probability of the data, <span class="math inline">\(p(D)\)</span>, is now called the <strong><em>evidence</em></strong> for the model, and represents the overall probability of the data according to the model, determined by averaging across all possible parameter values weighted by the strength of belief in those parameter values.</p>
 <p>This sounds quite complicated, but never fear, all you need to know is that the implication of having <span class="math inline">\(p(D)\)</span> in the denominator is that it normalizes the numerators to ensure that the updated probabilities sum to 1 over all possible parameter values. In other words, the evidence term ensures that the posterior, <span class="math inline">\(p(\theta|D)\)</span>, is expressed as a probability distribution, and can otherwise mostly be ignored.</p>
 <p>This allows us to focus on the important bits, and to express Bayes’ Rule as</p>
@@ -529,8 +453,8 @@ First, let’s start with the last term, the <strong><em>evidence</em></strong> 
 <p>This leaves us with three terms.</p>
 <p>First, we have the <strong><em>likelihood</em></strong>, <span class="math inline">\(p(D|\theta)\)</span>. This is unchanged and still represents the probability that the data could be generated by the model with parameter values <span class="math inline">\(\theta\)</span>, and when used in analyses still works to find the likelihood profiles of the parameters.</p>
 <p>Next, what we have been calling the conditional probability of the parameters given the data, <span class="math inline">\(p(\theta|D)\)</span>, is now called the <strong><em>posterior</em></strong>, and represents the credibility of the parameter values <span class="math inline">\(\theta\)</span>, taking the data, <span class="math inline">\(D\)</span>, into account. In other words, it gives us a probability distribution for the values any parameter can take, essentially <strong>allowing us to represent uncertainty in the model and forecasts as probabilities, which is the holy grail we were after!!!</strong></p>
-<p>Last, we’ll look at the marginal probability of the parameters, <span class="math inline">\(p(\theta)\)</span>, which is now called the <strong><em>prior</em></strong>. While <span class="math inline">\(p(\theta)\)</span> is almost an unexpected consequence of having solved the equation for <span class="math inline">\(p(\theta|D)\)</span>, this is where the magic lies! Firstly, we know that <span class="math inline">\(p(\theta|D)\)</span> is a necessary requirement for us to be able to represent the posterior, <span class="math inline">\(p(\theta|D)\)</span>, as a probability distribution. That it helps us do this is magic in itself, but what is <span class="math inline">\(p(\theta)\)</span> itself?</p>
-<p><em>The prior represents the credibility of the parameter values, <span class="math inline">\(\theta\)</span>, without the data, <span class="math inline">\(D\)</span>.</em></p>
+<p>Last, we’ll look at the marginal probability of the parameters, <span class="math inline">\(p(\theta)\)</span>, which is now called the <strong><em>prior</em></strong>. While <span class="math inline">\(p(\theta)\)</span> is almost an unexpected consequence of having solved the equation for <span class="math inline">\(p(\theta|D)\)</span>, this is where the magic lies! Firstly, we know that <span class="math inline">\(p(\theta)\)</span> is a necessary requirement for us to be able to represent the posterior, <span class="math inline">\(p(\theta|D)\)</span>, as a probability distribution. That it helps us do this is magic in itself, but what is <span class="math inline">\(p(\theta)\)</span> itself?</p>
+<p><em>The prior represents the credibility of the parameter values,</em> <span class="math inline">\(\theta\)</span>, without the data, <span class="math inline">\(D\)</span>.</p>
 <p>How can we know anything about the parameter values without the data you may ask? In short, the answer is because we are applying <strong>the scientific method</strong>, whereby we interrogate new evidence (the data) in the context of previous knowledge or information to update our understanding. The term <span class="math inline">\(p(\theta)\)</span> is called the prior, because it represents our <strong>prior belief</strong> of what the parameters should be, before interrogating the data. In other words, the prior is our “context of previous knowledge or information”. The nice thing is that if we don’t have much previous knowledge or information, we can specify the prior to represent that.</p>
 <p>The prior is incredibly powerful, but, as always the <a href="https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility">Peter Parker Principle</a> applies - “With great power comes great responsibility!”</p>
 <p><br></p>
@@ -560,21 +484,21 @@ First, let’s start with the last term, the <strong><em>evidence</em></strong> 
 <ul>
 <li>Firstly, sex ratios are rarely 50/50 (e.g. in South Africa a quick Google search suggests the M/F ratio is supposedly 1:1.03). In this case your prior would be unfairly biasing the model towards predicting that that the culprit is a woman.</li>
 <li>Acknowledging this, you may then set your sex ratio as the observed ratio for the population in the region where the murder took place, but there are further complexities that may bias your results. e.g. Observed data suggest that far more men commit murder than women, but going with the observed sex ratio for the population makes the assumption that men and women are equally likely to commit murder.</li>
-<li>Next, your prior has not taken into account the profile of the victim - man, woman, child, etc - but the sex ratios of murderers varies hugely wither you’re considering androcide, femicide or infanticide.</li>
+<li>Next, your prior has not taken into account the profile of the victim - man, woman, child, etc - but the sex ratios of murderers varies hugely whether you’re considering androcide, femicide or infanticide.</li>
 <li>Lastly, what about gender identity and sexual orientation (LGBTQI+)? Have your sources of prior information taken this into account and would this affect the outcome?</li>
 </ul></li>
 </ul></li>
 </ul>
 <p><a href="https://www.theguardian.com/world/2021/apr/18/obscure-maths-bayes-theorem-reliability-covid-lateral-flow-tests-probability">Here’s a great Guardian article</a> on why considering priors are important for Covid testing and criminal cases. It should help you get your head around this.</p>
-<p>We’ll get stuck into examples showing the value of Bayes in ecological in the next lecture.</p>
+<p>We’ll get stuck into examples showing the value of Bayes in ecological studies in the next lecture.</p>
 
 </div>
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="3">
-<li id="fn3"><p>Note that we have the <em>likelihood</em> of the parameter estimates, but <span class="math inline">\(likelihood \neq probability\)</span>. I don’t want to spend time on the distinction in the lecture, but it is a very important concept. The area under a probability distribution sums to 1, but the area under a likelihood profile curve does not. The reason for this is that probability relate to the set of possible results, which are exhaustive and mutually exclusive, whereas likelihood relates to the possible hypotheses, which are neither exhaustive nor mutually exclusive (i.e. there’s no limit to the number of potential hypotheses, and hypotheses can be nested or overlapping).<a href="bayesian.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<ol start="1">
+<li id="fn1"><p>Note that we have the <em>likelihood</em> of the parameter estimates, but <span class="math inline">\(likelihood \neq probability\)</span>. I don’t want to spend time on the distinction in the lecture, but it is a very important concept. The area under a probability distribution sums to 1, but the area under a likelihood profile curve does not. The reason for this is that probability relate to the set of possible results, which are exhaustive and mutually exclusive, whereas likelihood relates to the possible hypotheses, which are neither exhaustive nor mutually exclusive (i.e. there’s no limit to the number of potential hypotheses, and hypotheses can be nested or overlapping).<a href="bayesian.html#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

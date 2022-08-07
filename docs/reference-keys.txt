@@ -127,7 +127,7 @@ analyze
 data-and-decisions
 bayesian
 least-squares
-least-squares-analyses-dont-explicitly-include-a-data-model
+least-squares-doesnt-explicitly-include-a-data-model
 least-squares-focuses-on-what-the-parameters-are-not-rather-than-what-they-are
 maximum-likelihood
 joint-conditional-and-marginal-probabilities
