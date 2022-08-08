@@ -25,11 +25,11 @@ Jasper Slingsby
 :::
 
 ::: {.column width="50%"}
--   Here I provide a brief and (relatively) soft introduction to Bayesian statistical theory.
-
 -   Iterative ecological forecasting presents new challenges not common in the world of null hypothesis testing that has dominated ecology to date...
 
 -   It is much easier to deal with these in a Bayesian framework.
+
+-   Here I provide a brief and (relatively) soft introduction to Bayesian statistical theory.
 :::
 :::
 
@@ -51,7 +51,7 @@ Jasper Slingsby
 **Before I can introduce Bayes**, there are a few basic building blocks we need to establish first.
 
 1.  How the method of ***Least Squares*** works, and its limitations, especially it's inflexible, implicit data model.
-2.  The concept of ***likelihood*** and the estimation of maximum likelihood
+2.  The concept of ***likelihood*** and the method of maximum likelihood estimation
     -   this is a major component of Bayes' Theorem
     -   its a frequentist method, but has the advantages 1 & most of 2 above
         -   in fact, there are frequentist approaches for doing much of the advantages listed on the previous slide, but they are typically cumbersome. Bayes you can do it all without much extra work.
@@ -140,9 +140,10 @@ dat %>% ggplot() +
    theme_bw()
 ```
 
-It approximates a ***normal distribution*** 
+The residuals approximate a ***normal distribution***
 
 This is a **key assumption** when using Least Squares
+
 - termed "homoscedasticity" or "homogeneity of variance"
 :::
 
@@ -150,12 +151,13 @@ This is a **key assumption** when using Least Squares
 :::
 
 ::: {.column width="50%"}
-- If the residuals are not normally distributed, consider a different model (e.g. non-linear), or another approach!
-
 - For minimizing the sums of squares to work, a unit change in the residuals should be ***scale invariant***
     - i.e. the difference between 1 and 2 or 101 and 102 must be the same 
     - This is only true when the residuals are normally distributed (versus log-scale for example)
     - If not, **minimizing the sums of squares does not work** (and people often try to log transform etc their data to get them to an invariant scale).
+    
+- If violated, consider a different process model (i.e. nonlinear), or another statistical approach (MLE or Bayes).
+
 :::
 :::
 
@@ -181,8 +183,8 @@ a)  in reality, the ***data model can take many forms***
     -   e.g. Binomial coin flips, Poisson counts of individuals, Exponential waiting times, etc
     -   this is where Maximum Likelihood comes into it's own
         -   recall in the practical we specified two functions for the MLE analyses:
-            - the process model (`pred.negexp/S`)
-            - the likelihood function (`fit.negexp/S.MLE`), including the data model
+            - the ***process model*** (`pred.negexp/S`)
+            - the likelihood function (`fit.negexp/S.MLE`), including the ***data model***
 b)  sometimes one would like to ***include additional information in the data model***
     -   e.g. sampling variability (e.g. different observers or instruments), measurement errors, instrument calibration, proxy data, unequal variances, missing data, etc
     -   this is where Bayesian models come into their own
@@ -197,9 +199,10 @@ b)  sometimes one would like to ***include additional information in the data mo
 
 - For a linear model, ***the null hypothesis is that the slope = 0 (i.e. no effect of X on Y)***
 
-- A linear model is only considered useful when you can reject the null hypothesis...
+- A linear model is only considered useful when you can reject the null hypothesis.
+    - This just tells you that the probability of the parameter of interest (the slope in this case) being 0 is very low...
 
-- This ***tells you nothing about the probability of the parameters actually being the estimates you arrives at by minimizing the sums of squares***!!!?
+- It ***tells you nothing about the probability of the parameters actually being the estimates you arrives at by minimizing the sums of squares***!!!?
 
 ## Maximum likelihood {.smaller background-color="#33431e"}
 
@@ -227,15 +230,17 @@ ggplot(ddat, aes(x, fill = Hypotheses, colour = Hypotheses)) +
 
 ## Maximum likelihood {.smaller background-color="#33431e"}
 
-Viewed differently, with MLE we assume we have the correct model and use MLE to choose parameter values that maximize the *conditional probability* of the data given those parameter values,  $P(Data|Parameters)$.
+Viewed differently... 
+
+With MLE we assume we have the correct model and use MLE to choose parameter values that maximize the *conditional probability* of the data given those parameter values,  $P(Data|Parameters)$.
 
   - This leaves us knowing the likelihood of the best set of parameters and the conditional probability of the data given those parameters $P(Data|Parameters)$
 
-BUT! **What we really want is to know is the conditional probability of the parameters given the data** $P(Parameters|Data)$, because this allows us to ***express uncertainty in the parameter estimates as probabilities***[^7_bayesian-1]. 
+BUT! 
 
-  - To get there, we apply a little probability theory, providing a surprisingly useful byproduct!
+**What we really want is to know is the conditional probability of the parameters given the data** $P(Parameters|Data)$, because this allows us to ***express uncertainty in the parameter estimates as probabilities***. 
 
-[^7_bayesian-1]: Note that $likelihood \neq probability$. I don't want to spend time on the distinction, but it is a very important concept. The area under a probability distribution sums to 1, but the area under a likelihood profile curve does not. This is because probability relates to the set of possible results, which are exhaustive and mutually exclusive, whereas likelihood relates to the possible hypotheses, which are neither exhaustive nor mutually exclusive (i.e. there's no limit to the number of potential hypotheses, and hypotheses can be nested or overlapping).
+  - To get there, we apply a little probability theory, with a surprisingly useful byproduct!
 
 
 ## {.smaller background-color="#33431e"}
@@ -279,7 +284,7 @@ The interactions between two random variables are illustrated below...
 :::
 
 ::: {.column width="50%"}
-Based on the joint probability we can define two ***conditional probabilities***:
+We can also define two ***conditional probabilities***:
 
 -   the probability of $x$ given $y$, $P(x|y)$
 -   the probability of $y$ given $x$, $P(y|x)$
@@ -304,10 +309,12 @@ In the diagram these would be:
 :::
 
 ::: {.column width="50%"}
-Last, we can define two ***marginal probabilities*** for $x$ and $y$, which are just the separate probabilities of being in set $x$ or being in set $y$ given the full set of events, i.e.:
+Last, we can define two ***marginal probabilities*** for $x$ and $y$. 
+
+These are just the separate probabilities of being in set $x$ or being in set $y$ given the full set of events, i.e.
 
 -   $P(x)$ = 7/10 and
--   $P(y)$ = 6/10.
+-   $P(y)$ = 6/10
 :::
 :::
 
@@ -325,7 +332,9 @@ $$P(y,x) = P(y|x) P(y) = 3/7 * 7/10 = 0.3$$
 
 Tadaa! 
 
-This means we can derive the information we want to know, $P(Parameters|Data)$, as a function of the information maximum likelihood estimation has given us, $P(Data|Parameters)$...
+This means we can derive what we want to know, $P(Parameters|Data)$, as a function of the information maximum likelihood estimation provides, $P(Data|Parameters)$.
+
+...Let's do this derivation...
 
 ## Bayes' Theorem {.smaller background-color="#33431e"}
 
@@ -404,6 +413,8 @@ Which reads *"The posterior is proportional to the likelihood times the prior".*
 
 This leaves us with three terms:
 
+<br>
+
 ::: {.fragment}
 ### The *likelihood* 
 $p(D|\theta)$ still represents the probability of the data given the model with parameter values $\theta$, and is used in analyses to find the likelihood profiles of the parameters.
@@ -417,7 +428,8 @@ $$
 ### The *posterior*
 
 - What we have been calling the conditional probability of the parameters given the data, $p(\theta|D)$, is now called the ***posterior***
-- It gives us a probability distribution for the values any parameter can take, **allowing us to represent uncertainty in the model and forecasts as probabilities, which is the holy grail we were after!!!**
+- It gives us a probability distribution for the values any parameter can take, ***allowing us to represent uncertainty in the model and forecasts as probabilities***, which is the holy grail we were after!!!
+    - i.e. the posterior(s) is/are the parameter(s) of interest that we forecast, and we can now indicate the probability of our forecast being correct
 
 ##  Bayes' Rule  {.smaller background-color="#33431e"}
 
@@ -427,7 +439,7 @@ $$
 ### The *prior*
 
 - The marginal probability of the parameters, $p(\theta)$, is now called the ***prior***.
-- While $p(\theta)$ is almost an unexpected consequence of having solved the equation for $p(\theta|D)$, ***this is where the magic of Bayes lies!***
+- While $p(\theta)$ is almost an unexpected consequence of having solved the equation for $p(\theta|D)$, ***the prior is where a lot of the magic of Bayes lies!***
 - Firstly, we know that $p(\theta)$ is a necessary requirement for us to be able to represent the posterior, $p(\theta|D)$, as a probability distribution (what we were looking for).
 - But, it also represents *the credibility of the parameter values, $\theta$, without the data, $D$*.
     - What does this mean?
@@ -435,15 +447,15 @@ $$
 ##  The prior  {.smaller background-color="#33431e"}
 
 > The prior represents the credibility of the parameter values, $\theta$, without the data, $D$.
-
-*"But how can we know anything about the parameter values without the data?" You ask.*
+>
+> *"But how can we know anything about the parameter values without the data?"*
 
 <br>
 
 By applying ***the scientific method***, whereby we interrogate new evidence (the data) in the context of previous knowledge or information to update our understanding. 
 
 - $p(\theta)$ is the ***prior belief*** of what the parameters should be, before interrogating the data
-- it is our "context of previous knowledge or information" 
+    - i.e. our "context of previous knowledge or information" 
 - if we don't have much previous knowledge, we can specify the prior to represent that
 - the prior is incredibly powerful! But the [Peter Parker Principle](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility) applies - *"With great power comes great responsibility!"*
 
@@ -458,7 +470,7 @@ By applying ***the scientific method***, whereby we interrogate new evidence (th
   
 2.  It makes Bayesian models ***incredibly flexible***, allowing us to specify complex hierarchical models in a completely probabilistic framework relatively intuitively.
     -   This is fantastic for "fusing" disparate data sources!
-    -   E.g. we may not have "prior beliefs" about a parameter's values, but we may know something about another parameter or process that influences it. If so, we can specify a prior on our prior (called a ***hyperprior***).
+        -   E.g. we may not have "prior beliefs" about a parameter's values, but we may know something about another parameter or process that influences it. If so, we can specify a prior on our prior (called a ***hyperprior***).
     -   We can also specify separate or linked priors (or hyperpriors) for different parameters (or priors).
     
 
@@ -472,6 +484,6 @@ By applying ***the scientific method***, whereby we interrogate new evidence (th
 -   Second, while many people favour specifying "uninformative" priors, it is often **incredibly difficult to know what "uninformative"** is for different models or parameters.
     -   [Here's a great Guardian article](https://www.theguardian.com/world/2021/apr/18/obscure-maths-bayes-theorem-reliability-covid-lateral-flow-tests-probability) on why considering priors are important for Covid testing and criminal cases. It should help you get your head around this.
 
-We'll get stuck into examples showing the value of Bayes in ecological studies in the next lecture.
+We'll get stuck into examples showing the value of Bayes in ecology in the next lecture.
 
 ## References {.smaller background-color="#33431e"}
