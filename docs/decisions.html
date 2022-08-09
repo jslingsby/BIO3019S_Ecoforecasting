@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2022-08-08" />
+<meta name="date" content="2022-08-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,70 +54,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
@@ -270,7 +206,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="10" data-path="datafusion.html"><a href="datafusion.html"><i class="fa fa-check"></i><b>10</b> Data Fusion</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="datafusion.html"><a href="datafusion.html#a-quick-reminder-of-bayes-theorem-and-the-benefits-it-provides"><i class="fa fa-check"></i><b>10.1</b> A quick reminder of Bayes Theorem and the benefits it provides</a>
+<li class="chapter" data-level="10.1" data-path="datafusion.html"><a href="datafusion.html#a-reminder-of-bayes-theorem-and-its-benefits"><i class="fa fa-check"></i><b>10.1</b> A reminder of Bayes Theorem and its benefits</a>
 <ul>
 <li class="chapter" data-level="10.1.1" data-path="datafusion.html"><a href="datafusion.html#the-benefits-of-bayes"><i class="fa fa-check"></i><b>10.1.1</b> The benefits of Bayes</a></li>
 </ul></li>
@@ -335,7 +271,7 @@ div.csl-indent {
 <div id="data-assimilation" class="section level2 hasAnchor" number="12.1">
 <h2><span class="header-section-number">12.1</span> Data assimilation<a href="decisions.html#data-assimilation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ecoforecastingloop3"></span>
-<img src="img/ecoforecastingloop.png" alt="The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From [lecture on data assimilation by Michael Dietze](https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0). (Please excuse that the colours of the distributions have changed from above...)." width="70%" />
+<img src="img/ecoforecastingloop.png" alt="The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From [lecture on data assimilation by Michael Dietze](https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0). (Please excuse that the colours of the distributions have changed from above...)." width="60%" />
 <p class="caption">
 Figure 12.1: The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From <a href="https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0">lecture on data assimilation by Michael Dietze</a>. (Please excuse that the colours of the distributions have changed from above…).
 </p>
@@ -345,9 +281,11 @@ Figure 12.1: The iterative ecological forecasting cycle in the context of the sc
 <div id="operational-data-assimilation" class="section level3 hasAnchor" number="12.1.1">
 <h3><span class="header-section-number">12.1.1</span> Operational data assimilation<a href="decisions.html#operational-data-assimilation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Most modelling workflows are set up to <strong>(a) fit the available data</strong> and estimate parameters etc (we’ll call this <strong><em>analysis</em></strong>), which they then often use to <strong>(b) make predictions</strong> (which if made forward through time are typically <strong><em>forecasts</em></strong>). They usually stop there. Few workflows are set up to make forecasts repeatedly or iteratively, updating predictions as new observations are made.</p>
-<p>When making iterative forecasts, one <strong>could just refit the model</strong> and entire dataset with the new observations added, but there are a few reasons this may not be ideal:</p>
+<p>When making iterative forecasts, one <strong>could just refit the model</strong> and entire dataset with the new observations added, but there are a few reasons why this may not be ideal:</p>
 <ol style="list-style-type: decimal">
-<li>If it’s a complex model and/or a large dataset this could be very <strong>computationally taxing</strong> (e.g. <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span> ran the Hierarchical postfire model for the Cape Peninsula (~4000 MODIS pixels) and it took 4 days on a computing cluster with 64 cores and 1TB of RAM…).</li>
+<li>If it’s a complex model and/or a large dataset this could be very <strong>computationally taxing</strong>
+-e.g. <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span> ran the Hierarchical postfire model for the Cape Peninsula (~4000 MODIS pixels) over 4 days on a computing cluster with 64 cores and 1TB of RAM…</li>
+<li>Depending on the model, <strong>you may not be able to reuse older data</strong> in the new model fit, meaning you can’t take advantage of all available data…</li>
 <li>Refitting the model <strong>doesn’t make the most of learning</strong> from new observations and the forecast cycle…</li>
 </ol>
 <p>The alternative is to <strong>assimilate the data sequentially</strong>, through forecast cycles, imputing observations a bit at a time as they’re observed. This approach has several advantages:</p>
@@ -375,7 +313,7 @@ Figure 12.2: The two main components of the forecast cycle are <strong>the forec
 <li>Indicate the <strong>uncertainty</strong> in our forecast (based on the uncertainty that we have propagated through our model from various sources (data, priors, etc))</li>
 </ol>
 <p>In short, we want to <strong><em>propagate uncertainty in our variable(s) of interest forward through time</em></strong> (and sometimes through space, depending on the goals).</p>
-<p>There are <strong>a number of methods</strong> for propagating uncertainty into a forecast, mostly based on the same methods one would use to propagate the uncertainty through a model (see Table <a href="uncertainty.html#tab:propagatinguncertainty">11.1</a>). Explaining the different methods more than I did in section (<a href="uncertainty.html#uncertainty">11</a>) is beyond the scope of this module, but just a reminder that (as with almost everything in statistics) there’s <strong>a trade-off</strong> between the methods whereby the most efficient (the Kalman filter in this case) also come with the most stringent assumptions (linear models and homogeneity of variance only), while the most flexible (Markov chain Monte Carlo (MCMC) in this case) are the most computationally taxing. In short, if your model isn’t too taxing, or you have cheap access to a very large computer and time to kill, MCMC is probably easiest and best…</p>
+<p>There are <strong>a number of methods</strong> for propagating uncertainty into a forecast, mostly based on the same methods one would use to propagate the uncertainty through a model (see Table <a href="#tab:propagatinguncertainty"><strong>??</strong></a>). Explaining the different methods more than I did in section (<a href="uncertainty.html#uncertainty">11</a>) is beyond the scope of this module, but just a reminder that (as with almost everything in statistics) there’s <strong>a trade-off</strong> between the methods whereby the most efficient (the Kalman filter in this case) also come with the most stringent assumptions (linear models and homogeneity of variance only), while the most flexible (Markov chain Monte Carlo (MCMC) in this case) are the most computationally taxing. In short, if your model isn’t too taxing, or you have cheap access to a very large computer and time to kill, MCMC is probably easiest and best…</p>
 <p><br></p>
 </div>
 <div id="the-analysis-step" class="section level3 hasAnchor" number="12.1.3">
@@ -385,7 +323,7 @@ Figure 12.2: The two main components of the forecast cycle are <strong>the forec
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:dataassimilation"></span>
 <img src="img/dataassimilation.png" alt="The forecast cycle chaining together applications of Bayes Theorem at each timestep (t0, t1, ...). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods (see Table \@ref(tab:propagatinguncertainty))." width="100%" />
 <p class="caption">
-Figure 12.3: The forecast cycle chaining together applications of Bayes Theorem at each timestep (t0, t1, …). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods (see Table <a href="uncertainty.html#tab:propagatinguncertainty">11.1</a>).
+Figure 12.3: The forecast cycle chaining together applications of Bayes Theorem at each timestep (t0, t1, …). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods (see Table <a href="#tab:propagatinguncertainty"><strong>??</strong></a>).
 </p>
 </div>
 <p><br></p>
@@ -448,13 +386,14 @@ Figure 12.5: Conceptual relationships between iterative ecological forecasting, 
 <p>The beauty for the forecaster in this scenario is that <strong>a lot of the work is already done</strong>. The decision alternatives (scenarios) have been well framed, the performance measures, state variables of interest and associated covariates identified. Iterations of the learning cycle may even have already begun (through the Adaptive Management Cycle) and all you need do is <strong>develop the existing qualitative model into something more quantitative</strong> as more data and understanding are accumulated. Think of the <em>Protea</em> example in section <a href="forecasts.html#forecasts">4</a>, where the demography of these species is already used for decision making using semi-quantitative “rules of thumb”.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:structureddecisions"></span>
-<img src="img/structureddecisions.png" alt="The Structured Decision Making Cycle *sensu* @Gregory2012." width="60%" />
+<img src="img/structureddecisions.png" alt="The Structured Decision Making Cycle *sensu* @Gregory2012." width="50%" />
 <p class="caption">
 Figure 12.6: The Structured Decision Making Cycle <em>sensu</em> <span class="citation">Gregory et al. (<a href="#ref-Gregory2012" role="doc-biblioref">2012</a>)</span>.
 </p>
 </div>
 <p><br></p>
-<p>Structured Decision Making, as the name suggests, is far more <strong>focused on</strong> assisting with the process of <strong>coming to a decision</strong> than the process of management, but it is particularly useful in the <strong>first iteration</strong> of the Adaptive Management Cycle. <span class="citation">Gregory et al. (<a href="#ref-Gregory2012" role="doc-biblioref">2012</a>)</span> provide a very nice magnum opus on Structured Decision Making in natural resource management. It is particularly valuable when there are many stakeholders with <strong>disparate interests</strong>.</p>
+<p><strong><em>Structured Decision Making</em></strong></p>
+<p>As the name suggests, is far more <strong>focused on</strong> assisting with the process of <strong>coming to a decision</strong> than the process of management, but it is particularly useful in the <strong>first iteration</strong> of the Adaptive Management Cycle. <span class="citation">Gregory et al. (<a href="#ref-Gregory2012" role="doc-biblioref">2012</a>)</span> provide a very nice magnum opus on Structured Decision Making in natural resource management. It is particularly valuable when there are many stakeholders with <strong>disparate interests</strong>.</p>
 <p>We can model properties and performance measures, but <strong>decisions are ultimately about values</strong> and often require evaluating trade-offs among properties with <strong>incomparable units</strong>, e.g. people housed/fed/watered vs species saved from extinction… This can rapidly become a highly emotive space. It is also a space where the values that dominate are often the ones that are shouted the loudest and other important values are marginalized. One of the major goals of Structured Decision Making is to make sure <strong>all issues and values are brought to light</strong> and considered in a transparent framework so that <strong>trade-offs</strong> can be clearly identified and considered. It also aims to <strong>ensure that all alternatives are considered</strong>, since <strong><em>it’s impossible to make the right choice if it isn’t even on the table</em></strong>.</p>
 <p>A key strength in Structured Decision Making is in <strong>attempting to directly address the social, political or cognitive biases that limit</strong> the ability to highlight all values or alternatives.
 - e.g. many decisions in South Africa (and globally) pit people’s immediate needs (water, housing, etc) against the environment. These are incredibly difficult decisions, and while people (especially politicians) would rather ignore the fact that choosing one is choosing against the other, <strong><em>if we’re not transparent about this we’re not going to learn from our decisions and improve them in the next iteration.</em></strong></p>
@@ -565,20 +504,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

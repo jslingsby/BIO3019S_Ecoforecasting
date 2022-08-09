@@ -134,7 +134,7 @@ joint-conditional-and-marginal-probabilities
 bayes-theorem
 the-beauty-of-bayes-theorem
 datafusion
-a-quick-reminder-of-bayes-theorem-and-the-benefits-it-provides
+a-reminder-of-bayes-theorem-and-its-benefits
 the-benefits-of-bayes
 data-fusion
 model-layers

@@ -4,7 +4,7 @@ Here we'll complete the forecast cycle (through data assimilation)     and spend
 
 ## Data assimilation
 
-```{r ecoforecastingloop3, echo=FALSE, fig.cap = "The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From [lecture on data assimilation by Michael Dietze](https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0). (Please excuse that the colours of the distributions have changed from above...).", fig.width=3, fig.align = 'center', out.width="70%"}
+```{r ecoforecastingloop3, echo=FALSE, fig.cap = "The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From [lecture on data assimilation by Michael Dietze](https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0). (Please excuse that the colours of the distributions have changed from above...).", fig.width=3, fig.align = 'center', out.width="60%"}
 knitr::include_graphics("img/ecoforecastingloop.png")
 ```
 
@@ -16,10 +16,12 @@ You'll recall from the introductory lecture on models and decision making (secti
 
 Most modelling workflows are set up to **(a) fit the available data** and estimate parameters etc (we'll call this ***analysis***), which they then often use to **(b) make predictions** (which if made forward through time are typically ***forecasts***). They usually stop there. Few workflows are set up to make forecasts repeatedly or iteratively, updating predictions as new observations are made.
 
-When making iterative forecasts, one **could just refit the model** and entire dataset with the new observations added, but there are a few reasons this may not be ideal:
+When making iterative forecasts, one **could just refit the model** and entire dataset with the new observations added, but there are a few reasons why this may not be ideal:
 
-1. If it's a complex model and/or a large dataset this could be very **computationally taxing** (e.g. @Slingsby2020 ran the Hierarchical postfire model for the Cape Peninsula (~4000 MODIS pixels) and it took 4 days on a computing cluster with 64 cores and 1TB of RAM...).
-2. Refitting the model **doesn't make the most of learning** from new observations and the forecast cycle...
+1. If it's a complex model and/or a large dataset this could be very **computationally taxing** 
+  -e.g. @Slingsby2020 ran the Hierarchical postfire model for the Cape Peninsula (~4000 MODIS pixels) over 4 days on a computing cluster with 64 cores and 1TB of RAM...
+2. Depending on the model, **you may not be able to reuse older data** in the new model fit, meaning you can't take advantage of all available data...
+3. Refitting the model **doesn't make the most of learning** from new observations and the forecast cycle...
 
 The alternative is to **assimilate the data sequentially**, through forecast cycles, imputing observations a bit at a time as they're observed. This approach has several advantages:
 
@@ -151,13 +153,15 @@ The beauty for the forecaster in this scenario is that **a lot of the work is al
 
 <br>
 
-```{r structureddecisions, echo=FALSE, fig.cap = "The Structured Decision Making Cycle *sensu* @Gregory2012.", fig.width=3, fig.align = 'center', out.width='60%'}
+```{r structureddecisions, echo=FALSE, fig.cap = "The Structured Decision Making Cycle *sensu* @Gregory2012.", fig.width=3, fig.align = 'center', out.width='50%'}
 knitr::include_graphics("img/structureddecisions.png")
 ```
 
 <br>
 
-Structured Decision Making, as the name suggests, is far more **focused on** assisting with the process of **coming to a decision** than the process of management, but it is particularly useful in the **first iteration** of the Adaptive Management Cycle. @Gregory2012 provide a very nice magnum opus on Structured Decision Making in natural resource management. It is particularly valuable when there are many stakeholders with **disparate interests**. 
+***Structured Decision Making***
+
+As the name suggests, is far more **focused on** assisting with the process of **coming to a decision** than the process of management, but it is particularly useful in the **first iteration** of the Adaptive Management Cycle. @Gregory2012 provide a very nice magnum opus on Structured Decision Making in natural resource management. It is particularly valuable when there are many stakeholders with **disparate interests**. 
 
 We can model properties and performance measures, but **decisions are ultimately about values** and often require evaluating trade-offs among properties with **incomparable units**, e.g. people housed/fed/watered vs species saved from extinction... This can rapidly become a highly emotive space. It is also a space where the values that dominate are often the ones that are shouted the loudest and other important values are marginalized. One of the major goals of Structured Decision Making is to make sure **all issues and values are brought to light** and considered in a transparent framework so that **trade-offs** can be clearly identified and considered. It also aims to **ensure that all alternatives are considered**, since ***it's impossible to make the right choice if it isn't even on the table***. 
 

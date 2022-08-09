@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2022-08-08" />
+<meta name="date" content="2022-08-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -270,7 +270,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="10" data-path="datafusion.html"><a href="datafusion.html"><i class="fa fa-check"></i><b>10</b> Data Fusion</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="datafusion.html"><a href="datafusion.html#a-quick-reminder-of-bayes-theorem-and-the-benefits-it-provides"><i class="fa fa-check"></i><b>10.1</b> A quick reminder of Bayes Theorem and the benefits it provides</a>
+<li class="chapter" data-level="10.1" data-path="datafusion.html"><a href="datafusion.html#a-reminder-of-bayes-theorem-and-its-benefits"><i class="fa fa-check"></i><b>10.1</b> A reminder of Bayes Theorem and its benefits</a>
 <ul>
 <li class="chapter" data-level="10.1.1" data-path="datafusion.html"><a href="datafusion.html#the-benefits-of-bayes"><i class="fa fa-check"></i><b>10.1.1</b> The benefits of Bayes</a></li>
 </ul></li>
@@ -539,12 +539,18 @@ Figure 5.4: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_ZA.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_ZA.UTF-8        LC_COLLATE=en_ZA.UTF-8    
-##  [5] LC_MONETARY=en_ZA.UTF-8    LC_MESSAGES=en_ZA.UTF-8   
-##  [7] LC_PAPER=en_ZA.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_ZA.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=en_ZA.UTF-8      
+##  [2] LC_NUMERIC=C              
+##  [3] LC_TIME=en_ZA.UTF-8       
+##  [4] LC_COLLATE=en_ZA.UTF-8    
+##  [5] LC_MONETARY=en_ZA.UTF-8   
+##  [6] LC_MESSAGES=en_ZA.UTF-8   
+##  [7] LC_PAPER=en_ZA.UTF-8      
+##  [8] LC_NAME=C                 
+##  [9] LC_ADDRESS=C              
+## [10] LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_ZA.UTF-8
+## [12] LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets 
@@ -557,30 +563,42 @@ Figure 5.4: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 ## [10] tidyverse_1.3.1 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.8.3      lattice_0.20-45   lubridate_1.8.0  
-##  [4] png_0.1-7         assertthat_0.2.1  digest_0.6.29    
-##  [7] utf8_1.2.2        R6_2.5.1          cellranger_1.1.0 
-## [10] backports_1.4.1   reprex_2.0.1      evaluate_0.15    
-## [13] httr_1.4.3        highr_0.9         pillar_1.7.0     
-## [16] gdtools_0.2.4     rlang_1.0.2       readxl_1.4.0     
-## [19] rstudioapi_0.13   extrafontdb_1.0   jquerylib_0.1.4  
-## [22] Matrix_1.4-1      rmarkdown_2.14    labeling_0.4.2   
-## [25] splines_4.2.1     extrafont_0.18    munsell_0.5.0    
-## [28] broom_0.8.0       compiler_4.2.1    modelr_0.1.8     
-## [31] xfun_0.30         systemfonts_1.0.4 pkgconfig_2.0.3  
-## [34] mgcv_1.8-40       htmltools_0.5.2   tidyselect_1.1.2 
-## [37] bookdown_0.26     fansi_1.0.3       crayon_1.5.1     
-## [40] tzdb_0.3.0        dbplyr_2.1.1      withr_2.5.0      
-## [43] grid_4.2.1        nlme_3.1-157      jsonlite_1.8.0   
-## [46] Rttf2pt1_1.3.10   gtable_0.3.0      lifecycle_1.0.1  
-## [49] DBI_1.1.2         magrittr_2.0.3    scales_1.2.0     
-## [52] cli_3.3.0         stringi_1.7.6     farver_2.1.0     
-## [55] fs_1.5.2          xml2_1.3.3        bslib_0.3.1      
-## [58] ellipsis_0.3.2    generics_0.1.2    vctrs_0.4.1      
-## [61] tools_4.2.1       glue_1.6.2        jpeg_0.1-9       
-## [64] hms_1.1.1         fastmap_1.1.0     yaml_2.3.5       
-## [67] colorspace_2.0-3  rvest_1.0.2       knitr_1.39       
-## [70] haven_2.5.0       sass_0.4.1</code></pre>
+##  [1] httr_1.4.3        sass_0.4.1       
+##  [3] jsonlite_1.8.0    splines_4.2.1    
+##  [5] modelr_0.1.8      bslib_0.3.1      
+##  [7] assertthat_0.2.1  highr_0.9        
+##  [9] cellranger_1.1.0  yaml_2.3.5       
+## [11] gdtools_0.2.4     Rttf2pt1_1.3.10  
+## [13] pillar_1.7.0      backports_1.4.1  
+## [15] lattice_0.20-45   glue_1.6.2       
+## [17] extrafontdb_1.0   digest_0.6.29    
+## [19] rvest_1.0.2       colorspace_2.0-3 
+## [21] htmltools_0.5.2   Matrix_1.4-1     
+## [23] pkgconfig_2.0.3   broom_0.8.0      
+## [25] haven_2.5.0       bookdown_0.26    
+## [27] scales_1.2.0      jpeg_0.1-9       
+## [29] tzdb_0.3.0        mgcv_1.8-40      
+## [31] generics_0.1.2    farver_2.1.0     
+## [33] ellipsis_0.3.2    withr_2.5.0      
+## [35] cli_3.3.0         magrittr_2.0.3   
+## [37] crayon_1.5.1      readxl_1.4.0     
+## [39] evaluate_0.15     fs_1.5.2         
+## [41] fansi_1.0.3       nlme_3.1-157     
+## [43] xml2_1.3.3        tools_4.2.1      
+## [45] hms_1.1.1         lifecycle_1.0.1  
+## [47] munsell_0.5.0     reprex_2.0.1     
+## [49] compiler_4.2.1    jquerylib_0.1.4  
+## [51] systemfonts_1.0.4 rlang_1.0.2      
+## [53] grid_4.2.1        rstudioapi_0.13  
+## [55] labeling_0.4.2    rmarkdown_2.14   
+## [57] gtable_0.3.0      DBI_1.1.2        
+## [59] R6_2.5.1          lubridate_1.8.0  
+## [61] knitr_1.39        fastmap_1.1.0    
+## [63] extrafont_0.18    utf8_1.2.2       
+## [65] stringi_1.7.6     Rcpp_1.0.8.3     
+## [67] vctrs_0.4.1       png_0.1-7        
+## [69] dbplyr_2.1.1      tidyselect_1.1.2 
+## [71] xfun_0.30</code></pre>
 <p><br></p>
 <p><strong>Containers</strong></p>
 <p><strong>A “better” way</strong> to do this is to use <strong>containers</strong> like <a href="https://www.docker.com/">docker</a> or <a href="https://sylabs.io/singularity/">singularity</a>. These are contained, lightweight computing environments similar to <a href="https://en.wikipedia.org/wiki/Virtual_machine">virtual machines</a>, that you can package with your software/workflow. You set your container up to have everything you need to run your code etc (and nothing extra), so anyone can download (or clone) your container, code and data and run your analyses perfectly first time.</p>

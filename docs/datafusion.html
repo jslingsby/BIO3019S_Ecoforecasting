@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2022-08-08" />
+<meta name="date" content="2022-08-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -270,7 +270,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="10" data-path="datafusion.html"><a href="datafusion.html"><i class="fa fa-check"></i><b>10</b> Data Fusion</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="datafusion.html"><a href="datafusion.html#a-quick-reminder-of-bayes-theorem-and-the-benefits-it-provides"><i class="fa fa-check"></i><b>10.1</b> A quick reminder of Bayes Theorem and the benefits it provides</a>
+<li class="chapter" data-level="10.1" data-path="datafusion.html"><a href="datafusion.html#a-reminder-of-bayes-theorem-and-its-benefits"><i class="fa fa-check"></i><b>10.1</b> A reminder of Bayes Theorem and its benefits</a>
 <ul>
 <li class="chapter" data-level="10.1.1" data-path="datafusion.html"><a href="datafusion.html#the-benefits-of-bayes"><i class="fa fa-check"></i><b>10.1.1</b> The benefits of Bayes</a></li>
 </ul></li>
@@ -334,9 +334,10 @@ div.csl-indent {
 <p>This lecture builds on section <a href="bayesian.html#bayesian">9</a>, “Going Bayesian”, focusing on how the opportunities for imputing (or “fusing”) data with models increase as one moves from the method of Least Squares to Hierarchical Bayesian models.</p>
 <p>First a little revision of our last lecture…</p>
 <p><br></p>
-<div id="a-quick-reminder-of-bayes-theorem-and-the-benefits-it-provides" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">10.1</span> A quick reminder of Bayes Theorem and the benefits it provides<a href="datafusion.html#a-quick-reminder-of-bayes-theorem-and-the-benefits-it-provides" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="a-reminder-of-bayes-theorem-and-its-benefits" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> A reminder of Bayes Theorem and its benefits<a href="datafusion.html#a-reminder-of-bayes-theorem-and-its-benefits" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><br></p>
+<p>Bayes’ Rule:</p>
 <p><span class="math display">\[
 \underbrace{p(\theta|D)}_\text{posterior} \; \propto \; \underbrace{p(D|\theta)}_\text{likelihood} \;\; \underbrace{p(\theta)}_\text{prior} \;
 \]</span>
@@ -399,11 +400,11 @@ NDVI_{i,t}\sim\mathcal{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}}) \\
 \mu_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)\\
 \end{gather}\]</span></p>
 <p>Where <span class="math inline">\(\mu\)</span> is now the mean of the process model, not accounting for the residual error described by the data model - similar to the open circles in Figure <a href="bayesian.html#fig:leastsquares2">9.2</a>.</p>
-<p>What splitting the data and process models means, is that <strong>we are now feeding out dependent variable (NDVI) to the data model, and our independent variable (time or postfire age) to the process model</strong>.</p>
+<p>What splitting the data and process models means, is that <strong>we are now feeding our dependent variable (NDVI) to the data model, and our independent variable (time or postfire age) to the process model</strong>.</p>
 <p>The beauty of having a separate data model is that you are no longer restricted to the normal distribution and have flexibility to specify probability distributions that suit the data observation process, e.g. Binomial coin flips, Poisson counts of individuals, Exponential waiting times, etc. <strong>You can even specify custom data models with their own covariates</strong>, which is useful if you have information on things like instrument drift and calibration, etc - i.e. <strong>another opportunity for data fusion</strong>.</p>
 <p><br></p>
 <blockquote>
-<p><strong>Side note:</strong> You’d be interested to know that specifying a normal distribution in the likelihood (i.e. the data model) means that our MLE analysis is identical to the NLS analysis. In fact, you can do the maths to show that <strong>MLE with a normal likelihood is exactly the same as Least Squares</strong>. Any differences between the parameter estimates the two methods provided in the practical were purely because we had to solve the equations numerically (i.e. estimate) rather than analytically (i.e. diret calculation). Where MLE gets useful is when you start doing interesting things with the data model.</p>
+<p><strong>Side note:</strong> You’d be interested to know that specifying a normal distribution in the likelihood (i.e. the data model) means that our MLE analysis is identical to the NLS analysis. In fact, you can do the maths to show that <strong>MLE with a normal likelihood is exactly the same as Least Squares</strong>. Any differences between the parameter estimates the two methods provided in the practical were purely because we had to solve the equations numerically (i.e. estimate) rather than analytically (i.e. direct calculation). Where MLE gets useful is when you start doing interesting things with the data model.</p>
 </blockquote>
 <p><br></p>
 <p><strong><em>Single-level Bayes</em></strong></p>
@@ -466,21 +467,25 @@ Figure 10.4: Schematic of the Hierarchical Bayesian model of postfire NDVI recov
 <li>note that we could fuse more data here as covariates or additional likelihood functions if we thought that additional complexity was useful</li>
 </ul></li>
 <li>to the <strong>process model</strong> we’ve passed the fire history for each pixel (as a time-series of vegetation <span class="math inline">\(age\)</span> since fire) and the month (<span class="math inline">\(m\)</span>) in which each fire occurred (needed for the seasonality term)</li>
-<li>to the <strong>parameter model</strong> we’ve passed static layers of each environmental covariate</li>
+<li>to the <strong>parameter model</strong> we’ve passed static layers of each environmental covariate (i.e. raster grids of the entire CFR)</li>
 </ul>
 <p><br></p>
 <p><strong>The advantages</strong> of including the regression of the parameters on environmental covariates are many:</p>
 <ul>
-<li>It allows you to <strong>explore the dependence</strong> of recovery trajectories on environmental covariates</li>
-<li>This allows one to <strong>project the expected parameters</strong> (and recovery trajectories) under altered environments (e.g. future climate scenarios - as <span class="citation">Wilson, Latimer, and Silander (<a href="#ref-Wilson2015" role="doc-biblioref">2015</a>)</span> did)</li>
-<li>It allows you to <strong>predict the expected postfire recovery trajectory</strong> for any site with known environmental covariates</li>
+<li>It allows us to <strong>explore the dependence</strong> of recovery trajectories on environmental covariates</li>
+<li>This allows us to <strong>predict the expected postfire recovery trajectory</strong> for any site with known environmental covariates</li>
+<li>It also allows us to <strong>project the expected parameters</strong> (and recovery trajectories) under altered environments (e.g. future climate - as <span class="citation">Wilson, Latimer, and Silander (<a href="#ref-Wilson2015" role="doc-biblioref">2015</a>)</span> did)</li>
 <li>It puts an additional constraint on the parameter estimates for each pixel (i.e. “borrowing strength” across the analysis), <strong>down-weighting the effects of anomalous or noisy NDVI data</strong></li>
 <li>The structure of the model allows you to easily <strong>estimate any missing data</strong> (i.e. <em>inverse modelling</em>) all within one model run</li>
 </ul>
 <p><br></p>
 <blockquote>
-<p><strong>A brief note on data fusion, model complexity and uncertainty:</strong> Increasing model complexity can provide many opportunities for fusing new data into your model, but you should be aware that this comes with trade-offs. Firstly, all data are uncertain (even if they don’t come with with uncertainty estimates), so <strong>adding new data sets or types to your model includes adding new sources of uncertainty</strong>. For example, a major failing of the postfire recovery model is that we did not include estimates of uncertainty in the covariates. This falsely reduces the uncertainty, resulting in overconfidence in our parameter estimates…
-Secondly, more terms and interactions in the model creates greater opportunity for <strong>strange feedbacks and trade-offs in the model’s mechanics</strong>, especially where there is non-identifiability (where multiple parameters can influence the outcome, but there’s not enough information in the model for it to partition their influence). This can bias or produce unrealistic estimates etc… Last, this is all over and above the usual dangers of overfitting.</p>
+<p><strong>A brief note on data fusion, model complexity and uncertainty:</strong> Increasing model complexity can provide many opportunities for fusing new data into your model, but you should be aware that this comes with trade-offs.</p>
+<ul>
+<li>Firstly, all data are uncertain (even if they don’t come with with uncertainty estimates), so <strong>adding new data sets or types to your model includes adding new sources of uncertainty</strong>. For example, a major failing of the postfire recovery model is that we did not include estimates of uncertainty in the environmental covariates. This falsely reduces the uncertainty, resulting in overconfidence in our parameter estimates…</li>
+<li>Secondly, more terms and interactions in the model creates greater opportunity for <strong>strange feedbacks and trade-offs in the model’s mechanics</strong>, especially where there is non-identifiability (where multiple parameters can influence the outcome, but there’s not enough information in the model for it to partition their influence). This can bias or produce unrealistic estimates etc…</li>
+<li>Lastly, this is all over and above the usual dangers of overfitting.</li>
+</ul>
 </blockquote>
 <p><br></p>
 <p><strong>Utility of this model for decision makers</strong></p>

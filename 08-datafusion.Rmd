@@ -6,9 +6,11 @@ First a little revision of our last lecture...
 
 <br>
 
-## A quick reminder of Bayes Theorem and the benefits it provides
+## A reminder of Bayes Theorem and its benefits
 
 <br>
+
+Bayes' Rule:
 
 $$
 \underbrace{p(\theta|D)}_\text{posterior} \; \propto \; \underbrace{p(D|\theta)}_\text{likelihood} \;\; \underbrace{p(\theta)}_\text{prior} \;
@@ -87,13 +89,13 @@ which is the likelihood function. In this case we specified a Gaussian (normal) 
 
 Where $\mu$ is now the mean of the process model, not accounting for the residual error described by the data model - similar to the open circles in Figure \@ref(fig:leastsquares2).
 
-What splitting the data and process models means, is that **we are now feeding out dependent variable (NDVI) to the data model, and our independent variable (time or postfire age) to the process model**.
+What splitting the data and process models means, is that **we are now feeding our dependent variable (NDVI) to the data model, and our independent variable (time or postfire age) to the process model**.
 
 The beauty of having a separate data model is that you are no longer restricted to the normal distribution and have flexibility to specify probability distributions that suit the data observation process, e.g. Binomial coin flips, Poisson counts of individuals, Exponential waiting times, etc. **You can even specify custom data models with their own covariates**, which is useful if you have information on things like instrument drift and calibration, etc - i.e. **another opportunity for data fusion**.
 
 <br>
 
-> **Side note:** You'd be interested to know that specifying a normal distribution in the likelihood (i.e. the data model) means that our MLE analysis is identical to the NLS analysis. In fact, you can do the maths to show that **MLE with a normal likelihood is exactly the same as Least Squares**. Any differences between the parameter estimates the two methods provided in the practical were purely because we had to solve the equations numerically (i.e. estimate) rather than analytically (i.e. diret calculation). Where MLE gets useful is when you start doing interesting things with the data model.
+> **Side note:** You'd be interested to know that specifying a normal distribution in the likelihood (i.e. the data model) means that our MLE analysis is identical to the NLS analysis. In fact, you can do the maths to show that **MLE with a normal likelihood is exactly the same as Least Squares**. Any differences between the parameter estimates the two methods provided in the practical were purely because we had to solve the equations numerically (i.e. estimate) rather than analytically (i.e. direct calculation). Where MLE gets useful is when you start doing interesting things with the data model.
 
 <br>
 
@@ -168,22 +170,25 @@ The beauty of this model is that it **simultaneously estimates** the posterior d
 - to the **data model** we've passed the $NDVI$ time-series for each pixel
   - note that we could fuse more data here as covariates or additional likelihood functions if we thought that additional complexity was useful
 - to the **process model** we've passed the fire history for each pixel (as a time-series of vegetation $age$ since fire) and the month ($m$) in which each fire occurred (needed for the seasonality term)
-- to the **parameter model** we've passed static layers of each environmental covariate
+- to the **parameter model** we've passed static layers of each environmental covariate (i.e. raster grids of the entire CFR)
 
 <br>
 
 **The advantages** of including the regression of the parameters on environmental covariates are many:
 
-- It allows you to **explore the dependence** of recovery trajectories on environmental covariates
-- This allows one to **project the expected parameters** (and recovery trajectories) under altered environments (e.g. future climate scenarios - as @Wilson2015 did)
-- It allows you to **predict the expected postfire recovery trajectory** for any site with known environmental covariates
+- It allows us to **explore the dependence** of recovery trajectories on environmental covariates
+- This allows us to **predict the expected postfire recovery trajectory** for any site with known environmental covariates
+- It also allows us to **project the expected parameters** (and recovery trajectories) under altered environments (e.g. future climate - as @Wilson2015 did)
 - It puts an additional constraint on the parameter estimates for each pixel (i.e. "borrowing strength" across the analysis), **down-weighting the effects of anomalous or noisy NDVI data**
 - The structure of the model allows you to easily **estimate any missing data** (i.e. *inverse modelling*) all within one model run
 
 <br>
 
-> **A brief note on data fusion, model complexity and uncertainty:** Increasing model complexity can provide many opportunities for fusing new data into your model, but you should be aware that this comes with trade-offs. Firstly, all data are uncertain (even if they don't come with with uncertainty estimates), so **adding new data sets or types to your model includes adding new sources of uncertainty**. For example, a major failing of the postfire recovery model is that we did not include estimates of uncertainty in the covariates. This falsely reduces the uncertainty, resulting in overconfidence in our parameter estimates...
-Secondly, more terms and interactions in the model creates greater opportunity for **strange feedbacks and trade-offs in the model's mechanics**, especially where there is non-identifiability (where multiple parameters can influence the outcome, but there's not enough information in the model for it to partition their influence). This can bias or produce unrealistic estimates etc... Last, this is all over and above the usual dangers of overfitting.
+> **A brief note on data fusion, model complexity and uncertainty:** Increasing model complexity can provide many opportunities for fusing new data into your model, but you should be aware that this comes with trade-offs. 
+>
+> - Firstly, all data are uncertain (even if they don't come with with uncertainty estimates), so **adding new data sets or types to your model includes adding new sources of uncertainty**. For example, a major failing of the postfire recovery model is that we did not include estimates of uncertainty in the environmental covariates. This falsely reduces the uncertainty, resulting in overconfidence in our parameter estimates...
+> - Secondly, more terms and interactions in the model creates greater opportunity for **strange feedbacks and trade-offs in the model's mechanics**, especially where there is non-identifiability (where multiple parameters can influence the outcome, but there's not enough information in the model for it to partition their influence). This can bias or produce unrealistic estimates etc... 
+> - Lastly, this is all over and above the usual dangers of overfitting.
 
 <br>
 
