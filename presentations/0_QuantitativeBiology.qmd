@@ -218,19 +218,24 @@ From physics first principles we know the [stopping distance formula](https://en
 - Incorporating mechanisms into models is often key for identifying feedbacks and other complexity in biological systems
 :::
 
-## {background-color="#c2c190"}
+## {.smaller background-color="#c2c190"}
 
 ### Examples of models in biology
 
 ::: columns
 ::: {.column width="45%"}
-![](img/TTR.png){width=100%}
+
+#### Species distribution models (SDMs)
+
+![](img/Predicting_habitats.png){width=100%}
 :::
 
 ::: {.column width="45%"}
-A plant growth model from [Higgins et al. 2023 *Science*](http://dx.doi.org/10.1126/science.add5190)
+<br/>
 
-The relationships between parameters are defined mechanistically, based on known equations, but the parameters themselves are estimated statistically from empirical data.
+In essence, *_correlative_* SDMs map the potential range of species based on the combination of environmental conditions from locations where they are known to occur.
+
+Image from [Ragnvald](https://en.wikipedia.org/wiki/Species_distribution_modelling#/media/File:Predicting_habitats.png)
 :::
 
 ::::
@@ -239,7 +244,30 @@ The relationships between parameters are defined mechanistically, based on known
 
 ### Examples of models in biology
 
-DNA nucleotide substitution models
+::: columns
+::: {.column width="45%"}
+
+#### Species distribution models (SDMs)
+
+![](img/TTR.png){width=100%}
+:::
+
+::: {.column width="45%"}
+
+<br/>
+
+[Higgins et al. 2023 *Science*](http://dx.doi.org/10.1126/science.add5190) use a semi-*_mechanistic_* SDM which uses a plant growth model to interpret how plant species should respond to different environmental conditions.
+
+The relationships between parameters are defined mechanistically, based on known equations, but the parameters themselves are estimated statistically from empirical data based on known localities of the species.
+:::
+
+::::
+
+## {.smaller background-color="#c2c190"}
+
+### Examples of models in biology
+
+#### DNA nucleotide substitution models
 
 ![](img/nucleotides.png){width=70%, fig-align="center"}
 
@@ -249,9 +277,11 @@ The probability of mutations between different base pair combinations are not eq
 
 ### Examples of models in biology
 
+#### Mechanistic general ecosystem models (GEMs)
+
 ![](img/MadingleyR.jpg){width=100%, fig-align="center"}
 
-Mechanistic general ecosystem models (GEMs), e.g. [Hoeks et al 2021 **GEB**](https://doi.org/10.1111/geb.13354)
+[Hoeks et al 2021 **GEB**](https://doi.org/10.1111/geb.13354)
 
 ## Data management and computation {.smaller background-color="#33431e"}
 
