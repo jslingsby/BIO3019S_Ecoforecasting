@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Data Management | A Minimal Introduction to Ecological Forecasting</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Data Management | A Minimal Introduction to Ecological Forecasting" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2022-08-09" />
+<meta name="date" content="2023-07-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -339,7 +339,7 @@ div.csl-indent {
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:datadecay"></span>
 <img src="img/datadecaycurve.jpg" alt="The 'Data Decay Curve' [@Michener1997]" width="75%" />
 <p class="caption">
-Figure 8.1: The ‘Data Decay Curve’ <span class="citation">(<a href="#ref-Michener1997" role="doc-biblioref">Michener et al. 1997</a>)</span>
+Figure 8.1: The ‘Data Decay Curve’ <span class="citation">(<a href="#ref-Michener1997">Michener et al. 1997</a>)</span>
 </p>
 </div>
 <p><br></p>
@@ -381,7 +381,7 @@ Figure 8.2: The Data Life Cycle, adapted from <a href="https://www.dataone.org/"
 </p>
 </div>
 <p><br></p>
-<p>Note that there are quite a few <strong>different versions</strong> of the data life cycle out there. <strong>This is the most comprehensive one I know of</strong>, and covers all the steps relevant to a range of different kinds of research projects. A full description of this data life cycle and related ecoinformatics issues can be found in <span class="citation">(<a href="#ref-Michener2012" role="doc-biblioref">Michener and Jones 2012</a>)</span>.</p>
+<p>Note that there are quite a few <strong>different versions</strong> of the data life cycle out there. <strong>This is the most comprehensive one I know of</strong>, and covers all the steps relevant to a range of different kinds of research projects. A full description of this data life cycle and related ecoinformatics issues can be found in <span class="citation">(<a href="#ref-Michener2012">Michener and Jones 2012</a>)</span>.</p>
 <p><strong>Not all projects need to do all steps, nor will they necessarily follow the order here</strong>, but it is worth being aware of and considering all steps. For example:</p>
 <ul>
 <li>Often the first thing you do when you have a new hypothesis is <strong>start by searching for any existing data</strong> that could be used to test it without having to spend money and time collecting new data (i.e. skip to step 6 - “Discover”). In this case I would argue that you should still do step 1 (Plan), and you’d want to do some checking to assure the quality of the data (step 3), but you can certainly skip steps 2, 4 and 5. A meta-analysis or synthesis paper would probably do the same.</li>
@@ -432,28 +432,28 @@ Figure 8.5: An example data collection app I built in <a href="https://www.appsh
 </div>
 <p><br></p>
 <p><strong>Tidy Data</strong></p>
-<p>Last, but not least. We haven’t discussed different data formats etc, but if you are working with tabular data (i.e. spreadsheets, tables) I strongly recommend you read this short paper on <strong><a href="http://dx.doi.org/10.18637/jss.v059.i10">how to keep your data Tidy</a></strong> <span class="citation">(<a href="#ref-Wickham2014" role="doc-biblioref">Wickham 2014</a>)</span>. Following these principles will make life much easier for you once you get to the analysis step…</p>
+<p>Last, but not least. We haven’t discussed different data formats etc, but if you are working with tabular data (i.e. spreadsheets, tables) I strongly recommend you read this short paper on <strong><a href="http://dx.doi.org/10.18637/jss.v059.i10">how to keep your data Tidy</a></strong> <span class="citation">(<a href="#ref-Wickham2014">Wickham 2014</a>)</span>. Following these principles will make life much easier for you once you get to the analysis step…</p>
 <p>The basic idea in nice illustrations by @allison_horst:</p>
-<div class="figure">
-<img src="img/tidydata_2.jpg" alt="" />
-<p class="caption">Tidy data principles mean that all datasets follow the same rules. Artwork @allison_horst</p>
+<div class="float">
+<img src="img/tidydata_2.jpg" alt="Tidy data principles mean that all datasets follow the same rules. Artwork @allison_horst" />
+<div class="figcaption">Tidy data principles mean that all datasets follow the same rules. Artwork @allison_horst</div>
 </div>
 <p><br></p>
-<div class="figure">
-<img src="img/tidydata_3.jpg" alt="" />
-<p class="caption">Following the rules simplifies analysis and reduces the diversity of tools required. Artwork @allison_horst</p>
+<div class="float">
+<img src="img/tidydata_3.jpg" alt="Following the rules simplifies analysis and reduces the diversity of tools required. Artwork @allison_horst" />
+<div class="figcaption">Following the rules simplifies analysis and reduces the diversity of tools required. Artwork @allison_horst</div>
 </div>
 <p><br></p>
-<div class="figure">
-<img src="img/tidydata_1.jpg" alt="" />
-<p class="caption">The rules are pretty simple and easy to follow. It’s worth investing the effort! Artwork @allison_horst</p>
+<div class="float">
+<img src="img/tidydata_1.jpg" alt="The rules are pretty simple and easy to follow. It’s worth investing the effort! Artwork @allison_horst" />
+<div class="figcaption">The rules are pretty simple and easy to follow. It’s worth investing the effort! Artwork @allison_horst</div>
 </div>
 <p><br></p>
 </div>
 <div id="describe" class="section level3 hasAnchor" number="8.2.3">
 <h3><span class="header-section-number">8.2.3</span> Describe<a href="data.html#describe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are few things worse than having a spreadsheet of what you think is the data you need, but you don’t know what the column names mean, how variables were measured, what units they’re reported in, etc… - <em>Especially when you were the one who collected and captured the data!!!</em></p>
-<p>This descriptive data about the data is called <strong><em>metadata</em></strong> and is essential for making the data reusable, but is also useful for many other purposes like making the data findable (e.g. using keyword searches). In fact, metadata makes up the majority of what are called the <a href="https://www.go-fair.org/fair-principles/"><strong>FAIR data principles</strong></a> <span class="citation">(<a href="#ref-Wilkinson2016" role="doc-biblioref">Wilkinson et al. 2016</a>)</span>, which largely focus on this and the next few steps of the Data Life Cycle. I’m not going to dwell on them other than to say that they are a key component of making your work reproducible, and that like reproducibility, practicing FAIR data principles is a spectrum.</p>
+<p>This descriptive data about the data is called <strong><em>metadata</em></strong> and is essential for making the data reusable, but is also useful for many other purposes like making the data findable (e.g. using keyword searches). In fact, metadata makes up the majority of what are called the <a href="https://www.go-fair.org/fair-principles/"><strong>FAIR data principles</strong></a> <span class="citation">(<a href="#ref-Wilkinson2016">Wilkinson et al. 2016</a>)</span>, which largely focus on this and the next few steps of the Data Life Cycle. I’m not going to dwell on them other than to say that they are a key component of making your work reproducible, and that like reproducibility, practicing FAIR data principles is a spectrum.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:fairdata"></span>
 <img src="img/fairdata.jpg" alt="The FAIR data principles [ErrantScience.com](https://errantscience.com/)." width="75%" />
@@ -606,16 +606,16 @@ Figure 8.8: An example of a geospatial metadata standard. SpatioTemporal Asset C
 <div id="analyze" class="section level3 hasAnchor" number="8.2.7">
 <h3><span class="header-section-number">8.2.7</span> Analyze<a href="data.html#analyze" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>“The fun bit”, but again, there are many things to bear in mind and keep track of so that your analysis is repeatable. This is largely covered by the sections on <em>Coding and code management</em> and <em>Computing environment and software</em> in Chapter <a href="reproducibility.html#reproducibility">5</a></p>
-<div class="figure">
-<img src="img/tidydata_5.jpg" alt="" />
-<p class="caption">Artwork @allison_horst</p>
+<div class="float">
+<img src="img/tidydata_5.jpg" alt="Artwork @allison_horst" />
+<div class="figcaption">Artwork @allison_horst</div>
 </div>
 <p><br></p>
 </div>
 </div>
 <div id="data-and-decisions" class="section level2 hasAnchor" number="8.3">
 <h2><span class="header-section-number">8.3</span> Data and decisions<a href="data.html#data-and-decisions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This is not part of <em>The Data Life Cycle</em> per se, but it’s worth remembering that there are some other aspects of data, while still important if the goal is purely academic, that are make-or-break when the goal is informing decisions, e.g. (mostly paraphrased from <span class="citation">Dietze et al. (<a href="#ref-Dietze2018" role="doc-biblioref">2018</a>)</span>):</p>
+<p>This is not part of <em>The Data Life Cycle</em> per se, but it’s worth remembering that there are some other aspects of data, while still important if the goal is purely academic, that are make-or-break when the goal is informing decisions, e.g. (mostly paraphrased from <span class="citation">Dietze et al. (<a href="#ref-Dietze2018">2018</a>)</span>):</p>
 <ol style="list-style-type: decimal">
 <li><strong>Latency</strong> - the time between data collection and it’s availability for modelling. Depending on the model’s need for the latest data, if the latency is too long then it can preclude the ability to make useful forecasts (e.g. it’s very difficult to make useful weekly forecasts if you only get new data once a year…).</li>
 <li><strong>Uncertainty</strong> - the model can only ever be as good as the data (<strong>GIGO: garbage in = garbage out</strong>). We’ll also see that assimilating data into forecasts requires uncertainty estimates. Not including uncertainty can create <strong>bias or overconfident predictions</strong>… Unfortunately, very rarely does anyone report the uncertainty in their data… Unfortunately, there are also many reasons why <strong>data can never be certain</strong> - sampling variability, random and systematic instrument errors, calibration uncertainty, classification errors (e.g. species identification), transcription errors, corrupt files (or collaborators!) etc. I live by the creed <em>there is nothing as sinister as a certainty</em>. If you tell me your model has an <span class="math inline">\(R^2\)</span> of 1, I will tell you (with 100% certainty, ironically) that your model is wrong.</li>
@@ -710,7 +710,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

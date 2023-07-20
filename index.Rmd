@@ -19,7 +19,7 @@ description: This is a minimal introduction to Ecological Forecasting and Reprod
 
 # Overview
 
-_This module is a minimal introduction to Ecological Forecasting for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town._
+_This module is a minimal introduction to Ecological Forecasting for the 3rd year undergraduate Biological Sciences class in Quantitative Biology (BIO3019S) at the University of Cape Town. A brief introduction to the course can be found [here]((presentations/0_QuantitativeBiology.html))._
 
 ## General
 
@@ -41,7 +41,7 @@ Not all of this is fun and exciting, but as I said, it is important stuff for qu
 
 **Lectures** 
 
-Lectures will be held live 12:00 - 12:45 from 1 - 12 August.
+Lectures will be held live 12:00 - 12:45 from 24 July - 4 August.
 
 I'll be adding to (and mostly teaching from) these online course notes as we go along.
 
@@ -49,9 +49,9 @@ I'll be adding to (and mostly teaching from) these online course notes as we go 
 
 **Practicals**
 
-There is only one practical for this module, 2-5PM on Tuesday the 2nd August. **You will need to spend half an hour setting up the required software on your laptops before Monday the 1st August!!! See instructions below.**
+There is only one practical for this module, 2-5PM on Tuesday the 1st August. **You will need to spend half an hour setting up the required software on your laptops before Monday the 1st August!!! See instructions below.**
 
-Your report on the practical will be ***due on Monday, 8 August*** - You will be evaluated on how well you completed the Github task during the prac and your answers to a short set of questions about the analyses. Answering the questions shouldn't take more than half an hour.
+Your report on the practical will be ***due on Monday, 7 August*** - You will be evaluated on how well you completed the Github task during the prac and your answers to a short set of questions about the analyses. Answering the questions shouldn't take more than half an hour.
 
 <br>
 

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10 Data Fusion | A Minimal Introduction to Ecological Forecasting</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10 Data Fusion | A Minimal Introduction to Ecological Forecasting" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2022-08-09" />
+<meta name="date" content="2023-07-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -452,11 +452,11 @@ Figure 10.3: Hierarchical Bayesian models allow considerable flexibility through
 </div>
 <div id="hierarchical-bayes-and-postfire-recovery-example" class="section level3 hasAnchor" number="10.2.2">
 <h3><span class="header-section-number">10.2.2</span> Hierarchical Bayes and postfire recovery example<a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Until now we have only been considering a single postfire recovery curve in isolation, but one can fit every MODIS pixel in the Fynbos Biome in one model, like <span class="citation">Wilson, Latimer, and Silander (<a href="#ref-Wilson2015" role="doc-biblioref">2015</a>)</span> did, (here including the seasonality term in the process model):</p>
+<p>Until now we have only been considering a single postfire recovery curve in isolation, but one can fit every MODIS pixel in the Fynbos Biome in one model, like <span class="citation">Wilson, Latimer, and Silander (<a href="#ref-Wilson2015">2015</a>)</span> did, (here including the seasonality term in the process model):</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hbpostfire"></span>
 <img src="img/hbpostfire.png" alt="Schematic of the Hierarchical Bayesian model of postfire NDVI recovery developed by @Wilson2015." width="90%" />
 <p class="caption">
-Figure 10.4: Schematic of the Hierarchical Bayesian model of postfire NDVI recovery developed by <span class="citation">Wilson, Latimer, and Silander (<a href="#ref-Wilson2015" role="doc-biblioref">2015</a>)</span>.
+Figure 10.4: Schematic of the Hierarchical Bayesian model of postfire NDVI recovery developed by <span class="citation">Wilson, Latimer, and Silander (<a href="#ref-Wilson2015">2015</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -474,7 +474,7 @@ Figure 10.4: Schematic of the Hierarchical Bayesian model of postfire NDVI recov
 <ul>
 <li>It allows us to <strong>explore the dependence</strong> of recovery trajectories on environmental covariates</li>
 <li>This allows us to <strong>predict the expected postfire recovery trajectory</strong> for any site with known environmental covariates</li>
-<li>It also allows us to <strong>project the expected parameters</strong> (and recovery trajectories) under altered environments (e.g. future climate - as <span class="citation">Wilson, Latimer, and Silander (<a href="#ref-Wilson2015" role="doc-biblioref">2015</a>)</span> did)</li>
+<li>It also allows us to <strong>project the expected parameters</strong> (and recovery trajectories) under altered environments (e.g. future climate - as <span class="citation">Wilson, Latimer, and Silander (<a href="#ref-Wilson2015">2015</a>)</span> did)</li>
 <li>It puts an additional constraint on the parameter estimates for each pixel (i.e. “borrowing strength” across the analysis), <strong>down-weighting the effects of anomalous or noisy NDVI data</strong></li>
 <li>The structure of the model allows you to easily <strong>estimate any missing data</strong> (i.e. <em>inverse modelling</em>) all within one model run</li>
 </ul>
@@ -490,12 +490,12 @@ Figure 10.4: Schematic of the Hierarchical Bayesian model of postfire NDVI recov
 <p><br></p>
 <p><strong>Utility of this model for decision makers</strong></p>
 <p>While the model <strong>does not make explicit near-term forecasts</strong> in its current form, it can give us an estimate of the <strong>expected NDVI signal</strong> for any location for a given vegetation age since fire and time of year, which <strong>can be very useful!</strong></p>
-<p><span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span> used the model to develop a proof of concept for a near-real time satellite change detection system for the Fynbos Biome.</p>
+<p><span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020">2020</a>)</span> used the model to develop a proof of concept for a near-real time satellite change detection system for the Fynbos Biome.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:emma"></span>
 <img src="img/emmaprocessdiagram.png" alt="Overview of the near-real time satellite change detection workflow from @Slingsby2020." width="70%" />
 <p class="caption">
-Figure 10.5: Overview of the near-real time satellite change detection workflow from <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span>.
+Figure 10.5: Overview of the near-real time satellite change detection workflow from <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020">2020</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -517,7 +517,7 @@ Figure 10.5: Overview of the near-real time satellite change detection workflow 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:emmachange"></span>
 <img src="img/emmachange.jpg" alt="Examples of changes detected by @Slingsby2020. Postfire recovery curves (a, d, g, j, l, n) show the model predictions (dark grey $=$ 50% Confidence Interval, light grey $=$ 95% Confidence Interval) and observed MODIS NDVI signal (blue line) for different impacts. Satellite images and ground photos allow for diagnosis of detected anomalies, including fire at Karbonkelberg (a-c), gradual clearing of alien vegetation at Miller's Point (d-f), clearing of indigenous vegetation for a housing development near Silvermine (g-i, labeled 1), high mortality in a dense stand of *Leucadendron coniferum* near Silvermine (h-k, labelled 2), a flush of alien Australian Port Jackson Willow (*Acacia saligna*) recruitment from seed at Silvermine triggered by fire (l, m), and retarded postfire vegetation recovery and high mortality of the large fire-resistant shrub *Mimetes fimbriifolius* due to drought near the Cape of Good Hope (n, o). Satellite imagery &amp;copy; 2017 Planet Labs Inc." width="90%" />
 <p class="caption">
-Figure 10.6: Examples of changes detected by <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span>. Postfire recovery curves (a, d, g, j, l, n) show the model predictions (dark grey <span class="math inline">\(=\)</span> 50% Confidence Interval, light grey <span class="math inline">\(=\)</span> 95% Confidence Interval) and observed MODIS NDVI signal (blue line) for different impacts. Satellite images and ground photos allow for diagnosis of detected anomalies, including fire at Karbonkelberg (a-c), gradual clearing of alien vegetation at Miller’s Point (d-f), clearing of indigenous vegetation for a housing development near Silvermine (g-i, labeled 1), high mortality in a dense stand of <em>Leucadendron coniferum</em> near Silvermine (h-k, labelled 2), a flush of alien Australian Port Jackson Willow (<em>Acacia saligna</em>) recruitment from seed at Silvermine triggered by fire (l, m), and retarded postfire vegetation recovery and high mortality of the large fire-resistant shrub <em>Mimetes fimbriifolius</em> due to drought near the Cape of Good Hope (n, o). Satellite imagery © 2017 Planet Labs Inc.
+Figure 10.6: Examples of changes detected by <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020">2020</a>)</span>. Postfire recovery curves (a, d, g, j, l, n) show the model predictions (dark grey <span class="math inline">\(=\)</span> 50% Confidence Interval, light grey <span class="math inline">\(=\)</span> 95% Confidence Interval) and observed MODIS NDVI signal (blue line) for different impacts. Satellite images and ground photos allow for diagnosis of detected anomalies, including fire at Karbonkelberg (a-c), gradual clearing of alien vegetation at Miller’s Point (d-f), clearing of indigenous vegetation for a housing development near Silvermine (g-i, labeled 1), high mortality in a dense stand of <em>Leucadendron coniferum</em> near Silvermine (h-k, labelled 2), a flush of alien Australian Port Jackson Willow (<em>Acacia saligna</em>) recruitment from seed at Silvermine triggered by fire (l, m), and retarded postfire vegetation recovery and high mortality of the large fire-resistant shrub <em>Mimetes fimbriifolius</em> due to drought near the Cape of Good Hope (n, o). Satellite imagery © 2017 Planet Labs Inc.
 </p>
 </div>
 <p><br></p>
@@ -526,7 +526,7 @@ Figure 10.6: Examples of changes detected by <span class="citation">Slingsby, Mo
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:emmaexceedmap"></span>
 <img src="img/emmaexceedmap.png" alt="Overview map highlighting some of the major changes detected by @Slingsby2020." width="90%" />
 <p class="caption">
-Figure 10.7: Overview map highlighting some of the major changes detected by <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020" role="doc-biblioref">2020</a>)</span>.
+Figure 10.7: Overview map highlighting some of the major changes detected by <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020">2020</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -611,7 +611,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

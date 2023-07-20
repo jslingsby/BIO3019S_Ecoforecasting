@@ -1,0 +1,273 @@
+---
+title: ""
+author: ""
+format: 
+  revealjs:
+    theme: dark
+    slide-number: true
+    self-contained: true
+editor: visual
+bibliography: book.bib
+---
+
+# BIO3019S: Quantitative Biology {background-color="#33431e"}
+
+Jasper Slingsby
+
+##  {background-color="#33431e"}
+
+### What is quanitative biology?
+
+
+##  {background-color="#33431e"}
+
+### What is quanitative biology?
+
+![](img/quantbio_wiki.png)
+
+. . .
+
+- models (maths and stats)
+- data
+- computation
+
+
+## Models {background-color="#33431e"}
+
+::: incremental
+- tools for deductive reasoning
+  - test our understanding
+  - test our assumptions
+- models should fail in informative ways
+  - revealing failings of our understanding or assumptions
+- models let us ask 'what if' questions
+  - explore scenarios
+  - forecast future states and changes
+:::
+
+## {background-color="#33431e"}
+ 
+### Empirical vs mechanistic model continuum 
+
+<br/>
+
+```{r modelcontinuum, echo=F, engine='tikz', fig.ext='png', out.width='100%', fig.align='center'}
+\begin{tikzpicture}
+
+\path (0,0.5)node{\textbf{{\it Empirical}}};
+\path (8,0.5)node{\textbf{{\it Mechanistic}}};
+\draw[stealth-stealth] (0,0)--(8,0);
+
+\path (0,-0.5)node{{\it Phenomenological}};
+\path (8,-0.5)node{{\it Based on First principles}};
+
+\path (0,-1)node{{\it Descriptive}};
+\path (8,-1)node{{\it Explanatory}};
+
+\path (0,-1.5)node{{\it Fitted directly to data}};
+\path (8,-1.5)node{{\it Tested with data}};
+
+\path (0,-2)node{{\it Generate hypotheses}};
+\path (8,-2)node{{\it Explore system behaviour}};
+
+
+\end{tikzpicture}
+```
+
+Many models are intermediate on the continuum, incorporating mechanistic understanding, but still relying on statistical approaches and data.
+
+## {background-color="#33431e"}
+
+### Empirical vs mechanistic models?
+
+*How does the speed of a car (or animal) affect the distance needed to stop?*
+
+<br/>
+
+. . .
+
+**Empirical approach:**
+
+- Collect data
+- Fit a statistical model
+
+
+## {.smaller background-color="#c2c190"}
+
+### Empirical approach
+
+*How does the speed of a car (or animal) affect the distance needed to stop?*
+
+```{r breakingdist, echo=F, out.width='100%', fig.align='center'}
+plot(dist ~ speed, data=cars, axes=F, xlab = "Speed [miles per hour]", ylab = "Distance [feet]")
+axis(1)
+axis(2, las=1)
+```
+
+<br/>
+
+Some data collected earlier...
+
+
+## {.smaller background-color="#c2c190"}
+
+### Empirical approach
+
+*How does the speed of a car (or animal) affect the distance needed to stop?*
+
+```{r}
+data(cars)
+m1 <- lm(dist ~ speed, data= cars)
+```
+
+```{r breakingdist2, echo=F, out.width='100%', fig.align='center'}
+plot(dist ~ speed, data=cars, axes=F, xlab = "Velocity [miles per hour]", ylab = "Distance [feet]")
+axis(1)
+axis(2, las=1)
+abline(m1)
+
+```
+
+<br/>
+
+Data showing a linear model of $d_i = \beta_0 + \beta_1 \times v_i + \epsilon_i, \epsilon_i \sim N(0, \sigma)$, where $d$ is the distance and $v$ is the velocity.
+
+## {.smaller background-color="#c2c190"}
+
+### Empirical approach
+
+*How does the speed of a car (or animal) affect the distance needed to stop?*
+
+```{r}
+data(cars)
+m1 <- lm(dist ~ speed, data= cars)
+```
+
+```{r breakingdist2.1, echo=F, out.width='100%', fig.align='center'}
+plot(dist ~ speed, data=cars, axes=F, xlab = "Velocity [miles per hour]", ylab = "Distance [feet]")
+axis(1)
+axis(2, las=1)
+abline(m1)
+
+points(4.25, 4, pch = 25, col = "red", bg = "red", cex = 2)
+
+```
+
+<br/>
+
+Data showing a linear model of $d_i = \beta_0 + \beta_1 \times v_i + \epsilon_i, \epsilon_i \sim N(0, \sigma)$, where $d$ is the distance and $v$ is the velocity.
+
+## {.smaller background-color="#c2c190"}
+
+### Empirical approach
+
+*How does the speed of a car (or animal) affect the distance needed to stop?*
+
+```{r, include = T, echo=F}
+#cars$dist.mi <- cars$dist / 5280 # convert distance from feet to miles
+m2 <- nls(dist ~ (speed^2)/2*a, data = cars, start = list(a=5))
+```
+
+<!-- And plot the fitted relationship: -->
+
+```{r breakingdist3, echo=F, out.width='100%', fig.align='center'}
+plot(dist ~ speed, data=cars, axes=F, xlab = "Velocity [miles per hour]", ylab = "Distance [feet]")
+axis(1)
+axis(2, las=1)
+
+newdat <- data.frame(speed = 1:25)
+lines(newdat$speed, predict(m2, newdata = newdat))
+options(scipen=999)
+```
+
+<br/>
+
+Data showing a quadratic model of $d_i = \frac{v_i^2}{2a} + \epsilon_i, \epsilon_i \sim N(0, \sigma)$, where $d$ is the distance, $v$ is the velocity and $a$ is the friction coefficient multiplied by acceleration.
+
+## {.smaller background-color="#c2c190"}
+
+### Mechanistic approach
+
+*How does the speed of a car (or animal) affect the distance needed to stop?*
+
+```{r breakingdist4, echo=F, out.width='100%', fig.align='center'}
+
+a <- 5
+v <- 4:25
+d <- v^2/a
+
+plot(v,d, type='l', axes=F)
+axis(1)
+axis(2, las=1)
+
+```
+
+<br/>
+
+From physics first principles we know the [stopping distance formula](https://en.wikipedia.org/wiki/Braking_distance): $d = \frac{v^2}{2a}$, where $d$ is distance, $v$ is velocity and $a$ is the friction coefficient multiplied by acceleration.
+
+
+## {background-color="#33431e"}
+
+### Empirical vs mechanistic models?
+
+::: incremental
+- Both are useful
+- We often need to start with empirical models to work towards understanding the mechanism (e.g. the quadratic model was a better fit than the linear above)
+- Many models in biology are a mix, incorporating mechanisms known from first principles into otherwise empirical frameworks
+- Incorporating mechanisms into models is often key for identifying feedbacks and other complexity in biological systems
+:::
+
+## {background-color="#c2c190"}
+
+### Examples of models in biology
+
+::: columns
+::: {.column width="45%"}
+![](img/TTR.png){width=100%}
+:::
+
+::: {.column width="45%"}
+A plant growth model from [Higgins et al. 2023 *Science*](http://dx.doi.org/10.1126/science.add5190)
+
+The relationships between parameters are defined mechanistically, based on known equations, but the parameters themselves are estimated statistically from empirical data.
+:::
+
+::::
+
+## {.smaller background-color="#c2c190"}
+
+### Examples of models in biology
+
+DNA nucleotide substitution models
+
+![](img/nucleotides.png){width=70%, fig-align="center"}
+
+The probability of mutations between different base pair combinations are not equal. We now understand some of the mechanism behind this, and can account for unequal transition frequencies in our models of DNA evolution. From [Yang and Rannala 2012 **Nat Rev Genet**](http://dx.doi.org/10.1038/nrg3186)
+
+## {.smaller background-color="#c2c190"}
+
+### Examples of models in biology
+
+![](img/MadingleyR.jpg){width=100%, fig-align="center"}
+
+Mechanistic general ecosystem models (GEMs), e.g. [Hoeks et al 2021 **GEB**](https://doi.org/10.1111/geb.13354)
+
+## Data management and computation {.smaller background-color="#33431e"}
+
+![](img/inat.png){width=100%, fig-align="center"}
+
+The volume, variety and velocity of biological and related data are ever increasing.
+
+Quantitative biology is more than just modeling. A large part is developing the necessary tools and approaches for managing and manipulating large and varied datasets.
+
+## BIO3019S: Quantitative Biology { background-color="#33431e"}
+
+<br/>
+
+This course is an introduction to quantitative methods used in various areas of biology from ecophysiology to evolution, population biology, biogeography and ecosystem science.
+
+<br/>
+
+Students will gain experience in question formulation, model development and parameterisation, interpretation of results, model critique and best practice when working with data, models and code.
+

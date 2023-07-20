@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Making forecasts | A Minimal Introduction to Ecological Forecasting</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Making forecasts | A Minimal Introduction to Ecological Forecasting" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2022-08-09" />
+<meta name="date" content="2023-07-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -355,7 +355,7 @@ div.csl-indent {
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:dietze2018F1F"></span>
 <img src="img/dietze2018_F1.jpg" alt="Conceptual relationships between iterative ecological forecasting, adaptive decision-making, adaptive monitoring, and the scientific method cycles [@Dietze2018]." width="640" />
 <p class="caption">
-Figure 4.1: Conceptual relationships between iterative ecological forecasting, adaptive decision-making, adaptive monitoring, and the scientific method cycles <span class="citation">(<a href="#ref-Dietze2018" role="doc-biblioref">Dietze et al. 2018</a>)</span>.
+Figure 4.1: Conceptual relationships between iterative ecological forecasting, adaptive decision-making, adaptive monitoring, and the scientific method cycles <span class="citation">(<a href="#ref-Dietze2018">Dietze et al. 2018</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -369,11 +369,11 @@ Figure 4.1: Conceptual relationships between iterative ecological forecasting, a
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:protearesearch"></span>
 <img src="img/protearesearch.png" alt="Temporal dynamics of publications on South African Proteaceae based on a Web of Science search on 13 June 2012. Figure from @Schurr2012." width="90%" />
 <p class="caption">
-Figure 4.2: Temporal dynamics of publications on South African Proteaceae based on a Web of Science search on 13 June 2012. Figure from <span class="citation">Schurr et al. (<a href="#ref-Schurr2012" role="doc-biblioref">2012</a>)</span>.
+Figure 4.2: Temporal dynamics of publications on South African Proteaceae based on a Web of Science search on 13 June 2012. Figure from <span class="citation">Schurr et al. (<a href="#ref-Schurr2012">2012</a>)</span>.
 </p>
 </div>
 <p><br></p>
-<p>A huge benefit of the herculean Proteaceae data collection (and management) effort is that it provides <strong>all the data we need to parameterize various types of models</strong>. In fact, data on the Proteaceae have been hugely important for the global development of species distribution and demographic models (see <span class="citation">Schurr et al. (<a href="#ref-Schurr2012" role="doc-biblioref">2012</a>)</span>, but also many subsequent papers).</p>
+<p>A huge benefit of the herculean Proteaceae data collection (and management) effort is that it provides <strong>all the data we need to parameterize various types of models</strong>. In fact, data on the Proteaceae have been hugely important for the global development of species distribution and demographic models (see <span class="citation">Schurr et al. (<a href="#ref-Schurr2012">2012</a>)</span>, but also many subsequent papers).</p>
 <p>Because they are the best-studied group of plants in the Fynbos, they are heavily-utilized for informing conservation planning, management and monitoring. Some examples include informing:</p>
 <ul>
 <li>protected area planning</li>
@@ -403,15 +403,15 @@ Figure 4.3: <em>Protea cynaroides</em> on Table Mountain showing current inflore
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:proteaharvesting"></span>
 <img src="img/proteaharvesting.jpg" alt="The fire-driven life-cycle of Fynbos Proteaceae species, including harvesting, taken from [@Treurnicht2021]. Population size/stability are determined by ***key demographic rates*** of adult **fecundity** (size of the canopy seed bank), post-fire seedling **recruitment** and adult fire **survival** (blue–grey boxes). These rates are affected in various ways by environmental conditions, density dependence, the timing, intensity and severity of fire, wildflower harvesting, etc" width="90%" />
 <p class="caption">
-Figure 4.4: The fire-driven life-cycle of Fynbos Proteaceae species, including harvesting, taken from <span class="citation">(<a href="#ref-Treurnicht2021" role="doc-biblioref">Treurnicht et al. 2021</a>)</span>. Population size/stability are determined by <strong><em>key demographic rates</em></strong> of adult <strong>fecundity</strong> (size of the canopy seed bank), post-fire seedling <strong>recruitment</strong> and adult fire <strong>survival</strong> (blue–grey boxes). These rates are affected in various ways by environmental conditions, density dependence, the timing, intensity and severity of fire, wildflower harvesting, etc
+Figure 4.4: The fire-driven life-cycle of Fynbos Proteaceae species, including harvesting, taken from <span class="citation">(<a href="#ref-Treurnicht2021">Treurnicht et al. 2021</a>)</span>. Population size/stability are determined by <strong><em>key demographic rates</em></strong> of adult <strong>fecundity</strong> (size of the canopy seed bank), post-fire seedling <strong>recruitment</strong> and adult fire <strong>survival</strong> (blue–grey boxes). These rates are affected in various ways by environmental conditions, density dependence, the timing, intensity and severity of fire, wildflower harvesting, etc
 </p>
 </div>
 <p><br></p>
 <p>The management guidelines are currently set by “rule of thumb”<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:</p>
 <blockquote>
 <ol style="list-style-type: decimal">
-<li><strong>Wildflower harvesting:</strong> <em>“[There should be no] harvesting until at least 50% of the population had commenced flowering, a harvest of up to 50% of current season flower heads after this stage, and no harvesting at least one year prior to a prescribed burn” <span class="citation">(<a href="#ref-vanWilgen2016" role="doc-biblioref">Wilgen et al. 2016</a>)</span></em></li>
-<li><strong>Fire return intervals:</strong> <em>“No fire should be permitted in fynbos until at least 50% of the population of the slowest-maturing species in an area have flowered for at least three successive seasons (or at least 90% of the individuals of the slowest maturing species in the area have flowered and produced seed). Similarly, a fire is probably not necessary unless a third or more of the plants of these slow-maturing species are senescent (i.e. dying or no longer producing flowers and seed).” <span class="citation">(<a href="#ref-CapeNatureFire" role="doc-biblioref">CapeNature, n.d.</a>)</span></em></li>
+<li><strong>Wildflower harvesting:</strong> <em>“[There should be no] harvesting until at least 50% of the population had commenced flowering, a harvest of up to 50% of current season flower heads after this stage, and no harvesting at least one year prior to a prescribed burn” <span class="citation">(<a href="#ref-vanWilgen2016">Wilgen et al. 2016</a>)</span></em></li>
+<li><strong>Fire return intervals:</strong> <em>“No fire should be permitted in fynbos until at least 50% of the population of the slowest-maturing species in an area have flowered for at least three successive seasons (or at least 90% of the individuals of the slowest maturing species in the area have flowered and produced seed). Similarly, a fire is probably not necessary unless a third or more of the plants of these slow-maturing species are senescent (i.e. dying or no longer producing flowers and seed).” <span class="citation">(<a href="#ref-CapeNatureFire">CapeNature, n.d.</a>)</span></em></li>
 </ol>
 </blockquote>
 <p><br></p>
@@ -421,13 +421,13 @@ Figure 4.4: The fire-driven life-cycle of Fynbos Proteaceae species, including h
 </div>
 <div id="potential-issues-with-the-rules-of-thumb" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Potential issues with the rules of thumb…<a href="forecasts.html#potential-issues-with-the-rules-of-thumb" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Figure <a href="forecasts.html#fig:protearates">4.5</a> presents extensive field data for 26 Proteaceae species from <span class="citation">Treurnicht et al. (<a href="#ref-Treurnicht2016" role="doc-biblioref">2016</a>)</span>.</p>
+<p>Figure <a href="forecasts.html#fig:protearates">4.5</a> presents extensive field data for 26 Proteaceae species from <span class="citation">Treurnicht et al. (<a href="#ref-Treurnicht2016">2016</a>)</span>.</p>
 <p>What issues might these data suggest for the rules of thumb?</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:protearates"></span>
 <img src="img/protearates.jpg" alt="Variation in demographic rates of 26 serotinous Proteaceae species of seeder and sprouter life-history types across their distribution range [@Treurnicht2016]. (a) Adult fire survival; (b) Individual fecundity (F); and (c) Per-capita recruitment rate (R)." width="100%" />
 <p class="caption">
-Figure 4.5: Variation in demographic rates of 26 serotinous Proteaceae species of seeder and sprouter life-history types across their distribution range <span class="citation">(<a href="#ref-Treurnicht2016" role="doc-biblioref">Treurnicht et al. 2016</a>)</span>. (a) Adult fire survival; (b) Individual fecundity (F); and (c) Per-capita recruitment rate (R).
+Figure 4.5: Variation in demographic rates of 26 serotinous Proteaceae species of seeder and sprouter life-history types across their distribution range <span class="citation">(<a href="#ref-Treurnicht2016">Treurnicht et al. 2016</a>)</span>. (a) Adult fire survival; (b) Individual fecundity (F); and (c) Per-capita recruitment rate (R).
 </p>
 </div>
 <p><br></p>
@@ -454,7 +454,7 @@ Figure 4.5: Variation in demographic rates of 26 serotinous Proteaceae species o
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:proteavariation"></span>
 <img src="img/proteavariation.jpg" alt="Intraspecific variation in (a) fecundity and (b) recruitment in response to range-wide variation in fire return interval (time since fire), adult population density and soil moisture stress (% days with soil moisture stress) for *Protea punctata* [@Treurnicht2016]." width="80%" />
 <p class="caption">
-Figure 4.6: Intraspecific variation in (a) fecundity and (b) recruitment in response to range-wide variation in fire return interval (time since fire), adult population density and soil moisture stress (% days with soil moisture stress) for <em>Protea punctata</em> <span class="citation">(<a href="#ref-Treurnicht2016" role="doc-biblioref">Treurnicht et al. 2016</a>)</span>.
+Figure 4.6: Intraspecific variation in (a) fecundity and (b) recruitment in response to range-wide variation in fire return interval (time since fire), adult population density and soil moisture stress (% days with soil moisture stress) for <em>Protea punctata</em> <span class="citation">(<a href="#ref-Treurnicht2016">Treurnicht et al. 2016</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -469,17 +469,17 @@ Figure 4.6: Intraspecific variation in (a) fecundity and (b) recruitment in resp
 </div>
 <div id="assessing-population-viability" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> Assessing population viability<a href="forecasts.html#assessing-population-viability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Fortunately, we can address these issues by using the data in demographic models to perform population viability analysis under varying harvesting rates <span class="citation">(e.g. <a href="#ref-Treurnicht2021" role="doc-biblioref">Treurnicht et al. 2021</a>)</span>.</p>
+<p>Fortunately, we can address these issues by using the data in demographic models to perform population viability analysis under varying harvesting rates <span class="citation">(e.g. <a href="#ref-Treurnicht2021">Treurnicht et al. 2021</a>)</span>.</p>
 <p><img src="img/proteasensitivity.jpg" width="1064" /></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:proteasensitivity"></span>
 <img src="img/proteasensitivity2.jpg" alt="Sensitivity to wildflower harvesting for various Proteaceae species [@Treurnicht2021]. **Above: Intraspecific variation in sensitivity** to harvesting depicted as maps for four different species with pink dots highlighting where the change in population-level extinction probability (the difference between extinction probabilities under 0% and 50% harvesting) is greater than 0.1. The white and black areas depict species-specific occurrence records and the geographical distribution of all Proteaceae in the Cape Floristic Region, respectively. **Below: Interspecific variation in sensitivity** to harvesting depicted as the proportion of populations per species that are highly vulnerable to harvesting." width="90%" />
 <p class="caption">
-Figure 4.7: Sensitivity to wildflower harvesting for various Proteaceae species <span class="citation">(<a href="#ref-Treurnicht2021" role="doc-biblioref">Treurnicht et al. 2021</a>)</span>. <strong>Above: Intraspecific variation in sensitivity</strong> to harvesting depicted as maps for four different species with pink dots highlighting where the change in population-level extinction probability (the difference between extinction probabilities under 0% and 50% harvesting) is greater than 0.1. The white and black areas depict species-specific occurrence records and the geographical distribution of all Proteaceae in the Cape Floristic Region, respectively. <strong>Below: Interspecific variation in sensitivity</strong> to harvesting depicted as the proportion of populations per species that are highly vulnerable to harvesting.
+Figure 4.7: Sensitivity to wildflower harvesting for various Proteaceae species <span class="citation">(<a href="#ref-Treurnicht2021">Treurnicht et al. 2021</a>)</span>. <strong>Above: Intraspecific variation in sensitivity</strong> to harvesting depicted as maps for four different species with pink dots highlighting where the change in population-level extinction probability (the difference between extinction probabilities under 0% and 50% harvesting) is greater than 0.1. The white and black areas depict species-specific occurrence records and the geographical distribution of all Proteaceae in the Cape Floristic Region, respectively. <strong>Below: Interspecific variation in sensitivity</strong> to harvesting depicted as the proportion of populations per species that are highly vulnerable to harvesting.
 </p>
 </div>
 <p><br></p>
-<p>These models suggest that following <strong>the current harvesting guidelines can greatly increase the probability of many populations going extinct</strong> (Figure <a href="forecasts.html#fig:proteasensitivity">4.7</a>; <span class="citation">Treurnicht et al. (<a href="#ref-Treurnicht2021" role="doc-biblioref">2021</a>)</span>), and that they would threaten a large portion of populations for some species, including the most commercially valuable ones!</p>
-<p><strong>But is that enough?</strong> So what should the harvesting guidelines be? Are we sure they would be effective and what if there are “ecological surprises” that make them inappropriate? For example, <span class="citation">Treurnicht et al. (<a href="#ref-Treurnicht2021" role="doc-biblioref">2021</a>)</span> did not consider changing climate or fire regimes?</p>
+<p>These models suggest that following <strong>the current harvesting guidelines can greatly increase the probability of many populations going extinct</strong> (Figure <a href="forecasts.html#fig:proteasensitivity">4.7</a>; <span class="citation">Treurnicht et al. (<a href="#ref-Treurnicht2021">2021</a>)</span>), and that they would threaten a large portion of populations for some species, including the most commercially valuable ones!</p>
+<p><strong>But is that enough?</strong> So what should the harvesting guidelines be? Are we sure they would be effective and what if there are “ecological surprises” that make them inappropriate? For example, <span class="citation">Treurnicht et al. (<a href="#ref-Treurnicht2021">2021</a>)</span> did not consider changing climate or fire regimes?</p>
 <p>Should we just <strong>ban wildflower harvesting</strong> altogether to be safe? While it isn’t a huge industry, a ban would be undesirable for a number of reasons:</p>
 <ul>
 <li>many <strong>livelihoods depend on wildflower harvesting</strong>, often among the very poor</li>
@@ -491,7 +491,7 @@ Figure 4.7: Sensitivity to wildflower harvesting for various Proteaceae species 
 </div>
 <div id="climate-and-fire-driven-changes-in-demographic-rates-and-distribution" class="section level2 hasAnchor" number="4.5">
 <h2><span class="header-section-number">4.5</span> Climate and fire-driven changes in demographic rates and distribution<a href="forecasts.html#climate-and-fire-driven-changes-in-demographic-rates-and-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><span class="citation">Merow et al. (<a href="#ref-Merow2014" role="doc-biblioref">2014</a>)</span> combined demographic modelling and species distribution modelling using a <strong>“Demographic Distribution Model”</strong> whereby they used spatial covariation between demographic rates and environmental conditions to infer <strong>where the species can maintain positive population growth rates</strong> under current and future climate and fire conditions.</p>
+<p><span class="citation">Merow et al. (<a href="#ref-Merow2014">2014</a>)</span> combined demographic modelling and species distribution modelling using a <strong>“Demographic Distribution Model”</strong> whereby they used spatial covariation between demographic rates and environmental conditions to infer <strong>where the species can maintain positive population growth rates</strong> under current and future climate and fire conditions.</p>
 <blockquote>
 <p><strong>Interesting side note</strong>: This analysis used <em>integral projection models</em> (IPMs), which you can think of as the “next generation” of the Leslie matrix model that you will be familiar with. In IPMs the state variable is size (not age) and there are far more classes (i.e. rows and columns in the “matrix”). The (very oversimplified explanation of) the advantage of this is that you can build regression models for the vital rates as a function of plant size and environmental parameters and then relate those back to your transition matrix. This allows you to explore the effect of spatial covariates (climate, soil, fire, etc) on demographic rates, which would be very difficult to do if you only had a few size classes. This also allow you to make projections for different conditions, allowing you to explorethe effetcs of climate change, altered fire regimes, etc.</p>
 </blockquote>
@@ -499,7 +499,7 @@ Figure 4.7: Sensitivity to wildflower harvesting for various Proteaceae species 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:merow2014vitalrates"></span>
 <img src="img/merow2014vitalrates.jpg" alt="Estimated vital rates of _Protea repens_ across the CFR. Figure from @Merow2014." width="80%" />
 <p class="caption">
-Figure 4.8: Estimated vital rates of <em>Protea repens</em> across the CFR. Figure from <span class="citation">Merow et al. (<a href="#ref-Merow2014" role="doc-biblioref">2014</a>)</span>.
+Figure 4.8: Estimated vital rates of <em>Protea repens</em> across the CFR. Figure from <span class="citation">Merow et al. (<a href="#ref-Merow2014">2014</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -509,7 +509,7 @@ Figure 4.8: Estimated vital rates of <em>Protea repens</em> across the CFR. Figu
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:merow2014lambda"></span>
 <img src="img/merow2014lambda.jpg" alt="Model evaluation of the predicted population growth rate ($\lambda$) and distribution of _Protea repens_ across the CFR. (a) Mean $\lambda$ and (b) interquartile range of $\lambda$. (c–d) Evaluation of (a) using presence/absence data. (e) Posterior probability that $\lambda$ &gt; 1, representing a viable population. (f) Evaluation of (a) using ordinal abundance data. Figure from @Merow2014." width="90%" />
 <p class="caption">
-Figure 4.9: Model evaluation of the predicted population growth rate (<span class="math inline">\(\lambda\)</span>) and distribution of <em>Protea repens</em> across the CFR. (a) Mean <span class="math inline">\(\lambda\)</span> and (b) interquartile range of <span class="math inline">\(\lambda\)</span>. (c–d) Evaluation of (a) using presence/absence data. (e) Posterior probability that <span class="math inline">\(\lambda\)</span> &gt; 1, representing a viable population. (f) Evaluation of (a) using ordinal abundance data. Figure from <span class="citation">Merow et al. (<a href="#ref-Merow2014" role="doc-biblioref">2014</a>)</span>.
+Figure 4.9: Model evaluation of the predicted population growth rate (<span class="math inline">\(\lambda\)</span>) and distribution of <em>Protea repens</em> across the CFR. (a) Mean <span class="math inline">\(\lambda\)</span> and (b) interquartile range of <span class="math inline">\(\lambda\)</span>. (c–d) Evaluation of (a) using presence/absence data. (e) Posterior probability that <span class="math inline">\(\lambda\)</span> &gt; 1, representing a viable population. (f) Evaluation of (a) using ordinal abundance data. Figure from <span class="citation">Merow et al. (<a href="#ref-Merow2014">2014</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -518,7 +518,7 @@ Figure 4.9: Model evaluation of the predicted population growth rate (<span clas
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:merow2014projections"></span>
 <img src="img/merow2014projections.jpg" alt="Projections of the change in population growth rates of _Protea repens_ under different scenarios. (a–b) Reducing (increasing) the observed fire return time by 4 yr. (c) Variation of mean population growth rate as a function of fire return time. The horizontal dashed line indicates where the growth rate = 1. (d) The difference between present day predictions and projections under future climate change scenario with temperature increased by 1 degree and precipitation reduced by 10%. Figure from @Merow2014." width="90%" />
 <p class="caption">
-Figure 4.10: Projections of the change in population growth rates of <em>Protea repens</em> under different scenarios. (a–b) Reducing (increasing) the observed fire return time by 4 yr. (c) Variation of mean population growth rate as a function of fire return time. The horizontal dashed line indicates where the growth rate = 1. (d) The difference between present day predictions and projections under future climate change scenario with temperature increased by 1 degree and precipitation reduced by 10%. Figure from <span class="citation">Merow et al. (<a href="#ref-Merow2014" role="doc-biblioref">2014</a>)</span>.
+Figure 4.10: Projections of the change in population growth rates of <em>Protea repens</em> under different scenarios. (a–b) Reducing (increasing) the observed fire return time by 4 yr. (c) Variation of mean population growth rate as a function of fire return time. The horizontal dashed line indicates where the growth rate = 1. (d) The difference between present day predictions and projections under future climate change scenario with temperature increased by 1 degree and precipitation reduced by 10%. Figure from <span class="citation">Merow et al. (<a href="#ref-Merow2014">2014</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -533,7 +533,7 @@ Figure 4.10: Projections of the change in population growth rates of <em>Protea 
 <div id="near-term-iterative-ecological-forecasts" class="section level2 hasAnchor" number="4.6">
 <h2><span class="header-section-number">4.6</span> Near-term iterative ecological forecasts?<a href="forecasts.html#near-term-iterative-ecological-forecasts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>So we have the initial data and models required to be <strong>able to monitor and forecast multiple Proteaceae species responses to harvesting, wildfire and changing climatic conditions</strong>.</p>
-<p>While the work by <span class="citation">Merow et al. (<a href="#ref-Merow2014" role="doc-biblioref">2014</a>)</span>, <span class="citation">Treurnicht et al. (<a href="#ref-Treurnicht2021" role="doc-biblioref">2021</a>)</span> and others represent ecological forecasts, they currently <strong>aren’t iterative</strong>, so we are missing the opportunity to learn and refine the models. This also means that we’re not feeding up-to-date information to planners and decision makers.</p>
+<p>While the work by <span class="citation">Merow et al. (<a href="#ref-Merow2014">2014</a>)</span>, <span class="citation">Treurnicht et al. (<a href="#ref-Treurnicht2021">2021</a>)</span> and others represent ecological forecasts, they currently <strong>aren’t iterative</strong>, so we are missing the opportunity to learn and refine the models. This also means that we’re not feeding up-to-date information to planners and decision makers.</p>
 <p>What do we need to do to develop them into <em>near-term iterative ecological forecasts</em>?</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ecoforecastingloop2"></span>
@@ -543,14 +543,14 @@ Figure 4.11: The iterative ecological forecasting cycle in the context of the sc
 </p>
 </div>
 <p><br></p>
-<p><strong>Firstly,</strong> they are either not specific about when they are forecasting to (e.g. <span class="citation">Treurnicht et al. (<a href="#ref-Treurnicht2021" role="doc-biblioref">2021</a>)</span> ran their models to estimate extinction probabilities over 100 years in response to different harvesting regimes), or they are too far into the future to be amenable to iterative assessment, learning and updating (e.g. <span class="citation">Merow et al. (<a href="#ref-Merow2014" role="doc-biblioref">2014</a>)</span> project to 2050). We need to make the forecasts <strong>near-term</strong>, such as a range of scenarios 5-10 years into the future, or 1-2 years into the next fire cycle.</p>
+<p><strong>Firstly,</strong> they are either not specific about when they are forecasting to (e.g. <span class="citation">Treurnicht et al. (<a href="#ref-Treurnicht2021">2021</a>)</span> ran their models to estimate extinction probabilities over 100 years in response to different harvesting regimes), or they are too far into the future to be amenable to iterative assessment, learning and updating (e.g. <span class="citation">Merow et al. (<a href="#ref-Merow2014">2014</a>)</span> project to 2050). We need to make the forecasts <strong>near-term</strong>, such as a range of scenarios 5-10 years into the future, or 1-2 years into the next fire cycle.</p>
 <p><strong>Secondly,</strong> while various parties hold various datasets, we need to <strong>coordinate data collection</strong> among citizen scientists, conservation authorities, scientists, etc and <strong>centralize data management</strong> so that it can feed data back into the modelling workflow.</p>
 <p><strong>Thirdly,</strong> we need to adapt the models and workflow to be able to <strong>ingest and assimilate new data</strong> and produce new <strong>forecasts automatically</strong>.</p>
 <p><strong>Lastly,</strong> we need to make sure that the models adequately <strong>characterize and propagate uncertainty</strong> throughout the analyses so that we can focus data collection and model development to reduce the uncertainty in forecasts. Fortunately, the models are built in a <strong>Bayesian framework</strong> and already do a pretty good job of handling uncertainty.</p>
 <p>Clearly, while huge effort has been invested into the demography of Proteaceae, and they are likely to be <strong>one of the lowest hanging fruit for development into near-term iterative ecological forecasts</strong>, there is a lot more work to be done! Still, the history of productive research on Proteaceae shows it would clearly be worth the effort, and we already have decades of data that allow us to learn by backcasting or forecasting from old to more recently collected data. Even if early forecasts are woefully wrong, they will help us learn and improve.</p>
 <p>Once the <strong>informatics pipeline</strong> is developed, we could start adding <strong>other species</strong> - e.g. restios, ericas, animals, etc. This is important because the fire requirements for Proteaceae are not necessarily representative of all Fynbos species…</p>
 <blockquote>
-<p>“The need to start forecasting is now; the time for making ecology more predictive is here, and learning by doing is the fastest route to drive the science forward.” - <span class="citation">Dietze et al. (<a href="#ref-Dietze2018" role="doc-biblioref">2018</a>)</span></p>
+<p>“The need to start forecasting is now; the time for making ecology more predictive is here, and learning by doing is the fastest route to drive the science forward.” - <span class="citation">Dietze et al. (<a href="#ref-Dietze2018">2018</a>)</span></p>
 </blockquote>
 <p><br></p>
 
@@ -652,7 +652,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
