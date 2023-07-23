@@ -14,7 +14,7 @@ if(file.exists("praccode/03_negexp.R"))        source("praccode/03_negexp.R")
 URL = "https://raw.githubusercontent.com/jslingsby/BIO3019S_Ecoforecasting/master/data/modisdata.csv"
 dat <- download.NDVI(URL)
 
-# Convert "calendar_date" to postfire age in days since fire - assuming the first date in the times eries is the time of the fire 
+# Convert "calendar_date" to postfire age in days since fire - assuming the first date in the times series is the time of the fire 
 dat$age <- (as.numeric(dat$calendar_date) - min(as.numeric(dat$calendar_date), na.rm = T))/365.25
 
 ## Plot overall NDVI time series

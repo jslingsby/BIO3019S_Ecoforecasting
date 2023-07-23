@@ -8,8 +8,8 @@ The installation and setup can be a bit long-winded, but once done you should be
 
 First we'll start with the necessary software. 
 
-1. Download and install the ***latest*** version of [R](https://cran.r-project.org/)
-2. Download and install the ***latest*** free version of [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/)
+1. Download and install (or upgrade to if already installed) the ***latest*** version of [R](https://cran.r-project.org/)
+2. Download and install (or upgrade to if already installed) the ***latest*** free version of [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/)
 3. Download and install the latest version of [Git](https://git-scm.com/) - **accept all the defaults**
 
 Then get started with GitHub:
@@ -38,7 +38,9 @@ Now you have RStudio, R and Git installed, and you have a working GitHub account
 - Click `Apply`
 - Restart RStudio
 
-Ok, now everything should be working. The next steps (explained below) are to _fork_ and _clone_ your first repo to see if everything is working, and then to modify a file in RStudio, _push_ it back to your forked repo, and then create a _pull request_ for me to review and accept your changes. This let's me know that you've made it through the preparation for the practical, and it gives me your GitHub username.
+Ok, now everything should be working. **If not**, and you've tried repeating steps, have a look at the installation section of [Happy Git with R](https://happygitwithr.com/) to troubleshoot...
+
+The next steps (explained below) are to _fork_ and _clone_ your first repo to see if everything is working, and then to modify a file in RStudio, _push_ it back to your forked repo, and then create a _pull request_ for me to review and accept your changes. This let's me know that you've made it through the preparation for the practical, and it gives me your GitHub username.
 
 9. In GitHub:
 - Make sure you are logged in, search and navigate to `JasperUCT/pullltest` (spot the 3 "l"s!)

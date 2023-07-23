@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Data Management | A Minimal Introduction to Ecological Forecasting</title>
+  <title>6 Data Management | A Minimal Introduction to Ecological Forecasting</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Data Management | A Minimal Introduction to Ecological Forecasting" />
+  <meta property="og:title" content="6 Data Management | A Minimal Introduction to Ecological Forecasting" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Data Management | A Minimal Introduction to Ecological Forecasting" />
+  <meta name="twitter:title" content="6 Data Management | A Minimal Introduction to Ecological Forecasting" />
   
   <meta name="twitter:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   
@@ -23,14 +23,14 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2023-07-19" />
+<meta name="date" content="2023-07-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="practical-output-master-script-for-postfire-analysis.html"/>
+<link rel="prev" href="reproducibility.html"/>
 <link rel="next" href="bayesian.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -201,112 +201,104 @@ div.csl-indent {
 <li class="chapter" data-level="5.4" data-path="reproducibility.html"><a href="reproducibility.html#why-work-reproducibly"><i class="fa fa-check"></i><b>5.4</b> Why work reproducibly?</a></li>
 <li class="chapter" data-level="5.5" data-path="reproducibility.html"><a href="reproducibility.html#barriers-to-working-reproducibly"><i class="fa fa-check"></i><b>5.5</b> Barriers to working reproducibly</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="practical.html"><a href="practical.html"><i class="fa fa-check"></i><b>6</b> Practical: Pair coding with GitHub</a>
+<li class="chapter" data-level="6" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>6</b> Data Management</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="practical.html"><a href="practical.html#objectives"><i class="fa fa-check"></i><b>6.1</b> Objectives</a></li>
-<li class="chapter" data-level="6.2" data-path="practical.html"><a href="practical.html#postfire-regeneration"><i class="fa fa-check"></i><b>6.2</b> Postfire regeneration</a></li>
-<li class="chapter" data-level="6.3" data-path="practical.html"><a href="practical.html#modular-design"><i class="fa fa-check"></i><b>6.3</b> Modular Design</a></li>
-<li class="chapter" data-level="6.4" data-path="practical.html"><a href="practical.html#task-1-create-clone-repository"><i class="fa fa-check"></i><b>6.4</b> Task 1: Create &amp; Clone Repository</a>
+<li class="chapter" data-level="6.1" data-path="data.html"><a href="data.html#why-do-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>6.1</b> Why do you need to manage your data?</a></li>
+<li class="chapter" data-level="6.2" data-path="data.html"><a href="data.html#the-data-life-cycle"><i class="fa fa-check"></i><b>6.2</b> The Data Life Cycle</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="practical.html"><a href="practical.html#owner"><i class="fa fa-check"></i><b>6.4.1</b> OWNER</a></li>
+<li class="chapter" data-level="6.2.1" data-path="data.html"><a href="data.html#plan"><i class="fa fa-check"></i><b>6.2.1</b> Plan</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data.html"><a href="data.html#collect-and-assure"><i class="fa fa-check"></i><b>6.2.2</b> Collect and Assure</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data.html"><a href="data.html#describe"><i class="fa fa-check"></i><b>6.2.3</b> Describe</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data.html"><a href="data.html#preserve"><i class="fa fa-check"></i><b>6.2.4</b> Preserve</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data.html"><a href="data.html#discover"><i class="fa fa-check"></i><b>6.2.5</b> Discover</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data.html"><a href="data.html#integrate"><i class="fa fa-check"></i><b>6.2.6</b> Integrate</a></li>
+<li class="chapter" data-level="6.2.7" data-path="data.html"><a href="data.html#analyze"><i class="fa fa-check"></i><b>6.2.7</b> Analyze</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="practical.html"><a href="practical.html#task-2-add-the-first-function-download.ndvi"><i class="fa fa-check"></i><b>6.5</b> Task 2: Add the first function: download.NDVI</a>
-<ul>
-<li class="chapter" data-level="6.5.1" data-path="practical.html"><a href="practical.html#owner-1"><i class="fa fa-check"></i><b>6.5.1</b> OWNER</a></li>
+<li class="chapter" data-level="6.3" data-path="data.html"><a href="data.html#data-and-decisions"><i class="fa fa-check"></i><b>6.3</b> Data and decisions</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="practical.html"><a href="practical.html#task-3-collaborator-adds-plot.ndvi"><i class="fa fa-check"></i><b>6.6</b> Task 3: Collaborator adds plot.NDVI</a>
+<li class="chapter" data-level="7" data-path="bayesian.html"><a href="bayesian.html"><i class="fa fa-check"></i><b>7</b> Going Bayesian</a>
 <ul>
-<li class="chapter" data-level="6.6.1" data-path="practical.html"><a href="practical.html#collaborator"><i class="fa fa-check"></i><b>6.6.1</b> COLLABORATOR</a></li>
-<li class="chapter" data-level="6.6.2" data-path="practical.html"><a href="practical.html#owner-2"><i class="fa fa-check"></i><b>6.6.2</b> OWNER</a></li>
+<li class="chapter" data-level="7.1" data-path="bayesian.html"><a href="bayesian.html#least-squares"><i class="fa fa-check"></i><b>7.1</b> Least Squares</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="bayesian.html"><a href="bayesian.html#least-squares-doesnt-explicitly-include-a-data-model"><i class="fa fa-check"></i><b>7.1.1</b> Least Squares doesn’t explicitly include a data model</a></li>
+<li class="chapter" data-level="7.1.2" data-path="bayesian.html"><a href="bayesian.html#least-squares-focuses-on-what-the-parameters-are-not-rather-than-what-they-are"><i class="fa fa-check"></i><b>7.1.2</b> Least squares focuses on what the parameters are not, rather than what they are</a></li>
 </ul></li>
-<li class="chapter" data-level="6.7" data-path="practical.html"><a href="practical.html#task-4-owner-adds-functions-for-model-fitting-using-mle"><i class="fa fa-check"></i><b>6.7</b> Task 4: Owner adds functions for model fitting using MLE</a>
+<li class="chapter" data-level="7.2" data-path="bayesian.html"><a href="bayesian.html#maximum-likelihood"><i class="fa fa-check"></i><b>7.2</b> Maximum likelihood</a>
 <ul>
-<li class="chapter" data-level="6.7.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>6.7.1</b> OWNER</a></li>
+<li class="chapter" data-level="7.2.1" data-path="bayesian.html"><a href="bayesian.html#joint-conditional-and-marginal-probabilities"><i class="fa fa-check"></i><b>7.2.1</b> Joint, conditional and marginal probabilities</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script-owner-answers-the-questions"><i class="fa fa-check"></i><b>6.8</b> Task 5: Collaborator adds the master script, Owner answers the questions</a>
+<li class="chapter" data-level="7.3" data-path="bayesian.html"><a href="bayesian.html#bayes-theorem"><i class="fa fa-check"></i><b>7.3</b> Bayes’ Theorem</a>
 <ul>
-<li class="chapter" data-level="6.8.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>6.8.1</b> COLLABORATOR</a></li>
-<li class="chapter" data-level="6.8.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>6.8.2</b> OWNER</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html"><i class="fa fa-check"></i><b>7</b> Practical output: Master script for postfire analysis</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#source-functions-get-data-and-plot"><i class="fa fa-check"></i><b>7.1</b> Source functions, get data and plot</a></li>
-<li class="chapter" data-level="7.2" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#fit-models-using-non-linear-least-squares-nls"><i class="fa fa-check"></i><b>7.2</b> Fit models using Non-linear Least Squares (NLS)</a></li>
-<li class="chapter" data-level="7.3" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#compare-nls-models-using-anova"><i class="fa fa-check"></i><b>7.3</b> Compare NLS models using ANOVA</a></li>
-<li class="chapter" data-level="7.4" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#fit-models-using-maximum-likelihood-estimation-mle"><i class="fa fa-check"></i><b>7.4</b> Fit models using Maximum Likelihood Estimation (MLE)</a></li>
-<li class="chapter" data-level="7.5" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#compare-mle-models-using-akaikes-information-criterion-aic"><i class="fa fa-check"></i><b>7.5</b> Compare MLE models using Akaike’s information criterion (AIC)</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>8</b> Data Management</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="data.html"><a href="data.html#why-do-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>8.1</b> Why do you need to manage your data?</a></li>
-<li class="chapter" data-level="8.2" data-path="data.html"><a href="data.html#the-data-life-cycle"><i class="fa fa-check"></i><b>8.2</b> The Data Life Cycle</a>
-<ul>
-<li class="chapter" data-level="8.2.1" data-path="data.html"><a href="data.html#plan"><i class="fa fa-check"></i><b>8.2.1</b> Plan</a></li>
-<li class="chapter" data-level="8.2.2" data-path="data.html"><a href="data.html#collect-and-assure"><i class="fa fa-check"></i><b>8.2.2</b> Collect and Assure</a></li>
-<li class="chapter" data-level="8.2.3" data-path="data.html"><a href="data.html#describe"><i class="fa fa-check"></i><b>8.2.3</b> Describe</a></li>
-<li class="chapter" data-level="8.2.4" data-path="data.html"><a href="data.html#preserve"><i class="fa fa-check"></i><b>8.2.4</b> Preserve</a></li>
-<li class="chapter" data-level="8.2.5" data-path="data.html"><a href="data.html#discover"><i class="fa fa-check"></i><b>8.2.5</b> Discover</a></li>
-<li class="chapter" data-level="8.2.6" data-path="data.html"><a href="data.html#integrate"><i class="fa fa-check"></i><b>8.2.6</b> Integrate</a></li>
-<li class="chapter" data-level="8.2.7" data-path="data.html"><a href="data.html#analyze"><i class="fa fa-check"></i><b>8.2.7</b> Analyze</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="data.html"><a href="data.html#data-and-decisions"><i class="fa fa-check"></i><b>8.3</b> Data and decisions</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="bayesian.html"><a href="bayesian.html"><i class="fa fa-check"></i><b>9</b> Going Bayesian</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="bayesian.html"><a href="bayesian.html#least-squares"><i class="fa fa-check"></i><b>9.1</b> Least Squares</a>
-<ul>
-<li class="chapter" data-level="9.1.1" data-path="bayesian.html"><a href="bayesian.html#least-squares-doesnt-explicitly-include-a-data-model"><i class="fa fa-check"></i><b>9.1.1</b> Least Squares doesn’t explicitly include a data model</a></li>
-<li class="chapter" data-level="9.1.2" data-path="bayesian.html"><a href="bayesian.html#least-squares-focuses-on-what-the-parameters-are-not-rather-than-what-they-are"><i class="fa fa-check"></i><b>9.1.2</b> Least squares focuses on what the parameters are not, rather than what they are</a></li>
-</ul></li>
-<li class="chapter" data-level="9.2" data-path="bayesian.html"><a href="bayesian.html#maximum-likelihood"><i class="fa fa-check"></i><b>9.2</b> Maximum likelihood</a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="bayesian.html"><a href="bayesian.html#joint-conditional-and-marginal-probabilities"><i class="fa fa-check"></i><b>9.2.1</b> Joint, conditional and marginal probabilities</a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="bayesian.html"><a href="bayesian.html#bayes-theorem"><i class="fa fa-check"></i><b>9.3</b> Bayes’ Theorem</a>
-<ul>
-<li class="chapter" data-level="9.3.1" data-path="bayesian.html"><a href="bayesian.html#the-beauty-of-bayes-theorem"><i class="fa fa-check"></i><b>9.3.1</b> The beauty of Bayes’ Theorem</a></li>
+<li class="chapter" data-level="7.3.1" data-path="bayesian.html"><a href="bayesian.html#the-beauty-of-bayes-theorem"><i class="fa fa-check"></i><b>7.3.1</b> The beauty of Bayes’ Theorem</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="datafusion.html"><a href="datafusion.html"><i class="fa fa-check"></i><b>10</b> Data Fusion</a>
+<li class="chapter" data-level="8" data-path="datafusion.html"><a href="datafusion.html"><i class="fa fa-check"></i><b>8</b> Data Fusion</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="datafusion.html"><a href="datafusion.html#a-reminder-of-bayes-theorem-and-its-benefits"><i class="fa fa-check"></i><b>10.1</b> A reminder of Bayes Theorem and its benefits</a>
+<li class="chapter" data-level="8.1" data-path="datafusion.html"><a href="datafusion.html#a-reminder-of-bayes-theorem-and-its-benefits"><i class="fa fa-check"></i><b>8.1</b> A reminder of Bayes Theorem and its benefits</a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="datafusion.html"><a href="datafusion.html#the-benefits-of-bayes"><i class="fa fa-check"></i><b>10.1.1</b> The benefits of Bayes</a></li>
+<li class="chapter" data-level="8.1.1" data-path="datafusion.html"><a href="datafusion.html#the-benefits-of-bayes"><i class="fa fa-check"></i><b>8.1.1</b> The benefits of Bayes</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="datafusion.html"><a href="datafusion.html#data-fusion"><i class="fa fa-check"></i><b>10.2</b> Data fusion</a>
+<li class="chapter" data-level="8.2" data-path="datafusion.html"><a href="datafusion.html#data-fusion"><i class="fa fa-check"></i><b>8.2</b> Data fusion</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="datafusion.html"><a href="datafusion.html#model-layers"><i class="fa fa-check"></i><b>10.2.1</b> Model layers</a></li>
-<li class="chapter" data-level="10.2.2" data-path="datafusion.html"><a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example"><i class="fa fa-check"></i><b>10.2.2</b> Hierarchical Bayes and postfire recovery example</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>11</b> Uncertainty</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
-<li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating uncertainty</a></li>
-<li class="chapter" data-level="11.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>11.3</b> Analyzing and reducing uncertainty</a></li>
-<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
-<ul>
-<li class="chapter" data-level="11.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>11.4.1</b> The background</a></li>
-<li class="chapter" data-level="11.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>11.4.2</b> The Analysis</a></li>
-<li class="chapter" data-level="11.4.3" data-path="uncertainty.html"><a href="uncertainty.html#the-results"><i class="fa fa-check"></i><b>11.4.3</b> The Results</a></li>
+<li class="chapter" data-level="8.2.1" data-path="datafusion.html"><a href="datafusion.html#model-layers"><i class="fa fa-check"></i><b>8.2.1</b> Model layers</a></li>
+<li class="chapter" data-level="8.2.2" data-path="datafusion.html"><a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example"><i class="fa fa-check"></i><b>8.2.2</b> Hierarchical Bayes and postfire recovery example</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>12</b> Completing the forecast cycle</a>
+<li class="chapter" data-level="9" data-path="practical.html"><a href="practical.html"><i class="fa fa-check"></i><b>9</b> Practical: Pair coding with GitHub</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="decisions.html"><a href="decisions.html#data-assimilation"><i class="fa fa-check"></i><b>12.1</b> Data assimilation</a>
+<li class="chapter" data-level="9.1" data-path="practical.html"><a href="practical.html#objectives"><i class="fa fa-check"></i><b>9.1</b> Objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="practical.html"><a href="practical.html#postfire-regeneration"><i class="fa fa-check"></i><b>9.2</b> Postfire regeneration</a></li>
+<li class="chapter" data-level="9.3" data-path="practical.html"><a href="practical.html#modular-design"><i class="fa fa-check"></i><b>9.3</b> Modular Design</a></li>
+<li class="chapter" data-level="9.4" data-path="practical.html"><a href="practical.html#task-1-create-clone-repository"><i class="fa fa-check"></i><b>9.4</b> Task 1: Create &amp; Clone Repository</a>
 <ul>
-<li class="chapter" data-level="12.1.1" data-path="decisions.html"><a href="decisions.html#operational-data-assimilation"><i class="fa fa-check"></i><b>12.1.1</b> Operational data assimilation</a></li>
-<li class="chapter" data-level="12.1.2" data-path="decisions.html"><a href="decisions.html#the-forecast-step"><i class="fa fa-check"></i><b>12.1.2</b> The Forecast Step</a></li>
-<li class="chapter" data-level="12.1.3" data-path="decisions.html"><a href="decisions.html#the-analysis-step"><i class="fa fa-check"></i><b>12.1.3</b> The Analysis Step</a></li>
+<li class="chapter" data-level="9.4.1" data-path="practical.html"><a href="practical.html#owner"><i class="fa fa-check"></i><b>9.4.1</b> OWNER</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="decisions.html"><a href="decisions.html#decision-support"><i class="fa fa-check"></i><b>12.2</b> Decision support</a>
+<li class="chapter" data-level="9.5" data-path="practical.html"><a href="practical.html#task-2-add-the-first-function-download.ndvi"><i class="fa fa-check"></i><b>9.5</b> Task 2: Add the first function: download.NDVI</a>
 <ul>
-<li class="chapter" data-level="12.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>12.2.1</b> In an ideal world…</a></li>
-<li class="chapter" data-level="12.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>12.2.2</b> In reality…</a></li>
+<li class="chapter" data-level="9.5.1" data-path="practical.html"><a href="practical.html#owner-1"><i class="fa fa-check"></i><b>9.5.1</b> OWNER</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.3</b> Final words</a></li>
-<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#revision-questions"><i class="fa fa-check"></i><b>12.4</b> Revision questions</a></li>
+<li class="chapter" data-level="9.6" data-path="practical.html"><a href="practical.html#task-3-collaborator-adds-plot.ndvi"><i class="fa fa-check"></i><b>9.6</b> Task 3: Collaborator adds plot.NDVI</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="practical.html"><a href="practical.html#collaborator"><i class="fa fa-check"></i><b>9.6.1</b> COLLABORATOR</a></li>
+<li class="chapter" data-level="9.6.2" data-path="practical.html"><a href="practical.html#owner-2"><i class="fa fa-check"></i><b>9.6.2</b> OWNER</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="practical.html"><a href="practical.html#task-4-owner-adds-functions-for-model-fitting-using-mle"><i class="fa fa-check"></i><b>9.7</b> Task 4: Owner adds functions for model fitting using MLE</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>9.7.1</b> OWNER</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script-owner-answers-the-questions"><i class="fa fa-check"></i><b>9.8</b> Task 5: Collaborator adds the master script, Owner answers the questions</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>9.8.1</b> COLLABORATOR</a></li>
+<li class="chapter" data-level="9.8.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>9.8.2</b> OWNER</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>10</b> Uncertainty</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>10.1</b> Sources and types of uncertainty</a></li>
+<li class="chapter" data-level="10.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>10.2</b> Propagating uncertainty</a></li>
+<li class="chapter" data-level="10.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>10.3</b> Analyzing and reducing uncertainty</a></li>
+<li class="chapter" data-level="10.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>10.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>10.4.1</b> The background</a></li>
+<li class="chapter" data-level="10.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>10.4.2</b> The Analysis</a></li>
+<li class="chapter" data-level="10.4.3" data-path="uncertainty.html"><a href="uncertainty.html#the-results"><i class="fa fa-check"></i><b>10.4.3</b> The Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>11</b> Completing the forecast cycle</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="decisions.html"><a href="decisions.html#data-assimilation"><i class="fa fa-check"></i><b>11.1</b> Data assimilation</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="decisions.html"><a href="decisions.html#operational-data-assimilation"><i class="fa fa-check"></i><b>11.1.1</b> Operational data assimilation</a></li>
+<li class="chapter" data-level="11.1.2" data-path="decisions.html"><a href="decisions.html#the-forecast-step"><i class="fa fa-check"></i><b>11.1.2</b> The Forecast Step</a></li>
+<li class="chapter" data-level="11.1.3" data-path="decisions.html"><a href="decisions.html#the-analysis-step"><i class="fa fa-check"></i><b>11.1.3</b> The Analysis Step</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="decisions.html"><a href="decisions.html#decision-support"><i class="fa fa-check"></i><b>11.2</b> Decision support</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>11.2.1</b> In an ideal world…</a></li>
+<li class="chapter" data-level="11.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>11.2.2</b> In reality…</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>11.3</b> Final words</a></li>
+<li class="chapter" data-level="11.4" data-path="decisions.html"><a href="decisions.html#revision-questions"><i class="fa fa-check"></i><b>11.4</b> Revision questions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -329,23 +321,23 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">8</span> Data Management<a href="data.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="why-do-you-need-to-manage-your-data" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Why do you need to manage your data?<a href="data.html#why-do-you-need-to-manage-your-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Data Management<a href="data.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="why-do-you-need-to-manage-your-data" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Why do you need to manage your data?<a href="data.html#why-do-you-need-to-manage-your-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Data management is often the last thing on a scientists mind when doing a new study - “I have a cool idea, and I’m going to test it!”. You don’t want to “waste” time planning how you’re going to manage your data and implementing that plan…</p>
 <p>Unfortunately, this never ends well and really is a realm where “haste makes waste”.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:datadecay"></span>
 <img src="img/datadecaycurve.jpg" alt="The 'Data Decay Curve' [@Michener1997]" width="75%" />
 <p class="caption">
-Figure 8.1: The ‘Data Decay Curve’ <span class="citation">(<a href="#ref-Michener1997">Michener et al. 1997</a>)</span>
+Figure 6.1: The ‘Data Decay Curve’ <span class="citation">(<a href="#ref-Michener1997">Michener et al. 1997</a>)</span>
 </p>
 </div>
 <p><br></p>
 <p>Here are a bunch of reasons you really want to focus on doing good data management:</p>
 <ul>
-<li><p><strong>Bad data management leads to data loss</strong>… (Figure <a href="data.html#fig:datadecay">8.1</a>)</p></li>
+<li><p><strong>Bad data management leads to data loss</strong>… (Figure <a href="data.html#fig:datadecay">6.1</a>)</p></li>
 <li><p><strong>Your future self will hate you if you lose it before you’re finished with it!!!</strong> This is less likely in the world of Dropbox, Google Drive, iCloud etc, but I know people who had to repeat their PhD’s because they lost their data because it was on a laptop that crashed or was stolen… Also, <strong><em>beware cloud storage!!!</em></strong> It’s easy for you or a collaborator to delete/overwrite/lose access to items, e.g. </p>
 <ul>
 <li>if someone leaves the project and deletes the folder on their Dropbox without “leaving” it first</li>
@@ -372,12 +364,12 @@ Figure 8.1: The ‘Data Decay Curve’ <span class="citation">(<a href="#ref-Mic
 <p>To avoid data (and relationship) decay, and to reap the benefits of good data management, it is important to consider the full <em>Data Life Cycle</em>.</p>
 <p><br></p>
 </div>
-<div id="the-data-life-cycle" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> The Data Life Cycle<a href="data.html#the-data-life-cycle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-data-life-cycle" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> The Data Life Cycle<a href="data.html#the-data-life-cycle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:datalifecycle"></span>
 <img src="BIO3019S-Ecoforecasting_files/figure-html/datalifecycle-1.png" alt="The Data Life Cycle, adapted from https://www.dataone.org/" width="110%" />
 <p class="caption">
-Figure 8.2: The Data Life Cycle, adapted from <a href="https://www.dataone.org/" class="uri">https://www.dataone.org/</a>
+Figure 6.2: The Data Life Cycle, adapted from <a href="https://www.dataone.org/" class="uri">https://www.dataone.org/</a>
 </p>
 </div>
 <p><br></p>
@@ -388,8 +380,8 @@ Figure 8.2: The Data Life Cycle, adapted from <a href="https://www.dataone.org/"
 <li>If you’re collecting new data you would do steps 1 to 5 and possibly skip 6 and 7, although in my experience few studies do not reuse existing data (e.g. weather or various GIS data to put your new samples into context).</li>
 </ul>
 <p><br></p>
-<div id="plan" class="section level3 hasAnchor" number="8.2.1">
-<h3><span class="header-section-number">8.2.1</span> Plan<a href="data.html#plan" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="plan" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Plan<a href="data.html#plan" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Good data management begins with planning. In this step you essentially <strong>outline the plan for every step of the cycle in as much detail as possible</strong>. Usually this is done by constructing a document or <strong>Data Management Plan (DMP)</strong>.</p>
 <p>While developing DMPs can seem tedious, they are essential for the reasons I gave above, and because <strong>most funders and universities now require them</strong>.</p>
 <p>Fortunately, there are a number of <strong>online data management planning tools</strong> that make it easy by providing templates and prompts to ensure that you cover all the bases, like the Digital Curation Centre’s <a href="https://dmponline.dcc.ac.uk/">DMPOnline</a> and <a href="https://dmp.lib.uct.ac.za/">UCT’s DMP Tool</a>.</p>
@@ -397,7 +389,7 @@ Figure 8.2: The Data Life Cycle, adapted from <a href="https://www.dataone.org/"
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:uctdmp"></span>
 <img src="img/UCTDMP.png" alt="Screenshot of [UCT's Data Management Planning Tool's Data Management Checklist.](http://www.digitalservices.lib.uct.ac.za/dls/systems/uct-dmp)" width="90%" />
 <p class="caption">
-Figure 8.3: Screenshot of <a href="http://www.digitalservices.lib.uct.ac.za/dls/systems/uct-dmp">UCT’s Data Management Planning Tool’s Data Management Checklist.</a>
+Figure 6.3: Screenshot of <a href="http://www.digitalservices.lib.uct.ac.za/dls/systems/uct-dmp">UCT’s Data Management Planning Tool’s Data Management Checklist.</a>
 </p>
 </div>
 <p><br></p>
@@ -405,13 +397,13 @@ Figure 8.3: Screenshot of <a href="http://www.digitalservices.lib.uct.ac.za/dls/
 <p>I typically develop one overarching DMP for an umbrella project (e.g. a particular grant), but then add specifics for subprojects (e.g. separate student projects etc).</p>
 <p><br></p>
 </div>
-<div id="collect-and-assure" class="section level3 hasAnchor" number="8.2.2">
-<h3><span class="header-section-number">8.2.2</span> Collect and Assure<a href="data.html#collect-and-assure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="collect-and-assure" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Collect and Assure<a href="data.html#collect-and-assure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are many, many different kinds of data that can be collected in a vast number of ways!</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:datatypes"></span>
 <img src="img/datatypes.png" alt="[Springer Nature Infographic](https://doi.org/10.6084/m9.figshare.5883193.v1) illustrating the vast range of research data types." width="90%" />
 <p class="caption">
-Figure 8.4: <a href="https://doi.org/10.6084/m9.figshare.5883193.v1">Springer Nature Infographic</a> illustrating the vast range of research data types.
+Figure 6.4: <a href="https://doi.org/10.6084/m9.figshare.5883193.v1">Springer Nature Infographic</a> illustrating the vast range of research data types.
 </p>
 </div>
 <p><br></p>
@@ -427,7 +419,7 @@ Figure 8.4: <a href="https://doi.org/10.6084/m9.figshare.5883193.v1">Springer Na
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:appsheet"></span>
 <img src="img/veldwatch.png" alt="An example data collection app I built in [AppSheet](https://www.appsheet.com) that allows you to log GPS coordinates, take photos, record various fields, etc." width="90%" />
 <p class="caption">
-Figure 8.5: An example data collection app I built in <a href="https://www.appsheet.com">AppSheet</a> that allows you to log GPS coordinates, take photos, record various fields, etc.
+Figure 6.5: An example data collection app I built in <a href="https://www.appsheet.com">AppSheet</a> that allows you to log GPS coordinates, take photos, record various fields, etc.
 </p>
 </div>
 <p><br></p>
@@ -450,15 +442,15 @@ Figure 8.5: An example data collection app I built in <a href="https://www.appsh
 </div>
 <p><br></p>
 </div>
-<div id="describe" class="section level3 hasAnchor" number="8.2.3">
-<h3><span class="header-section-number">8.2.3</span> Describe<a href="data.html#describe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="describe" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Describe<a href="data.html#describe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are few things worse than having a spreadsheet of what you think is the data you need, but you don’t know what the column names mean, how variables were measured, what units they’re reported in, etc… - <em>Especially when you were the one who collected and captured the data!!!</em></p>
 <p>This descriptive data about the data is called <strong><em>metadata</em></strong> and is essential for making the data reusable, but is also useful for many other purposes like making the data findable (e.g. using keyword searches). In fact, metadata makes up the majority of what are called the <a href="https://www.go-fair.org/fair-principles/"><strong>FAIR data principles</strong></a> <span class="citation">(<a href="#ref-Wilkinson2016">Wilkinson et al. 2016</a>)</span>, which largely focus on this and the next few steps of the Data Life Cycle. I’m not going to dwell on them other than to say that they are a key component of making your work reproducible, and that like reproducibility, practicing FAIR data principles is a spectrum.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:fairdata"></span>
 <img src="img/fairdata.jpg" alt="The FAIR data principles [ErrantScience.com](https://errantscience.com/)." width="75%" />
 <p class="caption">
-Figure 8.6: The FAIR data principles <a href="https://errantscience.com/">ErrantScience.com</a>.
+Figure 6.6: The FAIR data principles <a href="https://errantscience.com/">ErrantScience.com</a>.
 </p>
 </div>
 <p><br></p>
@@ -502,7 +494,7 @@ Figure 8.6: The FAIR data principles <a href="https://errantscience.com/">Errant
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:datastandards"></span>
 <img src="img/standards.png" alt="How standards proliferate... from [xkcd.com/927](https://xkcd.com/927), used under a [CC-BY-NC 2.5 license](https://creativecommons.org/licenses/by-nc/2.5/)." width="75%" />
 <p class="caption">
-Figure 8.7: How standards proliferate… from <a href="https://xkcd.com/927">xkcd.com/927</a>, used under a <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5 license</a>.
+Figure 6.7: How standards proliferate… from <a href="https://xkcd.com/927">xkcd.com/927</a>, used under a <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5 license</a>.
 </p>
 </div>
 <p><br></p>
@@ -513,13 +505,13 @@ Figure 8.7: How standards proliferate… from <a href="https://xkcd.com/927">xkc
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:stacspec"></span>
 <img src="img/stacspec.png" alt="An example of a geospatial metadata standard. SpatioTemporal Asset Catalogs [(STAC; stacspec.org)](https://stacspec.org/) aims to provide a common specification to enable online search and discovery of geospatial assets in just about any format." width="100%" />
 <p class="caption">
-Figure 8.8: An example of a geospatial metadata standard. SpatioTemporal Asset Catalogs <a href="https://stacspec.org/">(STAC; stacspec.org)</a> aims to provide a common specification to enable online search and discovery of geospatial assets in just about any format.
+Figure 6.8: An example of a geospatial metadata standard. SpatioTemporal Asset Catalogs <a href="https://stacspec.org/">(STAC; stacspec.org)</a> aims to provide a common specification to enable online search and discovery of geospatial assets in just about any format.
 </p>
 </div>
 <p><br></p>
 </div>
-<div id="preserve" class="section level3 hasAnchor" number="8.2.4">
-<h3><span class="header-section-number">8.2.4</span> Preserve<a href="data.html#preserve" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="preserve" class="section level3 hasAnchor" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> Preserve<a href="data.html#preserve" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are two major components to preserving your data:</p>
 <ol style="list-style-type: decimal">
 <li><strong><em>Back your data up now!!! (and repeat regularly)</em></strong></li>
@@ -557,10 +549,10 @@ Figure 8.8: An example of a geospatial metadata standard. SpatioTemporal Asset C
 <p>I haven’t discussed <strong>physical samples</strong> at all. These are obviously a huge (if not bigger) challenge too, although there are some obvious homes for common biological data, like herbaria for plant collections and museums for animal specimens.</p>
 <p><br></p>
 </div>
-<div id="discover" class="section level3 hasAnchor" number="8.2.5">
-<h3><span class="header-section-number">8.2.5</span> Discover<a href="data.html#discover" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="discover" class="section level3 hasAnchor" number="6.2.5">
+<h3><span class="header-section-number">6.2.5</span> Discover<a href="data.html#discover" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is perhaps the main point of the Data Life Cycle and FAIR data principles - to make data findable so that it can be reused.</p>
-<p>The biggest challenge to discovering data is that <strong>so many datasets are not online</strong> and are in the “filing cabinet in a bath in the basement under a leaking pipe” as in Figure <a href="data.html#fig:fairdata">8.6</a>. If you <strong><em>preserve and publish</em></strong> them in an online data repository, this overcomes the biggest hurdle.</p>
+<p>The biggest challenge to discovering data is that <strong>so many datasets are not online</strong> and are in the “filing cabinet in a bath in the basement under a leaking pipe” as in Figure <a href="data.html#fig:fairdata">6.6</a>. If you <strong><em>preserve and publish</em></strong> them in an online data repository, this overcomes the biggest hurdle.</p>
 <p>The next biggest challenge is <strong>that there is so much online that finding what you need can be quite challenging</strong> (like looking for a needle in a haystack…). This is where choosing the right portal can be important. It is also what metadata standards are aimed at - allowing interoperable searches for specific data types across multiple repositories.</p>
 <p>A final consideration is whether you have <strong>permission to use the data</strong>. You can often find out about the existence of a dataset, either online or in a paper, but the data aren’t made freely available. This is where <strong>licensing</strong> comes into play. Most data repositories require you to publish the data under a license. There are many options depending on the kind of data and what restrictions you want to put on its use. I’m not going to go into the gory details, but <a href="https://creativecommons.org/licenses/">Creative Commons</a> have created an extensible system of generic licenses that are easy to interpret and cover most situations. I say <em>extensible</em> because the licenses are made up of a string of components that can be layered over each other. For example:</p>
 <ul>
@@ -578,8 +570,8 @@ Figure 8.8: An example of a geospatial metadata standard. SpatioTemporal Asset C
 </blockquote>
 <p><br></p>
 </div>
-<div id="integrate" class="section level3 hasAnchor" number="8.2.6">
-<h3><span class="header-section-number">8.2.6</span> Integrate<a href="data.html#integrate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="integrate" class="section level3 hasAnchor" number="6.2.6">
+<h3><span class="header-section-number">6.2.6</span> Integrate<a href="data.html#integrate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are a few different components to data integration in this context:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Linking different kinds of data</strong>, usually through spatial and or temporal information</li>
@@ -599,12 +591,12 @@ Figure 8.8: An example of a geospatial metadata standard. SpatioTemporal Asset C
 <li><strong>Curating your data</strong> such that they can easily be integrated with other, similar datasets for larger analyses or meta-analyses</li>
 </ol>
 <ul>
-<li>this is largely a metadata game, but also one of data formats etc. Many fields promote the use of common data standards with rules on measurement specifications, file formats, common data and metadata fields, controlled vocabularies etc that allow easy integration, searching and manipulation (see section <a href="data.html#describe">8.2.3</a> for more details). This is what a lot of the discipline-specific online databases attempt to achieve.</li>
+<li>this is largely a metadata game, but also one of data formats etc. Many fields promote the use of common data standards with rules on measurement specifications, file formats, common data and metadata fields, controlled vocabularies etc that allow easy integration, searching and manipulation (see section <a href="data.html#describe">6.2.3</a> for more details). This is what a lot of the discipline-specific online databases attempt to achieve.</li>
 </ul>
 <p><br></p>
 </div>
-<div id="analyze" class="section level3 hasAnchor" number="8.2.7">
-<h3><span class="header-section-number">8.2.7</span> Analyze<a href="data.html#analyze" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="analyze" class="section level3 hasAnchor" number="6.2.7">
+<h3><span class="header-section-number">6.2.7</span> Analyze<a href="data.html#analyze" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>“The fun bit”, but again, there are many things to bear in mind and keep track of so that your analysis is repeatable. This is largely covered by the sections on <em>Coding and code management</em> and <em>Computing environment and software</em> in Chapter <a href="reproducibility.html#reproducibility">5</a></p>
 <div class="float">
 <img src="img/tidydata_5.jpg" alt="Artwork @allison_horst" />
@@ -613,8 +605,8 @@ Figure 8.8: An example of a geospatial metadata standard. SpatioTemporal Asset C
 <p><br></p>
 </div>
 </div>
-<div id="data-and-decisions" class="section level2 hasAnchor" number="8.3">
-<h2><span class="header-section-number">8.3</span> Data and decisions<a href="data.html#data-and-decisions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data-and-decisions" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Data and decisions<a href="data.html#data-and-decisions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This is not part of <em>The Data Life Cycle</em> per se, but it’s worth remembering that there are some other aspects of data, while still important if the goal is purely academic, that are make-or-break when the goal is informing decisions, e.g. (mostly paraphrased from <span class="citation">Dietze et al. (<a href="#ref-Dietze2018">2018</a>)</span>):</p>
 <ol style="list-style-type: decimal">
 <li><strong>Latency</strong> - the time between data collection and it’s availability for modelling. Depending on the model’s need for the latest data, if the latency is too long then it can preclude the ability to make useful forecasts (e.g. it’s very difficult to make useful weekly forecasts if you only get new data once a year…).</li>
@@ -649,7 +641,7 @@ Wilkinson, Mark D, Michel Dumontier, I Jsbrand Jan Aalbersberg, Gabrielle Applet
           </div>
         </div>
       </div>
-<a href="practical-output-master-script-for-postfire-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reproducibility.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="bayesian.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -681,7 +673,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/06-data.Rmd",
+"link": "https://github.com/jslingsby/BIO3019S_Ecoforecasting/edit/master/04-data.Rmd",
 "text": "Edit"
 },
 "history": {

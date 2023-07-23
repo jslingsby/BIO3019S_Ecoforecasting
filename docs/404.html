@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2023-07-20" />
+<meta name="date" content="2023-07-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
@@ -137,112 +201,104 @@ div.csl-indent {
 <li class="chapter" data-level="5.4" data-path="reproducibility.html"><a href="reproducibility.html#why-work-reproducibly"><i class="fa fa-check"></i><b>5.4</b> Why work reproducibly?</a></li>
 <li class="chapter" data-level="5.5" data-path="reproducibility.html"><a href="reproducibility.html#barriers-to-working-reproducibly"><i class="fa fa-check"></i><b>5.5</b> Barriers to working reproducibly</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="practical.html"><a href="practical.html"><i class="fa fa-check"></i><b>6</b> Practical: Pair coding with GitHub</a>
+<li class="chapter" data-level="6" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>6</b> Data Management</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="practical.html"><a href="practical.html#objectives"><i class="fa fa-check"></i><b>6.1</b> Objectives</a></li>
-<li class="chapter" data-level="6.2" data-path="practical.html"><a href="practical.html#postfire-regeneration"><i class="fa fa-check"></i><b>6.2</b> Postfire regeneration</a></li>
-<li class="chapter" data-level="6.3" data-path="practical.html"><a href="practical.html#modular-design"><i class="fa fa-check"></i><b>6.3</b> Modular Design</a></li>
-<li class="chapter" data-level="6.4" data-path="practical.html"><a href="practical.html#task-1-create-clone-repository"><i class="fa fa-check"></i><b>6.4</b> Task 1: Create &amp; Clone Repository</a>
+<li class="chapter" data-level="6.1" data-path="data.html"><a href="data.html#why-do-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>6.1</b> Why do you need to manage your data?</a></li>
+<li class="chapter" data-level="6.2" data-path="data.html"><a href="data.html#the-data-life-cycle"><i class="fa fa-check"></i><b>6.2</b> The Data Life Cycle</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="practical.html"><a href="practical.html#owner"><i class="fa fa-check"></i><b>6.4.1</b> OWNER</a></li>
+<li class="chapter" data-level="6.2.1" data-path="data.html"><a href="data.html#plan"><i class="fa fa-check"></i><b>6.2.1</b> Plan</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data.html"><a href="data.html#collect-and-assure"><i class="fa fa-check"></i><b>6.2.2</b> Collect and Assure</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data.html"><a href="data.html#describe"><i class="fa fa-check"></i><b>6.2.3</b> Describe</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data.html"><a href="data.html#preserve"><i class="fa fa-check"></i><b>6.2.4</b> Preserve</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data.html"><a href="data.html#discover"><i class="fa fa-check"></i><b>6.2.5</b> Discover</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data.html"><a href="data.html#integrate"><i class="fa fa-check"></i><b>6.2.6</b> Integrate</a></li>
+<li class="chapter" data-level="6.2.7" data-path="data.html"><a href="data.html#analyze"><i class="fa fa-check"></i><b>6.2.7</b> Analyze</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="practical.html"><a href="practical.html#task-2-add-the-first-function-download.ndvi"><i class="fa fa-check"></i><b>6.5</b> Task 2: Add the first function: download.NDVI</a>
-<ul>
-<li class="chapter" data-level="6.5.1" data-path="practical.html"><a href="practical.html#owner-1"><i class="fa fa-check"></i><b>6.5.1</b> OWNER</a></li>
+<li class="chapter" data-level="6.3" data-path="data.html"><a href="data.html#data-and-decisions"><i class="fa fa-check"></i><b>6.3</b> Data and decisions</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="practical.html"><a href="practical.html#task-3-collaborator-adds-plot.ndvi"><i class="fa fa-check"></i><b>6.6</b> Task 3: Collaborator adds plot.NDVI</a>
+<li class="chapter" data-level="7" data-path="bayesian.html"><a href="bayesian.html"><i class="fa fa-check"></i><b>7</b> Going Bayesian</a>
 <ul>
-<li class="chapter" data-level="6.6.1" data-path="practical.html"><a href="practical.html#collaborator"><i class="fa fa-check"></i><b>6.6.1</b> COLLABORATOR</a></li>
-<li class="chapter" data-level="6.6.2" data-path="practical.html"><a href="practical.html#owner-2"><i class="fa fa-check"></i><b>6.6.2</b> OWNER</a></li>
+<li class="chapter" data-level="7.1" data-path="bayesian.html"><a href="bayesian.html#least-squares"><i class="fa fa-check"></i><b>7.1</b> Least Squares</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="bayesian.html"><a href="bayesian.html#least-squares-doesnt-explicitly-include-a-data-model"><i class="fa fa-check"></i><b>7.1.1</b> Least Squares doesn’t explicitly include a data model</a></li>
+<li class="chapter" data-level="7.1.2" data-path="bayesian.html"><a href="bayesian.html#least-squares-focuses-on-what-the-parameters-are-not-rather-than-what-they-are"><i class="fa fa-check"></i><b>7.1.2</b> Least squares focuses on what the parameters are not, rather than what they are</a></li>
 </ul></li>
-<li class="chapter" data-level="6.7" data-path="practical.html"><a href="practical.html#task-4-owner-adds-functions-for-model-fitting-using-mle"><i class="fa fa-check"></i><b>6.7</b> Task 4: Owner adds functions for model fitting using MLE</a>
+<li class="chapter" data-level="7.2" data-path="bayesian.html"><a href="bayesian.html#maximum-likelihood"><i class="fa fa-check"></i><b>7.2</b> Maximum likelihood</a>
 <ul>
-<li class="chapter" data-level="6.7.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>6.7.1</b> OWNER</a></li>
+<li class="chapter" data-level="7.2.1" data-path="bayesian.html"><a href="bayesian.html#joint-conditional-and-marginal-probabilities"><i class="fa fa-check"></i><b>7.2.1</b> Joint, conditional and marginal probabilities</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script-owner-answers-the-questions"><i class="fa fa-check"></i><b>6.8</b> Task 5: Collaborator adds the master script, Owner answers the questions</a>
+<li class="chapter" data-level="7.3" data-path="bayesian.html"><a href="bayesian.html#bayes-theorem"><i class="fa fa-check"></i><b>7.3</b> Bayes’ Theorem</a>
 <ul>
-<li class="chapter" data-level="6.8.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>6.8.1</b> COLLABORATOR</a></li>
-<li class="chapter" data-level="6.8.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>6.8.2</b> OWNER</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html"><i class="fa fa-check"></i><b>7</b> Practical output: Master script for postfire analysis</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#source-functions-get-data-and-plot"><i class="fa fa-check"></i><b>7.1</b> Source functions, get data and plot</a></li>
-<li class="chapter" data-level="7.2" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#fit-models-using-non-linear-least-squares-nls"><i class="fa fa-check"></i><b>7.2</b> Fit models using Non-linear Least Squares (NLS)</a></li>
-<li class="chapter" data-level="7.3" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#compare-nls-models-using-anova"><i class="fa fa-check"></i><b>7.3</b> Compare NLS models using ANOVA</a></li>
-<li class="chapter" data-level="7.4" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#fit-models-using-maximum-likelihood-estimation-mle"><i class="fa fa-check"></i><b>7.4</b> Fit models using Maximum Likelihood Estimation (MLE)</a></li>
-<li class="chapter" data-level="7.5" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#compare-mle-models-using-akaikes-information-criterion-aic"><i class="fa fa-check"></i><b>7.5</b> Compare MLE models using Akaike’s information criterion (AIC)</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>8</b> Data Management</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="data.html"><a href="data.html#why-do-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>8.1</b> Why do you need to manage your data?</a></li>
-<li class="chapter" data-level="8.2" data-path="data.html"><a href="data.html#the-data-life-cycle"><i class="fa fa-check"></i><b>8.2</b> The Data Life Cycle</a>
-<ul>
-<li class="chapter" data-level="8.2.1" data-path="data.html"><a href="data.html#plan"><i class="fa fa-check"></i><b>8.2.1</b> Plan</a></li>
-<li class="chapter" data-level="8.2.2" data-path="data.html"><a href="data.html#collect-and-assure"><i class="fa fa-check"></i><b>8.2.2</b> Collect and Assure</a></li>
-<li class="chapter" data-level="8.2.3" data-path="data.html"><a href="data.html#describe"><i class="fa fa-check"></i><b>8.2.3</b> Describe</a></li>
-<li class="chapter" data-level="8.2.4" data-path="data.html"><a href="data.html#preserve"><i class="fa fa-check"></i><b>8.2.4</b> Preserve</a></li>
-<li class="chapter" data-level="8.2.5" data-path="data.html"><a href="data.html#discover"><i class="fa fa-check"></i><b>8.2.5</b> Discover</a></li>
-<li class="chapter" data-level="8.2.6" data-path="data.html"><a href="data.html#integrate"><i class="fa fa-check"></i><b>8.2.6</b> Integrate</a></li>
-<li class="chapter" data-level="8.2.7" data-path="data.html"><a href="data.html#analyze"><i class="fa fa-check"></i><b>8.2.7</b> Analyze</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="data.html"><a href="data.html#data-and-decisions"><i class="fa fa-check"></i><b>8.3</b> Data and decisions</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="bayesian.html"><a href="bayesian.html"><i class="fa fa-check"></i><b>9</b> Going Bayesian</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="bayesian.html"><a href="bayesian.html#least-squares"><i class="fa fa-check"></i><b>9.1</b> Least Squares</a>
-<ul>
-<li class="chapter" data-level="9.1.1" data-path="bayesian.html"><a href="bayesian.html#least-squares-doesnt-explicitly-include-a-data-model"><i class="fa fa-check"></i><b>9.1.1</b> Least Squares doesn’t explicitly include a data model</a></li>
-<li class="chapter" data-level="9.1.2" data-path="bayesian.html"><a href="bayesian.html#least-squares-focuses-on-what-the-parameters-are-not-rather-than-what-they-are"><i class="fa fa-check"></i><b>9.1.2</b> Least squares focuses on what the parameters are not, rather than what they are</a></li>
-</ul></li>
-<li class="chapter" data-level="9.2" data-path="bayesian.html"><a href="bayesian.html#maximum-likelihood"><i class="fa fa-check"></i><b>9.2</b> Maximum likelihood</a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="bayesian.html"><a href="bayesian.html#joint-conditional-and-marginal-probabilities"><i class="fa fa-check"></i><b>9.2.1</b> Joint, conditional and marginal probabilities</a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="bayesian.html"><a href="bayesian.html#bayes-theorem"><i class="fa fa-check"></i><b>9.3</b> Bayes’ Theorem</a>
-<ul>
-<li class="chapter" data-level="9.3.1" data-path="bayesian.html"><a href="bayesian.html#the-beauty-of-bayes-theorem"><i class="fa fa-check"></i><b>9.3.1</b> The beauty of Bayes’ Theorem</a></li>
+<li class="chapter" data-level="7.3.1" data-path="bayesian.html"><a href="bayesian.html#the-beauty-of-bayes-theorem"><i class="fa fa-check"></i><b>7.3.1</b> The beauty of Bayes’ Theorem</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="datafusion.html"><a href="datafusion.html"><i class="fa fa-check"></i><b>10</b> Data Fusion</a>
+<li class="chapter" data-level="8" data-path="datafusion.html"><a href="datafusion.html"><i class="fa fa-check"></i><b>8</b> Data Fusion</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="datafusion.html"><a href="datafusion.html#a-reminder-of-bayes-theorem-and-its-benefits"><i class="fa fa-check"></i><b>10.1</b> A reminder of Bayes Theorem and its benefits</a>
+<li class="chapter" data-level="8.1" data-path="datafusion.html"><a href="datafusion.html#a-reminder-of-bayes-theorem-and-its-benefits"><i class="fa fa-check"></i><b>8.1</b> A reminder of Bayes Theorem and its benefits</a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="datafusion.html"><a href="datafusion.html#the-benefits-of-bayes"><i class="fa fa-check"></i><b>10.1.1</b> The benefits of Bayes</a></li>
+<li class="chapter" data-level="8.1.1" data-path="datafusion.html"><a href="datafusion.html#the-benefits-of-bayes"><i class="fa fa-check"></i><b>8.1.1</b> The benefits of Bayes</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="datafusion.html"><a href="datafusion.html#data-fusion"><i class="fa fa-check"></i><b>10.2</b> Data fusion</a>
+<li class="chapter" data-level="8.2" data-path="datafusion.html"><a href="datafusion.html#data-fusion"><i class="fa fa-check"></i><b>8.2</b> Data fusion</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="datafusion.html"><a href="datafusion.html#model-layers"><i class="fa fa-check"></i><b>10.2.1</b> Model layers</a></li>
-<li class="chapter" data-level="10.2.2" data-path="datafusion.html"><a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example"><i class="fa fa-check"></i><b>10.2.2</b> Hierarchical Bayes and postfire recovery example</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>11</b> Uncertainty</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
-<li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating uncertainty</a></li>
-<li class="chapter" data-level="11.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>11.3</b> Analyzing and reducing uncertainty</a></li>
-<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
-<ul>
-<li class="chapter" data-level="11.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>11.4.1</b> The background</a></li>
-<li class="chapter" data-level="11.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>11.4.2</b> The Analysis</a></li>
-<li class="chapter" data-level="11.4.3" data-path="uncertainty.html"><a href="uncertainty.html#the-results"><i class="fa fa-check"></i><b>11.4.3</b> The Results</a></li>
+<li class="chapter" data-level="8.2.1" data-path="datafusion.html"><a href="datafusion.html#model-layers"><i class="fa fa-check"></i><b>8.2.1</b> Model layers</a></li>
+<li class="chapter" data-level="8.2.2" data-path="datafusion.html"><a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example"><i class="fa fa-check"></i><b>8.2.2</b> Hierarchical Bayes and postfire recovery example</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>12</b> Completing the forecast cycle</a>
+<li class="chapter" data-level="9" data-path="practical.html"><a href="practical.html"><i class="fa fa-check"></i><b>9</b> Practical: Pair coding with GitHub</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="decisions.html"><a href="decisions.html#data-assimilation"><i class="fa fa-check"></i><b>12.1</b> Data assimilation</a>
+<li class="chapter" data-level="9.1" data-path="practical.html"><a href="practical.html#objectives"><i class="fa fa-check"></i><b>9.1</b> Objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="practical.html"><a href="practical.html#postfire-regeneration"><i class="fa fa-check"></i><b>9.2</b> Postfire regeneration</a></li>
+<li class="chapter" data-level="9.3" data-path="practical.html"><a href="practical.html#modular-design"><i class="fa fa-check"></i><b>9.3</b> Modular Design</a></li>
+<li class="chapter" data-level="9.4" data-path="practical.html"><a href="practical.html#task-1-create-clone-repository"><i class="fa fa-check"></i><b>9.4</b> Task 1: Create &amp; Clone Repository</a>
 <ul>
-<li class="chapter" data-level="12.1.1" data-path="decisions.html"><a href="decisions.html#operational-data-assimilation"><i class="fa fa-check"></i><b>12.1.1</b> Operational data assimilation</a></li>
-<li class="chapter" data-level="12.1.2" data-path="decisions.html"><a href="decisions.html#the-forecast-step"><i class="fa fa-check"></i><b>12.1.2</b> The Forecast Step</a></li>
-<li class="chapter" data-level="12.1.3" data-path="decisions.html"><a href="decisions.html#the-analysis-step"><i class="fa fa-check"></i><b>12.1.3</b> The Analysis Step</a></li>
+<li class="chapter" data-level="9.4.1" data-path="practical.html"><a href="practical.html#owner"><i class="fa fa-check"></i><b>9.4.1</b> OWNER</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="decisions.html"><a href="decisions.html#decision-support"><i class="fa fa-check"></i><b>12.2</b> Decision support</a>
+<li class="chapter" data-level="9.5" data-path="practical.html"><a href="practical.html#task-2-add-the-first-function-download.ndvi"><i class="fa fa-check"></i><b>9.5</b> Task 2: Add the first function: download.NDVI</a>
 <ul>
-<li class="chapter" data-level="12.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>12.2.1</b> In an ideal world…</a></li>
-<li class="chapter" data-level="12.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>12.2.2</b> In reality…</a></li>
+<li class="chapter" data-level="9.5.1" data-path="practical.html"><a href="practical.html#owner-1"><i class="fa fa-check"></i><b>9.5.1</b> OWNER</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.3</b> Final words</a></li>
-<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#revision-questions"><i class="fa fa-check"></i><b>12.4</b> Revision questions</a></li>
+<li class="chapter" data-level="9.6" data-path="practical.html"><a href="practical.html#task-3-collaborator-adds-plot.ndvi"><i class="fa fa-check"></i><b>9.6</b> Task 3: Collaborator adds plot.NDVI</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="practical.html"><a href="practical.html#collaborator"><i class="fa fa-check"></i><b>9.6.1</b> COLLABORATOR</a></li>
+<li class="chapter" data-level="9.6.2" data-path="practical.html"><a href="practical.html#owner-2"><i class="fa fa-check"></i><b>9.6.2</b> OWNER</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="practical.html"><a href="practical.html#task-4-owner-adds-functions-for-model-fitting-using-mle"><i class="fa fa-check"></i><b>9.7</b> Task 4: Owner adds functions for model fitting using MLE</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>9.7.1</b> OWNER</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script-owner-answers-the-questions"><i class="fa fa-check"></i><b>9.8</b> Task 5: Collaborator adds the master script, Owner answers the questions</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>9.8.1</b> COLLABORATOR</a></li>
+<li class="chapter" data-level="9.8.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>9.8.2</b> OWNER</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>10</b> Uncertainty</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>10.1</b> Sources and types of uncertainty</a></li>
+<li class="chapter" data-level="10.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>10.2</b> Propagating uncertainty</a></li>
+<li class="chapter" data-level="10.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>10.3</b> Analyzing and reducing uncertainty</a></li>
+<li class="chapter" data-level="10.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>10.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>10.4.1</b> The background</a></li>
+<li class="chapter" data-level="10.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>10.4.2</b> The Analysis</a></li>
+<li class="chapter" data-level="10.4.3" data-path="uncertainty.html"><a href="uncertainty.html#the-results"><i class="fa fa-check"></i><b>10.4.3</b> The Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>11</b> Completing the forecast cycle</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="decisions.html"><a href="decisions.html#data-assimilation"><i class="fa fa-check"></i><b>11.1</b> Data assimilation</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="decisions.html"><a href="decisions.html#operational-data-assimilation"><i class="fa fa-check"></i><b>11.1.1</b> Operational data assimilation</a></li>
+<li class="chapter" data-level="11.1.2" data-path="decisions.html"><a href="decisions.html#the-forecast-step"><i class="fa fa-check"></i><b>11.1.2</b> The Forecast Step</a></li>
+<li class="chapter" data-level="11.1.3" data-path="decisions.html"><a href="decisions.html#the-analysis-step"><i class="fa fa-check"></i><b>11.1.3</b> The Analysis Step</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="decisions.html"><a href="decisions.html#decision-support"><i class="fa fa-check"></i><b>11.2</b> Decision support</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>11.2.1</b> In an ideal world…</a></li>
+<li class="chapter" data-level="11.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>11.2.2</b> In reality…</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>11.3</b> Final words</a></li>
+<li class="chapter" data-level="11.4" data-path="decisions.html"><a href="decisions.html#revision-questions"><i class="fa fa-check"></i><b>11.4</b> Revision questions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -331,6 +387,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

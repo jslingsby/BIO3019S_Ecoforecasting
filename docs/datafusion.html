@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>10 Data Fusion | A Minimal Introduction to Ecological Forecasting</title>
+  <title>8 Data Fusion | A Minimal Introduction to Ecological Forecasting</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="10 Data Fusion | A Minimal Introduction to Ecological Forecasting" />
+  <meta property="og:title" content="8 Data Fusion | A Minimal Introduction to Ecological Forecasting" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="10 Data Fusion | A Minimal Introduction to Ecological Forecasting" />
+  <meta name="twitter:title" content="8 Data Fusion | A Minimal Introduction to Ecological Forecasting" />
   
   <meta name="twitter:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2023-07-19" />
+<meta name="date" content="2023-07-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="bayesian.html"/>
-<link rel="next" href="uncertainty.html"/>
+<link rel="next" href="practical.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -201,112 +201,104 @@ div.csl-indent {
 <li class="chapter" data-level="5.4" data-path="reproducibility.html"><a href="reproducibility.html#why-work-reproducibly"><i class="fa fa-check"></i><b>5.4</b> Why work reproducibly?</a></li>
 <li class="chapter" data-level="5.5" data-path="reproducibility.html"><a href="reproducibility.html#barriers-to-working-reproducibly"><i class="fa fa-check"></i><b>5.5</b> Barriers to working reproducibly</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="practical.html"><a href="practical.html"><i class="fa fa-check"></i><b>6</b> Practical: Pair coding with GitHub</a>
+<li class="chapter" data-level="6" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>6</b> Data Management</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="practical.html"><a href="practical.html#objectives"><i class="fa fa-check"></i><b>6.1</b> Objectives</a></li>
-<li class="chapter" data-level="6.2" data-path="practical.html"><a href="practical.html#postfire-regeneration"><i class="fa fa-check"></i><b>6.2</b> Postfire regeneration</a></li>
-<li class="chapter" data-level="6.3" data-path="practical.html"><a href="practical.html#modular-design"><i class="fa fa-check"></i><b>6.3</b> Modular Design</a></li>
-<li class="chapter" data-level="6.4" data-path="practical.html"><a href="practical.html#task-1-create-clone-repository"><i class="fa fa-check"></i><b>6.4</b> Task 1: Create &amp; Clone Repository</a>
+<li class="chapter" data-level="6.1" data-path="data.html"><a href="data.html#why-do-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>6.1</b> Why do you need to manage your data?</a></li>
+<li class="chapter" data-level="6.2" data-path="data.html"><a href="data.html#the-data-life-cycle"><i class="fa fa-check"></i><b>6.2</b> The Data Life Cycle</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="practical.html"><a href="practical.html#owner"><i class="fa fa-check"></i><b>6.4.1</b> OWNER</a></li>
+<li class="chapter" data-level="6.2.1" data-path="data.html"><a href="data.html#plan"><i class="fa fa-check"></i><b>6.2.1</b> Plan</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data.html"><a href="data.html#collect-and-assure"><i class="fa fa-check"></i><b>6.2.2</b> Collect and Assure</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data.html"><a href="data.html#describe"><i class="fa fa-check"></i><b>6.2.3</b> Describe</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data.html"><a href="data.html#preserve"><i class="fa fa-check"></i><b>6.2.4</b> Preserve</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data.html"><a href="data.html#discover"><i class="fa fa-check"></i><b>6.2.5</b> Discover</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data.html"><a href="data.html#integrate"><i class="fa fa-check"></i><b>6.2.6</b> Integrate</a></li>
+<li class="chapter" data-level="6.2.7" data-path="data.html"><a href="data.html#analyze"><i class="fa fa-check"></i><b>6.2.7</b> Analyze</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="practical.html"><a href="practical.html#task-2-add-the-first-function-download.ndvi"><i class="fa fa-check"></i><b>6.5</b> Task 2: Add the first function: download.NDVI</a>
-<ul>
-<li class="chapter" data-level="6.5.1" data-path="practical.html"><a href="practical.html#owner-1"><i class="fa fa-check"></i><b>6.5.1</b> OWNER</a></li>
+<li class="chapter" data-level="6.3" data-path="data.html"><a href="data.html#data-and-decisions"><i class="fa fa-check"></i><b>6.3</b> Data and decisions</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="practical.html"><a href="practical.html#task-3-collaborator-adds-plot.ndvi"><i class="fa fa-check"></i><b>6.6</b> Task 3: Collaborator adds plot.NDVI</a>
+<li class="chapter" data-level="7" data-path="bayesian.html"><a href="bayesian.html"><i class="fa fa-check"></i><b>7</b> Going Bayesian</a>
 <ul>
-<li class="chapter" data-level="6.6.1" data-path="practical.html"><a href="practical.html#collaborator"><i class="fa fa-check"></i><b>6.6.1</b> COLLABORATOR</a></li>
-<li class="chapter" data-level="6.6.2" data-path="practical.html"><a href="practical.html#owner-2"><i class="fa fa-check"></i><b>6.6.2</b> OWNER</a></li>
+<li class="chapter" data-level="7.1" data-path="bayesian.html"><a href="bayesian.html#least-squares"><i class="fa fa-check"></i><b>7.1</b> Least Squares</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="bayesian.html"><a href="bayesian.html#least-squares-doesnt-explicitly-include-a-data-model"><i class="fa fa-check"></i><b>7.1.1</b> Least Squares doesn’t explicitly include a data model</a></li>
+<li class="chapter" data-level="7.1.2" data-path="bayesian.html"><a href="bayesian.html#least-squares-focuses-on-what-the-parameters-are-not-rather-than-what-they-are"><i class="fa fa-check"></i><b>7.1.2</b> Least squares focuses on what the parameters are not, rather than what they are</a></li>
 </ul></li>
-<li class="chapter" data-level="6.7" data-path="practical.html"><a href="practical.html#task-4-owner-adds-functions-for-model-fitting-using-mle"><i class="fa fa-check"></i><b>6.7</b> Task 4: Owner adds functions for model fitting using MLE</a>
+<li class="chapter" data-level="7.2" data-path="bayesian.html"><a href="bayesian.html#maximum-likelihood"><i class="fa fa-check"></i><b>7.2</b> Maximum likelihood</a>
 <ul>
-<li class="chapter" data-level="6.7.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>6.7.1</b> OWNER</a></li>
+<li class="chapter" data-level="7.2.1" data-path="bayesian.html"><a href="bayesian.html#joint-conditional-and-marginal-probabilities"><i class="fa fa-check"></i><b>7.2.1</b> Joint, conditional and marginal probabilities</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script-owner-answers-the-questions"><i class="fa fa-check"></i><b>6.8</b> Task 5: Collaborator adds the master script, Owner answers the questions</a>
+<li class="chapter" data-level="7.3" data-path="bayesian.html"><a href="bayesian.html#bayes-theorem"><i class="fa fa-check"></i><b>7.3</b> Bayes’ Theorem</a>
 <ul>
-<li class="chapter" data-level="6.8.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>6.8.1</b> COLLABORATOR</a></li>
-<li class="chapter" data-level="6.8.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>6.8.2</b> OWNER</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html"><i class="fa fa-check"></i><b>7</b> Practical output: Master script for postfire analysis</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#source-functions-get-data-and-plot"><i class="fa fa-check"></i><b>7.1</b> Source functions, get data and plot</a></li>
-<li class="chapter" data-level="7.2" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#fit-models-using-non-linear-least-squares-nls"><i class="fa fa-check"></i><b>7.2</b> Fit models using Non-linear Least Squares (NLS)</a></li>
-<li class="chapter" data-level="7.3" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#compare-nls-models-using-anova"><i class="fa fa-check"></i><b>7.3</b> Compare NLS models using ANOVA</a></li>
-<li class="chapter" data-level="7.4" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#fit-models-using-maximum-likelihood-estimation-mle"><i class="fa fa-check"></i><b>7.4</b> Fit models using Maximum Likelihood Estimation (MLE)</a></li>
-<li class="chapter" data-level="7.5" data-path="practical-output-master-script-for-postfire-analysis.html"><a href="practical-output-master-script-for-postfire-analysis.html#compare-mle-models-using-akaikes-information-criterion-aic"><i class="fa fa-check"></i><b>7.5</b> Compare MLE models using Akaike’s information criterion (AIC)</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>8</b> Data Management</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="data.html"><a href="data.html#why-do-you-need-to-manage-your-data"><i class="fa fa-check"></i><b>8.1</b> Why do you need to manage your data?</a></li>
-<li class="chapter" data-level="8.2" data-path="data.html"><a href="data.html#the-data-life-cycle"><i class="fa fa-check"></i><b>8.2</b> The Data Life Cycle</a>
-<ul>
-<li class="chapter" data-level="8.2.1" data-path="data.html"><a href="data.html#plan"><i class="fa fa-check"></i><b>8.2.1</b> Plan</a></li>
-<li class="chapter" data-level="8.2.2" data-path="data.html"><a href="data.html#collect-and-assure"><i class="fa fa-check"></i><b>8.2.2</b> Collect and Assure</a></li>
-<li class="chapter" data-level="8.2.3" data-path="data.html"><a href="data.html#describe"><i class="fa fa-check"></i><b>8.2.3</b> Describe</a></li>
-<li class="chapter" data-level="8.2.4" data-path="data.html"><a href="data.html#preserve"><i class="fa fa-check"></i><b>8.2.4</b> Preserve</a></li>
-<li class="chapter" data-level="8.2.5" data-path="data.html"><a href="data.html#discover"><i class="fa fa-check"></i><b>8.2.5</b> Discover</a></li>
-<li class="chapter" data-level="8.2.6" data-path="data.html"><a href="data.html#integrate"><i class="fa fa-check"></i><b>8.2.6</b> Integrate</a></li>
-<li class="chapter" data-level="8.2.7" data-path="data.html"><a href="data.html#analyze"><i class="fa fa-check"></i><b>8.2.7</b> Analyze</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="data.html"><a href="data.html#data-and-decisions"><i class="fa fa-check"></i><b>8.3</b> Data and decisions</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="bayesian.html"><a href="bayesian.html"><i class="fa fa-check"></i><b>9</b> Going Bayesian</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="bayesian.html"><a href="bayesian.html#least-squares"><i class="fa fa-check"></i><b>9.1</b> Least Squares</a>
-<ul>
-<li class="chapter" data-level="9.1.1" data-path="bayesian.html"><a href="bayesian.html#least-squares-doesnt-explicitly-include-a-data-model"><i class="fa fa-check"></i><b>9.1.1</b> Least Squares doesn’t explicitly include a data model</a></li>
-<li class="chapter" data-level="9.1.2" data-path="bayesian.html"><a href="bayesian.html#least-squares-focuses-on-what-the-parameters-are-not-rather-than-what-they-are"><i class="fa fa-check"></i><b>9.1.2</b> Least squares focuses on what the parameters are not, rather than what they are</a></li>
-</ul></li>
-<li class="chapter" data-level="9.2" data-path="bayesian.html"><a href="bayesian.html#maximum-likelihood"><i class="fa fa-check"></i><b>9.2</b> Maximum likelihood</a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="bayesian.html"><a href="bayesian.html#joint-conditional-and-marginal-probabilities"><i class="fa fa-check"></i><b>9.2.1</b> Joint, conditional and marginal probabilities</a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="bayesian.html"><a href="bayesian.html#bayes-theorem"><i class="fa fa-check"></i><b>9.3</b> Bayes’ Theorem</a>
-<ul>
-<li class="chapter" data-level="9.3.1" data-path="bayesian.html"><a href="bayesian.html#the-beauty-of-bayes-theorem"><i class="fa fa-check"></i><b>9.3.1</b> The beauty of Bayes’ Theorem</a></li>
+<li class="chapter" data-level="7.3.1" data-path="bayesian.html"><a href="bayesian.html#the-beauty-of-bayes-theorem"><i class="fa fa-check"></i><b>7.3.1</b> The beauty of Bayes’ Theorem</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="datafusion.html"><a href="datafusion.html"><i class="fa fa-check"></i><b>10</b> Data Fusion</a>
+<li class="chapter" data-level="8" data-path="datafusion.html"><a href="datafusion.html"><i class="fa fa-check"></i><b>8</b> Data Fusion</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="datafusion.html"><a href="datafusion.html#a-reminder-of-bayes-theorem-and-its-benefits"><i class="fa fa-check"></i><b>10.1</b> A reminder of Bayes Theorem and its benefits</a>
+<li class="chapter" data-level="8.1" data-path="datafusion.html"><a href="datafusion.html#a-reminder-of-bayes-theorem-and-its-benefits"><i class="fa fa-check"></i><b>8.1</b> A reminder of Bayes Theorem and its benefits</a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="datafusion.html"><a href="datafusion.html#the-benefits-of-bayes"><i class="fa fa-check"></i><b>10.1.1</b> The benefits of Bayes</a></li>
+<li class="chapter" data-level="8.1.1" data-path="datafusion.html"><a href="datafusion.html#the-benefits-of-bayes"><i class="fa fa-check"></i><b>8.1.1</b> The benefits of Bayes</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="datafusion.html"><a href="datafusion.html#data-fusion"><i class="fa fa-check"></i><b>10.2</b> Data fusion</a>
+<li class="chapter" data-level="8.2" data-path="datafusion.html"><a href="datafusion.html#data-fusion"><i class="fa fa-check"></i><b>8.2</b> Data fusion</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="datafusion.html"><a href="datafusion.html#model-layers"><i class="fa fa-check"></i><b>10.2.1</b> Model layers</a></li>
-<li class="chapter" data-level="10.2.2" data-path="datafusion.html"><a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example"><i class="fa fa-check"></i><b>10.2.2</b> Hierarchical Bayes and postfire recovery example</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>11</b> Uncertainty</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
-<li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating uncertainty</a></li>
-<li class="chapter" data-level="11.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>11.3</b> Analyzing and reducing uncertainty</a></li>
-<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
-<ul>
-<li class="chapter" data-level="11.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>11.4.1</b> The background</a></li>
-<li class="chapter" data-level="11.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>11.4.2</b> The Analysis</a></li>
-<li class="chapter" data-level="11.4.3" data-path="uncertainty.html"><a href="uncertainty.html#the-results"><i class="fa fa-check"></i><b>11.4.3</b> The Results</a></li>
+<li class="chapter" data-level="8.2.1" data-path="datafusion.html"><a href="datafusion.html#model-layers"><i class="fa fa-check"></i><b>8.2.1</b> Model layers</a></li>
+<li class="chapter" data-level="8.2.2" data-path="datafusion.html"><a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example"><i class="fa fa-check"></i><b>8.2.2</b> Hierarchical Bayes and postfire recovery example</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>12</b> Completing the forecast cycle</a>
+<li class="chapter" data-level="9" data-path="practical.html"><a href="practical.html"><i class="fa fa-check"></i><b>9</b> Practical: Pair coding with GitHub</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="decisions.html"><a href="decisions.html#data-assimilation"><i class="fa fa-check"></i><b>12.1</b> Data assimilation</a>
+<li class="chapter" data-level="9.1" data-path="practical.html"><a href="practical.html#objectives"><i class="fa fa-check"></i><b>9.1</b> Objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="practical.html"><a href="practical.html#postfire-regeneration"><i class="fa fa-check"></i><b>9.2</b> Postfire regeneration</a></li>
+<li class="chapter" data-level="9.3" data-path="practical.html"><a href="practical.html#modular-design"><i class="fa fa-check"></i><b>9.3</b> Modular Design</a></li>
+<li class="chapter" data-level="9.4" data-path="practical.html"><a href="practical.html#task-1-create-clone-repository"><i class="fa fa-check"></i><b>9.4</b> Task 1: Create &amp; Clone Repository</a>
 <ul>
-<li class="chapter" data-level="12.1.1" data-path="decisions.html"><a href="decisions.html#operational-data-assimilation"><i class="fa fa-check"></i><b>12.1.1</b> Operational data assimilation</a></li>
-<li class="chapter" data-level="12.1.2" data-path="decisions.html"><a href="decisions.html#the-forecast-step"><i class="fa fa-check"></i><b>12.1.2</b> The Forecast Step</a></li>
-<li class="chapter" data-level="12.1.3" data-path="decisions.html"><a href="decisions.html#the-analysis-step"><i class="fa fa-check"></i><b>12.1.3</b> The Analysis Step</a></li>
+<li class="chapter" data-level="9.4.1" data-path="practical.html"><a href="practical.html#owner"><i class="fa fa-check"></i><b>9.4.1</b> OWNER</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="decisions.html"><a href="decisions.html#decision-support"><i class="fa fa-check"></i><b>12.2</b> Decision support</a>
+<li class="chapter" data-level="9.5" data-path="practical.html"><a href="practical.html#task-2-add-the-first-function-download.ndvi"><i class="fa fa-check"></i><b>9.5</b> Task 2: Add the first function: download.NDVI</a>
 <ul>
-<li class="chapter" data-level="12.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>12.2.1</b> In an ideal world…</a></li>
-<li class="chapter" data-level="12.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>12.2.2</b> In reality…</a></li>
+<li class="chapter" data-level="9.5.1" data-path="practical.html"><a href="practical.html#owner-1"><i class="fa fa-check"></i><b>9.5.1</b> OWNER</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.3</b> Final words</a></li>
-<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#revision-questions"><i class="fa fa-check"></i><b>12.4</b> Revision questions</a></li>
+<li class="chapter" data-level="9.6" data-path="practical.html"><a href="practical.html#task-3-collaborator-adds-plot.ndvi"><i class="fa fa-check"></i><b>9.6</b> Task 3: Collaborator adds plot.NDVI</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="practical.html"><a href="practical.html#collaborator"><i class="fa fa-check"></i><b>9.6.1</b> COLLABORATOR</a></li>
+<li class="chapter" data-level="9.6.2" data-path="practical.html"><a href="practical.html#owner-2"><i class="fa fa-check"></i><b>9.6.2</b> OWNER</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="practical.html"><a href="practical.html#task-4-owner-adds-functions-for-model-fitting-using-mle"><i class="fa fa-check"></i><b>9.7</b> Task 4: Owner adds functions for model fitting using MLE</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>9.7.1</b> OWNER</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script-owner-answers-the-questions"><i class="fa fa-check"></i><b>9.8</b> Task 5: Collaborator adds the master script, Owner answers the questions</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>9.8.1</b> COLLABORATOR</a></li>
+<li class="chapter" data-level="9.8.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>9.8.2</b> OWNER</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>10</b> Uncertainty</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>10.1</b> Sources and types of uncertainty</a></li>
+<li class="chapter" data-level="10.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>10.2</b> Propagating uncertainty</a></li>
+<li class="chapter" data-level="10.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>10.3</b> Analyzing and reducing uncertainty</a></li>
+<li class="chapter" data-level="10.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>10.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>10.4.1</b> The background</a></li>
+<li class="chapter" data-level="10.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>10.4.2</b> The Analysis</a></li>
+<li class="chapter" data-level="10.4.3" data-path="uncertainty.html"><a href="uncertainty.html#the-results"><i class="fa fa-check"></i><b>10.4.3</b> The Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>11</b> Completing the forecast cycle</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="decisions.html"><a href="decisions.html#data-assimilation"><i class="fa fa-check"></i><b>11.1</b> Data assimilation</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="decisions.html"><a href="decisions.html#operational-data-assimilation"><i class="fa fa-check"></i><b>11.1.1</b> Operational data assimilation</a></li>
+<li class="chapter" data-level="11.1.2" data-path="decisions.html"><a href="decisions.html#the-forecast-step"><i class="fa fa-check"></i><b>11.1.2</b> The Forecast Step</a></li>
+<li class="chapter" data-level="11.1.3" data-path="decisions.html"><a href="decisions.html#the-analysis-step"><i class="fa fa-check"></i><b>11.1.3</b> The Analysis Step</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="decisions.html"><a href="decisions.html#decision-support"><i class="fa fa-check"></i><b>11.2</b> Decision support</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>11.2.1</b> In an ideal world…</a></li>
+<li class="chapter" data-level="11.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>11.2.2</b> In reality…</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>11.3</b> Final words</a></li>
+<li class="chapter" data-level="11.4" data-path="decisions.html"><a href="decisions.html#revision-questions"><i class="fa fa-check"></i><b>11.4</b> Revision questions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -329,13 +321,13 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="datafusion" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">10</span> Data Fusion<a href="datafusion.html#datafusion" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This lecture builds on section <a href="bayesian.html#bayesian">9</a>, “Going Bayesian”, focusing on how the opportunities for imputing (or “fusing”) data with models increase as one moves from the method of Least Squares to Hierarchical Bayesian models.</p>
+<div id="datafusion" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Data Fusion<a href="datafusion.html#datafusion" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This lecture builds on section <a href="bayesian.html#bayesian">7</a>, “Going Bayesian”, focusing on how the opportunities for imputing (or “fusing”) data with models increase as one moves from the method of Least Squares to Hierarchical Bayesian models.</p>
 <p>First a little revision of our last lecture…</p>
 <p><br></p>
-<div id="a-reminder-of-bayes-theorem-and-its-benefits" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">10.1</span> A reminder of Bayes Theorem and its benefits<a href="datafusion.html#a-reminder-of-bayes-theorem-and-its-benefits" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="a-reminder-of-bayes-theorem-and-its-benefits" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> A reminder of Bayes Theorem and its benefits<a href="datafusion.html#a-reminder-of-bayes-theorem-and-its-benefits" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><br></p>
 <p>Bayes’ Rule:</p>
 <p><span class="math display">\[
@@ -346,8 +338,8 @@ div.csl-indent {
 <p>The <strong><em>likelihood</em></strong>, <span class="math inline">\(p(D|\theta)\)</span> represents the probability that the data could be generated by the model with parameter values <span class="math inline">\(\theta\)</span>. This term looks for the best estimate of the parameters using Maximum Likelihood Estimation, where the likelihood of the parameters are maximized by choosing the parameters that maximize the probability of the data.</p>
 <p>The <strong><em>prior</em></strong> probability distribution is the marginal probability of the parameters, <span class="math inline">\(p(\theta)\)</span>, and represents the credibility of the parameter values, <span class="math inline">\(\theta\)</span>, without the data, <span class="math inline">\(D\)</span>. Since <strong><em>it must not</em></strong> be inferred from the data, it is specified using our <strong>prior belief</strong> of what the parameters should be, before interrogating the data. Prior information can be sourced from previous analyses (of other data!), literature, meta-analyses, expert opinion or ecological theory. We need to be very careful about how we specify our priors so as not to bias the analysis!</p>
 <p><br></p>
-<div id="the-benefits-of-bayes" class="section level3 hasAnchor" number="10.1.1">
-<h3><span class="header-section-number">10.1.1</span> The benefits of Bayes<a href="datafusion.html#the-benefits-of-bayes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="the-benefits-of-bayes" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> The benefits of Bayes<a href="datafusion.html#the-benefits-of-bayes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>They are <strong>focused on estimating what properties are</strong> (i.e. the actual values of particular parameters) and not null hypothesis testing.</li>
 <li>They are highly <strong>flexible</strong>, allowing one to build relatively <strong>complex models with varied data sources</strong> (and/or of varying quality), especially Hierarchical Bayesian models.
@@ -356,23 +348,23 @@ div.csl-indent {
 </ul></li>
 <li>They can easily treat all terms as probability distributions, making it <strong>easier to quantify, propagate, partition and represent uncertainties throughout the analysis probabilistically</strong>.
 <ul>
-<li>Which is the focus of section <a href="uncertainty.html#uncertainty">11</a> (our next lecture).</li>
+<li>Which is the focus of section <a href="uncertainty.html#uncertainty">10</a> (our next lecture).</li>
 </ul></li>
 <li>They provide an <strong>iterative probabilistic framework</strong> that makes it easier to update predictions as new data become available, mirroring the scientific method and completing the forecasting cycle.
 <ul>
-<li>This closing of the forecast loop is termed <strong><em>Data Assimilation</em></strong> and we’ll discuss it in the final lecture in section <a href="decisions.html#decisions">12</a>.</li>
+<li>This closing of the forecast loop is termed <strong><em>Data Assimilation</em></strong> and we’ll discuss it in the final lecture in section <a href="decisions.html#decisions">11</a>.</li>
 </ul></li>
 </ol>
 <p><br></p>
 </div>
 </div>
-<div id="data-fusion" class="section level2 hasAnchor" number="10.2">
-<h2><span class="header-section-number">10.2</span> Data fusion<a href="datafusion.html#data-fusion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data-fusion" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Data fusion<a href="datafusion.html#data-fusion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Data can enter (or be fused with) a model in a variety of ways. Here we’ll discuss these and then give an example by revisiting the Fynbos postfire recovery model we played with in the practical.</p>
 <p>The <strong>opportunities for data fusion are linked to model structure</strong>, so we’ll revisit how some aspects of model structure change as we move from Least Squares to Maximum Likelihood Estimation to “single-level” Bayes to Hierarchical Bayes and the data fusion opportunities provided by each.</p>
 <p><br></p>
-<div id="model-layers" class="section level3 hasAnchor" number="10.2.1">
-<h3><span class="header-section-number">10.2.1</span> Model layers<a href="datafusion.html#model-layers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="model-layers" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Model layers<a href="datafusion.html#model-layers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong><em>Least Squares</em></strong></p>
 <p>The method of <strong>Least Squares</strong> makes no explicit distinction between the <strong>process model</strong> (that models the drivers determining the pattern observed) and the <strong>data model</strong> (that models the observation error or data observation process, i.e. the factors that may cause mismatch between the process model and the data). This is because we require homogeneity of variance in order to minimize the sums of squares, so the data model can only ever be a <strong>normal distribution</strong>.</p>
 <p>Looking back at the practical, what this means is that for the Nonlinear Least Squares all we fitted was the process model, which for our simpler negative exponential model not including the seasonality term:</p>
@@ -387,7 +379,7 @@ div.csl-indent {
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:mlelayers"></span>
 <img src="img/MLElayers.png" alt="Maximum Likelihood makes a distinction between the process and data models." width="40%" />
 <p class="caption">
-Figure 10.1: Maximum Likelihood makes a distinction between the process and data models.
+Figure 8.1: Maximum Likelihood makes a distinction between the process and data models.
 </p>
 </div>
 <p><br></p>
@@ -399,7 +391,7 @@ NDVI_{i,t}\sim\mathcal{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}}) \\
 <p><span class="math display">\[\begin{gather}  
 \mu_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)\\
 \end{gather}\]</span></p>
-<p>Where <span class="math inline">\(\mu\)</span> is now the mean of the process model, not accounting for the residual error described by the data model - similar to the open circles in Figure <a href="bayesian.html#fig:leastsquares2">9.2</a>.</p>
+<p>Where <span class="math inline">\(\mu\)</span> is now the mean of the process model, not accounting for the residual error described by the data model - similar to the open circles in Figure <a href="bayesian.html#fig:leastsquares2">7.2</a>.</p>
 <p>What splitting the data and process models means, is that <strong>we are now feeding our dependent variable (NDVI) to the data model, and our independent variable (time or postfire age) to the process model</strong>.</p>
 <p>The beauty of having a separate data model is that you are no longer restricted to the normal distribution and have flexibility to specify probability distributions that suit the data observation process, e.g. Binomial coin flips, Poisson counts of individuals, Exponential waiting times, etc. <strong>You can even specify custom data models with their own covariates</strong>, which is useful if you have information on things like instrument drift and calibration, etc - i.e. <strong>another opportunity for data fusion</strong>.</p>
 <p><br></p>
@@ -413,7 +405,7 @@ NDVI_{i,t}\sim\mathcal{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}}) \\
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:bayeslayers"></span>
 <img src="img/bayeslayers.png" alt="Bayesian models include an additional layer; parameter models that describe our prior expectation for the parameters in the process." width="40%" />
 <p class="caption">
-Figure 10.2: Bayesian models include an additional layer; parameter models that describe our prior expectation for the parameters in the process.
+Figure 8.2: Bayesian models include an additional layer; parameter models that describe our prior expectation for the parameters in the process.
 </p>
 </div>
 <p><br></p>
@@ -445,18 +437,18 @@ etc.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hbayeslayers"></span>
 <img src="img/hbayeslayers.png" alt="Hierarchical Bayesian models allow considerable flexibility through the inclusion of hyperparameters that can drive the priors." width="40%" />
 <p class="caption">
-Figure 10.3: Hierarchical Bayesian models allow considerable flexibility through the inclusion of hyperparameters that can drive the priors.
+Figure 8.3: Hierarchical Bayesian models allow considerable flexibility through the inclusion of hyperparameters that can drive the priors.
 </p>
 </div>
 <p><br></p>
 </div>
-<div id="hierarchical-bayes-and-postfire-recovery-example" class="section level3 hasAnchor" number="10.2.2">
-<h3><span class="header-section-number">10.2.2</span> Hierarchical Bayes and postfire recovery example<a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="hierarchical-bayes-and-postfire-recovery-example" class="section level3 hasAnchor" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> Hierarchical Bayes and postfire recovery example<a href="datafusion.html#hierarchical-bayes-and-postfire-recovery-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Until now we have only been considering a single postfire recovery curve in isolation, but one can fit every MODIS pixel in the Fynbos Biome in one model, like <span class="citation">Wilson, Latimer, and Silander (<a href="#ref-Wilson2015">2015</a>)</span> did, (here including the seasonality term in the process model):</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hbpostfire"></span>
 <img src="img/hbpostfire.png" alt="Schematic of the Hierarchical Bayesian model of postfire NDVI recovery developed by @Wilson2015." width="90%" />
 <p class="caption">
-Figure 10.4: Schematic of the Hierarchical Bayesian model of postfire NDVI recovery developed by <span class="citation">Wilson, Latimer, and Silander (<a href="#ref-Wilson2015">2015</a>)</span>.
+Figure 8.4: Schematic of the Hierarchical Bayesian model of postfire NDVI recovery developed by <span class="citation">Wilson, Latimer, and Silander (<a href="#ref-Wilson2015">2015</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -495,11 +487,11 @@ Figure 10.4: Schematic of the Hierarchical Bayesian model of postfire NDVI recov
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:emma"></span>
 <img src="img/emmaprocessdiagram.png" alt="Overview of the near-real time satellite change detection workflow from @Slingsby2020." width="70%" />
 <p class="caption">
-Figure 10.5: Overview of the near-real time satellite change detection workflow from <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020">2020</a>)</span>.
+Figure 8.5: Overview of the near-real time satellite change detection workflow from <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020">2020</a>)</span>.
 </p>
 </div>
 <p><br></p>
-<p>The work flow comprises four major steps (Figure <a href="datafusion.html#fig:emma">10.5</a>):</p>
+<p>The work flow comprises four major steps (Figure <a href="datafusion.html#fig:emma">8.5</a>):</p>
 <ol style="list-style-type: decimal">
 <li>Fit the <strong>model</strong> to get parameter estimates that describe the postfire recovery trajectory for all pixels</li>
 <li><strong>Evaluate</strong> the deviation of the observed NDVI from model expectation using departure metrics to identify areas that are not ‘behaving’ as expected.</li>
@@ -517,7 +509,7 @@ Figure 10.5: Overview of the near-real time satellite change detection workflow 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:emmachange"></span>
 <img src="img/emmachange.jpg" alt="Examples of changes detected by @Slingsby2020. Postfire recovery curves (a, d, g, j, l, n) show the model predictions (dark grey $=$ 50% Confidence Interval, light grey $=$ 95% Confidence Interval) and observed MODIS NDVI signal (blue line) for different impacts. Satellite images and ground photos allow for diagnosis of detected anomalies, including fire at Karbonkelberg (a-c), gradual clearing of alien vegetation at Miller's Point (d-f), clearing of indigenous vegetation for a housing development near Silvermine (g-i, labeled 1), high mortality in a dense stand of *Leucadendron coniferum* near Silvermine (h-k, labelled 2), a flush of alien Australian Port Jackson Willow (*Acacia saligna*) recruitment from seed at Silvermine triggered by fire (l, m), and retarded postfire vegetation recovery and high mortality of the large fire-resistant shrub *Mimetes fimbriifolius* due to drought near the Cape of Good Hope (n, o). Satellite imagery &amp;copy; 2017 Planet Labs Inc." width="90%" />
 <p class="caption">
-Figure 10.6: Examples of changes detected by <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020">2020</a>)</span>. Postfire recovery curves (a, d, g, j, l, n) show the model predictions (dark grey <span class="math inline">\(=\)</span> 50% Confidence Interval, light grey <span class="math inline">\(=\)</span> 95% Confidence Interval) and observed MODIS NDVI signal (blue line) for different impacts. Satellite images and ground photos allow for diagnosis of detected anomalies, including fire at Karbonkelberg (a-c), gradual clearing of alien vegetation at Miller’s Point (d-f), clearing of indigenous vegetation for a housing development near Silvermine (g-i, labeled 1), high mortality in a dense stand of <em>Leucadendron coniferum</em> near Silvermine (h-k, labelled 2), a flush of alien Australian Port Jackson Willow (<em>Acacia saligna</em>) recruitment from seed at Silvermine triggered by fire (l, m), and retarded postfire vegetation recovery and high mortality of the large fire-resistant shrub <em>Mimetes fimbriifolius</em> due to drought near the Cape of Good Hope (n, o). Satellite imagery © 2017 Planet Labs Inc.
+Figure 8.6: Examples of changes detected by <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020">2020</a>)</span>. Postfire recovery curves (a, d, g, j, l, n) show the model predictions (dark grey <span class="math inline">\(=\)</span> 50% Confidence Interval, light grey <span class="math inline">\(=\)</span> 95% Confidence Interval) and observed MODIS NDVI signal (blue line) for different impacts. Satellite images and ground photos allow for diagnosis of detected anomalies, including fire at Karbonkelberg (a-c), gradual clearing of alien vegetation at Miller’s Point (d-f), clearing of indigenous vegetation for a housing development near Silvermine (g-i, labeled 1), high mortality in a dense stand of <em>Leucadendron coniferum</em> near Silvermine (h-k, labelled 2), a flush of alien Australian Port Jackson Willow (<em>Acacia saligna</em>) recruitment from seed at Silvermine triggered by fire (l, m), and retarded postfire vegetation recovery and high mortality of the large fire-resistant shrub <em>Mimetes fimbriifolius</em> due to drought near the Cape of Good Hope (n, o). Satellite imagery © 2017 Planet Labs Inc.
 </p>
 </div>
 <p><br></p>
@@ -526,7 +518,7 @@ Figure 10.6: Examples of changes detected by <span class="citation">Slingsby, Mo
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:emmaexceedmap"></span>
 <img src="img/emmaexceedmap.png" alt="Overview map highlighting some of the major changes detected by @Slingsby2020." width="90%" />
 <p class="caption">
-Figure 10.7: Overview map highlighting some of the major changes detected by <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020">2020</a>)</span>.
+Figure 8.7: Overview map highlighting some of the major changes detected by <span class="citation">Slingsby, Moncrieff, and Wilson (<a href="#ref-Slingsby2020">2020</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -551,7 +543,7 @@ Wilson, Adam M, Andrew M Latimer, and John A Silander Jr. 2015. <span>“<span c
         </div>
       </div>
 <a href="bayesian.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="uncertainty.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="practical.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

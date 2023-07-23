@@ -49,9 +49,9 @@ I'll be adding to (and mostly teaching from) these online course notes as we go 
 
 **Practicals**
 
-There is only one practical for this module, 2-5PM on Tuesday the 1st August. **You will need to spend half an hour setting up the required software on your laptops before Monday the 1st August!!! See instructions below.**
+There is only one practical for this module, 2-5PM on Tuesday the 1st August. **You will need to spend half an hour setting up the required software on your laptops before Monday the 31st July!!! See instructions below.**
 
-Your report on the practical will be ***due on Monday, 7 August*** - You will be evaluated on how well you completed the Github task during the prac and your answers to a short set of questions about the analyses. Answering the questions shouldn't take more than half an hour.
+Your report on the practical will be ***due on Monday, 7 August*** - You will be evaluated on how well you completed the Github task during the practical and your answers to a short set of questions about the analyses. Answering the questions shouldn't take more than half an hour.
 
 <br>
 
@@ -73,7 +73,7 @@ Your report on the practical will be ***due on Monday, 7 August*** - You will be
 
 You need to install and set up RStudio and Github and test your setup. You can find the 11-step instructions in section \@ref(pracprep). This may be a bit tedious, but there's no other option really. I've done my best to make it as painless as possible. It should take you about half an hour if all goes well... (less if you have R and RStudio installed already).
 
-**PLEASE DO THE SETUP BEFORE WE MEET!!!** I will check in on Monday the 1st to see if people are having issues, but don't expect my help if you haven't tried by yourself first. Trust me, I will be able to tell...
+**PLEASE DO THE SETUP BEFORE WE MEET!!!** I will check in on Monday the 31st July to see if people are having issues, but don't expect my help if you haven't tried by yourself first. Trust me, I will be able to tell...
 
 <br>
 

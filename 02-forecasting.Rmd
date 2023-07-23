@@ -19,7 +19,7 @@ Firstly, there's a long list of existing (or in development) ecological forecast
 
 For the rest of this section, I'm going to focus on an example of what I believe is one forecasting need and opportunity in the Fynbos Biome. I was going to give 3 examples, but rapidly realized it would be too long a lecture. I'll be using the other examples to illustrate various principles in later lectures, but hopefully this example will provide some practical context for some of the issues we'll address in the rest of the module.
 
-> **Note:** This example has not yet been developed into full _near-term iterative ecological forecasts_ sensu Dietze et al (2018). I also don't think they necessarily have to get all the way there to be useful. Think of it as an "ecological forecasting spectrum" where the gold standard is fully developed and automated near-term iterative ecological forecasts.
+> **Note:** This example has not yet been developed into full _near-term iterative ecological forecast_ sensu Dietze et al (2018). I also don't think they necessarily have to get all the way there to be useful. Think of it as an "ecological forecasting spectrum" where the gold standard is fully developed and automated near-term iterative ecological forecasts.
 
 <br>
 
@@ -49,7 +49,7 @@ knitr::include_graphics("img/protearesearch.png")
 
 <br>
 
-A huge benefit of the herculean Proteaceae data collection (and management) effort is that it provides **all the data we need to parameterize various types of models**. In fact, data on the Proteaceae have been hugely important for the global development of species distribution and demographic models (see @Schurr2012, but also many subsequent papers).
+A huge benefit of the herculean Proteaceae data collection (and management) effort is that it provides **the data we need to parameterize various types of models**. In fact, data on the Proteaceae have been hugely important for the global development of species distribution and demographic models (see @Schurr2012, but also many subsequent papers).
 
 Because they are the best-studied group of plants in the Fynbos, they are heavily-utilized for informing conservation planning, management and monitoring. Some examples include informing:
 
@@ -63,7 +63,7 @@ Because they are the best-studied group of plants in the Fynbos, they are heavil
 
 ## Proteaceae as management indicators
 
-Our knowledge of the demography of the Proteaceae is used for the direct management of Fynbos in two ways:
+Our knowledge of Proteaceae demography is used for management of Fynbos in two ways:
 
 1. At the _species level_, for setting guidelines for **sustainable wild harvesting** of their inflorescences
 2. At the _ecosystem level_, to help determine **acceptable fire return intervals**
@@ -72,13 +72,13 @@ Our knowledge of the demography of the Proteaceae is used for the direct managem
 
 **A quick refresher on Proteaceae life cycles and demography:**
 
-```{r proteacones, echo=FALSE, fig.cap = "*Protea cynaroides* on Table Mountain showing current inflorescences and older (grey), closed cones that protect seeds from fire and release them into the post-fire environment.", fig.width=3, fig.align = 'center', out.width="80%"}
+```{r proteacones, echo=FALSE, fig.cap = "*Protea cynaroides* on Table Mountain showing current inflorescences and older (grey), closed 'cones' that protect seeds from fire and release them into the post-fire environment.", fig.width=3, fig.align = 'center', out.width="80%"}
 knitr::include_graphics("img/proteacones.jpeg")
 ```
 
 <br>
 
-```{r proteaharvesting, echo=FALSE, fig.cap = "The fire-driven life-cycle of Fynbos Proteaceae species, including harvesting, taken from [@Treurnicht2021]. Population size/stability are determined by ***key demographic rates*** of adult **fecundity** (size of the canopy seed bank), post-fire seedling **recruitment** and adult fire **survival** (blue–grey boxes). These rates are affected in various ways by environmental conditions, density dependence, the timing, intensity and severity of fire, wildflower harvesting, etc", fig.width=3, fig.align = 'center', out.width="90%"}
+```{r proteaharvesting, echo=FALSE, fig.cap = "The fire-driven life-cycle of Fynbos Proteaceae species, including harvesting, taken from [@Treurnicht2021]. Population size/stability are determined by ***key demographic rates*** of adult **fecundity** (size of the canopy seed bank), post-fire seedling **recruitment** and adult fire **survival** (blue–grey boxes). These rates are affected in various ways by environmental conditions, life-history traits, density dependence, the timing, intensity and severity of fire, wildflower harvesting, etc", fig.width=3, fig.align = 'center', out.width="90%"}
 knitr::include_graphics("img/proteaharvesting.jpg")
 ```
 
@@ -233,7 +233,7 @@ knitr::include_graphics("img/ecoforecastingloop.png")
 
 **Thirdly,** we need to adapt the models and workflow to be able to **ingest and assimilate new data** and produce new **forecasts automatically**.
 
-**Lastly,** we need to make sure that the models adequately **characterize and propagate uncertainty** throughout the analyses so that we can focus data collection and model development to reduce the uncertainty in forecasts. Fortunately, the models are built in a **Bayesian framework** and already do a pretty good job of handling uncertainty.
+**Lastly,** we need to make sure that the models adequately **characterize and propagate uncertainty** throughout the analyses so that we can indicate the uncertainty to the decision maker, and so we can focus data collection and model development to reduce the uncertainty in forecasts. Fortunately, the models are built in a **Bayesian framework** and already do a pretty good job of handling uncertainty.
 
 Clearly, while huge effort has been invested into the demography of Proteaceae, and they are likely to be **one of the lowest hanging fruit for development into near-term iterative ecological forecasts**, there is a lot more work to be done! Still, the history of productive research on Proteaceae shows it would clearly be worth the effort, and we already have decades of data that allow us to learn by backcasting or forecasting from old to more recently collected data. Even if early forecasts are woefully wrong, they will help us learn and improve.
 
