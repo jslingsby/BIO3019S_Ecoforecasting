@@ -44,7 +44,7 @@ Not all of this is fun and exciting, but as I said, it is important stuff for qu
 
 Lectures will be held live 12:00 - 12:45 from 24 July - 4 August.
 
-I'll be adding to (and mostly teaching from) these online course notes as we go along.
+I'll be refining and adding to (and mostly teaching from) these online course notes as we go.
 
 <br>
 
@@ -52,29 +52,26 @@ I'll be adding to (and mostly teaching from) these online course notes as we go 
 
 There is only one practical for this module, 2-5PM on Tuesday the 1st August. **You will need to spend half an hour setting up the required software on your laptops before Monday the 31st July!!! See instructions below.**
 
-Your report on the practical will be ***due on Monday, 7 August*** - You will be evaluated on how well you completed the Github task during the practical and your answers to a short set of questions about the analyses. Answering the questions shouldn't take more than half an hour.
+Your report on the practical will be ***due on Tuesday, 8th August*** - You will be evaluated on how well you completed the Github task during the practical and your answers to a short set of questions about the analyses. Answering the questions shouldn't take more than half an hour.
+
+You need to install and set up RStudio and Github and test your setup. You can find the 11-step instructions in section \@ref(pracprep). This may be a bit tedious, but there's no other option really. I've done my best to make it as painless as possible. It should take you about half an hour if all goes well... (less if you have R and RStudio installed already).
+
+**PLEASE DO THE SETUP BEFORE WE MEET!!!** I will check in on Monday the 31st July to see if people are having issues, but don't expect my help if you haven't tried by yourself first. Trust me, I will be able to tell...
+
+<br>
+
+**Discussions**
+
+- **You are expected to read @Dietze2018 for Tuesday the 1st August.** You can download it [here](http://dx.doi.org/10.1073/pnas.1710231115). You will need to answer a few questions **beforehand** on [this Google Form](https://forms.gle/sSgopTfXSrzWBM2t5).
 
 <br>
 
 ## Preparation
 
-**For the lecture content:**
-
-- The following 4 minute video will give you a glossy overview of what most of this module is about
+The following 4 minute video will give you a glossy overview of what most of this module is about:
 
 <iframe width="584" height="330" src="https://www.youtube.com/embed/Lgi_e7N-C8E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<br>
-
-- **You are expected to read @Dietze2018 for Tuesday the 1st August.** You can download it [here](http://dx.doi.org/10.1073/pnas.1710231115). You will need to answer a few questions on [this Google Form](https://forms.gle/sSgopTfXSrzWBM2t5).
-
-<br>
-
-**For the practical:**
-
-You need to install and set up RStudio and Github and test your setup. You can find the 11-step instructions in section \@ref(pracprep). This may be a bit tedious, but there's no other option really. I've done my best to make it as painless as possible. It should take you about half an hour if all goes well... (less if you have R and RStudio installed already).
-
-**PLEASE DO THE SETUP BEFORE WE MEET!!!** I will check in on Monday the 31st July to see if people are having issues, but don't expect my help if you haven't tried by yourself first. Trust me, I will be able to tell...
 
 <br>
 
