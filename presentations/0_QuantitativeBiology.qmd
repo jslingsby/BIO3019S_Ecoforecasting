@@ -34,6 +34,28 @@ Jasper Slingsby
 
 ## Models {background-color="#33431e"}
 
+Models are simplified reconstructions of reality
+
+How realistic do models need to be?
+
+. . .
+
+::: columns
+::: {.column width="45%"}
+
+![](img/modelplanes.jpg)
+
+::: 
+::: {.column width="45%"}
+![](img/modelplane_simple.png)
+:::
+::::
+
+It depends on your question/objective...
+
+
+## Models {background-color="#33431e"}
+
 ::: incremental
 - tools for deductive reasoning
   - test our understanding
@@ -64,7 +86,7 @@ Jasper Slingsby
 \path (0,-1)node{{\it Descriptive}};
 \path (8,-1)node{{\it Explanatory}};
 
-\path (0,-1.5)node{{\it Fitted directly to data}};
+\path (0,-1.5)node{{\it Fitted directly to data (statistical)}};
 \path (8,-1.5)node{{\it Tested with data}};
 
 \path (0,-2)node{{\it Generate hypotheses}};
@@ -212,7 +234,7 @@ From physics first principles we know the [stopping distance formula](https://en
 ### Empirical vs mechanistic models?
 
 ::: incremental
-- Both are useful
+- Both are useful. Mechanistic is often the ultimate goal.
 - We often need to start with empirical models to work towards understanding the mechanism (e.g. the quadratic model was a better fit than the linear above)
 - Many models in biology are a mix, incorporating mechanisms known from first principles into otherwise empirical frameworks
 - Incorporating mechanisms into models is often key for identifying feedbacks and other complexity in biological systems
@@ -233,7 +255,7 @@ From physics first principles we know the [stopping distance formula](https://en
 ::: {.column width="45%"}
 <br/>
 
-In essence, *_correlative_* SDMs map the potential range of species based on the combination of environmental conditions from locations where they are known to occur.
+In essence, **_correlative_** SDMs map the potential range of species based on the combination of environmental conditions from locations where they are known to occur.
 
 Image from [Ragnvald](https://en.wikipedia.org/wiki/Species_distribution_modelling#/media/File:Predicting_habitats.png)
 :::
@@ -256,7 +278,7 @@ Image from [Ragnvald](https://en.wikipedia.org/wiki/Species_distribution_modelli
 
 <br/>
 
-[Higgins et al. 2023 *Science*](http://dx.doi.org/10.1126/science.add5190) use a semi-*_mechanistic_* SDM which uses a plant growth model to interpret how plant species should respond to different environmental conditions.
+[Higgins et al. 2023 *Science*](http://dx.doi.org/10.1126/science.add5190) use a semi-**_mechanistic_** SDM which uses a plant growth model to interpret how plant species should respond to different environmental conditions.
 
 The relationships between parameters are defined mechanistically, based on known equations, but the parameters themselves are estimated statistically from empirical data based on known localities of the species.
 :::
@@ -289,7 +311,7 @@ The probability of mutations between different base pair combinations are not eq
 
 The volume, variety and velocity of biological and related data are ever increasing.
 
-Quantitative biology is more than just modeling. A large part is developing the necessary tools and approaches for managing and manipulating large and varied datasets.
+Quantitative biology is more than just modeling. A large part is developing the necessary tools and skills for managing and manipulating large and varied datasets.
 
 ## BIO3019S: Quantitative Biology { background-color="#33431e"}
 
