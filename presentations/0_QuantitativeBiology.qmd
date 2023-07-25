@@ -10,7 +10,7 @@ editor: visual
 bibliography: book.bib
 ---
 
-# BIO3019S: Quantitative Biology {background-color="#33431e"}
+# Quantitative Biology BIO3019S {background-color="#33431e"}
 
 Jasper Slingsby
 

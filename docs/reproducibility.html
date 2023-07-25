@@ -342,7 +342,7 @@ Figure 5.1: ‘Is there a reproducibility* crisis?’ Results from a survey of &
 </div>
 <p><br></p>
 <p>We have a problem…</p>
-<p>Since we’re failing the <a href="https://en.wikipedia.org/wiki/Gentlemen%27s_agreement">gentleman’s agreement</a><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> that we’ll describe our methods in enough detail that anyone else should be able to repeat the study (using the publication only) and find similar results, modern scientists are trying to formalize the process in the form of <strong><em>Reproducible Research</em></strong>.</p>
+<p>Since we’re failing the <a href="https://en.wikipedia.org/wiki/Gentlemen%27s_agreement">gentleman’s agreement</a><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> that we’ll describe our methods in enough detail that anyone else should be able to repeat the study (using the publication only) and find similar results, modern scientists are trying to formalize the process in the form of <strong><em>Reproducible Research</em></strong>.</p>
 <p>Reproducible research makes use of modern software tools to share data, code and other resources required to allow others to reproduce the same result as the original study, thus <strong>making all analyses open and transparent</strong>.</p>
 <p>Working reproducibly is not just a requirement for using quantitative approaches in iterative decision-making, it is <strong>central to scientific progress!!!</strong></p>
 <p><br></p>
@@ -527,6 +527,7 @@ Figure 5.4: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 ## Running under: macOS Ventura 13.0
 ## 
 ## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRblas.0.dylib
 ## LAPACK: /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRlapack.dylib
 ## 
 ## locale:
@@ -535,26 +536,13 @@ Figure 5.4: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
-## other attached packages:
-##  [1] hrbrthemes_0.8.0 lubridate_1.9.2  forcats_1.0.0    stringr_1.5.0    dplyr_1.1.2     
-##  [6] purrr_1.0.1      readr_2.1.4      tidyr_1.3.0      tibble_3.2.1     ggplot2_3.4.1   
-## [11] tidyverse_2.0.0 
-## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.10       lattice_0.20-45   png_0.1-8         digest_0.6.31     utf8_1.2.3       
-##  [6] mime_0.12         R6_2.5.1          evaluate_0.20     highr_0.10        pillar_1.9.0     
-## [11] gdtools_0.3.0     rlang_1.1.0       curl_5.0.0        rstudioapi_0.14   extrafontdb_1.0  
-## [16] jquerylib_0.1.4   Matrix_1.5-3      rmarkdown_2.20    labeling_0.4.2    splines_4.2.3    
-## [21] extrafont_0.19    munsell_0.5.0     shiny_1.7.4       compiler_4.2.3    httpuv_1.6.9     
-## [26] xfun_0.37         systemfonts_1.0.4 pkgconfig_2.0.3   mgcv_1.8-42       gfonts_0.2.0     
-## [31] htmltools_0.5.4   tidyselect_1.2.0  httpcode_0.3.0    bookdown_0.32     fansi_1.0.4      
-## [36] crayon_1.5.2      tzdb_0.3.0        withr_2.5.0       later_1.3.0       crul_1.3         
-## [41] grid_4.2.3        nlme_3.1-162      jsonlite_1.8.4    xtable_1.8-4      Rttf2pt1_1.3.12  
-## [46] gtable_0.3.1      lifecycle_1.0.3   magrittr_2.0.3    scales_1.2.1      cli_3.6.0        
-## [51] stringi_1.7.12    cachem_1.0.7      farver_2.1.1      promises_1.2.0.1  bslib_0.4.2      
-## [56] ellipsis_0.3.2    generics_0.1.3    vctrs_0.6.3       tools_4.2.3       glue_1.6.2       
-## [61] jpeg_0.1-10       hms_1.1.2         fastmap_1.1.1     yaml_2.3.7        timechange_0.2.0 
-## [66] colorspace_2.1-0  memoise_2.0.1     knitr_1.42        sass_0.4.5</code></pre>
+##  [1] bookdown_0.32   png_0.1-8       digest_0.6.31   R6_2.5.1       
+##  [5] jsonlite_1.8.4  evaluate_0.20   highr_0.10      cachem_1.0.7   
+##  [9] rlang_1.1.0     cli_3.6.0       rstudioapi_0.14 jquerylib_0.1.4
+## [13] bslib_0.4.2     rmarkdown_2.20  tools_4.2.3     jpeg_0.1-10    
+## [17] xfun_0.37       yaml_2.3.7      fastmap_1.1.1   compiler_4.2.3 
+## [21] htmltools_0.5.4 knitr_1.42      sass_0.4.5</code></pre>
 <p><br></p>
 <p><strong>Containers</strong></p>
 <p><strong>A “better” way</strong> to do this is to use <strong>containers</strong> like <a href="https://www.docker.com/">docker</a> or <a href="https://sylabs.io/singularity/">singularity</a>. These are contained, lightweight computing environments similar to <a href="https://en.wikipedia.org/wiki/Virtual_machine">virtual machines</a>, that you can package with your software/workflow. You set your container up to have everything you need to run your code etc (and nothing extra), so anyone can download (or clone) your container, code and data and run your analyses perfectly first time.</p>
@@ -727,8 +715,8 @@ Treurnicht, Martina, Jörn Pagel, Karen J Esler, Annelise Schutte-Vlok, Henning 
 </div>
 <div class="footnotes">
 <hr />
-<ol start="2">
-<li id="fn2"><p>I know many may find the use of this term offensive. In fact, I have used it here because that offense highlights my point. “Gentlemen’s agreements” have been used for nefarious purposes since the dawn of time should have no place in science as we strive to make the discipline more transparent, open and inclusive.<a href="reproducibility.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<ol start="1">
+<li id="fn1"><p>I know many may find the use of this term offensive. In fact, I have used it here because that offense highlights my point. “Gentlemen’s agreements” have been used for nefarious purposes since the dawn of time should have no place in science as we strive to make the discipline more transparent, open and inclusive.<a href="reproducibility.html#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -791,20 +779,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

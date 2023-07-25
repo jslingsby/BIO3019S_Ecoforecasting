@@ -63,7 +63,6 @@ Sadly, we have a problem...
     -   rare phenomena, long term records, very expensive projects like space missions, etc
 -   Where the "gold standard" of full replication cannot be achieved, we have to settle for a lower rung somewhere on ***The Reproducibility Spectrum*** [@Peng2011]
 
-
 ## Why work reproducibly? {.smaller background-color="#33431e"}
 
 ![Let's start being more specific about our miracles... Cartoon © Sidney Harris. Used with permission [ScienceCartoonsPlus.com](www.ScienceCartoonsPlus.com)](img/miracle.jpg)
@@ -74,11 +73,11 @@ Sadly, we have a problem...
 
 > "*Five selfish reasons to work reproducibly*" [@Markowetz2015]
 
-1.  Its ***transparent and open***    - helping avoid mistakes or track down errors
-2.  It makes it ***easier to write papers***   - faster tracking of changes and manuscript updates
-3.  It ***helps the review process***   - reviewers can actually see what you did
-4.  It ***enables continuity*** of research    - simplifying project handover (esp. past to future you!)
-5.  It builds ***reputation***    - showing integrity and gaining credit where your work is reused
+1.  Its ***transparent and open*** - helping avoid mistakes or track down errors
+2.  It makes it ***easier to write papers*** - faster tracking of changes and manuscript updates
+3.  It ***helps the review process*** - reviewers can actually see what you did
+4.  It ***enables continuity*** of research - simplifying project handover (esp. past to future you!)
+5.  It builds ***reputation*** - showing integrity and gaining credit where your work is reused
 
 ## Why work reproducibly? {.smaller background-color="#33431e"}
 
@@ -90,16 +89,16 @@ Some less selfish reasons (and relevant for ecoforecasting):
 
 7.  It ***allows easy comparison*** of new analytical approaches to older ones
 
-8.  It makes it easy to ***repeat analyses on new data***, e.g. for ecological forecasting or LTER[^1]
+8.  It makes it easy to ***repeat analyses on new data***, e.g. for ecological forecasting or LTER[^3_reproducibility-1]
 
 9.  The tools used are ***useful beyond Reproducible Research***, e.g. building websites
 
 10. Reproducible research ***skills are highly sought after!***
 
+[^3_reproducibility-1]: Long Term Ecological Research
+
 -   Skills are important should you decide to leave science...
 -   Within science, more and more environmental organizations and NGOs are hiring data scientists or scientists with strong data and quantitative skills
-
-[^1]: Long Term Ecological Research
 
 ## Barriers to working reproducibly {.smaller background-color="#33431e"}
 
@@ -142,11 +141,123 @@ Working reproducibly requires careful planning and documentation of each step in
 
 Entail overlapping/intertwined components, namely:
 
-1.  Data management (more on this in a later lecture)
+1.  Data management
 2.  File and folder management
 3.  Coding and code management (data manipulation and analyses)
 4.  Computing environment and software
 5.  Sharing of the data, metadata, code, publications and any other relevant materials
+
+## 1. Data management {.smaller background-color="#33431e"}
+
+This is a big topic in itself and has a separate section in my notes. I encourage you to **_read the notes_** as this is NB information for you to know, and the content is still be examinable, although I will not expect you to know it in as much detail.
+
+## 1. Data management {.smaller background-color="#33431e"}
+
+Data loss is the norm... Good data management is key!!!
+
+```{r datadecay, echo=FALSE, fig.cap = "The 'Data Decay Curve' [@Michener1997]", fig.width=3, fig.align = 'center', out.width="75%"}
+knitr::include_graphics("img/datadecaycurve.jpg")
+```
+
+
+## 1. Data management {.smaller background-color="#33431e"}
+
+```{r datalifecycle, echo=FALSE, fig.cap = "The Data Life Cycle, adapted from https://www.dataone.org/", fig.width=6, fig.align = 'center', out.width="110%"}
+# load library
+library(ggplot2)
+
+# Create test data.
+data <- data.frame(
+  category=c("1.Plan", "2.Collect", "3.Assure", "4.Describe", "5.Preserve", "6.Discover", "7.Integrate", "8.Analyze"),
+  count=rep(12.5, 8)
+)
+ 
+# Compute percentages
+data$fraction <- data$count / sum(data$count)
+
+# Compute the cumulative percentages (top of each rectangle)
+data$ymax <- cumsum(data$fraction)
+
+# Compute the bottom of each rectangle
+data$ymin <- c(0, head(data$ymax, n=-1))
+
+# Compute label position
+data$labelPosition <- (data$ymax + data$ymin) / 2
+
+# Compute a good label
+data$label <- paste0(data$category, "\n value: ", data$count)
+
+# Make the plot
+ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
+  geom_rect() +
+  geom_text(x=3.5, aes(y=labelPosition, label=category)) + #, color=category)) + # x here controls label position (inner / outer)
+  scale_fill_brewer(palette="Blues") +
+#  scale_color_brewer(palette="Blues", direction = -1) +
+  coord_polar(theta="y") +
+  xlim(c(2, 4.5)) +
+  theme_void() +
+  theme(legend.position = "none")
+```
+
+## 1. Data management - Plan {.smaller background-color="#33431e"}
+
+Good data management begins with planning. You essentially **outline the plan for every step of the cycle in as much detail as possible**.
+
+Fortunately, there are **online data management planning tools** that make it easy to develop a **Data Management Plan (DMP)**.
+
+```{r uctdmp, echo=FALSE, fig.cap = "Screenshot of [UCT's Data Management Planning Tool's Data Management Checklist.](http://www.digitalservices.lib.uct.ac.za/dls/systems/uct-dmp)", fig.width=3, fig.align = 'center', out.width="90%"}
+knitr::include_graphics("img/UCTDMP.png")
+```
+
+**A DMP is a living document and should be regularly revised during the life of a project!**
+
+## 1. Data management {.smaller background-color="#33431e"}
+
+### Collect & Assure
+I advocate that **it is foolish to collect data without doing quality assurance and quality control (QA/QC) as you go**, irrespective of how you are collecting the data.
+
+```{r appsheet, echo=FALSE, fig.cap = "An example data collection app I built in [AppSheet](https://www.appsheet.com) that allows you to log GPS coordinates, take photos, record various fields, etc.", fig.width=3, fig.align = 'center', out.width="90%"}
+knitr::include_graphics("img/veldwatch.png")
+```
+
+There are many tools that allow you to do some quality assurance and quality control as you collect the data.
+
+## 1. Data management {.smaller background-color="#33431e"}
+
+::: columns
+::: {.column width="45%"}
+
+#### Describe, Preserve, Discover
+
+```{r fairdata, echo=FALSE, fig.cap = "The FAIR data principles [ErrantScience.com](https://errantscience.com/).", fig.width=3, fig.align = 'center', out.width="100%"}
+knitr::include_graphics("img/fairdata.jpg")
+```
+
+:::
+::: {.column width="45%"}
+**Global databases:**
+
+- [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) - for molecular data
+- [TRY](https://www.try-db.org/TryWeb/Home.php) - for plant traits
+- [Dryad](https://datadryad.org) - for generalist biological and environmental research
+
+**South African databases:**
+
+- [SANBI](https://www.sanbi.org/resources/infobases/) (biodiversity), [SAEON](https://catalogue.saeon.ac.za/) (environmental and biodiversity)
+
+**"Generalist" repositories:**
+
+- [FigShare](https://figshare.com/), [Zenodo](https://zenodo.org/), UCT's [ZivaHub](https://zivahub.uct.ac.za/) (based on FigShare)
+:::
+::::
+
+## 1. Data management {.smaller background-color="#33431e"}
+
+### Integrate & Analyse
+
+"The fun bit", but again, there are many things to bear in mind and keep track of so that your analysis is repeatable. This is largely covered by the sections on _Coding and code management_ and _Computing environment and software_ below
+
+![Artwork \@allison_horst](img/tidydata_5.jpg)
 
 ## 2. File and folder management {.smaller background-color="#33431e"}
 
@@ -290,9 +401,9 @@ Check out the [Tidyverse style guide](https://style.tidyverse.org/index.html) fo
 
 Version control tools can be challenging , but also hugely simplify your workflow!
 
-The advantages of version control[^3_reproducibility-1]:
+The advantages of version control[^3_reproducibility-2]:
 
-[^3_reproducibility-1]: We'll use Git and [GitHub](https://github.com/), but most have similar functions. You can look up `technical terms` [here](https://docs.github.com/en/get-started/quickstart).
+[^3_reproducibility-2]: We'll use Git and [GitHub](https://github.com/), but most have similar functions. You can look up `technical terms` [here](https://docs.github.com/en/get-started/quickstart).
 
 -   They generally help project management, especially **collaborations**
 -   They allow **easy code sharing** with collaborators or the public at large - through `repositories` ("repos") or `gists` (code snippets)
