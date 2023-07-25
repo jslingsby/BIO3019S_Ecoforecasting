@@ -101,7 +101,7 @@ Revisiting our *Effort to Reward* example, what would you do if the decision-mak
 
 The iterative decision making cycle mirrors the scientific method, i.e.:
 
-Observation \> Hypothesis \> Experiment \> Analyze \> Interpret \> Report \> (Repeat)
+Observation \> Hypothesis \> Experiment \> Analyse \> Interpret \> Report \> (Repeat)
 
 ![](img/scimethod.png){fig-align="center"}
 
@@ -111,20 +111,22 @@ So iterative decision-making facilitates iterative learning (i.e. scientific pro
 
 ### The importance of forecasting in ecology
 
-> "prediction[^1] is the only way to demonstrate scientific understanding" - Houlahan et al. 2017 
+> "prediction[^1_introduction-1] is the only way to demonstrate scientific understanding" - Houlahan et al. 2017
 >
 > ...if we cannot make reasonably good predictions, we're missing something.
+
+[^1_introduction-1]: Prediction is estimating the outcomes for unseen data. Forecasting is prediction into the future.
+
+. . .
 
 In ecology, we mostly test qualitative, imprecise hypotheses:
 
 -   *"Does X have an effect on Y?"*, rather than:
 -   *"What is the relationship between X and Y?"* or better yet - *"What value would we expect Y to be, given a particular value of X?"*
 
-Without testing precise hypotheses and using the results to make ***testable predictions*** we don't know if our findings are generalizable beyond our specific data set.
+Without testing precise hypotheses and using the results to make ***testable predictions*** we don't know if our findings are generalisable beyond our specific data set.
 
 -   If results are not generalisable, they're not improving our understanding of ecology.
-
-[^1]: Prediction is estimating the outcomes for unseen data. Forecasting is prediction into the future.
 
 ##  {.smaller background-color="#33431e"}
 
@@ -136,9 +138,11 @@ Without testing precise hypotheses and using the results to make ***testable pre
 
 <br/>
 
+. . .
+
 -   The **"gold standard"** is an informatics pipeline that can ingest new data and **make new forecasts automatically** with minimal user input.
 -   This poses a number of major challenges and requires a big improvement in quantitative skills in biology (hence this course...).
--   Fortunately, any steps towards the gold standard is likely to be useful, even if you never get there.
+-   Fortunately, any steps towards the gold standard are likely to be useful, even if we never get there.
 
 ##  {.smaller background-color="#33431e"}
 
@@ -168,7 +172,7 @@ Without testing precise hypotheses and using the results to make ***testable pre
 
 ### Iterative near-term ecological forecasting
 
-**Step 4:** Analyze the new observations in the context of your forecasts and original observations, and update the initial conditions for the next iteration of the forecast.
+**Step 4:** Analyse the new observations in the context of your forecasts and original observations, and update the initial conditions for the next iteration of the forecast.
 
 ![From @Dietze2018](img/analyzeandupdate.png){fig-align="center"}
 
@@ -191,7 +195,7 @@ The key steps are:
 
 1.  Make a **forecast** based on initial conditions
 2.  **Compare** your forecast to new observations
-3.  **Analyze** the new observations in the context of your forecast and original data
+3.  **Analyse** the new observations in the context of your forecast and original data
 4.  **Update** estimates of the current state of the system (data and understanding), before making a new forecast
 :::
 :::
