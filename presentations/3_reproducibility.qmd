@@ -35,7 +35,8 @@ Sadly, we have a problem...
 <br>
 
 -   Makes use of modern software tools to share data, code, etc to allow others to reproduce the same result as the original study, thus ***making all analyses open and transparent**.*
--   This is ***central to scientific progress!!!***
+
+    -   This is ***central to scientific progress!!!***
 
 <br>
 
@@ -75,7 +76,7 @@ Sadly, we have a problem...
 
 1.  Its ***transparent and open*** - helping avoid mistakes or track down errors
 2.  It makes it ***easier to write papers*** - faster tracking of changes and manuscript updates
-3.  It ***helps the review process*** - reviewers can actually see what you did
+3.  It ***helps the review process*** - reviewers can actually see (and do!) what you did
 4.  It ***enables continuity*** of research - simplifying project handover (esp. past to future you!)
 5.  It builds ***reputation*** - showing integrity and gaining credit where your work is reused
 
@@ -85,20 +86,20 @@ Sadly, we have a problem...
 
 Some less selfish reasons (and relevant for ecoforecasting):
 
-6.  It ***speeds progress in science*** by allowing you (or others) to rapidly build on previous findings and analyses
+6.  It ***speeds scientific progress*** facilitating building on previous findings and analyses
 
 7.  It ***allows easy comparison*** of new analytical approaches to older ones
 
 8.  It makes it easy to ***repeat analyses on new data***, e.g. for ecological forecasting or LTER[^3_reproducibility-1]
 
-9.  The tools used are ***useful beyond Reproducible Research***, e.g. building websites
+9.  The tools are ***useful beyond research***, e.g. making websites, presentations
 
 10. Reproducible research ***skills are highly sought after!***
 
-[^3_reproducibility-1]: Long Term Ecological Research
-
 -   Skills are important should you decide to leave science...
 -   Within science, more and more environmental organizations and NGOs are hiring data scientists or scientists with strong data and quantitative skills
+
+[^3_reproducibility-1]: Long Term Ecological Research
 
 ## Barriers to working reproducibly {.smaller background-color="#33431e"}
 
@@ -108,12 +109,12 @@ From "A Beginner's Guide to Conducting Reproducible Research" [@Alston2021]:
 
 **1. Complexity**
 
--   There's a learning curve in getting to know and use the tools effectively
--   One is always tempted by the "easy option" of doing it the way you already know or using "user-friendly" proprietary software
+-   There's a _learning curve_ in getting to know and use the tools effectively
+    -   One is always tempted by the "easy option" of doing it the way you already know or using "user-friendly" proprietary software
 
 **2. Technological change**
 
--   Hardware and software used in analyses change over time, making it very difficult to rerun old analyses etc
+-   Hardware and software change over time, making it difficult to rerun old analyses
     -   This should be less of a problem as more tools like contained computing environments become available
 
 ## Barriers to working reproducibly {.smaller background-color="#33431e"}
@@ -121,13 +122,13 @@ From "A Beginner's Guide to Conducting Reproducible Research" [@Alston2021]:
 **3. Human error**
 
 -   Simple mistakes or poor documentation can easily make a study irreproducible.
--   Most reproducible research tools are actually aimed at solving this problem!
+    -   Most reproducible research tools are actually aimed at solving this problem!
 
 **4. Intellectual property rights**
 
 -   Rational self-interest can lead to hesitation to share data and code via many pathways:
     -   Fear of not getting credit; Concern that the materials shared will be used incorrectly or unethically; etc
--   Hopefully most of these issues will be solved by better awareness of licensing issues, attribution, etc, as the culture of reproducible research grows
+    -   Hopefully most of these issues will be solved by better awareness of licensing issues, attribution, etc, as the culture of reproducible research grows
 
 ## Reproducible Scientific Workflows {.smaller background-color="#33431e"}
 
@@ -147,9 +148,15 @@ Entail overlapping/intertwined components, namely:
 4.  Computing environment and software
 5.  Sharing of the data, metadata, code, publications and any other relevant materials
 
-## 1. Data management {.smaller background-color="#33431e"}
+## 1. Data management {background-color="#33431e"}
 
-This is a big topic in itself and has a separate section in my notes. I encourage you to **_read the notes_** as this is NB information for you to know, and the content is still be examinable, although I will not expect you to know it in as much detail.
+<br/>
+
+This is a big topic and has a separate section in my notes. 
+
+<br/>
+
+**_Read the notes_** as this is NB information for you to know, and the content is still be examinable - although I will not expect you to know it in as much detail.
 
 ## 1. Data management {.smaller background-color="#33431e"}
 
@@ -162,7 +169,7 @@ knitr::include_graphics("img/datadecaycurve.jpg")
 
 ## 1. Data management {.smaller background-color="#33431e"}
 
-```{r datalifecycle, echo=FALSE, fig.cap = "The Data Life Cycle, adapted from https://www.dataone.org/", fig.width=6, fig.align = 'center', out.width="110%"}
+```{r datalifecycle, echo=FALSE, fig.cap = "The Data Life Cycle, adapted from https://www.dataone.org/", fig.width=6, fig.align = 'center', out.width="100%"}
 # load library
 library(ggplot2)
 
@@ -199,7 +206,7 @@ ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
   theme(legend.position = "none")
 ```
 
-## 1. Data management - Plan {.smaller background-color="#33431e"}
+## Plan {.smaller background-color="#c2c190"}
 
 Good data management begins with planning. You essentially **outline the plan for every step of the cycle in as much detail as possible**.
 
@@ -211,35 +218,32 @@ knitr::include_graphics("img/UCTDMP.png")
 
 **A DMP is a living document and should be regularly revised during the life of a project!**
 
-## 1. Data management {.smaller background-color="#33431e"}
+## Collect & Assure {.smaller background-color="#c2c190"}
 
-### Collect & Assure
-I advocate that **it is foolish to collect data without doing quality assurance and quality control (QA/QC) as you go**, irrespective of how you are collecting the data.
+I advocate that _**it is foolish to collect data without doing quality assurance and quality control (QA/QC) as you go**_, irrespective of how you are collecting the data.
 
 ```{r appsheet, echo=FALSE, fig.cap = "An example data collection app I built in [AppSheet](https://www.appsheet.com) that allows you to log GPS coordinates, take photos, record various fields, etc.", fig.width=3, fig.align = 'center', out.width="90%"}
 knitr::include_graphics("img/veldwatch.png")
 ```
 
-There are many tools that allow you to do some quality assurance and quality control as you collect the data.
+There are many tools that allow you to do quality assurance and quality control as you collect the data (or progressively shortly after data collection events).
 
-## 1. Data management {.smaller background-color="#33431e"}
+## Describe, Preserve, Discover {.smaller background-color="#c2c190"}
 
 ::: columns
-::: {.column width="45%"}
-
-#### Describe, Preserve, Discover
+::: {.column width="55%"}
 
 ```{r fairdata, echo=FALSE, fig.cap = "The FAIR data principles [ErrantScience.com](https://errantscience.com/).", fig.width=3, fig.align = 'center', out.width="100%"}
 knitr::include_graphics("img/fairdata.jpg")
 ```
 
 :::
-::: {.column width="45%"}
+::: {.column width="40%"}
 **Global databases:**
 
 - [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) - for molecular data
 - [TRY](https://www.try-db.org/TryWeb/Home.php) - for plant traits
-- [Dryad](https://datadryad.org) - for generalist biological and environmental research
+- [Dryad](https://datadryad.org) - for general biological and environmental data
 
 **South African databases:**
 
@@ -247,13 +251,11 @@ knitr::include_graphics("img/fairdata.jpg")
 
 **"Generalist" repositories:**
 
-- [FigShare](https://figshare.com/), [Zenodo](https://zenodo.org/), UCT's [ZivaHub](https://zivahub.uct.ac.za/) (based on FigShare)
+- [FigShare](https://figshare.com/) (incl. UCT's [ZivaHub](https://zivahub.uct.ac.za/)), [Zenodo](https://zenodo.org/)
 :::
 ::::
 
-## 1. Data management {.smaller background-color="#33431e"}
-
-### Integrate & Analyse
+## Integrate & Analyse {.smaller background-color="#c2c190"}
 
 "The fun bit", but again, there are many things to bear in mind and keep track of so that your analysis is repeatable. This is largely covered by the sections on _Coding and code management_ and _Computing environment and software_ below
 
@@ -278,7 +280,7 @@ The main considerations are:
 -   defining a simple, common, intuitive folder structure
 -   using informative file names
 -   version control where possible
-    -   e.g. GitHub or Google Docs
+    -   e.g. GitHub, Google Docs, etc
 :::
 :::
 
@@ -296,7 +298,7 @@ Here's how I usually manage my folders:
 
 -   "code"contains code for analyses
 -   "data" often has separate "raw" and "processed" (or "clean") folders
-    -   Large files may be stored elsewhere
+    -   Large files (e.g. GIS) may be stored elsewhere
 -   "output" contains figures and tables
 :::
 
@@ -325,7 +327,7 @@ Here's how I usually manage my folders:
 
 ### Why write code?
 
-"Point-and-click" software like Excel, Statistica, etc may seem easier, but you'll regret it in the long run...
+"Point-and-click" software like Excel, Statistica, etc may seem easier, but you'll regret it in the long run... e.g. When you have to rerun or remember what you did?
 
 <br>
 
@@ -367,9 +369,9 @@ Check out the [Tidyverse style guide](https://style.tidyverse.org/index.html) fo
 -   use consistent code and **formatting style** - indents, spaces, line-breaks, etc
 -   **modularize code** into manageable steps/chunks
     -   or separate scripts that can be called in order from a master script or Makefile
+    -   write **functions** rather than repeating the same code
 -   use **commenting** to explain what you're doing at each step or in each function
-    -   "notebooks" like RMarkdown, Quarto, Jupyter or Sweave allow embedded code, simplifying documentation, master/Makefiles, etc and can used to write manuscripts, presentations or websites (e.g. all my teaching materials)
--   write **functions** rather than repeating the same code
+    -   "notebooks" like RMarkdown, Quarto, Jupyter or Sweave allow embedded code, simplifying documentation, master/Makefiles, etc and can be used to write manuscripts, presentations or websites (e.g. all my teaching materials)
 -   **check for mistakes** at every step!!! Do the outputs make sense?
 
 ## Some coding rules continued... {.smaller background-color="#c2c190"}
@@ -461,22 +463,26 @@ These are contained, lightweight computing environments similar to [virtual mach
 
 <br>
 
-You set your container up to have everything you need to run your workflow (and nothing extra), so anyone can download (or clone) your container, code and data and run your analyses perfectly first time.
+You set your container up to have everything you need to run your workflow (and nothing extra), so anyone can download (or clone) your container, code and data and run your analyses perfectly every time.
 
 <br>
 
 ## 5. Sharing data, code, publication etc {.smaller background-color="#33431e"}
 
 ::: columns
-::: {.column width="45%"}
-This is covered in more detail in the data management lecture, but suffice to say there's no point working reproducibly if you're not going to share all the components necessary to complete your workflow...
+::: {.column width="50%"}
+This is covered in more detail in the data management section, but suffice to say there's no point working reproducibly if you're not going to share all the components necessary to complete your workflow...
 
 <br>
 
-Another key component here is that ideally all your data, code, publication etc are shared *Open Access* - i.e. they are not stuck behind some paywall...
+Another key component here is that ideally all your data, code, publication etc are shared *Open Access* 
+
+- not stuck behind some paywall!
+- shared with a permissable use license
+    - e.g. [Creative Commons](https://creativecommons.org/licenses/)
 :::
 
-::: {.column width="10%"}
+::: {.column width="5%"}
 :::
 
 ::: {.column width="45%"}
