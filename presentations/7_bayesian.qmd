@@ -37,28 +37,30 @@ Jasper Slingsby
 
 ## Advantages of Bayesian approaches {.smaller background-color="#33431e"}
 
-1.  They **focus on estimating what properties are**
+::: incremental
+1.  They _**focus on estimating what properties are**_
     -   i.e. the actual value of parameters, not just establishing that they are different to a null expectation as in *null hypothesis testing*
-2.  They are highly **flexible**, allowing **complex models with varied data sources**, especially Hierarchical Bayesian models
-3.  They can treat all terms as probability distributions, making it **easier to quantify, propagate and partition uncertainties throughout the analysis**, allowing one to:
+2.  They are highly _**flexible**_, allowing _**complex models with varied data sources**_, especially Hierarchical Bayesian models
+3.  They can _**treat all terms as probability distributions**_, making it easier to quantify, propagate and partition uncertainties throughout the analysis, allowing one to:
     -   **present uncertainty** in the forecast to the decision maker
     -   **analyze the uncertainty**, guiding improvements
-4.  They provide an **iterative** probabilistic framework that allows us to learn from new evidence (data) in the context of existing (*prior*) knowledge.
+4.  They provide an _**iterative**_ probabilistic framework that allows us to learn from new evidence (data) in the context of existing (*prior*) knowledge.
     -   This makes it easier to update predictions as new data become available, completing the forecasting cycle.
+:::
 
 ## But first... {.smaller background-color="#33431e"}
 
 **Before I can introduce Bayes**, there are a few basic building blocks we need to establish first.
 
 1.  How the method of ***Least Squares*** works, and its limitations, especially it's inflexible, implicit data model.
-2.  The concept of ***likelihood*** and the method of maximum likelihood estimation
+2.  The concept of likelihood and the method of ***maximum likelihood estimation***
     -   this is a major component of Bayes' Theorem
     -   its a frequentist method, but has the advantages 1 & most of 2 above
         -   in fact, there are frequentist approaches for doing much of the advantages listed on the previous slide, but they are typically cumbersome. Bayes you can do it all without much extra work.
 
 ## Least Squares {background-color="#33431e"}
 
-Traditional parametric statistics like regression analysis and analysis of variance (ANOVA) rely on ***Ordinary Least Squares (OLS)***. 
+Traditional parametric statistics like regression analysis and analysis of variance (ANOVA) rely on ***Ordinary Least Squares (OLS)***.
 
 <br>
 
@@ -68,7 +70,7 @@ There are other flavours of least squares that allow more flexibility (e.g. nonl
 
 In general, least squares approaches "fit" (i.e. estimate the parameters of) models by **minimizing the sums of the squared residuals**.
 
-```{r} 
+```{r}
 #| echo: false
 #| label: leastsquares1
 #| message: false
@@ -92,11 +94,11 @@ dat %>%
 
 The model (blue line) is drawn through the points to minimize the sum of the squared vertical (y-axis) differences between each point and the regression line (i.e. residuals).
 
-## {.smaller background-color="#33431e"}
+##  {.smaller background-color="#33431e"}
 
 Redrawn highlighting the residuals:
 
-```{r} 
+```{r}
 #| echo: false
 #| label: leastsquares2
 #| message: false
@@ -120,17 +122,17 @@ dat %>%
   theme_bw()
 ```
 
-- The residuals are the grey lines (lollypop sticks) linking each observed data point to the values predicted by the model (open circles along the regression line)
-- They are **vertical and not orthogonal** to the regression line, because they represent the variance in Y (*Reward*) that is not explained by X (*Effort*)
-- There is no scatter in the predicted values (open circles), because the scatter is **residual variance that the model cannot account for and predict**.
+-   The residuals are the grey lines (lollypop sticks) linking each observed data point to the values predicted by the model (open circles along the regression line)
+-   They are **vertical and not orthogonal** to the regression line, because they represent the variance in Y (*Reward*) that is not explained by X (*Effort*)
+-   There is no scatter in the predicted values (open circles), because the scatter is **residual variance that the model cannot account for and predict**.
 
-## {.smaller background-color="#33431e"}
+##  {.smaller background-color="#33431e"}
 
 ::: columns
 ::: {.column width="45%"}
 A histogram of the residuals:
 
-```{r} 
+```{r}
 #| label: leastsquares3
 #| echo: false
 #| message: false
@@ -144,20 +146,21 @@ The residuals approximate a ***normal distribution***
 
 This is a **key assumption** when using Least Squares
 
-- termed "homoscedasticity" or "homogeneity of variance"
+-   termed "homoscedasticity" or "homogeneity of variance"
 :::
 
 ::: {.column width="5%"}
 :::
 
 ::: {.column width="50%"}
-- For minimizing the sums of squares to work, a unit change in the residuals should be ***scale invariant***
-    - i.e. the difference between 1 and 2 or 101 and 102 must be the same 
-    - This is only true when the residuals are normally distributed (versus log-scale for example)
-    - If not, **minimizing the sums of squares does not work** (and people often try to log transform etc their data to get them to an invariant scale).
-    
-- If violated, consider a different process model (i.e. nonlinear), or another statistical approach (MLE or Bayes).
 
+::: fragment
+-   For minimizing the sums of squares to work, a unit change in the residuals should be ***scale invariant***
+    -   i.e. the difference between 1 and 2 or 101 and 102 must be the same
+    -   This is only true when the residuals are normally distributed (versus log-scale for example)
+    -   If not, ***minimizing the sums of squares does not work*** (and people often try to log transform etc their data to get them to an invariant scale).
+-   If violated, consider a different process model (i.e. nonlinear), or another statistical approach (MLE or Bayes).
+::: 
 :::
 :::
 
@@ -172,19 +175,24 @@ It's useful at this stage to make a distinction between data models and process 
 -   The ***process model*** is the bit you'll be used to, where we describe how the model creates a prediction for a particular set of inputs or covariates (e.g. a linear model)
 
 -   The ***data model*** describes the residuals (i.e. mismatch between the process model and the data)
-    - also often called the data observation process
+
+    -   also often called the data observation process
+
+. . .
 
 > Least Squares analyses don't explicitly include a data model, because minimizing the sums of squares means that ***the data model in a Least Squares analysis can only ever be a normal distribution*** (i.e. there must be homogeneity of variance)
-
 
 ## Why is this a limitation? {.smaller background-color="#c2c190"}
 
 a)  in reality, the ***data model can take many forms***
     -   e.g. Binomial coin flips, Poisson counts of individuals, Exponential waiting times, etc
     -   this is where Maximum Likelihood comes into it's own
-        -   recall in the practical we specified two functions for the MLE analyses:
-            - the ***process model*** (`pred.negexp/S`)
-            - the likelihood function (`fit.negexp/S.MLE`), including the ***data model***
+        -   in the practical, we specify two functions for the MLE analyses:
+            -   the ***process model*** (`pred.negexp/S`)
+            -   the likelihood function (`fit.negexp/S.MLE`), which includes the ***data model***
+            
+. . .
+
 b)  sometimes one would like to ***include additional information in the data model***
     -   e.g. sampling variability (e.g. different observers or instruments), measurement errors, instrument calibration, proxy data, unequal variances, missing data, etc
     -   this is where Bayesian models come into their own
@@ -195,18 +203,21 @@ b)  sometimes one would like to ***include additional information in the data mo
 
 ***2. Least squares focuses on what the parameters are not, rather than what they are***
 
-- Least Squares focuses on ***null hypothesis testing*** - the ability to reject (or to fail to reject) the null hypothesis at some threshold of significance (alpha; usually P \< 0.05)
+-   Least Squares focuses on ***null hypothesis testing*** - the ability to reject (or to fail to reject) the null hypothesis at some threshold of significance (alpha; usually P \< 0.05)
 
-- For a linear model, ***the null hypothesis is that the slope = 0 (i.e. no effect of X on Y)***
+-   For a linear model, ***the null hypothesis is that the slope = 0 (i.e. no effect of X on Y)***
 
-- A linear model is only considered useful when you can reject the null hypothesis.
-    - This just tells you that the probability of the parameter of interest (the slope in this case) being 0 is very low...
+-   A linear model is only considered useful when you can reject the null hypothesis.
 
-- It ***tells you nothing about the probability of the parameters actually being the estimates you arrives at by minimizing the sums of squares***!!!?
+    -   This just tells you that the probability of the parameter of interest (the slope in this case) being 0 is very low...
+
+-   It ***tells you nothing about the probability of the parameters actually being the estimates you arrives at by minimizing the sums of squares***!!!?
 
 ## Maximum likelihood {.smaller background-color="#33431e"}
 
-***The likelihood principle*** = parameter value is more likely than another if it is the one for which the data are more probable.
+***The likelihood principle*** = a parameter value is more likely than another if it is the one for which the data are more probable.
+
+::: fragment
 
 ***Maximum Likelihood Estimation (MLE)*** = a method for estimating model parameters by applying the likelihood principle. It optimizes parameter values to maximize the likelihood that the process described by the model produced the data observed.
 
@@ -215,7 +226,7 @@ b)  sometimes one would like to ***include additional information in the data mo
 #| echo: false
 #| message: false
 #| fig.align: center
-#| out.width: 70%
+#| out.width: 55%
 #| fig.cap: The probability of a data point (dotted line) being generated under two alternative hypotheses (sets of parameter values). Here H1 is more likely, because the probability density at $x$ = 1 is higher for H1 than H2 (roughly 0.25 vs 0.025 = 10 times more likely). Usually there'd be a continuum of hypotheses (parameter values) to select from, and there'd be far more data points.
 
 ddat <- data.frame(x = c(rnorm(5000, 0, 1), rnorm(5000, 5, 2)), Hypotheses = c(rep("H1", 5000), rep("H2", 5000))) 
@@ -227,23 +238,25 @@ ggplot(ddat, aes(x, fill = Hypotheses, colour = Hypotheses)) +
 
 ```
 
+:::
 
 ## Maximum likelihood {.smaller background-color="#33431e"}
 
-Viewed differently... 
+Viewed differently...
 
-With MLE we assume we have the correct model and use MLE to choose parameter values that maximize the *conditional probability* of the data given those parameter values,  $P(Data|Parameters)$.
+With MLE we assume we have the correct model and use MLE to choose parameter values that maximize the *conditional probability* of the data given those parameter values, $P(Data|Parameters)$.
 
-  - This leaves us knowing the likelihood of the best set of parameters and the conditional probability of the data given those parameters $P(Data|Parameters)$
+-   This leaves us knowing the likelihood of the best set of parameters and the conditional probability of the data given those parameters $P(Data|Parameters)$
 
-BUT! 
+. . .
 
-**What we really want is to know is the conditional probability of the parameters given the data** $P(Parameters|Data)$, because this allows us to ***express uncertainty in the parameter estimates as probabilities***. 
+BUT!
 
-  - To get there, we apply a little probability theory, with a surprisingly useful byproduct!
+What we really want is to know is the conditional probability of the parameters given the data, $P(Parameters|Data)$, because this allows us to ***express uncertainty in the parameter estimates as probabilities***.
 
+-   To get there, we apply a little probability theory, with a surprisingly useful byproduct!
 
-## {.smaller background-color="#33431e"}
+##  {.smaller background-color="#33431e"}
 
 ### First, let's brush up on joint, conditional and marginal probabilities
 
@@ -251,11 +264,10 @@ The interactions between two random variables are illustrated below...
 
 ![Venn diagram illustrating ten events (points) across two sets $x$ and $y$.](img/vennprobability.png)
 
-## Joint probability{.smaller background-color="#c2c190"}
+## Joint probability {.smaller background-color="#c2c190"}
 
 ::: columns
 ::: {.column width="45%"}
-
 ![Venn diagram illustrating ten events (points) across two sets $x$ and $y$.](img/vennprobability.png)
 :::
 
@@ -263,20 +275,18 @@ The interactions between two random variables are illustrated below...
 :::
 
 ::: {.column width="50%"}
-- The ***joint probability***, $P(x,y)$, is the probability of both $x$ and $y$ occurring simultaneously
+-   The ***joint probability***, $P(x,y)$, is the probability of both $x$ and $y$ occurring simultaneously
 
-- This is the probability of occurring within the overlap of the circles = 3/10
+-   This is the probability of occurring within the overlap of the circles = 3/10
 
-- Needless to say **the joint probability of** $P(y,x)$ is identical to $P(x,y)$ (= 3/10)
-
+-   Needless to say **the joint probability of** $P(y,x)$ is identical to $P(x,y)$ (= 3/10)
 :::
 :::
 
-## Conditional probability{.smaller background-color="#c2c190"}
+## Conditional probability {.smaller background-color="#c2c190"}
 
 ::: columns
 ::: {.column width="45%"}
-
 ![Venn diagram illustrating ten events (points) across two sets $x$ and $y$.](img/vennprobability.png)
 :::
 
@@ -296,12 +306,10 @@ In the diagram these would be:
 :::
 :::
 
-
-## Marginal probability{.smaller background-color="#c2c190"}
+## Marginal probability {.smaller background-color="#c2c190"}
 
 ::: columns
 ::: {.column width="45%"}
-
 ![Venn diagram illustrating ten events (points) across two sets $x$ and $y$.](img/vennprobability.png)
 :::
 
@@ -309,7 +317,7 @@ In the diagram these would be:
 :::
 
 ::: {.column width="50%"}
-Last, we can define two ***marginal probabilities*** for $x$ and $y$. 
+Last, we can define two ***marginal probabilities*** for $x$ and $y$.
 
 These are just the separate probabilities of being in set $x$ or being in set $y$ given the full set of events, i.e.
 
@@ -318,7 +326,7 @@ These are just the separate probabilities of being in set $x$ or being in set $y
 :::
 :::
 
-## {.smaller background-color="#33431e"}
+##  {.smaller background-color="#33431e"}
 
 ### Joint, conditional and marginal probabilities
 
@@ -326,25 +334,26 @@ We can also show that the joint probabilities are the product of the conditional
 
 $$P(x,y) = P(x|y) P(y) = 3/6 * 6/10 = 0.3$$
 
-And by the same token:
+and:
 
 $$P(y,x) = P(y|x) P(y) = 3/7 * 7/10 = 0.3$$
 
-Tadaa! 
+. . .
+
+***Tadaa!***
 
 This means we can derive what we want to know, $P(Parameters|Data)$, as a function of the information maximum likelihood estimation provides, $P(Data|Parameters)$.
 
-...Let's do this derivation...
+...Let's do the derivation...
 
 ## Bayes' Theorem {.smaller background-color="#33431e"}
 
 ::: columns
 ::: {.column width="35%"}
-
 Now let:
 
-- parameters = $\theta$
-- the data = $D$
+-   parameters = $\theta$
+-   the data = $D$
 
 <br>
 
@@ -353,13 +362,13 @@ We're interested in the conditional probability of the parameters given the data
 <br>
 
 To get this, we need to take the previous equations and solve for $p(\theta|D)$.
-::: 
+:::
 
 ::: {.column width="5%"}
 :::
 
 ::: {.column width="60%"}
-::: {.fragment}
+::: fragment
 Since we know the joint probabilities are identical:
 
 $$p(\theta,D) = p(\theta|D)p(D)$$
@@ -367,41 +376,44 @@ $$p(\theta,D) = p(\theta|D)p(D)$$
 $$p(D,\theta) = p(D|\theta)p(\theta)$$
 :::
 
-::: {.fragment}
+::: fragment
 We can take the right hand side of the two:
 
 $$p(\theta|D)p(D) = p(D|\theta)p(\theta)$$
 :::
 
-::: {.fragment}
+::: fragment
 and solve for $p(\theta|D)$ as:
 
 $$p(\theta|D) = \frac{p(D|\theta) \; p(\theta)}{p(D)} \;\;$$
 :::
 
-::: {.fragment}
+::: fragment
 which is known as Bayes' Theorem!
 :::
 :::
 :::
 
-## Bayes' Theorem  {.smaller background-color="#33431e"}
+## Bayes' Theorem {.smaller background-color="#33431e"}
 
 Rewriting the terms on one line allows us to label them with their names:
 
 $$
 \underbrace{p(\theta|D)}_\text{posterior} \; = \; \underbrace{p(D|\theta)}_\text{likelihood} \;\; \underbrace{p(\theta)}_\text{prior} \; / \; \underbrace{p(D)}_\text{evidence}
 $$ 
-::: {.fragment}
+
+::: fragment
+
 ### The *evidence*
 
 The marginal probability of the data, $p(D)$, is now called the ***evidence*** for the model, and represents the overall probability of the data according to the model.
 
-- having $p(D)$ in the denominator means it normalizes the numerators to ensure that the updated probabilities sum to 1 over all possible parameter values - i.e. it ensures that the posterior, $p(\theta|D)$, is expressed as a probability distribution
-- $p(D)$ can otherwise mostly be ignored and is often left out, resulting in...
+-   having $p(D)$ in the denominator means it normalizes the numerators to ensure that the updated probabilities sum to 1 over all possible parameter values - i.e. it ensures that the posterior, $p(\theta|D)$, is expressed as a probability distribution
+-   $p(D)$ can otherwise mostly be ignored and is often left out, resulting in... 
+
 :::
 
-##  Bayes' Rule  {.smaller background-color="#33431e"}
+## Bayes' Rule {.smaller background-color="#33431e"}
 
 Getting rid of the evidence allows us to focus on the important bits:
 
@@ -415,36 +427,40 @@ This leaves us with three terms:
 
 <br>
 
-::: {.fragment}
-### The *likelihood* 
+::: fragment
+### The *likelihood*
+
 $p(D|\theta)$ still represents the probability of the data given the model with parameter values $\theta$, and is used in analyses to find the likelihood profiles of the parameters.
 :::
 
-##  Bayes' Rule  {.smaller background-color="#33431e"}
+## Bayes' Rule {.smaller background-color="#33431e"}
 
 $$
 \underbrace{p(\theta|D)}_\text{posterior} \; \propto \; \underbrace{p(D|\theta)}_\text{likelihood} \;\; \underbrace{p(\theta)}_\text{prior} \;
-$$
+$$ \
+
 ### The *posterior*
 
-- What we have been calling the conditional probability of the parameters given the data, $p(\theta|D)$, is now called the ***posterior***
-- It gives us a probability distribution for the values any parameter can take, ***allowing us to represent uncertainty in the model and forecasts as probabilities***, which is the holy grail we were after!!!
-    - i.e. the posterior(s) is/are the parameter(s) of interest that we forecast, and we can now indicate the probability of our forecast being correct
+-   What we have been calling the conditional probability of the parameters given the data, $p(\theta|D)$, is now called the ***posterior***
+-   It gives us a probability distribution for the values any parameter can take, ***allowing us to represent uncertainty in the model and forecasts as probabilities***, which is the holy grail we were after!!!
+    -   i.e. the posterior(s) is/are the parameter(s) of interest that we forecast, and we can now indicate the probability of our forecast being correct
 
-##  Bayes' Rule  {.smaller background-color="#33431e"}
+## Bayes' Rule {.smaller background-color="#33431e"}
 
 $$
 \underbrace{p(\theta|D)}_\text{posterior} \; \propto \; \underbrace{p(D|\theta)}_\text{likelihood} \;\; \underbrace{p(\theta)}_\text{prior} \;
-$$
+$$ \
+
 ### The *prior*
 
-- The marginal probability of the parameters, $p(\theta)$, is now called the ***prior***.
-- While $p(\theta)$ is almost an unexpected consequence of having solved the equation for $p(\theta|D)$, ***the prior is where a lot of the magic of Bayes lies!***
-- Firstly, we know that $p(\theta)$ is a necessary requirement for us to be able to represent the posterior, $p(\theta|D)$, as a probability distribution (what we were looking for).
-- But, it also represents *the credibility of the parameter values, $\theta$, without the data, $D$*.
-    - What does this mean?
+-   The marginal probability of the parameters, $p(\theta)$, is now called the ***prior***.
+-   While $p(\theta)$ is almost an unexpected consequence of having solved the equation for $p(\theta|D)$, ***the prior is where a lot of the magic of Bayes lies!***
+-   Firstly, we know that $p(\theta)$ is a necessary requirement for us to be able to represent the posterior, $p(\theta|D)$, as a probability distribution (what we were looking for).
+-   But, it also represents *the credibility of the parameter values,* $\theta$, without the data, $D$.
+    -   What does this mean?
 
-##  The prior  {.smaller background-color="#33431e"}
+
+## The prior {.smaller background-color="#33431e"}
 
 > The prior represents the credibility of the parameter values, $\theta$, without the data, $D$.
 >
@@ -452,36 +468,43 @@ $$
 
 <br>
 
-By applying ***the scientific method***, whereby we interrogate new evidence (the data) in the context of previous knowledge or information to update our understanding. 
+::: fragment
 
-- $p(\theta)$ is the ***prior belief*** of what the parameters should be, before interrogating the data
-    - i.e. our "context of previous knowledge or information" 
-- if we don't have much previous knowledge, we can specify the prior to represent that
-- the prior is incredibly powerful! But the [Peter Parker Principle](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility) applies - *"With great power comes great responsibility!"*
+By applying ***the scientific method***, whereby we interrogate new evidence (the data) in the context of previous knowledge or information to update our understanding.
+
+:::
+
+. . .
+
+-   $p(\theta)$ is the ***prior belief*** of what the parameters should be, before interrogating the data
+    -   i.e. our "context of previous knowledge or information"
+-   if we don't have much previous knowledge, we can specify the prior to represent this
+-   the prior is incredibly powerful! But the [Peter Parker Principle](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility) applies - *"With great power comes great responsibility!"*
 
 ## The power of the prior {background-color="#33431e"}
 
 1.  It allows Bayesian analyses to be ***iterative***. The posterior from one analysis can become the prior for the next!
     -   This provides ***a formal probabilistic framework for the scientific method!***
-        - New evidence must be considered in the context of previous knowledge, providing the opportunity to update our beliefs.
+        -   New evidence must be considered in the context of previous knowledge, providing the opportunity to update our beliefs.
     -   This is ***ideal for iterative forecasting***, because the previous forecast can be the prior for the next.
 
-## The power of the prior { background-color="#33431e"}
-  
+## The power of the prior {background-color="#33431e"}
+
 2.  It makes Bayesian models ***incredibly flexible***, allowing us to specify complex hierarchical models in a completely probabilistic framework relatively intuitively.
     -   This is fantastic for "fusing" disparate data sources!
         -   E.g. we may not have "prior beliefs" about a parameter's values, but we may know something about another parameter or process that influences it. If so, we can specify a prior on our prior (called a ***hyperprior***).
     -   We can also specify separate or linked priors (or hyperpriors) for different parameters (or priors).
-    
 
-## {.smaller background-color="#33431e"}
+##  {.smaller background-color="#33431e"}
 
 ### The prior comes with great responsibility...
 
 > It is very easy to specify an inappropriate prior and bias the outcome of your analysis!
 
+. . .
+
 -   First and foremost, as tempting as it may be, ***the one place the prior CANNOT come from is the data used in the analysis!!!***
--   Second, while many people favour specifying "uninformative" priors, it is often **incredibly difficult to know what "uninformative"** is for different models or parameters.
+-   Second, while many people favour specifying "uninformative" priors, it is often incredibly difficult to know what "uninformative" is for different models or parameters.
     -   [Here's a great Guardian article](https://www.theguardian.com/world/2021/apr/18/obscure-maths-bayes-theorem-reliability-covid-lateral-flow-tests-probability) on why considering priors are important for Covid testing and criminal cases. It should help you get your head around this.
 
 We'll get stuck into examples showing the value of Bayes in ecology in the next lecture.
