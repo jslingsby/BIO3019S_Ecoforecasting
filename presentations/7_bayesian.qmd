@@ -27,7 +27,11 @@ Jasper Slingsby
 ::: {.column width="50%"}
 -   Iterative ecological forecasting presents new challenges not common in the world of null hypothesis testing that has dominated ecology to date...
 
+<br/>
+
 -   It is much easier to deal with these in a Bayesian framework.
+
+<br/>
 
 -   Here I provide a brief and (relatively) soft introduction to Bayesian statistical theory.
 :::
@@ -38,14 +42,10 @@ Jasper Slingsby
 ## Advantages of Bayesian approaches {.smaller background-color="#33431e"}
 
 ::: incremental
-1.  They _**focus on estimating what properties are**_
-    -   i.e. the actual value of parameters, not just establishing that they are different to a null expectation as in *null hypothesis testing*
-2.  They are highly _**flexible**_, allowing _**complex models with varied data sources**_, especially Hierarchical Bayesian models
-3.  They can _**treat all terms as probability distributions**_, making it easier to quantify, propagate and partition uncertainties throughout the analysis, allowing one to:
-    -   **present uncertainty** in the forecast to the decision maker
-    -   **analyze the uncertainty**, guiding improvements
-4.  They provide an _**iterative**_ probabilistic framework that allows us to learn from new evidence (data) in the context of existing (*prior*) knowledge.
-    -   This makes it easier to update predictions as new data become available, completing the forecasting cycle.
+1.  They _**focus on estimating what properties are**_ -   i.e. the actual value of parameters, not just establishing that they are different to a null expectation as in *null hypothesis testing*
+2.  They are highly _**flexible**_, allowing _**complex models with varied data sources**_, especially Hierarchical Bayesian models. This also allows the development of models that incorporate mechanistic components.
+3.  They can _**treat all terms as probability distributions**_, making it easier to quantify, propagate and partition uncertainties throughout the analysis. This allows you to _**present uncertainty**_ in the forecast to the decision maker and _**analyze the sources of uncertainty**_, guiding improvements
+4.  They provide an _**iterative**_ probabilistic framework that allows us to learn from new evidence (data) in the context of existing (*prior*) knowledge. This makes it easier to update predictions as new data become available, completing the forecasting cycle.
 :::
 
 ## But first... {.smaller background-color="#33431e"}
@@ -53,6 +53,9 @@ Jasper Slingsby
 **Before I can introduce Bayes**, there are a few basic building blocks we need to establish first.
 
 1.  How the method of ***Least Squares*** works, and its limitations, especially it's inflexible, implicit data model.
+
+. . .
+
 2.  The concept of likelihood and the method of ***maximum likelihood estimation***
     -   this is a major component of Bayes' Theorem
     -   its a frequentist method, but has the advantages 1 & most of 2 above
