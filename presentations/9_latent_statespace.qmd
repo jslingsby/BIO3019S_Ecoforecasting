@@ -83,13 +83,15 @@ data %>%
     #geom_path(color="black") +
     geom_hline(yintercept = 0) + geom_vline(xintercept = 0) +
     geom_point(shape=21, color="black", fill="#69b3a2", size=3) +
-    theme_ipsum() + ylim(-5,5) + xlim(-5,5) +
+    theme_ipsum(strip_text_size = 25, base_size = 20, axis_title_size = 20) + ylim(-5,5) + xlim(-5,5) +
     facet_wrap(.~set)
 
 ```
 
 ::: 
 ::: {.column width="40%"}
+<br/>
+
 Imprecision in measurement creates random error.
 
 <br/>
@@ -124,14 +126,21 @@ data %>%
 ```
 
 ::: 
-::: {.column width="60%"}
+::: {.column width="70%"}
 
-Random error is most commonly created by imprecision in measurement ("scatter") around the true state (0,0) of the variable of interest, but can also be created by other processes.
+Random error is most commonly created by imprecision in measurement ("scatter") around the true state of the variable of interest, but can be created by other processes.
 
 <br/>
 
-In this case we may want to model the true state as a latent variable, and model the random observation error as a probability distribution (typically Gaussian) with mean of 0.
+In this case we may want to model the true state as a latent variable, and model the random observation error as a probability distribution (typically Gaussian) with mean of 0 (or the mean of the process model).
 
+<br/>
+
+This is specifying the **data model** to be a normal distribution, as we did in the post-fire recovery model:
+
+\begin{gather}
+NDVI_{i,t}\sim \mathit{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}}) \\
+\end{gather}
 
 ::: 
 ::::
@@ -162,21 +171,21 @@ data %>%
 ```
 
 ::: 
-::: {.column width="60%"}
+::: {.column width="70%"}
 
 Systematic error is where there is a bias, such as created by differences among observers or poor instrument calibration.
 
 <br/>
 
-Where the bias is constant, it can often be corrected with an offset, but something like sensor drift may need to be approximated as a random walk or similar (i.e. accounting for temporal autocorrelation).
+Constant bias can be corrected with an offset, but something like sensor drift may need to be approximated as a random walk or similar (to account for temporal autocorrelation).
 
 <br/>
 
-Where we have more information about the causes of systematic error, we can account this by applying more complex observation models (e.g. differences among field staff, etc).
+If we have more information about the causes of error, we can apply more complex observation models (e.g. differences among field staff, etc).
 
 <br/>
 
-Often there is both random and systematic error and we combine our bias correction model and a probability distribution.
+Often there is both random and systematic error, requiring a model that accounts for both.
 ::: 
 ::::
 
@@ -184,10 +193,51 @@ Often there is both random and systematic error and we combine our bias correcti
 
 ## Proxy data {background-color="#33431e"}
 
+I.e. observing a proxy for the state variable of interest, e.g.
+
+- Normalised Difference Vegetation Index (NDVI) for plant cover or vegetation health
+- Time-domain reflectometry (TDR) for soil moisture
+- Dung as a measure of herbivore habitat preference
+
+There are many ways to relate the _observed_ proxy(ies) to the _latent_ state variable of interest, such as empirical calibration curves, probabilities of identifying dung correctly, etc. 
+
 ## Missing data {background-color="#33431e"}
+
+<br/>
+
+Where some observations may be missing from the data, these may be estimated with uncertainty in various ways.
+
+<br/>
+
+Missing data are common in time series or in space (e.g. sensor failure, logistical difficulties, etc.).
 
 ## Unobserved variables {background-color="#33431e"}
 
+Some variables may never be observed (e.g too difficult to measure), but can be inferred from the process model, e.g.:
+
+- soil stored seedbanks in plant demographic models
+- determinants of resource allocation decisions in organisms
+
+<br/>
+
+Estimating these _latent_ variables can be tricky, but having multiple independent measures to constrain the estimates or high confidence in the model structure (i.e. mechanistic understanding) can help.
+
+
+## State-space models {background-color="#33431e"}
+
+Forecasting involves predicting key variables further in time, and often farther in space.
+
+<br/>
+
+It usually has to deal with a number of latent variables due to missing or sparse data, observation error, etc, and these are often connected in time and/or space (i.e. autocorrelated).
+
+<br/>
+
+_State-space models_ are a useful framework for dealing with these kinds of problems and for forecasting in general.
+
+## State-space models {background-color="#33431e"}
+
+Autocorrelation... 
 
 ## State-space models {.smaller background-color="#33431e"}
 
