@@ -51,7 +51,7 @@ The **opportunities for data fusion are linked to model structure**, so we'll re
 
 ***Least Squares***
 
-The method of **Least Squares** makes no explicit distinction between the **process model** (that models the drivers determining the pattern observed) and the **data model** (that models the observation error or data observation process, i.e. the factors that may cause mismatch between the process model and the data). This is because we require homogeneity of variance in order to minimize the sums of squares, so the data model can only ever be a **normal distribution**.
+The method of **Least Squares** makes no explicit distinction between the **process model** (that models the drivers determining the pattern observed) and the **data model** (that models the observation error or data observation process, i.e. the factors that may cause mismatch between the process model and the data). This is because we require homogeneity of variance in order to minimize the sums of squares, so the data model can only ever be a **normal (also called Gaussian) distribution**.
 
 In the practical, we start by using Nonlinear Least Squares to fit a negative exponential model to describe the recovery of the Normalised Difference Vegetation Index (NDVI - a measure of vegetation "greenness" measured from satellite) after a fire in Fynbos. Here's the process model:
 
@@ -88,7 +88,9 @@ fit_negexp <- nls(NDVI ~ alpha + gamma * (1 - exp(- age/lambda)),
 plot.NDVI(dat = dat, fit = fit_negexp)
 ```
 
-**The process model is the only opportunity for inputting data**, and here we input time series for NDVI and date (or postfire age, since our time series started at the time of a fire). The only way to add more data sources is to make your model more complex. For example, to capture the seasonal fluctuations in NDVI we can add a sine term that requires us to specify the month (m) of the fire, like so:
+**The process model is the only opportunity for inputting data**, and here we input time series for NDVI and date (or postfire age, since our time series started at the time of a fire). 
+
+The only way to add more data sources is to make your model more complex. For example, to capture the seasonal fluctuations in NDVI we can add a sine term that requires us to specify the month (m) of the fire, like so:
 
 <br/>
 
@@ -137,7 +139,7 @@ I don't make the distinction in the equations presented in the practical, but do
 NDVI_{i,t}\sim\mathcal{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}}) \\
 \end{gather}
 
-which is the likelihood function. In this case we specified a Gaussian (normal) distribution around the mean, $\mu$. which is described by the process model. We then have a separate function for the **process model**, which describes $\mu$ as a function of the covariate (vegetation $age$), with parameters $\alpha$, $\gamma$ and $\lambda$:
+In this case we specified a Gaussian (normal) distribution around the mean, $\mu$, which is described by the process model. We then have a separate function for the **process model**, which describes $\mu$ as a function of the covariate (vegetation $age$), with parameters $\alpha$, $\gamma$ and $\lambda$:
 
 \begin{gather}  
 \mu_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)\\
@@ -151,7 +153,7 @@ The beauty of having a separate data model is that you are no longer restricted 
 
 <br>
 
-> **Side note:** You'd be interested to know that specifying a normal distribution in the likelihood (i.e. the data model) means that our MLE analysis is identical to the NLS analysis. In fact, you can do the maths to show that **MLE with a normal likelihood is exactly the same as Least Squares**. Any differences between the parameter estimates the two methods provide in the practical are purely because we had to solve the equations numerically (i.e. estimate) rather than analytically (i.e. direct calculation). Where MLE (and Bayes) get useful is when you start doing interesting things with the data model.
+> **Side note:** You'd be interested to know that specifying a normal distribution in the data model means that our MLE analysis is identical to the NLS analysis. In fact, you can do the maths to show that **MLE with a normal likelihood is exactly the same as Least Squares**. Any differences between the parameter estimates the two methods provide in the practical are purely because we had to solve the equations numerically (i.e. estimate) rather than analytically (i.e. direct calculation). Where MLE (and Bayes) get useful is when you start doing interesting things with the data model.
 
 <br>
 
@@ -229,6 +231,7 @@ The beauty of this model is that it **simultaneously estimates** the posterior d
   - note that we could fuse more data here as covariates or additional likelihood functions if we thought that additional complexity was useful
 - to the **process model** we've passed the fire history for each pixel (as a time-series of vegetation $age$ since fire) and the month ($m$) in which each fire occurred (needed for the seasonality term)
 - to the **parameter model** we've passed static layers of each environmental covariate (i.e. raster grids of the entire CFR)
+- we then define the priors on the priors (the **hyperparameters**), also known as **hyperpriors**
 
 <br>
 
