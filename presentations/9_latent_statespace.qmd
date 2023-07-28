@@ -14,7 +14,7 @@ bibliography: book.bib
 
 Jasper Slingsby
 
-## Latent variables and state-space models {.smaller background-color="#c2c190"}
+## Latent variables & state-space models {.smaller background-color="#c2c190"}
 
 ::: columns
 ::: {.column width="45%"}
@@ -41,14 +41,16 @@ Jasper Slingsby
 
 ## Latent variables {background-color="#33431e"}
 
+Variables are latent if they are unobserved or estimated with uncertainty. Their true value is not known and can only be inferred indirectly through a model from other variables that can be directly observed or measured.
+
+. . .
+
 [Dietze 2017](http://dx.doi.org/10.2307/j.ctvc7796h) outlines 4 common latent variable models:
 
-::: incremental
 1. observation errors (random and systematic)
 2. proxy data
 3. missing data
 4. unobserved variables
-:::
 
 ## Observation error {background-color="#33431e"}
 
@@ -96,12 +98,87 @@ Inaccuracy creates systematic error.
 ::: 
 ::: 
 
-## Random observation error {background-color="#c2c190"}
+## Random observation error {.smaller background-color="#c2c190"}
+
+::: columns
+::: {.column width="30%"}
+
+```{r fig.cap='', fig.asp=2, fig.align='left', echo=FALSE, warning=F, message=F}
+library(tidyverse)
+library(hrbrthemes)
+
+data <- data.frame(set = factor(x = c(rep("precise and accurate", 50), rep("precise, but inaccurate",50), rep("imprecise, but accurate", 50), rep("imprecise and inaccurate", 50)), levels = c("precise and accurate", "precise, but inaccurate", "imprecise, but accurate", "imprecise and inaccurate")), x = c(rnorm(50, mean = 0, sd = 1), rnorm(50, mean = 1.5, sd = 1), rnorm(50, mean = 0, sd = 1.5), rnorm(50, mean = 1.5, sd = 1.5)), y = c(rnorm(50, mean = 0, sd = 1), rnorm(50, mean = 1.5, sd = 1), rnorm(50, mean = 0, sd = 1.5), rnorm(50, mean = 1.5, sd = 1.5)))
+
+data %>%
+  filter(set %in% c("precise and accurate", "imprecise, but accurate")) %>%
+ # tail(10) %>%
+  ggplot(aes(x=x, y=y)) +
+    #geom_polygon(fill = "grey") +
+    #geom_path(color="black") +
+    geom_hline(yintercept = 0) + geom_vline(xintercept = 0) +
+    geom_point(shape=21, color="black", fill="#69b3a2", size=5) +
+    theme_ipsum(strip_text_size = 35, base_size = 25, axis_title_size = 20) + 
+    ylim(-5,5) + xlim(-5,5) +
+    facet_wrap(.~set, ncol = 1)
+
+```
+
+::: 
+::: {.column width="60%"}
+
+Random error is most commonly created by imprecision in measurement ("scatter") around the true state (0,0) of the variable of interest, but can also be created by other processes.
+
+<br/>
+
+In this case we may want to model the true state as a latent variable, and model the random observation error as a probability distribution (typically Gaussian) with mean of 0.
 
 
-## Systematic observation error {background-color="#c2c190"}
+::: 
+::::
 
-Where the bias is constant, it can often be corrected with an offset, e.g.
+## Systematic observation error {.smaller background-color="#c2c190"}
+
+::: columns
+::: {.column width="30%"}
+
+```{r fig.cap='', fig.asp=2, fig.align='left', echo=FALSE, warning=F, message=F}
+library(tidyverse)
+library(hrbrthemes)
+
+data <- data.frame(set = factor(x = c(rep("precise and accurate", 50), rep("precise, but inaccurate",50), rep("imprecise, but accurate", 50), rep("imprecise and inaccurate", 50)), levels = c("precise and accurate", "precise, but inaccurate", "imprecise, but accurate", "imprecise and inaccurate")), x = c(rnorm(50, mean = 0, sd = 1), rnorm(50, mean = 1.5, sd = 1), rnorm(50, mean = 0, sd = 1.5), rnorm(50, mean = 1.5, sd = 1.5)), y = c(rnorm(50, mean = 0, sd = 1), rnorm(50, mean = 1.5, sd = 1), rnorm(50, mean = 0, sd = 1.5), rnorm(50, mean = 1.5, sd = 1.5)))
+
+data %>%
+  filter(set %in% c("precise, but inaccurate", "imprecise and inaccurate")) %>%
+ # tail(10) %>%
+  ggplot(aes(x=x, y=y)) +
+    #geom_polygon(fill = "grey") +
+    #geom_path(color="black") +
+    geom_hline(yintercept = 0) + geom_vline(xintercept = 0) +
+    geom_point(shape=21, color="black", fill="#69b3a2", size=5) +
+    theme_ipsum(strip_text_size = 35, base_size = 25, axis_title_size = 20) + 
+    ylim(-5,5) + xlim(-5,5) +
+    facet_wrap(.~set, ncol = 1)
+
+```
+
+::: 
+::: {.column width="60%"}
+
+Systematic error is where there is a bias, such as created by differences among observers or poor instrument calibration.
+
+<br/>
+
+Where the bias is constant, it can often be corrected with an offset, but something like sensor drift may need to be approximated as a random walk or similar (i.e. accounting for temporal autocorrelation).
+
+<br/>
+
+Where we have more information about the causes of systematic error, we can account this by applying more complex observation models (e.g. differences among field staff, etc).
+
+<br/>
+
+Often there is both random and systematic error and we combine our bias correction model and a probability distribution.
+::: 
+::::
 
 
 
@@ -112,10 +189,13 @@ Where the bias is constant, it can often be corrected with an offset, e.g.
 ## Unobserved variables {background-color="#33431e"}
 
 
-## State-space models {background-color="#33431e"}
+## State-space models {.smaller background-color="#33431e"}
 
+![Illustration of a simple univariate state-space model from [Auger-Methe et al. 2021](https://doi.org/10.1002/ecm.1470).](img/statespace_augermethe.jpg)
 
+a) Once the dependence of the observations $y_t$ on the states $z_t$ is accounted for, the observations are assumed to be independent. 
 
+b) A toy model demonstrating that the state estimates (mean and 95% confidence interval - black line and grey band respectively) can be a closer approximation of the true states (red dots) than the observations (blue dots).
 
 
 ## But first... {.smaller background-color="#33431e"}
