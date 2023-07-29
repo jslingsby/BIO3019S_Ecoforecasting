@@ -136,7 +136,7 @@ In this case we may want to model the true state as a latent variable, and model
 
 <br/>
 
-This is specifying the **data model** to be a normal distribution, as we did in the post-fire recovery model:
+E.g. specifying the **data model** to be a normal distribution, as we did in the post-fire recovery model:
 
 \begin{gather}
 NDVI_{i,t}\sim \mathit{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}}) \\
@@ -233,9 +233,22 @@ It usually has to deal with a number of latent variables due to missing or spars
 
 <br/>
 
-_State-space models_ are a useful framework for dealing with these kinds of problems and for forecasting in general.
+_State-space models_ are a useful framework for dealing with these kinds of problems and for forecasting in general. 
 
 ## State-space models {background-color="#33431e"}
+
+For time-series of discrete states variables (i.e. categorical response) they are also referred to as _Hidden Markov models_
+
+- "hidden" refers to the latent variable(s) 
+- "Markov" refers to their recursive nature,  with the next state in time a function of the current state
+
+When extended to spatial or space-time models they are called _Markov random fields_
+
+## State-space models {background-color="#33431e"}
+
+The name comes from the focus on estimating _latent_ state variables.
+
+In doing so, they explicitly separate observation errors from process errors.
 
 Autocorrelation... 
 

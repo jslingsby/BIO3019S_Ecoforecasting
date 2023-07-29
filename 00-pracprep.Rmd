@@ -43,7 +43,7 @@ Ok, now everything should be working. **If not**, and you've tried repeating ste
 The next steps (explained below) are to _fork_ and _clone_ your first repo to see if everything is working, and then to modify a file in RStudio, _push_ it back to your forked repo, and then create a _pull request_ for me to review and accept your changes. This let's me know that you've made it through the preparation for the practical, and it gives me your GitHub username.
 
 9. In GitHub:
-- Make sure you are logged in, search and navigate to `JasperUCT/pullltest` (spot the 3 "l"s!)
+- Make sure you are logged in, search and navigate to `https://github.com/PlantEcologi/BIO3019S_test`
 - Click `Fork`, which will make a copy of the repository to your own workspace
 - Copy the URL to your own version and follow the instructions below for cloning the repository in RStudio
 
