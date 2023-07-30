@@ -117,6 +117,7 @@ the-benefits-of-bayes
 data-fusion
 model-layers
 hierarchical-bayes-and-postfire-recovery-example
+statespace
 practical
 objectives
 postfire-regeneration

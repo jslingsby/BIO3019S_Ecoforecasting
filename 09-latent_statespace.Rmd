@@ -1,0 +1,12 @@
+# Latent variables and state-space models {#statespace}
+
+This section is only available as a slideshow. Right click or hold `Ctrl` or `Command` and [click this link](presentations/9_latent_statespace.html) to view in full screen.
+
+<div>
+
+```{=html}
+<iframe width="600" height="400" marginheight="0" marginwidth="0" src="presentations/9_latent_statespace"></iframe>
+```
+
+</div>
+
