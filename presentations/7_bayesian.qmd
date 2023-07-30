@@ -6,7 +6,7 @@ format:
     theme: dark
     slide-number: true
     self-contained: true
-editor: visual
+html-math-method: mathjax
 bibliography: book.bib
 ---
 
@@ -42,10 +42,10 @@ Jasper Slingsby
 ## Advantages of Bayesian approaches {.smaller background-color="#33431e"}
 
 ::: incremental
-1.  They _**focus on estimating what properties are**_ -   i.e. the actual value of parameters, not just establishing that they are different to a null expectation as in *null hypothesis testing*
-2.  They are highly _**flexible**_, allowing _**complex models with varied data sources**_, especially Hierarchical Bayesian models. This also allows the development of models that incorporate mechanistic components.
-3.  They can _**treat all terms as probability distributions**_, making it easier to quantify, propagate and partition uncertainties throughout the analysis. This allows you to _**present uncertainty**_ in the forecast to the decision maker and _**analyze the sources of uncertainty**_, guiding improvements
-4.  They provide an _**iterative**_ probabilistic framework that allows us to learn from new evidence (data) in the context of existing (*prior*) knowledge. This makes it easier to update predictions as new data become available, completing the forecasting cycle.
+1.  They ***focus on estimating what properties are*** - i.e. the actual value of parameters, not just establishing that they are different to a null expectation as in *null hypothesis testing*
+2.  They are highly ***flexible***, allowing ***complex models with varied data sources***, especially Hierarchical Bayesian models. This also allows the development of models that incorporate mechanistic components.
+3.  They can ***treat all terms as probability distributions***, making it easier to quantify, propagate and partition uncertainties throughout the analysis. This allows you to ***present uncertainty*** in the forecast to the decision maker and ***analyze the sources of uncertainty***, guiding improvements
+4.  They provide an ***iterative*** probabilistic framework that allows us to learn from new evidence (data) in the context of existing (*prior*) knowledge. This makes it easier to update predictions as new data become available, completing the forecasting cycle.
 :::
 
 ## But first... {.smaller background-color="#33431e"}
@@ -156,14 +156,13 @@ This is a **key assumption** when using Least Squares
 :::
 
 ::: {.column width="50%"}
-
 ::: fragment
 -   For minimizing the sums of squares to work, a unit change in the residuals should be ***scale invariant***
     -   i.e. the difference between 1 and 2 or 101 and 102 must be the same
     -   This is only true when the residuals are normally distributed (versus log-scale for example)
     -   If not, ***minimizing the sums of squares does not work*** (and people often try to log transform etc their data to get them to an invariant scale).
 -   If violated, consider a different process model (i.e. nonlinear), or another statistical approach (MLE or Bayes).
-::: 
+:::
 :::
 :::
 
@@ -193,7 +192,7 @@ a)  in reality, the ***data model can take many forms***
         -   in the practical, we specify two functions for the MLE analyses:
             -   the ***process model*** (`pred.negexp/S`)
             -   the likelihood function (`fit.negexp/S.MLE`), which includes the ***data model***
-            
+
 . . .
 
 b)  sometimes one would like to ***include additional information in the data model***
@@ -221,7 +220,6 @@ b)  sometimes one would like to ***include additional information in the data mo
 ***The likelihood principle*** = a parameter value is more likely than another if it is the one for which the data are more probable.
 
 ::: fragment
-
 ***Maximum Likelihood Estimation (MLE)*** = a method for estimating model parameters by applying the likelihood principle. It optimizes parameter values to maximize the likelihood that the process described by the model produced the data observed.
 
 ```{r}
@@ -240,7 +238,6 @@ ggplot(ddat, aes(x, fill = Hypotheses, colour = Hypotheses)) +
   ylab("Density")
 
 ```
-
 :::
 
 ## Maximum likelihood {.smaller background-color="#33431e"}
@@ -403,17 +400,15 @@ Rewriting the terms on one line allows us to label them with their names:
 
 $$
 \underbrace{p(\theta|D)}_\text{posterior} \; = \; \underbrace{p(D|\theta)}_\text{likelihood} \;\; \underbrace{p(\theta)}_\text{prior} \; / \; \underbrace{p(D)}_\text{evidence}
-$$ 
+$$
 
 ::: fragment
-
 ### The *evidence*
 
 The marginal probability of the data, $p(D)$, is now called the ***evidence*** for the model, and represents the overall probability of the data according to the model.
 
 -   having $p(D)$ in the denominator means it normalizes the numerators to ensure that the updated probabilities sum to 1 over all possible parameter values - i.e. it ensures that the posterior, $p(\theta|D)$, is expressed as a probability distribution
--   $p(D)$ can otherwise mostly be ignored and is often left out, resulting in... 
-
+-   $p(D)$ can otherwise mostly be ignored and is often left out, resulting in...
 :::
 
 ## Bayes' Rule {.smaller background-color="#33431e"}
@@ -440,7 +435,7 @@ $p(D|\theta)$ still represents the probability of the data given the model with 
 
 $$
 \underbrace{p(\theta|D)}_\text{posterior} \; \propto \; \underbrace{p(D|\theta)}_\text{likelihood} \;\; \underbrace{p(\theta)}_\text{prior} \;
-$$ \
+$$\
 
 ### The *posterior*
 
@@ -452,7 +447,7 @@ $$ \
 
 $$
 \underbrace{p(\theta|D)}_\text{posterior} \; \propto \; \underbrace{p(D|\theta)}_\text{likelihood} \;\; \underbrace{p(\theta)}_\text{prior} \;
-$$ \
+$$\
 
 ### The *prior*
 
@@ -461,7 +456,6 @@ $$ \
 -   Firstly, we know that $p(\theta)$ is a necessary requirement for us to be able to represent the posterior, $p(\theta|D)$, as a probability distribution (what we were looking for).
 -   But, it also represents *the credibility of the parameter values,* $\theta$, without the data, $D$.
     -   What does this mean?
-
 
 ## The prior {.smaller background-color="#33431e"}
 
@@ -472,9 +466,7 @@ $$ \
 <br>
 
 ::: fragment
-
 By applying ***the scientific method***, whereby we interrogate new evidence (the data) in the context of previous knowledge or information to update our understanding.
-
 :::
 
 . . .

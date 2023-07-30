@@ -6,7 +6,7 @@ format:
     theme: dark
     slide-number: true
     self-contained: true
-editor: visual
+html-math-method: mathjax
 bibliography: book.bib
 ---
 
@@ -229,11 +229,91 @@ Forecasting involves predicting key variables further in time, and often farther
 
 <br/>
 
-It usually has to deal with a number of latent variables due to missing or sparse data, observation error, etc, and these are often connected in time and/or space (i.e. autocorrelated).
+An issue with time-series or spatial modelling is dependence ("autocorrelation") among observations in time and space.
 
 <br/>
 
-_State-space models_ are a useful framework for dealing with these kinds of problems and for forecasting in general. 
+One also usually has to deal with a number of latent variables due to missing or sparse data, observation error, etc.
+
+
+
+## State-space models {background-color="#33431e"}
+
+_State-space models_ are a useful framework for dealing with these kinds of problems and for forecasting in general.
+ 
+<br/>
+
+The name comes from the focus on estimating _latent_ state variables.
+
+<br/>
+
+This explicitly separates observation errors from process errors, allowing attractive flexibility, including addressing issues of autocorrelation... 
+
+
+## State-space models {.smaller background-color="#33431e"}
+
+![Illustration of a simple univariate state-space model from [Auger-Methe et al. 2021](https://doi.org/10.1002/ecm.1470).](img/statespace_augermethe.jpg)
+
+a) The dependence among states $z_{t-1}$, $z_t$, $z_{t+1}$, ... can be modelled explicitly in the process model. The dependence of the observations $y_t$ on the states $z_t$ allows observations to be assumed to be independent. 
+
+b) State estimates can be closer to the true states than the observations.
+
+
+## State-space models - example {.smaller background-color="#33431e"}
+
+Here's an SSM where the process model is a random walk (i.e. change at each time step is just process error ($\tau_{add}$) - a random draw from a normal distribution).
+
+<br/>
+
+The process model[^1]: $$z_{t+1}\sim\mathit{N}(z_{t},\tau_{add})$$
+
+The data model: $$y_{t}\sim\mathit{N}(z_{t},\tau_{obs})$$
+
+<br/>
+
+For a Bayesian model this would also require priors on the process error ($\tau_{add}$), observation error ($\tau_{obs}$) initial condition of the state variable ($x_0$).
+
+[^1]: Note that the process and data model can also be referred to as the state and observation models respectively.
+
+## State-space models - example {.smaller background-color="#33431e"}
+
+<br/>
+
+The probability distribution for the state variable, $z_{t}$, conditional on the model parameters would be:
+
+\begin{gather}
+z_{t}|... \; \propto \; \underbrace{{\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous} \; \underbrace{{\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{observation} \; \underbrace{{\mathit{N}(z_{t+1}|z_{t},\tau_{add})}}_\text{next} \;
+\end{gather}
+
+
+$$
+z_{t}|... \; \propto \; \underbrace{\mathit{N}(z_{t}|z_{t1})}_\text{previous} \;
+$$
+
+Which says that the current state ($z_{t}$) depends on both the states before and after as well as the current observation ($y_{t}$).
+
+<br/>
+
+In fact, the posterior of the current state ($z_{t}$) is just the product of the three normal distributions.
+
+## State-space models - example {background-color="#33431e"}
+
+Demo in R
+
+
+## State-space models - postfire {.smaller background-color="#33431e"}
+
+A state-space model of our postfire recovery model example would use the following state update equation:
+
+$$x_{i,t} = (x_{i,t-1} + x_{i,t-1}\lambda_i(1-\frac{x_{i,t-1}}{\gamma_i})) (1-z_{i,t-1}) + z_{i,t-1}\alpha_i +  A_i\sin(v_t+\phi_i) +  \epsilon_{i,t}$$
+
+$$NDVI_{i,t} \sim \mathit{N}(x_{i,t},\sigma_o^{2})$$
+
+This represents logistic growth with seasonality and a fire switch that resets the vegetation state.  
+
+$x_{i,t}$ is the hidden state for site $i$ at time $t$  
+
+$z_{i,t}$ is the observed occurrence of fire
 
 ## State-space models {background-color="#33431e"}
 
@@ -245,21 +325,6 @@ For time-series of discrete states variables (i.e. categorical response) they ar
 When extended to spatial or space-time models they are called _Markov random fields_
 
 ## State-space models {background-color="#33431e"}
-
-The name comes from the focus on estimating _latent_ state variables.
-
-In doing so, they explicitly separate observation errors from process errors.
-
-Autocorrelation... 
-
-## State-space models {.smaller background-color="#33431e"}
-
-![Illustration of a simple univariate state-space model from [Auger-Methe et al. 2021](https://doi.org/10.1002/ecm.1470).](img/statespace_augermethe.jpg)
-
-a) Once the dependence of the observations $y_t$ on the states $z_t$ is accounted for, the observations are assumed to be independent. 
-
-b) A toy model demonstrating that the state estimates (mean and 95% confidence interval - black line and grey band respectively) can be a closer approximation of the true states (red dots) than the observations (blue dots).
-
 
 ## But first... {.smaller background-color="#33431e"}
 
