@@ -2,7 +2,7 @@
 
 <br>
 
-> *Just a quick acknowledgement that I have adapted much of the framework for the following from Michael Dietze's [**Pair coding practical**](https://github.com/EcoForecast/EF_Activities/blob/master/Exercise_04_PairCoding.Rmd) that is a living online supplement to the book [@Dietze2017]. Thanks for sharing the code under an MIT license Mike! The main differences are that I've changes the subject matter from looking at phenology in Tall Grass Prairie using PhenoCam data to looking at postfire vegetation growth in Fynbos using MODIS satellite Normalized Difference Vegetation Index (NDVI), a measure of vegetation "greenness". This includes changing the core model we fit too.*
+> *Just a quick acknowledgement that I have adapted much of the framework for the following from Michael Dietze's [**Pair coding practical**](https://github.com/EcoForecast/EF_Activities/blob/master/Exercise_04_PairCoding.Rmd) that is a living online supplement to the book [@Dietze2017]. Thanks for sharing the code under an MIT license Mike! The main differences are that I've changed the subject matter from looking at phenology in Tall Grass Prairie using PhenoCam data to looking at postfire vegetation growth in Fynbos using MODIS satellite Normalized Difference Vegetation Index (NDVI), a measure of vegetation "greenness". This includes changing the core model we fit too.*
 
 <br>
 
@@ -20,7 +20,7 @@ Along the way we will also be exploring the statistical concept of Likelihood by
 
 ## Postfire regeneration
 
-The goal of our analysis is to investigate the regeneration of Fynbos vegetation after fire by exploring a time-series of 16-day composite Normalized Difference Vegetation Index (NDVI) from the MODIS satellite mission, a measure of vegetation "greenness". You can read up on the data product [here](https://modis.gsfc.nasa.gov/data/dataprod/mod13.php). We'll be using data for one location (250m by 250m pixel) from the Silvermine section of Table Mountain National Park, and will be exploring the NDVI trajectory since the March 2015 fire. You can view the raw data in comma-separated value (.csv) format [here](https://github.com/jslingsby/BIO3019S_Ecoforecasting/blob/master/data/modisdata.csv).
+The goal of our analysis is to investigate the regeneration of Fynbos vegetation after fire by exploring a time-series of 16-day composite Normalized Difference Vegetation Index (NDVI) from the MODIS satellite mission, a measure of vegetation "greenness". You can read up on the data product [here](https://modis.gsfc.nasa.gov/data/dataprod/mod13.php). We'll be using data for one location (250m by 250m pixel) from the Silvermine section of Table Mountain National Park, and will be exploring the NDVI trajectory since the March 2015 fire. You can view the raw data in comma-separated value (.csv) format [here](https://github.com/jslingsby/BIO3019S_Ecoforecasting/blob/master/data/modisdata.csv). I describe the model in more detail throughout section \@ref(datafusion).
 
 <br>
 
@@ -328,7 +328,7 @@ fit.negexpS.MLE <- function(dat,par){
 
 <br>
 
-***A quick explanation of the Maximum Likelihood Estimation (MLE) functions***
+## A quick explanation of the MLE functions
 
 To estimate the parameters in the model this function uses the likelihood principle which states that "a parameter value is more likely than another if it is the one for which the data are more probable". In other words, the maximum likelihood estimate of a parameter is the value of the parameter for which the probability of obtaining the observed data if the highest.
 
@@ -398,7 +398,7 @@ which is a one-time task, after which you can do the pull as
 
 ### OWNER
 
-1.  Evaluate and accept pull request. At this point your workflow should be complete and you should be able to run the analysis. The Github Classroom Scoreboard should reflect 5/5 for your team at this stage, but you still need to answer the questions and knit and upload the .html output (steps 2-5). If the scoreboard reflects 4/5 then most likely your "04_Master.Rmd" file won't knit properly, suggesting you've done something wrong. You need to fix this bfore moving on to the next step.
+1.  Evaluate and accept pull request. At this point your workflow should be complete and you should be able to run the analysis. _The Github Classroom Scoreboard should reflect 5/5 for your team at this stage, but you still need to answer the questions and knit and upload the .html output (steps 2-5). If the scoreboard reflects 4/5 then most likely your "04_Master.Rmd" file won't knit properly, suggesting you've done something wrong. You need to fix this before moving on to the next step._
 
 2.  Pull the updated repo to your local machine
 

@@ -131,6 +131,7 @@ collaborator
 owner-2
 task-4-owner-adds-functions-for-model-fitting-using-mle
 owner-3
+a-quick-explanation-of-the-mle-functions
 task-5-collaborator-adds-the-master-script-owner-answers-the-questions
 collaborator-1
 owner-4
