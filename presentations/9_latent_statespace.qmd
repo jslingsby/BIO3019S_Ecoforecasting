@@ -41,11 +41,19 @@ Jasper Slingsby
 
 ## Latent variables {background-color="#33431e"}
 
-Variables are latent if they are unobserved or estimated with uncertainty. Their true value is not known and can only be inferred indirectly through a model from other variables that can be directly observed or measured.
+<br>
 
-. . .
+Variables are _latent_ if they are unobserved or estimated with uncertainty. 
 
-[Dietze 2017](http://dx.doi.org/10.2307/j.ctvc7796h) outlines 4 common latent variable models:
+<br>
+
+- i.e. their true value is not known and can only be inferred indirectly through a model from other variables that can be observed and measured.
+
+## Latent variables {background-color="#33431e"}
+
+<br/>
+
+[Dietze 2017](http://dx.doi.org/10.2307/j.ctvc7796h) outlines 4 common latent variable types:
 
 1. observation errors (random and systematic)
 2. proxy data
@@ -128,19 +136,17 @@ data %>%
 ::: 
 ::: {.column width="70%"}
 
-Random error is most commonly created by imprecision in measurement ("scatter") around the true state of the variable of interest, but can be created by other processes.
+Random error is created by imprecision in measurement ("scatter") around the true state of the variable of interest, but can be created by other processes.
 
 <br/>
 
-In this case we may want to model the true state as a latent variable, and model the random observation error as a probability distribution (typically Gaussian) with mean of 0 (or the mean of the process model).
+In this case we may want to model the true state as a latent variable, and model the random observation error as a probability distribution (typically Gaussian) around the mean.
 
 <br/>
 
-E.g. specifying the **data model** to be a normal distribution, as we did in the post-fire recovery model:
+E.g. specifying the **data model** to be a normal distribution around the mean ($\mu$), as we did in the post-fire recovery model:     $NDVI_{i,t}\sim \mathit{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}}) \\$
 
-\begin{gather}
-NDVI_{i,t}\sim \mathit{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}}) \\
-\end{gather}
+In this case $\mu$ is the latent variable (estimate of the "true state").
 
 ::: 
 ::::
@@ -173,7 +179,7 @@ data %>%
 ::: 
 ::: {.column width="70%"}
 
-Systematic error is where there is a bias, such as created by differences among observers or poor instrument calibration.
+Systematic error is where there is a _bias_, such as created by differences among observers or poor instrument calibration.
 
 <br/>
 
@@ -181,7 +187,7 @@ Constant bias can be corrected with an offset, but something like sensor drift m
 
 <br/>
 
-If we have more information about the causes of error, we can apply more complex observation models (e.g. differences among field staff, etc).
+If we have more information about the causes of error, we can apply more complex observation models (e.g. differences among field staff, temperature dependence of readings, etc).
 
 <br/>
 
@@ -213,7 +219,7 @@ Missing data are common in time series or in space (e.g. sensor failure, logisti
 
 ## Unobserved variables {background-color="#33431e"}
 
-Some variables may never be observed (e.g too difficult to measure), but can be inferred from the process model, e.g.:
+Some variables may never be observed (e.g too difficult to measure), but can be inferred from the process model, e.g.
 
 - soil stored seedbanks in plant demographic models
 - determinants of resource allocation decisions in organisms
@@ -243,7 +249,7 @@ _State-space models_ are a useful framework for dealing with these kinds of prob
  
 <br/>
 
-The name comes from the focus on estimating _latent_ state variables.
+The name comes from the focus on estimating the state as a _latent_ variable.
 
 <br/>
 
@@ -254,7 +260,7 @@ This explicitly separates observation errors from process errors, allowing attra
 
 ![Illustration of a simple univariate state-space model from [Auger-Methe et al. 2021](https://doi.org/10.1002/ecm.1470).](img/statespace_augermethe.jpg)
 
-a) The dependence among states $z_{t-1}$, $z_t$, $z_{t+1}$, ... can be modelled explicitly in the process model. The dependence of the observations $y_t$ on the states $z_t$ allows observations to be assumed to be independent. 
+a) The dependence among the (latent) states $z_{t-1}$, $z_t$, $z_{t+1}$, ... can be modeled explicitly in the process model. The dependence of the observations $y_t$ on the states $z_t$ allows observations to be assumed to be independent. 
 
 b) State estimates can be closer to the true states than the observations.
 
@@ -271,9 +277,9 @@ The data model: $$y_{t}\sim\mathit{N}(z_{t},\tau_{obs})$$
 
 <br/>
 
-For a Bayesian model this would also require priors on the process error ($\tau_{add}$), observation error ($\tau_{obs}$) initial condition of the state variable ($x_0$).
+For a Bayesian model this would also require priors on the process error ($\tau_{add}$), observation error ($\tau_{obs}$) and initial condition of the state variable ($x_0$).
 
-[^1]: Note that the process and data model can also be referred to as the state and observation models respectively.
+[^1]: Note that the process and data model can also be referred to as the _state_ and _observation_ models respectively.
 
 ## State-space models - example {.smaller background-color="#33431e"}
 
@@ -311,7 +317,7 @@ dat <- data.frame(
   term = factor(c(rep("current state", 100), rep("previous time", 100), rep("current observation", 100), rep("next time", 100)),
                 levels = c("current state", "previous time", "current observation", "next time")),
   state = rep(rangeP,4),
-  Density = c(prev*obs*nex/45, prev/15, obs/15, nex/15)
+  Density = c(prev*obs*nex/sum(prev,obs,nex), prev/30, obs/30, nex/30)
     )
 
 ggplot(dat, aes(y = Density, x = state)) +
@@ -321,7 +327,7 @@ ggplot(dat, aes(y = Density, x = state)) +
 
 ```
 
-Where the terms are similar, the distribution of the state estimate peaks.
+Where the terms are similar, the state estimate peaks, indicating less uncertainty.
 
 ## State-space models - example {.smaller background-color="#33431e"}
 
@@ -342,7 +348,7 @@ dat <- data.frame(
   term = factor(c(rep("current state", 100), rep("previous time", 100), rep("current observation", 100), rep("next time", 100)),
                 levels = c("current state", "previous time", "current observation", "next time")),
   state = rep(rangeP,4),
-  Density = c(prev*obs*nex/45, prev/15, obs/15, nex/15)
+  Density = c(prev*obs*nex/sum(prev,obs,nex), prev/30, obs/30, nex/30)
     )
 
 ggplot(dat, aes(y = Density, x = state)) +
@@ -352,7 +358,7 @@ ggplot(dat, aes(y = Density, x = state)) +
 
 ```
 
-Where the terms differ, the distribution of the state estimate flattens.
+Where the terms differ, the state estimate flattens, indicating greater uncertainty.
 
 ## State-space models - example {.smaller background-color="#33431e"}
 
@@ -374,7 +380,7 @@ dat <- data.frame(
   term = factor(c(rep("current state", 100), rep("previous time", 100), rep("current observation", 100)),
                 levels = c("current state", "previous time", "current observation")),
   state = rep(rangeP,3),
-  Density = c(prev*obs/30, prev/15, obs/15)
+  Density = c(prev*obs/sum(prev,obs), prev/30, obs/30)
     )
 
 ggplot(dat, aes(y = Density, x = state)) +
@@ -407,7 +413,7 @@ dat <- data.frame(
   term = factor(c(rep("forecast state", 100), rep("previous time", 100)),
                 levels = c("forecast state", "previous time")),
   state = rep(rangeP,2),
-  Density = c(fore/15, prev/15)
+  Density = c(fore/sum(fore), prev/30)
     )
 
 ggplot(dat, aes(y = Density, x = state)) +
@@ -430,7 +436,7 @@ In this dummy model the forecast is almost exactly the same as the previous time
 
 ## State-space models - postfire {.smaller background-color="#33431e"}
 
-Our postfire recovery example could use a state update equation with process model[^2]:
+Our postfire recovery example could use a state update equation with process model:
 
 $$x_{i,t} = \underbrace{(x_{i,t-1} + x_{i,t-1}\lambda_i(1-\frac{x_{i,t-1}}{\gamma_i})) (1-z_{i,t-1})}_\text{negative exponential*} + \underbrace{z_{i,t-1}\alpha_i}_\text{postfire greeness*} +  \underbrace{A_i\sin(v_t+\phi_i)}_\text{seasonality} +  \epsilon_{i,t}$$
 and data model (as before):
@@ -441,9 +447,7 @@ $x_{i,t}$ is the hidden state for site $i$ at time $t$
 
 $z_{i,t}$ is the observed occurrence of fire (0/1)
 
-The process model represents negative exponential growth, seasonality and a fire switch that tells the model to follow the exponential when fires do not occur ($z_{i,t} = 0$) resets the vegetation state to postfire greenness ($\alpha$) when they do occur ($z_{i,t} = 1$).
-
-[^2]: from [Slingsby et al. 2023](http://dx.doi.org/10.1111/2041-210x.14046)
+The process model ("previous time" only) represents negative exponential growth, seasonality and a fire switch that tells the model to follow the exponential when fires do not occur ($z_{i,t} = 0$) or resets the state to postfire greenness ($\alpha$) when they do ($z_{i,t} = 1$).
 
 ## State-space models - postfire {.smaller background-color="#33431e"}
 
@@ -477,6 +481,6 @@ When extended to spatial or space-time models they are called _Markov random fie
 
 Auger-Méthé, Marie, Ken Newman, Diana Cole, Fanny Empacher, Rowenna Gryba, Aaron A. King, Vianey Leos-Barajas, et al. 2021. “A Guide to State–space Modeling of Ecological Time Series.” Ecological Monographs 91 (4): e01470. https://doi.org/10.1002/ecm.1470.
 
-Dietze, Michael C. 2017. Ecological Forecasting. Princeton University Press. https://doi.org/10.2307/j.ctvc7796h.
+Dietze, Michael C. 2017. Ecological Forecasting. Princeton University Press. https://doi.org/10.2307/j.ctvc7796h. - especially Ch 8 _Latent Variables and State-Space Models_
 
 Slingsby, Jasper A., Adam M. Wilson, Brian Maitner, and Glenn R. Moncrieff. 2023. “Regional Ecological Forecasting across Scales: A Manifesto for a Biodiversity Hotspot.” Methods in Ecology and Evolution / British Ecological Society, January. https://doi.org/10.1111/2041-210x.14046.
