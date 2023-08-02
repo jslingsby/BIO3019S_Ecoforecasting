@@ -79,7 +79,9 @@ $$\underbrace{sensitivity * uncertainty}_\text{drivers} \; + $$
 *"The sensitivity to, multiplied by the uncertainty in, external drivers, plus"*
 
 - The **external drivers are just the independent variables** in the model (i.e. the covariates).
-- So the predictability of $Y$ depends on its **sensitivity** to each covariate (i.e. how much change would we expect in $Y$ for a given change in the covariate), and the **uncertainty** in those covariates. Worst case scenario would be if $Y$ was highly sensitive and the covariates were highly uncertain. Note that given we are forecasting through time, uncertainty in each covariate may reflect **how well we can forecast that covariate** (e.g. future climate). If we can't predict $X$, we can't use it to predict $Y$... That said, if $Y$ is relatively insensitive to $X$, then there's less of a problem (apart from the question of why we've included it in the model in the first place?).
+- So the predictability of $Y$ depends on its **sensitivity** to each covariate (i.e. how much change would we expect in $Y$ for a given change in the covariate), and the **uncertainty** in those covariates. 
+  - Worst case scenario would be if $Y$ was highly sensitive and the covariates were highly uncertain. 
+  - Note that given we are forecasting through time, uncertainty in each covariate may often reflect **how well we can forecast that covariate** (e.g. future climate). If we can't predict $X$, we can't use it to predict $Y$... (think of the fire switch in the postfire recovery state space model). That said, if $Y$ is relatively insensitive to $X$, then there's less of a problem (apart from the question of why we've included it in the model in the first place?).
 
 <br>
 
@@ -91,11 +93,14 @@ $$\underbrace{sensitivity*(uncertainty+variability)}_\text{(parameters + random 
 
 *"The sensitivity to, multiplied by the uncertainty and variability in, the parameters of the model, plus"*
 
-- ***Parameter uncertainty*** pertains to **how good our estimates of the parameters** are. This is usually a question of sample size - *"Do we have enough data to obtain a good estimate (i.e. accurate mean, low uncertainty) of the parameters?"*. It is also linked to the **number of parameters** in the model. The more parameters, the more data you need to obtain good parameter estimates. This is another reason to avoid overly complex models.
+- ***Parameter uncertainty*** pertains to **how good our estimates of the parameters** are. 
+  - This is usually a question of sample size - *"Do we have enough data to obtain a good estimate (i.e. accurate mean, low uncertainty) of the parameters?"*. 
+  - It is also linked to the **number of parameters** in the model. The more parameters, the more data you need to obtain good parameter estimates. This is another reason to avoid overly complex models.
 - ***Parameter sensitivity*** is similar to driver sensitivity - **"How much change do we expect in $Y$ for a given change in the parameter?"**
 - The **overall contribution** of a parameter to the predictive variance (i.e. uncertainty in the forecast) depends on its **sensitivity multiplied by its uncertainty**. 
-    - Targeting fieldwork etc to better constrain poorly estimated parameters is one of the best ways to reduce prediction uncertainty.
-- ***Parameter variability*** reflects factors that cause deviation (or offsets) from the mean of the parameter that may be known, but may either be poorly estimated or not included in the rest of the model. These are **random effects** that can be caused by factors that create **autocorrelation** like space, time, phylogeny, etc.
+    - Targeting effort (fieldwork etc) to better constrain poorly estimated parameters is one of the best ways to reduce prediction uncertainty.
+- ***Parameter variability*** reflects factors that cause deviation (or offsets) from the mean of the parameter that may be known, but may either be poorly estimated or not included in the rest of the model. 
+  - These are **random effects** that can be caused by factors that create **autocorrelation** like space, time, phylogeny, etc.
 
 <br>
 
@@ -105,9 +110,11 @@ $$\underbrace{Var[\epsilon]}_\text{process error}$$
 *"The process error."*
 
 - This refers to **errors in the model** due to structural uncertainty and stochasticity.
-- **Stochasticity** refers to ecological phenomena of relevance that are very difficult to predict (at least within the context of the focal model). Examples include the occurrence of **fire, dispersal or mortality** that are often **chance events** similar to a coin toss.
-- Model **structural uncertainty** simply reflects that **all models are simplifications** of reality and none are perfect. We'll always be missing something. That said, this could also include **"user error"** where the forecaster specified the wrong process model, or applied the wrong probability distribution in the data model, etc. 
-    - Working with multiple models and employing **model selection or averaging** can help reduce structural uncertainty (in addition to thinking really hard about how to specify a better model of course...).
+- **Stochasticity** refers to ecological phenomena of relevance that are very difficult to predict (at least within the context of the focal model). 
+  - Examples include the occurrence of **fire, dispersal or mortality** that are often **chance events** similar to a coin toss.
+- Model **structural uncertainty** simply reflects that **all models are simplifications** of reality and none are perfect. We'll always be missing something. 
+  - That said, this could also include **"user error"** where the forecaster specified the wrong process model, or applied the wrong probability distribution in the data model, etc. 
+  - Working with **multiple models** and employing **model selection or averaging** can help reduce structural uncertainty (in addition to thinking really hard about how to specify a better model of course...).
 
 <br>
 
@@ -161,12 +168,12 @@ Question 4, *"How can we reduce prediction uncertainty?"* requires:
 
 **Addressing 1** requires looking at the two ways in which things can be important for the uncertainty in predictions (largely covered in Dietze's equation above):
 
-- because they're **highly uncertain**, which requires you: 
-  - **propagating** uncertainty through the model as above
-  - **partitioning** uncertainty among your different drivers (covariates) and parameters
+- because they're **highly uncertain**, which requires you to: 
+  - **propagate** uncertainty through the model as above
+  - **partition** uncertainty among your different drivers (covariates) and parameters
 - because they're **highly sensitive**, requiring you to perform:
   - **sensitivity analysis**
-    - You'll cover these in more detail in the module on matrix models. I'm not going to go into them here, but they focus on **how a change in X translates into a change in Y**. The bigger the relative change in Y, the more sensitive.
+    - You'll probably cover these in more detail in Res' module when looking at matrix models. I'm not going to go into them here, but they focus on **how a change in X translates into a change in Y**. The bigger the relative change in Y, the more sensitive.
 
 
 **Addressing 2** may not be as straightforward as you'd hope. Parameters that are highly uncertain and to which your state variable (Y) are highly sensitive will cause the most uncertainty in your predictions. That said, **given limited resources**, they may not be the best target for reducing uncertainty for a number of reasons, e.g.
@@ -175,11 +182,13 @@ Question 4, *"How can we reduce prediction uncertainty?"* requires:
   - **power analysis** can help here (i.e. exploring how uncertainty changes with sample size)
 - they may be **hugely costly or time-consuming**, trading off against resources you could focus on reducing other sources of uncertainty
 
-In fact, by this stage you should have most of the pieces of the puzzle to help you **build a model to predict where your effort is best invested** by exploring the relationship between sample size and variance contribution to overall model uncertainty! You can even include economic principles to estimate monetary or person-hour implications. This is called *observational design*.
+In fact, by this stage you should have most of the pieces of the puzzle to help you **build a model to predict where your effort is best invested** by exploring the relationship between sample size and variance contribution to overall model uncertainty! You can even include economic principles to estimate monetary or person-hour implications. This is called ***observational design***.
 
 <br>
 
 ## Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow
+
+> _NOTE: This is not a forecast model (but could be adapted to be one). I've included it because it is focused on propagating and partitioning uncertainty..._
 
 ### The background
 
@@ -203,7 +212,7 @@ While we knew this was a load of crock (they didn't have uncertainty estimates f
 
 ### The Analysis
 
-The impacts of invasive alien plants (IAPs) on streamflow is predominantly determined from **streamflow reduction curves from long-term catchment experiments**, whereby the proportional reduction in streamflow is expressed as a function of plantation age and/or density. These can take 40 years to collect, and the [Jonkershoek catchment study](https://fynbos.saeon.ac.za/?p=3183) has been running for >80 years [@Slingsby2021]!!!
+The impacts of invasive alien plants (IAPs) on streamflow is predominantly determined from **streamflow reduction curves from long-term catchment experiments**, whereby the proportional reduction in streamflow is expressed as a function of plantation age and/or density. These can take 40 years to collect, and the [Jonkershoek catchment study](https://fynbos.saeon.ac.za/?p=3183) has been running for >80 years [see @Slingsby2021]!!!
 
 <br>
 
