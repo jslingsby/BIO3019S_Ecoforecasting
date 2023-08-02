@@ -103,6 +103,10 @@ At this point we've spent a good bit of time up front on organization -- we have
 
 ## Task 1: Create & Clone Repository
 
+The rest of the workflow looks can be visualised below. Essentially, it is a series of steps where two individuals are developing our workflow in collaboration. It involves a series of steps whereby edits to the workflow are made offline (in RStudio on local laptops) and then synced back to GitHub (online). There is the OWNER of the _main_ branch of the git repository and the COLLABORATOR, who is contributing to the _main_ branch by creating their own _forked_ repository, editing it offline (on their latops) and making _pull requests_ to the OWNER to have their modifications _merged_ back into the _main_. Moving changes between either laptop and the online repositories requires _pulling_ the latest changes from online to the laptop or _committing_ (naming a version) and _pushing_ changes from the laptop to online. Ultimately, it is the _main_ branch that we hope to have up to date, whereas the _fork_ can usually be discarded once all proposed changes (pull requests) are _merged_.
+
+![](GitDiagram.drawio.png)
+
 Because we're going to employ version control in our project, our first step is to create the repository that our project will be stored in. **To ensure that both you and your partner get to see every step of how to work with version control, for the rest of this exercise you are going to complete every step, either from the perspective of the OWNER of the repository or as the COLLABORATOR**.
 
 ### OWNER

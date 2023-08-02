@@ -9,7 +9,7 @@ Uncertainty determines the utility of a forecast. If the uncertainty in a foreca
 
 <br>
 
-**Question 1** is very much dependent on question 2, but more specifically it depends on the combination of the rate of **accumulation of uncertainty** (or loss of proficiency) through time, as it tends towards being no better than chance, combined with the precision or **"forecast proficiency threshold" required** for the decision in question. Together these determine the ***"ecological forecast horizon"*** (Figure \@ref(fig:forecasteventhorizon); @Petchey2015). Some forecasts may lose proficiency very quickly, crossing (or starting below) the forecast proficiency threshold. Conversely, if the forecast loses proficiency more slowly, or the proficiency threshold requirements are lower, the forecast horizon is further into the future.
+**Question 1** is very much dependent on question 2, but more specifically it depends on the combination of the **rate of accumulation of uncertainty** (or loss of proficiency) through time, as it tends towards being no better than chance, combined with the precision or **"forecast proficiency threshold" required** for the decision in question. Together these determine the ***"ecological forecast horizon"*** (Figure \@ref(fig:forecasteventhorizon); @Petchey2015). Some forecasts may lose proficiency very quickly, crossing (or starting below) the forecast proficiency threshold. Conversely, if the forecast loses proficiency more slowly, or the proficiency threshold requirements are lower, the forecast horizon is further into the future.
 
 <br>
 
@@ -64,8 +64,8 @@ $$\underbrace{stability*uncertainty}_\text{initial conditions} \; +$$
 
 *"The stability multiplied by the uncertainty in the initial conditions, plus"*
 
-- Here, the initial conditions = the state of $Y$ at time $t$ (our starting time point).
-- **Stability** refers to whether it is a variable with **stabilizing feedbacks** (think of alternate stable states), versus whether it changes very quickly (with the extreme being one that **tends towards chaos** such as atmospheric conditions often do). Another example may be the populations of $r$ (unstable) versus $K$ (stable) selected species.
+- Here, the initial conditions = the state of $Y$ at time $t_0$ (our starting time point).
+- **Stability** refers to whether it is a variable with **stabilizing feedbacks** (think of alternate stable states), versus whether it changes very quickly (with the extreme being one that **tends towards chaos** such as atmospheric conditions often do). Another example may be populations of $r$ (unstable - high population growth rate but individuals short-lived or with low survival rates and tend to boom and bust) versus $K$ (stable - low population growth rate, long-lived, high survival, stable populations) selected species.
 - **Uncertainty** is just uncertainty in the state of $Y$ due to **observation error**.
 
 <br>
@@ -79,7 +79,7 @@ $$\underbrace{sensitivity * uncertainty}_\text{drivers} \; + $$
 *"The sensitivity to, multiplied by the uncertainty in, external drivers, plus"*
 
 - The **external drivers are just the independent variables** in the model (i.e. the covariates).
-- So the predictability of $Y$ depends on its **sensitivity** to each covariate (i.e. how much change would we expect in $Y$ for a given change in the covariate), and the **uncertainty** in those covariates. Worst case scenario would be if $Y$ was highly sensitive and the covariates were highly uncertain. Note that given we are forecasting through time, uncertainty in each covariate reflects **how well we can forecast that covariate** (e.g. future climate). If we can't predict $X$, we can't use it to predict $Y$... That said, if $Y$ is relatively insensitive to $X$, then there's less of a problem (apart from the question of why we've included it in the model in the first place?).
+- So the predictability of $Y$ depends on its **sensitivity** to each covariate (i.e. how much change would we expect in $Y$ for a given change in the covariate), and the **uncertainty** in those covariates. Worst case scenario would be if $Y$ was highly sensitive and the covariates were highly uncertain. Note that given we are forecasting through time, uncertainty in each covariate may reflect **how well we can forecast that covariate** (e.g. future climate). If we can't predict $X$, we can't use it to predict $Y$... That said, if $Y$ is relatively insensitive to $X$, then there's less of a problem (apart from the question of why we've included it in the model in the first place?).
 
 <br>
 
@@ -166,7 +166,7 @@ Question 4, *"How can we reduce prediction uncertainty?"* requires:
   - **partitioning** uncertainty among your different drivers (covariates) and parameters
 - because they're **highly sensitive**, requiring you to perform:
   - **sensitivity analysis**
-    - You'll cover these in more detal in the module on matrix models. I'm not going to go into them here, but they focus on **how a change in X translates into a change in Y**. The bigger the relative change in Y, the more sensitive.
+    - You'll cover these in more detail in the module on matrix models. I'm not going to go into them here, but they focus on **how a change in X translates into a change in Y**. The bigger the relative change in Y, the more sensitive.
 
 
 **Addressing 2** may not be as straightforward as you'd hope. Parameters that are highly uncertain and to which your state variable (Y) are highly sensitive will cause the most uncertainty in your predictions. That said, **given limited resources**, they may not be the best target for reducing uncertainty for a number of reasons, e.g.
@@ -203,7 +203,7 @@ While we knew this was a load of crock (they didn't have uncertainty estimates f
 
 ### The Analysis
 
-The impacts of invasive alien plants (IAPs) on streamflow is predominantly determined from **streamflow reduction curves from long-term catchment experiments**, whereby the proportional reduction in streamflow is expressed as a function of plantation age and/or density. These can take 40 years to collect, and the [Jonkershoek catchment study](https://fynbos.saeon.ac.za/authors/jonkershoek/) has been running for >80 years [@Slingsby2021]!!!
+The impacts of invasive alien plants (IAPs) on streamflow is predominantly determined from **streamflow reduction curves from long-term catchment experiments**, whereby the proportional reduction in streamflow is expressed as a function of plantation age and/or density. These can take 40 years to collect, and the [Jonkershoek catchment study](https://fynbos.saeon.ac.za/?p=3183) has been running for >80 years [@Slingsby2021]!!!
 
 <br>
 

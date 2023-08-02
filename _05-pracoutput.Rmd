@@ -25,7 +25,7 @@ plot.NDVI(dat)
 
 Q1: This plot suggests that Fynbos greenness (NDVI) as observed from satellite saturates with time since fire. Why do you think it saturates rather than increasing linearly with time?
 
->*Answer 1:*
+>*Answer 1:* 
 
 <br>
 
