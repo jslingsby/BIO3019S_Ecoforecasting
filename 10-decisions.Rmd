@@ -32,7 +32,7 @@ Assimilating data sequentially is known as the ***sequential or operational data
 
 <br>
 
-```{r forecaststeps, echo=F, message=F, fig.cap = "The two main components of the forecast cycle are **the forecast step** (stippled lines), where we project from the initial state at time 0 (t0) to the next time step (t0+1), and **the analysis step**, where we use the forecast and new observations to get an updated estimate of the current state at t0+1.", fig.align = 'center', out.width="75%"}
+```{r forecaststeps, echo=F, message=F, fig.cap = "The two main components of the forecast cycle are **the forecast step** (stippled lines), where we project from the initial state at time 0 ($t_0$) to the next time step ($t_{0+1}$), and **the analysis step**, where we use the forecast and new observations to get an updated estimate of the current state at $t_{0+1}$, which would be used for the next forecast to $t_{0+2}$.", fig.align = 'center', out.width="75%"}
 ddat <- data.frame(x = c(rnorm(5000, 0, 1), rnorm(5000, 5, 2), rnorm(5000, -1, 1), rnorm(5000, 1, 1)), 
                    Steps = factor(c(rep("1. Determine initial state", 5000), rep("2. Make forecast", 5000), rep("3. Collect new observations", 5000), rep("4. Update state", 5000)), levels = c("1. Determine initial state", "2. Make forecast", "3. Collect new observations", "4. Update state")), 
                    Facet = c(rep("t0", 5000), rep("t0+1", 15000))) 
@@ -58,22 +58,24 @@ Either way, the forecast step is probably easier to explain first.
 
 The goals of the forecast step are to:
 
-1. To **predict** what we think may happen (or what the focal variable(s) will be) at the next time step
+1. To **predict** what we think may happen (or what the state variable(s) will be) at the next time step
 2. Indicate the **uncertainty** in our forecast (based on the uncertainty that we have propagated through our model from various sources (data, priors, etc))
 
 In short, we want to ***propagate uncertainty in our variable(s) of interest forward through time*** (and sometimes through space, depending on the goals).
 
-There are **a number of methods** for propagating uncertainty into a forecast, mostly based on the same methods one would use to propagate the uncertainty through a model (see Table \@ref(tab:propagatinguncertainty)). Explaining the different methods more than I did in section (\@ref(uncertainty)) is beyond the scope of this module, but just a reminder that (as with almost everything in statistics) there's **a trade-off** between the methods whereby the most efficient (the Kalman filter in this case) also come with the most stringent assumptions (linear models and homogeneity of variance only), while the most flexible (Markov chain Monte Carlo (MCMC) in this case) are the most computationally taxing. In short, if your model isn't too taxing, or you have cheap access to a very large computer and time to kill, MCMC is probably easiest and best...
+There are **a number of methods** for propagating uncertainty into a forecast, mostly based on the same methods one would use to propagate the uncertainty through a model (see Table \@ref(tab:propagatinguncertainty)). Explaining the different methods more than I did in section (\@ref(uncertainty)) is beyond the scope of this module, but just a reminder that (as with almost everything in statistics) there's **a trade-off** between the methods whereby the most efficient (the Kalman filter in this case) also come with the most stringent assumptions (linear models and homogeneity of variance only), while the most flexible (Markov chain Monte Carlo (MCMC) in this case - a Bayesian approach) are the most computationally taxing. In short, if your model isn't too taxing, or you have cheap access to a very large computer and time to kill, MCMC is probably best (and often easiest if you're already working in Bayes)...
 
 <br>
 
 ### The Analysis Step
 
-This step involves using Bayes Theorem to combine our prior knowledge (our forecast) with our new observations (at t0+1 in Figure \@ref(fig:forecaststeps)) to generate an updated state for the next forecast (i.e. to t0+2). 
+> _NOTE: I'm only explaing the general principles for doing this in a Bayesian framework. There are approaches listed in Table \@ref(tab:propagatinguncertainty) that can be implemented in a frequentist framework, but (lucky for you) I'm not going to go there._
+
+This step involves using Bayes Theorem to combine our prior knowledge (our forecast) with our new observations (at $t_{0+1}$ in Figure \@ref(fig:forecaststeps)) to generate an updated state for the next forecast (i.e. to $t_{0+2}$). 
 
 <br>
 
-```{r dataassimilation, echo=FALSE, fig.cap = "The forecast cycle chaining together applications of Bayes Theorem at each timestep (t0, t1, ...). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods (see Table \\@ref(tab:propagatinguncertainty)).", fig.width=3, fig.align = 'center', out.width="100%"}
+```{r dataassimilation, echo=FALSE, fig.cap = "The forecast cycle chaining together applications of Bayes Theorem at each timestep ($t_0, t_1, ...$). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods (see Table \\@ref(tab:propagatinguncertainty)).", fig.width=3, fig.align = 'center', out.width="100%"}
 knitr::include_graphics("img/dataassimilation.png")
 ```
 
@@ -89,7 +91,7 @@ Fortunately, **Bayes Theorem deals with all of this very nicely**, because if th
 
 <br>
 
-```{r analysissteps, echo=F, message=F, fig.cap = "The result of (A) high forecast uncertainty (the prior) and low observation error (data), and (B) low forecast uncertainty and high observation error on the posterior probability from the analysis step.", fig.align = 'center', out.width="75%"}
+```{r analysissteps, echo=F, message=F, fig.cap = "The result of (A) high forecast uncertainty (the prior) and low observation error (data), and (B) low forecast uncertainty and high observation error on the posterior probability from the analysis step. Note that the data and prior have the same means in panels A and B, but the variances differ.", fig.align = 'center', out.width="75%"}
 ddat <- data.frame(x = c(rnorm(5000, 0, 1), rnorm(5000, 0, 3), rnorm(5000, 1, 0.75), rnorm(5000, 4, 0.75), rnorm(5000, 5, 3), rnorm(5000, 5, 1)), 
                    Label = c(rep("Data", 10000), rep("Posterior", 10000), rep("Prior", 10000)), 
                    Facet = rep(c(rep("A", 5000), rep("B", 5000)), 3)) 
@@ -112,20 +114,30 @@ Lastly, just a note that I've mostly dealt with single forecasts and haven't tal
 
 ## Decision support
 
-This is probably the hardest part of the whole ecological forecasting business - people...
+This is probably the hardest part of the whole ecological forecasting business... people!
+
+<br>
 
 It is also a huge topic and not one I can cover in half a lecture. Here I just touch on a few hints and difficulties.
 
 <br>
 
-First and foremost, **the decision at hand may not be amenable to a quantitative approach**. Ecological forecasting requires a **clearly defined** information need with a **measurable** (and modelable) state variable, framed within one or multiple **decision alternatives** (scenarios). There's also the risk of **external factors making the forecasts unreliable**, especially if they are not controlled by the decision maker and/or their probability is unknown (e.g. fire, pandemics, etc). 
+First and foremost, **the decision at hand may not be amenable to a quantitative approach**.
 
-These external factors are where developing **scenarios with different boundary conditions can be very useful** e.g. a scenario with versus a scenario without a fire, or the different future climate states under the alternative development pathways, etc. Scenarios are often *"what if"* statements designed to address major sources of uncertainty that make it near-impossible to make accurate predictions with a single forecast.
+  - Ecological forecasting requires a **clearly defined** information need with a **measurable** (and modelable) state variable, framed within one or multiple **decision alternatives** (scenarios). 
+  - There's also the risk of **external factors making the forecasts unreliable**, especially if they are not controlled by the decision maker and/or their probability is unknown (e.g. fire, pandemics, etc). 
+
+These external factors are where developing **scenarios with different boundary conditions can be very useful** 
+
+  - e.g. a scenarios with and without a fire, or the different future climate states under the alternative development pathways, etc. 
+  - Scenarios are often *"what if"* statements designed to address major sources of uncertainty that make it near-impossible to make accurate predictions with a single forecast.
+
+<br/>
 
 > It's perhaps useful to note the distinction between **predictions _versus_ projections** at this point:
 
->  - **predictions** are statements about the probability of the occurrence of events or the state of variables in the future **based on what we currently know**
->  - **projections** are statements about the probability of the occurrence of events or the state of variables in the future **given specific scenarios with clear boundary conditions**
+>  - _**predictions** are statements about the probability of the occurrence of events or the state of variables in the future **based on what we currently know**_
+>  - _**projections** are statements about the probability of the occurrence of events or the state of variables in the future **given specific scenarios with clear boundary conditions**_
 
 <br>
 
@@ -149,7 +161,16 @@ knitr::include_graphics("img/dietze2018_F1.jpg")
 
 You're already familiar with how the iterative ecological forecast cycle integrates with the Adaptive Management Cycle...
 
-The beauty for the forecaster in this scenario is that **a lot of the work is already done**. The decision alternatives (scenarios) have been well framed, the performance measures, state variables of interest and associated covariates identified. Iterations of the learning cycle may even have already begun (through the Adaptive Management Cycle) and all you need do is **develop the existing qualitative model into something more quantitative** as more data and understanding are accumulated. Think of the *Protea* example in section \@ref(forecasts), where the demography of these species is already used for decision making using semi-quantitative "rules of thumb".
+The beauty for the forecaster in this scenario is that **a lot of the work is already done**. 
+
+- The decision alternatives (scenarios) have been well framed.
+- The performance measures, state variables of interest and associated covariates mostly identified. 
+- Iterations of the learning cycle may even have already begun (through the Adaptive Management Cycle) and all you need do is **develop the existing qualitative model into something more quantitative** as more data and understanding are accumulated. 
+    - Think of the *Protea* example in section \@ref(forecasts), where the demography of these species is already used for decision making using semi-quantitative "rules of thumb".
+
+<br>
+
+***Structured Decision Making***
 
 <br>
 
@@ -159,14 +180,16 @@ knitr::include_graphics("img/structureddecisions.png")
 
 <br>
 
-***Structured Decision Making***
+As the name suggests, Structured Decision Making is far more **focused on** assisting with the process of **coming to a decision** than the process of management, but it is particularly useful in the **first iteration** of the Adaptive Management Cycle. @Gregory2012 provide a very nice magnum opus on Structured Decision Making in natural resource management. It is particularly valuable when there are many stakeholders with **disparate interests**. 
 
-As the name suggests, is far more **focused on** assisting with the process of **coming to a decision** than the process of management, but it is particularly useful in the **first iteration** of the Adaptive Management Cycle. @Gregory2012 provide a very nice magnum opus on Structured Decision Making in natural resource management. It is particularly valuable when there are many stakeholders with **disparate interests**. 
+We can model properties and performance measures, but **decisions are ultimately about values** and often require evaluating trade-offs among properties with **incomparable units**, e.g. people housed/fed/watered vs species saved from extinction... This can rapidly become a highly emotive space. It is also a space where the values that dominate are often the ones that are shouted the loudest and other important values are marginalized. 
 
-We can model properties and performance measures, but **decisions are ultimately about values** and often require evaluating trade-offs among properties with **incomparable units**, e.g. people housed/fed/watered vs species saved from extinction... This can rapidly become a highly emotive space. It is also a space where the values that dominate are often the ones that are shouted the loudest and other important values are marginalized. One of the major goals of Structured Decision Making is to make sure **all issues and values are brought to light** and considered in a transparent framework so that **trade-offs** can be clearly identified and considered. It also aims to **ensure that all alternatives are considered**, since ***it's impossible to make the right choice if it isn't even on the table***. 
+- One of the major goals of Structured Decision Making is to make sure **all issues and values are brought to light** and considered in a transparent framework so that **trade-offs** can be clearly identified and considered. 
+- It also aims to **ensure that all alternatives are considered**, since ***it's impossible to make the right choice if it isn't even on the table***. 
 
 A key strength in Structured Decision Making is in **attempting to directly address the social, political or cognitive biases that limit** the ability to highlight all values or alternatives. 
-    - e.g. many decisions in South Africa (and globally) pit people's immediate needs (water, housing, etc) against the environment. These are incredibly difficult decisions, and while people (especially politicians) would rather ignore the fact that choosing one is choosing against the other, ***if we're not transparent about this we're not going to learn from our decisions and improve them in the next iteration.***
+
+  - e.g. many decisions in South Africa (and globally) pit people's immediate needs (water, housing, etc) against the environment. These are incredibly difficult decisions, and while people (especially politicians) would rather ignore the fact that choosing one is choosing against the other, ***if we're not transparent about this we're not going to learn from our decisions and improve them in the next iteration.***
 
 <br>
 
@@ -174,9 +197,9 @@ A key strength in Structured Decision Making is in **attempting to directly addr
 
 ***Many (if not most) decisions are made with very little information and/or within institutional structures that are not well designed for iterative learning and adaptation.***
 
-In fact, you'll often encounter situations where **people aren't interested** in the information you have to offer, even if it's exactly what they need. You may often find **they don't know what they need**, so you may need to tell them, if you can get the chance... This may well be met with **resistance**, because you're adding what is perceived to be **unnecessary complexity** to an otherwise straightforward decision scenario (e.g. most engineers prefer to ignore environmental concerns - ***the first step is often just making sure that the environment is even considered among the objectives and performance measures...***). 
+In fact, you'll often encounter situations where **people aren't interested** in the information you have to offer, even if it's exactly what they need. You may often find **they don't know what they need**, so you may need to tell them, if you can get the chance... This may well be met with **resistance**, because you're adding what is perceived to be **unnecessary complexity** to an otherwise straightforward decision scenario (e.g. many engineers prefer to ignore environmental concerns - ***the first step is often just making sure that the environment is even considered among the objectives and performance measures...***). 
 
-That said, you should also have the **humility** recognize that it is very possible that what you have to offer is not what the decision maker needs, despite **your preconceptions**. 
+That said, you should also have the **humility** recognize that it is very possible that what you have to offer is not what the decision maker needs, despite **your own preconceptions**. 
 
 Effective engagement with decision makers requires a lot of **empathy** (putting yourself in their shoes) and willingness to listen, combined with a good dose of **taking them to task** when needed (i.e. when they're ignoring important information out if ignorance or conveniance). You're unlikely to know the full **complexity and constraints** of the institutional (and legal) frameworks within which they have to work. They may well be on your side personally, but can't show that formally. That said, they may be **overly blinkered** by their institutional frameworks and norms and need a little disruption to force them to **think outside the box**.
 
@@ -188,9 +211,13 @@ In many ways working with decision makers is about **slowly building relationshi
 
 ## Final words
 
-We need to move past **the traditional ecologist's view** that *after decades' years worth of data collection and hypothesis testing, maybe we'll know enough to start building a predictive model...*
+We need to move past **the traditional ecologist's view**:
 
-And start adopting an **engineering (or decision-makers') view** (at least one that subscribes to some iterative learning paradigm) - *start building a model with no or very little data, and use that to guide what data to collect and how to improve the it. It may be completely wrong to begin with, but will rapidly improve.*
+> *After decades' worth of data collection and hypothesis testing, maybe we'll know enough to start building a predictive model...*
+
+And start adopting an **engineering (or decision-makers') view** (at least one that subscribes to some iterative learning paradigm):
+
+> *Start building a model with what we have, even if there is little or no data, and use that to guide what data to collect and how to improve the model. It may be completely wrong to begin with, but will rapidly improve.*
 
 <br>
 
@@ -203,6 +230,8 @@ These would all be essay questions (30-50 marks, with how much you write dependi
 - Discuss the main requirements for data used in ecological forecasts and how they may (or may not) be resolved through adherence to the Data Life Cycle.
 
 - Why is there a crisis in the way we do science, what can we do about it, and what are the additional benefits?
+
+- Write a convincing motivation why staff and students should be conducting their research reproducibly, and explain some of the requirements for achieving this.
 
 - What are the benefits of Bayesian approaches over other statistical frameworks in the context of ecological forecasting and how does the Bayesian framework make them possible? 
 

@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2023-08-02" />
+<meta name="date" content="2023-08-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,70 +54,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
@@ -354,9 +290,9 @@ Figure 12.1: The iterative ecological forecasting cycle in the context of the sc
 <p>Assimilating data sequentially is known as the <strong><em>sequential or operational data assimilation problem</em></strong> and occurs through two steps (the main components of the forecast cycle), <strong><em>the forecast step</em></strong>, where we project our estimates of the current state forward in time, and <strong><em>the analysis step</em></strong>, where we update our estimate of the state based on new observations.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:forecaststeps"></span>
-<img src="BIO3019S-Ecoforecasting_files/figure-html/forecaststeps-1.png" alt="The two main components of the forecast cycle are **the forecast step** (stippled lines), where we project from the initial state at time 0 (t0) to the next time step (t0+1), and **the analysis step**, where we use the forecast and new observations to get an updated estimate of the current state at t0+1." width="75%" />
+<img src="BIO3019S-Ecoforecasting_files/figure-html/forecaststeps-1.png" alt="The two main components of the forecast cycle are **the forecast step** (stippled lines), where we project from the initial state at time 0 ($t_0$) to the next time step ($t_{0+1}$), and **the analysis step**, where we use the forecast and new observations to get an updated estimate of the current state at $t_{0+1}$, which would be used for the next forecast to $t_{0+2}$." width="75%" />
 <p class="caption">
-Figure 12.2: The two main components of the forecast cycle are <strong>the forecast step</strong> (stippled lines), where we project from the initial state at time 0 (t0) to the next time step (t0+1), and <strong>the analysis step</strong>, where we use the forecast and new observations to get an updated estimate of the current state at t0+1.
+Figure 12.2: The two main components of the forecast cycle are <strong>the forecast step</strong> (stippled lines), where we project from the initial state at time 0 (<span class="math inline">\(t_0\)</span>) to the next time step (<span class="math inline">\(t_{0+1}\)</span>), and <strong>the analysis step</strong>, where we use the forecast and new observations to get an updated estimate of the current state at <span class="math inline">\(t_{0+1}\)</span>, which would be used for the next forecast to <span class="math inline">\(t_{0+2}\)</span>.
 </p>
 </div>
 <p><br></p>
@@ -367,21 +303,24 @@ Figure 12.2: The two main components of the forecast cycle are <strong>the forec
 <p>Either way, the forecast step is probably easier to explain first.</p>
 <p>The goals of the forecast step are to:</p>
 <ol style="list-style-type: decimal">
-<li>To <strong>predict</strong> what we think may happen (or what the focal variable(s) will be) at the next time step</li>
+<li>To <strong>predict</strong> what we think may happen (or what the state variable(s) will be) at the next time step</li>
 <li>Indicate the <strong>uncertainty</strong> in our forecast (based on the uncertainty that we have propagated through our model from various sources (data, priors, etc))</li>
 </ol>
 <p>In short, we want to <strong><em>propagate uncertainty in our variable(s) of interest forward through time</em></strong> (and sometimes through space, depending on the goals).</p>
-<p>There are <strong>a number of methods</strong> for propagating uncertainty into a forecast, mostly based on the same methods one would use to propagate the uncertainty through a model (see Table <a href="uncertainty.html#tab:propagatinguncertainty">11.1</a>). Explaining the different methods more than I did in section (<a href="uncertainty.html#uncertainty">11</a>) is beyond the scope of this module, but just a reminder that (as with almost everything in statistics) there’s <strong>a trade-off</strong> between the methods whereby the most efficient (the Kalman filter in this case) also come with the most stringent assumptions (linear models and homogeneity of variance only), while the most flexible (Markov chain Monte Carlo (MCMC) in this case) are the most computationally taxing. In short, if your model isn’t too taxing, or you have cheap access to a very large computer and time to kill, MCMC is probably easiest and best…</p>
+<p>There are <strong>a number of methods</strong> for propagating uncertainty into a forecast, mostly based on the same methods one would use to propagate the uncertainty through a model (see Table <a href="#tab:propagatinguncertainty"><strong>??</strong></a>). Explaining the different methods more than I did in section (<a href="uncertainty.html#uncertainty">11</a>) is beyond the scope of this module, but just a reminder that (as with almost everything in statistics) there’s <strong>a trade-off</strong> between the methods whereby the most efficient (the Kalman filter in this case) also come with the most stringent assumptions (linear models and homogeneity of variance only), while the most flexible (Markov chain Monte Carlo (MCMC) in this case - a Bayesian approach) are the most computationally taxing. In short, if your model isn’t too taxing, or you have cheap access to a very large computer and time to kill, MCMC is probably best (and often easiest if you’re already working in Bayes)…</p>
 <p><br></p>
 </div>
 <div id="the-analysis-step" class="section level3 hasAnchor" number="12.1.3">
 <h3><span class="header-section-number">12.1.3</span> The Analysis Step<a href="decisions.html#the-analysis-step" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This step involves using Bayes Theorem to combine our prior knowledge (our forecast) with our new observations (at t0+1 in Figure <a href="decisions.html#fig:forecaststeps">12.2</a>) to generate an updated state for the next forecast (i.e. to t0+2).</p>
+<blockquote>
+<p><em>NOTE: I’m only explaing the general principles for doing this in a Bayesian framework. There are approaches listed in Table <a href="#tab:propagatinguncertainty"><strong>??</strong></a> that can be implemented in a frequentist framework, but (lucky for you) I’m not going to go there.</em></p>
+</blockquote>
+<p>This step involves using Bayes Theorem to combine our prior knowledge (our forecast) with our new observations (at <span class="math inline">\(t_{0+1}\)</span> in Figure <a href="decisions.html#fig:forecaststeps">12.2</a>) to generate an updated state for the next forecast (i.e. to <span class="math inline">\(t_{0+2}\)</span>).</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:dataassimilation"></span>
-<img src="img/dataassimilation.png" alt="The forecast cycle chaining together applications of Bayes Theorem at each timestep (t0, t1, ...). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods (see Table \@ref(tab:propagatinguncertainty))." width="100%" />
+<img src="img/dataassimilation.png" alt="The forecast cycle chaining together applications of Bayes Theorem at each timestep ($t_0, t_1, ...$). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods (see Table \@ref(tab:propagatinguncertainty))." width="100%" />
 <p class="caption">
-Figure 12.3: The forecast cycle chaining together applications of Bayes Theorem at each timestep (t0, t1, …). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods (see Table <a href="uncertainty.html#tab:propagatinguncertainty">11.1</a>).
+Figure 12.3: The forecast cycle chaining together applications of Bayes Theorem at each timestep (<span class="math inline">\(t_0, t_1, ...\)</span>). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods (see Table <a href="#tab:propagatinguncertainty"><strong>??</strong></a>).
 </p>
 </div>
 <p><br></p>
@@ -394,9 +333,9 @@ Figure 12.3: The forecast cycle chaining together applications of Bayes Theorem 
 <p>Fortunately, <strong>Bayes Theorem deals with all of this very nicely</strong>, because if the forecast (prior) is uncertain and the new data precise then the data will prevail, whereas if the forecast is precise and the new data uncertain, then the posterior will retain the legacy of previous observations (Figure <a href="decisions.html#fig:analysissteps">12.4</a>).</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:analysissteps"></span>
-<img src="BIO3019S-Ecoforecasting_files/figure-html/analysissteps-1.png" alt="The result of (A) high forecast uncertainty (the prior) and low observation error (data), and (B) low forecast uncertainty and high observation error on the posterior probability from the analysis step." width="75%" />
+<img src="BIO3019S-Ecoforecasting_files/figure-html/analysissteps-1.png" alt="The result of (A) high forecast uncertainty (the prior) and low observation error (data), and (B) low forecast uncertainty and high observation error on the posterior probability from the analysis step. Note that the data and prior have the same means in panels A and B, but the variances differ." width="75%" />
 <p class="caption">
-Figure 12.4: The result of (A) high forecast uncertainty (the prior) and low observation error (data), and (B) low forecast uncertainty and high observation error on the posterior probability from the analysis step.
+Figure 12.4: The result of (A) high forecast uncertainty (the prior) and low observation error (data), and (B) low forecast uncertainty and high observation error on the posterior probability from the analysis step. Note that the data and prior have the same means in panels A and B, but the variances differ.
 </p>
 </div>
 <p><br></p>
@@ -411,18 +350,28 @@ Figure 12.4: The result of (A) high forecast uncertainty (the prior) and low obs
 </div>
 <div id="decision-support" class="section level2 hasAnchor" number="12.2">
 <h2><span class="header-section-number">12.2</span> Decision support<a href="decisions.html#decision-support" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This is probably the hardest part of the whole ecological forecasting business - people…</p>
+<p>This is probably the hardest part of the whole ecological forecasting business… people!</p>
+<p><br></p>
 <p>It is also a huge topic and not one I can cover in half a lecture. Here I just touch on a few hints and difficulties.</p>
 <p><br></p>
-<p>First and foremost, <strong>the decision at hand may not be amenable to a quantitative approach</strong>. Ecological forecasting requires a <strong>clearly defined</strong> information need with a <strong>measurable</strong> (and modelable) state variable, framed within one or multiple <strong>decision alternatives</strong> (scenarios). There’s also the risk of <strong>external factors making the forecasts unreliable</strong>, especially if they are not controlled by the decision maker and/or their probability is unknown (e.g. fire, pandemics, etc).</p>
-<p>These external factors are where developing <strong>scenarios with different boundary conditions can be very useful</strong> e.g. a scenario with versus a scenario without a fire, or the different future climate states under the alternative development pathways, etc. Scenarios are often <em>“what if”</em> statements designed to address major sources of uncertainty that make it near-impossible to make accurate predictions with a single forecast.</p>
+<p>First and foremost, <strong>the decision at hand may not be amenable to a quantitative approach</strong>.</p>
+<ul>
+<li>Ecological forecasting requires a <strong>clearly defined</strong> information need with a <strong>measurable</strong> (and modelable) state variable, framed within one or multiple <strong>decision alternatives</strong> (scenarios).</li>
+<li>There’s also the risk of <strong>external factors making the forecasts unreliable</strong>, especially if they are not controlled by the decision maker and/or their probability is unknown (e.g. fire, pandemics, etc).</li>
+</ul>
+<p>These external factors are where developing <strong>scenarios with different boundary conditions can be very useful</strong></p>
+<ul>
+<li>e.g. a scenarios with and without a fire, or the different future climate states under the alternative development pathways, etc.</li>
+<li>Scenarios are often <em>“what if”</em> statements designed to address major sources of uncertainty that make it near-impossible to make accurate predictions with a single forecast.</li>
+</ul>
+<p><br/></p>
 <blockquote>
 <p>It’s perhaps useful to note the distinction between <strong>predictions <em>versus</em> projections</strong> at this point:</p>
 </blockquote>
 <blockquote>
 <ul>
-<li><strong>predictions</strong> are statements about the probability of the occurrence of events or the state of variables in the future <strong>based on what we currently know</strong></li>
-<li><strong>projections</strong> are statements about the probability of the occurrence of events or the state of variables in the future <strong>given specific scenarios with clear boundary conditions</strong></li>
+<li><em><strong>predictions</strong> are statements about the probability of the occurrence of events or the state of variables in the future <strong>based on what we currently know</strong></em></li>
+<li><em><strong>projections</strong> are statements about the probability of the occurrence of events or the state of variables in the future <strong>given specific scenarios with clear boundary conditions</strong></em></li>
 </ul>
 </blockquote>
 <p><br></p>
@@ -441,7 +390,17 @@ Figure 12.5: Conceptual relationships between iterative ecological forecasting, 
 </div>
 <p><br></p>
 <p>You’re already familiar with how the iterative ecological forecast cycle integrates with the Adaptive Management Cycle…</p>
-<p>The beauty for the forecaster in this scenario is that <strong>a lot of the work is already done</strong>. The decision alternatives (scenarios) have been well framed, the performance measures, state variables of interest and associated covariates identified. Iterations of the learning cycle may even have already begun (through the Adaptive Management Cycle) and all you need do is <strong>develop the existing qualitative model into something more quantitative</strong> as more data and understanding are accumulated. Think of the <em>Protea</em> example in section <a href="forecasts.html#forecasts">4</a>, where the demography of these species is already used for decision making using semi-quantitative “rules of thumb”.</p>
+<p>The beauty for the forecaster in this scenario is that <strong>a lot of the work is already done</strong>.</p>
+<ul>
+<li>The decision alternatives (scenarios) have been well framed.</li>
+<li>The performance measures, state variables of interest and associated covariates mostly identified.</li>
+<li>Iterations of the learning cycle may even have already begun (through the Adaptive Management Cycle) and all you need do is <strong>develop the existing qualitative model into something more quantitative</strong> as more data and understanding are accumulated.
+<ul>
+<li>Think of the <em>Protea</em> example in section <a href="forecasts.html#forecasts">4</a>, where the demography of these species is already used for decision making using semi-quantitative “rules of thumb”.</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><strong><em>Structured Decision Making</em></strong></p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:structureddecisions"></span>
 <img src="img/structureddecisions.png" alt="The Structured Decision Making Cycle *sensu* @Gregory2012." width="50%" />
@@ -450,18 +409,23 @@ Figure 12.6: The Structured Decision Making Cycle <em>sensu</em> <span class="ci
 </p>
 </div>
 <p><br></p>
-<p><strong><em>Structured Decision Making</em></strong></p>
-<p>As the name suggests, is far more <strong>focused on</strong> assisting with the process of <strong>coming to a decision</strong> than the process of management, but it is particularly useful in the <strong>first iteration</strong> of the Adaptive Management Cycle. <span class="citation">Gregory et al. (<a href="#ref-Gregory2012">2012</a>)</span> provide a very nice magnum opus on Structured Decision Making in natural resource management. It is particularly valuable when there are many stakeholders with <strong>disparate interests</strong>.</p>
-<p>We can model properties and performance measures, but <strong>decisions are ultimately about values</strong> and often require evaluating trade-offs among properties with <strong>incomparable units</strong>, e.g. people housed/fed/watered vs species saved from extinction… This can rapidly become a highly emotive space. It is also a space where the values that dominate are often the ones that are shouted the loudest and other important values are marginalized. One of the major goals of Structured Decision Making is to make sure <strong>all issues and values are brought to light</strong> and considered in a transparent framework so that <strong>trade-offs</strong> can be clearly identified and considered. It also aims to <strong>ensure that all alternatives are considered</strong>, since <strong><em>it’s impossible to make the right choice if it isn’t even on the table</em></strong>.</p>
-<p>A key strength in Structured Decision Making is in <strong>attempting to directly address the social, political or cognitive biases that limit</strong> the ability to highlight all values or alternatives.
-- e.g. many decisions in South Africa (and globally) pit people’s immediate needs (water, housing, etc) against the environment. These are incredibly difficult decisions, and while people (especially politicians) would rather ignore the fact that choosing one is choosing against the other, <strong><em>if we’re not transparent about this we’re not going to learn from our decisions and improve them in the next iteration.</em></strong></p>
+<p>As the name suggests, Structured Decision Making is far more <strong>focused on</strong> assisting with the process of <strong>coming to a decision</strong> than the process of management, but it is particularly useful in the <strong>first iteration</strong> of the Adaptive Management Cycle. <span class="citation">Gregory et al. (<a href="#ref-Gregory2012">2012</a>)</span> provide a very nice magnum opus on Structured Decision Making in natural resource management. It is particularly valuable when there are many stakeholders with <strong>disparate interests</strong>.</p>
+<p>We can model properties and performance measures, but <strong>decisions are ultimately about values</strong> and often require evaluating trade-offs among properties with <strong>incomparable units</strong>, e.g. people housed/fed/watered vs species saved from extinction… This can rapidly become a highly emotive space. It is also a space where the values that dominate are often the ones that are shouted the loudest and other important values are marginalized.</p>
+<ul>
+<li>One of the major goals of Structured Decision Making is to make sure <strong>all issues and values are brought to light</strong> and considered in a transparent framework so that <strong>trade-offs</strong> can be clearly identified and considered.</li>
+<li>It also aims to <strong>ensure that all alternatives are considered</strong>, since <strong><em>it’s impossible to make the right choice if it isn’t even on the table</em></strong>.</li>
+</ul>
+<p>A key strength in Structured Decision Making is in <strong>attempting to directly address the social, political or cognitive biases that limit</strong> the ability to highlight all values or alternatives.</p>
+<ul>
+<li>e.g. many decisions in South Africa (and globally) pit people’s immediate needs (water, housing, etc) against the environment. These are incredibly difficult decisions, and while people (especially politicians) would rather ignore the fact that choosing one is choosing against the other, <strong><em>if we’re not transparent about this we’re not going to learn from our decisions and improve them in the next iteration.</em></strong></li>
+</ul>
 <p><br></p>
 </div>
 <div id="in-reality" class="section level3 hasAnchor" number="12.2.2">
 <h3><span class="header-section-number">12.2.2</span> In reality…<a href="decisions.html#in-reality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong><em>Many (if not most) decisions are made with very little information and/or within institutional structures that are not well designed for iterative learning and adaptation.</em></strong></p>
-<p>In fact, you’ll often encounter situations where <strong>people aren’t interested</strong> in the information you have to offer, even if it’s exactly what they need. You may often find <strong>they don’t know what they need</strong>, so you may need to tell them, if you can get the chance… This may well be met with <strong>resistance</strong>, because you’re adding what is perceived to be <strong>unnecessary complexity</strong> to an otherwise straightforward decision scenario (e.g. most engineers prefer to ignore environmental concerns - <strong><em>the first step is often just making sure that the environment is even considered among the objectives and performance measures…</em></strong>).</p>
-<p>That said, you should also have the <strong>humility</strong> recognize that it is very possible that what you have to offer is not what the decision maker needs, despite <strong>your preconceptions</strong>.</p>
+<p>In fact, you’ll often encounter situations where <strong>people aren’t interested</strong> in the information you have to offer, even if it’s exactly what they need. You may often find <strong>they don’t know what they need</strong>, so you may need to tell them, if you can get the chance… This may well be met with <strong>resistance</strong>, because you’re adding what is perceived to be <strong>unnecessary complexity</strong> to an otherwise straightforward decision scenario (e.g. many engineers prefer to ignore environmental concerns - <strong><em>the first step is often just making sure that the environment is even considered among the objectives and performance measures…</em></strong>).</p>
+<p>That said, you should also have the <strong>humility</strong> recognize that it is very possible that what you have to offer is not what the decision maker needs, despite <strong>your own preconceptions</strong>.</p>
 <p>Effective engagement with decision makers requires a lot of <strong>empathy</strong> (putting yourself in their shoes) and willingness to listen, combined with a good dose of <strong>taking them to task</strong> when needed (i.e. when they’re ignoring important information out if ignorance or conveniance). You’re unlikely to know the full <strong>complexity and constraints</strong> of the institutional (and legal) frameworks within which they have to work. They may well be on your side personally, but can’t show that formally. That said, they may be <strong>overly blinkered</strong> by their institutional frameworks and norms and need a little disruption to force them to <strong>think outside the box</strong>.</p>
 <p>There’s also a tricky <strong>balance between knowing what you can offer</strong> (based on the available data and the various factors that determine whether you can develop a useful forecast) and learning <strong>what is needed</strong> (either from or by working with decision makers). On the one hand, designing an <strong>“over-the-wall”</strong> forecasting solution without engagement with stakeholders is unlikely to be well received. On the other hand, discussion of potential forecasting solutions with decision makers does need to be <strong>constrained by the reality of the limits to forecasting</strong>, otherwise you may be asked to (or worse - you may promise to) deliver on an impossible forecasting task. “Unconstrained” discussions typically lead to <strong>time-wasting and anymosity</strong> - <em>“Why were we discussing this if it was never a possibility?!”</em></p>
 <p>In many ways working with decision makers is about <strong>slowly building relationships</strong> and exploring possibilities together, possibly focusing on one or a few <strong>allies</strong> who see the potential value early. If you can use their input to help develop something useful, it becomes much easier <strong>to demonstrate realistic value</strong> to the broader group, often championed by your allies. Then you’re well placed to refine and improve it.</p>
@@ -470,8 +434,14 @@ Figure 12.6: The Structured Decision Making Cycle <em>sensu</em> <span class="ci
 </div>
 <div id="final-words" class="section level2 hasAnchor" number="12.3">
 <h2><span class="header-section-number">12.3</span> Final words<a href="decisions.html#final-words" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We need to move past <strong>the traditional ecologist’s view</strong> that <em>after decades’ years worth of data collection and hypothesis testing, maybe we’ll know enough to start building a predictive model…</em></p>
-<p>And start adopting an <strong>engineering (or decision-makers’) view</strong> (at least one that subscribes to some iterative learning paradigm) - <em>start building a model with no or very little data, and use that to guide what data to collect and how to improve the it. It may be completely wrong to begin with, but will rapidly improve.</em></p>
+<p>We need to move past <strong>the traditional ecologist’s view</strong>:</p>
+<blockquote>
+<p><em>After decades’ worth of data collection and hypothesis testing, maybe we’ll know enough to start building a predictive model…</em></p>
+</blockquote>
+<p>And start adopting an <strong>engineering (or decision-makers’) view</strong> (at least one that subscribes to some iterative learning paradigm):</p>
+<blockquote>
+<p><em>Start building a model with what we have, even if there is little or no data, and use that to guide what data to collect and how to improve the model. It may be completely wrong to begin with, but will rapidly improve.</em></p>
+</blockquote>
 <p><br></p>
 </div>
 <div id="revision" class="section level2 hasAnchor" number="12.4">
@@ -481,6 +451,7 @@ Figure 12.6: The Structured Decision Making Cycle <em>sensu</em> <span class="ci
 <ul>
 <li><p>Discuss the main requirements for data used in ecological forecasts and how they may (or may not) be resolved through adherence to the Data Life Cycle.</p></li>
 <li><p>Why is there a crisis in the way we do science, what can we do about it, and what are the additional benefits?</p></li>
+<li><p>Write a convincing motivation why staff and students should be conducting their research reproducibly, and explain some of the requirements for achieving this.</p></li>
 <li><p>What are the benefits of Bayesian approaches over other statistical frameworks in the context of ecological forecasting and how does the Bayesian framework make them possible?</p></li>
 <li><p>Discuss the ways in which one can fuse data with models and how this may be limited by your statistical approach.</p></li>
 <li><p>You have been tasked with improving the proficiency of an ecological forecasting model. Discuss the potential sources of uncertainty, how you would identify them and deploy limited resources to reduce them.</p></li>
