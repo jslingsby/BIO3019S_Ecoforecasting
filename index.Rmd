@@ -42,7 +42,7 @@ Not all of this is fun and exciting, but as I said, it is important stuff for qu
 
 **Lectures** 
 
-Lectures will be held live 12:00 - 12:45 from 24 July - 4 August.
+Lectures will be held live 12:00 - 12:45 from 22 July - 2 August.
 
 I'll be refining and adding to (and mostly teaching from) these online course notes as we go.
 
@@ -50,19 +50,19 @@ I'll be refining and adding to (and mostly teaching from) these online course no
 
 **Practicals**
 
-There is only one practical for this module, 2-5PM on Tuesday the 1st August. **You will need to spend half an hour setting up the required software on your laptops before Monday the 31st July!!! See instructions below.**
+There is only one practical for this module, 2-5PM on Tuesday the 30th July. **You will need to spend half an hour setting up the required software on your laptops before Monday the 29th July!!! See instructions below.**
 
-Your report on the practical will be ***due on Tuesday, 8th August*** - You will be evaluated on how well you completed the Github task during the practical and your answers to a short set of questions about the analyses. Answering the questions shouldn't take more than half an hour.
+Your report on the practical will be ***due on Tuesday, 6th August*** - You will be evaluated on how well you completed the Github task during the practical and your answers to a short set of questions about the analyses. Answering the questions shouldn't take more than half an hour.
 
-You need to install and set up RStudio and Github and test your setup. You can find the 11-step instructions in section \@ref(pracprep). This may be a bit tedious, but there's no other option really. I've done my best to make it as painless as possible. It should take you about half an hour if all goes well... (less if you have R and RStudio installed already).
+You need to install and set up RStudio and Github and test your setup. You can find the step-by-step instructions in section \@ref(pracprep). This may be a bit tedious, but there's no other option really. I've done my best to make it as painless as possible. It should take you about half an hour if all goes well... (less if you have R and RStudio installed already, but please make sure they are the latest versions!).
 
-**PLEASE DO THE SETUP BEFORE WE MEET!!!** I will check in on Monday the 31st July to see if people are having issues, but don't expect my help if you haven't tried by yourself first. Trust me, I will be able to tell...
+**PLEASE DO THE SETUP BEFORE WE MEET!!!** I will check in on Monday the 29th July to see if people are having issues, but don't expect my help if you haven't tried by yourself first. Trust me, I will be able to tell...
 
 <br>
 
 **Discussions**
 
-- **You are expected to read @Dietze2018 for Tuesday the 1st August.** You can download it [here](http://dx.doi.org/10.1073/pnas.1710231115). You will need to answer a few questions **beforehand** on [this Google Form](https://forms.gle/sSgopTfXSrzWBM2t5).
+- **You are expected to read @Dietze2018 for Tuesday the 30th July.** You can download it [here](http://dx.doi.org/10.1073/pnas.1710231115). You will need to answer a few questions **beforehand** on [this Google Form](https://forms.gle/sSgopTfXSrzWBM2t5).
 
 <br>
 

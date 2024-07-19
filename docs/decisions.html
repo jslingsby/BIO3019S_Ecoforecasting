@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>12 Completing the forecast cycle | A Minimal Introduction to Ecological Forecasting</title>
+  <title>11 Completing the forecast cycle | A Minimal Introduction to Ecological Forecasting</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="12 Completing the forecast cycle | A Minimal Introduction to Ecological Forecasting" />
+  <meta property="og:title" content="11 Completing the forecast cycle | A Minimal Introduction to Ecological Forecasting" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   <meta name="github-repo" content="jslingsby/BIO3019S_Ecoforecasting" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="12 Completing the forecast cycle | A Minimal Introduction to Ecological Forecasting" />
+  <meta name="twitter:title" content="11 Completing the forecast cycle | A Minimal Introduction to Ecological Forecasting" />
   
   <meta name="twitter:description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2023-08-03" />
+<meta name="date" content="2024-07-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,12 +54,81 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -181,62 +250,33 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="statespace.html"><a href="statespace.html"><i class="fa fa-check"></i><b>9</b> Latent variables and state-space models</a></li>
-<li class="chapter" data-level="10" data-path="practical.html"><a href="practical.html"><i class="fa fa-check"></i><b>10</b> Practical: Pair coding with GitHub</a>
+<li class="chapter" data-level="10" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>10</b> Uncertainty</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="practical.html"><a href="practical.html#objectives"><i class="fa fa-check"></i><b>10.1</b> Objectives</a></li>
-<li class="chapter" data-level="10.2" data-path="practical.html"><a href="practical.html#postfire-regeneration"><i class="fa fa-check"></i><b>10.2</b> Postfire regeneration</a></li>
-<li class="chapter" data-level="10.3" data-path="practical.html"><a href="practical.html#modular-design"><i class="fa fa-check"></i><b>10.3</b> Modular Design</a></li>
-<li class="chapter" data-level="10.4" data-path="practical.html"><a href="practical.html#task-1-create-clone-repository"><i class="fa fa-check"></i><b>10.4</b> Task 1: Create &amp; Clone Repository</a>
+<li class="chapter" data-level="10.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>10.1</b> Sources and types of uncertainty</a></li>
+<li class="chapter" data-level="10.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>10.2</b> Propagating uncertainty</a></li>
+<li class="chapter" data-level="10.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>10.3</b> Analyzing and reducing uncertainty</a></li>
+<li class="chapter" data-level="10.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>10.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="practical.html"><a href="practical.html#owner"><i class="fa fa-check"></i><b>10.4.1</b> OWNER</a></li>
-</ul></li>
-<li class="chapter" data-level="10.5" data-path="practical.html"><a href="practical.html#task-2-add-the-first-function-download.ndvi"><i class="fa fa-check"></i><b>10.5</b> Task 2: Add the first function: download.NDVI</a>
-<ul>
-<li class="chapter" data-level="10.5.1" data-path="practical.html"><a href="practical.html#owner-1"><i class="fa fa-check"></i><b>10.5.1</b> OWNER</a></li>
-</ul></li>
-<li class="chapter" data-level="10.6" data-path="practical.html"><a href="practical.html#task-3-collaborator-adds-plot.ndvi"><i class="fa fa-check"></i><b>10.6</b> Task 3: Collaborator adds plot.NDVI</a>
-<ul>
-<li class="chapter" data-level="10.6.1" data-path="practical.html"><a href="practical.html#collaborator"><i class="fa fa-check"></i><b>10.6.1</b> COLLABORATOR</a></li>
-<li class="chapter" data-level="10.6.2" data-path="practical.html"><a href="practical.html#owner-2"><i class="fa fa-check"></i><b>10.6.2</b> OWNER</a></li>
-</ul></li>
-<li class="chapter" data-level="10.7" data-path="practical.html"><a href="practical.html#task-4-owner-adds-functions-for-model-fitting-using-mle"><i class="fa fa-check"></i><b>10.7</b> Task 4: Owner adds functions for model fitting using MLE</a>
-<ul>
-<li class="chapter" data-level="10.7.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>10.7.1</b> OWNER</a></li>
-</ul></li>
-<li class="chapter" data-level="10.8" data-path="practical.html"><a href="practical.html#a-quick-explanation-of-the-mle-functions"><i class="fa fa-check"></i><b>10.8</b> A quick explanation of the MLE functions</a></li>
-<li class="chapter" data-level="10.9" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script-owner-answers-the-questions"><i class="fa fa-check"></i><b>10.9</b> Task 5: Collaborator adds the master script, Owner answers the questions</a>
-<ul>
-<li class="chapter" data-level="10.9.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>10.9.1</b> COLLABORATOR</a></li>
-<li class="chapter" data-level="10.9.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>10.9.2</b> OWNER</a></li>
+<li class="chapter" data-level="10.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>10.4.1</b> The background</a></li>
+<li class="chapter" data-level="10.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>10.4.2</b> The Analysis</a></li>
+<li class="chapter" data-level="10.4.3" data-path="uncertainty.html"><a href="uncertainty.html#the-results"><i class="fa fa-check"></i><b>10.4.3</b> The Results</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>11</b> Uncertainty</a>
+<li class="chapter" data-level="11" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>11</b> Completing the forecast cycle</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
-<li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating uncertainty</a></li>
-<li class="chapter" data-level="11.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>11.3</b> Analyzing and reducing uncertainty</a></li>
-<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
+<li class="chapter" data-level="11.1" data-path="decisions.html"><a href="decisions.html#data-assimilation"><i class="fa fa-check"></i><b>11.1</b> Data assimilation</a>
 <ul>
-<li class="chapter" data-level="11.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>11.4.1</b> The background</a></li>
-<li class="chapter" data-level="11.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>11.4.2</b> The Analysis</a></li>
-<li class="chapter" data-level="11.4.3" data-path="uncertainty.html"><a href="uncertainty.html#the-results"><i class="fa fa-check"></i><b>11.4.3</b> The Results</a></li>
+<li class="chapter" data-level="11.1.1" data-path="decisions.html"><a href="decisions.html#operational-data-assimilation"><i class="fa fa-check"></i><b>11.1.1</b> Operational data assimilation</a></li>
+<li class="chapter" data-level="11.1.2" data-path="decisions.html"><a href="decisions.html#the-forecast-step"><i class="fa fa-check"></i><b>11.1.2</b> The Forecast Step</a></li>
+<li class="chapter" data-level="11.1.3" data-path="decisions.html"><a href="decisions.html#the-analysis-step"><i class="fa fa-check"></i><b>11.1.3</b> The Analysis Step</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>12</b> Completing the forecast cycle</a>
+<li class="chapter" data-level="11.2" data-path="decisions.html"><a href="decisions.html#decision-support"><i class="fa fa-check"></i><b>11.2</b> Decision support</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="decisions.html"><a href="decisions.html#data-assimilation"><i class="fa fa-check"></i><b>12.1</b> Data assimilation</a>
-<ul>
-<li class="chapter" data-level="12.1.1" data-path="decisions.html"><a href="decisions.html#operational-data-assimilation"><i class="fa fa-check"></i><b>12.1.1</b> Operational data assimilation</a></li>
-<li class="chapter" data-level="12.1.2" data-path="decisions.html"><a href="decisions.html#the-forecast-step"><i class="fa fa-check"></i><b>12.1.2</b> The Forecast Step</a></li>
-<li class="chapter" data-level="12.1.3" data-path="decisions.html"><a href="decisions.html#the-analysis-step"><i class="fa fa-check"></i><b>12.1.3</b> The Analysis Step</a></li>
+<li class="chapter" data-level="11.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>11.2.1</b> In an ideal world…</a></li>
+<li class="chapter" data-level="11.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>11.2.2</b> In reality…</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="decisions.html"><a href="decisions.html#decision-support"><i class="fa fa-check"></i><b>12.2</b> Decision support</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>12.2.1</b> In an ideal world…</a></li>
-<li class="chapter" data-level="12.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>12.2.2</b> In reality…</a></li>
-</ul></li>
-<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.3</b> Final words</a></li>
-<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#revision"><i class="fa fa-check"></i><b>12.4</b> Revision questions</a></li>
+<li class="chapter" data-level="11.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>11.3</b> Final words</a></li>
+<li class="chapter" data-level="11.4" data-path="decisions.html"><a href="decisions.html#revision"><i class="fa fa-check"></i><b>11.4</b> Revision questions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -259,21 +299,21 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="decisions" class="section level1 hasAnchor" number="12">
-<h1><span class="header-section-number">12</span> Completing the forecast cycle<a href="decisions.html#decisions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="decisions" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">11</span> Completing the forecast cycle<a href="decisions.html#decisions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Here we’ll complete the forecast cycle (through data assimilation) and spend a little time discussing decision support.</p>
-<div id="data-assimilation" class="section level2 hasAnchor" number="12.1">
-<h2><span class="header-section-number">12.1</span> Data assimilation<a href="decisions.html#data-assimilation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data-assimilation" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Data assimilation<a href="decisions.html#data-assimilation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ecoforecastingloop3"></span>
 <img src="img/ecoforecastingloop.png" alt="The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From [lecture on data assimilation by Michael Dietze](https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0). (Please excuse that the colours of the distributions have changed from above...)." width="60%" />
 <p class="caption">
-Figure 12.1: The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From <a href="https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0">lecture on data assimilation by Michael Dietze</a>. (Please excuse that the colours of the distributions have changed from above…).
+Figure 11.1: The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts. From <a href="https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0">lecture on data assimilation by Michael Dietze</a>. (Please excuse that the colours of the distributions have changed from above…).
 </p>
 </div>
 <p><br></p>
 <p>You’ll recall from the introductory lecture on models and decision making (section <a href="models.html#models">3</a>) that we outlined iterative ecological forecasting and the scientific method as closely aligned cycles or loops. You’ll also recall that I made the point in section <a href="bayesian.html#bayesian">7</a> that <strong>Bayes Theorem provides an iterative probabilistic framework</strong> that makes it easier to update predictions as new data become available, mirroring the scientific method and completing the forecasting cycle. Here we’ll unpack this in a bit more detail.</p>
-<div id="operational-data-assimilation" class="section level3 hasAnchor" number="12.1.1">
-<h3><span class="header-section-number">12.1.1</span> Operational data assimilation<a href="decisions.html#operational-data-assimilation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="operational-data-assimilation" class="section level3 hasAnchor" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> Operational data assimilation<a href="decisions.html#operational-data-assimilation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Most modelling workflows are set up to <strong>(a) fit the available data</strong> and estimate parameters etc (we’ll call this <strong><em>analysis</em></strong>), which they then often use to <strong>(b) make predictions</strong> (which if made forward through time are typically <strong><em>forecasts</em></strong>). They usually stop there. Few workflows are set up to make forecasts repeatedly or iteratively, updating predictions as new observations are made.</p>
 <p>When making iterative forecasts, one <strong>could just refit the model</strong> and entire dataset with the new observations added, but there are a few reasons why this may not be ideal:</p>
 <ol style="list-style-type: decimal">
@@ -292,13 +332,13 @@ Figure 12.1: The iterative ecological forecasting cycle in the context of the sc
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:forecaststeps"></span>
 <img src="BIO3019S-Ecoforecasting_files/figure-html/forecaststeps-1.png" alt="The two main components of the forecast cycle are **the forecast step** (stippled lines), where we project from the initial state at time 0 ($t_0$) to the next time step ($t_{0+1}$), and **the analysis step**, where we use the forecast and new observations to get an updated estimate of the current state at $t_{0+1}$, which would be used for the next forecast to $t_{0+2}$." width="75%" />
 <p class="caption">
-Figure 12.2: The two main components of the forecast cycle are <strong>the forecast step</strong> (stippled lines), where we project from the initial state at time 0 (<span class="math inline">\(t_0\)</span>) to the next time step (<span class="math inline">\(t_{0+1}\)</span>), and <strong>the analysis step</strong>, where we use the forecast and new observations to get an updated estimate of the current state at <span class="math inline">\(t_{0+1}\)</span>, which would be used for the next forecast to <span class="math inline">\(t_{0+2}\)</span>.
+Figure 11.2: The two main components of the forecast cycle are <strong>the forecast step</strong> (stippled lines), where we project from the initial state at time 0 (<span class="math inline">\(t_0\)</span>) to the next time step (<span class="math inline">\(t_{0+1}\)</span>), and <strong>the analysis step</strong>, where we use the forecast and new observations to get an updated estimate of the current state at <span class="math inline">\(t_{0+1}\)</span>, which would be used for the next forecast to <span class="math inline">\(t_{0+2}\)</span>.
 </p>
 </div>
 <p><br></p>
 </div>
-<div id="the-forecast-step" class="section level3 hasAnchor" number="12.1.2">
-<h3><span class="header-section-number">12.1.2</span> The Forecast Step<a href="decisions.html#the-forecast-step" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="the-forecast-step" class="section level3 hasAnchor" number="11.1.2">
+<h3><span class="header-section-number">11.1.2</span> The Forecast Step<a href="decisions.html#the-forecast-step" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>While it gets a bit like <a href="https://en.wikipedia.org/wiki/Chicken_or_the_egg">the chicken and the egg dilemma</a>, the first step has to be analysis, because you have to fit your model before you can make your first forecast (although you could argue that your first analysis requires priors, which could be viewed as your first forecast…).</p>
 <p>Either way, the forecast step is probably easier to explain first.</p>
 <p>The goals of the forecast step are to:</p>
@@ -307,20 +347,20 @@ Figure 12.2: The two main components of the forecast cycle are <strong>the forec
 <li>Indicate the <strong>uncertainty</strong> in our forecast (based on the uncertainty that we have propagated through our model from various sources (data, priors, etc))</li>
 </ol>
 <p>In short, we want to <strong><em>propagate uncertainty in our variable(s) of interest forward through time</em></strong> (and sometimes through space, depending on the goals).</p>
-<p>There are <strong>a number of methods</strong> for propagating uncertainty into a forecast, mostly based on the same methods one would use to propagate the uncertainty through a model (see Table <a href="#tab:propagatinguncertainty"><strong>??</strong></a>). Explaining the different methods more than I did in section (<a href="uncertainty.html#uncertainty">11</a>) is beyond the scope of this module, but just a reminder that (as with almost everything in statistics) there’s <strong>a trade-off</strong> between the methods whereby the most efficient (the Kalman filter in this case) also come with the most stringent assumptions (linear models and homogeneity of variance only), while the most flexible (Markov chain Monte Carlo (MCMC) in this case - a Bayesian approach) are the most computationally taxing. In short, if your model isn’t too taxing, or you have cheap access to a very large computer and time to kill, MCMC is probably best (and often easiest if you’re already working in Bayes)…</p>
+<p>There are <strong>a number of methods</strong> for propagating uncertainty into a forecast, mostly based on the same methods one would use to propagate the uncertainty through a model (see Table <a href="uncertainty.html#tab:propagatinguncertainty">10.1</a>). Explaining the different methods more than I did in section (<a href="uncertainty.html#uncertainty">10</a>) is beyond the scope of this module, but just a reminder that (as with almost everything in statistics) there’s <strong>a trade-off</strong> between the methods whereby the most efficient (the Kalman filter in this case) also come with the most stringent assumptions (linear models and homogeneity of variance only), while the most flexible (Markov chain Monte Carlo (MCMC) in this case - a Bayesian approach) are the most computationally taxing. In short, if your model isn’t too taxing, or you have cheap access to a very large computer and time to kill, MCMC is probably best (and often easiest if you’re already working in Bayes)…</p>
 <p><br></p>
 </div>
-<div id="the-analysis-step" class="section level3 hasAnchor" number="12.1.3">
-<h3><span class="header-section-number">12.1.3</span> The Analysis Step<a href="decisions.html#the-analysis-step" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="the-analysis-step" class="section level3 hasAnchor" number="11.1.3">
+<h3><span class="header-section-number">11.1.3</span> The Analysis Step<a href="decisions.html#the-analysis-step" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
-<p><em>NOTE: I’m only explaing the general principles for doing this in a Bayesian framework. There are approaches listed in Table <a href="#tab:propagatinguncertainty"><strong>??</strong></a> that can be implemented in a frequentist framework, but (lucky for you) I’m not going to go there.</em></p>
+<p><em>NOTE: I’m only explaing the general principles for doing this in a Bayesian framework. There are approaches listed in Table <a href="uncertainty.html#tab:propagatinguncertainty">10.1</a> that can be implemented in a frequentist framework, but (lucky for you) I’m not going to go there.</em></p>
 </blockquote>
-<p>This step involves using Bayes Theorem to combine our prior knowledge (our forecast) with our new observations (at <span class="math inline">\(t_{0+1}\)</span> in Figure <a href="decisions.html#fig:forecaststeps">12.2</a>) to generate an updated state for the next forecast (i.e. to <span class="math inline">\(t_{0+2}\)</span>).</p>
+<p>This step involves using Bayes Theorem to combine our prior knowledge (our forecast) with our new observations (at <span class="math inline">\(t_{0+1}\)</span> in Figure <a href="decisions.html#fig:forecaststeps">11.2</a>) to generate an updated state for the next forecast (i.e. to <span class="math inline">\(t_{0+2}\)</span>).</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:dataassimilation"></span>
 <img src="img/dataassimilation.png" alt="The forecast cycle chaining together applications of Bayes Theorem at each timestep ($t_0, t_1, ...$). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods (see Table \@ref(tab:propagatinguncertainty))." width="100%" />
 <p class="caption">
-Figure 12.3: The forecast cycle chaining together applications of Bayes Theorem at each timestep (<span class="math inline">\(t_0, t_1, ...\)</span>). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods (see Table <a href="#tab:propagatinguncertainty"><strong>??</strong></a>).
+Figure 11.3: The forecast cycle chaining together applications of Bayes Theorem at each timestep (<span class="math inline">\(t_0, t_1, ...\)</span>). The forecast from one timestep becomes the prior for the next. Note that the forecast is directly sampled as a posterior distribution when using MCMC, but can also be propagated using other methods (see Table <a href="uncertainty.html#tab:propagatinguncertainty">10.1</a>).
 </p>
 </div>
 <p><br></p>
@@ -330,12 +370,12 @@ Figure 12.3: The forecast cycle chaining together applications of Bayes Theorem 
 <li>it allows our model to <strong>learn and (hopefully) improve</strong> with each iteration</li>
 <li>there is likely <strong>error (noise) in the new data</strong>, so it can’t necessarily be trusted more than our prior understanding anyway</li>
 </ul>
-<p>Fortunately, <strong>Bayes Theorem deals with all of this very nicely</strong>, because if the forecast (prior) is uncertain and the new data precise then the data will prevail, whereas if the forecast is precise and the new data uncertain, then the posterior will retain the legacy of previous observations (Figure <a href="decisions.html#fig:analysissteps">12.4</a>).</p>
+<p>Fortunately, <strong>Bayes Theorem deals with all of this very nicely</strong>, because if the forecast (prior) is uncertain and the new data precise then the data will prevail, whereas if the forecast is precise and the new data uncertain, then the posterior will retain the legacy of previous observations (Figure <a href="decisions.html#fig:analysissteps">11.4</a>).</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:analysissteps"></span>
 <img src="BIO3019S-Ecoforecasting_files/figure-html/analysissteps-1.png" alt="The result of (A) high forecast uncertainty (the prior) and low observation error (data), and (B) low forecast uncertainty and high observation error on the posterior probability from the analysis step. Note that the data and prior have the same means in panels A and B, but the variances differ." width="75%" />
 <p class="caption">
-Figure 12.4: The result of (A) high forecast uncertainty (the prior) and low observation error (data), and (B) low forecast uncertainty and high observation error on the posterior probability from the analysis step. Note that the data and prior have the same means in panels A and B, but the variances differ.
+Figure 11.4: The result of (A) high forecast uncertainty (the prior) and low observation error (data), and (B) low forecast uncertainty and high observation error on the posterior probability from the analysis step. Note that the data and prior have the same means in panels A and B, but the variances differ.
 </p>
 </div>
 <p><br></p>
@@ -348,8 +388,8 @@ Figure 12.4: The result of (A) high forecast uncertainty (the prior) and low obs
 <p><br></p>
 </div>
 </div>
-<div id="decision-support" class="section level2 hasAnchor" number="12.2">
-<h2><span class="header-section-number">12.2</span> Decision support<a href="decisions.html#decision-support" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="decision-support" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Decision support<a href="decisions.html#decision-support" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This is probably the hardest part of the whole ecological forecasting business… people!</p>
 <p><br></p>
 <p>It is also a huge topic and not one I can cover in half a lecture. Here I just touch on a few hints and difficulties.</p>
@@ -377,15 +417,15 @@ Figure 12.4: The result of (A) high forecast uncertainty (the prior) and low obs
 <p><br></p>
 <p>If the prerequisites to be able to do ecological forecasting are met, then…</p>
 <p><br></p>
-<div id="in-an-ideal-world" class="section level3 hasAnchor" number="12.2.1">
-<h3><span class="header-section-number">12.2.1</span> In an ideal world…<a href="decisions.html#in-an-ideal-world" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="in-an-ideal-world" class="section level3 hasAnchor" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> In an ideal world…<a href="decisions.html#in-an-ideal-world" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You’ll be working with an organized team that is a well-oiled machine at implementing <strong>Adaptive Management</strong> and <strong>Structured Decision Making</strong> and you can naturally slot into their workflow.</p>
 <p>The advantages of Adaptive Management and Structured Decision Making are that they are founded on the concept of <strong>iterative learning cycles</strong>, which they have in common with the ecological forecasting cycle and the scientific method.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:dietze2018F1b"></span>
 <img src="img/dietze2018_F1.jpg" alt="Conceptual relationships between iterative ecological forecasting, adaptive decision-making, adaptive monitoring, and the scientific method cycles [@Dietze2018]." width="640" />
 <p class="caption">
-Figure 12.5: Conceptual relationships between iterative ecological forecasting, adaptive decision-making, adaptive monitoring, and the scientific method cycles <span class="citation">(<a href="#ref-Dietze2018">Dietze et al. 2018</a>)</span>.
+Figure 11.5: Conceptual relationships between iterative ecological forecasting, adaptive decision-making, adaptive monitoring, and the scientific method cycles <span class="citation">(<a href="#ref-Dietze2018">Dietze et al. 2018</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -405,7 +445,7 @@ Figure 12.5: Conceptual relationships between iterative ecological forecasting, 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:structureddecisions"></span>
 <img src="img/structureddecisions.png" alt="The Structured Decision Making Cycle *sensu* @Gregory2012." width="50%" />
 <p class="caption">
-Figure 12.6: The Structured Decision Making Cycle <em>sensu</em> <span class="citation">Gregory et al. (<a href="#ref-Gregory2012">2012</a>)</span>.
+Figure 11.6: The Structured Decision Making Cycle <em>sensu</em> <span class="citation">Gregory et al. (<a href="#ref-Gregory2012">2012</a>)</span>.
 </p>
 </div>
 <p><br></p>
@@ -421,8 +461,8 @@ Figure 12.6: The Structured Decision Making Cycle <em>sensu</em> <span class="ci
 </ul>
 <p><br></p>
 </div>
-<div id="in-reality" class="section level3 hasAnchor" number="12.2.2">
-<h3><span class="header-section-number">12.2.2</span> In reality…<a href="decisions.html#in-reality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="in-reality" class="section level3 hasAnchor" number="11.2.2">
+<h3><span class="header-section-number">11.2.2</span> In reality…<a href="decisions.html#in-reality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong><em>Many (if not most) decisions are made with very little information and/or within institutional structures that are not well designed for iterative learning and adaptation.</em></strong></p>
 <p>In fact, you’ll often encounter situations where <strong>people aren’t interested</strong> in the information you have to offer, even if it’s exactly what they need. You may often find <strong>they don’t know what they need</strong>, so you may need to tell them, if you can get the chance… This may well be met with <strong>resistance</strong>, because you’re adding what is perceived to be <strong>unnecessary complexity</strong> to an otherwise straightforward decision scenario (e.g. many engineers prefer to ignore environmental concerns - <strong><em>the first step is often just making sure that the environment is even considered among the objectives and performance measures…</em></strong>).</p>
 <p>That said, you should also have the <strong>humility</strong> recognize that it is very possible that what you have to offer is not what the decision maker needs, despite <strong>your own preconceptions</strong>.</p>
@@ -432,8 +472,8 @@ Figure 12.6: The Structured Decision Making Cycle <em>sensu</em> <span class="ci
 <p><br></p>
 </div>
 </div>
-<div id="final-words" class="section level2 hasAnchor" number="12.3">
-<h2><span class="header-section-number">12.3</span> Final words<a href="decisions.html#final-words" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="final-words" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Final words<a href="decisions.html#final-words" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We need to move past <strong>the traditional ecologist’s view</strong>:</p>
 <blockquote>
 <p><em>After decades’ worth of data collection and hypothesis testing, maybe we’ll know enough to start building a predictive model…</em></p>
@@ -444,8 +484,8 @@ Figure 12.6: The Structured Decision Making Cycle <em>sensu</em> <span class="ci
 </blockquote>
 <p><br></p>
 </div>
-<div id="revision" class="section level2 hasAnchor" number="12.4">
-<h2><span class="header-section-number">12.4</span> Revision questions<a href="decisions.html#revision" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="revision" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Revision questions<a href="decisions.html#revision" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Because you asked so nicely…</p>
 <p>These would all be essay questions (30-50 marks, with how much you write depending on the mark and time allocation).</p>
 <ul>
@@ -462,7 +502,7 @@ Figure 12.6: The Structured Decision Making Cycle <em>sensu</em> <span class="ci
 </div>
 </div>
 <h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-Dietze2018" class="csl-entry">
 Dietze, Michael C, Andrew Fox, Lindsay M Beck-Johnson, Julio L Betancourt, Mevin B Hooten, Catherine S Jarnevich, Timothy H Keitt, et al. 2018. <span>“<span class="nocase">Iterative near-term ecological forecasting: Needs, opportunities, and challenges</span>.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em> 115 (7): 1424–32. <a href="https://doi.org/10.1073/pnas.1710231115">https://doi.org/10.1073/pnas.1710231115</a>.
 </div>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Making forecasts | A Minimal Introduction to Ecological Forecasting</title>
   <meta name="description" content="This is a minimal introduction to Ecological Forecasting and Reproducible Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the University of Cape Town." />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Making forecasts | A Minimal Introduction to Ecological Forecasting" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2023-08-03" />
+<meta name="date" content="2024-07-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -120,10 +120,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -245,62 +250,33 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="statespace.html"><a href="statespace.html"><i class="fa fa-check"></i><b>9</b> Latent variables and state-space models</a></li>
-<li class="chapter" data-level="10" data-path="practical.html"><a href="practical.html"><i class="fa fa-check"></i><b>10</b> Practical: Pair coding with GitHub</a>
+<li class="chapter" data-level="10" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>10</b> Uncertainty</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="practical.html"><a href="practical.html#objectives"><i class="fa fa-check"></i><b>10.1</b> Objectives</a></li>
-<li class="chapter" data-level="10.2" data-path="practical.html"><a href="practical.html#postfire-regeneration"><i class="fa fa-check"></i><b>10.2</b> Postfire regeneration</a></li>
-<li class="chapter" data-level="10.3" data-path="practical.html"><a href="practical.html#modular-design"><i class="fa fa-check"></i><b>10.3</b> Modular Design</a></li>
-<li class="chapter" data-level="10.4" data-path="practical.html"><a href="practical.html#task-1-create-clone-repository"><i class="fa fa-check"></i><b>10.4</b> Task 1: Create &amp; Clone Repository</a>
+<li class="chapter" data-level="10.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>10.1</b> Sources and types of uncertainty</a></li>
+<li class="chapter" data-level="10.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>10.2</b> Propagating uncertainty</a></li>
+<li class="chapter" data-level="10.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>10.3</b> Analyzing and reducing uncertainty</a></li>
+<li class="chapter" data-level="10.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>10.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="practical.html"><a href="practical.html#owner"><i class="fa fa-check"></i><b>10.4.1</b> OWNER</a></li>
-</ul></li>
-<li class="chapter" data-level="10.5" data-path="practical.html"><a href="practical.html#task-2-add-the-first-function-download.ndvi"><i class="fa fa-check"></i><b>10.5</b> Task 2: Add the first function: download.NDVI</a>
-<ul>
-<li class="chapter" data-level="10.5.1" data-path="practical.html"><a href="practical.html#owner-1"><i class="fa fa-check"></i><b>10.5.1</b> OWNER</a></li>
-</ul></li>
-<li class="chapter" data-level="10.6" data-path="practical.html"><a href="practical.html#task-3-collaborator-adds-plot.ndvi"><i class="fa fa-check"></i><b>10.6</b> Task 3: Collaborator adds plot.NDVI</a>
-<ul>
-<li class="chapter" data-level="10.6.1" data-path="practical.html"><a href="practical.html#collaborator"><i class="fa fa-check"></i><b>10.6.1</b> COLLABORATOR</a></li>
-<li class="chapter" data-level="10.6.2" data-path="practical.html"><a href="practical.html#owner-2"><i class="fa fa-check"></i><b>10.6.2</b> OWNER</a></li>
-</ul></li>
-<li class="chapter" data-level="10.7" data-path="practical.html"><a href="practical.html#task-4-owner-adds-functions-for-model-fitting-using-mle"><i class="fa fa-check"></i><b>10.7</b> Task 4: Owner adds functions for model fitting using MLE</a>
-<ul>
-<li class="chapter" data-level="10.7.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>10.7.1</b> OWNER</a></li>
-</ul></li>
-<li class="chapter" data-level="10.8" data-path="practical.html"><a href="practical.html#a-quick-explanation-of-the-mle-functions"><i class="fa fa-check"></i><b>10.8</b> A quick explanation of the MLE functions</a></li>
-<li class="chapter" data-level="10.9" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script-owner-answers-the-questions"><i class="fa fa-check"></i><b>10.9</b> Task 5: Collaborator adds the master script, Owner answers the questions</a>
-<ul>
-<li class="chapter" data-level="10.9.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>10.9.1</b> COLLABORATOR</a></li>
-<li class="chapter" data-level="10.9.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>10.9.2</b> OWNER</a></li>
+<li class="chapter" data-level="10.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>10.4.1</b> The background</a></li>
+<li class="chapter" data-level="10.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>10.4.2</b> The Analysis</a></li>
+<li class="chapter" data-level="10.4.3" data-path="uncertainty.html"><a href="uncertainty.html#the-results"><i class="fa fa-check"></i><b>10.4.3</b> The Results</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>11</b> Uncertainty</a>
+<li class="chapter" data-level="11" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>11</b> Completing the forecast cycle</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="uncertainty.html"><a href="uncertainty.html#sources-and-types-of-uncertainty"><i class="fa fa-check"></i><b>11.1</b> Sources and types of uncertainty</a></li>
-<li class="chapter" data-level="11.2" data-path="uncertainty.html"><a href="uncertainty.html#propagating-uncertainty"><i class="fa fa-check"></i><b>11.2</b> Propagating uncertainty</a></li>
-<li class="chapter" data-level="11.3" data-path="uncertainty.html"><a href="uncertainty.html#analyzing-and-reducing-uncertainty"><i class="fa fa-check"></i><b>11.3</b> Analyzing and reducing uncertainty</a></li>
-<li class="chapter" data-level="11.4" data-path="uncertainty.html"><a href="uncertainty.html#propagating-and-partitioning-uncertainty-in-the-impacts-of-invasive-alien-plants-on-streamflow"><i class="fa fa-check"></i><b>11.4</b> Propagating and partitioning uncertainty in the impacts of invasive alien plants on streamflow</a>
+<li class="chapter" data-level="11.1" data-path="decisions.html"><a href="decisions.html#data-assimilation"><i class="fa fa-check"></i><b>11.1</b> Data assimilation</a>
 <ul>
-<li class="chapter" data-level="11.4.1" data-path="uncertainty.html"><a href="uncertainty.html#the-background"><i class="fa fa-check"></i><b>11.4.1</b> The background</a></li>
-<li class="chapter" data-level="11.4.2" data-path="uncertainty.html"><a href="uncertainty.html#the-analysis"><i class="fa fa-check"></i><b>11.4.2</b> The Analysis</a></li>
-<li class="chapter" data-level="11.4.3" data-path="uncertainty.html"><a href="uncertainty.html#the-results"><i class="fa fa-check"></i><b>11.4.3</b> The Results</a></li>
+<li class="chapter" data-level="11.1.1" data-path="decisions.html"><a href="decisions.html#operational-data-assimilation"><i class="fa fa-check"></i><b>11.1.1</b> Operational data assimilation</a></li>
+<li class="chapter" data-level="11.1.2" data-path="decisions.html"><a href="decisions.html#the-forecast-step"><i class="fa fa-check"></i><b>11.1.2</b> The Forecast Step</a></li>
+<li class="chapter" data-level="11.1.3" data-path="decisions.html"><a href="decisions.html#the-analysis-step"><i class="fa fa-check"></i><b>11.1.3</b> The Analysis Step</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="decisions.html"><a href="decisions.html"><i class="fa fa-check"></i><b>12</b> Completing the forecast cycle</a>
+<li class="chapter" data-level="11.2" data-path="decisions.html"><a href="decisions.html#decision-support"><i class="fa fa-check"></i><b>11.2</b> Decision support</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="decisions.html"><a href="decisions.html#data-assimilation"><i class="fa fa-check"></i><b>12.1</b> Data assimilation</a>
-<ul>
-<li class="chapter" data-level="12.1.1" data-path="decisions.html"><a href="decisions.html#operational-data-assimilation"><i class="fa fa-check"></i><b>12.1.1</b> Operational data assimilation</a></li>
-<li class="chapter" data-level="12.1.2" data-path="decisions.html"><a href="decisions.html#the-forecast-step"><i class="fa fa-check"></i><b>12.1.2</b> The Forecast Step</a></li>
-<li class="chapter" data-level="12.1.3" data-path="decisions.html"><a href="decisions.html#the-analysis-step"><i class="fa fa-check"></i><b>12.1.3</b> The Analysis Step</a></li>
+<li class="chapter" data-level="11.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>11.2.1</b> In an ideal world…</a></li>
+<li class="chapter" data-level="11.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>11.2.2</b> In reality…</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="decisions.html"><a href="decisions.html#decision-support"><i class="fa fa-check"></i><b>12.2</b> Decision support</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="decisions.html"><a href="decisions.html#in-an-ideal-world"><i class="fa fa-check"></i><b>12.2.1</b> In an ideal world…</a></li>
-<li class="chapter" data-level="12.2.2" data-path="decisions.html"><a href="decisions.html#in-reality"><i class="fa fa-check"></i><b>12.2.2</b> In reality…</a></li>
-</ul></li>
-<li class="chapter" data-level="12.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>12.3</b> Final words</a></li>
-<li class="chapter" data-level="12.4" data-path="decisions.html"><a href="decisions.html#revision"><i class="fa fa-check"></i><b>12.4</b> Revision questions</a></li>
+<li class="chapter" data-level="11.3" data-path="decisions.html"><a href="decisions.html#final-words"><i class="fa fa-check"></i><b>11.3</b> Final words</a></li>
+<li class="chapter" data-level="11.4" data-path="decisions.html"><a href="decisions.html#revision"><i class="fa fa-check"></i><b>11.4</b> Revision questions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -551,7 +527,7 @@ Figure 4.11: The iterative ecological forecasting cycle in the context of the sc
 </div>
 </div>
 <h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-CapeNatureFire" class="csl-entry">
 CapeNature. n.d. <span>“<span class="nocase">What a landowner needs to know about fire management Fact Sheet</span>.”</span>
 </div>
