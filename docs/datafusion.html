@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2024-07-19" />
+<meta name="date" content="2024-07-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -350,7 +350,7 @@ div.csl-indent {
   \text{NDVI}_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)
 \end{gather}\]</span></p>
 <p>Which when fitted to the data looks like so:</p>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p><strong>The process model is the only opportunity for inputting data</strong>, and here we input time series for NDVI and date (or postfire age, since our time series started at the time of a fire).</p>
 <p>The only way to add more data sources is to make your model more complex. For example, to capture the seasonal fluctuations in NDVI we can add a sine term that requires us to specify the month (m) of the fire, like so:</p>
 <p><br/></p>
@@ -360,7 +360,7 @@ div.csl-indent {
 \end{gather}\]</span></p>
 <p><br/></p>
 <p>Which looks like:</p>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p><br></p>
 <p><strong><em>Maximum Likelihood</em></strong></p>
 <p>MLE does make a distinction between the <strong>data model</strong> and the <strong>process model</strong>, like so:</p>

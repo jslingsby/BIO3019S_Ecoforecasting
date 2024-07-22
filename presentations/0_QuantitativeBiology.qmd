@@ -18,18 +18,29 @@ Jasper Slingsby
 
 ### What is quanitative biology?
 
-
 ##  {background-color="#33431e"}
 
 ### What is quanitative biology?
 
 ![](img/quantbio_wiki.png)
 
-. . .
+:::{.fragment}
 
-- models (maths and stats)
-- data
-- computation
+-   models (maths and stats)
+-   data
+-   computation
+
+:::
+
+## BIO3019S: Quantitative Biology {background-color="#33431e"}
+
+<br/>
+
+This course is an introduction to quantitative methods used in various areas of biology from ecophysiology to evolution, population biology, biogeography and ecosystem science.
+
+<br/>
+
+Students will gain experience in question formulation, model development and parameterisation, interpretation of results, model critique and best practice when working with data, models and code.
 
 
 ## Models {background-color="#33431e"}
@@ -42,63 +53,64 @@ How realistic do models need to be?
 
 ::: columns
 ::: {.column width="45%"}
-
 ![](img/modelplanes.jpg)
+:::
 
-::: 
 ::: {.column width="45%"}
 ![](img/modelplane_simple.png)
 :::
-::::
+:::
 
 It depends on your question/objective...
-
 
 ## Models {background-color="#33431e"}
 
 ::: incremental
-- tools for deductive reasoning
-  - test our understanding
-  - test our assumptions
-- models should fail in informative ways
-  - revealing failings of our understanding or assumptions
-- models let us ask 'what if' questions
-  - explore scenarios
-  - forecast future states and changes
+-   tools for deductive reasoning
+    -   test our understanding
+    -   test our assumptions
+-   models should fail in informative ways
+    -   revealing failings of our understanding or assumptions
+-   models let us ask 'what if' questions
+    -   explore scenarios
+    -   forecast future states and changes
 :::
 
-## {background-color="#33431e"}
- 
-### Empirical vs mechanistic model continuum 
+##  {background-color="#33431e"}
+
+### Empirical vs mechanistic model continuum
 
 <br/>
 
-```{r modelcontinuum, echo=F, engine='tikz', fig.ext='png', out.width='100%', fig.align='center'}
-\begin{tikzpicture}
+![](img/models_tikz.png)
 
-\path (0,0.5)node{\textbf{{\it Empirical}}};
-\path (8,0.5)node{\textbf{{\it Mechanistic}}};
-\draw[stealth-stealth] (0,0)--(8,0);
+```{r modelcontinuum, eval = F, echo=F, engine='tikz', fig.ext='png', out.width='100%', fig.align='center'}
 
-\path (0,-0.5)node{{\it Phenomenological}};
-\path (8,-0.5)node{{\it Based on First principles}};
+<!-- \begin{tikzpicture} -->
 
-\path (0,-1)node{{\it Descriptive}};
-\path (8,-1)node{{\it Explanatory}};
+<!-- \path (0,0.5)node{\textbf{{\it Empirical}}}; -->
+<!-- \path (8,0.5)node{\textbf{{\it Mechanistic}}}; -->
+<!-- \draw[stealth-stealth] (0,0)--(8,0); -->
 
-\path (0,-1.5)node{{\it Fitted directly to data (statistical)}};
-\path (8,-1.5)node{{\it Tested with data}};
+<!-- \path (0,-0.5)node{{\it Phenomenological}}; -->
+<!-- \path (8,-0.5)node{{\it Based on First principles}}; -->
 
-\path (0,-2)node{{\it Generate hypotheses}};
-\path (8,-2)node{{\it Explore system behaviour}};
+<!-- \path (0,-1)node{{\it Descriptive}}; -->
+<!-- \path (8,-1)node{{\it Explanatory}}; -->
+
+<!-- \path (0,-1.5)node{{\it Fitted directly to data (statistical)}}; -->
+<!-- \path (8,-1.5)node{{\it Tested with data}}; -->
+
+<!-- \path (0,-2)node{{\it Generate hypotheses}}; -->
+<!-- \path (8,-2)node{{\it Explore system behaviour}}; -->
 
 
-\end{tikzpicture}
+<!-- \end{tikzpicture} -->
 ```
 
 Many models are intermediate on the continuum, incorporating mechanistic understanding, but still relying on statistical approaches and data.
 
-## {background-color="#33431e"}
+##  {background-color="#33431e"}
 
 ### Empirical vs mechanistic models?
 
@@ -106,15 +118,16 @@ Many models are intermediate on the continuum, incorporating mechanistic underst
 
 <br/>
 
-. . .
+:::{.fragment}
 
 **Empirical approach:**
 
-- Collect data
-- Fit a statistical model
+-   Collect data
+-   Fit a statistical model
 
+:::
 
-## {.smaller background-color="#c2c190"}
+##  {.smaller background-color="#c2c190"}
 
 ### Empirical approach
 
@@ -130,8 +143,7 @@ axis(2, las=1)
 
 Some data collected earlier...
 
-
-## {.smaller background-color="#c2c190"}
+##  {.smaller background-color="#c2c190"}
 
 ### Empirical approach
 
@@ -154,7 +166,7 @@ abline(m1)
 
 Data showing a linear model of $d_i = \beta_0 + \beta_1 \times v_i + \epsilon_i, \epsilon_i \sim N(0, \sigma)$, where $d$ is the distance and $v$ is the velocity.
 
-## {.smaller background-color="#c2c190"}
+##  {.smaller background-color="#c2c190"}
 
 ### Empirical approach
 
@@ -179,7 +191,7 @@ points(4.25, 4, pch = 25, col = "red", bg = "red", cex = 2)
 
 Data showing a linear model of $d_i = \beta_0 + \beta_1 \times v_i + \epsilon_i, \epsilon_i \sim N(0, \sigma)$, where $d$ is the distance and $v$ is the velocity.
 
-## {.smaller background-color="#c2c190"}
+##  {.smaller background-color="#c2c190"}
 
 ### Empirical approach
 
@@ -206,7 +218,7 @@ options(scipen=999)
 
 Data showing a quadratic model of $d_i = \frac{v_i^2}{2a} + \epsilon_i, \epsilon_i \sim N(0, \sigma)$, where $d$ is the distance, $v$ is the velocity and $a$ is the friction coefficient multiplied by acceleration.
 
-## {.smaller background-color="#c2c190"}
+##  {.smaller background-color="#c2c190"}
 
 ### Mechanistic approach
 
@@ -218,7 +230,7 @@ a <- 5
 v <- 4:25
 d <- v^2/a
 
-plot(v,d, type='l', axes=F)
+plot(v,d, type='l', axes=F, xlab = "Velocity [miles per hour]", ylab = "Distance [feet]")
 axis(1)
 axis(2, las=1)
 
@@ -228,92 +240,86 @@ axis(2, las=1)
 
 From physics first principles we know the [stopping distance formula](https://en.wikipedia.org/wiki/Braking_distance): $d = \frac{v^2}{2a}$, where $d$ is distance, $v$ is velocity and $a$ is the friction coefficient multiplied by acceleration.
 
-
-## {background-color="#33431e"}
+##  {background-color="#33431e"}
 
 ### Empirical vs mechanistic models?
 
 ::: incremental
-- Both are useful. Mechanistic is often the ultimate goal.
-- We often need to start with empirical models to work towards understanding the mechanism (e.g. the quadratic model was a better fit than the linear above)
-- Many models in biology are a mix, incorporating mechanisms known from first principles into otherwise empirical frameworks
-- Incorporating mechanisms into models is often key for identifying feedbacks and other complexity in biological systems
+-   Both are useful. Mechanistic is often the ultimate goal.
+-   We often need to start with empirical models to work towards understanding the mechanism (e.g. the quadratic model was a better fit than the linear above)
+-   Many models in biology are a mix, incorporating mechanisms known from first principles into otherwise empirical frameworks
+-   Incorporating mechanisms into models is often key for identifying feedbacks and other complexity in biological systems
 :::
 
-## {.smaller background-color="#c2c190"}
+##  {.smaller background-color="#c2c190"}
 
 ### Examples of models in biology
 
 ::: columns
 ::: {.column width="45%"}
-
 #### Species distribution models (SDMs)
 
-![](img/Predicting_habitats.png){width=100%}
+![](img/Predicting_habitats.png){width="100%"}
 :::
 
 ::: {.column width="45%"}
 <br/>
 
-In essence, **_correlative_** SDMs map the potential range of species based on the combination of environmental conditions from locations where they are known to occur.
+In essence, ***empirical*** SDMs are ***correlative*** and can map the potential range of species based on the combination of environmental conditions from locations where they are known to occur.
 
 Image from [Ragnvald](https://en.wikipedia.org/wiki/Species_distribution_modelling#/media/File:Predicting_habitats.png)
 :::
+:::
 
-::::
-
-## {.smaller background-color="#c2c190"}
+##  {.smaller background-color="#c2c190"}
 
 ### Examples of models in biology
 
 ::: columns
 ::: {.column width="45%"}
-
 #### Species distribution models (SDMs)
 
-![](img/TTR.png){width=100%}
+![](img/TTR.png){width="100%"}
 :::
 
 ::: {.column width="45%"}
-
 <br/>
 
-[Higgins et al. 2023 *Science*](http://dx.doi.org/10.1126/science.add5190) use a semi-**_mechanistic_** SDM which uses a plant growth model to interpret how plant species should respond to different environmental conditions.
+[Higgins et al. 2023 *Science*](http://dx.doi.org/10.1126/science.add5190) use a ***semi-mechanistic*** SDM which uses a plant growth model to interpret how plant species should respond to different environmental conditions.
 
 The relationships between parameters are defined mechanistically, based on known equations, but the parameters themselves are estimated statistically from empirical data based on known localities of the species.
 :::
+:::
 
-::::
-
-## {.smaller background-color="#c2c190"}
+##  {.smaller background-color="#c2c190"}
 
 ### Examples of models in biology
 
 #### DNA nucleotide substitution models
 
-![](img/nucleotides.png){width=70%, fig-align="center"}
+![](img/nucleotides.png){width="70%," fig-align="center"}
 
 The probability of mutations between different base pair combinations are not equal. We now understand some of the mechanism behind this, and can account for unequal transition frequencies in our models of DNA evolution. From [Yang and Rannala 2012 **Nat Rev Genet**](http://dx.doi.org/10.1038/nrg3186)
 
-## {.smaller background-color="#c2c190"}
+##  {.smaller background-color="#c2c190"}
 
 ### Examples of models in biology
 
 #### Mechanistic general ecosystem models (GEMs)
 
-![](img/MadingleyR.jpg){width=100%, fig-align="center"}
+![](img/MadingleyR.jpg){width="100%," fig-align="center"}
 
 [Hoeks et al 2021 **GEB**](https://doi.org/10.1111/geb.13354)
 
 ## Data management and computation {.smaller background-color="#33431e"}
 
-![](img/inat.png){width=100%, fig-align="center"}
+![](img/inat.png){width="100%," fig-align="center"}
 
 The volume, variety and velocity of biological and related data are ever increasing.
 
 Quantitative biology is more than just modeling. A large part is developing the necessary tools and skills for managing and manipulating large and varied datasets.
 
-## BIO3019S: Quantitative Biology { background-color="#33431e"}
+## BIO3019S: Quantitative Biology {background-color="#33431e"}
 
 <br/>
 
@@ -322,4 +328,3 @@ This course is an introduction to quantitative methods used in various areas of 
 <br/>
 
 Students will gain experience in question formulation, model development and parameterisation, interpretation of results, model critique and best practice when working with data, models and code.
-

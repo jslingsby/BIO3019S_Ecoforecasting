@@ -61,12 +61,12 @@ The next steps (explained below) are to _fork_ and _clone_ your first repo to se
 
 10. In RStudio:
 - In the top-right of the window you'll see `Project: (None)` - click on it and select `New Project` then `Version Control` then `Git`
-- In the `Repository URl:` box paste the URL to your forked repo (It should look something like : `https://github.com/YourGitHubUsername/your-forked-repo_name.git`
+- In the `Repository URl:` box paste the URL to your forked repo (It should look something like : `https://github.com/YourGitHubUsername/your-forked-repo_name.git`)
 - `Project directory name` should fill automatically
-- For `Create project as subdirectory of:` hit `Browse` and navigate through your file system to where you want to put your folder for storing your Git repositories. I recommend something like `~Documents/GIT` (If you've used Git before you may have set this already and can skip this step)
+- For `Create project as subdirectory of:` hit `Browse` and navigate through your file system to where you want to put your folder for storing your Git repositories. I recommend something high in your directory system like `~Documents/GIT`. Avoid putting it in a folder that syncs online like a OneDrive, GoogleDrive, iCloud or Dropbox folder. If you've used Git before you may have set this already and can skip this step.
 - Click `Create Repository`
 
-Your RStudio window should now look like this:
+Your RStudio window should now look something like this:
 
 <br>
 

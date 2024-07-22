@@ -18,13 +18,13 @@ Jasper Slingsby
 
 ### What do you consider when making decisions?
 
-. . .
-
+::: {.fragment}
 Informing decisions requires knowing (or guessing at) something about the future.
 
-::: incremental
 We base our *expectation* on:
+:::
 
+::: {.incremental}
 -   The *evidence*
 -   Our *experience*
 -   *Uncertainty*
@@ -107,7 +107,7 @@ Observation \> Hypothesis \> Experiment \> Analyse \> Interpret \> Report \> (Re
 
 So iterative decision-making facilitates iterative learning (i.e. scientific progress).
 
-##  {.smaller background-color="#33431e"}
+##  {background-color="#33431e"}
 
 ### The importance of forecasting in ecology
 
@@ -117,16 +117,22 @@ So iterative decision-making facilitates iterative learning (i.e. scientific pro
 
 [^1_introduction-1]: Prediction is estimating the outcomes for unseen data. Forecasting is prediction into the future.
 
-. . .
+##  {.smaller background-color="#33431e"}
+
+### The importance of forecasting in ecology
 
 In ecology, we mostly test qualitative, imprecise hypotheses:
 
 -   *"Does X have an effect on Y?"*, rather than:
 -   *"What is the relationship between X and Y?"* or better yet - *"What value would we expect Y to be, given a particular value of X?"*
 
+::: {.fragment}
+
 Without testing precise hypotheses and using the results to make ***testable predictions*** we don't know if our findings are generalisable beyond our specific data set.
 
 -   If results are not generalisable, they're not improving our understanding of ecology.
+
+:::
 
 ##  {.smaller background-color="#33431e"}
 
@@ -138,11 +144,13 @@ Without testing precise hypotheses and using the results to make ***testable pre
 
 <br/>
 
-. . .
+:::{.fragment}
 
 -   The **"gold standard"** is an informatics pipeline that can ingest new data and **make new forecasts automatically** with minimal user input.
 -   This poses a number of major challenges and requires a big improvement in quantitative skills in biology (hence this course...).
 -   Fortunately, any steps towards the gold standard are likely to be useful, even if we never get there.
+
+:::
 
 ##  {.smaller background-color="#33431e"}
 
