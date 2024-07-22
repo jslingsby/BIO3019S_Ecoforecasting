@@ -1,5 +1,17 @@
 # Making forecasts {#forecasts}
 
+This section is also available as a slideshow below or [full screen](presentations/2_makingforecasts.html).
+
+<div>
+
+```{=html}
+<iframe width="600" height="400" marginheight="0" marginwidth="0" src="presentations/2_makingforecasts.html"></iframe>
+```
+
+</div>
+
+<br>
+
 You're probably wondering _"What are ecological forecasts?"_ or _"Where are we going with all this?"_ The focus of this section is to provide some context.
 
 Firstly, there's a long list of existing (or in development) ecological forecasting projects on the [Ecological Forecasting Initiative's website](https://ecoforecast.org/member-forecasting-profiles/) that you can peruse. These include diverse forecasts for (_inter alia_):
@@ -37,7 +49,7 @@ I'll start with a reminder that the goal here is to focus the forecasting effort
 knitr::include_graphics("img/cynaroideslive.jpg")
 ```
 
-## Proteaceae as a model organisms
+## Proteaceae as model organisms
 
 The Proteaceae are probably the **best studied and understood plant family in the Fynbos Biome**. They have been the focus of a number of large, focused research programmes and are used as indicator species for various conservation management applications. There has been **extensive locality and demographic data** have been collected by conservation authorities (CapeNature and SANParks), citizen scientists (Protea Atlas Project and iNaturalist) and researchers since the late 1970s and before, and this is reflected in the large (and growing) scientific literature on the family.
 
@@ -171,7 +183,7 @@ What we really need is **ongoing monitoring and updated forecasts** that respond
 
 @Merow2014 combined demographic modelling and species distribution modelling using a **"Demographic Distribution Model"** whereby they used spatial covariation between demographic rates and environmental conditions to infer **where the species can maintain positive population growth rates** under current and future climate and fire conditions.
 
-> **Interesting side note**: This analysis used _integral projection models_ (IPMs), which you can think of as the "next generation" of the Leslie matrix model that you will be familiar with. In IPMs the state variable is size (not age) and there are far more classes (i.e. rows and columns in the "matrix"). The (very oversimplified explanation of) the advantage of this is that you can build regression models for the vital rates as a function of plant size and environmental parameters and then relate those back to your transition matrix. This allows you to explore the effect of spatial covariates (climate, soil, fire, etc) on demographic rates, which would be very difficult to do if you only had a few size classes. This also allow you to make projections for different conditions, allowing you to explorethe effetcs of climate change, altered fire regimes, etc.
+> **Interesting side note**: This analysis used _integral projection models_ (IPMs), which you can think of as the "next generation" of the Leslie matrix model that you will encounter in Res Altwegg's lectures. In IPMs the state variable is size (not age) and there are far more classes (i.e. rows and columns in the "matrix"). The (very oversimplified explanation of) the advantage of this is that you can build regression models for the vital rates as a function of plant size and environmental parameters and then relate those back to your transition matrix. This allows you to explore the effect of spatial covariates (climate, soil, fire, etc) on demographic rates, which would be very difficult to do if you only had a few size classes. This also allow you to make projections for different conditions, allowing you to explore the effects of climate change, altered fire regimes, etc.
 
 <br>
 

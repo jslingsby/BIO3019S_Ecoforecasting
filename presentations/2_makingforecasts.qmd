@@ -1,0 +1,306 @@
+---
+title: ""
+author: ""
+format: 
+  revealjs:
+    theme: dark
+    slide-number: true
+    self-contained: true
+editor: visual
+bibliography: book.bib
+---
+
+# Making Forecasts {background-color="#33431e"}
+
+Jasper Slingsby
+
+##  {background-color="#33431e"}
+
+### What are ecological forecasts?
+
+<br/>
+
+"Where are we going with all this?"
+
+##  {background-color="#33431e"}
+
+### What are ecological forecasts?
+
+Examples from the [Ecological Forecasting Initiative](https://ecoforecast.org/member-forecasting-profiles/).
+
+```{=html}
+<iframe width="780" height="500" src="https://ecoforecast.org/member-forecasting-profiles/" title="Ecological Forecasting Initiative"></iframe>
+```
+
+##  {background-color="#33431e"}
+
+### What are ecological forecasts?
+
+Can focus on any of: 
+
+::: {style="font-size: 65%;"}
+
+- species population sizes
+- plant or ecosystem phenology
+- land cover change
+- tree/forest die-off
+- carbon stocks and sequestration rates
+- water quality
+- disease spread/risk
+- fishing quotas
+- risk of bycatch of species of concern
+- risk of shipping collisions with whales
+- risk of harmful algal blooms
+- etc
+
+:::
+
+##  {background-color="#33431e"}
+
+### Forecasting needs in the Fynbos Biome?
+
+```{r fynbos, echo=FALSE, fig.cap = "", fig.width=3, fig.align = 'center', out.width="80%"}
+knitr::include_graphics("img/CFR_Seasonality.gif")
+```
+
+##  {background-color="#33431e"}
+### Forecasting needs in the Fynbos Biome?
+
+![](img/slingsby2023_figure1.png)
+
+from [Slingsby et al. 2023](http://dx.doi.org/10.1111/2041-210x.14046)
+
+##  {background-color="#33431e"}
+### Proteaceae as model organisms
+
+```{r proteacynaroides, echo=FALSE, fig.cap = "", fig.width=3, out.width="80%", fig.align='center'}
+knitr::include_graphics("img/cynaroideslive.jpg")
+```
+
+##  {background-color="#33431e"}
+### Proteaceae as model organisms
+
+```{r protearesearch, echo=FALSE, fig.cap = "Temporal dynamics of publications on South African Proteaceae based on a Web of Science search on 13 June 2012. Figure from @Schurr2012.", fig.width=3, out.width="90%", fig.align = 'center'}
+knitr::include_graphics("img/protearesearch.png")
+```
+
+##  {background-color="#33431e"}
+### Proteaceae as model organisms
+
+<br/>
+
+Best studied plant family in the Fynbos Biome, with extensive locality and demographic data collected by: 
+
+- conservation authorities (CapeNature and SANParks), 
+- citizen scientists (Protea Atlas Project and iNaturalist) 
+- researchers since the late 1970s and before...
+
+##  {background-color="#33431e"}
+### Proteaceae as model organisms
+
+<br/>
+
+Used to inform conservation planning, management and monitoring, e.g:
+
+- protected area planning
+- wildfire management
+- wildflower harvesting
+- climate change vulnerability assessment and monitoring
+- ...I'm sure there are others I've forgotten
+
+
+##  {background-color="#33431e"}
+### Proteaceae life cycles and demography
+
+```{r proteaharvesting, echo=FALSE, fig.cap = "The fire-driven life-cycle of Fynbos Proteaceae species, including harvesting, taken from [@Treurnicht2021]. Population size/stability are determined by ***key demographic rates*** of adult **fecundity** (size of the canopy seed bank), post-fire seedling **recruitment** and adult fire **survival** (blue–grey boxes). These rates are affected in various ways by environmental conditions, life-history traits, density dependence, the timing, intensity and severity of fire, wildflower harvesting, etc. ", fig.width=3, fig.align = 'center', out.width="90%"}
+knitr::include_graphics("img/proteaharvesting.jpg")
+```
+
+
+##  {background-color="#33431e"}
+### Proteaceae as management indicators
+
+<br/>
+
+We use our knowledge of Proteaceae demography for management of Fynbos in two ways:
+
+1. _Species level_ - for setting guidelines for **sustainable wild harvesting** of their inflorescences
+2. _Ecosystem level_ - to help determine **acceptable fire return intervals**
+
+##  {background-color="#33431e"}
+### Proteaceae as management indicators
+
+Guidelines are currently set by "rule of thumb"^[https://en.wikipedia.org/wiki/Rule_of_thumb]:
+
+::: {style="font-size: 65%;"}
+
+> 1. **Wildflower harvesting:** _"[There should be no] harvesting until at least 50% of the population had commenced flowering, a harvest of up to 50% of current season flower heads after this stage, and no harvesting at least one year prior to a prescribed burn" [@vanWilgen2016]_
+
+> 2. **Fire return intervals:** _"No fire should be permitted in fynbos until at least 50% of the population of the slowest-maturing species in an area have flowered for at least three successive seasons (or at least 90% of the individuals of the slowest maturing species in the area have flowered and produced seed). Similarly, a fire is probably not necessary unless a third or more of the plants of these slow-maturing species are senescent (i.e. dying or no longer producing flowers and seed)." [@CapeNatureFire]_
+
+:::
+
+##  {background-color="#33431e"}
+### Proteaceae as management indicators
+
+**Problems with the rules of thumb?**
+
+```{r protearates, echo=FALSE, fig.cap = "Variation in demographic rates of 26 serotinous Proteaceae species of seeder and sprouter life-history types across their distribution range [@Treurnicht2016]. (a) Adult fire survival; (b) Individual fecundity (F); and (c) Per-capita recruitment rate (R).", fig.width=3, out.width="100%", fig.align='center'}
+knitr::include_graphics("img/protearates.jpg")
+```
+
+##  {background-color="#33431e"}
+### Problems with the rules of thumb?
+
+```{r protearates2, echo=FALSE, fig.width=3, out.width="100%", fig.align='center'}
+knitr::include_graphics("img/protearates.jpg")
+```
+
+::: {style="font-size: 65%;"}
+
+**Adult fire survival**: Species differ in their reliance on seed...
+
+- _sprouters_ have high adult persistence through fires and need fewer new recruits from seed
+- _seeder_ adults are killed by fire, so populations depend entirely on recruitment from seed
+
+:::
+
+##  {background-color="#33431e"}
+### Problems with the rules of thumb?
+
+```{r protearates3, echo=FALSE, fig.width=3, out.width="100%", fig.align='center'}
+knitr::include_graphics("img/protearates.jpg")
+```
+
+::: {style="font-size: 65%;"}
+
+**Individual fecundity:** Species vary in their fecundity 
+
+- total number of seeds per plant
+- = number of inflorescences produced multiplied by the number of seeds per inflorescence
+  
+:::
+
+##  {background-color="#33431e"}
+### Problems with the rules of thumb?
+
+```{r protearates4, echo=FALSE, fig.width=3, out.width="100%", fig.align='center'}
+knitr::include_graphics("img/protearates.jpg")
+```
+
+::: {style="font-size: 65%;"}
+
+**Per-capita recruitment:** species vary in seed viability and seed-specific recruitment success
+
+- viability depends on pathogens, seed predators, age
+- recruitment depends on seed properties, rainfall etc during establishment, dispersal, etc.
+
+:::
+
+##  {background-color="#33431e"}
+### Problems with the rules of thumb?
+
+```{r proteavariation, echo=FALSE, fig.cap = "Intraspecific variation in (a) fecundity and (b) recruitment in response to range-wide variation in fire return interval (time since fire), adult population density and soil moisture stress (% days with soil moisture stress) for *Protea punctata* [@Treurnicht2016].", fig.width=3, out.width="80%"}
+knitr::include_graphics("img/proteavariation.jpg")
+```
+
+
+##  {background-color="#33431e"}
+### Problems with the rules of thumb?
+
+<br/>
+
+- **intraspecific variation** in fecundity and recruitment along climatic, soil, fire regime, population density, pollinator availability and other gradients
+
+- **interspecific variation** in this intraspecific variation 
+  - i.e. species differ in their population-level responses to climatic, soil, pollinator availability and other gradients
+
+##  {background-color="#33431e"}
+### Proteaceae as management indicators?
+
+<br/>
+
+<br/>
+
+_What do we do if the rules aren't as simple as we hoped?_
+
+
+##  {background-color="#33431e"}
+### Demographic models and population viability
+
+```{r, echo=FALSE, fig.cap = "Sensitivity of Proteaceae species and populations to different wildflower harvesting scenarios can be assessed with demographic models (population viability analysis) [@Treurnicht2021].", fig.width=3, out.width="90%"}
+knitr::include_graphics("img/proteaharvesting.jpg")
+```
+
+
+##  {background-color="#33431e"}
+### Demographic models and population viability
+
+```{r, echo=FALSE, fig.cap = "**Intraspecific variation in sensitivity** to harvesting depicted as maps for four different species with pink dots highlighting where the change in population-level extinction probability (the difference between extinction probabilities under 0% and 50% harvesting) is greater than 0.1 [@Treurnicht2021]. The white and black areas depict species-specific occurrence records and the geographical distribution of all Proteaceae in the Cape Floristic Region, respectively.", fig.width=3, out.width="90%"}
+knitr::include_graphics("img/proteasensitivity.jpg")
+```
+
+
+##  {background-color="#33431e"}
+### Demographic models and population viability
+
+```{r proteasensitivity, echo=FALSE, fig.cap = "**Interspecific variation in sensitivity** to harvesting depicted as the proportion of populations per species that are highly vulnerable to harvesting [@Treurnicht2021].", fig.width=3, out.width="90%"}
+knitr::include_graphics("img/proteasensitivity2.jpg")
+```
+
+
+##  {background-color="#33431e"}
+### Demographic models and population viability
+
+<br/>
+
+The model revealed:
+
+- the current harvesting guidelines (based on rules of thumb) can greatly increase the probability of many populations going extinct!!! 
+- some surprises! e.g. even some resprouter species can be highly sensitive to flower harvesting!
+
+
+##  {background-color="#33431e" .smaller}
+### What about changes in climate or fire?
+
+Demographically driven predictions of species’ distributions
+
+```{r merow2014projections, echo=FALSE, fig.cap = "Projections of the change in population growth rates of _Protea repens_ under different scenarios. (a–b) Reducing (increasing) the observed fire return time by 4 yr. (c) Variation of mean population growth rate as a function of fire return time. The horizontal dashed line indicates where the growth rate is stable (= 1). (d) The difference between present day predictions and projections under future climate change scenario with temperature increased by 1 degree and precipitation reduced by 10%. Figure from @Merow2014.", fig.width=3, fig.align = 'center', out.width="90%"}
+knitr::include_graphics("img/merow2014projections.jpg")
+```
+
+
+##  {background-color="#c2c190" .smaller}
+### Near-term iterative ecological forecasts?
+
+We can forecast Proteaceae responses to harvesting, wildfire and changing climatic conditions, but these aren't set up as near-term iterative ecological forecasts...
+
+```{r ecoforecastingloop2, echo=FALSE, fig.cap = "The iterative ecological forecasting cycle in the context of the scientific method. From [lecture by Michael Dietze](https://www.dropbox.com/s/pqjozune75m7wl0/09_DataAssimilation.pptx?dl=0).", fig.width=3, fig.align = 'center', out.width="70%"}
+knitr::include_graphics("img/ecoforecastingloop.png")
+```
+
+##  {background-color="#33431e" .smaller}
+### Near-term iterative ecological forecasts?
+
+1) They are either not specific about when they are forecasting to 
+  - We need **near-term** forecasts, e.g. 5-10 years into the future or the next fire cycle
+
+2) We need to **coordinate data collection** and **centralize data management** so that it can feed data into the modelling workflow.
+
+3) The workflow must be able to **ingest and assimilate new data** and produce new **forecasts automatically**.
+
+4) The models must **characterize and propagate uncertainty** so we can
+  - indicate the uncertainty to the decision maker 
+  - focus data collection and model development to reduce the uncertainty in forecasts. 
+  
+##  {background-color="#33431e" .smaller}
+### Near-term iterative ecological forecasting
+
+<br/>
+
+<br/>
+
+> _"The need to start forecasting is now; the time for making ecology more predictive is here, and learning by doing is the fastest route to drive the science forward."_ - @Dietze2018
+
+
+## References {background-color="#33431e"}

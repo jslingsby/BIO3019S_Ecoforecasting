@@ -76,7 +76,7 @@ iterative-near-term-ecological-forecasting
 iterative-ecological-forecasting-in-context
 reproducible-research
 forecasts
-proteaceae-as-a-model-organisms
+proteaceae-as-model-organisms
 proteaceae-as-management-indicators
 potential-issues-with-the-rules-of-thumb
 assessing-population-viability
