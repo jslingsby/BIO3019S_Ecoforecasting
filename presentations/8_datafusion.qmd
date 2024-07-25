@@ -1,0 +1,471 @@
+---
+title: ""
+author: ""
+format: 
+  revealjs:
+    theme: dark
+    slide-number: true
+    self-contained: true
+html-math-method: mathjax
+bibliography: book.bib
+---
+
+# Data Fusion {background-color="#33431e"}
+
+Jasper Slingsby
+
+## A reminder of Bayes Theorem {background-color="#33431e"}
+
+<br/>
+
+Bayes' Rule: 
+
+$$
+\underbrace{p(\theta|D)}_\text{posterior} \; \propto \; \underbrace{p(D|\theta)}_\text{likelihood} \;\; \underbrace{p(\theta)}_\text{prior} \;
+$$
+
+>*The posterior is proportional to the likelihood times the prior.*
+
+
+## A reminder of Bayes Theorem {.smaller background-color="#33431e"}
+
+$$
+\underbrace{p(\theta|D)}_\text{posterior} \; \propto \; \underbrace{p(D|\theta)}_\text{likelihood} \;\; \underbrace{p(\theta)}_\text{prior} \;
+$$
+
+### The *posterior*
+
+The ***posterior*** is the conditional probability of the parameters given the data $p(\theta|D)$ and provides a probability distribution for the values any parameter can take, 
+
+This allows us to represent uncertainty in the model and forecasts as probabilities, which is powerful for indicating the probability of our forecast being correct.
+
+
+## A reminder of Bayes Theorem {.smaller background-color="#33431e"}
+
+$$
+\underbrace{p(\theta|D)}_\text{posterior} \; \propto \; \underbrace{p(D|\theta)}_\text{likelihood} \;\; \underbrace{p(\theta)}_\text{prior} \;
+$$
+
+### The *likelihood*
+
+The ***likelihood*** $p(D|\theta)$ represents the probability of the data $D$ given the model with parameter values $\theta$, and is used in analyses to find the likelihood profiles of the parameters.
+
+This term looks for the best estimate of the parameters using Maximum Likelihood Estimation, where the likelihood of the parameters are maximized for a given model by choosing the parameters that maximize the probability of the data.
+
+
+## A reminder of Bayes Theorem {.smaller background-color="#33431e"}
+
+$$
+\underbrace{p(\theta|D)}_\text{posterior} \; \propto \; \underbrace{p(D|\theta)}_\text{likelihood} \;\; \underbrace{p(\theta)}_\text{prior} \;
+$$
+
+### The *prior*
+
+The ***prior*** is the marginal probability of the parameters, $p(\theta)$.
+
+It represents the credibility of the parameter values, $\theta$, without the data, and is specified using our prior belief of what the parameters should be, before interrogating the data. 
+This provides a formal probabilistic framework for the scientific method, in that new evidence must be considered in the context of previous knowledge, providing the opportunity to update our beliefs.
+
+
+## Advantages of Bayesian approaches {.smaller background-color="#33431e"}
+
+::: incremental
+1.  They ***focus on estimating what properties are*** - i.e. the actual value of parameters, not just establishing that they are different to a null expectation as in *null hypothesis testing*
+2.  They are highly ***flexible***, allowing ***complex models with varied data sources***, especially Hierarchical Bayesian models. This is important for ***Data Fusion***!!!
+3.  They can ***treat all terms as probability distributions***, making it easier to quantify, propagate and partition uncertainties throughout the analysis. This allows you to ***present uncertainty*** in the forecast to the decision maker and ***analyze the sources of uncertainty***, guiding improvements
+4.  They provide an ***iterative*** probabilistic framework that allows us to learn from new evidence (data) in the context of existing (*prior*) knowledge. This akin to the scientific method and makes it easier to update predictions as new data become available, completing the forecasting cycle.
+:::
+
+## Data fusion {.smaller background-color="#33431e"}
+
+::: incremental
+- Data can enter (or be fused with) a model in a variety of ways. Here we’ll discuss these and then give an example of the Fynbos postfire recovery model used in the practical.
+
+- The ***opportunities for data fusion are linked to model structure***, so we’ll revisit how some aspects of model structure change as we move from Least Squares to Maximum Likelihood Estimation to "single-level" Bayes to Hierarchical Bayes and the data fusion opportunities provided by each.
+
+- Conceptually (and perhaps over-simplistically), one can think of the changes in model structure as being the addition of ***model layers***, each of which provide more opportunities for data fusion. 
+:::
+
+## Least Squares {.smaller background-color="#33431e"}
+
+**Least Squares** makes no distinction between the **process model** and the **data model**.
+
+::: incremental
+- the **process model** models the drivers determining the pattern observed (i.e. is the model equation you will be familiar with, such as a linear model)
+
+- a **data model** models the observation error or data observation process, i.e. the factors that may cause mismatch between the process model and the data
+
+- in least squares the data model can only ever be a **normal (also called Gaussian) distribution**, because we require homogeneity of variance in order to minimize the sums of squares
+
+- _the only opportunity to add data to a least squares model is via the process model_
+:::
+
+## Least Squares {.smaller background-color="#33431e"}
+
+```{r fynbos, echo=FALSE, fig.cap = "", fig.width=3, fig.align = 'center', out.width="80%"}
+knitr::include_graphics("img/CFR_Seasonality.gif")
+```
+
+Here I'll use the example used in the practical, exploring time-series of the Normalised Difference Vegetation Index (NDVI ~ vegetation "greenness" measured from the MODIS satellites) to look at vegetation recovery with time since fire in Fynbos.
+
+
+## Least Squares {.smaller background-color="#33431e"}
+
+Here I use Nonlinear Least Squares (NLS) to fit a negative exponential model:
+
+\begin{gather}
+  \text{NDVI}_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)
+\end{gather}
+
+
+```{r, echo = F, fig.align='center'}
+## Load required functions by running source() on the individual function files
+if(file.exists("../praccode/01_download.NDVI.R")) source("../praccode/01_download.NDVI.R")
+if(file.exists("../praccode/02_plot.NDVI.R"))     source("../praccode/02_plot.NDVI.R")
+if(file.exists("../praccode/03_negexp.R"))        source("../praccode/03_negexp.R")
+
+## Download NDVI data
+URL = "https://raw.githubusercontent.com/jslingsby/BIO3019S_Ecoforecasting/master/data/modisdata.csv"
+dat <- download.NDVI(URL)
+
+# Convert "calendar_date" to postfire age in days since fire - assuming the first date in the times series is the time of the fire 
+dat$age <- (as.numeric(dat$calendar_date) - min(as.numeric(dat$calendar_date), na.rm = T))/365.25
+
+## Simple model
+
+# set parameters
+par <- c(alpha = 0.2, gamma = 0.4, lambda = 0.5)
+
+# fit model
+fit_negexp <- nls(NDVI ~ alpha + gamma * (1 - exp(- age/lambda)),
+                  data = dat, start = par, trace = F, 
+                  control = nls.control(maxiter = 500))
+
+# plot
+plot.NDVI(dat = dat, fit = fit_negexp)
+```
+
+This ***process model*** is **the only opportunity for inputting data**, and we input time series for $NDVI$ and date (or postfire $age$, since our time series started at the time of a fire). Parameters $\alpha$, $\gamma$ and $\lambda$ are estimated by the model. 
+
+
+## Least Squares {.smaller background-color="#33431e"}
+
+The only way to add other data sources is to make the process model more complex. 
+
+- E.g to capture the seasonal fluctuations in NDVI we can add a sine term that requires us to specify the month ($m$) of the fire, like so:
+
+\begin{gather}
+  \text{NDVI}_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)+
+      A_i\text{sin}\Big(2\pi\times\text{age}_{i,t}+\Big[\phi+\frac{\pi}{6}(m_{i,t}-1)\Big]\Big)
+\end{gather}
+
+
+```{r, echo = F, fig.align='center'}
+## Full model
+
+# set parameters
+par <- c(alpha = 0.2, gamma = 0.4, lambda = 0.5, A = 0.6, phi = 0)
+
+# fit model
+fit_negexpS <- nls(NDVI ~ alpha + gamma * (1 - exp(- age/lambda))
+                   + A*sin(2*pi*age + (phi + pi/6*(3 - 1))), 
+                   data = dat, start = par, trace = F, 
+                   control = nls.control(maxiter = 500))
+
+# plot
+plot.NDVI(dat = dat, fit = fit_negexpS)
+```
+
+
+## Maximum Likelihood {.smaller background-color="#33431e"}
+
+Maximum Likelihood makes a distinction between the ***data model*** and the ***process model***, like so:
+
+<br>
+
+```{r mlelayers, echo=F, out.width='40%', fig.align='center', fig.cap=''}
+knitr::include_graphics("img/MLElayers.png")
+```
+
+
+## Maximum Likelihood {.smaller background-color="#33431e"}
+
+<br/>
+
+I don't make the distinction in the equations presented in the practical, but do in the functions, where we included the **data model**, where we specified a Gaussian (normal) distribution around the mean, $\mu$ (which is described by the process model):
+
+\begin{gather}
+NDVI_{i,t}\sim\mathcal{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}}) \\
+\end{gather}
+
+Where $\mathcal{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}})$ is just a normal distribution with mean $\mu$ and variance $\frac{1}{\sqrt{\tau}}$.
+
+## Maximum Likelihood {.smaller background-color="#33431e"}
+
+<br/>
+
+We then have a separate function for the **process model**, which describes $\mu$ as a function of the covariate (vegetation $age$), with parameters $\alpha$, $\gamma$ and $\lambda$:
+
+\begin{gather}  
+\mu_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)\\
+\end{gather}
+
+
+<br/>
+
+::: {.fragment}
+Splitting the data and process models means we are now feeding our dependent variable (NDVI) to the data model and our independent variable (time or postfire age) to the process model. The two models are linked via $\mu$, the mean of the process model. $\mu$ does not account for the residual error, because this is described by the data model.
+:::
+
+
+## Maximum Likelihood {.smaller background-color="#33431e"}
+
+The beauty of a separate data model is that **you have flexibility to specify probability distributions that suit the data observation process** (i.e. not just the normal distribution), e.g. Binomial coin flips, Poisson counts of individuals, Exponential waiting times, etc. 
+
+<br/>
+
+**You can even specify custom data models with their own covariates**, which is useful if you have information on things like instrument drift and calibration, etc - i.e. ***another opportunity for data fusion***.
+
+<br/>
+
+:::{.fragment}
+
+> **Side note:** by specifying a normal distribution with no additional data input means our MLE analysis is identical to the NLS analysis. In fact, ***MLE with a normal likelihood is exactly the same as Least Squares***. Where MLE (and Bayes) get useful is when you start doing interesting things with the data model.
+
+:::
+
+## Single-level Bayes {.smaller background-color="#33431e"}
+
+When we use Bayesian models we now have the ***priors***, which are essentially models describing our prior expectation for each of the parameters in the process model, like so: 
+
+<br/>
+
+```{r bayeslayers, echo=F, out.width='40%', fig.align='center', fig.cap='Bayesian models include parameter models that describe our prior expectation for the parameters in the process.'}
+knitr::include_graphics("img/bayeslayers.png")
+```
+
+
+## Single-level Bayes {.smaller background-color="#33431e"}
+
+When implementing Bayesian models, we specify the priors as ***parameter models***, e.g.:
+
+\begin{gather}
+\alpha_i\sim\mathcal{N}(\mu_{\alpha},\frac{1}{\sqrt{\tau_{\alpha}}})\\
+\gamma_i\sim\mathcal{N}(\mu_{\gamma},\frac{1}{\sqrt{\tau_{\gamma}}})\\
+\lambda_i\sim\mathcal{N}(\mu_{\lambda},\frac{1}{\sqrt{\tau_{\lambda}}})\\
+\end{gather}
+
+Where (in this case) we're saying we believe the three parameters from our simpler postfire recovery model are all sampled from normal distributions with independent[^1] means and variances.
+
+[^1]: The independent means and variances are denoted by the different subscripts
+
+
+## Single-level Bayes {.smaller background-color="#33431e"}
+
+<br/>
+
+Note that ***you need priors (i.e. parameter models) for all parameters***. They don't all have to be independent though, which can be useful, for example if you have multiple separate sets drawn from the same population, etc.
+
+<br/>
+
+::: {.fragment}
+While you can't specify new data in the priors in single-level Bayes (because that is then a Hierarchical model, coming next) it does still provide new opportunities for data fusion, because ***the conditional nature of Bayes Theorem allows you to chain multiple likelihoods (with multiple data models) together***. 
+:::
+
+
+## Single-level Bayes {.smaller background-color="#33431e"}
+
+<br/>
+
+When combining Multiple Likelihoods, there need to be links between all terms - e.g. two datasets ($D_1$ and $D_2$) that share the same parameters ($\theta$):
+
+$$
+\underbrace{p(D_1|\theta)}_\text{likelihood 1} \;\;
+\underbrace{p(D_2|\theta)}_\text{likelihood 2} \;\;\underbrace{p(\theta)}_\text{prior} \;
+$$
+
+or one dataset ($D_1$) conditional on another ($D_2$), that is conditional on parameters ($\theta$):
+
+$$
+\underbrace{p(D_1|D_2)}_\text{likelihood 1} \;\;
+\underbrace{p(D_2|\theta)}_\text{likelihood 2} \;\;\underbrace{p(\theta)}_\text{prior} \;
+$$
+etc.
+
+
+## Hierarchical Bayes {.smaller background-color="#33431e"}
+
+Hierarchical Bayes is a form of multilevel modelling that provides **incredible flexibility** for model specification through ***specifying the priors as models with inputs and specifying relationships among the priors*** or ***from one prior to multiple layers in the model***. 
+
+- i.e. **Hierarchical Bayesian models allow you to fuse data through the parameter model**, but when you start treating your priors as parameters, you have to specify priors on your priors (**hyperpriors**) to your parameter model.
+
+```{r hbayeslayers, echo=F, out.width='40%', fig.align='center', fig.cap='Hierarchical Bayesian models allow considerable flexibility through the inclusion of hyperparameters that can drive the priors.'}
+knitr::include_graphics("img/hbayeslayers.png")
+```
+
+
+## Hierarchical Bayes {.smaller background-color="#33431e"}
+
+<br/>
+
+I won't explore all the options (because they're almost endless). In the example below, we used **environmental covariates** (soil, climate, topography, etc.) to explain the variation in the priors and constrain the parameters of the postfire recovery curve.
+
+<br/>
+
+Until now we have only been considering the postfire recovery curve for a single location, but one can fit every MODIS satellite pixel in the Fynbos Biome in one model, like @Wilson2015 did, (including the seasonality term in the process model).
+
+
+## Hierarchical Bayes {.smaller background-color="#33431e"}
+
+::: columns
+
+::: {.column width="45%"}
+
+Here the priors are specified with a parameter model that defines the parameters as a function of a set of environmental covariates (topography, climate, soils, etc), allowing the introduction of even more data!
+
+<br/>
+
+The model **simultaneously estimates** the posterior distributions of **the parameters** (by maximizing their likelihood given the observed NDVI data) while also estimating their relationship with a set of **environmental covariates**.
+
+::: 
+
+::: {.column width="50%"}
+
+```{r hbpostfire, echo=F, out.width='100%', fig.align='center', fig.cap='Schematic of the Hierarchical Bayesian postfire recovery model developed by @Wilson2015.'}
+knitr::include_graphics("img/hbpostfire.png")
+```
+
+::: 
+:::
+
+## Hierarchical Bayes {.smaller background-color="#33431e"}
+
+::: columns
+
+::: {.column width="60%"}
+
+We fused  data sources at different levels:
+
+:::{.incremental}
+
+- **Data model** - $NDVI$ time-series for each pixel
+  - note we could fuse more data here as covariates or additional likelihood functions if additional complexity was needed
+- **Process model** - the fire history for each pixel (vegetation $age$ since fire) and the month ($m$) when each fire occurred
+- **Parameter model** (the priors) - static layers of each environmental covariate (i.e. raster grids of the entire CFR)
+- **Hyperparameters** (the priors on the priors) - we specified the distributions of the **"hyperpriors"**
+
+:::
+:::
+
+::: {.column width="40%"}
+
+```{r hbayeslayers2, echo=F, out.width='100%', fig.align='center', fig.cap=''}
+knitr::include_graphics("img/hbayeslayers.png")
+```
+
+:::
+:::
+
+## Hierarchical Bayes {.smaller background-color="#33431e"}
+
+**Advantages** of including the regression of the parameters on environmental covariates in this model include:
+
+:::{.incremental}
+- It allows us to **explore the dependence** of recovery trajectories on environmental covariates
+- This allows us to **predict the expected postfire recovery trajectory** for any site with known environmental covariates
+- It also allows us to **project the expected parameters** (and recovery trajectories) under altered environments (e.g. future climate - as @Wilson2015 did)
+- It puts an additional constraint on the parameter estimates for each pixel (i.e. "borrowing strength" across the analysis), **down-weighting the effects of anomalous or noisy NDVI data**
+- The structure of the model allows you to easily **estimate any missing data** (i.e. *inverse modelling*) all within one model run
+:::
+
+
+## {.smaller background-color="#c2c190"}
+
+### Data fusion, model complexity and uncertainty
+
+Increasing model complexity provides opportunities for fusing new data into your model, ***but be aware that this comes with trade-offs.***
+
+::: {.incremental}
+- Firstly, all data are uncertain (even if they don't include uncertainty estimates), so **adding new data to your model includes adding new sources of uncertainty**. 
+  - e.g. a failing of the postfire recovery model is we don't include uncertainty in the environmental covariates. This falsely reduces uncertainty, creating overconfidence in our parameter estimates...
+
+- Secondly, more terms and interactions create opportunity for **feedbacks and trade-offs in the model's mechanics**, especially non-identifiability (where multiple parameters can influence the outcome, but there's not enough information in the model for it to partition their influence). This can bias or produce unrealistic estimates...
+  - e.g. in our model, there can be a trade-off between $\alpha$ and $\gamma$, because together they sum to the maximum NDVI
+
+- Lastly, this is all over and above the usual [dangers of model overfitting](https://en.wikipedia.org/wiki/Overfitting).
+:::
+
+
+## {.smaller background-color="#33431e"}
+
+### Utility of the postfire model 
+
+The model ***does not make explicit near-term forecasts***, but gives estimates of the **expected NDVI signal** for any location with known age since fire and time of year.
+
+We're using this to develop a near-real time satellite change detection system for Fynbos.
+
+<br/>
+
+```{r emma, echo=F, out.width='90%', fig.align='center', fig.cap='The Ecosystem Monitoring for Management Application (EMMA). See [www.emma.eco](www.emma.eco) for more.'}
+knitr::include_graphics("img/emma_logo.jpg")
+```
+
+
+## {.smaller background-color="#33431e"}
+
+### EMMA workflow 
+
+::: columns
+::: {.column width="50%"}
+
+1. Fit **model** to get parameter estimates that describe trajectories for all pixels 
+2. **Evaluate** deviation of observed NDVI from model predictions to identify anomalies. 
+3. **Diagnose** the change drivers by: 
+    - interpreting deviations from the model (manual or AI) 
+    - using high resolution imagery
+    - field visits
+4. Iteratively **update** (manually at this stage) to improve the models predictive accuracy.
+
+:::
+
+::: {.column width="50%"}
+```{r emma2, echo=F, out.width='100%', fig.align='center', fig.cap='Overview of the EMMA workflow for near-real time satellite change detection in Fynbos. See [www.emma.eco](www.emma.eco) for more.'}
+knitr::include_graphics("img/emma_nasa.png")
+```
+:::
+:::
+
+## EMMA {.smaller background-color="#33431e"}
+
+Managers can get an overview of change in the landscape every time new MODIS data are collected (daily, or 16-day averages).
+
+```{r emmaexceedmap, echo=F, out.width='90%', fig.align='center', fig.cap='Overview map highlighting some of the major changes detected by @Slingsby2020.'}
+knitr::include_graphics("img/emmaexceedmap.png")
+```
+
+
+## {.smaller background-color="#33431e"}
+
+::: columns
+::: {.column width="60%"}
+
+Examples of changes detected by @Slingsby2020. 
+
+Model predictions (dark and light grey $=$ 50% and 95% Confidence Intervals) and observed MODIS NDVI (blue line) detected anomalies:
+
+- fire at Karbonkelberg (a-c), 
+- clearing of alien vegetation at Miller's Point (d-f), 
+- clearing of indigenous vegetation near Silvermine (g-i, labeled 1), 
+- high drought mortality of *Leucadendron coniferum* near Silvermine (h-k, labelled 2), 
+- alien *Acacia saligna* at Silvermine after fire (l, m), 
+- retarded postfire vegetation growth and high mortality of the large fire-resistant shrubs due to drought in Cape of Good Hope (n, o). 
+:::
+
+::: {.column width="40%"}
+```{r emmachange, echo=F, out.width='85%', fig.align='center', fig.cap="Satellite imagery &copy; 2017 Planet Labs Inc."}
+knitr::include_graphics("img/emmachange.jpg")
+```
+:::
+:::
+
+## References {.smaller background-color="#33431e"}

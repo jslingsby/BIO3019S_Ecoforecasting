@@ -1,6 +1,6 @@
 # Making forecasts {#forecasts}
 
-This section is also available as a slideshow below or [full screen](presentations/2_makingforecasts.html).
+This section is also available as a slideshow below or [full screen](presentations/2_makingforecasts.html){target="_blank"}.
 
 <div>
 

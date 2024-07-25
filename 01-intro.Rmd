@@ -1,6 +1,6 @@
 # Models and decision making {#models}
 
-This section is also available as a slideshow below or [full screen](presentations/1_Introduction.html).
+This section is also available as a slideshow below or [full screen](presentations/1_Introduction.html){target="_blank"}.
 
 <div>
 

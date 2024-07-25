@@ -1,6 +1,6 @@
 # Going Bayesian {#bayesian}
 
-This section is also available as a slideshow. Right click or hold `Ctrl` or `Command` and [click this link](presentations/7_bayesian.html) to view in full screen.
+This section is also available as a slideshow. Right click or hold `Ctrl` or `Command` and [click this link](presentations/7_bayesian.html){target="_blank"} to view in full screen.
 
 <div>
 

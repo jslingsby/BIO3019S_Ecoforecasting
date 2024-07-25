@@ -1,5 +1,17 @@
 # Data Fusion {#datafusion}
 
+This section is also available as a slideshow below or [full screen](presentations/8_datafusion.html){target="_blank"}.
+
+<div>
+
+```{=html}
+<iframe width="600" height="400" marginheight="0" marginwidth="0" src="presentations/8_datafusion.html"></iframe>
+```
+
+</div>
+
+<br>
+
 This lecture builds on section \@ref(bayesian), "Going Bayesian", focusing on how the opportunities for imputing (or "fusing") data with models increase as one moves from the method of Least Squares to Hierarchical Bayesian models.
 
 First a little revision of our last lecture...

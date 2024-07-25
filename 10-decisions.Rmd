@@ -1,6 +1,6 @@
 # Completing the forecast cycle {#decisions}
 
-Here we'll complete the forecast cycle (through data assimilation)     and spend a little time discussing decision support.
+Here we'll complete the forecast cycle (through data assimilation) and spend a little time discussing decision support.
 
 ## Data assimilation
 
