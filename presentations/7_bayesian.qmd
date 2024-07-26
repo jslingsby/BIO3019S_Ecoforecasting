@@ -42,9 +42,9 @@ Jasper Slingsby
 ## Advantages of Bayesian approaches {.smaller background-color="#33431e"}
 
 ::: incremental
-1.  They ***focus on estimating what properties are*** - i.e. the actual value of parameters, not just establishing that they are different to a null expectation as in *null hypothesis testing*
+1.  They ***focus on estimating what properties are*** - i.e. the actual value of parameters, not just establishing that they are different to a null expectation as in *null hypothesis testing*.
 2.  They are highly ***flexible***, allowing ***complex models with varied data sources***, especially Hierarchical Bayesian models. This also allows the development of models that incorporate mechanistic components.
-3.  They can ***treat all terms as probability distributions***, making it easier to quantify, propagate and partition uncertainties throughout the analysis. This allows you to ***present uncertainty*** in the forecast to the decision maker and ***analyze the sources of uncertainty***, guiding improvements
+3.  They can ***treat all terms as probability distributions***, making it easier to quantify, propagate and partition uncertainties throughout the analysis. This allows you to ***present uncertainty*** in the forecast to the decision maker and ***analyze the sources of uncertainty***, guiding improvements. More on this in the _Uncertainty_ lecture.
 4.  They provide an ***iterative*** probabilistic framework that allows us to learn from new evidence (data) in the context of existing (*prior*) knowledge. This makes it easier to update predictions as new data become available, completing the forecasting cycle.
 :::
 
@@ -58,7 +58,7 @@ Jasper Slingsby
 
 2.  The concept of likelihood and the method of ***maximum likelihood estimation***
     -   this is a major component of Bayes' Theorem
-    -   its a frequentist method, but has the advantages 1 & most of 2 above
+    -   its a frequentist method, but has the advantages 1 & most of 2 on previous slide
         -   in fact, there are frequentist approaches for doing much of the advantages listed on the previous slide, but they are typically cumbersome. Bayes you can do it all without much extra work.
 
 ## Least Squares {background-color="#33431e"}
@@ -67,7 +67,7 @@ Traditional parametric statistics like regression analysis and analysis of varia
 
 <br>
 
-There are other flavours of least squares that allow more flexibility (e.g. nonlinear (NLS) that we used in the practical, partial least squares, etc), but I'm not going to go into these distinctions.
+There are other flavours of least squares that allow more flexibility (e.g. nonlinear (NLS) that we use in the practical, partial least squares, etc), but I'm not going to go into these distinctions.
 
 ## Least Squares {.smaller background-color="#33431e"}
 
@@ -277,9 +277,13 @@ The interactions between two random variables are illustrated below...
 ::: {.column width="50%"}
 -   The ***joint probability***, $P(x,y)$, is the probability of both $x$ and $y$ occurring simultaneously
 
+::: {.incremental}
+
 -   This is the probability of occurring within the overlap of the circles = 3/10
 
 -   Needless to say **the joint probability of** $P(y,x)$ is identical to $P(x,y)$ (= 3/10)
+
+:::
 :::
 :::
 
@@ -301,8 +305,10 @@ We can also define two ***conditional probabilities***:
 
 In the diagram these would be:
 
+::: {.incremental}
 -   the probability of being in set $x$ given we are only considering points in set $y$ (= 3/6)
 -   the probability of being in set $y$ given we are only considering points in set $x$ (= 3/7)
+:::
 :::
 :::
 
@@ -338,7 +344,7 @@ and:
 
 $$P(y,x) = P(y|x) P(x) = 3/7 * 7/10 = 0.3$$
 
-. . .
+::: {.fragment}
 
 ***Tadaa!***
 
@@ -346,11 +352,13 @@ This means we can derive what we want to know, $P(Parameters|Data)$, as a functi
 
 ...Let's do the derivation...
 
+:::
+
 ## Bayes' Theorem {.smaller background-color="#33431e"}
 
 ::: columns
 ::: {.column width="35%"}
-Now let:
+Now let (instead of $x$ and $y$):
 
 -   parameters = $\theta$
 -   the data = $D$
@@ -408,7 +416,7 @@ $$
 The marginal probability of the data, $p(D)$, is now called the ***evidence*** for the model, and represents the overall probability of the data according to the model.
 
 -   having $p(D)$ in the denominator means it normalizes the numerators to ensure that the updated probabilities sum to 1 over all possible parameter values - i.e. it ensures that the posterior, $p(\theta|D)$, is expressed as a probability distribution
--   $p(D)$ can otherwise mostly be ignored and is often left out, resulting in...
+-   $p(D)$ can otherwise mostly be ignored and is often left out, resulting in ***Bayes' Rule***
 :::
 
 ## Bayes' Rule {.smaller background-color="#33431e"}
@@ -439,7 +447,7 @@ $$\
 
 ### The *posterior*
 
--   What we have been calling the conditional probability of the parameters given the data, $p(\theta|D)$, is now called the ***posterior***
+-   What we have been calling the conditional probability of the parameters given the data, $p(\theta|D)$, is called the ***posterior***
 -   It gives us a probability distribution for the values any parameter can take, ***allowing us to represent uncertainty in the model and forecasts as probabilities***, which is the holy grail we were after!!!
     -   i.e. the posterior(s) is/are the parameter(s) of interest that we forecast, and we can now indicate the probability of our forecast being correct
 
@@ -496,12 +504,18 @@ By applying ***the scientific method***, whereby we interrogate new evidence (th
 
 > It is very easy to specify an inappropriate prior and bias the outcome of your analysis!
 
-. . .
+::: {.incremental}
 
 -   First and foremost, as tempting as it may be, ***the one place the prior CANNOT come from is the data used in the analysis!!!***
 -   Second, while many people favour specifying "uninformative" priors, it is often incredibly difficult to know what "uninformative" is for different models or parameters.
     -   [Here's a great Guardian article](https://www.theguardian.com/world/2021/apr/18/obscure-maths-bayes-theorem-reliability-covid-lateral-flow-tests-probability) on why considering priors are important for Covid testing and criminal cases. It should help you get your head around this.
 
+::: {.fragment}
+
 We'll get stuck into examples showing the value of Bayes in ecology in the next lecture.
+
+:::
+
+:::
 
 ## References {.smaller background-color="#33431e"}
