@@ -137,8 +137,8 @@ We begin with each of you creating a repository for which you are the "Owner" an
 
 1.  Go to your account on [github.com](https://github.com/) and under the Repositories tab click on the "New" button (green with a picture of a book on it)
 2.  Choose a name for your repository, but **make sure it's different from your partner's** (Don't choose a "Repository template", and keep it a "Public" repository)
-3.  Click the "Initialize this repository with a README" checkbox
-4.  Optionally also provide a Description, Add a licence (e.g. MIT), and add R to the .gitignore (check ".gitignore" and search for the *R* template)
+3.  DO NOT click the "Initialize this repository with a README" checkbox. We're going to add a README later
+4.  Optionally, add a licence (e.g. MIT), and add R to the .gitignore (check ".gitignore" and search for the *R* template)
 5.  Click "Create Repository"
 6.  Copy the URL of your new repository
 7.  To clone the repository to your computer, open RStudio so we can create a New Project using this URL. **Note:** If you already have a project open it will close when you do so. Don't worry, you can return to that project after the prac using the drop-down in the top-right of the RStudio window.
@@ -151,7 +151,7 @@ We begin with each of you creating a repository for which you are the "Owner" an
 
 ## Task 2: Add the first function: download.NDVI
 
-Within this project we'll create separate files for each function in the analysis and then call them from a master script (or makefile) at the end. To make the order of the workflow clear, we'll want to name the files systematically. In the first file we'll implement the download.NDVI() function.
+Within this project we'll create separate files for each function in the analysis and then call them from a master script (or makefile) at the end. To make the order of the workflow clear, we'll want to name the files systematically. We'll also want to keep the functions in a folder called "functions" to keep things neat. In the first file we'll implement the download.NDVI() function.
 
 > NOTE: You'll see that I've provided the R code for how I actually accessed the data using library("MODISTools"), but have left that commented out. The function can take quite a long time so I thought best that we just read the output of that call from a file I've saved to the GitHub repository.
 
@@ -200,16 +200,17 @@ download.NDVI <- function(URL) {
 
 ### OWNER
 
-1.  In RStudio, click `File` \> `New File` \> `R Script`
-2.  Copy and Paste the above function into this file 
+1.  In RStudio, in the "Files" tab (usually in the bottom-right window), click "Create a new folder" and name it "functions"
+2.  In RStudio, click `File` \> `New File` \> `R Script`
+3.  Copy and Paste the above function into this file 
     - Note: There's a copy button in the top right corner of the grey code block
 
-3.  Save the file as "01_download.NDVI.R" in the default directory for the R project
-    - Note: Using the exact file name is important, because we'll be calling it from other code later
+4.  Save the file as "01_download.NDVI.R" in the "functions" folder in the directory for the R project
+    - Note: Using the exact file and folder names is important, because we'll be calling it from other code later
 
-4.  From the "Git" tab (top-right window in RStudio), click the box next to the file you just created. This is equivalent to *git add* if you were doing this command line in bash or terminal
-5.  Click `Commit`, enter a log message, and click `Commit` again. This is equivalent to *git commit* in command line
-6.  To "push" the change up to the online Git repo on Github click on the green up arrow. This is equivalent to *git push*.
+5.  From the "Git" tab (top-right window in RStudio), click the box next to the file you just created. This is equivalent to *git add* if you were doing this command line in bash or terminal
+6.  Click `Commit`, enter a log message, and click `Commit` again. This is equivalent to *git commit* in command line
+7.  To "push" the change up to the online Git repo on Github click on the green up arrow. This is equivalent to *git push*.
     - Note: It is generally good practice to always *git pull* by clicking the blue down arrow before pushing, so that you sync any changes any collaborators may have made since you last pulled or pushed. In this case we know this is the first thing added to the repo and no one else has access anyway.
 
 <br>
@@ -223,7 +224,7 @@ With the first function complete, let's now imagine that a **COLLABORATOR** has 
 1.  Go to Github and navigate to the project repository within the OWNER's workspace.
 2.  Click `Fork`, which will make a copy of the repository to your own Github workspace.
 3.  Copy the URL to your own version of the repo and follow the instructions above for cloning _**your copy of the repository**_ to your local machine in RStudio.
-4.  Open a new file, enter the code below, and then save the file as "02_plot.NDVI.R"
+4.  Open a new file, enter the code below, and then save the file as "02_plot.NDVI.R" in the "functions" folder in the directory for the R project
 
 ```{r}
 ##' Plot NDVI data
@@ -273,7 +274,7 @@ We are now past the 'set up' stage for both the OWNER and the COLLABORATOR, so f
 ### OWNER
 
 1.  Pull the latest code from Github (which includes the new function added by your collaborator). In RStudio this is done by clicking the light blue down arrow on the Git tab. This is equivalent to running the line *git pull origin master* in terminal/bash where origin refers to where you did your original clone from and master refers to your main branch (if you use branches you can pull other branches). Once you've pulled the latest code you should see the latest function file added to the files you can see in the `Files` tab of the bottom-right window of RStudio.
-2.  Next, open up a new R file, add the code below for fitting the models with MLE, and save as "03_negexp.R"
+2.  Next, open up a new R file, add the code below for fitting the models with MLE, and save as "03_negexp.R" in the "functions" folder in the directory for the R project
 
 ```{r}
 ##' Functions to fit negative exponential model using MLE
@@ -413,11 +414,12 @@ which is a one-time task, after which you can do the pull as
 
 Ok, now that we're up to date we can carry on:
 
-3.  Navigate to <https://github.com/jslingsby/BIO3019S_Ecoforecasting/blob/master/_04_Master.Rmd>, copy the raw contents
-4.  Open a new Rmd file in RStudio and paste the contents.
-5.  Save this file as "04_Master.Rmd".
-6.  Within RStudio's Git tab, add the file and Commit. Use the Push (up arrow) button to push this to your own repository
-7.  On Github.com, submit a pull request as before
+3.  Navigate to <https://github.com/jslingsby/BIO3019S_Ecoforecasting/blob/master/16-pracoutput.Rmd>, copy the raw contents
+4.  Create a new Rmarkdown file in RStudio, add your name, and paste the contents copied from the document at the link above.
+5.  In the header at the top of this document, find the line that says `output: html_document` and change this to `output: rmarkdown::github_document`
+6.  Save this file as "README.Rmd" in the root directory for the R project (i.e. NOT in the "functions" folder).
+7.  Within RStudio's Git tab, add the file and Commit. Use the Push (up arrow) button to push this to your own repository
+8.  On Github.com, submit a pull request as before
 
 ### OWNER
 
@@ -425,11 +427,11 @@ Ok, now that we're up to date we can carry on:
 
 2.  Pull the updated repo to your local machine
 
-3.  Open "04_Master.Rmd" and answer the questions wherever you see the numbered questions "Q" and "\>Answer:"
+3.  Open "README.Rmd" (Do NOT answer the questions in this file) 
 
-4.  Click `Knit` (top-centre of script window in RStudio) to generate an html document (it should pop up). Note that if you change an answer in the .Rmd file you will need to `Knit` it again for it to be reflected in the .html
+4.  Click `Knit` (top-centre of script window in RStudio) to generate an md or html document (it should pop up).
   - If the file won't knit properly, it suggests you've done something wrong in the workflow... You need to fix this.
 
-5.  Once complete, commit "04_Master.Rmd" and "04_Master.html" and push them back to the repo. Again, if you need to change any answers in the .Rmd you need to do the whole `Knit` \> `Commit` \> `Push`. I will only mark the latest version pushed before the assignment deadline.
+5.  Once complete, commit "README.Rmd" and "README.md" and push them back to the repo. 
 
-6. Finally, upload the same "04_Master.html" to Vula so that your assignment is marked as complete and I can add a grade there.
+6.  Finally, answer the questions in a separate document and indicate your name, your partner's name, the links to both your repository and your partner's (making clear which is which), and upload the document under the assignment I created on Amathuba.

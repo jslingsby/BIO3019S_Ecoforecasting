@@ -449,8 +449,8 @@ fit.negexpS.MLE &lt;- function(dat, par)</code></pre>
 <ol style="list-style-type: decimal">
 <li>Go to your account on <a href="https://github.com/">github.com</a> and under the Repositories tab click on the “New” button (green with a picture of a book on it)</li>
 <li>Choose a name for your repository, but <strong>make sure it’s different from your partner’s</strong> (Don’t choose a “Repository template”, and keep it a “Public” repository)</li>
-<li>Click the “Initialize this repository with a README” checkbox</li>
-<li>Optionally also provide a Description, Add a licence (e.g. MIT), and add R to the .gitignore (check “.gitignore” and search for the <em>R</em> template)</li>
+<li>DO NOT click the “Initialize this repository with a README” checkbox. We’re going to add a README later</li>
+<li>Optionally, add a licence (e.g. MIT), and add R to the .gitignore (check “.gitignore” and search for the <em>R</em> template)</li>
 <li>Click “Create Repository”</li>
 <li>Copy the URL of your new repository</li>
 <li>To clone the repository to your computer, open RStudio so we can create a New Project using this URL. <strong>Note:</strong> If you already have a project open it will close when you do so. Don’t worry, you can return to that project after the prac using the drop-down in the top-right of the RStudio window.</li>
@@ -465,61 +465,62 @@ fit.negexpS.MLE &lt;- function(dat, par)</code></pre>
 </div>
 <div id="task-2-add-the-first-function-download.ndvi" class="section level2 hasAnchor" number="12.6">
 <h2><span class="header-section-number">12.6</span> Task 2: Add the first function: download.NDVI<a href="practical.html#task-2-add-the-first-function-download.ndvi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Within this project we’ll create separate files for each function in the analysis and then call them from a master script (or makefile) at the end. To make the order of the workflow clear, we’ll want to name the files systematically. In the first file we’ll implement the download.NDVI() function.</p>
+<p>Within this project we’ll create separate files for each function in the analysis and then call them from a master script (or makefile) at the end. To make the order of the workflow clear, we’ll want to name the files systematically. We’ll also want to keep the functions in a folder called “functions” to keep things neat. In the first file we’ll implement the download.NDVI() function.</p>
 <blockquote>
 <p>NOTE: You’ll see that I’ve provided the R code for how I actually accessed the data using library(“MODISTools”), but have left that commented out. The function can take quite a long time so I thought best that we just read the output of that call from a file I’ve saved to the GitHub repository.</p>
 </blockquote>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="practical.html#cb9-1" tabindex="-1"></a><span class="do">##&#39; Download MODIS NDVI data</span></span>
-<span id="cb9-2"><a href="practical.html#cb9-2" tabindex="-1"></a><span class="do">##&#39; @param URL  web address where data is located</span></span>
-<span id="cb9-3"><a href="practical.html#cb9-3" tabindex="-1"></a><span class="do">##&#39;</span></span>
-<span id="cb9-4"><a href="practical.html#cb9-4" tabindex="-1"></a><span class="do">## 1) How I really did it. For the prac we&#39;ll use option 2 because it&#39;s faster</span></span>
-<span id="cb9-5"><a href="practical.html#cb9-5" tabindex="-1"></a><span class="do">## library(&quot;MODISTools&quot;) #Call R library MODISTools that allows us to download MODIS satellite data directly into R</span></span>
-<span id="cb9-6"><a href="practical.html#cb9-6" tabindex="-1"></a><span class="do">##</span></span>
-<span id="cb9-7"><a href="practical.html#cb9-7" tabindex="-1"></a><span class="do">## ndvi &lt;- mt_subset(product = &quot;MOD13Q1&quot;,</span></span>
-<span id="cb9-8"><a href="practical.html#cb9-8" tabindex="-1"></a><span class="do">##                         lat = -34.100875,</span></span>
-<span id="cb9-9"><a href="practical.html#cb9-9" tabindex="-1"></a><span class="do">##                         lon = 18.449375,</span></span>
-<span id="cb9-10"><a href="practical.html#cb9-10" tabindex="-1"></a><span class="do">##                         band = &quot;250m_16_days_NDVI&quot;,</span></span>
-<span id="cb9-11"><a href="practical.html#cb9-11" tabindex="-1"></a><span class="do">##                         start = &quot;2000-01-01&quot;,</span></span>
-<span id="cb9-12"><a href="practical.html#cb9-12" tabindex="-1"></a><span class="do">##                         end = &quot;2021-10-01&quot;,</span></span>
-<span id="cb9-13"><a href="practical.html#cb9-13" tabindex="-1"></a><span class="do">##                         progress = FALSE)</span></span>
-<span id="cb9-14"><a href="practical.html#cb9-14" tabindex="-1"></a><span class="do">##</span></span>
-<span id="cb9-15"><a href="practical.html#cb9-15" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="practical.html#cb9-16" tabindex="-1"></a><span class="do">## 2) How we&#39;ll do it for the prac: Read the data from a .csv file in my github repository for the course notes</span></span>
-<span id="cb9-17"><a href="practical.html#cb9-17" tabindex="-1"></a><span class="do">##</span></span>
-<span id="cb9-18"><a href="practical.html#cb9-18" tabindex="-1"></a>download.NDVI <span class="ot">&lt;-</span> <span class="cf">function</span>(URL) {</span>
-<span id="cb9-19"><a href="practical.html#cb9-19" tabindex="-1"></a></span>
-<span id="cb9-20"><a href="practical.html#cb9-20" tabindex="-1"></a>  <span class="co"># Wrap function in an if/else loop that checks if the URL is valid</span></span>
-<span id="cb9-21"><a href="practical.html#cb9-21" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(URL) <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="fu">is.character</span>(URL) <span class="sc">&amp;</span> <span class="fu">substr</span>(URL,<span class="dv">1</span>,<span class="dv">4</span>)<span class="sc">==</span><span class="st">&quot;http&quot;</span>) {</span>
-<span id="cb9-22"><a href="practical.html#cb9-22" tabindex="-1"></a></span>
-<span id="cb9-23"><a href="practical.html#cb9-23" tabindex="-1"></a>    <span class="co"># Read in data</span></span>
-<span id="cb9-24"><a href="practical.html#cb9-24" tabindex="-1"></a>    modat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(URL)</span>
-<span id="cb9-25"><a href="practical.html#cb9-25" tabindex="-1"></a></span>
-<span id="cb9-26"><a href="practical.html#cb9-26" tabindex="-1"></a>    <span class="co"># Convert Digital Numbers (more efficient for data storage) to NDVI</span></span>
-<span id="cb9-27"><a href="practical.html#cb9-27" tabindex="-1"></a>    modat<span class="sc">$</span>NDVI <span class="ot">&lt;-</span> modat<span class="sc">$</span>value<span class="sc">*</span><span class="fl">0.0001</span></span>
-<span id="cb9-28"><a href="practical.html#cb9-28" tabindex="-1"></a></span>
-<span id="cb9-29"><a href="practical.html#cb9-29" tabindex="-1"></a>    <span class="co"># Convert calendar_date to class &quot;Date&quot;</span></span>
-<span id="cb9-30"><a href="practical.html#cb9-30" tabindex="-1"></a>    modat<span class="sc">$</span>calendar_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">as.character</span>(modat<span class="sc">$</span>calendar_date))</span>
-<span id="cb9-31"><a href="practical.html#cb9-31" tabindex="-1"></a></span>
-<span id="cb9-32"><a href="practical.html#cb9-32" tabindex="-1"></a>    <span class="co"># Return the data</span></span>
-<span id="cb9-33"><a href="practical.html#cb9-33" tabindex="-1"></a>    <span class="fu">return</span>(modat)</span>
-<span id="cb9-34"><a href="practical.html#cb9-34" tabindex="-1"></a></span>
-<span id="cb9-35"><a href="practical.html#cb9-35" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb9-36"><a href="practical.html#cb9-36" tabindex="-1"></a></span>
-<span id="cb9-37"><a href="practical.html#cb9-37" tabindex="-1"></a>    <span class="co"># If the URL is not valid return...</span></span>
-<span id="cb9-38"><a href="practical.html#cb9-38" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;download.NDVI: Input URL not provided correctly&quot;</span>,URL))</span>
-<span id="cb9-39"><a href="practical.html#cb9-39" tabindex="-1"></a>  }</span>
-<span id="cb9-40"><a href="practical.html#cb9-40" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="practical.html#cb8-1" tabindex="-1"></a><span class="do">##&#39; Download MODIS NDVI data</span></span>
+<span id="cb8-2"><a href="practical.html#cb8-2" tabindex="-1"></a><span class="do">##&#39; @param URL  web address where data is located</span></span>
+<span id="cb8-3"><a href="practical.html#cb8-3" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb8-4"><a href="practical.html#cb8-4" tabindex="-1"></a><span class="do">## 1) How I really did it. For the prac we&#39;ll use option 2 because it&#39;s faster</span></span>
+<span id="cb8-5"><a href="practical.html#cb8-5" tabindex="-1"></a><span class="do">## library(&quot;MODISTools&quot;) #Call R library MODISTools that allows us to download MODIS satellite data directly into R</span></span>
+<span id="cb8-6"><a href="practical.html#cb8-6" tabindex="-1"></a><span class="do">##</span></span>
+<span id="cb8-7"><a href="practical.html#cb8-7" tabindex="-1"></a><span class="do">## ndvi &lt;- mt_subset(product = &quot;MOD13Q1&quot;,</span></span>
+<span id="cb8-8"><a href="practical.html#cb8-8" tabindex="-1"></a><span class="do">##                         lat = -34.100875,</span></span>
+<span id="cb8-9"><a href="practical.html#cb8-9" tabindex="-1"></a><span class="do">##                         lon = 18.449375,</span></span>
+<span id="cb8-10"><a href="practical.html#cb8-10" tabindex="-1"></a><span class="do">##                         band = &quot;250m_16_days_NDVI&quot;,</span></span>
+<span id="cb8-11"><a href="practical.html#cb8-11" tabindex="-1"></a><span class="do">##                         start = &quot;2000-01-01&quot;,</span></span>
+<span id="cb8-12"><a href="practical.html#cb8-12" tabindex="-1"></a><span class="do">##                         end = &quot;2021-10-01&quot;,</span></span>
+<span id="cb8-13"><a href="practical.html#cb8-13" tabindex="-1"></a><span class="do">##                         progress = FALSE)</span></span>
+<span id="cb8-14"><a href="practical.html#cb8-14" tabindex="-1"></a><span class="do">##</span></span>
+<span id="cb8-15"><a href="practical.html#cb8-15" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="practical.html#cb8-16" tabindex="-1"></a><span class="do">## 2) How we&#39;ll do it for the prac: Read the data from a .csv file in my github repository for the course notes</span></span>
+<span id="cb8-17"><a href="practical.html#cb8-17" tabindex="-1"></a><span class="do">##</span></span>
+<span id="cb8-18"><a href="practical.html#cb8-18" tabindex="-1"></a>download.NDVI <span class="ot">&lt;-</span> <span class="cf">function</span>(URL) {</span>
+<span id="cb8-19"><a href="practical.html#cb8-19" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="practical.html#cb8-20" tabindex="-1"></a>  <span class="co"># Wrap function in an if/else loop that checks if the URL is valid</span></span>
+<span id="cb8-21"><a href="practical.html#cb8-21" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(URL) <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="fu">is.character</span>(URL) <span class="sc">&amp;</span> <span class="fu">substr</span>(URL,<span class="dv">1</span>,<span class="dv">4</span>)<span class="sc">==</span><span class="st">&quot;http&quot;</span>) {</span>
+<span id="cb8-22"><a href="practical.html#cb8-22" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="practical.html#cb8-23" tabindex="-1"></a>    <span class="co"># Read in data</span></span>
+<span id="cb8-24"><a href="practical.html#cb8-24" tabindex="-1"></a>    modat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(URL)</span>
+<span id="cb8-25"><a href="practical.html#cb8-25" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="practical.html#cb8-26" tabindex="-1"></a>    <span class="co"># Convert Digital Numbers (more efficient for data storage) to NDVI</span></span>
+<span id="cb8-27"><a href="practical.html#cb8-27" tabindex="-1"></a>    modat<span class="sc">$</span>NDVI <span class="ot">&lt;-</span> modat<span class="sc">$</span>value<span class="sc">*</span><span class="fl">0.0001</span></span>
+<span id="cb8-28"><a href="practical.html#cb8-28" tabindex="-1"></a></span>
+<span id="cb8-29"><a href="practical.html#cb8-29" tabindex="-1"></a>    <span class="co"># Convert calendar_date to class &quot;Date&quot;</span></span>
+<span id="cb8-30"><a href="practical.html#cb8-30" tabindex="-1"></a>    modat<span class="sc">$</span>calendar_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">as.character</span>(modat<span class="sc">$</span>calendar_date))</span>
+<span id="cb8-31"><a href="practical.html#cb8-31" tabindex="-1"></a></span>
+<span id="cb8-32"><a href="practical.html#cb8-32" tabindex="-1"></a>    <span class="co"># Return the data</span></span>
+<span id="cb8-33"><a href="practical.html#cb8-33" tabindex="-1"></a>    <span class="fu">return</span>(modat)</span>
+<span id="cb8-34"><a href="practical.html#cb8-34" tabindex="-1"></a></span>
+<span id="cb8-35"><a href="practical.html#cb8-35" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb8-36"><a href="practical.html#cb8-36" tabindex="-1"></a></span>
+<span id="cb8-37"><a href="practical.html#cb8-37" tabindex="-1"></a>    <span class="co"># If the URL is not valid return...</span></span>
+<span id="cb8-38"><a href="practical.html#cb8-38" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;download.NDVI: Input URL not provided correctly&quot;</span>,URL))</span>
+<span id="cb8-39"><a href="practical.html#cb8-39" tabindex="-1"></a>  }</span>
+<span id="cb8-40"><a href="practical.html#cb8-40" tabindex="-1"></a>}</span></code></pre></div>
 <div id="owner-1" class="section level3 hasAnchor" number="12.6.1">
 <h3><span class="header-section-number">12.6.1</span> OWNER<a href="practical.html#owner-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
+<li>In RStudio, in the “Files” tab (usually in the bottom-right window), click “Create a new folder” and name it “functions”</li>
 <li>In RStudio, click <code>File</code> &gt; <code>New File</code> &gt; <code>R Script</code></li>
 <li>Copy and Paste the above function into this file
 <ul>
 <li>Note: There’s a copy button in the top right corner of the grey code block</li>
 </ul></li>
-<li>Save the file as “01_download.NDVI.R” in the default directory for the R project
+<li>Save the file as “01_download.NDVI.R” in the “functions” folder in the directory for the R project
 <ul>
-<li>Note: Using the exact file name is important, because we’ll be calling it from other code later</li>
+<li>Note: Using the exact file and folder names is important, because we’ll be calling it from other code later</li>
 </ul></li>
 <li>From the “Git” tab (top-right window in RStudio), click the box next to the file you just created. This is equivalent to <em>git add</em> if you were doing this command line in bash or terminal</li>
 <li>Click <code>Commit</code>, enter a log message, and click <code>Commit</code> again. This is equivalent to <em>git commit</em> in command line</li>
@@ -540,32 +541,32 @@ fit.negexpS.MLE &lt;- function(dat, par)</code></pre>
 <li>Go to Github and navigate to the project repository within the OWNER’s workspace.</li>
 <li>Click <code>Fork</code>, which will make a copy of the repository to your own Github workspace.</li>
 <li>Copy the URL to your own version of the repo and follow the instructions above for cloning <em><strong>your copy of the repository</strong></em> to your local machine in RStudio.</li>
-<li>Open a new file, enter the code below, and then save the file as “02_plot.NDVI.R”</li>
+<li>Open a new file, enter the code below, and then save the file as “02_plot.NDVI.R” in the “functions” folder in the directory for the R project</li>
 </ol>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="practical.html#cb10-1" tabindex="-1"></a><span class="do">##&#39; Plot NDVI data</span></span>
-<span id="cb10-2"><a href="practical.html#cb10-2" tabindex="-1"></a><span class="do">##&#39;</span></span>
-<span id="cb10-3"><a href="practical.html#cb10-3" tabindex="-1"></a><span class="do">##&#39; @param dat  dataframe that contains columns &quot;age&quot; and &quot;NDVI&quot;</span></span>
-<span id="cb10-4"><a href="practical.html#cb10-4" tabindex="-1"></a><span class="do">##&#39; @param fit  a fitted model to overlay on the data if present</span></span>
-<span id="cb10-5"><a href="practical.html#cb10-5" tabindex="-1"></a><span class="do">##&#39; @param ...  additional graphing parameters</span></span>
-<span id="cb10-6"><a href="practical.html#cb10-6" tabindex="-1"></a><span class="do">##&#39;</span></span>
-<span id="cb10-7"><a href="practical.html#cb10-7" tabindex="-1"></a>plot.NDVI <span class="ot">&lt;-</span> <span class="cf">function</span>(dat, <span class="at">fit =</span> <span class="cn">NA</span>, ...){</span>
-<span id="cb10-8"><a href="practical.html#cb10-8" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="practical.html#cb10-9" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(dat)){ <span class="co"># Begin if/else statement</span></span>
-<span id="cb10-10"><a href="practical.html#cb10-10" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="practical.html#cb10-11" tabindex="-1"></a>    <span class="co"># Base plot of the data points</span></span>
-<span id="cb10-12"><a href="practical.html#cb10-12" tabindex="-1"></a>    <span class="fu">plot</span>(dat<span class="sc">$</span>age, dat<span class="sc">$</span>NDVI, <span class="at">ylab =</span> <span class="st">&quot;NDVI&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Postfire age (Years)&quot;</span>)</span>
-<span id="cb10-13"><a href="practical.html#cb10-13" tabindex="-1"></a></span>
-<span id="cb10-14"><a href="practical.html#cb10-14" tabindex="-1"></a>    <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.na</span>(fit[<span class="dv">1</span>])){ <span class="co">#Begin inner if statement</span></span>
-<span id="cb10-15"><a href="practical.html#cb10-15" tabindex="-1"></a></span>
-<span id="cb10-16"><a href="practical.html#cb10-16" tabindex="-1"></a>      <span class="co"># Overlay the fitted model on the plot</span></span>
-<span id="cb10-17"><a href="practical.html#cb10-17" tabindex="-1"></a>      <span class="fu">lines</span>(dat<span class="sc">$</span>age, <span class="fu">predict</span>(fit, <span class="fu">list</span>(<span class="at">x =</span> dat<span class="sc">$</span>age)), <span class="at">col =</span> <span class="st">&#39;skyblue&#39;</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span>
-<span id="cb10-18"><a href="practical.html#cb10-18" tabindex="-1"></a></span>
-<span id="cb10-19"><a href="practical.html#cb10-19" tabindex="-1"></a>            } <span class="co"># End inner if statement</span></span>
-<span id="cb10-20"><a href="practical.html#cb10-20" tabindex="-1"></a></span>
-<span id="cb10-21"><a href="practical.html#cb10-21" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb10-22"><a href="practical.html#cb10-22" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;plot.NDVI: input data not provided or invalid&quot;</span>)</span>
-<span id="cb10-23"><a href="practical.html#cb10-23" tabindex="-1"></a>  } <span class="co"># End if/else statement</span></span>
-<span id="cb10-24"><a href="practical.html#cb10-24" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="practical.html#cb9-1" tabindex="-1"></a><span class="do">##&#39; Plot NDVI data</span></span>
+<span id="cb9-2"><a href="practical.html#cb9-2" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb9-3"><a href="practical.html#cb9-3" tabindex="-1"></a><span class="do">##&#39; @param dat  dataframe that contains columns &quot;age&quot; and &quot;NDVI&quot;</span></span>
+<span id="cb9-4"><a href="practical.html#cb9-4" tabindex="-1"></a><span class="do">##&#39; @param fit  a fitted model to overlay on the data if present</span></span>
+<span id="cb9-5"><a href="practical.html#cb9-5" tabindex="-1"></a><span class="do">##&#39; @param ...  additional graphing parameters</span></span>
+<span id="cb9-6"><a href="practical.html#cb9-6" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb9-7"><a href="practical.html#cb9-7" tabindex="-1"></a>plot.NDVI <span class="ot">&lt;-</span> <span class="cf">function</span>(dat, <span class="at">fit =</span> <span class="cn">NA</span>, ...){</span>
+<span id="cb9-8"><a href="practical.html#cb9-8" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="practical.html#cb9-9" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(dat)){ <span class="co"># Begin if/else statement</span></span>
+<span id="cb9-10"><a href="practical.html#cb9-10" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="practical.html#cb9-11" tabindex="-1"></a>    <span class="co"># Base plot of the data points</span></span>
+<span id="cb9-12"><a href="practical.html#cb9-12" tabindex="-1"></a>    <span class="fu">plot</span>(dat<span class="sc">$</span>age, dat<span class="sc">$</span>NDVI, <span class="at">ylab =</span> <span class="st">&quot;NDVI&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Postfire age (Years)&quot;</span>)</span>
+<span id="cb9-13"><a href="practical.html#cb9-13" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="practical.html#cb9-14" tabindex="-1"></a>    <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.na</span>(fit[<span class="dv">1</span>])){ <span class="co">#Begin inner if statement</span></span>
+<span id="cb9-15"><a href="practical.html#cb9-15" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="practical.html#cb9-16" tabindex="-1"></a>      <span class="co"># Overlay the fitted model on the plot</span></span>
+<span id="cb9-17"><a href="practical.html#cb9-17" tabindex="-1"></a>      <span class="fu">lines</span>(dat<span class="sc">$</span>age, <span class="fu">predict</span>(fit, <span class="fu">list</span>(<span class="at">x =</span> dat<span class="sc">$</span>age)), <span class="at">col =</span> <span class="st">&#39;skyblue&#39;</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span>
+<span id="cb9-18"><a href="practical.html#cb9-18" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="practical.html#cb9-19" tabindex="-1"></a>            } <span class="co"># End inner if statement</span></span>
+<span id="cb9-20"><a href="practical.html#cb9-20" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="practical.html#cb9-21" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb9-22"><a href="practical.html#cb9-22" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;plot.NDVI: input data not provided or invalid&quot;</span>)</span>
+<span id="cb9-23"><a href="practical.html#cb9-23" tabindex="-1"></a>  } <span class="co"># End if/else statement</span></span>
+<span id="cb9-24"><a href="practical.html#cb9-24" tabindex="-1"></a>}</span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Follow the instructions above to Add, Commit, and Push the file back to your Github repo</li>
 <li>Next you want to perform a “pull request”, which will send a request to the OWNER that they pull your new code into their version. From your Github repo (not the owner’s!), click on <code>Pull requests</code> (top left) and hit the green <code>New Pull Request</code> button.</li>
@@ -591,67 +592,67 @@ fit.negexpS.MLE &lt;- function(dat, par)</code></pre>
 <h3><span class="header-section-number">12.8.1</span> OWNER<a href="practical.html#owner-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Pull the latest code from Github (which includes the new function added by your collaborator). In RStudio this is done by clicking the light blue down arrow on the Git tab. This is equivalent to running the line <em>git pull origin master</em> in terminal/bash where origin refers to where you did your original clone from and master refers to your main branch (if you use branches you can pull other branches). Once you’ve pulled the latest code you should see the latest function file added to the files you can see in the <code>Files</code> tab of the bottom-right window of RStudio.</li>
-<li>Next, open up a new R file, add the code below for fitting the models with MLE, and save as “03_negexp.R”</li>
+<li>Next, open up a new R file, add the code below for fitting the models with MLE, and save as “03_negexp.R” in the “functions” folder in the directory for the R project</li>
 </ol>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="practical.html#cb11-1" tabindex="-1"></a><span class="do">##&#39; Functions to fit negative exponential model using MLE</span></span>
-<span id="cb11-2"><a href="practical.html#cb11-2" tabindex="-1"></a><span class="do">##&#39; </span></span>
-<span id="cb11-3"><a href="practical.html#cb11-3" tabindex="-1"></a><span class="do">##&#39; 1) Fit SIMPLE negative exponential model using maximum likelihood estimation</span></span>
-<span id="cb11-4"><a href="practical.html#cb11-4" tabindex="-1"></a><span class="do">##&#39; </span></span>
-<span id="cb11-5"><a href="practical.html#cb11-5" tabindex="-1"></a><span class="do">##&#39; Function (a) to define the model for the SIMPLE negative exponential model using MLE:</span></span>
-<span id="cb11-6"><a href="practical.html#cb11-6" tabindex="-1"></a><span class="do">##&#39; @param theta  parameter vector in order: alpha, gamma, lambda</span></span>
-<span id="cb11-7"><a href="practical.html#cb11-7" tabindex="-1"></a><span class="do">##&#39; @param x      vector of x values</span></span>
-<span id="cb11-8"><a href="practical.html#cb11-8" tabindex="-1"></a><span class="do">##&#39; @return vector of model predictions</span></span>
-<span id="cb11-9"><a href="practical.html#cb11-9" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="practical.html#cb11-10" tabindex="-1"></a>pred.negexp <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, x){</span>
-<span id="cb11-11"><a href="practical.html#cb11-11" tabindex="-1"></a>  NDVI <span class="ot">=</span> theta[<span class="dv">1</span>] <span class="sc">+</span> theta[<span class="dv">2</span>] <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span> x<span class="sc">/</span>theta[<span class="dv">3</span>]))</span>
-<span id="cb11-12"><a href="practical.html#cb11-12" tabindex="-1"></a>}</span>
-<span id="cb11-13"><a href="practical.html#cb11-13" tabindex="-1"></a></span>
-<span id="cb11-14"><a href="practical.html#cb11-14" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="practical.html#cb11-15" tabindex="-1"></a><span class="do">##&#39; Function (b) to fit the SIMPLE negative exponential model and minimize the -ln.likelihood</span></span>
-<span id="cb11-16"><a href="practical.html#cb11-16" tabindex="-1"></a><span class="do">##&#39; @param dat  dataframe of NDVI, age</span></span>
-<span id="cb11-17"><a href="practical.html#cb11-17" tabindex="-1"></a><span class="do">##&#39; @param par  vector of initial parameter guesstimates (on order of theta)</span></span>
-<span id="cb11-18"><a href="practical.html#cb11-18" tabindex="-1"></a><span class="do">##&#39; @return  output from numerical optimization</span></span>
-<span id="cb11-19"><a href="practical.html#cb11-19" tabindex="-1"></a></span>
-<span id="cb11-20"><a href="practical.html#cb11-20" tabindex="-1"></a>fit.negexp.MLE <span class="ot">&lt;-</span> <span class="cf">function</span>(dat,par){</span>
-<span id="cb11-21"><a href="practical.html#cb11-21" tabindex="-1"></a></span>
-<span id="cb11-22"><a href="practical.html#cb11-22" tabindex="-1"></a>  <span class="do">## define log likelihood</span></span>
-<span id="cb11-23"><a href="practical.html#cb11-23" tabindex="-1"></a>  lnL.negexp <span class="ot">&lt;-</span> <span class="cf">function</span>(theta,dat){</span>
-<span id="cb11-24"><a href="practical.html#cb11-24" tabindex="-1"></a>    <span class="sc">-</span><span class="fu">sum</span>(<span class="fu">dnorm</span>(dat<span class="sc">$</span>NDVI, <span class="fu">pred.negexp</span>(theta, dat<span class="sc">$</span>age), <span class="fl">0.001</span>, <span class="at">log=</span><span class="cn">TRUE</span>), <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="co">#Note that I added a standard deviation of 0.001 (in reality we should get that from the MODIS data)</span></span>
-<span id="cb11-25"><a href="practical.html#cb11-25" tabindex="-1"></a>  }</span>
-<span id="cb11-26"><a href="practical.html#cb11-26" tabindex="-1"></a></span>
-<span id="cb11-27"><a href="practical.html#cb11-27" tabindex="-1"></a>  <span class="do">## fit by numerical optimization</span></span>
-<span id="cb11-28"><a href="practical.html#cb11-28" tabindex="-1"></a>  <span class="fu">optim</span>(par, <span class="at">fn =</span> lnL.negexp, <span class="at">dat=</span>dat, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">maxit =</span> <span class="dv">1000</span>))</span>
-<span id="cb11-29"><a href="practical.html#cb11-29" tabindex="-1"></a>}</span>
-<span id="cb11-30"><a href="practical.html#cb11-30" tabindex="-1"></a></span>
-<span id="cb11-31"><a href="practical.html#cb11-31" tabindex="-1"></a><span class="do">##########################################</span></span>
-<span id="cb11-32"><a href="practical.html#cb11-32" tabindex="-1"></a></span>
-<span id="cb11-33"><a href="practical.html#cb11-33" tabindex="-1"></a><span class="do">##&#39; 2) Fit negative exponential plus sine/seasonality term using maximum likelihood estimation</span></span>
-<span id="cb11-34"><a href="practical.html#cb11-34" tabindex="-1"></a><span class="do">##&#39; Function (a) to define the FULL model using MLE:</span></span>
-<span id="cb11-35"><a href="practical.html#cb11-35" tabindex="-1"></a><span class="do">##&#39; @param theta  parameter vector in order: alpha, gamma, lambda, A, phi</span></span>
-<span id="cb11-36"><a href="practical.html#cb11-36" tabindex="-1"></a><span class="do">##&#39; @param x      vector of x values</span></span>
-<span id="cb11-37"><a href="practical.html#cb11-37" tabindex="-1"></a><span class="do">##&#39; @return vector of model predictions</span></span>
-<span id="cb11-38"><a href="practical.html#cb11-38" tabindex="-1"></a></span>
-<span id="cb11-39"><a href="practical.html#cb11-39" tabindex="-1"></a>pred.negexpS <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, x){</span>
-<span id="cb11-40"><a href="practical.html#cb11-40" tabindex="-1"></a>  NDVI <span class="ot">=</span> theta[<span class="dv">1</span>] <span class="sc">+</span> theta[<span class="dv">2</span>] <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span> x<span class="sc">/</span>theta[<span class="dv">3</span>])) <span class="sc">+</span></span>
-<span id="cb11-41"><a href="practical.html#cb11-41" tabindex="-1"></a>    theta[<span class="dv">4</span>] <span class="sc">*</span> <span class="fu">sin</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>x <span class="sc">+</span> (theta[<span class="dv">5</span>] <span class="sc">+</span> pi<span class="sc">/</span><span class="dv">6</span><span class="sc">*</span>(<span class="dv">3</span> <span class="sc">-</span> <span class="dv">1</span>)))</span>
-<span id="cb11-42"><a href="practical.html#cb11-42" tabindex="-1"></a>}</span>
-<span id="cb11-43"><a href="practical.html#cb11-43" tabindex="-1"></a></span>
-<span id="cb11-44"><a href="practical.html#cb11-44" tabindex="-1"></a><span class="do">##&#39; Function (b) to fit the full model and minimize the -ln.likelihood</span></span>
-<span id="cb11-45"><a href="practical.html#cb11-45" tabindex="-1"></a><span class="do">##&#39;</span></span>
-<span id="cb11-46"><a href="practical.html#cb11-46" tabindex="-1"></a><span class="do">##&#39; @param dat  dataframe of NDVI, age</span></span>
-<span id="cb11-47"><a href="practical.html#cb11-47" tabindex="-1"></a><span class="do">##&#39; @param par  vector of initial parameter guesstimates (on order of theta)</span></span>
-<span id="cb11-48"><a href="practical.html#cb11-48" tabindex="-1"></a><span class="do">##&#39; @return  output from numerical optimization</span></span>
-<span id="cb11-49"><a href="practical.html#cb11-49" tabindex="-1"></a></span>
-<span id="cb11-50"><a href="practical.html#cb11-50" tabindex="-1"></a>fit.negexpS.MLE <span class="ot">&lt;-</span> <span class="cf">function</span>(dat,par){</span>
-<span id="cb11-51"><a href="practical.html#cb11-51" tabindex="-1"></a></span>
-<span id="cb11-52"><a href="practical.html#cb11-52" tabindex="-1"></a>  <span class="do">## define log likelihood</span></span>
-<span id="cb11-53"><a href="practical.html#cb11-53" tabindex="-1"></a>  lnL.negexpS <span class="ot">&lt;-</span> <span class="cf">function</span>(theta,dat){</span>
-<span id="cb11-54"><a href="practical.html#cb11-54" tabindex="-1"></a>    <span class="sc">-</span><span class="fu">sum</span>(<span class="fu">dnorm</span>(dat<span class="sc">$</span>NDVI, <span class="fu">pred.negexpS</span>(theta, dat<span class="sc">$</span>age), <span class="fl">0.001</span>, <span class="at">log=</span><span class="cn">TRUE</span>), <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="co">#Note that I added a standard deviation of 0.001 (in reality we should get that from the MODIS data)</span></span>
-<span id="cb11-55"><a href="practical.html#cb11-55" tabindex="-1"></a>  }</span>
-<span id="cb11-56"><a href="practical.html#cb11-56" tabindex="-1"></a></span>
-<span id="cb11-57"><a href="practical.html#cb11-57" tabindex="-1"></a>  <span class="do">## fit by numerical optimization</span></span>
-<span id="cb11-58"><a href="practical.html#cb11-58" tabindex="-1"></a>  <span class="fu">optim</span>(par, <span class="at">fn =</span> lnL.negexpS, <span class="at">dat=</span>dat, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">maxit =</span> <span class="dv">1000</span>))</span>
-<span id="cb11-59"><a href="practical.html#cb11-59" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="practical.html#cb10-1" tabindex="-1"></a><span class="do">##&#39; Functions to fit negative exponential model using MLE</span></span>
+<span id="cb10-2"><a href="practical.html#cb10-2" tabindex="-1"></a><span class="do">##&#39; </span></span>
+<span id="cb10-3"><a href="practical.html#cb10-3" tabindex="-1"></a><span class="do">##&#39; 1) Fit SIMPLE negative exponential model using maximum likelihood estimation</span></span>
+<span id="cb10-4"><a href="practical.html#cb10-4" tabindex="-1"></a><span class="do">##&#39; </span></span>
+<span id="cb10-5"><a href="practical.html#cb10-5" tabindex="-1"></a><span class="do">##&#39; Function (a) to define the model for the SIMPLE negative exponential model using MLE:</span></span>
+<span id="cb10-6"><a href="practical.html#cb10-6" tabindex="-1"></a><span class="do">##&#39; @param theta  parameter vector in order: alpha, gamma, lambda</span></span>
+<span id="cb10-7"><a href="practical.html#cb10-7" tabindex="-1"></a><span class="do">##&#39; @param x      vector of x values</span></span>
+<span id="cb10-8"><a href="practical.html#cb10-8" tabindex="-1"></a><span class="do">##&#39; @return vector of model predictions</span></span>
+<span id="cb10-9"><a href="practical.html#cb10-9" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="practical.html#cb10-10" tabindex="-1"></a>pred.negexp <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, x){</span>
+<span id="cb10-11"><a href="practical.html#cb10-11" tabindex="-1"></a>  NDVI <span class="ot">=</span> theta[<span class="dv">1</span>] <span class="sc">+</span> theta[<span class="dv">2</span>] <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span> x<span class="sc">/</span>theta[<span class="dv">3</span>]))</span>
+<span id="cb10-12"><a href="practical.html#cb10-12" tabindex="-1"></a>}</span>
+<span id="cb10-13"><a href="practical.html#cb10-13" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="practical.html#cb10-14" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="practical.html#cb10-15" tabindex="-1"></a><span class="do">##&#39; Function (b) to fit the SIMPLE negative exponential model and minimize the -ln.likelihood</span></span>
+<span id="cb10-16"><a href="practical.html#cb10-16" tabindex="-1"></a><span class="do">##&#39; @param dat  dataframe of NDVI, age</span></span>
+<span id="cb10-17"><a href="practical.html#cb10-17" tabindex="-1"></a><span class="do">##&#39; @param par  vector of initial parameter guesstimates (on order of theta)</span></span>
+<span id="cb10-18"><a href="practical.html#cb10-18" tabindex="-1"></a><span class="do">##&#39; @return  output from numerical optimization</span></span>
+<span id="cb10-19"><a href="practical.html#cb10-19" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="practical.html#cb10-20" tabindex="-1"></a>fit.negexp.MLE <span class="ot">&lt;-</span> <span class="cf">function</span>(dat,par){</span>
+<span id="cb10-21"><a href="practical.html#cb10-21" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="practical.html#cb10-22" tabindex="-1"></a>  <span class="do">## define log likelihood</span></span>
+<span id="cb10-23"><a href="practical.html#cb10-23" tabindex="-1"></a>  lnL.negexp <span class="ot">&lt;-</span> <span class="cf">function</span>(theta,dat){</span>
+<span id="cb10-24"><a href="practical.html#cb10-24" tabindex="-1"></a>    <span class="sc">-</span><span class="fu">sum</span>(<span class="fu">dnorm</span>(dat<span class="sc">$</span>NDVI, <span class="fu">pred.negexp</span>(theta, dat<span class="sc">$</span>age), <span class="fl">0.001</span>, <span class="at">log=</span><span class="cn">TRUE</span>), <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="co">#Note that I added a standard deviation of 0.001 (in reality we should get that from the MODIS data)</span></span>
+<span id="cb10-25"><a href="practical.html#cb10-25" tabindex="-1"></a>  }</span>
+<span id="cb10-26"><a href="practical.html#cb10-26" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="practical.html#cb10-27" tabindex="-1"></a>  <span class="do">## fit by numerical optimization</span></span>
+<span id="cb10-28"><a href="practical.html#cb10-28" tabindex="-1"></a>  <span class="fu">optim</span>(par, <span class="at">fn =</span> lnL.negexp, <span class="at">dat=</span>dat, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">maxit =</span> <span class="dv">1000</span>))</span>
+<span id="cb10-29"><a href="practical.html#cb10-29" tabindex="-1"></a>}</span>
+<span id="cb10-30"><a href="practical.html#cb10-30" tabindex="-1"></a></span>
+<span id="cb10-31"><a href="practical.html#cb10-31" tabindex="-1"></a><span class="do">##########################################</span></span>
+<span id="cb10-32"><a href="practical.html#cb10-32" tabindex="-1"></a></span>
+<span id="cb10-33"><a href="practical.html#cb10-33" tabindex="-1"></a><span class="do">##&#39; 2) Fit negative exponential plus sine/seasonality term using maximum likelihood estimation</span></span>
+<span id="cb10-34"><a href="practical.html#cb10-34" tabindex="-1"></a><span class="do">##&#39; Function (a) to define the FULL model using MLE:</span></span>
+<span id="cb10-35"><a href="practical.html#cb10-35" tabindex="-1"></a><span class="do">##&#39; @param theta  parameter vector in order: alpha, gamma, lambda, A, phi</span></span>
+<span id="cb10-36"><a href="practical.html#cb10-36" tabindex="-1"></a><span class="do">##&#39; @param x      vector of x values</span></span>
+<span id="cb10-37"><a href="practical.html#cb10-37" tabindex="-1"></a><span class="do">##&#39; @return vector of model predictions</span></span>
+<span id="cb10-38"><a href="practical.html#cb10-38" tabindex="-1"></a></span>
+<span id="cb10-39"><a href="practical.html#cb10-39" tabindex="-1"></a>pred.negexpS <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, x){</span>
+<span id="cb10-40"><a href="practical.html#cb10-40" tabindex="-1"></a>  NDVI <span class="ot">=</span> theta[<span class="dv">1</span>] <span class="sc">+</span> theta[<span class="dv">2</span>] <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span> x<span class="sc">/</span>theta[<span class="dv">3</span>])) <span class="sc">+</span></span>
+<span id="cb10-41"><a href="practical.html#cb10-41" tabindex="-1"></a>    theta[<span class="dv">4</span>] <span class="sc">*</span> <span class="fu">sin</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>x <span class="sc">+</span> (theta[<span class="dv">5</span>] <span class="sc">+</span> pi<span class="sc">/</span><span class="dv">6</span><span class="sc">*</span>(<span class="dv">3</span> <span class="sc">-</span> <span class="dv">1</span>)))</span>
+<span id="cb10-42"><a href="practical.html#cb10-42" tabindex="-1"></a>}</span>
+<span id="cb10-43"><a href="practical.html#cb10-43" tabindex="-1"></a></span>
+<span id="cb10-44"><a href="practical.html#cb10-44" tabindex="-1"></a><span class="do">##&#39; Function (b) to fit the full model and minimize the -ln.likelihood</span></span>
+<span id="cb10-45"><a href="practical.html#cb10-45" tabindex="-1"></a><span class="do">##&#39;</span></span>
+<span id="cb10-46"><a href="practical.html#cb10-46" tabindex="-1"></a><span class="do">##&#39; @param dat  dataframe of NDVI, age</span></span>
+<span id="cb10-47"><a href="practical.html#cb10-47" tabindex="-1"></a><span class="do">##&#39; @param par  vector of initial parameter guesstimates (on order of theta)</span></span>
+<span id="cb10-48"><a href="practical.html#cb10-48" tabindex="-1"></a><span class="do">##&#39; @return  output from numerical optimization</span></span>
+<span id="cb10-49"><a href="practical.html#cb10-49" tabindex="-1"></a></span>
+<span id="cb10-50"><a href="practical.html#cb10-50" tabindex="-1"></a>fit.negexpS.MLE <span class="ot">&lt;-</span> <span class="cf">function</span>(dat,par){</span>
+<span id="cb10-51"><a href="practical.html#cb10-51" tabindex="-1"></a></span>
+<span id="cb10-52"><a href="practical.html#cb10-52" tabindex="-1"></a>  <span class="do">## define log likelihood</span></span>
+<span id="cb10-53"><a href="practical.html#cb10-53" tabindex="-1"></a>  lnL.negexpS <span class="ot">&lt;-</span> <span class="cf">function</span>(theta,dat){</span>
+<span id="cb10-54"><a href="practical.html#cb10-54" tabindex="-1"></a>    <span class="sc">-</span><span class="fu">sum</span>(<span class="fu">dnorm</span>(dat<span class="sc">$</span>NDVI, <span class="fu">pred.negexpS</span>(theta, dat<span class="sc">$</span>age), <span class="fl">0.001</span>, <span class="at">log=</span><span class="cn">TRUE</span>), <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="co">#Note that I added a standard deviation of 0.001 (in reality we should get that from the MODIS data)</span></span>
+<span id="cb10-55"><a href="practical.html#cb10-55" tabindex="-1"></a>  }</span>
+<span id="cb10-56"><a href="practical.html#cb10-56" tabindex="-1"></a></span>
+<span id="cb10-57"><a href="practical.html#cb10-57" tabindex="-1"></a>  <span class="do">## fit by numerical optimization</span></span>
+<span id="cb10-58"><a href="practical.html#cb10-58" tabindex="-1"></a>  <span class="fu">optim</span>(par, <span class="at">fn =</span> lnL.negexpS, <span class="at">dat=</span>dat, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">maxit =</span> <span class="dv">1000</span>))</span>
+<span id="cb10-59"><a href="practical.html#cb10-59" tabindex="-1"></a>}</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>As before, add your new file under the Git tab, Commit the change with a message, and push it back to Github</li>
 </ol>
@@ -721,9 +722,10 @@ fit.negexpS.MLE &lt;- function(dat, par)</code></pre>
 <pre><code>git pull upstream main</code></pre>
 <p>Ok, now that we’re up to date we can carry on:</p>
 <ol start="3" style="list-style-type: decimal">
-<li>Navigate to <a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting/blob/master/_04_Master.Rmd" class="uri">https://github.com/jslingsby/BIO3019S_Ecoforecasting/blob/master/_04_Master.Rmd</a>, copy the raw contents</li>
-<li>Open a new Rmd file in RStudio and paste the contents.</li>
-<li>Save this file as “04_Master.Rmd”.</li>
+<li>Navigate to <a href="https://github.com/jslingsby/BIO3019S_Ecoforecasting/blob/master/16-pracoutput.Rmd" class="uri">https://github.com/jslingsby/BIO3019S_Ecoforecasting/blob/master/16-pracoutput.Rmd</a>, copy the raw contents</li>
+<li>Create a new Rmarkdown file in RStudio, add your name, and paste the contents copied from the document at the link above.</li>
+<li>In the header at the top of this document, find the line that says <code>output: html_document</code> and change this to <code>output: rmarkdown::github_document</code></li>
+<li>Save this file as “README.Rmd” in the root directory for the R project (i.e. NOT in the “functions” folder).</li>
 <li>Within RStudio’s Git tab, add the file and Commit. Use the Push (up arrow) button to push this to your own repository</li>
 <li>On Github.com, submit a pull request as before</li>
 </ol>
@@ -733,15 +735,15 @@ fit.negexpS.MLE &lt;- function(dat, par)</code></pre>
 <ol style="list-style-type: decimal">
 <li><p>Evaluate and accept pull request. At this point your workflow should be complete and you should be able to run the analysis.</p></li>
 <li><p>Pull the updated repo to your local machine</p></li>
-<li><p>Open “04_Master.Rmd” and answer the questions wherever you see the numbered questions “Q” and “&gt;Answer:”</p></li>
-<li><p>Click <code>Knit</code> (top-centre of script window in RStudio) to generate an html document (it should pop up). Note that if you change an answer in the .Rmd file you will need to <code>Knit</code> it again for it to be reflected in the .html</p></li>
+<li><p>Open “README.Rmd” (Do NOT answer the questions in this file)</p></li>
+<li><p>Click <code>Knit</code> (top-centre of script window in RStudio) to generate an md or html document (it should pop up).</p></li>
 </ol>
 <ul>
 <li>If the file won’t knit properly, it suggests you’ve done something wrong in the workflow… You need to fix this.</li>
 </ul>
 <ol start="5" style="list-style-type: decimal">
-<li><p>Once complete, commit “04_Master.Rmd” and “04_Master.html” and push them back to the repo. Again, if you need to change any answers in the .Rmd you need to do the whole <code>Knit</code> &gt; <code>Commit</code> &gt; <code>Push</code>. I will only mark the latest version pushed before the assignment deadline.</p></li>
-<li><p>Finally, upload the same “04_Master.html” to Vula so that your assignment is marked as complete and I can add a grade there.</p></li>
+<li><p>Once complete, commit “README.Rmd” and “README.md” and push them back to the repo.</p></li>
+<li><p>Finally, answer the questions in a separate document and indicate your name, your partner’s name, the links to both your repository and your partner’s (making clear which is which), and upload the document under the assignment I created on Amathuba.</p></li>
 </ol>
 
 </div>

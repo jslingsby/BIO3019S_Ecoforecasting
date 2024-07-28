@@ -6,9 +6,9 @@ First we'll _source()_ (i.e. "run all code in") the scripts with the functions w
 
 ```{r}
 ## Load required functions by running source() on the individual function files
-if(file.exists("praccode/01_download.NDVI.R")) source("praccode/01_download.NDVI.R")
-if(file.exists("praccode/02_plot.NDVI.R"))     source("praccode/02_plot.NDVI.R")
-if(file.exists("praccode/03_negexp.R"))        source("praccode/03_negexp.R")
+if(file.exists("functions/01_download.NDVI.R")) source("functions/01_download.NDVI.R")
+if(file.exists("functions/02_plot.NDVI.R"))     source("functions/02_plot.NDVI.R")
+if(file.exists("functions/03_negexp.R"))        source("functions/03_negexp.R")
 
 ## Download NDVI data
 URL = "https://raw.githubusercontent.com/jslingsby/BIO3019S_Ecoforecasting/master/data/modisdata.csv"
@@ -23,12 +23,7 @@ plot.NDVI(dat)
 
 <br>
 
-Q1: This plot suggests that Fynbos greenness (NDVI) as observed from satellite saturates with time since fire. Why do you think it saturates rather than increasing linearly with time? (3 marks)
-
->*Answer 1:* 
-
-<br>
-
+> Question 1: This plot suggests that Fynbos greenness (NDVI) as observed from satellite saturates with time since fire. Why do you think it saturates rather than increasing linearly with time? (3 marks)
 
 <br>
 
@@ -93,12 +88,9 @@ summary(fit_negexpS)
 
 Lots more parameters...
 
-Q2: How do the estimates for the common parameters compare? (3 marks)
-
->*Answer 2:*
-
 <br>
 
+> Question 2: How do the estimates for the common parameters compare? (3 marks)
 
 <br>
 
@@ -114,21 +106,11 @@ anova(fit_negexp, fit_negexpS)
 
 <br>
 
-Q3: Which model is better? (1 mark)
-
->*Answer 3:*
+> Question 3: Which model is better? (1 mark)
 
 <br>
 
-
-<br>
-
-Q4: How many degrees of freedom are there in this ANOVA and why (i.e. what are they)? (3 marks)
-
->*Answer 4:*
-
-<br>
-
+> Question 4: How many degrees of freedom are there in this ANOVA and why (i.e. what are they)? (3 marks)
 
 <br>
 
@@ -219,13 +201,7 @@ AIC_simple - AIC_full
 
 <br>
 
-Q5: Is there a preferred model and if so, which one? (2 marks)
-
->*Answer 5:*
-
-<br>
-
-
+> Question 5: Is there a preferred model and if so, which one? (2 marks)
 
 <br>
 
@@ -241,13 +217,9 @@ AIC(fit_negexp, fit_negexpS)
 
 You'll notice that these are completely different to the AICs for the MLE models...
 
-Q6: Why is it not okay to compare the AIC of these NLS models with the AIC of the MLE models? Hint: type `?AIC` into the R console and do some reading. (3 marks)
-
->*Answer 6:*
-
 <br>
 
-
+> Question 6: Why is it not okay to compare the AIC of these NLS models with the AIC of the MLE models? Hint: type `?AIC` into the R console and do some reading. (3 marks)
 
 <br>
 
@@ -297,13 +269,7 @@ Note that most models are too complex or too highly dimensional to calculate the
 
 <br>
 
-Q7: What do the posterior density plots represent? (2 marks)
-
->*Answer 7:*
-
-<br>
-
-
+> Question 7: What do the posterior density plots represent? (2 marks)
 
 <br>
 
@@ -347,12 +313,6 @@ plot(fit_negexpBS, ask = F)
 
 <br>
 
-Q8: Assuming the full Bayesian model is the best model, would any of the parameter estimates of any of the models be significantly unlikely to be true (if you were to apply the frequentist criterion of P < 0.05), and if so, which ones? (3 marks)
-
->*Answer 8:*
-
-<br>
-
-
+> Question 8: Assuming the full Bayesian model is the best model, would any of the parameter estimates of any of the models be significantly unlikely to be true (if you were to apply the frequentist criterion of P < 0.05), and if so, which ones? (3 marks)
 
 <br>
