@@ -508,7 +508,7 @@ By applying ***the scientific method***, whereby we interrogate new evidence (th
 
 -   First and foremost, as tempting as it may be, ***the one place the prior CANNOT come from is the data used in the analysis!!!***
 -   Second, while many people favour specifying "uninformative" priors, it is often incredibly difficult to know what "uninformative" is for different models or parameters.
-    -   [Here's a great Guardian article](https://www.theguardian.com/world/2021/apr/18/obscure-maths-bayes-theorem-reliability-covid-lateral-flow-tests-probability) on why considering priors are important for Covid testing and criminal cases. It should help you get your head around this.
+    -   [Here's a great Guardian article](https://www.theguardian.com/world/2021/apr/18/obscure-maths-bayes-theorem-reliability-covid-lateral-flow-tests-probability){target="_blank"} on why considering priors are important for Covid testing and criminal cases. It should help you get your head around this.
 
 ::: {.fragment}
 
