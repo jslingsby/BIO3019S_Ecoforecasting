@@ -302,7 +302,7 @@ div.csl-indent {
 <li class="chapter" data-level="12.8.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>12.8.1</b> OWNER</a></li>
 </ul></li>
 <li class="chapter" data-level="12.9" data-path="practical.html"><a href="practical.html#a-quick-explanation-of-the-mle-functions"><i class="fa fa-check"></i><b>12.9</b> A quick explanation of the MLE functions</a></li>
-<li class="chapter" data-level="12.10" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script-owner-answers-the-questions"><i class="fa fa-check"></i><b>12.10</b> Task 5: Collaborator adds the master script, Owner answers the questions</a>
+<li class="chapter" data-level="12.10" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script-owner-runs-the-master-script"><i class="fa fa-check"></i><b>12.10</b> Task 5: Collaborator adds the master script, Owner runs the master script</a>
 <ul>
 <li class="chapter" data-level="12.10.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>12.10.1</b> COLLABORATOR</a></li>
 <li class="chapter" data-level="12.10.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>12.10.2</b> OWNER</a></li>
@@ -394,7 +394,7 @@ div.csl-indent {
   \text{NDVI}_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)
 \end{gather}\]</span></p>
 <p>Which when fitted to the data looks like so:</p>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p><strong>The process model is the only opportunity for inputting data</strong>, and here we input time series for NDVI and date (or postfire age, since our time series started at the time of a fire).</p>
 <p>The only way to add more data sources is to make your model more complex. For example, to capture the seasonal fluctuations in NDVI we can add a sine term that requires us to specify the month (m) of the fire, like so:</p>
 <p><br/></p>
@@ -404,7 +404,7 @@ div.csl-indent {
 \end{gather}\]</span></p>
 <p><br/></p>
 <p>Which looks like:</p>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p><br></p>
 <p><strong><em>Maximum Likelihood</em></strong></p>
 <p>MLE does make a distinction between the <strong>data model</strong> and the <strong>process model</strong>, like so:</p>

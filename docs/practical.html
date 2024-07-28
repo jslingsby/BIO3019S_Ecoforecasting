@@ -302,7 +302,7 @@ div.csl-indent {
 <li class="chapter" data-level="12.8.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>12.8.1</b> OWNER</a></li>
 </ul></li>
 <li class="chapter" data-level="12.9" data-path="practical.html"><a href="practical.html#a-quick-explanation-of-the-mle-functions"><i class="fa fa-check"></i><b>12.9</b> A quick explanation of the MLE functions</a></li>
-<li class="chapter" data-level="12.10" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script-owner-answers-the-questions"><i class="fa fa-check"></i><b>12.10</b> Task 5: Collaborator adds the master script, Owner answers the questions</a>
+<li class="chapter" data-level="12.10" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script-owner-runs-the-master-script"><i class="fa fa-check"></i><b>12.10</b> Task 5: Collaborator adds the master script, Owner runs the master script</a>
 <ul>
 <li class="chapter" data-level="12.10.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>12.10.1</b> COLLABORATOR</a></li>
 <li class="chapter" data-level="12.10.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>12.10.2</b> OWNER</a></li>
@@ -694,8 +694,8 @@ fit.negexpS.MLE &lt;- function(dat, par)</code></pre>
 <p>Second is the negative log likelihood function, <em>lnL.negexp()</em>, which we’re trying to minimize. The core of this is the Normal probability density, <em>dnorm()</em>. The first argument is the data, the second the is model, and the third is the standard deviation. The fourth argument says that we want to return the log density, which is much more accurate if it’s performed internally than if we take the log of what’s returned by dnorm. Since we have many data points dnorm returns a vector, which we then sum up and change the sign to turn this into a minimization problem.</p>
 <p>The third part is a call to a numerical optimization function, <em>optim</em>, that searches through parameter space to find the set of parameters that minimize the negative log likelihood (i.e. that Maximize the Likelihood). Arguments are the initial parameter guesstimates, the function being minimized, and any additional parameters that get passed on to that function.</p>
 </div>
-<div id="task-5-collaborator-adds-the-master-script-owner-answers-the-questions" class="section level2 hasAnchor" number="12.10">
-<h2><span class="header-section-number">12.10</span> Task 5: Collaborator adds the master script, Owner answers the questions<a href="practical.html#task-5-collaborator-adds-the-master-script-owner-answers-the-questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="task-5-collaborator-adds-the-master-script-owner-runs-the-master-script" class="section level2 hasAnchor" number="12.10">
+<h2><span class="header-section-number">12.10</span> Task 5: Collaborator adds the master script, Owner runs the master script<a href="practical.html#task-5-collaborator-adds-the-master-script-owner-runs-the-master-script" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The day-to-day workflow for the COLLABORATOR is similar, but not exactly the same as the OWNER. The biggest differences are that the COLLABORATOR needs to start by making sure they’re working on the latest version by pulling any changes from the OWNER’s version of the repository, not their own, and need to do a pull request to get the OWNER to merge any of their suggested changes after they’ve pushed to their own repo.</p>
 <div id="collaborator-1" class="section level3 hasAnchor" number="12.10.1">
 <h3><span class="header-section-number">12.10.1</span> COLLABORATOR<a href="practical.html#collaborator-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>

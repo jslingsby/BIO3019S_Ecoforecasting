@@ -302,7 +302,7 @@ div.csl-indent {
 <li class="chapter" data-level="12.8.1" data-path="practical.html"><a href="practical.html#owner-3"><i class="fa fa-check"></i><b>12.8.1</b> OWNER</a></li>
 </ul></li>
 <li class="chapter" data-level="12.9" data-path="practical.html"><a href="practical.html#a-quick-explanation-of-the-mle-functions"><i class="fa fa-check"></i><b>12.9</b> A quick explanation of the MLE functions</a></li>
-<li class="chapter" data-level="12.10" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script-owner-answers-the-questions"><i class="fa fa-check"></i><b>12.10</b> Task 5: Collaborator adds the master script, Owner answers the questions</a>
+<li class="chapter" data-level="12.10" data-path="practical.html"><a href="practical.html#task-5-collaborator-adds-the-master-script-owner-runs-the-master-script"><i class="fa fa-check"></i><b>12.10</b> Task 5: Collaborator adds the master script, Owner runs the master script</a>
 <ul>
 <li class="chapter" data-level="12.10.1" data-path="practical.html"><a href="practical.html#collaborator-1"><i class="fa fa-check"></i><b>12.10.1</b> COLLABORATOR</a></li>
 <li class="chapter" data-level="12.10.2" data-path="practical.html"><a href="practical.html#owner-4"><i class="fa fa-check"></i><b>12.10.2</b> OWNER</a></li>
@@ -557,29 +557,43 @@ Figure 5.4: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] hrbrthemes_0.8.0 lubridate_1.9.3  forcats_1.0.0    stringr_1.5.1    dplyr_1.1.4     
-##  [6] purrr_1.0.2      readr_2.1.5      tidyr_1.3.0      tibble_3.2.1     ggplot2_3.5.0   
-## [11] tidyverse_2.0.0 
+##  [1] brms_2.20.4      Rcpp_1.0.12      hrbrthemes_0.8.0 lubridate_1.9.3  forcats_1.0.0   
+##  [6] stringr_1.5.1    dplyr_1.1.4      purrr_1.0.2      readr_2.1.5      tidyr_1.3.0     
+## [11] tibble_3.2.1     ggplot2_3.5.0    tidyverse_2.0.0 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] gtable_0.3.4            xfun_0.41               bslib_0.6.1             lattice_0.22-5         
-##  [5] tzdb_0.4.0              vctrs_0.6.5             tools_4.3.2             generics_0.1.3         
-##  [9] curl_5.2.0              fansi_1.0.6             highr_0.10              pkgconfig_2.0.3        
-## [13] Matrix_1.6-5            RColorBrewer_1.1-3      lifecycle_1.0.4         farver_2.1.1           
-## [17] compiler_4.3.2          munsell_0.5.0           httpuv_1.6.13           fontquiver_0.2.1       
-## [21] fontLiberation_0.1.0    htmltools_0.5.7         sass_0.4.8              yaml_2.3.8             
-## [25] Rttf2pt1_1.3.12         pillar_1.9.0            later_1.3.2             crayon_1.5.2           
-## [29] jquerylib_0.1.4         extrafontdb_1.0         gfonts_0.2.0            ellipsis_0.3.2         
-## [33] cachem_1.0.8            nlme_3.1-164            mime_0.12               fontBitstreamVera_0.1.1
-## [37] tidyselect_1.2.0        digest_0.6.34           stringi_1.8.3           bookdown_0.37          
-## [41] labeling_0.4.3          splines_4.3.2           extrafont_0.19          fastmap_1.1.1          
-## [45] grid_4.3.2              colorspace_2.1-0        cli_3.6.2               magrittr_2.0.3         
-## [49] crul_1.4.0              utf8_1.2.4              withr_3.0.0             gdtools_0.3.5          
-## [53] scales_1.3.0            promises_1.2.1          timechange_0.3.0        rmarkdown_2.25         
-## [57] jpeg_0.1-10             png_0.1-8               hms_1.1.3               shiny_1.8.0            
-## [61] evaluate_0.23           knitr_1.45              mgcv_1.9-1              rlang_1.1.3            
-## [65] Rcpp_1.0.12             xtable_1.8-4            glue_1.7.0              httpcode_0.3.0         
-## [69] rstudioapi_0.15.0       jsonlite_1.8.8          R6_2.5.1                systemfonts_1.0.5</code></pre>
+##   [1] RColorBrewer_1.1-3      tensorA_0.36.2.1        rstudioapi_0.15.0       jsonlite_1.8.8         
+##   [5] magrittr_2.0.3          TH.data_1.1-2           estimability_1.4.1      farver_2.1.1           
+##   [9] rmarkdown_2.25          vctrs_0.6.5             base64enc_0.1-3         htmltools_0.5.7        
+##  [13] distributional_0.4.0    curl_5.2.0              sass_0.4.8              StanHeaders_2.32.6     
+##  [17] bslib_0.6.1             htmlwidgets_1.6.4       plyr_1.8.9              sandwich_3.1-0         
+##  [21] emmeans_1.9.0           zoo_1.8-12              cachem_1.0.8            igraph_1.6.0           
+##  [25] mime_0.12               lifecycle_1.0.4         pkgconfig_2.0.3         colourpicker_1.3.0     
+##  [29] Matrix_1.6-5            R6_2.5.1                fastmap_1.1.1           shiny_1.8.0            
+##  [33] digest_0.6.34           colorspace_2.1-0        ps_1.7.6                crosstalk_1.2.1        
+##  [37] labeling_0.4.3          fansi_1.0.6             timechange_0.3.0        abind_1.4-5            
+##  [41] mgcv_1.9-1              compiler_4.3.2          fontquiver_0.2.1        withr_3.0.0            
+##  [45] backports_1.4.1         inline_0.3.19           shinystan_2.6.0         QuickJSR_1.1.3         
+##  [49] pkgbuild_1.4.3          highr_0.10              Rttf2pt1_1.3.12         MASS_7.3-60.0.1        
+##  [53] gfonts_0.2.0            gtools_3.9.5            loo_2.7.0               tools_4.3.2            
+##  [57] httpuv_1.6.13           extrafontdb_1.0         threejs_0.3.3           glue_1.7.0             
+##  [61] callr_3.7.3             nlme_3.1-164            promises_1.2.1          grid_4.3.2             
+##  [65] checkmate_2.3.1         reshape2_1.4.4          generics_0.1.3          gtable_0.3.4           
+##  [69] tzdb_0.4.0              hms_1.1.3               utf8_1.2.4              pillar_1.9.0           
+##  [73] markdown_1.12           servr_0.28              posterior_1.5.0         later_1.3.2            
+##  [77] splines_4.3.2           lattice_0.22-5          survival_3.5-7          tidyselect_1.2.0       
+##  [81] fontLiberation_0.1.0    miniUI_0.1.1.1          knitr_1.45              fontBitstreamVera_0.1.1
+##  [85] gridExtra_2.3           V8_4.4.1                bookdown_0.37           crul_1.4.0             
+##  [89] stats4_4.3.2            xfun_0.41               bridgesampling_1.1-2    matrixStats_1.2.0      
+##  [93] DT_0.31                 rstan_2.32.6            stringi_1.8.3           yaml_2.3.8             
+##  [97] evaluate_0.23           codetools_0.2-19        httpcode_0.3.0          extrafont_0.19         
+## [101] gdtools_0.3.5           cli_3.6.2               RcppParallel_5.1.7      shinythemes_1.2.0      
+## [105] xtable_1.8-4            systemfonts_1.0.5       processx_3.8.3          munsell_0.5.0          
+## [109] jquerylib_0.1.4         coda_0.19-4             png_0.1-8               parallel_4.3.2         
+## [113] rstantools_2.4.0        ellipsis_0.3.2          dygraphs_1.1.1.6        jpeg_0.1-10            
+## [117] bayesplot_1.11.1        Brobdingnag_1.2-9       mvtnorm_1.2-4           scales_1.3.0           
+## [121] xts_0.13.1              crayon_1.5.2            rlang_1.1.3             multcomp_1.4-25        
+## [125] shinyjs_2.1.0</code></pre>
 <p><br></p>
 <p><strong>Containers</strong></p>
 <p><strong>A “better” way</strong> to do this is to use <strong>containers</strong> like <a href="https://www.docker.com/">docker</a> or <a href="https://sylabs.io/singularity/">singularity</a>. These are contained, lightweight computing environments similar to <a href="https://en.wikipedia.org/wiki/Virtual_machine">virtual machines</a>, that you can package with your software/workflow. You set your container up to have everything you need to run your code etc (and nothing extra), so anyone can download (or clone) your container, code and data and run your analyses perfectly first time.</p>

@@ -384,7 +384,7 @@ Second is the negative log likelihood function, *lnL.negexp()*, which we're tryi
 
 The third part is a call to a numerical optimization function, *optim*, that searches through parameter space to find the set of parameters that minimize the negative log likelihood (i.e. that Maximize the Likelihood). Arguments are the initial parameter guesstimates, the function being minimized, and any additional parameters that get passed on to that function.
 
-## Task 5: Collaborator adds the master script, Owner answers the questions
+## Task 5: Collaborator adds the master script, Owner runs the master script
 
 The day-to-day workflow for the COLLABORATOR is similar, but not exactly the same as the OWNER. The biggest differences are that the COLLABORATOR needs to start by making sure they're working on the latest version by pulling any changes from the OWNER's version of the repository, not their own, and need to do a pull request to get the OWNER to merge any of their suggested changes after they've pushed to their own repo.
 
