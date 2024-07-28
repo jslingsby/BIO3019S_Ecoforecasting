@@ -88,13 +88,15 @@ If you get an error at this point to the effect of "You do not have permission t
 
 If you encounter authentication issues, redo step 7. 
 
-11. Final step!!! In GitHub (i.e. online)
+11. In GitHub (i.e. online)
 - Click `Pull requests` (top-leftish)
 - Click `New pull request` (green, top-right)
 - Click `Create pull request` (green, top-right)
   - It should already be on this repo unless you've been doing other things in Git
 - In the comment window put your name so I know who you are if it isn't obvious from your GitHub username
 - Click `Create pull request` (green, bottom-right)
+
+12. Final step!!! Lastly, you need to install an R package and it's dependencies that we'll be using in the practical. To do this, make sure you are online and in the R console type and run `install.packages("brms", dependencies = TRUE)`
 
 And you're done!!! I'll get a notification of your pull request and, if all's in order, I'll accept it. If not, I'll reply with a comment on the pull request. You should receive a notification via the email you registered with your GitHub account.
 

@@ -2,7 +2,7 @@
 
 <br>
 
-> *Just a quick acknowledgement that I have adapted much of the framework for the following from Michael Dietze's [**Pair coding practical**](https://github.com/EcoForecast/EF_Activities/blob/master/Exercise_04_PairCoding.Rmd) that is a living online supplement to the book [@Dietze2017]. Thanks for sharing the code under an MIT license Mike! The main differences are that I've changed the subject matter from looking at phenology in Tall Grass Prairie using PhenoCam data to looking at postfire vegetation growth in Fynbos using MODIS satellite Normalized Difference Vegetation Index (NDVI), a measure of vegetation "greenness". This includes changing the core model we fit too.*
+> *Just a quick acknowledgement that I have adapted much of the framework for the following from Michael Dietze's [**Pair coding practical**](https://github.com/EcoForecast/EF_Activities/blob/master/Exercise_04_PairCoding.Rmd) that is a living online supplement to the book [@Dietze2017]. Thanks for sharing the code under an MIT license Mike! The main differences are that I've changed the subject matter from looking at phenology in Tall Grass Prairie using PhenoCam data to looking at postfire vegetation growth in Fynbos using MODIS satellite Normalized Difference Vegetation Index (NDVI), a measure of vegetation "greenness". This includes changing the core model we fit too. I've also used it to build familiarity with Least Squares versus Maximum Likelihood versus Bayes.*
 
 <br>
 
@@ -14,7 +14,7 @@
 
 The primary goal of this exercise is to gain experience working collaboratively to develop a scientific workflow. As such, this assignment must be completed with a partner. Specifically, we will outline an analysis, break the overall job into parts, and have each person complete part of the project. To put these parts together we will be using GitHub.
 
-Along the way we will also be exploring the statistical concept of Likelihood by fitting the same model and estimating the parameters with two different approaches - *Least Squares* (what you'd usually use for traditional linear models etc) and *Maximum Likelihood*.
+Along the way we will also be exploring the statistical concepts of Least Squares, Likelihood and Bayes by fitting the same model and estimating the parameters with each of the different approaches.
 
 <br>
 
@@ -24,12 +24,13 @@ The goal of our analysis is to investigate the regeneration of Fynbos vegetation
 
 <br>
 
-The workflow for this analysis with have three components:
+The workflow for this analysis has five components:
 
 1.  Download MODIS NDVI data
 2.  Visualize the data
 3.  Fit two competing negative exponential models using non-linear least squares (NLS)
 4.  Fit the same models using Maximum Likelihood Estimation (MLE) and compare them using Akaike's Information Criterion (AIC)
+5.  Fit the same models with Bayes
 
 From this overall design, let's next outline the specific steps involved as pseudocode
 
@@ -40,7 +41,8 @@ From this overall design, let's next outline the specific steps involved as pseu
     ## 4. Visualize models and data
     ## 5. Fit two variants of the negative exponential model with MLE
     ## 6. Visualize models and data
-    ## 7. Compare model variants using AIC
+    ## 7. Compare MLE model variants using AIC
+    ## 8. Fit two variants of the negative exponential model with Bayes
 
 ## Modular Design
 
@@ -64,7 +66,7 @@ Next, because the raw data will be downloaded off the web and we need to convert
 
 Next we'll fit two variants of a negative exponential model to the postfire NDVI trajectory data, and we're going to do this twice - once using non-linear least squares (NLS), and again using Maximum Likelihood Estimation (MLE). Fortunately, there is already an efficient base R function for fitting the NLS model `nls()`, so we'll only need to define functions for the MLE fits.
 
-The input to such a fit would obviously be the same data.frame that we're using to make the plot. We'll also need to input a vector of initial guesses at the model parameters to help the numerical optimization converge, and we'll want to return the full output from that numerical optimization so that we can check if it converged successfully. Finally, optimizing MLE requires
+The input to such a fit would obviously be the same dataframe that we're using to make the plot. We'll also need to input a vector of initial guesses at the model parameters to help the numerical optimization converge (**NOTE: these are not priors as per a Bayesian analysis!**), and we'll want to return the full output from that numerical optimization so that we can check if it converged successfully. Finally, optimizing MLE requires:
 
 a)  defining the model, and
 b)  defining a function to optimize the parameters by minimizing the negative log of the likelihood
@@ -81,9 +83,9 @@ First, we'll do the functions for the simpler variant of the model (don't be ala
 
     ##' Function (b) to fit the simple negative exponential model and minimize the -ln.likelihood
     ##' @param dat  dataframe of NDVI, age
-    ##' @param par  vector of initial parameter guesstimates (on order of theta)
+    ##' @param par  vector of initial parameter guesstimates (in order of theta in function (a))
     ##' @return  output from numerical optimization
-    fit.negexp.MLE <- function(dat,par)
+    fit.negexp.MLE <- function(dat, par)
 
 Then we'll do the functions for the full model:
 
@@ -95,15 +97,17 @@ Then we'll do the functions for the full model:
 
     ##' Function (b) to fit the full model and minimize the -ln.likelihood
     ##' @param dat  dataframe of NDVI, age
-    ##' @param par  vector of initial parameter guesstimates (on order of theta)
+    ##' @param par  vector of initial parameter guesstimates (in order of theta in function (a))
     ##' @return  output from numerical optimization
-    fit.negexpS.MLE <- function(dat,par)
+    fit.negexpS.MLE <- function(dat, par)
 
 At this point we've spent a good bit of time up front on organization -- we have a detailed plan of attack and have thought carefully about what each module is responsible for doing. Each task has well-defined inputs, outputs, and goals. Rather than facing a thankless job of documenting our code after we're done, even though we haven't written a single line of code yet, we are largely done with our documentation. What remains to do is implementation.
 
+> For the rest of this prac you are going to work in pairs to collaboratively develop the workflow. At this point I reveal that I have written all the functions outlined above for you. All you are going to need to do is put them together using Github. To do so, you need to carefully follow these tasks:
+
 ## Task 1: Create & Clone Repository
 
-The rest of the workflow looks can be visualised below. Essentially, it is a series of steps where two individuals are developing our workflow in collaboration. It involves a series of steps whereby edits to the workflow are made offline (in RStudio on local laptops) and then synced back to GitHub (online). There is the OWNER of the _main_ branch of the git repository and the COLLABORATOR, who is contributing to the _main_ branch by creating their own _forked_ repository, editing it offline (on their latops) and making _pull requests_ to the OWNER to have their modifications _merged_ back into the _main_. Moving changes between either laptop and the online repositories requires _pulling_ the latest changes from online to the laptop or _committing_ (naming a version) and _pushing_ changes from the laptop to online. Ultimately, it is the _main_ branch that we hope to have up to date, whereas the _fork_ can usually be discarded once all proposed changes (pull requests) are _merged_.
+The rest of the workflow looks can be visualised below. Essentially, it is a series of steps where two individuals are developing our workflow in collaboration. At each step edits to the workflow are made offline (in RStudio on local laptops) and then synced back to GitHub (online). There is the OWNER of the _main_ branch of the git repository and the COLLABORATOR, who is contributing to the _main_ branch by creating their own _fork_ of the repository, which they edit offline (on their laptops) and make _pull requests_ to the OWNER to have their modifications _merged_ back into the _main_. Moving changes between either laptop and the online repositories requires _pulling_ the latest changes from the online repository to the laptop or _committing_ (naming a version) and _pushing_ changes from the laptop to online. Ultimately, it is the _main_ branch that we hope to have up to date, whereas the _fork_ can usually be discarded once all proposed changes (pull requests) are _merged_.
 
 ![](GitDiagram.drawio.png)
 

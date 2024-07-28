@@ -1,5 +1,5 @@
 --- 
-title: "A Minimal Introduction to Ecological Forecasting"
+title: "An Introduction to Ecological Forecasting"
 author: "Jasper Slingsby"
 date: "`r Sys.Date()`"
 output:
@@ -19,7 +19,7 @@ description: This is a minimal introduction to Ecological Forecasting and Reprod
 
 # Overview
 
-_This module is a minimal introduction to Ecological Forecasting for the 3rd year undergraduate Biological Sciences class in Quantitative Biology (BIO3019S) at the University of Cape Town. A brief introduction to the course can be found [here](presentations/0_QuantitativeBiology.html)._
+_This module is a minimal introduction to Ecological Forecasting for the 3rd year undergraduate Biological Sciences class in Quantitative Biology (BIO3019S) at the University of Cape Town. A brief introduction to the course in general can be found [here](presentations/0_QuantitativeBiology.html)._
 
 ## General
 
