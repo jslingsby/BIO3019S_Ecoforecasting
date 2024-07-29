@@ -120,9 +120,9 @@ Here I use Nonlinear Least Squares (NLS) to fit a negative exponential model:
 
 ```{r, echo = F, fig.align='center'}
 ## Load required functions by running source() on the individual function files
-if(file.exists("../praccode/01_download.NDVI.R")) source("../praccode/01_download.NDVI.R")
-if(file.exists("../praccode/02_plot.NDVI.R"))     source("../praccode/02_plot.NDVI.R")
-if(file.exists("../praccode/03_negexp.R"))        source("../praccode/03_negexp.R")
+if(file.exists("../functions/01_download.NDVI.R")) source("../functions/01_download.NDVI.R")
+if(file.exists("../functions/02_plot.NDVI.R"))     source("../functions/02_plot.NDVI.R")
+if(file.exists("../functions/03_negexp.R"))        source("../functions/03_negexp.R")
 
 ## Download NDVI data
 URL = "https://raw.githubusercontent.com/jslingsby/BIO3019S_Ecoforecasting/master/data/modisdata.csv"
@@ -176,10 +176,40 @@ fit_negexpS <- nls(NDVI ~ alpha + gamma * (1 - exp(- age/lambda))
 plot.NDVI(dat = dat, fit = fit_negexpS)
 ```
 
+## A quick aside on the parameters {.smaller background-color="#c2c190"}
+
+\begin{gather}
+  \text{NDVI}_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)+
+      A_i\text{sin}\Big(2\pi\times\text{age}_{i,t}+\Big[\phi+\frac{\pi}{6}(m_{i,t}-1)\Big]\Big)
+\end{gather}
+
+::: columns
+
+::: {.column width="50%"}
+
+```{r}
+plot.NDVI(dat = dat, fit = fit_negexpS)
+```
+
+:::
+
+::: {.column width="45%"}
+
+-   $\alpha$ is the NDVI at time 0 
+    - i.e. directly after the fire
+-   $\gamma$ is the maximum *increase* in NDVI
+    -   i.e. the maximum average NDVI reached by the curve is $\alpha + \gamma$
+-   $\lambda$ is the rate of increase in NDVI
+-   $A$ is the amplitude of the sine term
+-   $\phi$ adjusts the timing of the sine term based on the month the fire occurred
+-   $m$ is the month that the fire occurred
+
+:::
+:::
 
 ## Maximum Likelihood {.smaller background-color="#33431e"}
 
-Maximum Likelihood makes a distinction between the ***data model*** and the ***process model***, like so:
+Maximum Likelihood makes a distinction between the ***data model*** and the ***process model***:
 
 <br>
 
@@ -192,7 +222,7 @@ knitr::include_graphics("img/MLElayers.png")
 
 <br/>
 
-I don't make the distinction in the equations presented in the practical, but do in the functions, where we included the **data model**, where we specified a Gaussian (normal) distribution around the mean, $\mu$ (which is described by the process model):
+I don't make the distinction in the equations presented in the practical, but do in the functions, where we included the _**data model**_, where we specified a Gaussian (normal) distribution around the mean, $\mu$ (which is described by the process model):
 
 \begin{gather}
 NDVI_{i,t}\sim\mathcal{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}}) \\
@@ -204,10 +234,11 @@ Where $\mathcal{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}})$ is just a normal distributi
 
 <br/>
 
-We then have a separate function for the **process model**, which describes $\mu$ as a function of the covariate (vegetation $age$), with parameters $\alpha$, $\gamma$ and $\lambda$:
+We then have a separate function for the _**process model**_, which describes $\mu$ as a function of the covariate (vegetation $age$), with parameters $\alpha$, $\gamma$, $\lambda$, $A$, $\phi$ and $m$:
 
 \begin{gather}  
-\mu_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)\\
+\mu_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)+
+      A_i\text{sin}\Big(2\pi\times\text{age}_{i,t}+\Big[\phi+\frac{\pi}{6}(m_{i,t}-1)\Big]\Big)
 \end{gather}
 
 
@@ -404,9 +435,7 @@ The model ***does not make explicit near-term forecasts***, but gives estimates 
 
 We're using this to develop a near-real time satellite change detection system for Fynbos.
 
-<br/>
-
-```{r emma, echo=F, out.width='90%', fig.align='center', fig.cap='The Ecosystem Monitoring for Management Application (EMMA). See [www.emma.eco](www.emma.eco) for more.'}
+```{r emma, echo=F, out.width='100%', fig.align='center', fig.cap='The Ecosystem Monitoring for Management Application (EMMA). See [www.emma.eco](www.emma.eco) for more.'}
 knitr::include_graphics("img/emma_logo.jpg")
 ```
 
@@ -418,13 +447,13 @@ knitr::include_graphics("img/emma_logo.jpg")
 ::: columns
 ::: {.column width="50%"}
 
-1. Fit **model** to get parameter estimates that describe trajectories for all pixels 
+1. Fit **model** to get parameter estimates that describe trajectories for all pixels.
 2. **Evaluate** deviation of observed NDVI from model predictions to identify anomalies. 
 3. **Diagnose** the change drivers by: 
     - interpreting deviations from the model (manual or AI) 
     - using high resolution imagery
     - field visits
-4. Iteratively **update** (manually at this stage) to improve the models predictive accuracy.
+4. Iteratively **update** (manually at this stage) to improve the model predictions.
 
 :::
 
@@ -437,7 +466,7 @@ knitr::include_graphics("img/emma_nasa.png")
 
 ## EMMA {.smaller background-color="#33431e"}
 
-Managers can get an overview of change in the landscape every time new MODIS data are collected (daily, or 16-day averages).
+Managers can get an overview of change in the landscape every time new MODIS satellite data are collected (daily, or 16-day averages).
 
 ```{r emmaexceedmap, echo=F, out.width='90%', fig.align='center', fig.cap='Overview map highlighting some of the major changes detected by @Slingsby2020.'}
 knitr::include_graphics("img/emmaexceedmap.png")
