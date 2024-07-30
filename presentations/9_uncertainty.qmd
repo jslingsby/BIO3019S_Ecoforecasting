@@ -31,7 +31,9 @@ This leaves forecasters with four overarching questions:
 3. How can we propagate uncertainty through our models and into our predictions?
 4. How can we reduce prediction uncertainty?
 
-## The utility of predictions {background-color="#33431e"}
+## The utility of predictions {.smaller background-color="#33431e"}
+
+1. _What determines the limits to the utility of predictions?_
 
 The utility of a model/forecast depends on: 
 
@@ -50,32 +52,217 @@ Together these determine the ***"ecological forecast horizon"*** (@Petchey2015).
 knitr::include_graphics("img/forecasteventhorizon.jpg")
 ```
 
-Some forecasts may lose proficiency very quickly, crossing (or starting below) the forecast proficiency threshold. Conversely, if the forecast loses proficiency more slowly, or the proficiency threshold requirements are lower, the forecast horizon is further into the future.
+Some forecasts may lose proficiency very quickly, crossing (or starting below) the forecast proficiency threshold. If the forecast loses proficiency more slowly, or the proficiency threshold requirements are lower, the forecast horizon is further into the future.
 
-## Sources and types of uncertainty {background-color="#33431e"}
+## Sources and types of uncertainty {.smaller background-color="#33431e"}
 
-Dietze provides a nice classification of prediction uncertainty in his book [@Dietze2017] and subsequent paper [@Dietze2017b] in the form of **an equation** (note that I've spread it over multiple lines): 
+2. _What determines prediction uncertainty?_
+
+Dietze classifies prediction uncertainty in his book [@Dietze2017] and subsequent paper [@Dietze2017b] in the form of **an equation** (note that I've spread it over multiple lines): 
 
 <br>
 
 $$
 \underbrace{Var[Y_{t+1}]}_\text{predictive variance} \approx \; 
 \underbrace{stability*uncertainty}_\text{initial conditions} \; +  \\
-\space\\
+$$
+$$
 \underbrace{sensitivity*uncertainty}_\text{drivers} \; +  \\
-\space\\
+$$
+$$
 \underbrace{sensitivity*(uncertainty+variability)}_\text{(parameters + random effects)} \; + \\
-\space\\
+$$
+$$
 \underbrace{Var[\epsilon]}_\text{process error} \; \;
 $$
 
-## {background-color="#33431e"}
+## Sources and types of uncertainty {.smaller background-color="#33431e"}
+If we break the terms down into (something near) English, we get:
+
+The dependent variable:
+
+<br>
+
+$$Var[Y_{t+1}] \approx$$
+
+<br>
+
+*"The uncertainty in the prediction for the variable of interest ($Y$) in the next time step ($t+1$) is approximately equal to..."*
+
+<br>
+
+And now the independent variables (or terms in the model):
+
+## Sources of uncertainty: Initial cond. {.smaller background-color="#33431e"}
+
+<br>
+
+$$\underbrace{stability*uncertainty}_\text{initial conditions} \; +$$
+
+<br>
+
+*"The stability multiplied by the uncertainty in the initial conditions, plus"*
+
+- Initial conditions = the state of $Y$ and associated parameters at time $t_0$ (time of start).
+- **Stability** refers to whether it is a variable with **stabilizing feedbacks** (think of alternate stable states), versus whether it changes very quickly (with the extreme being one that **tends towards chaos** such as atmospheric conditions often do). 
+  - Another example is populations of $r$ versus $K$ selected species (i.e. unstable - high growth rate with short-lived individuals that tend to boom and bust versus stable - low growth rate of long-lived individuals with high survival)
+- **Uncertainty** is uncertainty in the state of $Y$ and parameters due to **observation error**.
+
+## Sources of uncertainty: Drivers {.smaller background-color="#33431e"}
+
+<br>
+
+$$\underbrace{sensitivity * uncertainty}_\text{drivers} \; + $$
+
+<br>
+
+*"The sensitivity to, multiplied by the uncertainty in, external drivers, plus"*
+
+- **External drivers are just the independent variables** (covariates) in the model.
+- Predictability of $Y$ depends on its ***sensitivity*** to each covariate (i.e. how much would $Y$ change for a given change in the covariate), and ***uncertainty*** in those covariates. 
+  - Worst scenario is if $Y$ is highly sensitive and the covariates are highly uncertain. 
+  - Since we're forecasting, uncertainty in each covariate may often reflect **how well we can forecast that covariate** (e.g. future climate). If we can't predict $X$, we can't use it to predict $Y$... (e.g. occurrence of fire in the postfire recovery state space model). That said, if $Y$ is not very sensitive to $X$, there's less of a problem.
+
+
+## Sources of uncertainty: Parameters {.smaller background-color="#33431e"}
+
+<br>
+
+$$\underbrace{sensitivity*(uncertainty+variability)}_\text{(parameters + random effects)} + $$
+
+<br>
+
+*"The sensitivity to, multiplied by uncertainty and variability in, the parameters, plus"*
+
+- ***Parameter uncertainty*** pertains to **how good our estimates of the parameters** are. 
+  - This is usually a question of sample size - *"Do we have enough data to obtain a good estimate (i.e. accurate mean, low uncertainty) of the parameters?"*. 
+  - It is also linked to the **number of parameters** in the model. The more parameters, the more data you need to obtain good parameter estimates. This is another reason to avoid overly complex models.
+- ***Parameter sensitivity*** is similar to driver sensitivity - **"How much change do we expect in $Y$ for a given change in the parameter?"**
+
+
+## Sources of uncertainty: Parameters {.smaller background-color="#33431e"}
+
+<br>
+
+$$\underbrace{sensitivity*(uncertainty+variability)}_\text{(parameters + random effects)} + $$
+
+<br>
+
+*"The sensitivity to, multiplied by uncertainty and variability in, the parameters, plus"*
+
+- The **overall contribution** of a parameter to the predictive variance (i.e. uncertainty in the forecast) depends on its **sensitivity multiplied by its uncertainty**. 
+    - Targeting effort (fieldwork etc) to better constrain poorly estimated parameters is one of the best ways to reduce prediction uncertainty.
+- ***Parameter variability*** reflects factors that cause deviation (or offsets) from the mean of the parameter that may be known, but may either be poorly estimated or not included in the rest of the model. 
+  - These are **random effects** that can be caused by factors that create **autocorrelation** like space, time, phylogeny, etc.
+
+
+## Sources of uncertainty: Process error {.smaller background-color="#33431e"}
+
+<br>
+
+$$\underbrace{Var[\epsilon]}_\text{process error}$$
+*"The process error."*
+
+- This refers to **errors in the model** due to structural uncertainty and stochasticity.
+- **Stochasticity** refers to ecological phenomena of relevance that are very difficult to predict (at least within the context of the focal model). 
+  - Examples include the occurrence of **fire, dispersal or mortality** that are often **chance events** similar to a coin toss.
+- Model **structural uncertainty** simply reflects that **all models are simplifications** of reality and none are perfect. We'll always be missing something. 
+  - That said, this could also include **"user error"** where the forecaster specified the wrong process model, or applied the wrong probability distribution in the data model, etc. 
+  - Working with **multiple models** and employing **model selection or averaging** can help reduce structural uncertainty (in addition to thinking really hard about how to specify a better model of course...).
+
+## Propagating uncertainty {.smaller background-color="#33431e"}
+
+3. *"How can we propagate uncertainty through our models and into our predictions?"*
+
+There are many methods, but it's worth recognizing that these are actually two steps:
+
+1. Propagating uncertainty **through the model** 
+    + i.e. in **fitting the model**, so we can include uncertainty in our parameter estimates
+    + This is typically focused on *"How does the uncertainty in X affect the uncertainty in Y?"*
+2. Propagating uncertainty **into our forecasts**
+    + i.e. exploring the implications of uncertainty in our model (parameters etc) for our confidence in the forecast **when making predictions with our fitted model**
+    + Here we focus on *"How do we forecast Y with uncertainty?"*
+    + This second step is actually the first step in ***data assimilation***, which is the subject of the next section/lecture
+
+
+## Propagating uncertainty {.smaller background-color="#33431e"}
+
+This could be a lecture series of its own. In short, there are 5 methods to address step 1, and most have related methods for step 2 (see Table in notes). The methods differ in whether they:
+
+- Return **distributions** (e.g. Gaussian curve) or **moments** (means, medians, standard deviations, etc)
+- They have **analytical** solutions, or need to be approximated **numerically**
+
+They also have trade-offs between **efficiency vs flexibility**. The most efficient have the most rigid requirements and assumptions (analytical), while the most flexible (numeric) can be computationally taxing (or impossible given a complex enough model).
+
+
+## Propagating uncertainty {.smaller background-color="#33431e"}
+
+```{r propagatinguncertainty, echo=F}
+
+upm <- data.frame(
+  Approach = c("Analytical", "", "Numerical"),
+  Distribution = c("Variable Transform", "", "Monte Carlo (Particle Filter)"),
+  Moments = c("Analytical Moments (Kalman Filter)", "Taylor Series (Extended Kalman Filter)", "Ensemble (Ensemble Kalman Filter)")
+)
+
+knitr::kable(upm, caption = "**Methods for propagating uncertainty through models (and into forecasts)**")
+
+```
+
+>***Note:*** It is possible to propagate uncertainty through the model and into your forecast in one step with Bayesian methods, by treating the forecast states as "missing data" values and estimating posterior distributions for them. This would essentially fit with Monte Carlo methods in the table. This approach may not suit all forecasting circumstances though.
+
+## Analyzing and reducing uncertainty {.smaller background-color="#33431e"}
+
+4. _"How can we reduce prediction uncertainty?_
+
+<br>
+
+Working out **where it's coming from** (by analyzing and partitioning the sources of uncertainty).
+
+<br>
+
+**Targeting sources of uncertainty** that can be reduced with the best return on investment (important to note that these may not be the biggest sources of uncertainty, just the cheapest and easiest to resolve).
+
+## Analyzing and reducing uncertainty {.smaller background-color="#33431e"}
+
+**Addressing 1** requires looking at the two ways in which things can be important for the uncertainty in predictions (largely covered in Dietze's equation above):
+
+- because they're **highly uncertain**, which requires you to: 
+  - **propagate** uncertainty through the model as above
+  - **partition** uncertainty among your different drivers (covariates) and parameters
+- because they're **highly sensitive**, requiring you to perform:
+  - **sensitivity analysis**
+    - You'll probably cover these in more detail in Res' module when looking at matrix models. I'm not going to go into them here, but they focus on **how a change in X translates into a change in Y**. The bigger the relative change in Y, the more sensitive.
+
+
+## Analyzing and reducing uncertainty {.smaller background-color="#33431e"}
+
+**Addressing 2** may not be as straightforward as you'd hope. Parameters that are highly uncertain and to which your state variable (Y) are highly sensitive will cause the most uncertainty in your predictions. That said, **given limited resources**, they may not be the best target for reducing uncertainty for a number of reasons, e.g.
+
+- they may be **inherently uncertain** and uncertainty may remain high even with vast sampling effort 
+  - **power analysis** can help here (i.e. exploring how uncertainty changes with sample size)
+- they may be **hugely costly or time-consuming**, trading off against resources you could focus on reducing other sources of uncertainty
+
+In fact, by this stage you should have most of the pieces of the puzzle to help you **build a model to predict where your effort is best invested** by exploring the relationship between sample size and variance contribution to overall model uncertainty! You can even include economic principles to estimate monetary or person-hour implications. This is called ***observational design***.
+
+
+## Invasive alien plants and streamflow {.smaller background-color="#33431e"}
 
 ## {background-color="#33431e"}
 
-## {background-color="#33431e"}
+::: columns
 
-## {background-color="#33431e"}
+::: {.column width="50%"}
+
+
+:::
+
+::: {.column width="50%"}
+
+:::
+
+:::
+
 
 ## {background-color="#33431e"}
 

@@ -176,7 +176,7 @@ $AIC = 2K -2(ln(L))$
 
 Where:
 
-- $k$ = the number of estimated parameters in the model
+- $K$ = the number of estimated parameters in the model
 - $L$ = maximum value of the likelihood function for the model
 
 Since we have our negative log likelihoods (i.e. $-ln(L)$ in the formula above), we can calculate the AICs and compare them.
@@ -186,7 +186,7 @@ AIC_simple = 6 + 2*fit_negexpMLE$value
 
 AIC_simple
 
-AIC_full = 6 + 2*fit_negexpMLES$value
+AIC_full = 10 + 2*fit_negexpMLES$value
 
 AIC_full
 ```
