@@ -16,6 +16,8 @@ Jasper Slingsby
 
 ## Uncertainty {background-color="#33431e"}
 
+<br/>
+
 Uncertainty determines the utility of a forecast:
 
 1. If the uncertainty in a forecast is too high, then it is of no utility to a decision maker. 
@@ -23,6 +25,8 @@ Uncertainty determines the utility of a forecast:
 2. If the uncertainty is not properly quantified and presented, it can lead to poor decisions. 
 
 ## Uncertainty {background-color="#33431e"}
+
+<br/>
 
 This leaves forecasters with four overarching questions:
 
@@ -60,8 +64,6 @@ Some forecasts may lose proficiency very quickly, crossing (or starting below) t
 
 Dietze classifies prediction uncertainty in his book [@Dietze2017] and subsequent paper [@Dietze2017b] in the form of **an equation** (note that I've spread it over multiple lines): 
 
-<br>
-
 $$
 \underbrace{Var[Y_{t+1}]}_\text{predictive variance} \approx \; 
 \underbrace{stability*uncertainty}_\text{initial conditions} \; +  \\
@@ -95,84 +97,86 @@ And now the independent variables (or terms in the model):
 
 ## Sources of uncertainty: Initial cond. {.smaller background-color="#33431e"}
 
-<br>
-
 $$\underbrace{stability*uncertainty}_\text{initial conditions} \; +$$
-
-<br>
 
 *"The stability multiplied by the uncertainty in the initial conditions, plus"*
 
+::: {.incremental}
+
 - Initial conditions = the state of $Y$ and associated parameters at time $t_0$ (time of start).
-- **Stability** refers to whether it is a variable with **stabilizing feedbacks** (think of alternate stable states), versus whether it changes very quickly (with the extreme being one that **tends towards chaos** such as atmospheric conditions often do). 
+- **Stability** = whether it is a variable with **stabilizing feedbacks** (think of alternate stable states), versus one that changes very quickly (or even rapidly **tends towards chaos** such as atmospheric conditions often do). 
   - Another example is populations of $r$ versus $K$ selected species (i.e. unstable - high growth rate with short-lived individuals that tend to boom and bust versus stable - low growth rate of long-lived individuals with high survival)
 - **Uncertainty** is uncertainty in the state of $Y$ and parameters due to **observation error**.
 
-## Sources of uncertainty: Drivers {.smaller background-color="#33431e"}
+:::
 
-<br>
+
+## Sources of uncertainty: Drivers {.smaller background-color="#33431e"}
 
 $$\underbrace{sensitivity * uncertainty}_\text{drivers} \; + $$
 
-<br>
-
 *"The sensitivity to, multiplied by the uncertainty in, external drivers, plus"*
+
+::: {.incremental}
 
 - **External drivers are just the independent variables** (covariates) in the model.
 - Predictability of $Y$ depends on its ***sensitivity*** to each covariate (i.e. how much would $Y$ change for a given change in the covariate), and ***uncertainty*** in those covariates. 
   - Worst scenario is if $Y$ is highly sensitive and the covariates are highly uncertain. 
-  - Since we're forecasting, uncertainty in each covariate may often reflect **how well we can forecast that covariate** (e.g. future climate). If we can't predict $X$, we can't use it to predict $Y$... (e.g. occurrence of fire in the postfire recovery state space model). That said, if $Y$ is not very sensitive to $X$, there's less of a problem.
+  - Since we're forecasting, uncertainty in each covariate may often reflect **how well we can forecast the covariates** (e.g. future climate). If we can't predict $X$, we can't use it to predict $Y$... (e.g. occurrence of fire in the postfire recovery state space model). That said, if $Y$ is not very sensitive to $X$, there's less of a problem.
 
+:::
 
 ## Sources of uncertainty: Parameters {.smaller background-color="#33431e"}
 
-<br>
-
 $$\underbrace{sensitivity*(uncertainty+variability)}_\text{(parameters + random effects)} + $$
 
-<br>
-
 *"The sensitivity to, multiplied by uncertainty and variability in, the parameters, plus"*
+
+::: {.incremental}
 
 - ***Parameter uncertainty*** pertains to **how good our estimates of the parameters** are. 
   - This is usually a question of sample size - *"Do we have enough data to obtain a good estimate (i.e. accurate mean, low uncertainty) of the parameters?"*. 
   - It is also linked to the **number of parameters** in the model. The more parameters, the more data you need to obtain good parameter estimates. This is another reason to avoid overly complex models.
 - ***Parameter sensitivity*** is similar to driver sensitivity - **"How much change do we expect in $Y$ for a given change in the parameter?"**
 
+:::
 
 ## Sources of uncertainty: Parameters {.smaller background-color="#33431e"}
 
-<br>
-
 $$\underbrace{sensitivity*(uncertainty+variability)}_\text{(parameters + random effects)} + $$
 
-<br>
-
 *"The sensitivity to, multiplied by uncertainty and variability in, the parameters, plus"*
+
+::: {.incremental}
 
 - The **overall contribution** of a parameter to the predictive variance (i.e. uncertainty in the forecast) depends on its **sensitivity multiplied by its uncertainty**. 
     - Targeting effort (fieldwork etc) to better constrain poorly estimated parameters is one of the best ways to reduce prediction uncertainty.
 - ***Parameter variability*** reflects factors that cause deviation (or offsets) from the mean of the parameter that may be known, but may either be poorly estimated or not included in the rest of the model. 
   - These are **random effects** that can be caused by factors that create **autocorrelation** like space, time, phylogeny, etc.
 
+:::
 
 ## Sources of uncertainty: Process error {.smaller background-color="#33431e"}
-
-<br>
 
 $$\underbrace{Var[\epsilon]}_\text{process error}$$
 *"The process error."*
 
+::: {.incremental}
+
 - This refers to **errors in the model** due to structural uncertainty and stochasticity.
 - **Stochasticity** refers to ecological phenomena of relevance that are very difficult to predict (at least within the context of the focal model). 
-  - Examples include the occurrence of **fire, dispersal or mortality** that are often **chance events** similar to a coin toss.
+  - e.g. fire, dispersal or mortality - chance events like a coin toss.
 - Model **structural uncertainty** simply reflects that **all models are simplifications** of reality and none are perfect. We'll always be missing something. 
-  - That said, this could also include **"user error"** where the forecaster specified the wrong process model, or applied the wrong probability distribution in the data model, etc. 
-  - Working with **multiple models** and employing **model selection or averaging** can help reduce structural uncertainty (in addition to thinking really hard about how to specify a better model of course...).
+  - Includes **"user error"** such as specifying the wrong process model or probability distribution in the data model, etc. 
+  - Using **multiple models** and employing **model selection or averaging** can help reduce structural uncertainty (or just specifying a better model of course...).
+
+:::
 
 ## Propagating uncertainty {.smaller background-color="#33431e"}
 
 3. *"How can we propagate uncertainty through our models and into our predictions?"*
+
+::: {.incremental}
 
 There are many methods, but it's worth recognizing that these are actually two steps:
 
@@ -184,16 +188,30 @@ There are many methods, but it's worth recognizing that these are actually two s
     + Here we focus on *"How do we forecast Y with uncertainty?"*
     + This second step is actually the first step in ***data assimilation***, which is the subject of the next section/lecture
 
+:::
 
 ## Propagating uncertainty {.smaller background-color="#33431e"}
 
-This could be a lecture series of its own. In short, there are 5 methods to address step 1, and most have related methods for step 2 (see Table in notes). The methods differ in whether they:
+<br/>
+
+This could be a lecture series of its own. In short, there are 5 main methods for propagating uncertainty through the model, and most have related methods for propagation into the forecast (see Table on next slide). 
+
+::: {.fragment}
+
+The methods differ in whether they:
 
 - Return **distributions** (e.g. Gaussian curve) or **moments** (means, medians, standard deviations, etc)
 - They have **analytical** solutions, or need to be approximated **numerically**
 
-They also have trade-offs between **efficiency vs flexibility**. The most efficient have the most rigid requirements and assumptions (analytical), while the most flexible (numeric) can be computationally taxing (or impossible given a complex enough model).
+:::
 
+::: {.fragment}
+
+They also have trade-offs between **efficiency vs flexibility**. 
+
+- The most efficient have the most rigid requirements and assumptions (analytical), while the most flexible (numeric) can be computationally taxing (or impossible given a complex enough model).
+
+:::
 
 ## Propagating uncertainty {.smaller background-color="#33431e"}
 
@@ -209,7 +227,10 @@ knitr::kable(upm, caption = "**Methods for propagating uncertainty through model
 
 ```
 
+<br/>
+
 >***Note:*** It is possible to propagate uncertainty through the model and into your forecast in one step with Bayesian methods, by treating the forecast states as "missing data" values and estimating posterior distributions for them. This would essentially fit with Monte Carlo methods in the table. This approach may not suit all forecasting circumstances though.
+
 
 ## Analyzing and reducing uncertainty {.smaller background-color="#33431e"}
 
@@ -217,33 +238,68 @@ knitr::kable(upm, caption = "**Methods for propagating uncertainty through model
 
 <br>
 
-Working out **where it's coming from** (by analyzing and partitioning the sources of uncertainty).
+::: {.fragment}
+
+***Firstly, by working out where it's coming from*** 
+
+- by analyzing and partitioning the sources of uncertainty
+
+:::
 
 <br>
 
-**Targeting sources of uncertainty** that can be reduced with the best return on investment (important to note that these may not be the biggest sources of uncertainty, just the cheapest and easiest to resolve).
+::: {.fragment}
+
+***Secondly, by targeting and reducing sources of uncertainty*** 
+
+- ideally those that provide the best return on investment (important to note that these may not be the biggest sources of uncertainty, just the cheapest and easiest to resolve).
+
+:::
 
 ## Analyzing and reducing uncertainty {.smaller background-color="#33431e"}
 
-**Addressing 1** requires looking at the two ways in which things can be important for the uncertainty in predictions (largely covered in Dietze's equation above):
+<br/>
 
-- because they're **highly uncertain**, which requires you to: 
+Identifying the sources of uncertainty requires looking at the two ways in which they can be important for the uncertainty in predictions (largely covered in the equation earlier):
+
+::: {.fragment}
+
+- because they're ***highly uncertain***, which requires you to: 
   - **propagate** uncertainty through the model as above
   - **partition** uncertainty among your different drivers (covariates) and parameters
-- because they're **highly sensitive**, requiring you to perform:
+
+:::
+
+::: {.fragment}
+
+- because they're ***highly sensitive***, requiring you to perform:
   - **sensitivity analysis**
-    - You'll probably cover these in more detail in Res' module when looking at matrix models. I'm not going to go into them here, but they focus on **how a change in X translates into a change in Y**. The bigger the relative change in Y, the more sensitive.
+    - You'll probably cover these in more detail in Res' module, so I'm not going to go into them. The focus is on **how a change in X translates into a change in Y**. The bigger the relative change in Y, the more sensitive.
+
+:::
 
 
 ## Analyzing and reducing uncertainty {.smaller background-color="#33431e"}
 
-**Addressing 2** may not be as straightforward as you'd hope. Parameters that are highly uncertain and to which your state variable (Y) are highly sensitive will cause the most uncertainty in your predictions. That said, **given limited resources**, they may not be the best target for reducing uncertainty for a number of reasons, e.g.
+Targeting and reducing sources of uncertainty is not always straightforward. 
 
-- they may be **inherently uncertain** and uncertainty may remain high even with vast sampling effort 
-  - **power analysis** can help here (i.e. exploring how uncertainty changes with sample size)
-- they may be **hugely costly or time-consuming**, trading off against resources you could focus on reducing other sources of uncertainty
+Parameters that are highly uncertain and to which our state variable (Y) are highly sensitive cause the most uncertainty for predictions. 
 
-In fact, by this stage you should have most of the pieces of the puzzle to help you **build a model to predict where your effort is best invested** by exploring the relationship between sample size and variance contribution to overall model uncertainty! You can even include economic principles to estimate monetary or person-hour implications. This is called ***observational design***.
+But, ***given limited resources***, may not be the best target for a number of reasons:
+
+::: {.fragment}
+
+- they may be ***inherently uncertain*** and remain uncertain even with vast sampling effort 
+  - **power analysis** can help (exploring how uncertainty changes with sample size)
+- they may be ***hugely costly or time-consuming***, trading off against resources you could focus on reducing other sources of uncertainty
+
+:::
+
+::: {.fragment}
+
+In fact, you can **build a model to predict where your effort is best invested** by exploring the relationship between sample size and contribution to overall model uncertainty! You can even include economic principles to estimate monetary or person-hour implications. This is called ***observational design***.
+
+:::
 
 
 ## Invasive alien plants and streamflow {.smaller background-color="#33431e"}
