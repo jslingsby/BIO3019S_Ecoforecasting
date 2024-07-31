@@ -10,3 +10,367 @@ This section is only available as a slideshow. Right click or hold `Ctrl` or `Co
 
 </div>
 
+<br/>
+
+## Latent variables & state-space models
+
+![The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts.](img/ecoforecastingloop.png){width="70%"}
+
+<br/>
+
+Iterative ecological forecasting typically requires modelling variables that vary in time and space...
+
+State-space models are a general statistical framework that is particularly well-suited to this problem.
+
+Here I provide a brief introduction to state-space models, but first I must introduce ***latent variables***.
+
+<br>
+
+## Latent variables 
+
+Variables are _latent_ if they are unobserved or estimated with uncertainty. 
+
+- i.e. their true value is not known and can only be inferred indirectly through a model from other variables that can be observed and measured.
+
+<br/>
+
+[Dietze 2017](http://dx.doi.org/10.2307/j.ctvc7796h) outlines 4 common latent variable types:
+
+1. observation errors (random and systematic)
+2. proxy data
+3. missing data
+4. unobserved variables
+
+<br/>
+
+### Observation error 
+
+I've already mentioned that a big challenge to modelling is error in the observation of the state variable of interest.
+
+Observation errors are typically either:
+
+- ***random***, due to imprecision of the data collection process or other extraneous factors, or
+
+- ***systematic***, implying there is some _bias_
+
+<br/>
+
+**Precision vs accuracy**
+
+```{r accuracyprecision, fig.cap='The true value is the origin (0,0).', fig.asp=1, fig.align='left', echo=FALSE, warning=F, message=F, out.width="80%"}
+library(tidyverse)
+library(hrbrthemes)
+
+data <- data.frame(set = factor(x = c(rep("precise and accurate", 50), rep("precise, but inaccurate",50), rep("imprecise, but accurate", 50), rep("imprecise and inaccurate", 50)), levels = c("precise and accurate", "precise, but inaccurate", "imprecise, but accurate", "imprecise and inaccurate")), x = c(rnorm(50, mean = 0, sd = 1), rnorm(50, mean = 1.5, sd = 1), rnorm(50, mean = 0, sd = 1.5), rnorm(50, mean = 1.5, sd = 1.5)), y = c(rnorm(50, mean = 0, sd = 1), rnorm(50, mean = 1.5, sd = 1), rnorm(50, mean = 0, sd = 1.5), rnorm(50, mean = 1.5, sd = 1.5)))
+
+data %>%
+ # tail(10) %>%
+  ggplot(aes(x=x, y=y)) +
+    #geom_polygon(fill = "grey") +
+    #geom_path(color="black") +
+    geom_hline(yintercept = 0) + geom_vline(xintercept = 0) +
+    geom_point(shape=21, color="black", fill="#69b3a2", size=3) +
+    theme_ipsum(strip_text_size = 15, base_size = 15, axis_title_size = 15) + ylim(-5,5) + xlim(-5,5) +
+    facet_wrap(.~set)
+
+```
+
+<br/>
+
+Imprecision in measurement creates random error.
+
+Inaccuracy creates systematic error.
+
+<br/>
+
+#### Random observation error
+
+Random error is created by imprecision in measurement ("scatter") around the true state of the variable of interest, but can be created by other processes.
+
+In this case we may want to model the true state as a latent variable, and model the random observation error as a probability distribution (typically Gaussian) around the mean.
+
+E.g. specifying the **data model** to be a normal distribution around the mean ($\mu$), as we did in the post-fire recovery model:     
+
+$NDVI_{i,t}\sim \mathit{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}}) \\$
+
+In this case $\mu$ is the latent variable (i.e. estimate of the unobserved true state).
+
+<br/>
+
+#### Systematic observation error
+
+Systematic error is where there is a _bias_, such as created by differences among observers or poor instrument calibration.
+
+Constant bias can be corrected with an offset, but something like sensor drift may need to be approximated as a random walk or similar (to account for temporal autocorrelation).
+
+If we have more information about the causes of error, we can apply more complex observation models (e.g. differences among field staff, temperature dependence of readings, etc).
+
+Often there is both random and systematic error, requiring a model that accounts for both.
+
+<br/>
+
+### Proxy data 
+
+I.e. observing a proxy for the state variable of interest, e.g.
+
+- Normalised Difference Vegetation Index (NDVI) for plant cover or vegetation health
+- Time-domain reflectometry (TDR) for soil moisture
+- Dung as a measure of herbivore habitat preference
+
+There are many ways to relate the _observed_ proxy(ies) to the _latent_ state variable of interest, such as empirical calibration curves, probabilities of identifying dung correctly, etc. 
+
+<br/>
+
+### Missing data 
+
+Where some observations may be missing from the data, these may be estimated with uncertainty in various ways.
+
+Missing data are common in time series or in space (e.g. sensor failure, logistical difficulties, etc.).
+
+<br/>
+
+### Unobserved variables 
+
+Some variables may never be observed (e.g too difficult to measure), but can be inferred from the process model, e.g.
+
+- soil stored seedbanks in plant demographic models
+- determinants of resource allocation decisions in organisms
+
+<br/>
+
+Estimating these _latent_ variables can be tricky, but having multiple independent measures to constrain the estimates or high confidence in the model structure (i.e. mechanistic understanding) can help.
+
+<br/>
+
+## State-space models 
+
+Forecasting involves predicting key variables further in time, and often farther in space.
+
+An issue with time-series or spatial modelling is dependence ("autocorrelation") among observations in time and space.
+
+One also usually has to deal with a number of latent variables due to missing or sparse data, observation error, etc.
+
+_State-space models_ are a useful framework for dealing with these kinds of problems and for forecasting in general.
+
+- The name comes from the focus on estimating the state as a _latent_ variable.
+- This explicitly separates observation errors from process errors, allowing attractive flexibility, including addressing issues of autocorrelation... 
+
+<br/>
+
+## State-space models - illustration
+
+![Illustration of a simple univariate state-space model from [Auger-Methe et al. 2021](https://doi.org/10.1002/ecm.1470).](img/statespace_augermethe.jpg)
+
+<br/>
+
+a) The dependence among the true (latent) states $z_{t-1}$, $z_t$, $z_{t+1}$, ... can be modeled explicitly in the process model. The dependence of the observations $y_t$ on the states $z_t$ allows observations to be assumed to be independent. 
+
+b) State estimates can be closer to the true states than the observations.
+
+<br/>
+
+### State-space models - simple example 
+
+Here's an SSM where the process model is a random walk (i.e. change at each time step is just process error ($\tau_{add}$) - a random draw from a normal distribution). We've also specified a data model with observation error drawn from a normal distribution.
+
+The process model[^1]: $$z_{t+1}\sim\mathit{N}(z_{t},\tau_{add})$$
+
+The data model: $$y_{t}\sim\mathit{N}(z_{t},\tau_{obs})$$
+
+<br/>
+
+> Note 1: The process and data model can also be referred to as the _state_ and _observation_ models respectively.
+
+> Note 2: For a Bayesian model this would also require priors on the process error ($\tau_{add}$), observation error ($\tau_{obs}$) and initial condition of the state variable ($x_0$).
+
+<br/>
+
+The probability distribution for the state variable, $z_{t}$, conditional on the model parameters would be:
+
+$$
+\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{{\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; \underbrace{{\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \; \underbrace{{\mathit{N}(z_{t+1}|z_{t},\tau_{add})}}_\text{next time} \;
+$$
+
+<br/>
+
+Which says that the current state ($z_{t}$) depends on both the states before and after as well as the current observation ($y_{t}$).
+
+In fact, the posterior of the current state ($z_{t}$) is proportional to the product of the three normal distributions.
+
+<br/>
+
+```{r, echo = F, fig.width = 7, fig.asp = 0.5, fig.align='center'}
+library(tidyverse)
+
+rangeP <- seq(0, 1, length.out = 100)
+
+prev <- dnorm(x = rangeP, mean = .5, sd = .1)
+obs <- dnorm(x = rangeP, mean = .6, sd = .1)
+nex <- dnorm(x = rangeP, mean = .7, sd = .1)
+
+dat <- data.frame(
+  term = factor(c(rep("current state", 100), rep("previous time", 100), rep("current observation", 100), rep("next time", 100)),
+                levels = c("current state", "previous time", "current observation", "next time")),
+  state = rep(rangeP,4),
+  Density = c(prev*obs*nex/sum(prev,obs,nex), prev/30, obs/30, nex/30)
+    )
+
+ggplot(dat, aes(y = Density, x = state)) +
+  geom_line() +
+  facet_wrap(. ~ term, nrow = 1) +
+  coord_flip()
+
+```
+
+<br/>
+
+Where the terms are similar, the state estimate peaks, indicating less uncertainty.
+
+<br/>
+
+```{r, echo = F, fig.width = 7, fig.asp = 0.5, fig.align='center'}
+library(tidyverse)
+
+rangeP <- seq(0, 1, length.out = 100)
+
+prev <- dnorm(x = rangeP, mean = .5, sd = .1)
+obs <- dnorm(x = rangeP, mean = .65, sd = .1)
+nex <- dnorm(x = rangeP, mean = .8, sd = .1)
+
+dat <- data.frame(
+  term = factor(c(rep("current state", 100), rep("previous time", 100), rep("current observation", 100), rep("next time", 100)),
+                levels = c("current state", "previous time", "current observation", "next time")),
+  state = rep(rangeP,4),
+  Density = c(prev*obs*nex/sum(prev,obs,nex), prev/30, obs/30, nex/30)
+    )
+
+ggplot(dat, aes(y = Density, x = state)) +
+  geom_line() +
+  facet_wrap(. ~ term, nrow = 1) +
+  coord_flip()
+
+```
+
+<br/>
+
+Where the terms differ, the state estimate flattens, indicating greater uncertainty.
+
+<br/>
+
+Often, there's no observation for "next time", and the model reduces to:
+
+$$
+\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{{\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; \underbrace{{\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \;
+$$
+
+```{r, echo = F, fig.width = 7, fig.asp = 0.5, fig.align='center'}
+library(tidyverse)
+
+rangeP <- seq(0, 1, length.out = 100)
+
+prev <- dnorm(x = rangeP, mean = .5, sd = .1)
+obs <- dnorm(x = rangeP, mean = .6, sd = .1)
+
+dat <- data.frame(
+  term = factor(c(rep("current state", 100), rep("previous time", 100), rep("current observation", 100)),
+                levels = c("current state", "previous time", "current observation")),
+  state = rep(rangeP,3),
+  Density = c(prev*obs/sum(prev,obs), prev/30, obs/30)
+    )
+
+ggplot(dat, aes(y = Density, x = state)) +
+  geom_line() +
+  facet_wrap(. ~ term, nrow = 1) +
+  coord_flip()
+
+```
+
+<br/>
+
+For forecasts, there's no "current observation" either, so we get:
+
+$$
+\underbrace{z_{t}|...}_\text{forecast state} \; \propto \; \underbrace{{\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; 
+$$
+
+```{r, echo = F, fig.width = 7, fig.asp = 0.5, fig.align='center'}
+library(tidyverse)
+
+rangeP <- seq(0, 1, length.out = 100)
+
+prev <- dnorm(x = rangeP, mean = .5, sd = .1)
+fore <- dnorm(x = rangeP, mean = .5, sd = .1)
+
+dat <- data.frame(
+  term = factor(c(rep("forecast state", 100), rep("previous time", 100)),
+                levels = c("forecast state", "previous time")),
+  state = rep(rangeP,2),
+  Density = c(fore/sum(fore), prev/30)
+    )
+
+ggplot(dat, aes(y = Density, x = state)) +
+  geom_line() +
+  facet_wrap(. ~ term, nrow = 1) +
+  coord_flip()
+
+```
+
+<br/>
+
+In this dummy model the forecast value is almost exactly the same as the previous time, because the process model is a random walk and simply adds a little error ($\tau_{add}$) to the previous state ($z_{t-1}$).
+
+<br/>
+
+## State-space models - postfire example 
+
+Our postfire recovery example could use a state update equation with process model:
+
+$$x_{i,t} = \underbrace{(x_{i,t-1} + x_{i,t-1}\lambda_i(1-\frac{x_{i,t-1}}{\gamma_i})) (1-z_{i,t-1})}_\text{negative exponential*} + \underbrace{z_{i,t-1}\alpha_i}_\text{postfire greeness*} +  \underbrace{A_i\sin(v_t+\phi_i)}_\text{seasonality} +  \epsilon_{i,t}$$
+and data model (as before):
+
+$$NDVI_{i,t} \sim \mathit{N}(x_{i,t},\sigma_o^{2})$$
+
+$x_{i,t}$ is the hidden state for site $i$ at time $t$  
+
+$z_{i,t}$ is the observed occurrence of fire (0/1)
+
+The process model ("previous time" only) represents negative exponential growth, seasonality and a fire switch that tells the model to follow the exponential when fires do not occur ($z_{i,t} = 0$) or resets the state to postfire greenness ($\alpha$) when they do ($z_{i,t} = 1$).
+
+<br/>
+
+![](img/statespace_Slingsby2023.png)
+
+from [Slingsby et al. 2023](http://dx.doi.org/10.1111/2041-210x.14046)
+
+<br/>
+
+## State-space model uses 
+
+They can be used for almost anything where the future state of a system depends on the current state, including:
+
+- population dynamics
+- fisheries stock assessment
+- movement ecology (biologging)
+- capture-recapture
+- epidemiology and disease ecology
+- weather
+- carbon cycle
+- etc, etc
+
+<br/>
+
+For time-series of discrete states variables (i.e. categorical response) they are also referred to as _Hidden Markov models_
+
+- "hidden" refers to the latent variable(s) 
+- "Markov" refers to their recursive nature,  with the next state in time a function of the current state
+
+When extended to spatial or space-time models they are called _Markov random fields_
+
+
+## References
+
+Auger-Méthé, Marie, Ken Newman, Diana Cole, Fanny Empacher, Rowenna Gryba, Aaron A. King, Vianey Leos-Barajas, et al. 2021. “A Guide to State–space Modeling of Ecological Time Series.” Ecological Monographs 91 (4): e01470. https://doi.org/10.1002/ecm.1470.
+
+Dietze, Michael C. 2017. Ecological Forecasting. Princeton University Press. https://doi.org/10.2307/j.ctvc7796h. - especially Ch 8 _Latent Variables and State-Space Models_
+
+Slingsby, Jasper A., Adam M. Wilson, Brian Maitner, and Glenn R. Moncrieff. 2023. “Regional Ecological Forecasting across Scales: A Manifesto for a Biodiversity Hotspot.” Methods in Ecology and Evolution / British Ecological Society, January. https://doi.org/10.1111/2041-210x.14046.

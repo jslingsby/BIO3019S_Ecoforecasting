@@ -260,14 +260,14 @@ This explicitly separates observation errors from process errors, allowing attra
 
 ![Illustration of a simple univariate state-space model from [Auger-Methe et al. 2021](https://doi.org/10.1002/ecm.1470).](img/statespace_augermethe.jpg)
 
-a) The dependence among the (latent) states $z_{t-1}$, $z_t$, $z_{t+1}$, ... can be modeled explicitly in the process model. The dependence of the observations $y_t$ on the states $z_t$ allows observations to be assumed to be independent. 
+a) The dependence among the true (latent) states $z_{t-1}$, $z_t$, $z_{t+1}$, ... can be modeled explicitly in the process model. The dependence of the observations $y_t$ on the states $z_t$ allows observations to be assumed to be independent. 
 
 b) State estimates can be closer to the true states than the observations.
 
 
 ## State-space models - example {.smaller background-color="#33431e"}
 
-Here's an SSM where the process model is a random walk (i.e. change at each time step is just process error ($\tau_{add}$) - a random draw from a normal distribution).
+Here's an SSM where the process model is a random walk (i.e. change at each time step is just process error ($\tau_{add}$) - a random draw from a normal distribution). We've also specified a data model with observation error drawn from a normal distribution.
 
 <br/>
 

@@ -75,9 +75,9 @@ Which when fitted to the data looks like so:
 
 ```{r, echo = F}
 ## Load required functions by running source() on the individual function files
-if(file.exists("praccode/01_download.NDVI.R")) source("praccode/01_download.NDVI.R")
-if(file.exists("praccode/02_plot.NDVI.R"))     source("praccode/02_plot.NDVI.R")
-if(file.exists("praccode/03_negexp.R"))        source("praccode/03_negexp.R")
+if(file.exists("functions/01_download.NDVI.R")) source("functions/01_download.NDVI.R")
+if(file.exists("functions/02_plot.NDVI.R"))     source("functions/02_plot.NDVI.R")
+if(file.exists("functions/03_negexp.R"))        source("functions/03_negexp.R")
 
 ## Download NDVI data
 URL = "https://raw.githubusercontent.com/jslingsby/BIO3019S_Ecoforecasting/master/data/modisdata.csv"
