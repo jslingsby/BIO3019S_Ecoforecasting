@@ -122,13 +122,13 @@ statespace
 latent-variables-state-space-models
 latent-variables
 observation-error
-precision-vs-accuracy
 random-observation-error
 systematic-observation-error
 proxy-data
 missing-data
 unobserved-variables
 state-space-models
+state-space-models---illustration
 state-space-models---simple-example
 state-space-models---postfire-example
 state-space-model-uses
@@ -176,4 +176,3 @@ compare-nls-models-using-anova
 fit-models-using-maximum-likelihood-estimation-mle
 compare-mle-models-using-akaikes-information-criterion-aic
 going-bayesian
-state-space-models---illustration

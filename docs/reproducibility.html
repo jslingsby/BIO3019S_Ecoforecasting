@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2024-07-31" />
+<meta name="date" content="2024-08-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -255,18 +255,18 @@ div.csl-indent {
 <li class="chapter" data-level="9.2" data-path="statespace.html"><a href="statespace.html#latent-variables"><i class="fa fa-check"></i><b>9.2</b> Latent variables</a>
 <ul>
 <li class="chapter" data-level="9.2.1" data-path="statespace.html"><a href="statespace.html#observation-error"><i class="fa fa-check"></i><b>9.2.1</b> Observation error</a></li>
-<li class="chapter" data-level="9.2.2" data-path="statespace.html"><a href="statespace.html#precision-vs-accuracy"><i class="fa fa-check"></i><b>9.2.2</b> Precision vs accuracy</a></li>
-<li class="chapter" data-level="9.2.3" data-path="statespace.html"><a href="statespace.html#proxy-data"><i class="fa fa-check"></i><b>9.2.3</b> Proxy data</a></li>
-<li class="chapter" data-level="9.2.4" data-path="statespace.html"><a href="statespace.html#missing-data"><i class="fa fa-check"></i><b>9.2.4</b> Missing data</a></li>
-<li class="chapter" data-level="9.2.5" data-path="statespace.html"><a href="statespace.html#unobserved-variables"><i class="fa fa-check"></i><b>9.2.5</b> Unobserved variables</a></li>
+<li class="chapter" data-level="9.2.2" data-path="statespace.html"><a href="statespace.html#proxy-data"><i class="fa fa-check"></i><b>9.2.2</b> Proxy data</a></li>
+<li class="chapter" data-level="9.2.3" data-path="statespace.html"><a href="statespace.html#missing-data"><i class="fa fa-check"></i><b>9.2.3</b> Missing data</a></li>
+<li class="chapter" data-level="9.2.4" data-path="statespace.html"><a href="statespace.html#unobserved-variables"><i class="fa fa-check"></i><b>9.2.4</b> Unobserved variables</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="statespace.html"><a href="statespace.html#state-space-models"><i class="fa fa-check"></i><b>9.3</b> State-space models</a>
+<li class="chapter" data-level="9.3" data-path="statespace.html"><a href="statespace.html#state-space-models"><i class="fa fa-check"></i><b>9.3</b> State-space models</a></li>
+<li class="chapter" data-level="9.4" data-path="statespace.html"><a href="statespace.html#state-space-models---illustration"><i class="fa fa-check"></i><b>9.4</b> State-space models - illustration</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="statespace.html"><a href="statespace.html#state-space-models---simple-example"><i class="fa fa-check"></i><b>9.3.1</b> State-space models - simple example</a></li>
+<li class="chapter" data-level="9.4.1" data-path="statespace.html"><a href="statespace.html#state-space-models---simple-example"><i class="fa fa-check"></i><b>9.4.1</b> State-space models - simple example</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="statespace.html"><a href="statespace.html#state-space-models---postfire-example"><i class="fa fa-check"></i><b>9.4</b> State-space models - postfire example</a></li>
-<li class="chapter" data-level="9.5" data-path="statespace.html"><a href="statespace.html#state-space-model-uses"><i class="fa fa-check"></i><b>9.5</b> State-space model uses</a></li>
-<li class="chapter" data-level="9.6" data-path="statespace.html"><a href="statespace.html#references"><i class="fa fa-check"></i><b>9.6</b> References</a></li>
+<li class="chapter" data-level="9.5" data-path="statespace.html"><a href="statespace.html#state-space-models---postfire-example"><i class="fa fa-check"></i><b>9.5</b> State-space models - postfire example</a></li>
+<li class="chapter" data-level="9.6" data-path="statespace.html"><a href="statespace.html#state-space-model-uses"><i class="fa fa-check"></i><b>9.6</b> State-space model uses</a></li>
+<li class="chapter" data-level="9.7" data-path="statespace.html"><a href="statespace.html#references"><i class="fa fa-check"></i><b>9.7</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="uncertainty.html"><a href="uncertainty.html"><i class="fa fa-check"></i><b>10</b> Uncertainty</a>
 <ul>
@@ -575,35 +575,53 @@ Figure 5.4: ‘Documents’ from <a href="https://xkcd.com/1459">xkcd.com/1459</
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] hrbrthemes_0.8.0 lubridate_1.9.3  forcats_1.0.0    stringr_1.5.1    dplyr_1.1.4     
-##  [6] purrr_1.0.2      readr_2.1.5      tidyr_1.3.0      tibble_3.2.1     ggplot2_3.5.0   
-## [11] tidyverse_2.0.0 
+##  [1] brms_2.20.4      Rcpp_1.0.12      hrbrthemes_0.8.0 lubridate_1.9.3  forcats_1.0.0   
+##  [6] stringr_1.5.1    dplyr_1.1.4      purrr_1.0.2      readr_2.1.5      tidyr_1.3.0     
+## [11] tibble_3.2.1     ggplot2_3.5.0    tidyverse_2.0.0 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] gtable_0.3.4            xfun_0.41               bslib_0.6.1            
-##  [4] lattice_0.22-5          tzdb_0.4.0              vctrs_0.6.5            
-##  [7] tools_4.3.2             generics_0.1.3          curl_5.2.0             
-## [10] fansi_1.0.6             highr_0.10              pkgconfig_2.0.3        
-## [13] Matrix_1.6-5            RColorBrewer_1.1-3      lifecycle_1.0.4        
-## [16] farver_2.1.1            compiler_4.3.2          munsell_0.5.0          
-## [19] httpuv_1.6.13           fontquiver_0.2.1        fontLiberation_0.1.0   
-## [22] htmltools_0.5.7         sass_0.4.8              yaml_2.3.8             
-## [25] Rttf2pt1_1.3.12         pillar_1.9.0            later_1.3.2            
-## [28] crayon_1.5.2            jquerylib_0.1.4         extrafontdb_1.0        
-## [31] gfonts_0.2.0            ellipsis_0.3.2          cachem_1.0.8           
-## [34] nlme_3.1-164            mime_0.12               fontBitstreamVera_0.1.1
-## [37] tidyselect_1.2.0        digest_0.6.34           stringi_1.8.3          
-## [40] bookdown_0.37           labeling_0.4.3          splines_4.3.2          
-## [43] extrafont_0.19          fastmap_1.1.1           grid_4.3.2             
-## [46] colorspace_2.1-0        cli_3.6.2               magrittr_2.0.3         
-## [49] crul_1.4.0              utf8_1.2.4              withr_3.0.0            
-## [52] gdtools_0.3.5           scales_1.3.0            promises_1.2.1         
-## [55] timechange_0.3.0        rmarkdown_2.25          jpeg_0.1-10            
-## [58] png_0.1-8               hms_1.1.3               shiny_1.8.0            
-## [61] evaluate_0.23           knitr_1.45              mgcv_1.9-1             
-## [64] rlang_1.1.3             Rcpp_1.0.12             xtable_1.8-4           
-## [67] glue_1.7.0              httpcode_0.3.0          rstudioapi_0.15.0      
-## [70] jsonlite_1.8.8          R6_2.5.1                systemfonts_1.0.5</code></pre>
+##   [1] RColorBrewer_1.1-3      tensorA_0.36.2.1        rstudioapi_0.15.0      
+##   [4] jsonlite_1.8.8          magrittr_2.0.3          TH.data_1.1-2          
+##   [7] estimability_1.4.1      farver_2.1.1            rmarkdown_2.25         
+##  [10] vctrs_0.6.5             base64enc_0.1-3         htmltools_0.5.7        
+##  [13] distributional_0.4.0    curl_5.2.0              sass_0.4.8             
+##  [16] StanHeaders_2.32.6      bslib_0.6.1             htmlwidgets_1.6.4      
+##  [19] plyr_1.8.9              sandwich_3.1-0          emmeans_1.9.0          
+##  [22] zoo_1.8-12              cachem_1.0.8            igraph_1.6.0           
+##  [25] mime_0.12               lifecycle_1.0.4         pkgconfig_2.0.3        
+##  [28] colourpicker_1.3.0      Matrix_1.6-5            R6_2.5.1               
+##  [31] fastmap_1.1.1           shiny_1.8.0             digest_0.6.34          
+##  [34] colorspace_2.1-0        ps_1.7.6                crosstalk_1.2.1        
+##  [37] labeling_0.4.3          fansi_1.0.6             timechange_0.3.0       
+##  [40] abind_1.4-5             mgcv_1.9-1              compiler_4.3.2         
+##  [43] fontquiver_0.2.1        withr_3.0.0             backports_1.4.1        
+##  [46] inline_0.3.19           shinystan_2.6.0         QuickJSR_1.1.3         
+##  [49] pkgbuild_1.4.3          highr_0.10              Rttf2pt1_1.3.12        
+##  [52] MASS_7.3-60.0.1         gfonts_0.2.0            gtools_3.9.5           
+##  [55] loo_2.7.0               tools_4.3.2             httpuv_1.6.13          
+##  [58] extrafontdb_1.0         threejs_0.3.3           glue_1.7.0             
+##  [61] callr_3.7.3             nlme_3.1-164            promises_1.2.1         
+##  [64] grid_4.3.2              checkmate_2.3.1         reshape2_1.4.4         
+##  [67] generics_0.1.3          gtable_0.3.4            tzdb_0.4.0             
+##  [70] hms_1.1.3               utf8_1.2.4              pillar_1.9.0           
+##  [73] markdown_1.12           servr_0.28              posterior_1.5.0        
+##  [76] later_1.3.2             splines_4.3.2           lattice_0.22-5         
+##  [79] survival_3.5-7          tidyselect_1.2.0        fontLiberation_0.1.0   
+##  [82] miniUI_0.1.1.1          knitr_1.45              fontBitstreamVera_0.1.1
+##  [85] gridExtra_2.3           V8_4.4.1                bookdown_0.37          
+##  [88] crul_1.4.0              stats4_4.3.2            xfun_0.41              
+##  [91] bridgesampling_1.1-2    matrixStats_1.2.0       DT_0.31                
+##  [94] rstan_2.32.6            stringi_1.8.3           yaml_2.3.8             
+##  [97] evaluate_0.23           codetools_0.2-19        httpcode_0.3.0         
+## [100] extrafont_0.19          gdtools_0.3.5           cli_3.6.2              
+## [103] RcppParallel_5.1.7      shinythemes_1.2.0       xtable_1.8-4           
+## [106] systemfonts_1.0.5       processx_3.8.3          munsell_0.5.0          
+## [109] jquerylib_0.1.4         coda_0.19-4             png_0.1-8              
+## [112] parallel_4.3.2          rstantools_2.4.0        ellipsis_0.3.2         
+## [115] dygraphs_1.1.1.6        jpeg_0.1-10             bayesplot_1.11.1       
+## [118] Brobdingnag_1.2-9       mvtnorm_1.2-4           scales_1.3.0           
+## [121] xts_0.13.1              crayon_1.5.2            rlang_1.1.3            
+## [124] multcomp_1.4-25         shinyjs_2.1.0</code></pre>
 <p><br></p>
 <p><strong>Containers</strong></p>
 <p><strong>A “better” way</strong> to do this is to use <strong>containers</strong> like <a href="https://www.docker.com/">docker</a> or <a href="https://sylabs.io/singularity/">singularity</a>. These are contained, lightweight computing environments similar to <a href="https://en.wikipedia.org/wiki/Virtual_machine">virtual machines</a>, that you can package with your software/workflow. You set your container up to have everything you need to run your code etc (and nothing extra), so anyone can download (or clone) your container, code and data and run your analyses perfectly first time.</p>

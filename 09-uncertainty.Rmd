@@ -1,5 +1,17 @@
 # Uncertainty {#uncertainty}
 
+This section is also available as a slideshow below or [full screen](presentations/9_uncertainty.html){target="_blank"}.
+
+<div>
+
+```{=html}
+<iframe width="600" height="400" marginheight="0" marginwidth="0" src="presentations/9_uncertainty.html"></iframe>
+```
+
+</div>
+
+<br/>
+
 Uncertainty determines the utility of a forecast. If the uncertainty in a forecast is too high, then it is of no utility to a decision maker. Similarly, if the uncertainty is not properly quantified and presented, it can lead to poor decisions. This leaves forecasters with four overarching questions:
 
 1. What determines the limits to the utility of predictions?
