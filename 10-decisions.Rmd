@@ -1,5 +1,18 @@
 # Completing the forecast cycle {#decisions}
 
+This section is also available as a slideshow below or [full screen](presentations/10_decisions.html){target="_blank"}.
+
+<div>
+
+```{=html}
+<iframe width="600" height="400" marginheight="0" marginwidth="0" src="presentations/10_decisions.html"></iframe>
+```
+
+</div>
+
+<br/>
+
+
 Here we'll complete the forecast cycle (through data assimilation) and spend a little time discussing decision support.
 
 ## Data assimilation
