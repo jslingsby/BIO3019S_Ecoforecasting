@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2024-08-02" />
+<meta name="date" content="2024-08-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -600,26 +600,34 @@ div.csl-indent {
 <h2><span class="header-section-number">13.6</span> Going Bayesian<a href="practical-output-master-script.html#going-bayesian" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Ok. Now we’re going to run the models in a Bayesian framework. This doesn’t use any of our functions as many of the model outputs are a bit different. Here we’ll use the <a href="https://paul-buerkner.github.io/brms/">brms</a> R package for “Bayesian regression models using Stan” instead. Fitting Bayesian models is usually a bit trickier tham LS or MLE, but brms makes is relatively easy.</p>
 <p>First the simpler model:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="practical-output-master-script.html#cb38-1" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
-<span id="cb38-2"><a href="practical-output-master-script.html#cb38-2" tabindex="-1"></a></span>
-<span id="cb38-3"><a href="practical-output-master-script.html#cb38-3" tabindex="-1"></a>fit_negexpB <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
-<span id="cb38-4"><a href="practical-output-master-script.html#cb38-4" tabindex="-1"></a>              <span class="at">formula =</span> <span class="fu">bf</span>(NDVI <span class="sc">~</span> alpha <span class="sc">+</span> gamma <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span>(age<span class="sc">/</span>lambda))),</span>
-<span id="cb38-5"><a href="practical-output-master-script.html#cb38-5" tabindex="-1"></a>                 alpha <span class="sc">~</span> <span class="dv">1</span>, gamma <span class="sc">~</span> <span class="dv">1</span>, lambda <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb38-6"><a href="practical-output-master-script.html#cb38-6" tabindex="-1"></a>                 <span class="at">nl =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb38-7"><a href="practical-output-master-script.html#cb38-7" tabindex="-1"></a>              <span class="at">data =</span> dat,</span>
-<span id="cb38-8"><a href="practical-output-master-script.html#cb38-8" tabindex="-1"></a>              <span class="at">chains =</span> <span class="dv">3</span>,</span>
-<span id="cb38-9"><a href="practical-output-master-script.html#cb38-9" tabindex="-1"></a>              <span class="at">iter =</span> <span class="dv">2000</span>,</span>
-<span id="cb38-10"><a href="practical-output-master-script.html#cb38-10" tabindex="-1"></a>              <span class="at">cores =</span> <span class="dv">3</span>,</span>
-<span id="cb38-11"><a href="practical-output-master-script.html#cb38-11" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">gaussian</span>(),</span>
-<span id="cb38-12"><a href="practical-output-master-script.html#cb38-12" tabindex="-1"></a>              <span class="at">prior =</span> <span class="fu">c</span>(<span class="fu">prior</span>(<span class="fu">normal</span>(<span class="fl">0.2</span>,<span class="dv">1</span>), <span class="at">nlpar =</span> <span class="st">&quot;alpha&quot;</span>, <span class="at">lb =</span> <span class="dv">0</span>, <span class="at">ub =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb38-13"><a href="practical-output-master-script.html#cb38-13" tabindex="-1"></a>                          <span class="fu">prior</span>(<span class="fu">normal</span>(<span class="fl">0.4</span>,<span class="dv">1</span>), <span class="at">nlpar =</span> <span class="st">&quot;gamma&quot;</span>, <span class="at">lb =</span> <span class="dv">0</span>, <span class="at">ub =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb38-14"><a href="practical-output-master-script.html#cb38-14" tabindex="-1"></a>                          <span class="fu">prior</span>(<span class="fu">normal</span>(<span class="fl">0.5</span>,<span class="dv">1</span>), <span class="at">nlpar =</span> <span class="st">&quot;lambda&quot;</span>, <span class="at">lb =</span> <span class="dv">0</span>)</span>
-<span id="cb38-15"><a href="practical-output-master-script.html#cb38-15" tabindex="-1"></a>                        ),</span>
-<span id="cb38-16"><a href="practical-output-master-script.html#cb38-16" tabindex="-1"></a>              <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.9</span>)</span>
-<span id="cb38-17"><a href="practical-output-master-script.html#cb38-17" tabindex="-1"></a>              )</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="practical-output-master-script.html#cb38-1" tabindex="-1"></a><span class="fu">library</span>(brms)</span></code></pre></div>
+<pre><code>## Loading required package: Rcpp</code></pre>
+<pre><code>## Loading &#39;brms&#39; package (version 2.20.4). Useful instructions
+## can be found by typing help(&#39;brms&#39;). A more detailed introduction
+## to the package is available through vignette(&#39;brms_overview&#39;).</code></pre>
+<pre><code>## 
+## Attaching package: &#39;brms&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     ar</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="practical-output-master-script.html#cb43-1" tabindex="-1"></a>fit_negexpB <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb43-2"><a href="practical-output-master-script.html#cb43-2" tabindex="-1"></a>              <span class="at">formula =</span> <span class="fu">bf</span>(NDVI <span class="sc">~</span> alpha <span class="sc">+</span> gamma <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span>(age<span class="sc">/</span>lambda))),</span>
+<span id="cb43-3"><a href="practical-output-master-script.html#cb43-3" tabindex="-1"></a>                 alpha <span class="sc">~</span> <span class="dv">1</span>, gamma <span class="sc">~</span> <span class="dv">1</span>, lambda <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb43-4"><a href="practical-output-master-script.html#cb43-4" tabindex="-1"></a>                 <span class="at">nl =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb43-5"><a href="practical-output-master-script.html#cb43-5" tabindex="-1"></a>              <span class="at">data =</span> dat,</span>
+<span id="cb43-6"><a href="practical-output-master-script.html#cb43-6" tabindex="-1"></a>              <span class="at">chains =</span> <span class="dv">3</span>,</span>
+<span id="cb43-7"><a href="practical-output-master-script.html#cb43-7" tabindex="-1"></a>              <span class="at">iter =</span> <span class="dv">2000</span>,</span>
+<span id="cb43-8"><a href="practical-output-master-script.html#cb43-8" tabindex="-1"></a>              <span class="at">cores =</span> <span class="dv">3</span>,</span>
+<span id="cb43-9"><a href="practical-output-master-script.html#cb43-9" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">gaussian</span>(),</span>
+<span id="cb43-10"><a href="practical-output-master-script.html#cb43-10" tabindex="-1"></a>              <span class="at">prior =</span> <span class="fu">c</span>(<span class="fu">prior</span>(<span class="fu">normal</span>(<span class="fl">0.2</span>,<span class="dv">1</span>), <span class="at">nlpar =</span> <span class="st">&quot;alpha&quot;</span>, <span class="at">lb =</span> <span class="dv">0</span>, <span class="at">ub =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb43-11"><a href="practical-output-master-script.html#cb43-11" tabindex="-1"></a>                          <span class="fu">prior</span>(<span class="fu">normal</span>(<span class="fl">0.4</span>,<span class="dv">1</span>), <span class="at">nlpar =</span> <span class="st">&quot;gamma&quot;</span>, <span class="at">lb =</span> <span class="dv">0</span>, <span class="at">ub =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb43-12"><a href="practical-output-master-script.html#cb43-12" tabindex="-1"></a>                          <span class="fu">prior</span>(<span class="fu">normal</span>(<span class="fl">0.5</span>,<span class="dv">1</span>), <span class="at">nlpar =</span> <span class="st">&quot;lambda&quot;</span>, <span class="at">lb =</span> <span class="dv">0</span>)</span>
+<span id="cb43-13"><a href="practical-output-master-script.html#cb43-13" tabindex="-1"></a>                        ),</span>
+<span id="cb43-14"><a href="practical-output-master-script.html#cb43-14" tabindex="-1"></a>              <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.9</span>)</span>
+<span id="cb43-15"><a href="practical-output-master-script.html#cb43-15" tabindex="-1"></a>              )</span></code></pre></div>
 <pre><code>## Compiling Stan program...</code></pre>
 <pre><code>## Start sampling</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="practical-output-master-script.html#cb41-1" tabindex="-1"></a><span class="fu">summary</span>(fit_negexpB)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="practical-output-master-script.html#cb46-1" tabindex="-1"></a><span class="fu">summary</span>(fit_negexpB)</span></code></pre></div>
 <pre><code>##  Family: gaussian 
 ##   Links: mu = identity; sigma = identity 
 ## Formula: NDVI ~ alpha + gamma * (1 - exp(-(age/lambda))) 
@@ -632,22 +640,22 @@ div.csl-indent {
 ## 
 ## Population-Level Effects: 
 ##                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## alpha_Intercept      0.25      0.03     0.18     0.31 1.00      977      957
-## gamma_Intercept      0.33      0.03     0.27     0.39 1.00     1130     1236
-## lambda_Intercept     1.22      0.30     0.75     1.91 1.00     1137     1079
+## alpha_Intercept      0.25      0.03     0.19     0.31 1.00      854     1116
+## gamma_Intercept      0.33      0.03     0.27     0.38 1.00      947     1286
+## lambda_Intercept     1.24      0.30     0.78     1.92 1.00     1144     1259
 ## 
 ## Family Specific Parameters: 
 ##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## sigma     0.07      0.00     0.07     0.08 1.00     1370     1407
+## sigma     0.07      0.00     0.07     0.08 1.00     1527     1413
 ## 
 ## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
 ## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p>And let’s plot the fit:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="practical-output-master-script.html#cb43-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">conditional_effects</span>(fit_negexpB), <span class="at">points =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="practical-output-master-script.html#cb48-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">conditional_effects</span>(fit_negexpB), <span class="at">points =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 <p>Lastly, and this is different for Bayes, we can look at the distributions of the posterior estimates.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="practical-output-master-script.html#cb44-1" tabindex="-1"></a><span class="fu">plot</span>(fit_negexpB, <span class="at">ask =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="practical-output-master-script.html#cb49-1" tabindex="-1"></a><span class="fu">plot</span>(fit_negexpB, <span class="at">ask =</span> F)</span></code></pre></div>
 <p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 <p>Note that most models are too complex or too highly dimensional to calculate the posteriors analytically, so most Bayesian models rely on methods to estimate them. The “chains” on the right represent a Markov chain Monte Carlo (MCMC) estimation process, run over several iterations (2000 in our case), that make up the density plots on the left. We ran 3 chains to improve our search of the parameter space and thus improve our posterior estimates. Note that the early estimates provided by each chain are typically poor and the estimator needs to warm up (or “burn-in”), during which time the plot (or “trace”) of the chains may not be flat as is the case here. You usually discard the burn-in. By default, brms discards the first half of the iterations, and the burn-in is not plotted here. If these traces were not flat, it would mean that the model had not converged and we should not trust the estimates. Sometimes you can solve this by running longer chains (more iterations) and trimming a longer burn-in, but if the model is not well specified this will not fix the problem and you’ll have to improve your model specification, data, or both.</p>
 <p><br></p>
@@ -656,26 +664,26 @@ div.csl-indent {
 </blockquote>
 <p><br></p>
 <p>Now let’s do the same for the full model.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="practical-output-master-script.html#cb45-1" tabindex="-1"></a>fit_negexpBS <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
-<span id="cb45-2"><a href="practical-output-master-script.html#cb45-2" tabindex="-1"></a>  <span class="at">formula =</span> <span class="fu">bf</span>(NDVI <span class="sc">~</span> alpha <span class="sc">+</span> gamma <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span>(age<span class="sc">/</span>lambda))) <span class="sc">+</span> A<span class="sc">*</span><span class="fu">sin</span>(<span class="dv">2</span><span class="sc">*</span><span class="fl">3.141593</span><span class="sc">*</span>age <span class="sc">+</span> (phi <span class="sc">+</span> <span class="fl">3.141593</span><span class="sc">/</span><span class="dv">6</span><span class="sc">*</span>(<span class="dv">3</span> <span class="sc">-</span> <span class="dv">1</span>))),</span>
-<span id="cb45-3"><a href="practical-output-master-script.html#cb45-3" tabindex="-1"></a>               alpha <span class="sc">~</span> <span class="dv">1</span>, gamma <span class="sc">~</span> <span class="dv">1</span>, lambda <span class="sc">~</span> <span class="dv">1</span>, A <span class="sc">~</span> <span class="dv">1</span>, phi <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb45-4"><a href="practical-output-master-script.html#cb45-4" tabindex="-1"></a>               <span class="at">nl =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb45-5"><a href="practical-output-master-script.html#cb45-5" tabindex="-1"></a>  <span class="at">data =</span> dat,</span>
-<span id="cb45-6"><a href="practical-output-master-script.html#cb45-6" tabindex="-1"></a>  <span class="at">chains =</span> <span class="dv">3</span>,</span>
-<span id="cb45-7"><a href="practical-output-master-script.html#cb45-7" tabindex="-1"></a>  <span class="at">iter =</span> <span class="dv">2000</span>,</span>
-<span id="cb45-8"><a href="practical-output-master-script.html#cb45-8" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">3</span>,</span>
-<span id="cb45-9"><a href="practical-output-master-script.html#cb45-9" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">gaussian</span>(),</span>
-<span id="cb45-10"><a href="practical-output-master-script.html#cb45-10" tabindex="-1"></a>  <span class="at">prior =</span> <span class="fu">c</span>(<span class="fu">prior</span>(<span class="fu">normal</span>(<span class="fl">0.2</span>,<span class="dv">1</span>), <span class="at">nlpar =</span> <span class="st">&quot;alpha&quot;</span>, <span class="at">lb =</span> <span class="dv">0</span>, <span class="at">ub =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb45-11"><a href="practical-output-master-script.html#cb45-11" tabindex="-1"></a>              <span class="fu">prior</span>(<span class="fu">normal</span>(<span class="fl">0.4</span>,<span class="dv">1</span>), <span class="at">nlpar =</span> <span class="st">&quot;gamma&quot;</span>, <span class="at">lb =</span> <span class="dv">0</span>, <span class="at">ub =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb45-12"><a href="practical-output-master-script.html#cb45-12" tabindex="-1"></a>              <span class="fu">prior</span>(<span class="fu">normal</span>(<span class="fl">0.5</span>,<span class="dv">1</span>), <span class="at">nlpar =</span> <span class="st">&quot;lambda&quot;</span>, <span class="at">lb =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb45-13"><a href="practical-output-master-script.html#cb45-13" tabindex="-1"></a>              <span class="fu">prior</span>(<span class="fu">normal</span>(<span class="fl">0.6</span>,<span class="dv">1</span>), <span class="at">nlpar =</span> <span class="st">&quot;A&quot;</span>, <span class="at">lb =</span> <span class="dv">0</span>, <span class="at">ub =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb45-14"><a href="practical-output-master-script.html#cb45-14" tabindex="-1"></a>              <span class="fu">prior</span>(<span class="fu">uniform</span>(<span class="sc">-</span><span class="fl">3.141593</span>,<span class="fl">3.141593</span>), <span class="at">nlpar =</span> <span class="st">&quot;phi&quot;</span>, <span class="at">lb =</span> <span class="sc">-</span><span class="fl">3.141593</span>, <span class="at">ub =</span> <span class="fl">3.141593</span>)</span>
-<span id="cb45-15"><a href="practical-output-master-script.html#cb45-15" tabindex="-1"></a>  ),</span>
-<span id="cb45-16"><a href="practical-output-master-script.html#cb45-16" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.9</span>)</span>
-<span id="cb45-17"><a href="practical-output-master-script.html#cb45-17" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="practical-output-master-script.html#cb50-1" tabindex="-1"></a>fit_negexpBS <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb50-2"><a href="practical-output-master-script.html#cb50-2" tabindex="-1"></a>  <span class="at">formula =</span> <span class="fu">bf</span>(NDVI <span class="sc">~</span> alpha <span class="sc">+</span> gamma <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span>(age<span class="sc">/</span>lambda))) <span class="sc">+</span> A<span class="sc">*</span><span class="fu">sin</span>(<span class="dv">2</span><span class="sc">*</span><span class="fl">3.141593</span><span class="sc">*</span>age <span class="sc">+</span> (phi <span class="sc">+</span> <span class="fl">3.141593</span><span class="sc">/</span><span class="dv">6</span><span class="sc">*</span>(<span class="dv">3</span> <span class="sc">-</span> <span class="dv">1</span>))),</span>
+<span id="cb50-3"><a href="practical-output-master-script.html#cb50-3" tabindex="-1"></a>               alpha <span class="sc">~</span> <span class="dv">1</span>, gamma <span class="sc">~</span> <span class="dv">1</span>, lambda <span class="sc">~</span> <span class="dv">1</span>, A <span class="sc">~</span> <span class="dv">1</span>, phi <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb50-4"><a href="practical-output-master-script.html#cb50-4" tabindex="-1"></a>               <span class="at">nl =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb50-5"><a href="practical-output-master-script.html#cb50-5" tabindex="-1"></a>  <span class="at">data =</span> dat,</span>
+<span id="cb50-6"><a href="practical-output-master-script.html#cb50-6" tabindex="-1"></a>  <span class="at">chains =</span> <span class="dv">3</span>,</span>
+<span id="cb50-7"><a href="practical-output-master-script.html#cb50-7" tabindex="-1"></a>  <span class="at">iter =</span> <span class="dv">2000</span>,</span>
+<span id="cb50-8"><a href="practical-output-master-script.html#cb50-8" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">3</span>,</span>
+<span id="cb50-9"><a href="practical-output-master-script.html#cb50-9" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">gaussian</span>(),</span>
+<span id="cb50-10"><a href="practical-output-master-script.html#cb50-10" tabindex="-1"></a>  <span class="at">prior =</span> <span class="fu">c</span>(<span class="fu">prior</span>(<span class="fu">normal</span>(<span class="fl">0.2</span>,<span class="dv">1</span>), <span class="at">nlpar =</span> <span class="st">&quot;alpha&quot;</span>, <span class="at">lb =</span> <span class="dv">0</span>, <span class="at">ub =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb50-11"><a href="practical-output-master-script.html#cb50-11" tabindex="-1"></a>              <span class="fu">prior</span>(<span class="fu">normal</span>(<span class="fl">0.4</span>,<span class="dv">1</span>), <span class="at">nlpar =</span> <span class="st">&quot;gamma&quot;</span>, <span class="at">lb =</span> <span class="dv">0</span>, <span class="at">ub =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb50-12"><a href="practical-output-master-script.html#cb50-12" tabindex="-1"></a>              <span class="fu">prior</span>(<span class="fu">normal</span>(<span class="fl">0.5</span>,<span class="dv">1</span>), <span class="at">nlpar =</span> <span class="st">&quot;lambda&quot;</span>, <span class="at">lb =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb50-13"><a href="practical-output-master-script.html#cb50-13" tabindex="-1"></a>              <span class="fu">prior</span>(<span class="fu">normal</span>(<span class="fl">0.6</span>,<span class="dv">1</span>), <span class="at">nlpar =</span> <span class="st">&quot;A&quot;</span>, <span class="at">lb =</span> <span class="dv">0</span>, <span class="at">ub =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb50-14"><a href="practical-output-master-script.html#cb50-14" tabindex="-1"></a>              <span class="fu">prior</span>(<span class="fu">uniform</span>(<span class="sc">-</span><span class="fl">3.141593</span>,<span class="fl">3.141593</span>), <span class="at">nlpar =</span> <span class="st">&quot;phi&quot;</span>, <span class="at">lb =</span> <span class="sc">-</span><span class="fl">3.141593</span>, <span class="at">ub =</span> <span class="fl">3.141593</span>)</span>
+<span id="cb50-15"><a href="practical-output-master-script.html#cb50-15" tabindex="-1"></a>  ),</span>
+<span id="cb50-16"><a href="practical-output-master-script.html#cb50-16" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.9</span>)</span>
+<span id="cb50-17"><a href="practical-output-master-script.html#cb50-17" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## Compiling Stan program...</code></pre>
 <pre><code>## Start sampling</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="practical-output-master-script.html#cb48-1" tabindex="-1"></a><span class="fu">summary</span>(fit_negexpBS)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="practical-output-master-script.html#cb53-1" tabindex="-1"></a><span class="fu">summary</span>(fit_negexpBS)</span></code></pre></div>
 <pre><code>##  Family: gaussian 
 ##   Links: mu = identity; sigma = identity 
 ## Formula: NDVI ~ alpha + gamma * (1 - exp(-(age/lambda))) + A * sin(2 * 3.141593 * age + (phi + 3.141593/6 * (3 - 1))) 
@@ -690,24 +698,24 @@ div.csl-indent {
 ## 
 ## Population-Level Effects: 
 ##                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## alpha_Intercept      0.21      0.03     0.15     0.27 1.00     1229     1407
-## gamma_Intercept      0.36      0.03     0.31     0.41 1.00     1437     1715
-## lambda_Intercept     1.03      0.19     0.72     1.49 1.00     1475     1519
-## A_Intercept          0.06      0.01     0.05     0.08 1.00     2188     1470
-## phi_Intercept       -0.83      0.12    -1.06    -0.61 1.00     2727     2085
+## alpha_Intercept      0.21      0.03     0.15     0.26 1.00     1377     1570
+## gamma_Intercept      0.36      0.03     0.32     0.41 1.00     1514     1808
+## lambda_Intercept     1.03      0.18     0.73     1.43 1.00     1819     1943
+## A_Intercept          0.06      0.01     0.05     0.08 1.00     2496     1744
+## phi_Intercept       -0.84      0.11    -1.07    -0.62 1.00     2811     2045
 ## 
 ## Family Specific Parameters: 
 ##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## sigma     0.06      0.00     0.05     0.07 1.00     2675     2135
+## sigma     0.06      0.00     0.05     0.07 1.00     2376     1860
 ## 
 ## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
 ## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p>And let’s plot the fit:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="practical-output-master-script.html#cb50-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">conditional_effects</span>(fit_negexpBS), <span class="at">points =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="practical-output-master-script.html#cb55-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">conditional_effects</span>(fit_negexpBS), <span class="at">points =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <p>And look at the distributions of the posterior estimates.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="practical-output-master-script.html#cb51-1" tabindex="-1"></a><span class="fu">plot</span>(fit_negexpBS, <span class="at">ask =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="practical-output-master-script.html#cb56-1" tabindex="-1"></a><span class="fu">plot</span>(fit_negexpBS, <span class="at">ask =</span> F)</span></code></pre></div>
 <p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-32-1.png" width="672" /><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-32-2.png" width="672" /></p>
 <p><br></p>
 <blockquote>
