@@ -277,7 +277,7 @@ The data model: $$y_{t}\sim\mathit{N}(z_{t},\tau_{obs})$$
 
 <br/>
 
-For a Bayesian model this would also require priors on the process error ($\tau_{add}$), observation error ($\tau_{obs}$) and initial condition of the state variable ($x_0$).
+For a Bayesian model this would also require priors on the process error ($\tau_{add}$), observation error ($\tau_{obs}$) and initial condition of the state variable ($z_0$).
 
 [^1]: Note that the process and data model can also be referred to as the _state_ and _observation_ models respectively.
 
@@ -362,7 +362,6 @@ Where the terms differ, the state estimate flattens, indicating greater uncertai
 
 ## State-space models - example {.smaller background-color="#33431e"}
 
-Often, there's no observation for "next time", and the model reduces to:
 
 $$
 \underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{{\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; \underbrace{{\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \;
@@ -389,6 +388,8 @@ ggplot(dat, aes(y = Density, x = state)) +
   coord_flip()
 
 ```
+
+Often, there's no observation for "next time", and the model reduces to...
 
 ## State-space models - example {.smaller background-color="#33431e"}
 
