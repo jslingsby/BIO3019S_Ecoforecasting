@@ -502,11 +502,11 @@ Figure 8.1: The true value is the origin (0,0).
 <p>Which says that the current state (<span class="math inline">\(z_{t}\)</span>) depends on both the states before and after as well as the current observation (<span class="math inline">\(y_{t}\)</span>).</p>
 <p>In fact, the posterior of the current state (<span class="math inline">\(z_{t}\)</span>) is proportional to the product of the three normal distributions.</p>
 <p><br/></p>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br/></p>
 <p>Where the terms are similar, the state estimate peaks, indicating less uncertainty.</p>
 <p><br/></p>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br/></p>
 <p>Where the terms differ, the state estimate flattens, indicating greater uncertainty.</p>
 <p><br/></p>
@@ -514,13 +514,13 @@ Figure 8.1: The true value is the origin (0,0).
 <p><span class="math display">\[
 \underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{{\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; \underbrace{{\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \;
 \]</span></p>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br/></p>
 <p>For forecasts, there’s no “current observation” either, so we get:</p>
 <p><span class="math display">\[
 \underbrace{z_{t}|...}_\text{forecast state} \; \propto \; \underbrace{{\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \;
 \]</span></p>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br/></p>
 <p>In this dummy model the forecast value is almost exactly the same as the previous time, because the process model is a random walk and simply adds a little error (<span class="math inline">\(\tau_{add}\)</span>) to the previous state (<span class="math inline">\(z_{t-1}\)</span>).</p>
 <p><br/></p>

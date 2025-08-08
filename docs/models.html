@@ -405,10 +405,6 @@ Figure 2.2: Using models and data when making a decision.
 </div>
 <p><br></p>
 <p>Following a quantitative approach the <strong>“evidence”</strong> is typically empirical <strong>data</strong>, which can be fed into a model to make forecasts that can help inform the decision. The <strong>“experience”</strong> are the <strong>current state of knowledge and your prior belief</strong>, which you use to specify the type and structure of your model (or ensemble of models) and the scenario(s) you want to evaluate. The “experience” can also help you evaluate the assumptions of your model(s), and, if you are using a Bayesian model, can be included directly in the model when specifying your <em>prior beliefs</em> (more on this later in the module).</p>
-<pre><code>## Warning: Removed 1 row containing non-finite outside the scale range
-## (`stat_smooth()`).</code></pre>
-<pre><code>## Warning: Removed 1 row containing missing values or values outside the scale range
-## (`geom_point()`).</code></pre>
 <div class="figure"><span style="display:block;" id="fig:gettingquantitative"></span>
 <img src="BIO3019S-Ecoforecasting_files/figure-html/gettingquantitative-1.png" alt="A hypothetical example where a model can help you make a decision. The **data** (points) are the **evidence**, while the **experience** or current state of knowledge are used to specify the model (a linear model in this case). Here the relationship between ***effort*** invested and ***reward*** is nearly 1 to 1, suggesting to the decision-maker that the more effort you invest, the more reward you will reap. That said, there is scatter around in the points around the 1:1 line, suggesting some **uncertainty**." width="672" />
 <p class="caption">
@@ -429,8 +425,6 @@ Figure 2.4: Iterative decision making.
 </div>
 <p><br></p>
 <p>When using quantitative forecasts this can be done by collecting new data and updating your prior knowledge by evaluating the outcomes of the decision against the original model forecasts. <strong>This can tell you whether your forecast was any good and whether you need to refine or replace your model, consider additional scenarios or inputs, etc.</strong> We’ll discuss doing this quantitatively in section <a href="datafusion.html#datafusion">7</a>, by fusing your new data and knowledge into a new forecast.</p>
-<pre><code>## Warning: Removed 1 row containing missing values or values outside the scale range
-## (`geom_point()`).</code></pre>
 <div class="figure"><span style="display:block;" id="fig:iterativedecisions"></span>
 <img src="BIO3019S-Ecoforecasting_files/figure-html/iterativedecisions-1.png" alt="Revisiting our *Effort to Reward* example, what would you do if the decision-maker decided to invest huge effort, but the next few data points looked like this?" width="672" />
 <p class="caption">

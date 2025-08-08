@@ -317,7 +317,7 @@ dat <- data.frame(
   term = factor(c(rep("current state", 100), rep("previous time", 100), rep("current observation", 100), rep("next time", 100)),
                 levels = c("current state", "previous time", "current observation", "next time")),
   state = rep(rangeP,4),
-  Density = c(prev*obs*nex/sum(prev,obs,nex), prev/30, obs/30, nex/30)
+  Density = c(prev*obs*nex/3, prev, obs, nex)
     )
 
 ggplot(dat, aes(y = Density, x = state)) +
@@ -348,7 +348,7 @@ dat <- data.frame(
   term = factor(c(rep("current state", 100), rep("previous time", 100), rep("current observation", 100), rep("next time", 100)),
                 levels = c("current state", "previous time", "current observation", "next time")),
   state = rep(rangeP,4),
-  Density = c(prev*obs*nex/sum(prev,obs,nex), prev/30, obs/30, nex/30)
+  Density = c(((prev+1)*(obs+1)*(nex+1)/8), prev, obs, nex)
     )
 
 ggplot(dat, aes(y = Density, x = state)) +
@@ -379,7 +379,7 @@ dat <- data.frame(
   term = factor(c(rep("current state", 100), rep("previous time", 100), rep("current observation", 100)),
                 levels = c("current state", "previous time", "current observation")),
   state = rep(rangeP,3),
-  Density = c(prev*obs/sum(prev,obs), prev/30, obs/30)
+  Density = c((prev+1)*(obs+1)/5, prev, obs)
     )
 
 ggplot(dat, aes(y = Density, x = state)) +
@@ -414,7 +414,7 @@ dat <- data.frame(
   term = factor(c(rep("forecast state", 100), rep("previous time", 100)),
                 levels = c("forecast state", "previous time")),
   state = rep(rangeP,2),
-  Density = c(fore/sum(fore), prev/30)
+  Density = c(fore, prev)
     )
 
 ggplot(dat, aes(y = Density, x = state)) +
