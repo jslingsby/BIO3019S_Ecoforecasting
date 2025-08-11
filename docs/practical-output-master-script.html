@@ -375,7 +375,7 @@ div.csl-indent {
 <span id="cb15-12"><a href="practical-output-master-script.html#cb15-12" tabindex="-1"></a></span>
 <span id="cb15-13"><a href="practical-output-master-script.html#cb15-13" tabindex="-1"></a><span class="do">## Plot overall NDVI time series</span></span>
 <span id="cb15-14"><a href="practical-output-master-script.html#cb15-14" tabindex="-1"></a><span class="fu">plot.NDVI</span>(dat)</span></code></pre></div>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p><br></p>
 <blockquote>
 <p>Question 1: This plot suggests that Fynbos greenness (NDVI) as observed from satellite saturates with time since fire. Why do you think it saturates rather than increasing linearly with time? (3 marks)</p>
@@ -398,7 +398,7 @@ div.csl-indent {
 <span id="cb16-10"><a href="practical-output-master-script.html#cb16-10" tabindex="-1"></a></span>
 <span id="cb16-11"><a href="practical-output-master-script.html#cb16-11" tabindex="-1"></a><span class="co"># plot</span></span>
 <span id="cb16-12"><a href="practical-output-master-script.html#cb16-12" tabindex="-1"></a><span class="fu">plot.NDVI</span>(<span class="at">dat =</span> dat, <span class="at">fit =</span> fit_negexp)</span></code></pre></div>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p><br></p>
 <p>And let’s look at the model summary with parameter estimates</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="practical-output-master-script.html#cb17-1" tabindex="-1"></a><span class="co"># print model summary</span></span>
@@ -433,7 +433,7 @@ div.csl-indent {
 <span id="cb19-11"><a href="practical-output-master-script.html#cb19-11" tabindex="-1"></a></span>
 <span id="cb19-12"><a href="practical-output-master-script.html#cb19-12" tabindex="-1"></a><span class="co"># plot</span></span>
 <span id="cb19-13"><a href="practical-output-master-script.html#cb19-13" tabindex="-1"></a><span class="fu">plot.NDVI</span>(<span class="at">dat =</span> dat, <span class="at">fit =</span> fit_negexpS)</span></code></pre></div>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="practical-output-master-script.html#cb20-1" tabindex="-1"></a><span class="co"># print model summary</span></span>
 <span id="cb20-2"><a href="practical-output-master-script.html#cb20-2" tabindex="-1"></a><span class="fu">summary</span>(fit_negexpS)</span></code></pre></div>
 <pre><code>## 
@@ -501,7 +501,7 @@ div.csl-indent {
 <span id="cb24-10"><a href="practical-output-master-script.html#cb24-10" tabindex="-1"></a><span class="fu">plot.NDVI</span>(dat)</span>
 <span id="cb24-11"><a href="practical-output-master-script.html#cb24-11" tabindex="-1"></a><span class="co"># add curve with MLE parameters</span></span>
 <span id="cb24-12"><a href="practical-output-master-script.html#cb24-12" tabindex="-1"></a><span class="fu">lines</span>(dat<span class="sc">$</span>age, <span class="fu">pred.negexp</span>(fit_negexpMLE<span class="sc">$</span>par,dat<span class="sc">$</span>age), <span class="at">col =</span> <span class="st">&#39;skyblue&#39;</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="practical-output-master-script.html#cb25-1" tabindex="-1"></a>fit_negexpMLE</span></code></pre></div>
 <pre><code>## $par
 ##     alpha     gamma    lambda 
@@ -533,7 +533,7 @@ div.csl-indent {
 <span id="cb27-10"><a href="practical-output-master-script.html#cb27-10" tabindex="-1"></a><span class="fu">plot.NDVI</span>(dat)</span>
 <span id="cb27-11"><a href="practical-output-master-script.html#cb27-11" tabindex="-1"></a><span class="co"># add curve with MLE parameters</span></span>
 <span id="cb27-12"><a href="practical-output-master-script.html#cb27-12" tabindex="-1"></a><span class="fu">lines</span>(dat<span class="sc">$</span>age, <span class="fu">pred.negexpS</span>(fit_negexpMLES<span class="sc">$</span>par,dat<span class="sc">$</span>age), <span class="at">col =</span> <span class="st">&#39;skyblue&#39;</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="practical-output-master-script.html#cb28-1" tabindex="-1"></a>fit_negexpMLES</span></code></pre></div>
 <pre><code>## $par
 ##       alpha       gamma      lambda           A         phi 
@@ -632,23 +632,23 @@ div.csl-indent {
 ## 
 ## Regression Coefficients:
 ##                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## alpha_Intercept      0.25      0.03     0.18     0.31 1.01      954      708
-## gamma_Intercept      0.33      0.03     0.28     0.39 1.00     1145      849
-## lambda_Intercept     1.23      0.29     0.77     1.89 1.00     1039     1082
+## alpha_Intercept      0.25      0.03     0.18     0.31 1.01      822      635
+## gamma_Intercept      0.33      0.03     0.27     0.39 1.00      955      723
+## lambda_Intercept     1.22      0.30     0.75     1.95 1.00      999     1130
 ## 
 ## Further Distributional Parameters:
 ##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## sigma     0.07      0.00     0.07     0.08 1.00     1649     1567
+## sigma     0.07      0.00     0.06     0.08 1.00     1481     1515
 ## 
 ## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
 ## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p>And let’s plot the fit:</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="practical-output-master-script.html#cb43-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">conditional_effects</span>(fit_negexpB), <span class="at">points =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 <p>Lastly, and this is different for Bayes, we can look at the distributions of the posterior estimates.</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="practical-output-master-script.html#cb44-1" tabindex="-1"></a><span class="fu">plot</span>(fit_negexpB, <span class="at">ask =</span> F)</span></code></pre></div>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 <p>Note that most models are too complex or too highly dimensional to calculate the posteriors analytically, so most Bayesian models rely on methods to estimate them. The “chains” on the right represent a Markov chain Monte Carlo (MCMC) estimation process, run over several iterations (2000 in our case), that make up the density plots on the left. We ran 3 chains to improve our search of the parameter space and thus improve our posterior estimates. Note that the early estimates provided by each chain are typically poor and the estimator needs to warm up (or “burn-in”), during which time the plot (or “trace”) of the chains may not be flat as is the case here. You usually discard the burn-in. By default, brms discards the first half of the iterations, and the burn-in is not plotted here. If these traces were not flat, it would mean that the model had not converged and we should not trust the estimates. Sometimes you can solve this by running longer chains (more iterations) and trimming a longer burn-in, but if the model is not well specified this will not fix the problem and you’ll have to improve your model specification, data, or both.</p>
 <p><br></p>
 <blockquote>
@@ -690,25 +690,25 @@ div.csl-indent {
 ## 
 ## Regression Coefficients:
 ##                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## alpha_Intercept      0.21      0.03     0.15     0.27 1.00      929     1389
-## gamma_Intercept      0.36      0.03     0.32     0.41 1.01     1070     1635
-## lambda_Intercept     1.03      0.19     0.73     1.50 1.00     1288     1741
-## A_Intercept          0.06      0.01     0.05     0.08 1.00     1901     1627
-## phi_Intercept       -0.84      0.11    -1.07    -0.62 1.00     2344     1942
+## alpha_Intercept      0.21      0.03     0.15     0.27 1.00     1131     1380
+## gamma_Intercept      0.36      0.03     0.31     0.42 1.00     1284     1522
+## lambda_Intercept     1.03      0.19     0.72     1.45 1.00     1418     1837
+## A_Intercept          0.06      0.01     0.05     0.08 1.00     2315     1443
+## phi_Intercept       -0.84      0.12    -1.06    -0.61 1.00     2735     1959
 ## 
 ## Further Distributional Parameters:
 ##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## sigma     0.06      0.00     0.05     0.07 1.00     1930     1867
+## sigma     0.06      0.00     0.05     0.07 1.00     2427     1967
 ## 
 ## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
 ## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p>And let’s plot the fit:</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="practical-output-master-script.html#cb50-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">conditional_effects</span>(fit_negexpBS), <span class="at">points =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <p>And look at the distributions of the posterior estimates.</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="practical-output-master-script.html#cb51-1" tabindex="-1"></a><span class="fu">plot</span>(fit_negexpBS, <span class="at">ask =</span> F)</span></code></pre></div>
-<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-34-1.png" width="672" /><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-34-2.png" width="672" /></p>
+<p><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-32-1.png" width="672" /><img src="BIO3019S-Ecoforecasting_files/figure-html/unnamed-chunk-32-2.png" width="672" /></p>
 <p><br></p>
 <blockquote>
 <p>Question 8: Assuming the full Bayesian model is the best model, would any of the parameter estimates of any of the models be significantly unlikely to be true (if you were to apply the frequentist criterion of P &lt; 0.05), and if so, which ones? (3 marks)</p>

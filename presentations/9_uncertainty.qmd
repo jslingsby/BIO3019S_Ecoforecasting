@@ -39,32 +39,43 @@ This leaves forecasters with four overarching questions:
 
 ## The utility of predictions {.smaller background-color="#33431e"}
 
+
+::: columns
+
+::: {.column width="65%"}
+
 1. _What determines the limits to the utility of predictions?_
 
-The utility of a model/forecast depends on: 
+```{r echo=F, out.width='100%', fig.align='center'}
+#| label: ecological_predictability
+#| fig-cap: "The predictability of a forecast is measured by (1) the rate at which forecast uncertainty (blue shaded area) grows into the future and (2) the limit at which the forecast performs no better than a historical baseline. The growth in uncertainty is controlled by uncertainty in (and sensitivity to) the initial conditions (IC), exogenous drivers (X), parameter uncertainty ($\\theta$), parameter variability ($\\alpha$) and model structural (process) errors ($\\sigma$). From @Dietze2024."
 
-- the **rate of accumulation of uncertainty** (or loss of proficiency) through time, as it tends towards being no better than chance, 
-
-combined with 
-
-- the precision or **"forecast proficiency threshold" required** for the decision in question. 
-
-Together these determine the ***"ecological forecast horizon"*** (@Petchey2015). 
-
-
-## Ecological Forecast Horizon {.smaller background-color="#33431e"}
-
-```{r forecasteventhorizon, echo=F, out.width='80%', fig.align='center', fig.cap='The ecological forecast horizon (from @Petchey2015).'}
-knitr::include_graphics("img/forecasteventhorizon.jpg")
+knitr::include_graphics("img/ecological_predictability.webp")
 ```
 
-Some forecasts may lose proficiency very quickly, crossing (or starting below) the forecast proficiency threshold. If the forecast loses proficiency more slowly, or the proficiency threshold requirements are lower, the forecast horizon is further into the future.
+:::
+
+::: {.column width="35%"}
+
+The utility of a model / forecast depends on: 
+
+1) the rate at which uncertainty grows into the future (i.e. loss of proficiency), 
+
+2) the limit at which the forecast performs no better than a historical baseline (i.e. a model is not needed)
+
+Some forecasts may gain uncertainty and lose proficiency very quickly, crossing the forecast limit sooner.
+
+:::
+:::
+
 
 ## Sources and types of uncertainty {.smaller background-color="#33431e"}
 
 2. _What determines prediction uncertainty?_
 
-Dietze classifies prediction uncertainty in his book [@Dietze2017] and subsequent paper [@Dietze2017b] in the form of **an equation** (note that I've spread it over multiple lines): 
+Dietze [@Dietze2017;@Dietze2017b] express the sources of prediction uncertainty (see "Growth rate" in previous Figure) as an equation (here spread over multiple lines): 
+
+
 
 $$
 \underbrace{Var[Y_{t+1}]}_\text{predictive variance} \approx \; 
@@ -106,9 +117,9 @@ $$\underbrace{stability*uncertainty}_\text{initial conditions} \; +$$
 ::: {.incremental}
 
 - Initial conditions = the state of $Y$ and associated parameters at time $t_0$ (time of start).
-- **Stability** = whether it is a variable with **stabilizing feedbacks** (think of alternate stable states), versus one that changes very quickly (or even rapidly **tends towards chaos** such as atmospheric conditions often do). 
+- ***Stability*** = whether it is a variable with ***stabilizing feedbacks*** (think of alternate stable states), versus one that changes very quickly (or even rapidly ***tends towards chaos*** such as atmospheric conditions often do). 
   - Another example is populations of $r$ versus $K$ selected species (i.e. unstable - high growth rate with short-lived individuals that tend to boom and bust versus stable - low growth rate of long-lived individuals with high survival)
-- **Uncertainty** is uncertainty in the state of $Y$ and parameters due to **observation error**.
+- ***Uncertainty*** is uncertainty in the state of $Y$ and parameters due to ***observation error***.
 
 :::
 
@@ -121,10 +132,10 @@ $$\underbrace{sensitivity * uncertainty}_\text{drivers} \; + $$
 
 ::: {.incremental}
 
-- **External drivers are just the independent variables** (covariates) in the model.
+- ***External drivers*** are just the independent variables (covariates) in the model.
 - Predictability of $Y$ depends on its ***sensitivity*** to each covariate (i.e. how much would $Y$ change for a given change in the covariate), and ***uncertainty*** in those covariates. 
   - Worst scenario is if $Y$ is highly sensitive and the covariates are highly uncertain. 
-  - Note: since we're forecasting, some covariates may not be observed and their uncertainty may often reflect **how well we can forecast the covariates** (e.g. future climate). If we can't predict $X$, we can't use it to predict $Y$... (e.g. occurrence of fire in the postfire recovery state space model). That said, if $Y$ is not very sensitive to $X$, there's less of a problem.
+  - Note: since we're forecasting, some covariates may not be observed and their uncertainty may often reflect ***how well we can forecast the covariates*** (e.g. future climate). If we can't predict $X$, we can't use it to predict $Y$... (e.g. occurrence of fire in the postfire recovery state space model). That said, if $Y$ is not very sensitive to $X$, there's less of a problem.
 
 :::
 
@@ -182,10 +193,10 @@ $$\underbrace{Var[\epsilon]}_\text{process error}$$
 
 There are many methods, but it's worth recognizing that these are actually two steps:
 
-1. Propagating uncertainty **through the model** 
+1. Propagating uncertainty ***through the model*** 
     + i.e. in **fitting the model**, so we can include uncertainty in our parameter estimates
     + This is typically focused on *"How does the uncertainty in X affect the uncertainty in Y?"*
-2. Propagating uncertainty **into our forecasts**
+2. Propagating uncertainty ***into our forecasts***
     + i.e. exploring the implications of uncertainty in our model (parameters etc) for our confidence in the forecast **when making predictions with our fitted model**
     + Here we focus on *"How do we forecast Y with uncertainty?"*
     + This second step is actually the first step in ***data assimilation***, which is the subject of the next section/lecture

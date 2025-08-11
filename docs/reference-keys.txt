@@ -46,7 +46,6 @@ fig:emma
 fig:emmachange
 fig:emmaexceedmap
 fig:accuracyprecision
-fig:forecasteventhorizon
 tab:propagatinguncertainty
 fig:moncrieffcurve
 fig:moncrieffmethod
@@ -176,3 +175,4 @@ compare-nls-models-using-anova
 fit-models-using-maximum-likelihood-estimation-mle
 compare-mle-models-using-akaikes-information-criterion-aic
 going-bayesian
+fig:ecologicalpredictability
