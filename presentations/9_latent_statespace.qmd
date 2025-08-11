@@ -33,7 +33,7 @@ Jasper Slingsby
 
 <br/>
 
--   Here I provide a brief introduction to state-space models, but first I must introduce ***latent variables***.
+-   Here I provide a brief introduction to state-space models, but first I must introduce ***latent variables***, since SSMs use latent variables.
 :::
 :::
 
@@ -45,9 +45,11 @@ Jasper Slingsby
 
 Variables are _latent_ if they are unobserved or estimated with uncertainty. 
 
-<br>
+- i.e. their true value is not known and can only be inferred indirectly through a model from other variables that can be observed and measured. They typically relate to the state variable or data of interest.
 
-- i.e. their true value is not known and can only be inferred indirectly through a model from other variables that can be observed and measured.
+. . .
+
+- different to parameters, which are typically fixed, unknown constants that define the structure and behavior of the model, e.g. regression coefficients in a linear model. 
 
 ## Latent variables {background-color="#33431e"}
 
@@ -146,7 +148,9 @@ In this case we may want to model the true state as a latent variable, and model
 
 E.g. specifying the **data model** to be a normal distribution around the mean ($\mu$), as we did in the post-fire recovery model:     $NDVI_{i,t}\sim \mathit{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}}) \\$
 
-In this case $\mu$ is the latent variable (estimate of the "true state").
+<br/>
+
+Here $\mu$ is the latent variable (estimate of the "true state").
 
 ::: 
 ::::
@@ -215,11 +219,11 @@ Where some observations may be missing from the data, these may be estimated wit
 
 <br/>
 
-Missing data are common in time series or in space (e.g. sensor failure, logistical difficulties, etc.).
+Missing data are common in time series or in space (e.g. sensor failure, logistical difficulties, etc).
 
 ## Unobserved variables {background-color="#33431e"}
 
-Some variables may never be observed (e.g too difficult to measure), but can be inferred from the process model, e.g.
+Some variables may never be observed (e.g. too difficult to measure), but can be inferred from the process model, e.g.
 
 - soil stored seedbanks in plant demographic models
 - determinants of resource allocation decisions in organisms
@@ -249,12 +253,15 @@ _State-space models_ are a useful framework for dealing with these kinds of prob
  
 <br/>
 
-The name comes from the focus on estimating the state as a _latent_ variable.
+The name comes from the focus on estimating the state as a _latent_ variable.[^1]
 
 <br/>
 
-This explicitly separates observation errors from process errors, allowing attractive flexibility, including addressing issues of autocorrelation... 
+Explicitly separates observation errors from process errors, addressing autocorrelation and allowing attractive flexibility... 
 
+<br/>
+
+[^1]: also referred to as _Hidden Markov models_ ("hidden" ~ the latent variable(s); "Markov" ~ the recursive nature,  with the next state in time a function of the current)
 
 ## State-space models {.smaller background-color="#33431e"}
 
@@ -271,37 +278,44 @@ Here's an SSM where the process model is a random walk (i.e. change at each time
 
 <br/>
 
-The process model[^1]: $$z_{t+1}\sim\mathit{N}(z_{t},\tau_{add})$$
+The process model[^2]: $$z_{t+1}\sim\mathit{N}(z_{t},\tau_{add})$$
 
 The data model: $$y_{t}\sim\mathit{N}(z_{t},\tau_{obs})$$
 
-<br/>
 
 For a Bayesian model this would also require priors on the process error ($\tau_{add}$), observation error ($\tau_{obs}$) and initial condition of the state variable ($z_0$).
 
-[^1]: Note that the process and data model can also be referred to as the _state_ and _observation_ models respectively.
+[^2]: Note that the process and data model can also be referred to as the _state_ and _observation_ models respectively.
 
 ## State-space models - example {.smaller background-color="#33431e"}
 
-<br/>
-
+::: columns
+::: {.column width="75%"}
 The probability distribution for the state variable, $z_{t}$, conditional on the model parameters would be:
 
-$$
-\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{ {\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; \underbrace{ {\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \; \underbrace{ {\mathit{N}(z_{t+1}|z_{t},\tau_{add})}}_\text{next time} \;
-$$
+<br/>
 
+$$
+\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{ {\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous state} \; \underbrace{ {\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \; \underbrace{ {\mathit{N}(z_{t+1}|z_{t},\tau_{add})}}_\text{next state} \;
+$$
+:::
+::: {.column width="25%"}
+![](img/statespace_augermethe_a.png)
+:::
+:::
+
+<br/>
 
 Which says that the current state ($z_{t}$) depends on both the states before and after as well as the current observation ($y_{t}$).
 
 <br/>
 
-In fact, the posterior of the current state ($z_{t}$) is proportional to the product of the three normal distributions.
+In fact, the posterior of $z_{t}$ is proportional to the product of the three.
 
 ## State-space models - example {.smaller background-color="#33431e"}
 
 $$
-\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{ {\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; \underbrace{ {\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \; \underbrace{ {\mathit{N}(z_{t+1}|z_{t},\tau_{add})}}_\text{next time} \;
+\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{ {\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous state} \; \underbrace{ {\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \; \underbrace{ {\mathit{N}(z_{t+1}|z_{t},\tau_{add})}}_\text{next state} \;
 $$
 
 ```{r, echo = F, fig.width = 7, fig.asp = 0.5, fig.align='center'}
@@ -317,11 +331,12 @@ dat <- data.frame(
   term = factor(c(rep("current state", 100), rep("previous time", 100), rep("current observation", 100), rep("next time", 100)),
                 levels = c("current state", "previous time", "current observation", "next time")),
   state = rep(rangeP,4),
-  Density = c(prev*obs*nex/3, prev, obs, nex)
+  Density = c(prev*obs*nex/3, prev, obs, nex) #fudged this... doing something wrong...?
     )
 
 ggplot(dat, aes(y = Density, x = state)) +
   geom_line() +
+  ylim(0,8) +
   facet_wrap(. ~ term, nrow = 1) +
   coord_flip()
 
@@ -332,7 +347,7 @@ Where the terms are similar, the state estimate peaks, indicating less uncertain
 ## State-space models - example {.smaller background-color="#33431e"}
 
 $$
-\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{ {\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; \underbrace{ {\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \; \underbrace{ {\mathit{N}(z_{t+1}|z_{t},\tau_{add})}}_\text{next time} \;
+\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{ {\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous state} \; \underbrace{ {\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \; \underbrace{ {\mathit{N}(z_{t+1}|z_{t},\tau_{add})}}_\text{next state} \;
 $$
 
 ```{r, echo = F, fig.width = 7, fig.asp = 0.5, fig.align='center'}
@@ -348,11 +363,12 @@ dat <- data.frame(
   term = factor(c(rep("current state", 100), rep("previous time", 100), rep("current observation", 100), rep("next time", 100)),
                 levels = c("current state", "previous time", "current observation", "next time")),
   state = rep(rangeP,4),
-  Density = c(((prev+1)*(obs+1)*(nex+1)/8), prev, obs, nex)
+  Density = c(((prev+1)*(obs+1)*(nex+1)/8), prev, obs, nex) #fudged this... doing something wrong...?
     )
 
 ggplot(dat, aes(y = Density, x = state)) +
   geom_line() +
+  ylim(0,8) +
   facet_wrap(. ~ term, nrow = 1) +
   coord_flip()
 
@@ -364,7 +380,7 @@ Where the terms differ, the state estimate flattens, indicating greater uncertai
 
 
 $$
-\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{ {\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; \underbrace{ {\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \;
+\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{ {\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous state} \; \underbrace{ {\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \;
 $$
 
 ```{r, echo = F, fig.width = 7, fig.asp = 0.5, fig.align='center'}
@@ -379,7 +395,7 @@ dat <- data.frame(
   term = factor(c(rep("current state", 100), rep("previous time", 100), rep("current observation", 100)),
                 levels = c("current state", "previous time", "current observation")),
   state = rep(rangeP,3),
-  Density = c((prev+1)*(obs+1)/5, prev, obs)
+  Density = c((prev+1)*(obs+1)/5, prev, obs) #fudged this... doing something wrong...?
     )
 
 ggplot(dat, aes(y = Density, x = state)) +
@@ -399,7 +415,7 @@ Often, there's no observation for "next time", and the model reduces to...
 There's no "current observation" for forecasts, so:
 
 $$
-\underbrace{z_{t}|...}_\text{forecast state} \; \propto \; \underbrace{ {\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; 
+\underbrace{z_{t}|...}_\text{forecast state} \; \propto \; \underbrace{ {\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous state} \; 
 $$
 
 ```{r, echo = F, fig.width = 7, fig.asp = 0.5, fig.align='center'}
@@ -431,6 +447,9 @@ ggplot(dat, aes(y = Density, x = state)) +
 
 In this dummy model the forecast is almost exactly the same as the previous time, because the process model is a random walk and simply adds a little error ($\tau_{add}$) to the previous state ($z_{t-1}$).
 
+<br/>
+
+Most forecasts would have a more influential process model.
 :::
 ::::
 
