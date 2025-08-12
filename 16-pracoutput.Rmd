@@ -226,7 +226,7 @@ You'll notice that these are completely different to the AICs for the MLE models
 
 ## Going Bayesian
 
-Ok. Now we're going to run the models in a Bayesian framework. This doesn't use any of our functions as many of the model outputs are a bit different. Here we'll use the [brms](https://paul-buerkner.github.io/brms/) R package for "Bayesian regression models using Stan" instead. Fitting Bayesian models is usually a bit trickier tham LS or MLE, but brms makes is relatively easy.
+Ok. Now we're going to run the models in a Bayesian framework. This is "bonus" material that I added and doesn't use any of the functions you added as many of the model outputs are a bit different. Here we'll use the [brms](https://paul-buerkner.github.io/brms/) R package for "Bayesian regression models using Stan" instead. Fitting Bayesian models is usually a bit trickier than LS or MLE, but brms makes is relatively easy.
 
 First the simpler model:
 
@@ -316,3 +316,5 @@ plot(fit_negexpBS, ask = F)
 > Question 8: Assuming the full Bayesian model is the best model, would any of the parameter estimates of any of the models be significantly unlikely to be true (if you were to apply the frequentist criterion of P < 0.05), and if so, which ones? (3 marks)
 
 <br>
+
+> Question 9: Are these single-level or hierarchical Bayesian models? Which arguments to the brm() function represent which of the model levels discussed in section \@ref(datafusion)? (5 marks)

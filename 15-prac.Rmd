@@ -110,7 +110,7 @@ At this point we've spent a good bit of time up front on organization -- we have
 
 > For the rest of this prac you are going to work in pairs to collaboratively develop the workflow. At this point I reveal that I have written all the functions outlined above for you. All you are going to need to do is put them together using Github by carefully following the tasks below.
 
-The rest of the workflow looks can be visualised below. Essentially, it is a series of steps where two individuals are developing our workflow in collaboration. At each step edits to the workflow are made offline (in RStudio on local laptops) and then synced back to GitHub (online). There is the OWNER of the _main_ branch of the git repository and the COLLABORATOR, who is contributing to the _main_ branch by creating their own _fork_ of the repository, which they edit offline (on their laptops) and make _pull requests_ to the OWNER to have their modifications _merged_ back into the _main_. Moving changes between either laptop and the online repositories requires _pulling_ the latest changes from the online repository to the laptop or _committing_ (naming a version) and _pushing_ changes from the laptop to online. Ultimately, it is the _main_ branch that we hope to have up to date, whereas the _fork_ can usually be discarded once all proposed changes (pull requests) are _merged_.
+The rest of the workflow is visualised below. Essentially, it is a series of steps where two individuals are developing our workflow in collaboration. At each step edits to the workflow are made offline (in RStudio on local laptops) and then synced back to GitHub (online). There is the OWNER of the _main_ branch of the git repository and the COLLABORATOR, who is contributing to the _main_ branch by creating their own _fork_ of the repository, which they edit and and then make _pull requests_ to the OWNER to have their modifications _merged_ back into the _main_. Moving changes between either laptop and the online repositories requires _pulling_ the latest changes from the online repository to the laptop or _committing_ (naming a version) and _pushing_ changes from the laptop to online. Ultimately, it is the _main_ branch that we hope to have up to date, whereas the _fork_ can usually be discarded once all proposed changes (pull requests) are _merged_.
 
 ![](GitDiagram.drawio.png)
 
@@ -133,27 +133,32 @@ Because we're going to employ version control in our project, our first step is 
 
 ### OWNER
 
-We begin with each of you creating a repository for which you are the "Owner" and your partner will be the "Collaborator" on.
+We begin with each of you creating a repository for which you are the "Owner" and your partner will be the "Collaborator".
 
-1.  Go to your account on [github.com](https://github.com/) and under the Repositories tab click on the "New" button (green with a picture of a book on it)
+1.  Go to your account on [github.com](https://github.com/) and under the Repositories tab click on the "New" button (green with a picture of a book on it, or click the plus sign in the top-right, then "New Repository")
 2.  Choose a name for your repository, but **make sure it's different from your partner's** (Don't choose a "Repository template", and keep it a "Public" repository)
 3.  DO NOT click the "Initialize this repository with a README" checkbox. We're going to add a README later
 4.  Optionally, add a licence (e.g. MIT), and add R to the .gitignore (check ".gitignore" and search for the *R* template)
 5.  Click "Create Repository"
 6.  Copy the URL of your new repository
-7.  To clone the repository to your computer, open RStudio so we can create a New Project using this URL. **Note:** If you already have a project open it will close when you do so. Don't worry, you can return to that project after the prac using the drop-down in the top-right of the RStudio window.
+
+> WARNING!!! This is where most mistakes creep in! Always make sure you are using the URL from ***your*** GitHub account and not your partner's. You should never be cloning their repository to your laptop or trying to edit it online. You only work on your copies and send "pull requests" when yo want them to merge your changes to their version.
+
+7.  To clone your repository to your computer, open RStudio so we can create a New Project using your URL. **Note:** If you already have a project open it will close when you do so. Don't worry, you can return to that project after the prac using the drop-down in the top-right of the RStudio window.
 
 -   Select `New Project` from the drop-down menu in the top right corner
 -   Select `Version Control` then `Git`
--   Paste the URL in and click `Create Project`
+-   Paste in ***your*** URL
+-   Select where on your laptop you want the folder to be kept. I keep mine as close to the root directory as possible and avoid having it in a folder that syncs online automatically (e.g. with Dropbox, OneDrive or Google Drive) as this can create problems.
+-   Click `Create Project`
 
 <br>
 
 ## Task 2: Add the first function: download.NDVI
 
-Within this project we'll create separate files for each function in the analysis and then call them from a master script (or makefile) at the end. To make the order of the workflow clear, we'll want to name the files systematically. We'll also want to keep the functions in a folder called "functions" to keep things neat. In the first file we'll implement the download.NDVI() function.
+Within this project we'll create separate files for each function in the analysis and then call them from a master script (or makefile) at the end. To make the order of the workflow clear, and call them from the makefile, we'll want to name the files systematically. We'll also want to keep the functions in a folder called "functions" to keep things neat. In the first file we'll implement the download.NDVI() function.
 
-> NOTE: You'll see that I've provided the R code for how I actually accessed the data using library("MODISTools"), but have left that commented out. The function can take quite a long time so I thought best that we just read the output of that call from a file I've saved to the GitHub repository.
+> NOTE: You'll see that I've provided the R code for how I actually accessed the data using library("MODISTools"), but have left that commented out. The function can take quite a long time so I thought best that we just read the output of that call from a file I've saved to my GitHub repository.
 
 ```{r}
 ##' Download MODIS NDVI data
@@ -208,7 +213,7 @@ download.NDVI <- function(URL) {
 4.  Save the file as "01_download.NDVI.R" in the "functions" folder in the directory for the R project
     - Note: Using the exact file and folder names is important, because we'll be calling it from other code later
 
-5.  From the "Git" tab (top-right window in RStudio), click the box next to the file you just created. This is equivalent to *git add* if you were doing this command line in bash or terminal
+5.  From the "Git" tab (top-right window in RStudio), click the box next to the file you just created. This is equivalent to *git add* if you were doing this using command line in bash or terminal
 6.  Click `Commit`, enter a log message, and click `Commit` again. This is equivalent to *git commit* in command line
 7.  To "push" the change up to the online Git repo on Github click on the green up arrow. This is equivalent to *git push*.
     - Note: It is generally good practice to always *git pull* by clicking the blue down arrow before pushing, so that you sync any changes any collaborators may have made since you last pulled or pushed. In this case we know this is the first thing added to the repo and no one else has access anyway.
@@ -217,13 +222,13 @@ download.NDVI <- function(URL) {
 
 ## Task 3: Collaborator adds plot.NDVI
 
-With the first function complete, let's now imagine that a **COLLABORATOR** has been tasked with adding the second function. To do so they must first fork and clone the repository
+With the first function complete, let's now imagine that a **COLLABORATOR** has been tasked with adding the second function. To do so they must first fork and clone the repository.
 
 ### COLLABORATOR
 
 1.  Go to Github and navigate to the project repository within the OWNER's workspace.
 2.  Click `Fork`, which will make a copy of the repository to your own Github workspace.
-3.  Copy the URL to your own version of the repo and follow the instructions above for cloning _**your copy of the repository**_ to your local machine in RStudio.
+3.  Copy the URL ***of your own version*** of the repo and follow the instructions above for cloning ***your copy of the repository*** to your local machine in RStudio.
 4.  Open a new file, enter the code below, and then save the file as "02_plot.NDVI.R" in the "functions" folder in the directory for the R project
 
 ```{r}
@@ -259,11 +264,11 @@ plot.NDVI <- function(dat, fit = NA, ...){
 
 ### OWNER
 
-1.  Once the COLLABORATOR has created the pull request, you should get an automatic email and also be able to see the pull request under the `Pull Requests" tab on your Github page for the project.
+1.  Once the COLLABORATOR has created the pull request, you should get an automatic email and also be able to see the pull request under the `Pull Requests" tab on your Github page for the project (refresh the webpage if not).
 2.  Read the description of the proposed changes and then click on `Files Changed` to view the changes to the project. New code should be in green, while deleted code will be in pink.
 3.  The purpose of a pull request is to allow the OWNER to evaluate the code being added before it is added. You can see this option under the `Review` button. You can also hover your mouse over any line of code and insert an inline comment in the code (don't do this during the prac). The COLLABORATOR would then have the ability to respond to any comments. In larger projects, all participants can discuss the code and decide whether it should be accepted or not. Furthermore, if the COLLABORATOR does any further pushes to Github before the pull request is accepted these changes will automatically become part of the pull request. While this is a very handy feature, it can also easily backfire if the COLLABORATOR starts working on something different in the meantime. This is the reason that experienced users of version control will use BRANCHES to keep different parts separate.
 4.  Click on the `Conversation` page to return where you started. All participants can also leave more general comments on this page.
-5.  If you are happy with the code, click `Merge Pull Request`. Alternatively, to outright reject a pull request you could click `Close pull request` (but please don't do this in the prac unless your partner has made an error - PLEASE CHECK IF THEY'VE ADDED THE RIGHT FUNCTION ETC)
+5.  If you are happy with the code, click `Merge Pull Request`. Alternatively, to outright reject a pull request you could click `Close pull request` (but please don't do this in the prac unless your partner has made an error - PLEASE CHECK IF THEY'VE ADDED THE RIGHT FUNCTION ETC).
 
 <br>
 
@@ -347,13 +352,13 @@ fit.negexpS.MLE <- function(dat,par){
 
 To estimate the parameters in the model this function uses the likelihood principle which states that "a parameter value is more likely than another if it is the one for which the data are more probable". In other words, the maximum likelihood estimate of a parameter is the value of the parameter for which the probability of obtaining the observed data if the highest.
 
-To use MLE we need to define a Likelihood, which is the relationship between the value of the parameter and the probability of some observed data. [For the record, the Likelihood is not a probability distribution because it does not integrate to 1]. In this case we're assuming a Normal likelihood (hence the use of `dnorm()` in the function) and use a standard deviation (0.001) that I've made up to represent the uncertainty (ideally this should come from the data; e.g. the radiative transfer modelling that was used to estimate the "surface reflectance" MODIS product from the "top of atmosphere reflectance" that is actually observed by the satellite). In a more detailed analysis we'd want to follow up to check both these assumptions, but it's a simple starting point for this practical demonstration.
+To use MLE we need to define a Likelihood, which is the relationship between the value of the parameter and the probability of some observed data. In this case we're assuming a Normal likelihood (hence the use of `dnorm()` in the function). This is the `data model` that we discussed in lectures. I've given the likelihood a standard deviation (0.001) that I've made up to represent the uncertainty (ideally this should come from the data; e.g. the atmospheric and other corrections that were used to estimate the "surface reflectance" MODIS product from the "top of atmosphere reflectance" that is actually observed by the satellite). In a more detailed analysis we'd want to follow up to check both these assumptions, but it's a simple starting point for this practical demonstration.
 
 Applying the likelihood principle we would then look for the most likely value of $\theta$, the vector of parameters in the model ($\alpha$, $\gamma$ and $\lambda$ in the simpler model, and adding $A$ and $\phi$ in the full model - see model equations below), which we call the Maximum Likelihood estimate. For a number or reasons that we won't go into in this module, it is common to work with negative log likelihoods instead of likelihoods, in which case the negative implies that instead of looking for the maximum we're now looking for the minimum (perhaps a bit difficult to get your head around, but it's a small trade-off that makes for much easier mathematics). The fact that logarithm is a monotonic transformation means that taking the log does not change the location of this minimum.
 
 The code for this comes in three parts.
 
-First are the models themselves, *pred.negexp()* and *pred.negexpS()*, which translate the equations:
+First are the `process models` themselves, *pred.negexp()* and *pred.negexpS()*, which translate the equations:
 
 -   For the "simple" model (*pred.negexp()*) it's just a negative exponential:
 
@@ -362,6 +367,7 @@ First are the models themselves, *pred.negexp()* and *pred.negexpS()*, which tra
   \text{NDVI}_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)
 \end{gather}
 ```
+
 -   For the "full" model (*pred.negexpS()*) we add a sine term:
 
 ```{=tex}
@@ -370,6 +376,7 @@ First are the models themselves, *pred.negexp()* and *pred.negexpS()*, which tra
       A_i\text{sin}\Big(2\pi\times\text{age}_{i,t}+\Big[\phi+\frac{\pi}{6}(m_{i,t}-1)\Big]\Big)
 \end{gather}
 ```
+
 Where:
 
 -   $\alpha$ is the NDVI at time 0 (i.e. directly after the fire)
@@ -380,7 +387,7 @@ Where:
 -   $\phi$ adjusts the timing of the sine term to account for the month the fire occurred
 -   $m$ is the month that the fire occurred
 
-Second is the negative log likelihood function, *lnL.negexp()*, which we're trying to minimize. The core of this is the Normal probability density, *dnorm()*. The first argument is the data, the second the is model, and the third is the standard deviation. The fourth argument says that we want to return the log density, which is much more accurate if it's performed internally than if we take the log of what's returned by dnorm. Since we have many data points dnorm returns a vector, which we then sum up and change the sign to turn this into a minimization problem.
+Second is the negative log likelihood function, *lnL.negexp()*, which we're trying to minimize. The core of this is the `data model` - the Normal probability density, *dnorm()*. The first argument is the data, the second the is model, and the third is the standard deviation. The fourth argument says that we want to return the log density, which is much more accurate if it's performed internally than if we take the log of what's returned by dnorm. Since we have many data points dnorm returns a vector, which we then sum up and change the sign to turn this into a minimization problem.
 
 The third part is a call to a numerical optimization function, *optim*, that searches through parameter space to find the set of parameters that minimize the negative log likelihood (i.e. that Maximize the Likelihood). Arguments are the initial parameter guesstimates, the function being minimized, and any additional parameters that get passed on to that function.
 

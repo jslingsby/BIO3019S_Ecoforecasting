@@ -23,7 +23,7 @@
 <meta name="author" content="Jasper Slingsby" />
 
 
-<meta name="date" content="2025-08-11" />
+<meta name="date" content="2025-08-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -449,7 +449,7 @@ fit.negexpS.MLE &lt;- function(dat, par)</code></pre>
 <blockquote>
 <p>For the rest of this prac you are going to work in pairs to collaboratively develop the workflow. At this point I reveal that I have written all the functions outlined above for you. All you are going to need to do is put them together using Github by carefully following the tasks below.</p>
 </blockquote>
-<p>The rest of the workflow looks can be visualised below. Essentially, it is a series of steps where two individuals are developing our workflow in collaboration. At each step edits to the workflow are made offline (in RStudio on local laptops) and then synced back to GitHub (online). There is the OWNER of the <em>main</em> branch of the git repository and the COLLABORATOR, who is contributing to the <em>main</em> branch by creating their own <em>fork</em> of the repository, which they edit offline (on their laptops) and make <em>pull requests</em> to the OWNER to have their modifications <em>merged</em> back into the <em>main</em>. Moving changes between either laptop and the online repositories requires <em>pulling</em> the latest changes from the online repository to the laptop or <em>committing</em> (naming a version) and <em>pushing</em> changes from the laptop to online. Ultimately, it is the <em>main</em> branch that we hope to have up to date, whereas the <em>fork</em> can usually be discarded once all proposed changes (pull requests) are <em>merged</em>.</p>
+<p>The rest of the workflow is visualised below. Essentially, it is a series of steps where two individuals are developing our workflow in collaboration. At each step edits to the workflow are made offline (in RStudio on local laptops) and then synced back to GitHub (online). There is the OWNER of the <em>main</em> branch of the git repository and the COLLABORATOR, who is contributing to the <em>main</em> branch by creating their own <em>fork</em> of the repository, which they edit and and then make <em>pull requests</em> to the OWNER to have their modifications <em>merged</em> back into the <em>main</em>. Moving changes between either laptop and the online repositories requires <em>pulling</em> the latest changes from the online repository to the laptop or <em>committing</em> (naming a version) and <em>pushing</em> changes from the laptop to online. Ultimately, it is the <em>main</em> branch that we hope to have up to date, whereas the <em>fork</em> can usually be discarded once all proposed changes (pull requests) are <em>merged</em>.</p>
 <p><img src="GitDiagram.drawio.png" /></p>
 <p>Interestingly, since all that’s tracked are the <em>commits</em>, whereby versions are named (the nodes in the image). All that the online Git repo records is this figure below. The black is the the OWNER’s <em>main</em> branch and the blue is the COLLABORATOR’s <em>fork</em>.</p>
 <p><br></p>
@@ -463,29 +463,36 @@ fit.negexpS.MLE &lt;- function(dat, par)</code></pre>
 <p><br></p>
 <div id="owner" class="section level3 hasAnchor" number="12.5.1">
 <h3><span class="header-section-number">12.5.1</span> OWNER<a href="practical.html#owner" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We begin with each of you creating a repository for which you are the “Owner” and your partner will be the “Collaborator” on.</p>
+<p>We begin with each of you creating a repository for which you are the “Owner” and your partner will be the “Collaborator”.</p>
 <ol style="list-style-type: decimal">
-<li>Go to your account on <a href="https://github.com/">github.com</a> and under the Repositories tab click on the “New” button (green with a picture of a book on it)</li>
+<li>Go to your account on <a href="https://github.com/">github.com</a> and under the Repositories tab click on the “New” button (green with a picture of a book on it, or click the plus sign in the top-right, then “New Repository”)</li>
 <li>Choose a name for your repository, but <strong>make sure it’s different from your partner’s</strong> (Don’t choose a “Repository template”, and keep it a “Public” repository)</li>
 <li>DO NOT click the “Initialize this repository with a README” checkbox. We’re going to add a README later</li>
 <li>Optionally, add a licence (e.g. MIT), and add R to the .gitignore (check “.gitignore” and search for the <em>R</em> template)</li>
 <li>Click “Create Repository”</li>
 <li>Copy the URL of your new repository</li>
-<li>To clone the repository to your computer, open RStudio so we can create a New Project using this URL. <strong>Note:</strong> If you already have a project open it will close when you do so. Don’t worry, you can return to that project after the prac using the drop-down in the top-right of the RStudio window.</li>
+</ol>
+<blockquote>
+<p>WARNING!!! This is where most mistakes creep in! Always make sure you are using the URL from <strong><em>your</em></strong> GitHub account and not your partner’s. You should never be cloning their repository to your laptop or trying to edit it online. You only work on your copies and send “pull requests” when yo want them to merge your changes to their version.</p>
+</blockquote>
+<ol start="7" style="list-style-type: decimal">
+<li>To clone your repository to your computer, open RStudio so we can create a New Project using your URL. <strong>Note:</strong> If you already have a project open it will close when you do so. Don’t worry, you can return to that project after the prac using the drop-down in the top-right of the RStudio window.</li>
 </ol>
 <ul>
 <li>Select <code>New Project</code> from the drop-down menu in the top right corner</li>
 <li>Select <code>Version Control</code> then <code>Git</code></li>
-<li>Paste the URL in and click <code>Create Project</code></li>
+<li>Paste in <strong><em>your</em></strong> URL</li>
+<li>Select where on your laptop you want the folder to be kept. I keep mine as close to the root directory as possible and avoid having it in a folder that syncs online automatically (e.g. with Dropbox, OneDrive or Google Drive) as this can create problems.</li>
+<li>Click <code>Create Project</code></li>
 </ul>
 <p><br></p>
 </div>
 </div>
 <div id="task-2-add-the-first-function-download.ndvi" class="section level2 hasAnchor" number="12.6">
 <h2><span class="header-section-number">12.6</span> Task 2: Add the first function: download.NDVI<a href="practical.html#task-2-add-the-first-function-download.ndvi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Within this project we’ll create separate files for each function in the analysis and then call them from a master script (or makefile) at the end. To make the order of the workflow clear, we’ll want to name the files systematically. We’ll also want to keep the functions in a folder called “functions” to keep things neat. In the first file we’ll implement the download.NDVI() function.</p>
+<p>Within this project we’ll create separate files for each function in the analysis and then call them from a master script (or makefile) at the end. To make the order of the workflow clear, and call them from the makefile, we’ll want to name the files systematically. We’ll also want to keep the functions in a folder called “functions” to keep things neat. In the first file we’ll implement the download.NDVI() function.</p>
 <blockquote>
-<p>NOTE: You’ll see that I’ve provided the R code for how I actually accessed the data using library(“MODISTools”), but have left that commented out. The function can take quite a long time so I thought best that we just read the output of that call from a file I’ve saved to the GitHub repository.</p>
+<p>NOTE: You’ll see that I’ve provided the R code for how I actually accessed the data using library(“MODISTools”), but have left that commented out. The function can take quite a long time so I thought best that we just read the output of that call from a file I’ve saved to my GitHub repository.</p>
 </blockquote>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="practical.html#cb9-1" tabindex="-1"></a><span class="do">##&#39; Download MODIS NDVI data</span></span>
 <span id="cb9-2"><a href="practical.html#cb9-2" tabindex="-1"></a><span class="do">##&#39; @param URL  web address where data is located</span></span>
@@ -540,7 +547,7 @@ fit.negexpS.MLE &lt;- function(dat, par)</code></pre>
 <ul>
 <li>Note: Using the exact file and folder names is important, because we’ll be calling it from other code later</li>
 </ul></li>
-<li>From the “Git” tab (top-right window in RStudio), click the box next to the file you just created. This is equivalent to <em>git add</em> if you were doing this command line in bash or terminal</li>
+<li>From the “Git” tab (top-right window in RStudio), click the box next to the file you just created. This is equivalent to <em>git add</em> if you were doing this using command line in bash or terminal</li>
 <li>Click <code>Commit</code>, enter a log message, and click <code>Commit</code> again. This is equivalent to <em>git commit</em> in command line</li>
 <li>To “push” the change up to the online Git repo on Github click on the green up arrow. This is equivalent to <em>git push</em>.
 <ul>
@@ -552,13 +559,13 @@ fit.negexpS.MLE &lt;- function(dat, par)</code></pre>
 </div>
 <div id="task-3-collaborator-adds-plot.ndvi" class="section level2 hasAnchor" number="12.7">
 <h2><span class="header-section-number">12.7</span> Task 3: Collaborator adds plot.NDVI<a href="practical.html#task-3-collaborator-adds-plot.ndvi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>With the first function complete, let’s now imagine that a <strong>COLLABORATOR</strong> has been tasked with adding the second function. To do so they must first fork and clone the repository</p>
+<p>With the first function complete, let’s now imagine that a <strong>COLLABORATOR</strong> has been tasked with adding the second function. To do so they must first fork and clone the repository.</p>
 <div id="collaborator" class="section level3 hasAnchor" number="12.7.1">
 <h3><span class="header-section-number">12.7.1</span> COLLABORATOR<a href="practical.html#collaborator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Go to Github and navigate to the project repository within the OWNER’s workspace.</li>
 <li>Click <code>Fork</code>, which will make a copy of the repository to your own Github workspace.</li>
-<li>Copy the URL to your own version of the repo and follow the instructions above for cloning <em><strong>your copy of the repository</strong></em> to your local machine in RStudio.</li>
+<li>Copy the URL <strong><em>of your own version</em></strong> of the repo and follow the instructions above for cloning <strong><em>your copy of the repository</em></strong> to your local machine in RStudio.</li>
 <li>Open a new file, enter the code below, and then save the file as “02_plot.NDVI.R” in the “functions” folder in the directory for the R project</li>
 </ol>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="practical.html#cb10-1" tabindex="-1"></a><span class="do">##&#39; Plot NDVI data</span></span>
@@ -594,11 +601,11 @@ fit.negexpS.MLE &lt;- function(dat, par)</code></pre>
 <div id="owner-2" class="section level3 hasAnchor" number="12.7.2">
 <h3><span class="header-section-number">12.7.2</span> OWNER<a href="practical.html#owner-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
-<li>Once the COLLABORATOR has created the pull request, you should get an automatic email and also be able to see the pull request under the `Pull Requests” tab on your Github page for the project.</li>
+<li>Once the COLLABORATOR has created the pull request, you should get an automatic email and also be able to see the pull request under the `Pull Requests” tab on your Github page for the project (refresh the webpage if not).</li>
 <li>Read the description of the proposed changes and then click on <code>Files Changed</code> to view the changes to the project. New code should be in green, while deleted code will be in pink.</li>
 <li>The purpose of a pull request is to allow the OWNER to evaluate the code being added before it is added. You can see this option under the <code>Review</code> button. You can also hover your mouse over any line of code and insert an inline comment in the code (don’t do this during the prac). The COLLABORATOR would then have the ability to respond to any comments. In larger projects, all participants can discuss the code and decide whether it should be accepted or not. Furthermore, if the COLLABORATOR does any further pushes to Github before the pull request is accepted these changes will automatically become part of the pull request. While this is a very handy feature, it can also easily backfire if the COLLABORATOR starts working on something different in the meantime. This is the reason that experienced users of version control will use BRANCHES to keep different parts separate.</li>
 <li>Click on the <code>Conversation</code> page to return where you started. All participants can also leave more general comments on this page.</li>
-<li>If you are happy with the code, click <code>Merge Pull Request</code>. Alternatively, to outright reject a pull request you could click <code>Close pull request</code> (but please don’t do this in the prac unless your partner has made an error - PLEASE CHECK IF THEY’VE ADDED THE RIGHT FUNCTION ETC)</li>
+<li>If you are happy with the code, click <code>Merge Pull Request</code>. Alternatively, to outright reject a pull request you could click <code>Close pull request</code> (but please don’t do this in the prac unless your partner has made an error - PLEASE CHECK IF THEY’VE ADDED THE RIGHT FUNCTION ETC).</li>
 </ol>
 <p><br></p>
 </div>
@@ -680,10 +687,10 @@ fit.negexpS.MLE &lt;- function(dat, par)</code></pre>
 <div id="a-quick-explanation-of-the-mle-functions" class="section level2 hasAnchor" number="12.9">
 <h2><span class="header-section-number">12.9</span> A quick explanation of the MLE functions<a href="practical.html#a-quick-explanation-of-the-mle-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To estimate the parameters in the model this function uses the likelihood principle which states that “a parameter value is more likely than another if it is the one for which the data are more probable”. In other words, the maximum likelihood estimate of a parameter is the value of the parameter for which the probability of obtaining the observed data if the highest.</p>
-<p>To use MLE we need to define a Likelihood, which is the relationship between the value of the parameter and the probability of some observed data. [For the record, the Likelihood is not a probability distribution because it does not integrate to 1]. In this case we’re assuming a Normal likelihood (hence the use of <code>dnorm()</code> in the function) and use a standard deviation (0.001) that I’ve made up to represent the uncertainty (ideally this should come from the data; e.g. the radiative transfer modelling that was used to estimate the “surface reflectance” MODIS product from the “top of atmosphere reflectance” that is actually observed by the satellite). In a more detailed analysis we’d want to follow up to check both these assumptions, but it’s a simple starting point for this practical demonstration.</p>
+<p>To use MLE we need to define a Likelihood, which is the relationship between the value of the parameter and the probability of some observed data. In this case we’re assuming a Normal likelihood (hence the use of <code>dnorm()</code> in the function). This is the <code>data model</code> that we discussed in lectures. I’ve given the likelihood a standard deviation (0.001) that I’ve made up to represent the uncertainty (ideally this should come from the data; e.g. the atmospheric and other corrections that were used to estimate the “surface reflectance” MODIS product from the “top of atmosphere reflectance” that is actually observed by the satellite). In a more detailed analysis we’d want to follow up to check both these assumptions, but it’s a simple starting point for this practical demonstration.</p>
 <p>Applying the likelihood principle we would then look for the most likely value of <span class="math inline">\(\theta\)</span>, the vector of parameters in the model (<span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\lambda\)</span> in the simpler model, and adding <span class="math inline">\(A\)</span> and <span class="math inline">\(\phi\)</span> in the full model - see model equations below), which we call the Maximum Likelihood estimate. For a number or reasons that we won’t go into in this module, it is common to work with negative log likelihoods instead of likelihoods, in which case the negative implies that instead of looking for the maximum we’re now looking for the minimum (perhaps a bit difficult to get your head around, but it’s a small trade-off that makes for much easier mathematics). The fact that logarithm is a monotonic transformation means that taking the log does not change the location of this minimum.</p>
 <p>The code for this comes in three parts.</p>
-<p>First are the models themselves, <em>pred.negexp()</em> and <em>pred.negexpS()</em>, which translate the equations:</p>
+<p>First are the <code>process models</code> themselves, <em>pred.negexp()</em> and <em>pred.negexpS()</em>, which translate the equations:</p>
 <ul>
 <li>For the “simple” model (<em>pred.negexp()</em>) it’s just a negative exponential:</li>
 </ul>
@@ -709,7 +716,7 @@ fit.negexpS.MLE &lt;- function(dat, par)</code></pre>
 <li><span class="math inline">\(\phi\)</span> adjusts the timing of the sine term to account for the month the fire occurred</li>
 <li><span class="math inline">\(m\)</span> is the month that the fire occurred</li>
 </ul>
-<p>Second is the negative log likelihood function, <em>lnL.negexp()</em>, which we’re trying to minimize. The core of this is the Normal probability density, <em>dnorm()</em>. The first argument is the data, the second the is model, and the third is the standard deviation. The fourth argument says that we want to return the log density, which is much more accurate if it’s performed internally than if we take the log of what’s returned by dnorm. Since we have many data points dnorm returns a vector, which we then sum up and change the sign to turn this into a minimization problem.</p>
+<p>Second is the negative log likelihood function, <em>lnL.negexp()</em>, which we’re trying to minimize. The core of this is the <code>data model</code> - the Normal probability density, <em>dnorm()</em>. The first argument is the data, the second the is model, and the third is the standard deviation. The fourth argument says that we want to return the log density, which is much more accurate if it’s performed internally than if we take the log of what’s returned by dnorm. Since we have many data points dnorm returns a vector, which we then sum up and change the sign to turn this into a minimization problem.</p>
 <p>The third part is a call to a numerical optimization function, <em>optim</em>, that searches through parameter space to find the set of parameters that minimize the negative log likelihood (i.e. that Maximize the Likelihood). Arguments are the initial parameter guesstimates, the function being minimized, and any additional parameters that get passed on to that function.</p>
 </div>
 <div id="task-5-collaborator-adds-the-master-script-owner-runs-the-master-script" class="section level2 hasAnchor" number="12.10">

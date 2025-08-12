@@ -1209,7 +1209,7 @@ margin-right: 0; }
 </div>
 </div><div class="column" style="width:35%;">
 <p>The utility of a model / forecast depends on:</p>
-<ol type="a">
+<ol type="1">
 <li><p>the rate at which uncertainty grows into the future (i.e. loss of proficiency),</p></li>
 <li><p>the limit at which the forecast performs no better than a historical baseline (i.e. a model is not needed)</p></li>
 </ol>
@@ -1222,7 +1222,7 @@ margin-right: 0; }
 <ol start="2" type="1">
 <li><em>What determines prediction uncertainty?</em></li>
 </ol>
-<p>Dietze classifies prediction uncertainty in his book <span class="citation" data-cites="Dietze2017">(<a href="#/references" role="doc-biblioref" onclick>M. C. Dietze 2017a</a>)</span> and subsequent paper <span class="citation" data-cites="Dietze2017b">(<a href="#/references" role="doc-biblioref" onclick>M. C. Dietze 2017b</a>)</span> in the form of <strong>an equation</strong> (note that I’ve spread it over multiple lines):</p>
+<p>Dietze <span class="citation" data-cites="Dietze2017 Dietze2017b">(<a href="#/references" role="doc-biblioref" onclick>M. C. Dietze 2017a</a>, <a href="#/references" role="doc-biblioref" onclick>2017b</a>)</span> express the sources of prediction uncertainty (see “Growth rate” in previous Figure) as an equation (here spread over multiple lines):</p>
 <p><span class="math display">\[
 \underbrace{Var[Y_{t+1}]}_\text{predictive variance} \approx \;
 \underbrace{stability*uncertainty}_\text{initial conditions} \; +  \\
@@ -1252,11 +1252,11 @@ margin-right: 0; }
 <div>
 <ul>
 <li class="fragment">Initial conditions = the state of <span class="math inline">\(Y\)</span> and associated parameters at time <span class="math inline">\(t_0\)</span> (time of start).</li>
-<li class="fragment"><strong>Stability</strong> = whether it is a variable with <strong>stabilizing feedbacks</strong> (think of alternate stable states), versus one that changes very quickly (or even rapidly <strong>tends towards chaos</strong> such as atmospheric conditions often do).
+<li class="fragment"><strong><em>Stability</em></strong> = whether it is a variable with <strong><em>stabilizing feedbacks</em></strong> (think of alternate stable states), versus one that changes very quickly (or even rapidly <strong><em>tends towards chaos</em></strong> such as atmospheric conditions often do).
 <ul>
 <li class="fragment">Another example is populations of <span class="math inline">\(r\)</span> versus <span class="math inline">\(K\)</span> selected species (i.e. unstable - high growth rate with short-lived individuals that tend to boom and bust versus stable - low growth rate of long-lived individuals with high survival)</li>
 </ul></li>
-<li class="fragment"><strong>Uncertainty</strong> is uncertainty in the state of <span class="math inline">\(Y\)</span> and parameters due to <strong>observation error</strong>.</li>
+<li class="fragment"><strong><em>Uncertainty</em></strong> is uncertainty in the state of <span class="math inline">\(Y\)</span> and parameters due to <strong><em>observation error</em></strong>.</li>
 </ul>
 </div>
 </section>
@@ -1266,11 +1266,11 @@ margin-right: 0; }
 <p><em>“The sensitivity to, multiplied by the uncertainty in, external drivers, plus”</em></p>
 <div>
 <ul>
-<li class="fragment"><strong>External drivers are just the independent variables</strong> (covariates) in the model.</li>
+<li class="fragment"><strong><em>External drivers</em></strong> are just the independent variables (covariates) in the model.</li>
 <li class="fragment">Predictability of <span class="math inline">\(Y\)</span> depends on its <strong><em>sensitivity</em></strong> to each covariate (i.e. how much would <span class="math inline">\(Y\)</span> change for a given change in the covariate), and <strong><em>uncertainty</em></strong> in those covariates.
 <ul>
 <li class="fragment">Worst scenario is if <span class="math inline">\(Y\)</span> is highly sensitive and the covariates are highly uncertain.</li>
-<li class="fragment">Note: since we’re forecasting, some covariates may not be observed and their uncertainty may often reflect <strong>how well we can forecast the covariates</strong> (e.g. future climate). If we can’t predict <span class="math inline">\(X\)</span>, we can’t use it to predict <span class="math inline">\(Y\)</span>… (e.g. occurrence of fire in the postfire recovery state space model). That said, if <span class="math inline">\(Y\)</span> is not very sensitive to <span class="math inline">\(X\)</span>, there’s less of a problem.</li>
+<li class="fragment">Note: since we’re forecasting, some covariates may not be observed and their uncertainty may often reflect <strong><em>how well we can forecast the covariates</em></strong> (e.g. future climate). If we can’t predict <span class="math inline">\(X\)</span>, we can’t use it to predict <span class="math inline">\(Y\)</span>… (e.g. occurrence of fire in the postfire recovery state space model). That said, if <span class="math inline">\(Y\)</span> is not very sensitive to <span class="math inline">\(X\)</span>, there’s less of a problem.</li>
 </ul></li>
 </ul>
 </div>
@@ -1333,12 +1333,12 @@ margin-right: 0; }
 <div>
 <p>There are many methods, but it’s worth recognizing that these are actually two steps:</p>
 <ol type="1">
-<li class="fragment">Propagating uncertainty <strong>through the model</strong>
+<li class="fragment">Propagating uncertainty <strong><em>through the model</em></strong>
 <ul>
 <li class="fragment">i.e. in <strong>fitting the model</strong>, so we can include uncertainty in our parameter estimates</li>
 <li class="fragment">This is typically focused on <em>“How does the uncertainty in X affect the uncertainty in Y?”</em></li>
 </ul></li>
-<li class="fragment">Propagating uncertainty <strong>into our forecasts</strong>
+<li class="fragment">Propagating uncertainty <strong><em>into our forecasts</em></strong>
 <ul>
 <li class="fragment">i.e. exploring the implications of uncertainty in our model (parameters etc) for our confidence in the forecast <strong>when making predictions with our fitted model</strong></li>
 <li class="fragment">Here we focus on <em>“How do we forecast Y with uncertainty?”</em></li>
