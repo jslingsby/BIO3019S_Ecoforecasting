@@ -176,3 +176,4 @@ compare-nls-models-using-anova
 fit-models-using-maximum-likelihood-estimation-mle
 compare-mle-models-using-akaikes-information-criterion-aic
 going-bayesian
+marking

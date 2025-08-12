@@ -441,4 +441,8 @@ Ok, now that we're up to date we can carry on:
 
 5.  Once complete, commit "README.Rmd" and "README.md" and push them back to the repo. 
 
-6.  Finally, answer the questions in a separate document and indicate your name, your partner's name, the links to both your repository and your partner's (making clear which is which), and upload the document under the assignment I created on Amathuba.
+6.  Finally, answer the questions in a separate document and indicate your name, your partner's name, the links to both your repository and your partner's (making clear which is which), and upload the document under the assignment I created on Amathuba. 
+
+## Marking
+
+Your mark will be based on your answers to the questions, whether you completed the collaborative activity correctly (I can check because of GitHub's version control), and your answers to the quiz on the reading.
