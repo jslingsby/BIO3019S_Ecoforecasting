@@ -16,15 +16,19 @@ Jasper Slingsby
 
 ## Uncertainty {background-color="#33431e"}
 
-<br/>
-
 Uncertainty determines the utility of a forecast:
 
 1. If the uncertainty in a forecast is too high, then it is of no utility to a decision maker. 
 
 2. If the uncertainty is not properly quantified and presented, it can lead to poor decision outcomes.
-  - under-reporting creates false confidence in outcomes
+
+. . .
+
+By extension:
+  
   - over-reporting can exclude useful information
+  - under-reporting creates false confidence in outcomes
+
 
 ## Uncertainty {background-color="#33431e"}
 
@@ -120,6 +124,7 @@ $$\underbrace{stability*uncertainty}_\text{initial conditions} \; +$$
 - ***Stability*** = whether it is a variable with ***stabilizing feedbacks*** (think of alternate stable states), versus one that changes very quickly (or even rapidly ***tends towards chaos*** such as atmospheric conditions often do). 
   - Another example is populations of $r$ versus $K$ selected species (i.e. unstable - high growth rate with short-lived individuals that tend to boom and bust versus stable - low growth rate of long-lived individuals with high survival)
 - ***Uncertainty*** is uncertainty in the state of $Y$ and parameters due to ***observation error***.
+  - e.g. Since atmospheric properties are highly unstable, weather forecasters try to minimize uncertainty in the initial conditions by minimizing observation error.
 
 :::
 
@@ -135,7 +140,7 @@ $$\underbrace{sensitivity * uncertainty}_\text{drivers} \; + $$
 - ***External drivers*** are just the independent variables (covariates) in the model.
 - Predictability of $Y$ depends on its ***sensitivity*** to each covariate (i.e. how much would $Y$ change for a given change in the covariate), and ***uncertainty*** in those covariates. 
   - Worst scenario is if $Y$ is highly sensitive and the covariates are highly uncertain. 
-  - Note: since we're forecasting, some covariates may not be observed and their uncertainty may often reflect ***how well we can forecast the covariates*** (e.g. future climate). If we can't predict $X$, we can't use it to predict $Y$... (e.g. occurrence of fire in the postfire recovery state space model). That said, if $Y$ is not very sensitive to $X$, there's less of a problem.
+  - Note: since we're forecasting, some covariates may not be observed and their uncertainty may often reflect ***how well we can forecast the covariates*** (e.g. future climate). If we can't predict $X$, we can't use it to predict $Y$... (e.g. occurrence of fire in the postfire recovery state space model). That said, if $Y$ is not very sensitive to $X$, there's less of a problem. If it is, this can sometimes be addressed by running forecasts for different scenarios.
 
 :::
 
@@ -147,10 +152,10 @@ $$\underbrace{sensitivity*(uncertainty+variability)}_\text{(parameters + random 
 
 ::: {.incremental}
 
+- ***Parameter sensitivity*** is similar to driver sensitivity - **"How much change do we expect in $Y$ for a given change in the parameter?"**
 - ***Parameter uncertainty*** pertains to **how good our estimates of the parameters** are. 
   - This is usually a question of sample size - *"Do we have enough data to obtain a good estimate (i.e. accurate mean, low uncertainty) of the parameters?"* 
   - It is also linked to the **number of parameters** in the model. The more parameters, the more data you need to obtain good parameter estimates. This is another reason to avoid overly complex models.
-- ***Parameter sensitivity*** is similar to driver sensitivity - **"How much change do we expect in $Y$ for a given change in the parameter?"**
 
 :::
 
@@ -162,10 +167,12 @@ $$\underbrace{sensitivity*(uncertainty+variability)}_\text{(parameters + random 
 
 ::: {.incremental}
 
-- The **overall contribution** of a single parameter to the predictive variance (i.e. uncertainty in the forecast) depends on its **sensitivity multiplied by its uncertainty**. 
-    - Targeting effort (fieldwork etc) to better constrain poorly estimated parameters is one of the best ways to reduce prediction uncertainty.
 - ***Parameter variability*** reflects factors that cause deviation (or offsets) from the mean of the parameter that may be known, but may either be poorly estimated or not included in the rest of the model. 
   - These are **random effects** that can be caused by factors that create **autocorrelation** like space, time, phylogeny, etc.
+  
+- The **overall contribution** of a single parameter to the predictive variance (i.e. uncertainty in the forecast) depends on its **sensitivity multiplied by the sum of its uncertainty and variability**. 
+    - Targeting effort (fieldwork etc) to better constrain poorly estimated parameters is one of the best ways to reduce prediction uncertainty.
+
 
 :::
 
@@ -349,15 +356,14 @@ When asked why they were not considering clearing invasive alien plants from the
 
 While we knew this was a load of crock (they didn't have uncertainty estimates for any of the other options either), @Moncrieff2021 decided it'd be a good idea to explore this issue by:
 
-::: {.incremental}
-
 1. using a ***Bayesian framework*** to update and ***include uncertainty*** in the estimates of the volume and percent of streamflow lost to IAPs
 
-2. explore the relative contribution of sources of uncertainty to overall uncertainty in streamflow losses - to ***guide efforts to improve future estimates***
+2. exploring the relative contribution of sources of uncertainty to overall uncertainty in streamflow losses - to ***guide efforts to improve future estimates***
 
-3. providing ***a fully repeatable workflow*** to make it easy for anyone to query our methods or recalculate estimates as and when updated data become available
+3. providing ***a repeatable workflow***[^1] to make it easy for anyone to query our methods or recalculate estimates as and when updated data become available
 
-:::
+[^1]: [In truth, it is no longer repeatable because it used Google Fusion Tables which no longer exists... Which reinforces that one should always use open software!!!]{.fragment fragment-index=1}
+
 
 
 ## Invasive alien plants and streamflow {.smaller background-color="#33431e"}
