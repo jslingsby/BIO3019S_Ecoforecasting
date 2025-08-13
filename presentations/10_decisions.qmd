@@ -40,7 +40,11 @@ knitr::include_graphics("img/ecoforecastingloop.png")
 
 The iterative ecological forecasting and the scientific method are closely aligned cycles or loops. 
 
+<br>
+
 **Bayes Theorem provides an iterative probabilistic framework** that makes it easier to update predictions as new data become available, mirroring the scientific method and completing the forecasting cycle. 
+
+<br>
 
 Today we'll unpack this in a bit more detail.
 
@@ -162,18 +166,28 @@ There are a number of methods for propagating uncertainty into a forecast, mostl
 
 <br/>
 
-::: {.fragment}
+```{r propagatinguncertainty, echo=F}
+
+upm <- data.frame(
+  Approach = c("Analytical", "", "Numerical"),
+  Distribution = c("Variable Transform", "", "Monte Carlo (Particle Filter)"),
+  Moments = c("Analytical Moments (Kalman Filter)", "Taylor Series (Extended Kalman Filter)", "Ensemble (Ensemble Kalman Filter)")
+)
+
+knitr::kable(upm, caption = "**Methods for propagating uncertainty through models (and into forecasts)**")
+
+```
+
+## The Forecast Step {.smaller background-color="#33431e"}
 
 Explaining the different methods is beyond the scope of this module, but just a reminder that there's ***a trade-off*** between the methods whereby:
 
-- the ***most efficient*** (the Kalman filter in this case) also come with the most stringent assumptions (linear models and homogeneity of variance only)
-- the ***most flexible*** (Markov chain Monte Carlo (MCMC) in this case - a Bayesian approach) are the most computationally taxing
-
-:::
+- the ***most efficient*** (the Kalman filter) also come with the most stringent assumptions (linear models and homogeneity of variance only) and only provide moments (means, standard deviations, etc)
+- the ***most flexible*** (particle filter - often called sequential Monte Carlo (SMC) - a Bayesian approach) are the most computationally taxing, but provide full distributions
 
 ::: {.fragment}
 
-In short, if your model isn't too taxing, or you have access to a large computer and time to kill, MCMC is probably best (and often easiest if you're already working in Bayes)...
+In short, if your model isn't too taxing, or you have access to a large computer and time to kill, SMC is probably best (and often easiest if you're already working in Bayes)...
 
 :::
 
@@ -214,6 +228,15 @@ knitr::include_graphics("img/dataassimilation.png")
 ```
 
 :::
+
+## The Analysis Step {.smaller background-color="#33431e"}
+
+This is essentially sequential Monte Carlo (SMC), also known as a particle filter.
+
+
+![The procedure of particle filtering from @Kim2018. Here, values are sampled from the posterior at time $k-1$ to be the prior at time $k$. These are then weighted by the likelihood (i.e. the new data) to generate a new posterior, which is then resampled to provide the prior in time $k+1$.](img/particlefilter.jpg){width=80%}
+
+
 
 ## The Analysis Step {.smaller background-color="#33431e"}
 

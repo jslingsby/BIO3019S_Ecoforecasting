@@ -65,7 +65,7 @@ The utility of a model / forecast depends on:
 
 1) the rate at which uncertainty grows into the future (i.e. loss of proficiency), 
 
-2) the limit at which the forecast performs no better than a historical baseline (i.e. a model is not needed)
+2) the limit at which the forecast performs no better than a historical baseline (i.e. model adds no value)
 
 Some forecasts may gain uncertainty and lose proficiency very quickly, crossing the forecast limit sooner.
 
@@ -78,7 +78,6 @@ Some forecasts may gain uncertainty and lose proficiency very quickly, crossing 
 2. _What determines prediction uncertainty?_
 
 Dietze [@Dietze2017;@Dietze2017b] express the sources of prediction uncertainty (see "Growth rate" in previous Figure) as an equation (here spread over multiple lines): 
-
 
 
 $$
@@ -251,8 +250,7 @@ knitr::kable(upm, caption = "**Methods for propagating uncertainty through model
 
 <br/>
 
->***Note:*** It is possible to propagate uncertainty through the model and into your forecast in one step with Bayesian methods, by treating the forecast states as "missing data" values and estimating posterior distributions for them. This would essentially fit with Monte Carlo methods in the table. This approach may not suit all forecasting circumstances though.
-
+(A little) more on these in tomorrow's lecture.
 
 ## Analyzing and reducing uncertainty {.smaller background-color="#33431e"}
 
@@ -476,11 +474,14 @@ knitr::include_graphics("img/moncrieff_figure1.png")
 ::: {.column width="50%"}
 
 3. Within each catchment, for each pixel we:
-    a. Estimate pixel-level naturalized runoff by sampling precipitation and converting to runoff
+    a. Estimate pixel-level naturalized runoff$^1$ by sampling precipitation and converting to runoff
     b. Sum naturalized runoff across all pixels within each quaternary catchment and rescaled to match estimates from Bailey and Pitman (2015)
     c. Determine whether IAPs are in riparian or groundwater zones
     d. Calculate runoff lost by multiplying potential runoff by the proportional streamflow reduction for each IAP, and sum across species
 
+::: {style="font-size: 70%;"}
+$^1$i.e. the expected runoff without IAPs
+:::
 :::
 
 :::

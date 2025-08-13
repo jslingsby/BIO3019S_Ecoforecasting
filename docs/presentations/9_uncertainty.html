@@ -1168,16 +1168,18 @@ margin-right: 0; }
 </section>
 <section id="uncertainty-1" class="slide level2" data-background-color="#33431e">
 <h2>Uncertainty</h2>
-<p><br></p>
 <p>Uncertainty determines the utility of a forecast:</p>
 <ol type="1">
 <li><p>If the uncertainty in a forecast is too high, then it is of no utility to a decision maker.</p></li>
 <li><p>If the uncertainty is not properly quantified and presented, it can lead to poor decision outcomes.</p></li>
 </ol>
+<div class="fragment">
+<p>By extension:</p>
 <ul>
-<li>under-reporting creates false confidence in outcomes</li>
 <li>over-reporting can exclude useful information</li>
+<li>under-reporting creates false confidence in outcomes</li>
 </ul>
+</div>
 </section>
 <section id="uncertainty-2" class="slide level2" data-background-color="#33431e">
 <h2>Uncertainty</h2>
@@ -1211,7 +1213,7 @@ margin-right: 0; }
 <p>The utility of a model / forecast depends on:</p>
 <ol type="1">
 <li><p>the rate at which uncertainty grows into the future (i.e. loss of proficiency),</p></li>
-<li><p>the limit at which the forecast performs no better than a historical baseline (i.e. a model is not needed)</p></li>
+<li><p>the limit at which the forecast performs no better than a historical baseline (i.e. model adds no value)</p></li>
 </ol>
 <p>Some forecasts may gain uncertainty and lose proficiency very quickly, crossing the forecast limit sooner.</p>
 </div>
@@ -1256,7 +1258,10 @@ margin-right: 0; }
 <ul>
 <li class="fragment">Another example is populations of <span class="math inline">\(r\)</span> versus <span class="math inline">\(K\)</span> selected species (i.e. unstable - high growth rate with short-lived individuals that tend to boom and bust versus stable - low growth rate of long-lived individuals with high survival)</li>
 </ul></li>
-<li class="fragment"><strong><em>Uncertainty</em></strong> is uncertainty in the state of <span class="math inline">\(Y\)</span> and parameters due to <strong><em>observation error</em></strong>.</li>
+<li class="fragment"><strong><em>Uncertainty</em></strong> is uncertainty in the state of <span class="math inline">\(Y\)</span> and parameters due to <strong><em>observation error</em></strong>.
+<ul>
+<li class="fragment">e.g. Since atmospheric properties are highly unstable, weather forecasters try to minimize uncertainty in the initial conditions by minimizing observation error.</li>
+</ul></li>
 </ul>
 </div>
 </section>
@@ -1270,7 +1275,7 @@ margin-right: 0; }
 <li class="fragment">Predictability of <span class="math inline">\(Y\)</span> depends on its <strong><em>sensitivity</em></strong> to each covariate (i.e. how much would <span class="math inline">\(Y\)</span> change for a given change in the covariate), and <strong><em>uncertainty</em></strong> in those covariates.
 <ul>
 <li class="fragment">Worst scenario is if <span class="math inline">\(Y\)</span> is highly sensitive and the covariates are highly uncertain.</li>
-<li class="fragment">Note: since we’re forecasting, some covariates may not be observed and their uncertainty may often reflect <strong><em>how well we can forecast the covariates</em></strong> (e.g. future climate). If we can’t predict <span class="math inline">\(X\)</span>, we can’t use it to predict <span class="math inline">\(Y\)</span>… (e.g. occurrence of fire in the postfire recovery state space model). That said, if <span class="math inline">\(Y\)</span> is not very sensitive to <span class="math inline">\(X\)</span>, there’s less of a problem.</li>
+<li class="fragment">Note: since we’re forecasting, some covariates may not be observed and their uncertainty may often reflect <strong><em>how well we can forecast the covariates</em></strong> (e.g. future climate). If we can’t predict <span class="math inline">\(X\)</span>, we can’t use it to predict <span class="math inline">\(Y\)</span>… (e.g. occurrence of fire in the postfire recovery state space model). That said, if <span class="math inline">\(Y\)</span> is not very sensitive to <span class="math inline">\(X\)</span>, there’s less of a problem. If it is, this can sometimes be addressed by running forecasts for different scenarios.</li>
 </ul></li>
 </ul>
 </div>
@@ -1281,12 +1286,12 @@ margin-right: 0; }
 <p><em>“The sensitivity to, multiplied by uncertainty and variability in, the parameters, plus”</em></p>
 <div>
 <ul>
+<li class="fragment"><strong><em>Parameter sensitivity</em></strong> is similar to driver sensitivity - <strong>“How much change do we expect in <span class="math inline">\(Y\)</span> for a given change in the parameter?”</strong></li>
 <li class="fragment"><strong><em>Parameter uncertainty</em></strong> pertains to <strong>how good our estimates of the parameters</strong> are.
 <ul>
 <li class="fragment">This is usually a question of sample size - <em>“Do we have enough data to obtain a good estimate (i.e. accurate mean, low uncertainty) of the parameters?”</em></li>
 <li class="fragment">It is also linked to the <strong>number of parameters</strong> in the model. The more parameters, the more data you need to obtain good parameter estimates. This is another reason to avoid overly complex models.</li>
 </ul></li>
-<li class="fragment"><strong><em>Parameter sensitivity</em></strong> is similar to driver sensitivity - <strong>“How much change do we expect in <span class="math inline">\(Y\)</span> for a given change in the parameter?”</strong></li>
 </ul>
 </div>
 </section>
@@ -1296,13 +1301,13 @@ margin-right: 0; }
 <p><em>“The sensitivity to, multiplied by uncertainty and variability in, the parameters, plus”</em></p>
 <div>
 <ul>
-<li class="fragment">The <strong>overall contribution</strong> of a single parameter to the predictive variance (i.e. uncertainty in the forecast) depends on its <strong>sensitivity multiplied by its uncertainty</strong>.
-<ul>
-<li class="fragment">Targeting effort (fieldwork etc) to better constrain poorly estimated parameters is one of the best ways to reduce prediction uncertainty.</li>
-</ul></li>
 <li class="fragment"><strong><em>Parameter variability</em></strong> reflects factors that cause deviation (or offsets) from the mean of the parameter that may be known, but may either be poorly estimated or not included in the rest of the model.
 <ul>
 <li class="fragment">These are <strong>random effects</strong> that can be caused by factors that create <strong>autocorrelation</strong> like space, time, phylogeny, etc.</li>
+</ul></li>
+<li class="fragment">The <strong>overall contribution</strong> of a single parameter to the predictive variance (i.e. uncertainty in the forecast) depends on its <strong>sensitivity multiplied by the sum of its uncertainty and variability</strong>.
+<ul>
+<li class="fragment">Targeting effort (fieldwork etc) to better constrain poorly estimated parameters is one of the best ways to reduce prediction uncertainty.</li>
 </ul></li>
 </ul>
 </div>
@@ -1405,9 +1410,7 @@ margin-right: 0; }
 </div>
 </div>
 <p><br></p>
-<blockquote>
-<p><strong><em>Note:</em></strong> It is possible to propagate uncertainty through the model and into your forecast in one step with Bayesian methods, by treating the forecast states as “missing data” values and estimating posterior distributions for them. This would essentially fit with Monte Carlo methods in the table. This approach may not suit all forecasting circumstances though.</p>
-</blockquote>
+<p>(A little) more on these in tomorrow’s lecture.</p>
 </section>
 <section id="analyzing-and-reducing-uncertainty" class="slide level2 smaller" data-background-color="#33431e">
 <h2>Analyzing and reducing uncertainty</h2>
@@ -1496,14 +1499,12 @@ margin-right: 0; }
 <h2>Invasive alien plants and streamflow</h2>
 <p><br></p>
 <p>While we knew this was a load of crock (they didn’t have uncertainty estimates for any of the other options either), <span class="citation" data-cites="Moncrieff2021">Moncrieff, Slingsby, and Le Maitre (<a href="#/references" role="doc-biblioref" onclick>2021</a>)</span> decided it’d be a good idea to explore this issue by:</p>
-<div>
 <ol type="1">
-<li class="fragment"><p>using a <strong><em>Bayesian framework</em></strong> to update and <strong><em>include uncertainty</em></strong> in the estimates of the volume and percent of streamflow lost to IAPs</p></li>
-<li class="fragment"><p>explore the relative contribution of sources of uncertainty to overall uncertainty in streamflow losses - to <strong><em>guide efforts to improve future estimates</em></strong></p></li>
-<li class="fragment"><p>providing <strong><em>a fully repeatable workflow</em></strong> to make it easy for anyone to query our methods or recalculate estimates as and when updated data become available</p></li>
+<li><p>using a <strong><em>Bayesian framework</em></strong> to update and <strong><em>include uncertainty</em></strong> in the estimates of the volume and percent of streamflow lost to IAPs</p></li>
+<li><p>exploring the relative contribution of sources of uncertainty to overall uncertainty in streamflow losses - to <strong><em>guide efforts to improve future estimates</em></strong></p></li>
+<li><p>providing <strong><em>a repeatable workflow</em></strong><sup>1</sup> to make it easy for anyone to query our methods or recalculate estimates as and when updated data become available</p></li>
 </ol>
-</div>
-</section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="fragment" data-fragment-index="1">In truth, it is no longer repeatable because it used Google Fusion Tables which no longer exists… Which reinforces that one should always use open software!!!</span></p></li></ol></aside></section>
 <section id="invasive-alien-plants-and-streamflow-2" class="slide level2 smaller" data-background-color="#33431e">
 <h2>Invasive alien plants and streamflow</h2>
 <div class="columns">
@@ -1602,12 +1603,15 @@ margin-right: 0; }
 <ol start="3" type="1">
 <li>Within each catchment, for each pixel we:
 <ol type="a">
-<li>Estimate pixel-level naturalized runoff by sampling precipitation and converting to runoff</li>
+<li>Estimate pixel-level naturalized runoff<span class="math inline">\(^1\)</span> by sampling precipitation and converting to runoff</li>
 <li>Sum naturalized runoff across all pixels within each quaternary catchment and rescaled to match estimates from Bailey and Pitman (2015)</li>
 <li>Determine whether IAPs are in riparian or groundwater zones</li>
 <li>Calculate runoff lost by multiplying potential runoff by the proportional streamflow reduction for each IAP, and sum across species</li>
 </ol></li>
 </ol>
+<div style="font-size: 70%;">
+<p><span class="math inline">\(^1\)</span>i.e. the expected runoff without IAPs</p>
+</div>
 </div>
 </div>
 </section>
@@ -1710,6 +1714,7 @@ Slingsby, Jasper A, Abri Buys, Adrian D A Simmers, Eric Prinsloo, Greg G Forsyth
 </div>
 </div>
 </section></section>
+
     </div>
   </div>
 

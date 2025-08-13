@@ -169,6 +169,7 @@ a-quick-explanation-of-the-mle-functions
 task-5-collaborator-adds-the-master-script-owner-runs-the-master-script
 collaborator-1
 owner-4
+marking
 practical-output-master-script
 source-functions-get-data-and-plot
 fit-models-using-non-linear-least-squares-nls
@@ -176,4 +177,3 @@ compare-nls-models-using-anova
 fit-models-using-maximum-likelihood-estimation-mle
 compare-mle-models-using-akaikes-information-criterion-aic
 going-bayesian
-marking
